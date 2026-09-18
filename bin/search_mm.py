@@ -36,6 +36,10 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     out.mkdir(parents=True, exist_ok=True)
     cmd = Path(p["metamorpheus_cmd"])
     prov = Provenance("search_metamorpheus", params_path, "search")
+    sp = Path(spectra)
+    prov.upstream(out.parent / "02b_qc" / "provenance.json",                         # qc
+                  (sp if sp.is_dir() else sp.parent).parent / "provenance.json",       # fetch
+                  Path(db).parent / "provenance.json")                                 # db_prepare
 
     # 1. default TOMLs generated here, then only params-named settings are changed
     toml_dir = out / "tasks"; toml_dir.mkdir(exist_ok=True)

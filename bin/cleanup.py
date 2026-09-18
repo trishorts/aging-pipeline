@@ -37,6 +37,7 @@ def main(params_path: str, run_dir: str, *flags: str) -> None:
                       *run.glob("04_search/mm/Task*/*.raw")})
     out = run / "09_cleanup"; out.mkdir(exist_ok=True)
     prov = Provenance("cleanup", params_path, "cleanup")
+    prov.upstream(search_prov, fp)
     freed = 0
     for t in targets:
         size = t.stat().st_size

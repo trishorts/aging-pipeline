@@ -24,9 +24,34 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def file_entry(path) -> dict:
+def file_entry(path, root=None, known=None) -> dict:
+    """One input/output record.
+
+    * Portable path: stored relative to `root` (the params `work_root`) when the file lies under it,
+      with `"root": "work_root"`, so the record reads the same on an operator's cluster. Files outside
+      the root (tools, params) keep their absolute path.
+    * Hash reuse: when an upstream stage already hashed this file (same resolved path and size, or
+      same name and size for a hard link elsewhere), its hash is reused instead of re-reading a
+      multi-GB .raw, and `sha256_from` names the stage it came from.
+    """
     p = Path(path).resolve()
-    return {"path": str(p), "size_bytes": p.stat().st_size, "sha256": sha256(p)}
+    size = p.stat().st_size
+    entry = {"path": str(p), "size_bytes": size}
+    if root is not None:
+        try:
+            entry = {"path": p.relative_to(Path(root).resolve()).as_posix(), "root": "work_root", "size_bytes": size}
+        except ValueError:
+            pass
+    hit = None
+    if known:
+        hit = known.get(("path", str(p), size))
+        if not hit and size >= 100_000_000:      # name+size only for big files (a hard link of a .raw)
+            hit = known.get(("name", p.name, size))
+    if hit:
+        entry["sha256"], entry["sha256_from"] = hit
+    else:
+        entry["sha256"] = sha256(p)
+    return entry
 
 
 def pipeline_commit() -> str:
@@ -149,7 +174,7 @@ class Provenance:
         self.params_path = Path(params_path)
         params = json.loads(self.params_path.read_text(encoding="utf-8"))
         self.rec = {
-            "schema": "aging-provenance/1",
+            "schema": "aging-provenance/2",
             "stage": stage,
             "started_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "host": {"node": platform.node(), "os": platform.platform(), "python": sys.version.split()[0]},
@@ -157,8 +182,33 @@ class Provenance:
             "params_file": file_entry(self.params_path),
             "params": params.get(section, {}),
             "run_date": params.get("run_date"),
-            "tools": {}, "commands": [], "inputs": [], "outputs": [], "notes": [],
+            "tools": {}, "commands": [], "upstream": [], "inputs": [], "outputs": [], "notes": [],
         }
+        # Portable paths: everything under work_root is stored relative to it (improvement 2).
+        self.root = params.get("work_root")
+        self.rec["roots"] = {"work_root": self.root}
+        self.known = {}                    # hash cache from upstream stages (improvement 3)
+
+    def upstream(self, *prov_paths):
+        """Chain this stage to the stages it consumed (improvement 1): each upstream provenance.json is
+        recorded by stage name, relative path and SHA-256, so a result table can be traced back
+        search -> qc -> fetch -> discover. Their output hashes are also loaded into the hash cache."""
+        for pp in prov_paths:
+            pp = Path(pp)
+            if not pp.exists():
+                self.note(f"expected upstream provenance missing: {pp}")
+                continue
+            up = json.loads(pp.read_text(encoding="utf-8"))
+            e = file_entry(pp, self.root)
+            self.rec["upstream"].append({"stage": up.get("stage"), "path": e["path"], "sha256": e["sha256"]})
+            base = Path(up.get("roots", {}).get("work_root") or ".")
+            for o in up.get("outputs", []) + up.get("inputs", []):
+                if "sha256" not in o:
+                    continue
+                full = (base / o["path"]) if o.get("root") == "work_root" else Path(o["path"])
+                src = up.get("stage")
+                self.known[("path", str(full.resolve()), o["size_bytes"])] = (o["sha256"], src)
+                self.known[("name", full.name, o["size_bytes"])] = (o["sha256"], src)
 
     def tool(self, name: str, **info):
         self.rec["tools"][name] = info
@@ -167,10 +217,10 @@ class Provenance:
         self.rec["commands"].append([str(a) for a in argv])
 
     def inputs(self, *paths):
-        self.rec["inputs"] += [file_entry(p) for p in paths]
+        self.rec["inputs"] += [file_entry(p, self.root, self.known) for p in paths]
 
     def outputs(self, *paths):
-        self.rec["outputs"] += [file_entry(p) for p in paths]
+        self.rec["outputs"] += [file_entry(p, self.root) for p in paths]     # new files: always hashed
 
     def note(self, text: str):
         self.rec["notes"].append(text)

@@ -32,6 +32,7 @@ def main(params_path: str, accession: str, out_dir: str) -> None:
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     prov = Provenance("fetch", params_path, "fetch"); pymzlib_tool(prov)
     prov.rec["accession"] = accession
+    prov.upstream(out.parent.parent / "01_discover" / "provenance.json")
     prov.command(["pymzlib.pride.list_files", accession]); prov.command(["pymzlib.pride.list_ftp_files", accession])
 
     rest = pride.list_files(accession)

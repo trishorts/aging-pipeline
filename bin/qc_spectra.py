@@ -22,6 +22,7 @@ def main(params_path: str, spectra_dir: str, out_dir: str) -> None:
     q = json.loads(Path(params_path).read_text(encoding="utf-8"))["qc"]
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     prov = Provenance("qc_spectra", params_path, "qc"); pymzlib_tool(prov)
+    prov.upstream(Path(spectra_dir).parent / "provenance.json")          # fetch
 
     report = {}
     for f in sorted(Path(spectra_dir).glob("*.raw")):

@@ -19,6 +19,7 @@
     "accession": null,
     "max_files": 1,
     "pick": "median_size",
+    "parallel_downloads": 4,
     "max_file_mb": 1500,
     "extension": ".raw",
     "timeout_s": 3600
@@ -32,7 +33,8 @@
   },
 
   "database": {
-    "uniprot_xml": "E:/CodeReview/go/data/raw/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml.gz"
+    "uniprot_xml": "E:/CodeReview/go/data/raw/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml.gz",
+    "prepared": "F:/aging_data/db/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml"
   },
 
   "search": {

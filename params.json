@@ -1,0 +1,37 @@
+{
+  "_comment": "Prototype params (aging D5-b: every choice is a versioned file). Nextflow reads the same file via -params-file.",
+  "run_date": "2026-09-18",
+  "work_root": "F:/aging_data",
+
+  "discover": {
+    "keywords": ["aging", "ageing", "senescence", "longevity"],
+    "organism": "Homo sapiens (human)",
+    "require_sdrf_file": false,
+    "thermo_instrument_patterns": ["Q Exactive", "Orbitrap", "Exploris", "Fusion", "Lumos", "Eclipse", "LTQ", "Velos", "Elite"],
+    "dia_patterns": ["data-independent", "DIA-NN", "DIANN", "SWATH", "Spectronaut", "diaPASEF", "dia-PASEF", "\\bDIA\\b", "Astral"],
+    "timeout_s": 300
+  },
+
+  "fetch": {
+    "accession": null,
+    "max_files": 1,
+    "prefer_smallest": true,
+    "max_file_mb": 1500,
+    "extension": ".raw",
+    "timeout_s": 3600
+  },
+
+  "database": {
+    "uniprot_xml": "E:/CodeReview/go/data/raw/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml.gz"
+  },
+
+  "search": {
+    "metamorpheus_cmd": "F:/ClaudeTestBuilds/aging/MetaMorpheus-1.1.9/CMD.exe",
+    "metamorpheus_version": "1.1.9",
+    "accept_thermo_licence": true,
+    "tasks": ["Calibration", "Gptmd", "Search"],
+    "max_threads": 32,
+    "match_between_runs": true,
+    "timeout_s": 21600
+  }
+}

@@ -1,0 +1,154 @@
+"""Stage 4 - MetaMorpheus: Calibration -> GPTMD -> Search (+ FlashLFQ), in ONE CLI invocation.
+
+It calls the official MetaMorpheus CLI directly, which is the architecture bridge 003 recommends
+(the workflow engine calls the tools). It should move to pyMetaMorpheus
+`pipeline([...], accept_thermo_licence=True)` once REQ-PYMM-1 lands; today pyMetaMorpheus rejects
+.raw up front.
+
+Rules from pyMetaMorpheus 003:
+  * default task TOMLs are generated ON THE NODE THAT RUNS (`CMD -g`), then only the settings named
+    in params are changed (today: threads);
+  * one invocation per dataset; MetaMorpheus chains the tasks internally;
+  * a fresh output directory every run (MetaMorpheus never cleans an existing one);
+  * the Thermo licence is accepted explicitly (--acceptThermoLicence, a params setting), and settings
+    live in a writable --mmsettings dir;
+  * FlashLFQ can fail with exit 0, so success requires AllQuantifiedProteinGroups.tsv to exist.
+
+usage: search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
+"""
+import json, re, shutil, subprocess, sys, time
+from pathlib import Path
+
+from provenance import Provenance, file_entry, sha256
+
+TASK_FILE = {"Calibration": "CalibrationTask.toml", "Gptmd": "GptmdTask.toml", "Search": "SearchTask.toml"}
+
+
+def main(params_path: str, spectra: str, out_dir: str) -> None:
+    params = json.loads(Path(params_path).read_text(encoding="utf-8"))
+    # Always the prepared, uncompressed copy (db_prepare.py): a .gz makes MM write temp.xml beside it.
+    p, db = params["search"], params["database"]["prepared"]
+    if not Path(db).exists():
+        sys.exit(f"prepared database {db} missing: run db_prepare.py first")
+    out = Path(out_dir)
+    if (out / "mm").exists():
+        sys.exit(f"refusing to reuse {out/'mm'}: MetaMorpheus needs a fresh output directory")
+    out.mkdir(parents=True, exist_ok=True)
+    cmd = Path(p["metamorpheus_cmd"])
+    prov = Provenance("search_metamorpheus", params_path, "search")
+
+    # 1. default TOMLs generated here, then only params-named settings are changed
+    toml_dir = out / "tasks"; toml_dir.mkdir(exist_ok=True)
+    gen = [str(cmd), "-g", "-o", str(toml_dir)]
+    prov.command(gen)
+    banner = subprocess.run(gen, capture_output=True, text=True, stdin=subprocess.DEVNULL, check=True).stdout
+
+    # `--version` prints the help text and exits 1 (1.1.9 and 1.1.10), so the release comes from the
+    # -g banner ("Welcome to MetaMorpheus\n1.1.10") and the commit from the help's "CMD 1.0.0+<sha>".
+    lines = [l.strip() for l in banner.splitlines() if l.strip()]
+    release = lines[1] if len(lines) > 1 and re.fullmatch(r"\d+(\.\d+)+", lines[1]) else "unknown"
+    helptext = subprocess.run([str(cmd), "--help"], capture_output=True, text=True, stdin=subprocess.DEVNULL).stdout
+    commit = (re.search(r"CMD \S+\+([0-9a-f]{40})", helptext) or [None, "unknown"])[1]
+    prov.tool("MetaMorpheus", release=release, commit=commit, expected_release=p["metamorpheus_version"],
+              cmd=str(cmd), cmd_dll_sha256=sha256(cmd.with_suffix(".dll")))
+    if release != p["metamorpheus_version"]:
+        sys.exit(f"MetaMorpheus is {release}, params expect {p['metamorpheus_version']}")
+    tomls = []
+    for i, task in enumerate(p["tasks"], 1):
+        src = toml_dir / TASK_FILE[task]
+        text = src.read_text(encoding="utf-8")
+        text = re.sub(r"^MaxThreadsToUsePerFile = \d+", f"MaxThreadsToUsePerFile = {p['max_threads']}", text, flags=re.M)
+        if task == "Search":
+            mbr = "true" if p["match_between_runs"] else "false"
+            text = re.sub(r"^MatchBetweenRuns = \w+", f"MatchBetweenRuns = {mbr}", text, flags=re.M)
+        dst = toml_dir / f"{i}_{TASK_FILE[task]}"
+        dst.write_text(text, encoding="utf-8"); tomls.append(dst)
+    prov.inputs(*tomls)
+
+    # 2. one invocation for the whole chain
+    # Do NOT create this dir: MetaMorpheus 1.1.9 seeds it (Data/, Mods/ ...) only when it does not
+    # exist; an empty pre-created dir crashes with DirectoryNotFoundException on Data/Crosslinkers.tsv.
+    # One settings dir per release: it holds that release's Data/ and Mods/, which must not mix.
+    settings = Path(params["work_root"]) / "mm_settings" / release
+    settings.parent.mkdir(parents=True, exist_ok=True)
+    spectra_files = sorted(Path(spectra).glob("*.raw")) if Path(spectra).is_dir() else [Path(spectra)]
+    qc = out.parent / "02b_qc" / "qc_report.json"
+    if not qc.exists():
+        sys.exit(f"no QC report at {qc}: run qc_spectra.py first (v1 requires high-res Orbitrap HCD MS2)")
+    failed = [n for n, r in json.loads(qc.read_text(encoding="utf-8")).items() if not r["pass"]]
+    if failed:
+        sys.exit(f"QC failed for {failed}: not high-res Orbitrap HCD MS2, or too few MS2 scans")
+    prov.inputs(qc)
+    prov.inputs(*spectra_files, db)
+    run = [str(cmd), "-t", *map(str, tomls), "-s", *map(str, spectra_files), "-d", db,
+           "-o", str(out / "mm"), "--mmsettings", str(settings), "-v", "normal"]
+    if p["accept_thermo_licence"]:
+        run.append("--acceptThermoLicence")
+        prov.note("Thermo RawFileReader licence accepted via params.search.accept_thermo_licence (operator's recorded choice).")
+    prov.command(run)
+    # Each log line is stamped with elapsed seconds (same clock as the resource monitor), so every
+    # MetaMorpheus task gets its own wall time, CPU, average cores and peak memory (D11).
+    t0 = prov.monitor.t0
+    marks = []                                   # (task, "start"|"end", t)
+    with (out / "metamorpheus.log").open("w", encoding="utf-8") as log:
+        proc = subprocess.Popen(run, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
+                                text=True, encoding="utf-8", errors="replace", bufsize=1)
+        for line in proc.stdout:
+            t = round(time.monotonic() - t0, 1)
+            log.write(f"{t}\t{line}")
+            m = re.match(r"\s*(Starting|Finished) task: (\S+)", line)
+            if m:
+                marks.append((m.group(2), "start" if m.group(1) == "Starting" else "end", t))
+        rc = proc.wait(timeout=p["timeout_s"])
+    prov.rec["exit_code"] = rc
+    starts = {k: t for k, s, t in marks if s == "start"}
+    prov.rec["per_task_resources"] = {k: prov.monitor.window(starts[k], t) for k, s, t in marks
+                                      if s == "end" and k in starts and getattr(prov.monitor, "series", None)}
+
+    # 3. success checks
+    mm = out / "mm"
+    search_dirs = sorted(mm.glob("Task*SearchTask"))
+    key = {n: next(iter(sorted(search_dirs[-1].glob(n))), None) if search_dirs else None
+           for n in ("AllPSMs.psmtsv", "AllPeptides.psmtsv", "AllQuantifiedProteinGroups.tsv", "AllQuantifiedPeptides.tsv")}
+    gptmd_db = next(iter(sorted(mm.glob("Task*GptmdTask/*GPTMD.xml"))), None)
+    ok = rc == 0 and all(key.values())
+    prov.rec["success"] = ok
+    if rc == 0 and not key["AllQuantifiedProteinGroups.tsv"]:
+        prov.note("exit 0 but no AllQuantifiedProteinGroups.tsv: FlashLFQ failed silently (pyMM 003 Q4)")
+    prov.outputs(*[v for v in key.values() if v], *([gptmd_db] if gptmd_db else []), out / "metamorpheus.log",
+                 *sorted(mm.glob("allResults.txt")))
+    for ts in sorted(mm.glob("Task Settings/*.toml")):
+        prov.outputs(ts)
+    # Automatic suspicion flags (user: follow up on anything suspicious). They land in provenance.json
+    # and feed results/SUSPICIOUS.md; they never fail the stage by themselves.
+    flags = []
+    log_text = (out / "metamorpheus.log").read_text(encoding="utf-8", errors="replace")
+    if "Calibration failure" in log_text:
+        flags.append("calibration_failed: GPTMD/search ran on uncalibrated spectra (S7)")
+    if search_dirs:
+        m = re.search(r"PSMs within 1% FDR: (\d+)", (search_dirs[-1] / "results.txt").read_text(encoding="utf-8", errors="replace"))
+        psms = int(m.group(1)) if m else None
+        ms2 = sum(r["ms2"] for r in json.loads(qc.read_text(encoding="utf-8")).values())
+        prov.rec["id_rate"] = {"psms_1pct": psms, "ms2": ms2, "rate": round(psms / ms2, 4) if psms and ms2 else None}
+        if psms is not None and ms2 and psms / ms2 < p.get("flag_min_id_rate", 0.15):
+            flags.append(f"low_id_rate: {psms}/{ms2} = {psms / ms2:.1%} of MS2 identified (S3)")
+    peaks = next(iter(sorted(search_dirs[-1].glob("AllQuantifiedPeaks.tsv"))), None) if search_dirs else None
+    if peaks:
+        import csv, collections
+        with peaks.open(encoding="utf-8") as fh:
+            kinds = collections.Counter(r.get("Peak Detection Type", "?") for r in csv.DictReader(fh, delimiter="\t"))
+        prov.rec["peak_detection_types"] = dict(kinds)
+        if kinds.get("MBR", 0) > kinds.get("MSMS", 0):
+            flags.append(f"mbr_exceeds_msms: MBR {kinds['MBR']} > MSMS {kinds['MSMS']} peaks (S4)")
+    prov.rec["flags"] = flags
+    prov.rec["expected_cores"] = p["max_threads"]
+
+    if p["match_between_runs"] and len(spectra_files) < 2:
+        prov.note("MatchBetweenRuns is on but only one spectra file was searched: MBR has nothing to transfer.")
+    prov.write(out)
+    print(json.dumps({"exit_code": rc, "success": ok, **{k: str(v) for k, v in key.items()}}, indent=2))
+    sys.exit(0 if ok else 1)
+
+
+if __name__ == "__main__":
+    main(*sys.argv[1:4])

@@ -8,17 +8,27 @@
     "organism": "Homo sapiens (human)",
     "require_sdrf_file": false,
     "thermo_instrument_patterns": ["Q Exactive", "Orbitrap", "Exploris", "Fusion", "Lumos", "Eclipse", "LTQ", "Velos", "Elite"],
+    "orbitrap_ms2_only_patterns": ["Q Exactive", "Exploris"],
+    "hybrid_patterns": ["Velos", "Elite", "Fusion", "Lumos", "Eclipse", "Orbitrap XL", "Orbitrap Tribrid"],
     "dia_patterns": ["data-independent", "DIA-NN", "DIANN", "SWATH", "Spectronaut", "diaPASEF", "dia-PASEF", "\\bDIA\\b", "Astral"],
+    "label_patterns": ["\\bTMT", "tandem mass tag", "iTRAQ", "isobaric", "SILAC", "TMTpro", "dimethyl label"],
     "timeout_s": 300
   },
 
   "fetch": {
     "accession": null,
     "max_files": 1,
-    "prefer_smallest": true,
+    "pick": "median_size",
     "max_file_mb": 1500,
     "extension": ".raw",
     "timeout_s": 3600
+  },
+
+  "qc": {
+    "_rule": "v1 keeps only high-res HCD with MS2 read in the Orbitrap (user, 2026-09-18)",
+    "min_fraction_orbitrap_hcd": 0.9,
+    "min_ms2": 5000,
+    "timeout_s": 1800
   },
 
   "database": {

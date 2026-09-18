@@ -36,8 +36,8 @@
   },
 
   "search": {
-    "metamorpheus_cmd": "F:/ClaudeTestBuilds/aging/MetaMorpheus-1.1.9/CMD.exe",
-    "metamorpheus_version": "1.1.9",
+    "metamorpheus_cmd": "F:/ClaudeTestBuilds/aging/MetaMorpheus-1.1.10/CMD.exe",
+    "metamorpheus_version": "1.1.10",
     "accept_thermo_licence": true,
     "tasks": ["Calibration", "Gptmd", "Search"],
     "max_threads": 32,

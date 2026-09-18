@@ -44,6 +44,7 @@
     "tasks": ["Calibration", "Gptmd", "Search"],
     "max_threads": 32,
     "match_between_runs": true,
+    "flag_min_id_rate": 0.15,
     "timeout_s": 21600
   }
 }

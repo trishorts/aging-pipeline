@@ -111,8 +111,8 @@ for stages that run minutes to hours. Without `psutil`, `resources` holds only `
 ## ID rate
 
 MetaMorpheus's `results.txt` prints two different PSM counts at 1% FDR, and the gap is large enough to
-matter. On the CI test files, for example, they are 78 and 99. The provenance keeps both, each with its
-own definition:
+matter: 26,582 against 27,958 in an 18-file run of PXD036557, and 78 against 99 on the CI test files. The
+provenance keeps both, each with its own definition:
 
 | Field | Meaning |
 |---|---|

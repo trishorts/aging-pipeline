@@ -1,5 +1,7 @@
 # aging-pipeline
 
+[![CI](https://github.com/trishorts/aging-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/trishorts/aging-pipeline/actions/workflows/ci.yml)
+
 **This pipeline reanalyses public aging proteomics data at the level of proteoforms and PTMs.** It
 finds aging datasets in PRIDE, downloads them, checks the spectra, and searches and quantifies them
 with [MetaMorpheus](https://github.com/smith-chem-wisc/MetaMorpheus). Every output carries a
@@ -22,6 +24,7 @@ protein abundance misses?* It is built at the Smith lab, University of Wisconsin
 - [Outputs](#outputs)
 - [Design principles](#design-principles)
 - [Status and known limitations](#status-and-known-limitations)
+- [Testing](#testing)
 - [Versioning](#versioning)
 - [Internal references](#internal-references)
 - [Repository layout](#repository-layout)
@@ -252,6 +255,55 @@ Read this before you run anything on your own data.
 - **Discovery is human-only** (`discover.organism`), with four keywords. It's deliberately simple and
   conservative, and every dropped dataset records its reason.
 
+## Testing
+
+```bash
+pip install -r requirements.txt pytest
+python -m pytest -m "not network" -rs    # offline: no network, no MetaMorpheus; ~5 s
+python -m pytest -m network -v -rs       # live canaries against PRIDE and UniProt
+```
+
+**Offline tests** run every stage script as it really runs, on synthetic inputs. Only the outside world
+is faked:
+- PRIDE: fake search results and file lists;
+- the `.raw` reader: synthetic scan headers;
+- MetaMorpheus: [`tests/fake_metamorpheus.py`](tests/fake_metamorpheus.py), a stand-in CLI with
+  1.1.11's output shapes.
+
+`tests/test_pipeline_offline.py` is a minimal pipeline end to end (stage 0 → 2b → 4 → 9). It checks
+these contracts between stages:
+- the directory layout;
+- upstream provenance links;
+- the refusal rules: failed QC, the wrong MetaMorpheus release, a reused output folder, and cleanup
+  before a successful search;
+- the success check: exit code 0 without protein groups is **not** success;
+- the ID-rate, MBR and contamination measurements, and the flags.
+
+**Live tests** (marked `network`) are canaries for the pipeline's contract with PRIDE and UniProt:
+- discovery must still find PXD036557 for "progeria";
+- fetch must still list its 18 raw files and download its SDRF (no raw file is downloaded);
+- UniProt must still serve UniProt XML with modified residues.
+
+The outage rule is the same as in mzLib and pyMzLib:
+
+| What happens | Result |
+|---|---|
+| The service is **down**: a timeout, a refused connection, HTTP 408, 429 or 5xx, or `pymzlib.ServiceUnavailableError` | The test **skips**, and says why |
+| Anything else, e.g. a changed response or a wrong answer | The test **fails** |
+
+[`tests/test_live_guard.py`](tests/test_live_guard.py) checks that rule offline, so a guard that
+skipped too much would itself go red.
+
+**CI** ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)):
+- The offline suite runs on Linux, Windows and macOS with Python 3.11 and 3.13, on every push and pull
+  request.
+- The live canaries run on Linux after it, and weekly.
+- The live job has no `continue-on-error`: an outage already skips, so a red live job means a real
+  break.
+
+Not covered by CI yet:
+- a real MetaMorpheus search, which needs the 1.1.11 CLI and a `.raw` file on Linux;
+- `main.nf`.
 ## Versioning
 
 Everything that determines a result is under version control, or is pinned and recorded by hash.
@@ -320,6 +372,9 @@ bin/
   search_mm.py        stage 4
   cleanup.py          stage 9
 docs/                 stage, configuration and provenance reference
+tests/                offline and live tests (see Testing)
+pyproject.toml        pytest configuration (the network marker)
+.github/workflows/    CI
 ```
 
 This repository is the public mirror of the pipeline folder of the project's working repository. It

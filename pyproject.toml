@@ -1,0 +1,6 @@
+# Test configuration only: the pipeline is a set of scripts, not an installable package.
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "network: calls a live service (PRIDE, UniProt). An outage skips; any other error fails. Deselect with -m \"not network\".",
+]

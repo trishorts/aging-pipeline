@@ -10,6 +10,10 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 - A `VERSION` file, and `pipeline.version` in every `provenance.json`, so an output names the release
   that made it as well as the commit.
 - The README's "Versioning" section: what is version-controlled, pinned or hashed.
+- Tests and CI:
+  - an offline suite (every stage, plus a minimal end-to-end pipeline with a fake MetaMorpheus);
+  - live canaries for PRIDE and UniProt, which skip on a service outage and fail on a contract break;
+  - a GitHub Actions workflow: offline on Linux, Windows and macOS; live on Linux, and weekly.
 
 ## [0.1.0] - 2026-09-19
 

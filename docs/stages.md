@@ -187,6 +187,8 @@ python bin/search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
 
 **What it does.**
 
+0. **It picks the launcher.** A `metamorpheus_cmd` ending in `.dll` runs as `<dotnet> CMD.dll …` (the Linux
+   form); anything else runs directly. Every call below uses that launcher, and the provenance records it.
 1. **It generates the default task settings on this machine** (`CMD -g`). It then changes only what the
    parameters name: `MaxThreadsToUsePerFile` in every task, and `MatchBetweenRuns` in the search task. The
    generated defaults and the edited copies that run (`1_…`, `2_…`, `3_…`) are both kept in `tasks/`, and

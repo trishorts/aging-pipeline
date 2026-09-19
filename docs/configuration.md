@@ -67,7 +67,8 @@ The instrument lists are literal text.
 
 | Key | Type | Default | Meaning |
 |---|---|---|---|
-| `metamorpheus_cmd` | path | — | The MetaMorpheus command-line executable (`CMD.exe` on Windows). A `CMD.dll` must sit beside it (it's hashed), and so must the `Contaminants/` folder |
+| `metamorpheus_cmd` | path | — | The MetaMorpheus command-line tool: `CMD.exe` (Windows), or `CMD.dll`, which is run as `<dotnet> CMD.dll` on any OS. Either way, `CMD.dll` (it's hashed) and the `Contaminants/` folder must be in the same folder |
+| `dotnet` | path | `"dotnet"` (optional key) | The .NET host used when `metamorpheus_cmd` is a `.dll`. It needs the runtime the release targets (1.1.11: .NET 10) |
 | `metamorpheus_version` | string | `"1.1.11"` | The release this run requires. Stage 4 **refuses** when the binary reports anything else. Change it deliberately, together with the binary |
 | `accept_thermo_licence` | bool | — | `true` passes `--acceptThermoLicence`: your explicit acceptance of Thermo's RawFileReader licence. Required to read `.raw` non-interactively |
 | `tasks` | list | `["Calibration", "Gptmd", "Search"]` | The MetaMorpheus tasks, in order. The allowed names are exactly these three |

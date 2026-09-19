@@ -14,6 +14,9 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
   - an offline suite (every stage, plus a minimal end-to-end pipeline with a fake MetaMorpheus);
   - live canaries for PRIDE and UniProt, which skip on a service outage and fail on a contract break;
   - a GitHub Actions workflow: offline on Linux, Windows and macOS; live on Linux, and weekly.
+- Stage 4 runs MetaMorpheus as `dotnet CMD.dll` when `search.metamorpheus_cmd` names the `.dll`, with an
+  optional `search.dotnet` host path. That is the form Linux needs. On Windows, a 1-file search gave the
+  same results as `CMD.exe`.
 
 ## [0.1.0] - 2026-09-19
 

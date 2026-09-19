@@ -90,6 +90,20 @@ def test_minimal_pipeline_end_to_end(layout):
     assert len(prov(L.run / "09_cleanup")["deleted"]) == 2
 
 
+def test_search_runs_cmd_dll_through_dotnet(layout, fake_mm, work):
+    """`metamorpheus_cmd` = CMD.dll is launched as `<dotnet> CMD.dll ...` (the Linux and CI path).
+    The fake launcher stands in for dotnet; it ignores the leading CMD.dll argument."""
+    L, dll = layout, fake_mm.parent / "CMD.dll"
+    work.write(search={**work.params()["search"], "metamorpheus_cmd": str(dll), "dotnet": str(fake_mm)})
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    rec = prov(L.run / "04_search")
+    assert rec["success"] and rec["tools"]["MetaMorpheus"]["release"] == "1.1.11"
+    assert all(c[:2] == [str(fake_mm), str(dll)] for c in rec["commands"])
+    assert rec["tools"]["MetaMorpheus"]["cmd"] == f"{fake_mm} {dll}"
+
+
 def test_search_refuses_without_a_passing_qc_report(layout, monkeypatch):
     L = layout
     stage(db_prepare.main, L.params, str(L.root / "db"))

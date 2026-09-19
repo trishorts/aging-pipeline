@@ -96,7 +96,8 @@ python -m venv .venv
    - `run_date`: the label for this run. Outputs go to `<work_root>/run_<run_date>/`.
    - `database.uniprot_xml`: the downloaded proteome.
    - `database.prepared`: must be `<work_root>/db/<file name without .gz>`.
-   - `search.metamorpheus_cmd`: the path to the MetaMorpheus `CMD` executable.
+   - `search.metamorpheus_cmd`: the path to MetaMorpheus's `CMD.exe` (Windows), or to `CMD.dll`, which
+     runs as `dotnet CMD.dll` on any OS with the .NET runtime the release targets (1.1.11: .NET 10).
    - `search.accept_thermo_licence`: `true` only if you accept Thermo's RawFileReader licence.
    - `fetch.max_files` and `fetch.pick`: how many files to take from the dataset.
 3. **Run one accession.** On Windows, the local runner calls each stage in order:
@@ -235,8 +236,9 @@ Read this before you run anything on your own data.
   its QC check. It also takes the accession from `--accession` rather than from the frozen list. Until
   it's completed and tested, use `run_local.ps1` or the command sequence above.
 - **Tested on Windows only.** mzLib's PRIDE client has passed its test suite on Ubuntu 24.04 (reported by
-  the mzLib project), but these stages haven't been run on Linux. Stage 4 expects a `CMD` executable
-  with a `CMD.dll` beside it.
+  the mzLib project), but these stages haven't been run on Linux. Stage 4 can launch MetaMorpheus as
+  `dotnet CMD.dll`, the form Linux needs. On Windows that gave the same results as `CMD.exe` (a 1-file
+  search: same PSMs, peptides and protein groups), but it hasn't been tried on Linux yet.
 - **One accession per run.** Fetch and search take one dataset at a time.
 - **No experimental design yet** (stage 3). FlashLFQ treats each file as its own sample under one
   condition, and no normalization is applied, so **don't compare conditions** from these outputs.

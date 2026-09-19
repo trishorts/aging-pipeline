@@ -1,11 +1,11 @@
 """Stage 4 - MetaMorpheus: Calibration -> GPTMD -> Search (+ FlashLFQ), in ONE CLI invocation.
 
-It calls the official MetaMorpheus CLI directly, which is the architecture bridge 003 recommends
-(the workflow engine calls the tools). It should move to pyMetaMorpheus
-`pipeline([...], accept_thermo_licence=True)` once REQ-PYMM-1 lands; today pyMetaMorpheus rejects
-.raw up front.
+It calls the official MetaMorpheus command-line tool (CMD) directly: the workflow engine calls the tools
+(bridge 003), and no Python wrapper sits in between. `search.metamorpheus_cmd` is either the CMD
+executable (Windows `CMD.exe`) or `CMD.dll`, which runs as `dotnet CMD.dll` on any OS with the .NET
+runtime the release targets (1.1.11: net10.0). The .dll form is the Linux and CI path.
 
-Rules from pyMetaMorpheus 003:
+Rules for running it:
   * default task TOMLs are generated ON THE NODE THAT RUNS (`CMD -g`), then only the settings named
     in params are changed (today: threads);
   * one invocation per dataset; MetaMorpheus chains the tasks internally;
@@ -35,6 +35,8 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
         sys.exit(f"refusing to reuse {out/'mm'}: MetaMorpheus needs a fresh output directory")
     out.mkdir(parents=True, exist_ok=True)
     cmd = Path(p["metamorpheus_cmd"])
+    # CMD.dll is framework-dependent: `dotnet CMD.dll` is the same program as CMD.exe, on any OS.
+    launch = [p.get("dotnet", "dotnet"), str(cmd)] if cmd.suffix.lower() == ".dll" else [str(cmd)]
     prov = Provenance("search_metamorpheus", params_path, "search")
     sp = Path(spectra)
     prov.upstream(out.parent / "02b_qc" / "provenance.json",                         # qc
@@ -43,7 +45,7 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
 
     # 1. default TOMLs generated here, then only params-named settings are changed
     toml_dir = out / "tasks"; toml_dir.mkdir(exist_ok=True)
-    gen = [str(cmd), "-g", "-o", str(toml_dir)]
+    gen = [*launch, "-g", "-o", str(toml_dir)]
     prov.command(gen)
     banner = subprocess.run(gen, capture_output=True, text=True, stdin=subprocess.DEVNULL, check=True).stdout
 
@@ -51,10 +53,10 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     # -g banner ("Welcome to MetaMorpheus\n1.1.10") and the commit from the help's "CMD 1.0.0+<sha>".
     lines = [l.strip() for l in banner.splitlines() if l.strip()]
     release = lines[1] if len(lines) > 1 and re.fullmatch(r"\d+(\.\d+)+", lines[1]) else "unknown"
-    helptext = subprocess.run([str(cmd), "--help"], capture_output=True, text=True, stdin=subprocess.DEVNULL).stdout
+    helptext = subprocess.run([*launch, "--help"], capture_output=True, text=True, stdin=subprocess.DEVNULL).stdout
     commit = (re.search(r"CMD \S+\+([0-9a-f]{40})", helptext) or [None, "unknown"])[1]
     prov.tool("MetaMorpheus", release=release, commit=commit, expected_release=p["metamorpheus_version"],
-              cmd=str(cmd), cmd_dll_sha256=sha256(cmd.with_suffix(".dll")))
+              cmd=" ".join(launch), cmd_dll_sha256=sha256(cmd.with_suffix(".dll")))
     if release != p["metamorpheus_version"]:
         sys.exit(f"MetaMorpheus is {release}, params expect {p['metamorpheus_version']}")
     tomls = []
@@ -94,7 +96,7 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     else:
         prov.note("contaminant database NOT included (params.database.include_contaminants = false)")
     prov.inputs(*spectra_files, *dbs)
-    run = [str(cmd), "-t", *map(str, tomls), "-s", *map(str, spectra_files), "-d", *dbs,
+    run = [*launch, "-t", *map(str, tomls), "-s", *map(str, spectra_files), "-d", *dbs,
            "-o", str(out / "mm"), "--mmsettings", str(settings), "-v", "normal"]
     if p["accept_thermo_licence"]:
         run.append("--acceptThermoLicence")

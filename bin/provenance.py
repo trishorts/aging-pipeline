@@ -69,6 +69,14 @@ def pipeline_commit() -> str:
         return "unknown"
 
 
+def pipeline_version() -> str:
+    """The release in the pipeline's VERSION file (semantic versioning; each release is also a git tag)."""
+    try:
+        return (Path(__file__).resolve().parent.parent / "VERSION").read_text(encoding="utf-8").strip() or "unknown"
+    except OSError:
+        return "unknown"
+
+
 def pipeline_repo() -> str:
     """The clone's origin URL, so the record names the repository the commit hash belongs to."""
     here = Path(__file__).resolve().parent
@@ -193,7 +201,7 @@ class Provenance:
             "stage": stage,
             "started_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "host": {"node": platform.node(), "os": platform.platform(), "python": sys.version.split()[0]},
-            "pipeline": {"repo": pipeline_repo(), "commit": pipeline_commit()},
+            "pipeline": {"version": pipeline_version(), "repo": pipeline_repo(), "commit": pipeline_commit()},
             "params_file": file_entry(self.params_path),
             "params": params.get(section, {}),
             "run_date": params.get("run_date"),

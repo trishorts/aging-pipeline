@@ -23,7 +23,7 @@ settings, and at what cost?* The schema identifier is `aging-provenance/2`.
 | `stage` | `db_prepare`, `discover`, `fetch`, `qc_spectra`, `search_metamorpheus` or `cleanup` |
 | `started_utc`, `finished_utc` | ISO 8601 timestamps |
 | `host` | `node` (hostname), `os`, `python` |
-| `pipeline` | `repo` (the clone's `origin` URL) and `commit`. A `+dirty` suffix means something in the pipeline folder (scripts, `main.nf`, parameter files, docs) had uncommitted changes, so the commit alone doesn't reproduce the run. `"unknown"` outside a git clone |
+| `pipeline` | `version` (from the `VERSION` file), `repo` (the clone's `origin` URL) and `commit`. A `+dirty` suffix means something in the pipeline folder (scripts, `main.nf`, parameter files, docs) had uncommitted changes, so the commit alone doesn't reproduce the run. `"unknown"` outside a git clone |
 | `params_file` | The parameters file as a [file entry](#file-entries), including its SHA-256 |
 | `params` | This stage's main section of the parameters, copied verbatim (for stage 4, `search`: the `database` section is covered by `params_file`'s hash and by the database file entries) |
 | `run_date` | From the parameters |

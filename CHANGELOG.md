@@ -4,6 +4,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Ver
 [Semantic Versioning](https://semver.org/). Until 1.0, any release may change parameters and output
 formats. The provenance schema carries its own version (`aging-provenance/N`).
 
+## [Unreleased]
+
+### Added
+- A `VERSION` file, and `pipeline.version` in every `provenance.json`, so an output names the release
+  that made it as well as the commit.
+- The README's "Versioning" section: what is version-controlled, pinned or hashed.
+
 ## [0.1.0] - 2026-09-19
 
 The first public release: a working prototype.
@@ -46,4 +53,5 @@ Condensed from the commit history, in order:
 - MetaMorpheus pinned to **1.1.11**. Apex intensity. The shipped contaminant database is always searched.
 - Contamination measured (PSM and intensity shares), and a 1.1.11 baseline run on 18 files.
 
+[Unreleased]: https://github.com/trishorts/aging-pipeline/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/trishorts/aging-pipeline/releases/tag/v0.1.0

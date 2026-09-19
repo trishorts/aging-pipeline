@@ -22,6 +22,7 @@ protein abundance misses?* It is built at the Smith lab, University of Wisconsin
 - [Outputs](#outputs)
 - [Design principles](#design-principles)
 - [Status and known limitations](#status-and-known-limitations)
+- [Versioning](#versioning)
 - [Internal references](#internal-references)
 - [Repository layout](#repository-layout)
 - [Citing](#citing) · [License](#license) · [Contact](#contact)
@@ -251,6 +252,23 @@ Read this before you run anything on your own data.
 - **Discovery is human-only** (`discover.organism`), with four keywords. It's deliberately simple and
   conservative, and every dropped dataset records its reason.
 
+## Versioning
+
+Everything that determines a result is under version control, or is pinned and recorded by hash.
+
+| What | How it's controlled |
+|---|---|
+| The pipeline (scripts, `main.nf`, configs, docs) | Git. Releases follow [semantic versioning](https://semver.org/). Each release is a git tag (`v0.1.0`), its number is in [`VERSION`](VERSION), and [`CHANGELOG.md`](CHANGELOG.md) says what changed |
+| Parameters | The parameters file is versioned alongside the code; every run records the file's SHA-256 |
+| Python dependencies | Pinned in [`requirements.txt`](requirements.txt) (`mzlib==0.1.1`) |
+| MetaMorpheus | Pinned to one release. Stage 4 refuses any other and records the binary's SHA-256 |
+| The protein database | Recorded by file name and SHA-256 at every search. UniProt releases are dated in the file name |
+| Data | PRIDE is the source; every downloaded file's SHA-256 is recorded at fetch |
+
+Every `provenance.json` records the pipeline's `version`, its git `commit` and its `repo`, plus `+dirty`
+when the working copy had uncommitted changes. From any output, you can check out the exact code that
+produced it. Until 1.0, a minor release may change parameters or output formats. The provenance
+schema has its own version (`aging-provenance/N`), which changes whenever its fields change meaning.
 ## Internal references
 
 Code comments and flag messages carry identifiers from the project's internal records. They're kept
@@ -292,6 +310,7 @@ params.json           the default parameters (a template: edit the paths)
 params_*.json         parameter files from the PXD036557 test series (see Internal references)
 run_local.ps1         Windows runner for one accession
 requirements.txt      Python dependencies
+VERSION               the pipeline release number (semantic versioning)
 bin/
   provenance.py       the provenance record and resource monitor every stage uses
   db_prepare.py       stage 0

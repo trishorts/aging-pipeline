@@ -75,7 +75,7 @@
   "database": {
     "uniprot_xml": "E:/CodeReview/go/data/raw/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml.gz",
     "prepared": "F:/aging_data/db/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
-    "include_contaminants": true
+    "include_contaminants": false
   },
   "search": {
     "metamorpheus_cmd": "F:/ClaudeTestBuilds/aging/MetaMorpheus-1.1.11/CMD.exe",
@@ -90,5 +90,6 @@
     "match_between_runs": true,
     "flag_min_id_rate": 0.15,
     "timeout_s": 21600
-  }
+  },
+  "_run": "S15 control: 1 file, MM 1.1.11, NO contaminant database"
 }

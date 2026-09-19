@@ -83,8 +83,18 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     if failed:
         sys.exit(f"QC failed for {failed}: not high-res Orbitrap HCD MS2, or too few MS2 scans")
     prov.inputs(qc)
-    prov.inputs(*spectra_files, db)
-    run = [str(cmd), "-t", *map(str, tomls), "-s", *map(str, spectra_files), "-d", db,
+    # Contaminants (S15): MetaMorpheus ships Contaminants/MetaMorpheusContaminants.xml but CMD uses only
+    # the databases passed with -d. Without it, keratins, trypsin, serum albumin etc. have nowhere to match.
+    dbs = [db]
+    if params["database"].get("include_contaminants", True):
+        contam = cmd.parent / "Contaminants" / "MetaMorpheusContaminants.xml"
+        if not contam.exists():
+            sys.exit(f"contaminant database missing at {contam}")
+        dbs.append(str(contam))
+    else:
+        prov.note("contaminant database NOT included (params.database.include_contaminants = false)")
+    prov.inputs(*spectra_files, *dbs)
+    run = [str(cmd), "-t", *map(str, tomls), "-s", *map(str, spectra_files), "-d", *dbs,
            "-o", str(out / "mm"), "--mmsettings", str(settings), "-v", "normal"]
     if p["accept_thermo_licence"]:
         run.append("--acceptThermoLicence")
@@ -164,6 +174,13 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
                            "kept_over_msms": round(kept / msms, 3) if msms else None}
         if msms and kept > msms:
             flags.append(f"mbr_kept_exceeds_msms: kept MBR {kept} > MSMS {msms} (DEF-MBR-KEPT v1)")
+    # Known gaps stated on every run, so no result is mistaken for a designed or deposit-ready one.
+    design = [f.parent / "ExperimentalDesign.tsv" for f in spectra_files[:1]]
+    if not any(d.exists() for d in design):
+        flags.append("no_design_file: FlashLFQ treated each file as its own biorep under one blank condition; "
+                     "no normalization; not usable for condition comparisons (owner: QuantProject projection)")
+    if not list(mm.glob("**/*.sdrf.tsv")):
+        flags.append("no_output_sdrf: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)")
     prov.rec["flags"] = flags
     prov.rec["expected_cores"] = p["max_threads"]
 

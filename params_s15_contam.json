@@ -90,5 +90,6 @@
     "match_between_runs": true,
     "flag_min_id_rate": 0.15,
     "timeout_s": 21600
-  }
+  },
+  "_run": "S15 test: 1 file, MM 1.1.11, WITH MetaMorpheus contaminant database"
 }

@@ -55,11 +55,26 @@ def file_entry(path, root=None, known=None) -> dict:
 
 
 def pipeline_commit() -> str:
+    """HEAD of the clone holding this pipeline, plus "+dirty" when anything in the pipeline folder
+    (scripts, main.nf, params files, docs) has uncommitted changes."""
     here = Path(__file__).resolve().parent
     try:
         sha = subprocess.run(["git", "-C", str(here), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
-        dirty = subprocess.run(["git", "-C", str(here), "status", "--porcelain", "--", "."], capture_output=True, text=True).stdout.strip()
+        if not sha:
+            return "unknown"                   # not a git clone (e.g. an unpacked archive)
+        dirty = subprocess.run(["git", "-C", str(here.parent), "status", "--porcelain", "--", "."],
+                               capture_output=True, text=True).stdout.strip()
         return sha + ("+dirty" if dirty else "")
+    except OSError:
+        return "unknown"
+
+
+def pipeline_repo() -> str:
+    """The clone's origin URL, so the record names the repository the commit hash belongs to."""
+    here = Path(__file__).resolve().parent
+    try:
+        url = subprocess.run(["git", "-C", str(here), "remote", "get-url", "origin"], capture_output=True, text=True).stdout.strip()
+        return url or "unknown"
     except OSError:
         return "unknown"
 
@@ -178,7 +193,7 @@ class Provenance:
             "stage": stage,
             "started_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "host": {"node": platform.node(), "os": platform.platform(), "python": sys.version.split()[0]},
-            "pipeline": {"repo": "trishorts/aging", "commit": pipeline_commit()},
+            "pipeline": {"repo": pipeline_repo(), "commit": pipeline_commit()},
             "params_file": file_entry(self.params_path),
             "params": params.get(section, {}),
             "run_date": params.get("run_date"),

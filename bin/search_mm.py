@@ -139,7 +139,7 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     log_text = (out / "metamorpheus.log").read_text(encoding="utf-8", errors="replace")
     if "Calibration failure" in log_text:
         flags.append("calibration_failed: GPTMD/search ran on uncalibrated spectra (S7)")
-    if search_dirs:
+    if search_dirs and (search_dirs[-1] / "results.txt").exists():
         m = re.search(r"PSMs within 1% FDR: (\d+)", (search_dirs[-1] / "results.txt").read_text(encoding="utf-8", errors="replace"))
         psms = int(m.group(1)) if m else None
         ms2 = sum(r["ms2"] for r in json.loads(qc.read_text(encoding="utf-8")).values())
@@ -179,7 +179,8 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     # `Protein Decoy/Contaminant/Target` (protein groups) is exactly "C". Ambiguous rows ("C|T") count as
     # not-contaminant. PSMs: QValue <= 0.01, decoys excluded. Intensity: sum of Intensity_<file> over
     # target + contaminant protein groups in AllQuantifiedProteinGroups.tsv (apex, DEF-PEP-INT v1), per file.
-    if search_dirs and params["database"].get("include_contaminants", True):
+    if (search_dirs and params["database"].get("include_contaminants", True)
+            and (search_dirs[-1] / "AllPSMs.psmtsv").exists()):
         sd = search_dirs[-1]
         with (sd / "AllPSMs.psmtsv").open(encoding="utf-8") as fh:
             psm = [r for r in csv.DictReader(fh, delimiter="\t") if float(r.get("QValue") or 1) <= 0.01]

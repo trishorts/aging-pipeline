@@ -1,0 +1,268 @@
+# Stage reference
+
+Each stage is a standalone Python script in `bin/`. Every script:
+
+- takes the parameters file as its first argument and reads only its own section of it, plus
+  `work_root` and `run_date` (stage 4 reads both `search` and `database`);
+- writes its outputs into the output directory it is given, together with a `provenance.json` describing
+  them and a `resources_timeseries.tsv` of CPU and memory samples (see [provenance](provenance.md));
+- is non-interactive, and exits non-zero on failure with a one-line reason on stderr.
+
+The scripts import `bin/provenance.py`, so run them from `bin/` or with `bin/` on `PYTHONPATH`
+(invoking `python bin/<stage>.py` does this automatically).
+
+Stages find each other's outputs by **directory convention**, not by arguments. Keep the layout shown
+in the [README](../README.md#outputs), or the upstream provenance links and the QC check will not be
+found.
+
+---
+
+## Stage 0: `db_prepare.py`, prepare the search database
+
+```
+python bin/db_prepare.py <params.json> <out_dir>
+```
+
+| | |
+|---|---|
+| **Reads** | `database.uniprot_xml` (`.xml` or `.xml.gz`) |
+| **Writes** | `<out_dir>/<name without .gz>` and `<out_dir>/provenance.json`. It prints the prepared path |
+| **Exit codes** | 0 success · non-zero on a read/write error |
+
+**What it does.** It decompresses (or copies) the database once into the pipeline's own work area.
+It writes to `<name>.partial` and renames that when complete, so a crash never leaves a half-written
+file under the real name. If the prepared file already exists, it is reused and the reuse is noted.
+
+**Why it exists.** Given a gzipped database, MetaMorpheus writes a fixed-name `temp.xml` *beside the
+input file*. That writes into whichever folder holds the database, and concurrent searches collide on
+it. Searching an uncompressed copy in the work area avoids both problems.
+
+**Keep in step:** `database.prepared` must equal `<out_dir>/<file name without .gz>`, and `<out_dir>`
+should be `<work_root>/db`. Stage 4 reads the database from `database.prepared`, and it looks for this
+stage's provenance in the same folder.
+
+---
+
+## Stage 1: `discover.py`, find candidate datasets and freeze the list
+
+```
+python bin/discover.py <params.json> <out_dir>
+```
+
+| | |
+|---|---|
+| **Reads** | the `discover` section. It needs network access to the PRIDE Archive API |
+| **Writes** | `candidates_<run_date>.tsv`, `discover_summary.json`, `provenance.json` |
+| **Exit codes** | 0 success · non-zero on a network or API error |
+
+**What it does.**
+
+1. It searches PRIDE once per keyword in `discover.keywords`, and takes the union of the hits.
+2. It applies these filters, in order. The **first** failing rule becomes the dataset's `drop_reason`:
+
+   | `drop_reason` | Rule |
+   |---|---|
+   | `organism` | `discover.organism` is not among the project's organisms |
+   | `dia` | The experiment types or the protocol text match a `dia_patterns` entry |
+   | `labelled` | The experiment types or the protocol text match a `label_patterns` entry (TMT, iTRAQ, SILAC, …) |
+   | `not_thermo` | No instrument matches `thermo_instrument_patterns` |
+   | `low_res_instrument` | The only instruments are ion-trap-only (e.g. a plain LTQ) |
+   | `no_raw_listed` | The project lists no `.raw` files |
+   | `no_sdrf` | Only when `require_sdrf_file` is `true`: there's no SDRF file |
+
+3. It writes **one row per hit, whether kept or dropped**, so the filter can be audited.
+
+**The TSV columns:** `accession`, `keep` (`yes`/`no`), `drop_reason`, `keywords_hit`, `has_sdrf_file`,
+`n_raw_listed`, `ms2_class`, `instruments`, `organism_parts`, `experiment_types`, `submission_type`,
+`title`.
+
+**`ms2_class`** is a pre-screen, not a verdict:
+
+- `orbitrap_hcd_only`: the instrument can only read MS2 in the Orbitrap (Q Exactive, Exploris).
+- `check_ms2`: a hybrid (Velos, Elite, Fusion, Lumos, Eclipse, …) that *may* read MS2 in the ion trap.
+  Stage 2b decides by reading the file.
+- `low_res`: dropped.
+
+**Why labelled datasets are found from the protocol text.** PRIDE's quantification field, and even
+curated SDRFs, miss labelling. In one dataset the SDRF says "label free" while the protocol describes
+TMT. The protocol text is the most reliable signal available before download.
+
+**Why the list is frozen.** PRIDE search is a live index: results drift between runs, and the server
+offers no reliable filters. Rerunning this stage is therefore **not** reproducible. The dated TSV is
+the record, and every later stage should use only it.
+
+---
+
+## Stage 2: `fetch.py`, download one accession
+
+```
+python bin/fetch.py <params.json> <accession> <out_dir>
+```
+
+| | |
+|---|---|
+| **Reads** | the `fetch` section. It needs network access to PRIDE (REST and FTP) |
+| **Writes** | `spectra/*.raw`, `metadata/*sdrf*` (if the project has one), `fetch_manifest.json`, `provenance.json` |
+| **Upstream** | `<out_dir>/../../01_discover/provenance.json` |
+| **Exit codes** | 0 success · non-zero on a network or I/O error |
+
+**What it does.**
+
+1. It lists the project's files from both the PRIDE REST manifest and the FTP inventory. It reports any
+   `.raw` file present on FTP but missing from the REST manifest (`raw_missing_from_rest_manifest`), which
+   is a known PRIDE inconsistency.
+2. It drops files larger than `max_file_mb`.
+3. It chooses files according to `pick`:
+   - `median_size` (the default): `max_files` files centred on the median size. The smallest file is
+     often a blank or a failed run, so it isn't chosen unless it's the only candidate left.
+   - `first_by_name`: the first `max_files` files by name.
+   - `all`: every remaining file.
+
+   Any other value is rejected before anything is downloaded.
+4. It downloads the chosen files, `parallel_downloads` at a time, plus every SDRF file.
+5. It records each file's PRIDE size and checksum (when PRIDE has one), its local size and its SHA-256.
+
+**Safe to rerun.** Downloads go to `<name>.partial` and are renamed only when complete. On a rerun,
+complete files are skipped.
+
+**Not handled yet:**
+- a failed transfer restarts from byte 0 (there's no resume);
+- `fetch.extension` changes what is downloaded, but stages 2b, 4 and 9 look only for `*.raw`, so in
+  practice it must stay `.raw`;
+- PRIDE usually supplies no checksum, and when that happens a note says integrity rests on the local
+  SHA-256 alone.
+
+The SDRF is downloaded but **not trusted**: many are empty skeletons, and some are wrong.
+
+---
+
+## Stage 2b: `qc_spectra.py`, admit only high-resolution Orbitrap HCD MS2
+
+```
+python bin/qc_spectra.py <params.json> <spectra_dir> <out_dir>
+```
+
+| | |
+|---|---|
+| **Reads** | the `qc` section; `<spectra_dir>/*.raw` (scan headers only, through mzLib) |
+| **Writes** | `qc_report.json`, `provenance.json` |
+| **Upstream** | `<spectra_dir>/../provenance.json` (stage 2) |
+| **Exit codes** | **0** every file passed · **2** at least one file failed (or there were no files) |
+
+**The rule.** A file passes when **both** of these hold:
+- at least `min_fraction_orbitrap_hcd` of its MS2 scans are HCD with an Orbitrap analyzer;
+- it has at least `min_ms2` MS2 scans.
+
+**Per file, the report gives:** `pass`, `scans`, `ms2`, `fraction_orbitrap_hcd`,
+`ms2_analyzer_dissociation` (e.g. `{"Orbitrap/HCD": 14790}`), `run_minutes`, and the six commonest
+precursor `charge_states`.
+
+**Why.** An instrument's name doesn't say where MS2 was read. Hybrids can use the ion trap with CID,
+and low-resolution MS2 would change the search's behaviour silently. The MS2 count and run length also
+catch blanks, and datasets whose description doesn't match their files. Stage 4 **refuses to search**
+a dataset whose QC report has any failing file.
+
+---
+
+## Stage 4: `search_mm.py`, MetaMorpheus search and quantification
+
+```
+python bin/search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
+```
+
+| | |
+|---|---|
+| **Reads** | the `search` and `database` sections; the spectra; `<out_dir>/../02b_qc/qc_report.json` |
+| **Writes** | `tasks/`, `mm/`, `metamorpheus.log`, `resources_timeseries.tsv`, `provenance.json` |
+| **Upstream** | stage 2b, stage 2 and stage 0 provenance |
+| **Exit codes** | **0** success · **1** a precondition failed, or the search did not succeed (see below) |
+
+**It refuses to start when:**
+- `database.prepared` doesn't exist (run stage 0);
+- `<out_dir>/mm` already exists. MetaMorpheus never cleans an existing output folder, so every run gets
+  a fresh one;
+- the running MetaMorpheus reports a release other than `search.metamorpheus_version`;
+- there's no QC report, or any file in it failed;
+- contaminants are on but MetaMorpheus's shipped `Contaminants/MetaMorpheusContaminants.xml` is missing.
+
+**What it does.**
+
+1. **It generates the default task settings on this machine** (`CMD -g`). It then changes only what the
+   parameters name: `MaxThreadsToUsePerFile` in every task, and `MatchBetweenRuns` in the search task. The
+   generated defaults and the edited copies that run (`1_…`, `2_…`, `3_…`) are both kept in `tasks/`, and
+   the edited copies are hashed into the provenance. Defaults come from the running
+   release, never from a stale copy.
+2. **It records the tool's identity:** the release (from the `-g` banner), the build commit (from
+   `--help`), and the SHA-256 of `CMD.dll`. This MetaMorpheus CLI's `--version` prints help text
+   instead of a version.
+3. **It runs calibration → GPTMD → search in one invocation.** MetaMorpheus chains the tasks, passing
+   calibrated spectra and the GPTMD-augmented database forward. The databases passed are the prepared
+   proteome **plus the shipped contaminant database**, unless `database.include_contaminants` is `false`.
+   MetaMorpheus's settings folder is `<work_root>/mm_settings/<release>/`. The script deliberately doesn't
+   create it, because MetaMorpheus crashes on an empty pre-created settings folder.
+4. **It times each task.** Every log line is stamped with elapsed seconds, and each task's wall time, CPU,
+   average cores and peak memory are cut from the resource time series (`per_task_resources`).
+
+**Timeout.** `search.timeout_s` is **not enforced** yet. A hung MetaMorpheus process isn't killed, so
+under Nextflow, set a process `time` limit.
+
+**Success** requires exit code 0 **and** all four result tables in the search task folder:
+`AllPSMs.psmtsv`, `AllPeptides.psmtsv`, `AllQuantifiedPeptides.tsv`, `AllQuantifiedProteinGroups.tsv`.
+FlashLFQ can fail while MetaMorpheus still exits 0, so exit code 0 alone isn't enough. A note in the
+provenance names that case.
+
+**Measurements it adds to the provenance:**
+- `id_rate`: PSMs at 1% FDR (from `results.txt`) over the MS2 count from the QC report.
+- `mbr`: match-between-runs counts ([how they are counted](provenance.md#match-between-runs)).
+- `contamination`: the share of contaminant PSMs and intensity ([definition](provenance.md#contamination)).
+- `flags`: [automatic flags](provenance.md#automatic-flags) for follow-up.
+
+**Settings that are not changed from MetaMorpheus's defaults** (as of this release): protease (trypsin),
+missed cleavages, fixed and variable modifications, tolerances, the GPTMD modification list, and
+FDR thresholds. They are recorded exactly in `tasks/*.toml` and `mm/Task Settings/`.
+
+---
+
+## Stage 9: `cleanup.py`, delete re-obtainable raw spectra
+
+```
+python bin/cleanup.py <params.json> <dataset_run_dir> [--dry-run]
+```
+
+`<dataset_run_dir>` is `<work_root>/run_<run_date>/<accession>`.
+
+| | |
+|---|---|
+| **Deletes** | `02_fetch/spectra/*.raw`; `04_search/mm/**/*-calib.mzML`; `04_search/mm/Task*/*.raw` (copies MetaMorpheus makes when calibration fails) |
+| **Keeps** | all results, the GPTMD database, logs, and every provenance record |
+| **Writes** | `09_cleanup/provenance.json`: every deleted file's **absolute** path, its size, and its SHA-256 at fetch time |
+| **Exit codes** | 0 done · 1 refused, because `04_search/provenance.json` is missing or not successful |
+
+**Run it with `--dry-run` first.** A dry run lists the files and sizes without deleting anything.
+
+**Why deleting is safe.** PRIDE is the source of truth, and stage 2's record keeps each file's name,
+size and SHA-256, so the exact inputs can be fetched again and verified. A hard-linked copy of a `.raw`
+elsewhere frees disk only when its last link is deleted.
+
+**Deletion is never automatic.** Neither `run_local.ps1` nor `main.nf` runs this stage. It's an explicit,
+deliberate step.
+
+---
+
+## `run_local.ps1`: Windows runner for one accession
+
+```powershell
+powershell -NoProfile -File run_local.ps1 -Accession <PXD…> [-Python <python.exe>] [-Params <params.json>]
+```
+
+It runs stages 0, 1, 2, 2b and 4 in order, using the directory layout above. It stops at the first stage
+that exits non-zero and returns that stage's exit code (e.g. 2 when a file fails spectra QC).
+`-Params` defaults to the `params.json` beside the script. **Always pass `-Python`:** its default is the
+developer's own environment.
+
+## `main.nf`: Nextflow (untested)
+
+The intended production entry point. It writes Nextflow's trace, report and timeline under
+`<outdir>/pipeline_info/` (`nextflow.config`), and retries each process up to twice. **It has not been
+run.** It lacks stages 0, 2b and 9, so `SEARCH_MM` would stop at its QC check. See the
+[README's limitations](../README.md#status-and-known-limitations).

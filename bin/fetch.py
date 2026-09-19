@@ -29,6 +29,8 @@ def sha256(path: Path) -> str:
 
 def main(params_path: str, accession: str, out_dir: str) -> None:
     p = json.loads(Path(params_path).read_text(encoding="utf-8"))["fetch"]
+    if p["pick"] not in ("median_size", "first_by_name", "all"):
+        sys.exit(f"fetch.pick = {p['pick']!r}: expected median_size, first_by_name or all")
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     prov = Provenance("fetch", params_path, "fetch"); pymzlib_tool(prov)
     prov.rec["accession"] = accession

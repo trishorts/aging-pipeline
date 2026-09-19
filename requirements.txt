@@ -1,0 +1,4 @@
+# Python dependencies for the stage scripts in bin/.
+# MetaMorpheus (the search engine) is a separate download: see README.md, Requirements.
+mzlib==0.1.1        # pyMzLib: PRIDE client and .raw scan headers (no .NET install needed)
+psutil>=5.9         # CPU and memory accounting in provenance.json (optional; wall time only without it)

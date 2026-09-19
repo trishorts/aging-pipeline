@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use this pipeline, please cite it as below, together with MetaMorpheus and FlashLFQ."
+title: "aging-pipeline: proteoform- and PTM-level reanalysis of public aging proteomics data"
+version: 0.1.0
+date-released: 2026-09-19
+license: MIT
+repository-code: "https://github.com/trishorts/aging-pipeline"
+authors:
+  - family-names: Shortreed
+    given-names: Michael R.
+    affiliation: "University of Wisconsin–Madison"
+keywords:
+  - proteomics
+  - aging
+  - post-translational modifications
+  - proteoforms
+  - MetaMorpheus
+  - PRIDE
+  - reanalysis
+references:
+  - type: article
+    title: "Enhanced Global Post-translational Modification Discovery with MetaMorpheus"
+    authors:
+      - family-names: Solntsev
+        given-names: Stefan K.
+      - family-names: Shortreed
+        given-names: Michael R.
+      - family-names: Frey
+        given-names: Brian L.
+      - family-names: Smith
+        given-names: Lloyd M.
+    journal: "Journal of Proteome Research"
+    volume: 17
+    issue: 5
+    start: 1844
+    end: 1851
+    year: 2018
+    doi: 10.1021/acs.jproteome.7b00873
+  - type: article
+    title: "Ultrafast Peptide Label-Free Quantification with FlashLFQ"
+    authors:
+      - family-names: Millikin
+        given-names: Robert J.
+      - family-names: Solntsev
+        given-names: Stefan K.
+      - family-names: Shortreed
+        given-names: Michael R.
+      - family-names: Smith
+        given-names: Lloyd M.
+    journal: "Journal of Proteome Research"
+    volume: 17
+    issue: 1
+    start: 386
+    end: 391
+    year: 2018
+    doi: 10.1021/acs.jproteome.7b00608

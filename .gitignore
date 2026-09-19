@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+# Nextflow run state and default publish directory
+work/
+.nextflow/
+.nextflow.log*
+results/

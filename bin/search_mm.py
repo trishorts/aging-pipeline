@@ -142,10 +142,18 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     if "Calibration failure" in log_text:
         flags.append("calibration_failed: GPTMD/search ran on uncalibrated spectra (S7)")
     if search_dirs and (search_dirs[-1] / "results.txt").exists():
-        m = re.search(r"PSMs within 1% FDR: (\d+)", (search_dirs[-1] / "results.txt").read_text(encoding="utf-8", errors="replace"))
+        # results.txt prints two different counts (S21). aging DEF-PSM-1PCT v1 is the summary line, target PSMs
+        # only; the FDR engine's log line ("PSMs within 1% FDR", the first of several) is higher and is kept
+        # beside it under its own definition, so neither is mistaken for the other.
+        txt = (search_dirs[-1] / "results.txt").read_text(encoding="utf-8", errors="replace")
+        m = re.search(r"All target PSMs with q-value <= 0\.01: (\d+)", txt)
+        e = re.search(r"PSMs within 1% FDR: (\d+)", txt)
         psms = int(m.group(1)) if m else None
         ms2 = sum(r["ms2"] for r in json.loads(qc.read_text(encoding="utf-8")).values())
-        prov.rec["id_rate"] = {"psms_1pct": psms, "ms2": ms2, "rate": round(psms / ms2, 4) if psms and ms2 else None}
+        prov.rec["id_rate"] = {"definition": "aging DEF-PSM-1PCT v1", "psms_1pct": psms, "ms2": ms2,
+                               "rate": round(psms / ms2, 4) if psms and ms2 else None,
+                               "psms_fdr_engine_1pct": int(e.group(1)) if e else None,
+                               "psms_fdr_engine_definition": "aging DEF-PSM-FDRENGINE v1"}
         if psms is not None and ms2 and psms / ms2 < p.get("flag_min_id_rate", 0.15):
             flags.append(f"low_id_rate: {psms}/{ms2} = {psms / ms2:.1%} of MS2 identified (S3)")
     peaks = next(iter(sorted(search_dirs[-1].glob("AllQuantifiedPeaks.tsv"))), None) if search_dirs else None
@@ -176,11 +184,11 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
                            "kept_over_msms": round(kept / msms, 3) if msms else None}
         if msms and kept > msms:
             flags.append(f"mbr_kept_exceeds_msms: kept MBR {kept} > MSMS {msms} (DEF-MBR-KEPT v1)")
-    # Degree of contamination (user: a good QC value). Definition aging DEF-CONTAM v1, checked against
-    # MetaMorpheus 1.1.11: a row is a contaminant when `Decoy/Contaminant/Target` (PSMs) or
-    # `Protein Decoy/Contaminant/Target` (protein groups) is exactly "C". Ambiguous rows ("C|T") count as
-    # not-contaminant. PSMs: QValue <= 0.01, decoys excluded. Intensity: sum of Intensity_<file> over
-    # target + contaminant protein groups in AllQuantifiedProteinGroups.tsv (apex, DEF-PEP-INT v1), per file.
+    # Degree of contamination (user: a good QC value), checked against MetaMorpheus 1.1.11: a row is a
+    # contaminant when `Decoy/Contaminant/Target` (PSMs) or `Protein Decoy/Contaminant/Target` (protein
+    # groups) is exactly "C". PSM share = aging DEF-CONTAM-PSM v1: QValue <= 0.01, decoys excluded, ambiguous
+    # ("C|T") rows count as not-contaminant. Intensity share = QuantProject DEF-QC-9 v2 (intensity is theirs):
+    # per file, C over C + T groups' Intensity_<file> in AllQuantifiedProteinGroups.tsv (apex, DEF-PEP-INT v1).
     if (search_dirs and params["database"].get("include_contaminants", True)
             and (search_dirs[-1] / "AllPSMs.psmtsv").exists()):
         sd = search_dirs[-1]
@@ -203,12 +211,12 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
                         float(r[k] or 0) for k in r if k.startswith("Intensity_"))
         worst = max((v for v in per_file.values() if v is not None), default=0)
         prov.rec["contamination"] = {
-            "definition": "aging DEF-CONTAM v1", "psm_share": round(c_psm / len(tgt), 4) if tgt else None,
+            "psm_share": round(c_psm / len(tgt), 4) if tgt else None, "psm_share_definition": "aging DEF-CONTAM-PSM v1",
             "contaminant_psms": c_psm, "target_plus_contaminant_psms": len(tgt),
-            "intensity_share_per_file": per_file,
+            "intensity_share_per_file": per_file, "intensity_share_definition": "QuantProject DEF-QC-9 v2",
             "top": [k for k, _ in sorted(top.items(), key=lambda kv: -kv[1])[:5]]}
         if worst > p.get("flag_max_contaminant_intensity_share", 0.05):
-            flags.append(f"high_contamination: {worst:.1%} of protein intensity in the worst file (DEF-CONTAM v1)")
+            flags.append(f"high_contamination: {worst:.1%} of protein intensity in the worst file (DEF-QC-9 v2)")
 
     # Known gaps stated on every run, so no result is mistaken for a designed or deposit-ready one.
     design = [f.parent / "ExperimentalDesign.tsv" for f in spectra_files[:1]]

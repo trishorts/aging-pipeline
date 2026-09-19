@@ -36,7 +36,7 @@ Detailed documentation:
 |---|---|
 | [`docs/stages.md`](docs/stages.md) | Each stage: purpose, command line, inputs, outputs, exit codes, and the rules it enforces |
 | [`docs/configuration.md`](docs/configuration.md) | Every key in `params.json`, with its default and its effect |
-| [`docs/provenance.md`](docs/provenance.md) | The `provenance.json` schema (`aging-provenance/2`), resource accounting, and the automatic QC flags |
+| [`docs/provenance.md`](docs/provenance.md) | The `provenance.json` schema (`aging-provenance/3`), resource accounting, and the automatic QC flags |
 | [`CHANGELOG.md`](CHANGELOG.md) | What changed, and when |
 
 ## What it does
@@ -305,8 +305,8 @@ skipped too much would itself go red.
 stages 0 → 2b → 4 with nothing faked. It uses MetaMorpheus 1.1.11 and two sliced Thermo `.raw` files, plus a
 pruned human UniProt XML, from mzLib's test data (`mzLib/Test/FlashLFQ/TestData`; CI pins the commit).
 It checks that the search succeeds, that the release and launcher are recorded, and that all three tasks
-ran with the contaminant database. It also sets a floor of 50 PSMs at 1% FDR. On Windows, 1.1.11 finds
-99 PSMs from 1,155 MS2 scans. Running it accepts Thermo's RawFileReader licence.
+ran with the contaminant database. It also sets a floor of 50 PSMs at 1% FDR. MetaMorpheus 1.1.11 finds 78
+target PSMs from 1,155 MS2 scans, on both Windows and Linux. Running it accepts Thermo's RawFileReader licence.
 
 **CI** ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)):
 - The offline suite runs on Linux, Windows and macOS with Python 3.11 and 3.13, on every push and pull
@@ -353,7 +353,7 @@ so each rule traces to the decision behind it. You don't need them to run the pi
 | `D9` | A provenance record on every output |
 | `D11` | Compute and memory are recorded for every stage |
 | `S3`, `S4`, `S5`, `S7`, `S15` | Entries in the project's findings ledger: low ID rate, MBR over-counting (fixed), low core use, calibration failure, and missing contaminant database (fixed) |
-| `DEF-…` | Metric definitions: `DEF-MBR-KEPT`/`DEF-MBR-ROW`/`DEF-QC-MBR` ([MBR counts](docs/provenance.md#match-between-runs)), `DEF-CONTAM` ([contamination](docs/provenance.md#contamination)), `DEF-PEP-INT` (apex intensity) |
+| `DEF-…` | Metric definitions: `DEF-MBR-KEPT`/`DEF-MBR-ROW`/`DEF-QC-MBR` ([MBR counts](docs/provenance.md#match-between-runs)), `DEF-PSM-1PCT`/`DEF-PSM-FDRENGINE` ([ID rate](docs/provenance.md#id-rate)), `DEF-CONTAM-PSM` and QuantProject's `DEF-QC-9` ([contamination](docs/provenance.md#contamination)), `DEF-PEP-INT` (apex intensity) |
 | `REQ-…` | Feature requests filed with the tools this pipeline uses, e.g. download retry and checksums in mzLib's PRIDE client, and `.raw` input in pyMetaMorpheus |
 | `mzLib #…`, `MetaMorpheus #…` | Issue or pull-request numbers in those GitHub repositories |
 | `<project> NNN`, `Q…`, `D5-b`… | Messages and answers in coordination threads with the tools' projects (not public) |

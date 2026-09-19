@@ -62,6 +62,6 @@ def test_real_search_two_sliced_raw_files(work):
     assert set(rec["per_task_resources"]) == {"Task1CalibrationTask", "Task2GptmdTask", "Task3SearchTask"}
     assert any(a.endswith("MetaMorpheusContaminants.xml") for a in rec["commands"][-1])
     # A floor, not an exact count: it catches a search that runs but finds (almost) nothing.
-    assert rec["id_rate"]["psms_1pct"] >= 50, rec["id_rate"]          # 1.1.11 on Windows: 99 of 1,155 MS2
+    assert rec["id_rate"]["psms_1pct"] >= 50, rec["id_rate"]          # 1.1.11, Windows and Linux: 78 of 1,155 MS2
     assert rec["mbr"]["msms_peaks"] > 0
     print(json.dumps({k: rec[k] for k in ("id_rate", "mbr", "contamination", "flags")}, indent=2))

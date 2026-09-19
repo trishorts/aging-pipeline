@@ -76,7 +76,8 @@ def main():
              "MBR\tTrue\t0.001\tFalse",       # the random-RT decoy won: not kept
              "MBR\tFalse\t0.2\tFalse"]        # fails the PIP q-value: not kept
     (sd / "AllQuantifiedPeaks.tsv").write_text("\n".join(peaks) + "\n", encoding="utf-8")
-    (sd / "results.txt").write_text("PSMs within 1% FDR: 9\n", encoding="utf-8")
+    # Both counts, as 1.1.11 prints them: the target-only summary line first, then the FDR engine's (S21).
+    (sd / "results.txt").write_text("All target PSMs with q-value <= 0.01: 8\n\nPSMs within 1% FDR: 9\n", encoding="utf-8")
     (out / "allResults.txt").write_text("fake run\n", encoding="utf-8")
     (out / "Task Settings").mkdir()
     (out / "Task Settings" / "Task3SearchTaskconfig.toml").write_text("fake\n", encoding="utf-8")

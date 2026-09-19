@@ -73,7 +73,9 @@ def test_minimal_pipeline_end_to_end(layout):
     search_toml = (L.run / "04_search" / "tasks" / "3_SearchTask.toml").read_text(encoding="utf-8")
     assert "MatchBetweenRuns = true" in search_toml and "MaxThreadsToUsePerFile = 2" in search_toml
     # The measurements, per docs/provenance.md, from the fake's tables.
-    assert rec["id_rate"] == {"psms_1pct": 9, "ms2": 40, "rate": 0.225}
+    # S21: the canonical count is results.txt's target-only summary line, not the FDR engine's log line.
+    assert rec["id_rate"] == {"definition": "aging DEF-PSM-1PCT v1", "psms_1pct": 8, "ms2": 40, "rate": 0.2,
+                              "psms_fdr_engine_1pct": 9, "psms_fdr_engine_definition": "aging DEF-PSM-FDRENGINE v1"}
     assert rec["mbr"]["mbr_rows"] == 3 and rec["mbr"]["mbr_kept"] == 1 and rec["mbr"]["msms_peaks"] == 3
     assert rec["contamination"]["psm_share"] == round(1 / 9, 4)                   # 1 C of 8 T + 1 C (decoy, q>0.01 out)
     assert set(rec["contamination"]["intensity_share_per_file"].values()) == {0.1}

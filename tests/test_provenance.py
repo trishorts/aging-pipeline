@@ -47,7 +47,7 @@ def test_written_record_has_the_documented_common_fields(work):
               "params", "run_date", "roots", "tools", "commands", "upstream", "inputs", "outputs",
               "notes", "resources"):
         assert k in rec, k
-    assert rec["schema"] == "aging-provenance/2"
+    assert rec["schema"] == "aging-provenance/3"
     assert rec["params"] == {"_rule": "kept", "min_ms2": 1}     # a section's own notes are copied
     assert set(rec["pipeline"]) == {"version", "repo", "commit"}
     assert rec["resources"]["wall_s"] >= 0 and "output_bytes" in rec["resources"]

@@ -2,7 +2,7 @@
 
 Every stage writes a `provenance.json` beside its outputs. It's part of the output contract, not a
 debug log. It answers four questions about any result: *what produced it, from what, with which
-settings, and at what cost?* The schema identifier is `aging-provenance/2`.
+settings, and at what cost?* The schema identifier is `aging-provenance/3`.
 
 ## Contents
 
@@ -11,6 +11,7 @@ settings, and at what cost?* The schema identifier is `aging-provenance/2`.
 - [Chaining stages](#chaining-stages)
 - [Stage-specific fields](#stage-specific-fields)
 - [Resources](#resources)
+- [ID rate](#id-rate)
 - [Match-between-runs](#match-between-runs)
 - [Contamination](#contamination)
 - [Automatic flags](#automatic-flags)
@@ -19,7 +20,7 @@ settings, and at what cost?* The schema identifier is `aging-provenance/2`.
 
 | Field | Meaning |
 |---|---|
-| `schema` | `"aging-provenance/2"` |
+| `schema` | `"aging-provenance/3"` |
 | `stage` | `db_prepare`, `discover`, `fetch`, `qc_spectra`, `search_metamorpheus` or `cleanup` |
 | `started_utc`, `finished_utc` | ISO 8601 timestamps |
 | `host` | `node` (hostname), `os`, `python` |
@@ -78,7 +79,7 @@ it and continues.
 | search_metamorpheus | `exit_code` | MetaMorpheus's exit code |
 | search_metamorpheus | `success` | Exit code 0 **and** all four result tables exist |
 | search_metamorpheus | `per_task_resources` | Per MetaMorpheus task: `wall_s`, `cpu_s`, `avg_cores_used`, `peak_rss_gib`, `peak_threads`, `samples` (the number of 1-s samples in the task's window) |
-| search_metamorpheus | `id_rate` | `psms_1pct` (from `results.txt`), `ms2` (from the QC report), `rate` |
+| search_metamorpheus | `id_rate` | [ID rate](#id-rate): `psms_1pct`, `ms2` (from the QC report), `rate`, `psms_fdr_engine_1pct`, and their definitions |
 | search_metamorpheus | `mbr` | [Match-between-runs counts](#match-between-runs) |
 | search_metamorpheus | `contamination` | [Contaminant shares](#contamination) |
 | search_metamorpheus | `expected_cores` | `search.max_threads`, used by the `low_core_use` flag |
@@ -106,6 +107,21 @@ samples **this process and all its descendants** (e.g. the MetaMorpheus process)
 A child process that exits between samples loses at most one interval of CPU time, which is negligible
 for stages that run minutes to hours. Without `psutil`, `resources` holds only `wall_s`, `output_bytes` and a `note` saying so. Under Nextflow,
 `-with-trace` records the same quantities per process, and the two should agree.
+
+## ID rate
+
+MetaMorpheus's `results.txt` prints two different PSM counts at 1% FDR. They differ, and the gap is
+large enough to matter: in one 18-file run they were 26,582 and 27,958. The provenance keeps both, each
+with its own definition:
+
+| Field | Meaning |
+|---|---|
+| `psms_1pct` | **The canonical count.** The summary line `All target PSMs with q-value <= 0.01`: target PSMs only |
+| `definition` | `aging DEF-PSM-1PCT v1` |
+| `ms2` | MS2 scans across all files, from the QC report |
+| `rate` | `psms_1pct ÷ ms2`. The `low_id_rate` flag uses it |
+| `psms_fdr_engine_1pct` | The FDR engine's log line `PSMs within 1% FDR` (its first occurrence). It is higher, and it appears to include contaminant PSMs. Report `psms_1pct`, not this |
+| `psms_fdr_engine_definition` | `aging DEF-PSM-FDRENGINE v1` |
 
 ## Match-between-runs
 
@@ -139,10 +155,11 @@ two shares:
 | Field | Meaning |
 |---|---|
 | `psm_share` | Contaminant PSMs ÷ (target + contaminant) PSMs, at q ≤ 0.01, decoys excluded |
+| `psm_share_definition` | `aging DEF-CONTAM-PSM v1` |
 | `contaminant_psms`, `target_plus_contaminant_psms` | The two counts behind `psm_share` |
 | `intensity_share_per_file` | Per file: contaminant ÷ (target + contaminant) protein-group intensity (apex intensity, from `AllQuantifiedProteinGroups.tsv`) |
+| `intensity_share_definition` | `QuantProject DEF-QC-9 v2`. Intensity metrics are QuantProject's; this is their contaminant intensity fraction (PSI MS:4000177) |
 | `top` | The five contaminant protein groups with the most summed intensity, named "protein name (organism)". Groups sharing a name and organism are merged |
-| `definition` | `aging DEF-CONTAM v1` |
 
 ## Automatic flags
 

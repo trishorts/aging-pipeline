@@ -197,7 +197,7 @@ class Provenance:
         self.params_path = Path(params_path)
         params = json.loads(self.params_path.read_text(encoding="utf-8"))
         self.rec = {
-            "schema": "aging-provenance/2",
+            "schema": "aging-provenance/3",
             "stage": stage,
             "started_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "host": {"node": platform.node(), "os": platform.platform(), "python": sys.version.split()[0]},

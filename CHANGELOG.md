@@ -6,6 +6,9 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 
 ## [Unreleased]
 
+### Changed
+- **Provenance schema `aging-provenance/3`.** `id_rate.psms_1pct` is now the target-only summary line of `results.txt` (`aging DEF-PSM-1PCT v1`). It used to be the FDR engine's log line, which is higher; that count is kept as `psms_fdr_engine_1pct`. Contamination now names a definition per share: `aging DEF-CONTAM-PSM v1` for the PSM share and QuantProject `DEF-QC-9 v2` for the intensity share, replacing `aging DEF-CONTAM v1`.
+
 ### Added
 - A `VERSION` file, and `pipeline.version` in every `provenance.json`, so an output names the release
   that made it as well as the commit.

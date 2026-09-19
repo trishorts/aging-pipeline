@@ -17,6 +17,8 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 - Stage 4 runs MetaMorpheus as `dotnet CMD.dll` when `search.metamorpheus_cmd` names the `.dll`, with an
   optional `search.dotnet` host path. That is the form Linux needs. On Windows, a 1-file search gave the
   same results as `CMD.exe`.
+- A real MetaMorpheus search test (`tests/test_real_search.py`, marker `metamorpheus`) and a CI job,
+  `search`, that runs it on Linux with MetaMorpheus 1.1.11 and two sliced `.raw` files from mzLib's test data.
 
 ## [0.1.0] - 2026-09-19
 

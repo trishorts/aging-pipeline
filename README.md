@@ -263,6 +263,10 @@ Read this before you run anything on your own data.
 pip install -r requirements.txt pytest
 python -m pytest -m "not network" -rs    # offline: no network, no MetaMorpheus; ~5 s
 python -m pytest -m network -v -rs       # live canaries against PRIDE and UniProt
+
+# a real MetaMorpheus search (skips unless both variables are set; ~20 s on 32 cores)
+AGING_MM_CMD=/path/to/MetaMorpheus/CMD.dll AGING_MM_DATA=/path/to/testdata \
+  python -m pytest -m metamorpheus -v -rs -s
 ```
 
 **Offline tests** run every stage script as it really runs, on synthetic inputs. Only the outside world
@@ -296,16 +300,25 @@ The outage rule is the same as in mzLib and pyMzLib:
 [`tests/test_live_guard.py`](tests/test_live_guard.py) checks that rule offline, so a guard that
 skipped too much would itself go red.
 
+**The real search** (marked `metamorpheus`, [`tests/test_real_search.py`](tests/test_real_search.py)) runs
+stages 0 → 2b → 4 with nothing faked. It uses MetaMorpheus 1.1.11 and two sliced Thermo `.raw` files, plus a
+pruned human UniProt XML, from mzLib's test data (`mzLib/Test/FlashLFQ/TestData`; CI pins the commit).
+It checks that the search succeeds, that the release and launcher are recorded, and that all three tasks
+ran with the contaminant database. It also sets a floor of 50 PSMs at 1% FDR. On Windows, 1.1.11 finds
+99 PSMs from 1,155 MS2 scans. Running it accepts Thermo's RawFileReader licence.
+
 **CI** ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)):
 - The offline suite runs on Linux, Windows and macOS with Python 3.11 and 3.13, on every push and pull
   request.
 - The live canaries run on Linux after it, and weekly.
 - The live job has no `continue-on-error`: an outage already skips, so a red live job means a real
   break.
+- The real search runs on Linux after the offline suite, on every push and weekly. It installs .NET 10,
+  unpacks the MetaMorpheus 1.1.11 command-line release, and launches it as `dotnet CMD.dll`. The release
+  and the test files are cached. A skip counts as a failure there.
 
-Not covered by CI yet:
-- a real MetaMorpheus search, which needs the 1.1.11 CLI and a `.raw` file on Linux;
-- `main.nf`.
+Not covered by CI yet: `main.nf`.
+
 ## Versioning
 
 Everything that determines a result is under version control, or is pinned and recorded by hash.
@@ -375,7 +388,7 @@ bin/
   cleanup.py          stage 9
 docs/                 stage, configuration and provenance reference
 tests/                offline and live tests (see Testing)
-pyproject.toml        pytest configuration (the network marker)
+pyproject.toml        pytest configuration (the network and metamorpheus markers)
 .github/workflows/    CI
 ```
 

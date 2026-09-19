@@ -16,7 +16,7 @@ Rules from pyMetaMorpheus 003:
 
 usage: search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
 """
-import json, re, shutil, subprocess, sys, time
+import collections, csv, json, re, shutil, subprocess, sys, time
 from pathlib import Path
 
 from provenance import Provenance, file_entry, sha256
@@ -148,7 +148,7 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
             flags.append(f"low_id_rate: {psms}/{ms2} = {psms / ms2:.1%} of MS2 identified (S3)")
     peaks = next(iter(sorted(search_dirs[-1].glob("AllQuantifiedPeaks.tsv"))), None) if search_dirs else None
     if peaks:
-        import csv, collections
+
         # QuantProject DEF-MBR-ROW / DEF-MBR-KEPT v1 (thread 009, checked against MM 1.1.10 / mzLib 1.0.589):
         # the peaks table is written UNFILTERED, so raw MBR rows are not transfers used in quant. The
         # headline is kept / msms, never rows / msms (our first S4 flag used rows and was wrong).
@@ -174,6 +174,39 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
                            "kept_over_msms": round(kept / msms, 3) if msms else None}
         if msms and kept > msms:
             flags.append(f"mbr_kept_exceeds_msms: kept MBR {kept} > MSMS {msms} (DEF-MBR-KEPT v1)")
+    # Degree of contamination (user: a good QC value). Definition aging DEF-CONTAM v1, checked against
+    # MetaMorpheus 1.1.11: a row is a contaminant when `Decoy/Contaminant/Target` (PSMs) or
+    # `Protein Decoy/Contaminant/Target` (protein groups) is exactly "C". Ambiguous rows ("C|T") count as
+    # not-contaminant. PSMs: QValue <= 0.01, decoys excluded. Intensity: sum of Intensity_<file> over
+    # target + contaminant protein groups in AllQuantifiedProteinGroups.tsv (apex, DEF-PEP-INT v1), per file.
+    if search_dirs and params["database"].get("include_contaminants", True):
+        sd = search_dirs[-1]
+        with (sd / "AllPSMs.psmtsv").open(encoding="utf-8") as fh:
+            psm = [r for r in csv.DictReader(fh, delimiter="\t") if float(r.get("QValue") or 1) <= 0.01]
+        tgt = [r for r in psm if not r["Decoy/Contaminant/Target"].startswith("D")]
+        c_psm = sum(1 for r in tgt if r["Decoy/Contaminant/Target"] == "C")
+        pg_file = sd / "AllQuantifiedProteinGroups.tsv"
+        per_file, top = {}, {}
+        if pg_file.exists():
+            with pg_file.open(encoding="utf-8") as fh:
+                pgs = list(csv.DictReader(fh, delimiter="\t"))
+            for col in [k for k in (pgs[0] if pgs else {}) if k.startswith("Intensity_")]:
+                tot = sum(float(r[col] or 0) for r in pgs if r["Protein Decoy/Contaminant/Target"] in ("T", "C"))
+                con = sum(float(r[col] or 0) for r in pgs if r["Protein Decoy/Contaminant/Target"] == "C")
+                per_file[col[len("Intensity_"):]] = round(con / tot, 4) if tot else None
+            for r in pgs:
+                if r["Protein Decoy/Contaminant/Target"] == "C":
+                    top[f'{r["Protein Full Name"]} ({r["Organism"]})'] = sum(
+                        float(r[k] or 0) for k in r if k.startswith("Intensity_"))
+        worst = max((v for v in per_file.values() if v is not None), default=0)
+        prov.rec["contamination"] = {
+            "definition": "aging DEF-CONTAM v1", "psm_share": round(c_psm / len(tgt), 4) if tgt else None,
+            "contaminant_psms": c_psm, "target_plus_contaminant_psms": len(tgt),
+            "intensity_share_per_file": per_file,
+            "top": [k for k, _ in sorted(top.items(), key=lambda kv: -kv[1])[:5]]}
+        if worst > p.get("flag_max_contaminant_intensity_share", 0.05):
+            flags.append(f"high_contamination: {worst:.1%} of protein intensity in the worst file (DEF-CONTAM v1)")
+
     # Known gaps stated on every run, so no result is mistaken for a designed or deposit-ready one.
     design = [f.parent / "ExperimentalDesign.tsv" for f in spectra_files[:1]]
     if not any(d.exists() for d in design):

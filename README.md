@@ -236,9 +236,10 @@ Read this before you run anything on your own data.
   its QC check. It also takes the accession from `--accession` rather than from the frozen list. Until
   it's completed and tested, use `run_local.ps1` or the command sequence above.
 - **Tested on Windows only.** mzLib's PRIDE client has passed its test suite on Ubuntu 24.04 (reported by
-  the mzLib project), but these stages haven't been run on Linux. Stage 4 can launch MetaMorpheus as
-  `dotnet CMD.dll`, the form Linux needs. On Windows that gave the same results as `CMD.exe` (a 1-file
-  search: same PSMs, peptides and protein groups), but it hasn't been tried on Linux yet.
+  the mzLib project). On Linux, only stages 0, 2b and 4 have run, on CI's small test files (see Testing).
+  They launch MetaMorpheus as `dotnet CMD.dll` and give the same counts as on Windows. On Windows,
+  `dotnet CMD.dll` gave the same results as `CMD.exe` on a full-size file (same PSMs, peptides and
+  protein groups). No full dataset has been run on Linux yet.
 - **One accession per run.** Fetch and search take one dataset at a time.
 - **No experimental design yet** (stage 3). FlashLFQ treats each file as its own sample under one
   condition, and no normalization is applied, so **don't compare conditions** from these outputs.

@@ -139,11 +139,31 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     peaks = next(iter(sorted(search_dirs[-1].glob("AllQuantifiedPeaks.tsv"))), None) if search_dirs else None
     if peaks:
         import csv, collections
+        # QuantProject DEF-MBR-ROW / DEF-MBR-KEPT v1 (thread 009, checked against MM 1.1.10 / mzLib 1.0.589):
+        # the peaks table is written UNFILTERED, so raw MBR rows are not transfers used in quant. The
+        # headline is kept / msms, never rows / msms (our first S4 flag used rows and was wrong).
+        thr = 0.01                         # SearchParameters.MbrFdrThreshold default; not yet read from the TOML
+        rows = kept = random_won = msms = 0
         with peaks.open(encoding="utf-8") as fh:
-            kinds = collections.Counter(r.get("Peak Detection Type", "?") for r in csv.DictReader(fh, delimiter="\t"))
-        prov.rec["peak_detection_types"] = dict(kinds)
-        if kinds.get("MBR", 0) > kinds.get("MSMS", 0):
-            flags.append(f"mbr_exceeds_msms: MBR {kinds['MBR']} > MSMS {kinds['MSMS']} peaks (S4)")
+            for r in csv.DictReader(fh, delimiter="\t"):
+                kind = r.get("Peak Detection Type")
+                if kind == "MSMS":
+                    msms += 1
+                elif kind == "MBR":
+                    rows += 1
+                    rr = r.get("Random RT", "").lower() == "true"
+                    random_won += rr
+                    try:
+                        q = float(r.get("PIP Q-Value") or "nan")
+                    except ValueError:
+                        q = float("nan")
+                    if q < thr and not rr and r.get("Decoy Peptide", "").lower() != "true":
+                        kept += 1
+        prov.rec["mbr"] = {"definition": "QuantProject DEF-QC-MBR v1", "mbr_rows": rows, "mbr_random_rt_won": random_won,
+                           "mbr_kept": kept, "msms_peaks": msms, "mbr_fdr_threshold": thr,
+                           "kept_over_msms": round(kept / msms, 3) if msms else None}
+        if msms and kept > msms:
+            flags.append(f"mbr_kept_exceeds_msms: kept MBR {kept} > MSMS {msms} (DEF-MBR-KEPT v1)")
     prov.rec["flags"] = flags
     prov.rec["expected_cores"] = p["max_threads"]
 

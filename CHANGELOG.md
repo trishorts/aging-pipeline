@@ -16,6 +16,14 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 - **Provenance schema `aging-provenance/3`.** `id_rate.psms_1pct` is now the target-only summary line of `results.txt` (`aging DEF-PSM-1PCT v1`). It used to be the FDR engine's log line, which is higher; that count is kept as `psms_fdr_engine_1pct`. Contamination now names a definition per share: `aging DEF-CONTAM-PSM v1` for the PSM share and QuantProject `DEF-QC-9 v2` for the intensity share, replacing `aging DEF-CONTAM v1`.
 
 ### Added
+- **Download retry in `bin/fetch.py`** (`fetch.max_attempts`, `fetch.retry_backoff_s`). EBI drops
+  connections on long transfers: a 20 GB, 18-file fetch of PXD027318 died after 7.7 GB with
+  *"The response ended prematurely, with at least 334864664 additional bytes expected"*, and because the
+  worker raised straight out of `ThreadPoolExecutor.map`, that one drop abandoned the whole stage. Only
+  `ServiceUnavailableError` is retried, with linear backoff; anything else still fails immediately. The
+  attempt count per file goes into `provenance.json`, and a `download_retried` flag is raised when any
+  file needed more than one, because a flaky source is worth following up. **This is a retry, not a
+  resume** — a transfer that dies at 90% pays for the whole file again (REQ-PRIDE-1, pride #7c).
 - **`bin/reprovenance.py`** — re-derives a finished search's `id_rate`, `mbr`, `contamination` and
   `flags` under today's metric definitions, without re-running the search. A provenance record's
   *history* (commands, tools, hashes, resources) is never touched; only the *interpretations* are

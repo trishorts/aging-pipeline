@@ -43,7 +43,9 @@ The instrument lists are literal text.
 | `max_files` | int | `1` | How many files to take (ignored when `pick` is `all`) |
 | `pick` | `median_size` · `first_by_name` · `all` | `median_size` | Which files ([details](stages.md#stage-2-fetchpy-download-one-accession)). With `median_size`, the smallest file is chosen only if it's the only candidate left. Any other value is rejected |
 | `parallel_downloads` | int | `4` | Concurrent downloads |
-| `max_file_mb` | int | `1500` | Skip files larger than this (in MB, 10⁶ bytes) |
+| `max_file_mb` | int | `1500` | Skip files larger than this (in MB, 10⁶ bytes). **Check it against the deposit before a run**: PXD027318's three largest files are 1.62–1.63 GB, so the default would have silently dropped half of one experimental arm |
+| `max_attempts` | int | `3` | Attempts per file before the stage fails. Only a `ServiceUnavailableError` (a dropped connection) is retried; any other error fails at once |
+| `retry_backoff_s` | float | `10` | Seconds to wait before a retry, multiplied by the attempt number (10 s, then 20 s). No sleep after the final attempt |
 | `extension` | string | `".raw"` | The spectra file extension to fetch. Leave it as `.raw`: stages 2b, 4 and 9 look only for `*.raw` |
 | `timeout_s` | int | `3600` | The timeout per file download |
 

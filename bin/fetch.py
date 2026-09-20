@@ -3,8 +3,16 @@
 Glue only: downloads go through pymzlib, which writes `<name>.partial` and renames on success. We
 use overwrite=False, so a rerun skips files that are complete (pyMzLib 003 D5-d).
 
+A transfer that dies mid-flight is RETRIED here (`fetch.max_attempts`, default 3, with linear
+backoff). This is the orchestrator's policy, not a client feature: pymzlib raises
+`ServiceUnavailableError` for a transport failure, and for a download that is a thing to retry rather
+than a reason to abandon 20 GB of work. Only that error class is retried; anything else fails the
+stage immediately, exactly as in the live-test rule.
+
 Known gaps, recorded rather than worked around:
-  * no retry/resume yet (REQ-PRIDE-1, pride #7c); a failed transfer restarts from byte 0;
+  * no byte-range RESUME (REQ-PRIDE-1, pride #7c). A retry re-requests the file, so a transfer that
+    dies at 90% pays for the whole file again. Retrying is not resuming, and the difference is real
+    on a 1.6 GB file;
   * no checksum verification (REQ-PRIDE-2); we record a local SHA-256 for PROVENANCE;
   * the REST manifest (list_files) is knowingly incomplete for some projects (pride 002 Q4); the
     prototype checks it against the FTP inventory and reports any difference.
@@ -16,6 +24,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import pymzlib.pride as pride
+from pymzlib import ServiceUnavailableError
 from provenance import Provenance, pymzlib_tool
 
 
@@ -25,6 +34,32 @@ def sha256(path: Path) -> str:
         for block in iter(lambda: fh.read(1 << 20), b""):
             h.update(block)
     return h.hexdigest()
+
+
+def download_with_retry(f, spectra_dir, timeout, attempts=3, backoff_s=10.0):
+    """Download one PRIDE file, retrying a transport failure. Returns (path, seconds, attempts_used).
+
+    Only `ServiceUnavailableError` is retried. EBI drops connections on long transfers - observed on
+    PXD027318 as "The response ended prematurely, with at least 334864664 additional bytes expected"
+    after 7.7 GB of an 18-file set - and one such drop used to abandon the whole stage along with every
+    other file's work. Any other exception is a real failure and propagates immediately, which is the
+    same rule the live tests use: an outage is tolerated, anything else is not.
+
+    This is a RETRY, not a resume. `overwrite=False` means an already-complete file is skipped, so
+    re-running the stage is cheap, but a transfer that dies at 90% pays for the whole file again
+    (REQ-PRIDE-1, pride #7c).
+    """
+    t0 = time.monotonic()
+    last = None
+    for attempt in range(1, attempts + 1):
+        try:
+            path = pride.download_files([f], spectra_dir, overwrite=False, timeout=timeout)[0]
+            return path, round(time.monotonic() - t0, 1), attempt
+        except ServiceUnavailableError as e:
+            last = e
+            if attempt < attempts:
+                time.sleep(backoff_s * attempt)
+    raise RuntimeError(f"{f.file_name}: {attempts} attempts all failed; last error: {last}")
 
 
 def main(params_path: str, accession: str, out_dir: str) -> None:
@@ -63,15 +98,25 @@ def main(params_path: str, accession: str, out_dir: str) -> None:
     spectra_dir = out / "spectra"; meta_dir = out / "metadata"
     prov.command(["pymzlib.pride.download_files", *[f.file_name for f in chosen + sdrfs], "overwrite=False"])
     # Concurrency is the caller's policy (pride 002 Q4c). One bridge call per file, N at a time.
+    attempts_allowed = int(p.get("max_attempts", 3))
+    backoff_s = float(p.get("retry_backoff_s", 10))
+
     def one(f):
-        t0 = time.monotonic()
-        path = pride.download_files([f], spectra_dir, overwrite=False, timeout=p["timeout_s"])[0]
-        return path, round(time.monotonic() - t0, 1)
+        return download_with_retry(f, spectra_dir, p["timeout_s"], attempts_allowed, backoff_s)
+
     with ThreadPoolExecutor(max_workers=max(1, p.get("parallel_downloads", 1))) as ex:
         results = list(ex.map(one, chosen))
     got = [r[0] for r in results]
-    prov.rec["download_seconds"] = {f.file_name: s for f, (_, s) in zip(chosen, results)}
+    prov.rec["download_seconds"] = {f.file_name: s for f, (_, s, _a) in zip(chosen, results)}
+    prov.rec["download_attempts"] = {f.file_name: a for f, (_p, _s, a) in zip(chosen, results)}
+    prov.rec["max_attempts"] = attempts_allowed
     prov.rec["parallel_downloads"] = p.get("parallel_downloads", 1)
+    retried = {f.file_name: a for f, (_p, _s, a) in zip(chosen, results) if a > 1}
+    if retried:
+        # Not a failure, but not nothing either: a flaky source is worth following up (user rule).
+        prov.rec.setdefault("flags", []).append(
+            f"download_retried: {len(retried)} of {len(chosen)} files needed more than one attempt "
+            f"({', '.join(f'{k} x{v}' for k, v in sorted(retried.items()))})")
     got_sdrf = pride.download_files(sdrfs, meta_dir, overwrite=False, timeout=600) if sdrfs else []
 
     manifest = {

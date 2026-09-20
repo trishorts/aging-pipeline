@@ -10,6 +10,11 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 - **Provenance schema `aging-provenance/3`.** `id_rate.psms_1pct` is now the target-only summary line of `results.txt` (`aging DEF-PSM-1PCT v1`). It used to be the FDR engine's log line, which is higher; that count is kept as `psms_fdr_engine_1pct`. Contamination now names a definition per share: `aging DEF-CONTAM-PSM v1` for the PSM share and QuantProject `DEF-QC-9 v2` for the intensity share, replacing `aging DEF-CONTAM v1`.
 
 ### Added
+- **The predicate behind `aging DEF-PSM-1PCT v1`**, in `docs/provenance.md`: rebuilding the canonical
+  PSM count from `AllPSMs.psmtsv` also requires the `Notch` column to be unambiguous, because
+  MetaMorpheus counts an unresolved notch q-value while the TSV writer substitutes the best candidate's.
+  Documented alongside the peptide and protein-group predicates (the protein-group line counts
+  contaminant groups; the PSM and peptide lines do not) and the per-file-FDR caveat.
 - A `VERSION` file, and `pipeline.version` in every `provenance.json`, so an output names the release
   that made it as well as the commit.
 - The README's "Versioning" section: what is version-controlled, pinned or hashed.

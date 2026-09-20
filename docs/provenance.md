@@ -123,6 +123,46 @@ provenance keeps both, each with its own definition:
 | `psms_fdr_engine_1pct` | The FDR engine's log line `PSMs within 1% FDR` (its first occurrence). It is higher, and it appears to include contaminant PSMs. Report `psms_1pct`, not this |
 | `psms_fdr_engine_definition` | `aging DEF-PSM-FDRENGINE v1` |
 
+### Reproducing `psms_1pct` from `AllPSMs.psmtsv`
+
+A reader that wants to rebuild the canonical count from the PSM table needs **four** conditions, not
+three:
+
+| Condition | Why |
+|---|---|
+| `Decoy/Contaminant/Target` is exactly `T` | MetaMorpheus counts `!IsDecoy && !IsContaminant`. An ambiguous value such as `T\|C` means at least one candidate protein is a contaminant, and the PSM does not count |
+| `QValue <= 0.01` | |
+| `QValue Notch <= 0.01` | |
+| **`Notch` is a single value** (no `\|`) | The one that is easy to miss |
+
+Without the last condition the 18-file PXD036557 run gives 26,594 against the 26,582 that
+`results.txt` prints. The 12 extra rows are exactly the PSMs whose notch never resolved, and the two
+numbers disagree **by construction**, not by accident:
+
+- the count (`FilteredPsms.TargetPsmsAboveThreshold`) reads the PSM's in-memory `QValueNotch`, which
+  `SpectralMatch.ResolveAllAmbiguities` leaves at its unresolved value (`> 1`) when the candidate
+  hypotheses disagree about it, so the PSM fails the threshold;
+- the TSV writer (`PsmTsvWriter.AddMatchScoreData`) handles that same case deliberately — *"ambiguous
+  notch, has never been resolved by our disambiguation, so take the best of the notches for the fdr
+  columns"* — and writes the **minimum** notch q-value across the hypotheses, so the row looks like it
+  passes.
+
+Two related rules for the other two headline numbers in `results.txt`:
+
+- **Peptides** (`All target peptides with q-value <= 0.01`, `aging DEF-PEPTIDE-1PCT v1`): the same
+  predicate against `AllPeptides.psmtsv`, at peptide-level FDR, collapsed to one row per full sequence.
+  The notch rule does not bite there — the collapse leaves no ambiguous-notch rows.
+- **Protein groups** (`aging DEF-PROTEINGROUP-1PCT v1`): the predicate is `Protein QValue <= 0.01` and
+  **not decoy**, so contaminant groups *are* counted (1,652 with them, 1,623 without). The PSM and
+  peptide lines exclude contaminants; the protein-group line does not.
+
+Per-file lines in `results.txt`, and the tables under `Individual File Results/`, come from a **separate
+FDR calculation per file** (`WriteIndividualPsmResults` re-runs `CalculatePsmAndPeptideFdr` on each
+file's PSMs), so they are not a partition of the dataset-level count and must not be summed: the 18
+per-file lines here total 26,746.
+
+All of the above was checked against MetaMorpheus 1.1.11's source and against this run's output.
+
 ## Match-between-runs
 
 `AllQuantifiedPeaks.tsv` is written **unfiltered**: it contains every candidate match-between-runs

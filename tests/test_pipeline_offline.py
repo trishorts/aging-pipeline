@@ -5,42 +5,14 @@ fetch would place them), the .raw reader returns synthetic scan headers, and Met
 tests/fake_metamorpheus.py. The test checks the wiring between stages: directory conventions, upstream
 provenance links, refusal rules, the success check, and the measurements and flags in provenance.json.
 """
-import gzip, json
-from types import SimpleNamespace
+import json
 
 import pytest
 
 import cleanup, db_prepare, qc_spectra, search_mm
+from conftest import scan_headers
 
 ACC = "PXD000001"
-
-
-def headers(n_ms2=20):
-    order = [1] + [2] * n_ms2
-    return SimpleNamespace(scan_count=len(order), columns={
-        "ms_order": order, "mz_analyzer": ["Orbitrap"] * len(order),
-        "dissociation_type": [""] + ["HCD"] * n_ms2, "retention_time": [float(i) for i in range(len(order))],
-        "selected_ion_charge_state_guess": [0] + [2] * n_ms2})
-
-
-@pytest.fixture
-def layout(work, fake_mm, monkeypatch, no_bridge):
-    src = work.root / "source" / "proteome.xml.gz"; src.parent.mkdir()
-    with gzip.open(src, "wt", encoding="utf-8") as fh:
-        fh.write("<uniprot><entry/></uniprot>")
-    run = work.root / "run_2026-01-01" / ACC
-    spectra = run / "02_fetch" / "spectra"; spectra.mkdir(parents=True)
-    for n in ("a.raw", "b.raw"):
-        (spectra / n).write_bytes(b"x" * 1000)
-    work.write(
-        qc={"min_fraction_orbitrap_hcd": 0.9, "min_ms2": 10, "timeout_s": 5},
-        database={"uniprot_xml": str(src), "prepared": str(work.root / "db" / "proteome.xml"),
-                  "include_contaminants": True},
-        search={"metamorpheus_cmd": str(fake_mm), "metamorpheus_version": "1.1.11",
-                "accept_thermo_licence": True, "tasks": ["Calibration", "Gptmd", "Search"],
-                "max_threads": 2, "match_between_runs": True, "flag_min_id_rate": 0.15, "timeout_s": 600})
-    monkeypatch.setattr(qc_spectra.readers, "read_spectra", lambda f, timeout=None: headers())
-    return SimpleNamespace(run=run, spectra=spectra, params=str(work.params_path), root=work.root)
 
 
 def stage(fn, *args):
@@ -109,7 +81,7 @@ def test_search_runs_cmd_dll_through_dotnet(layout, fake_mm, work):
 def test_search_refuses_without_a_passing_qc_report(layout, monkeypatch):
     L = layout
     stage(db_prepare.main, L.params, str(L.root / "db"))
-    monkeypatch.setattr(qc_spectra.readers, "read_spectra", lambda f, timeout=None: headers(n_ms2=3))
+    monkeypatch.setattr(qc_spectra.readers, "read_spectra", lambda f, timeout=None: scan_headers(n_ms2=3))
     assert stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc")) == 2
     with pytest.raises(SystemExit, match="QC failed"):
         search_mm.main(L.params, str(L.spectra), str(L.run / "04_search"))

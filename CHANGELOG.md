@@ -7,9 +7,25 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 ## [Unreleased]
 
 ### Changed
+- `search_mm.py`'s derived metrics are now one reusable function, `derive_metrics`, shared with
+  `reprovenance.py` so a metric has one implementation and not two.
+- The `low_id_rate` and `high_contamination` flag messages print **two decimals**, and
+  `high_contamination` carries the median as well as the worst file. At one decimal, PXD036557's
+  corrected 9.98% and its superseded 10.49% both read as "10.x%", which made a definition change look
+  like rounding.
 - **Provenance schema `aging-provenance/3`.** `id_rate.psms_1pct` is now the target-only summary line of `results.txt` (`aging DEF-PSM-1PCT v1`). It used to be the FDR engine's log line, which is higher; that count is kept as `psms_fdr_engine_1pct`. Contamination now names a definition per share: `aging DEF-CONTAM-PSM v1` for the PSM share and QuantProject `DEF-QC-9 v2` for the intensity share, replacing `aging DEF-CONTAM v1`.
 
 ### Added
+- **`bin/reprovenance.py`** — re-derives a finished search's `id_rate`, `mbr`, `contamination` and
+  `flags` under today's metric definitions, without re-running the search. A provenance record's
+  *history* (commands, tools, hashes, resources) is never touched; only the *interpretations* are
+  recomputed, and every run appends a `rederived` entry naming what changed and under which commit.
+  Written because the 18-file PXD036557 run carried `aging-provenance/2`, where `id_rate.psms_1pct`
+  meant the FDR-engine count — re-searching 18 raw files for 21 minutes to correct a label would have
+  been a manual workaround wearing a pipeline's clothes.
+- **Contaminant intensity spread** in the provenance block: `intensity_share_median`,
+  `intensity_share_min` and `intensity_share_max` beside the per-file map. The dataset total hid a
+  2.6%–18.9% range on PXD036557 that tracks the cell line.
 - **The predicate behind `aging DEF-PSM-1PCT v1`**, in `docs/provenance.md`: rebuilding the canonical
   PSM count from `AllPSMs.psmtsv` also requires the `Notch` column to be unambiguous, because
   MetaMorpheus counts an unresolved notch q-value while the TSV writer substitutes the best candidate's.

@@ -53,6 +53,7 @@ Detailed documentation:
 | 6 | Map proteins to GO terms and subcellular compartments | — | ⏳ planned |
 | 7 | Cross-dataset age effects per protein, PTM site and organelle | — | ⏳ planned |
 | 9 | **Cleanup:** delete the re-obtainable raw spectra after a successful search | `bin/cleanup.py` | ✅ runs (only on explicit request) |
+| — | **Re-derive** a finished run's metrics under today's definitions, without re-searching | `bin/reprovenance.py` | ✅ runs (a maintenance tool, not a stage) |
 
 Numbering leaves room for the planned stages. Search is still stage 4 even while stage 3 doesn't exist.
 
@@ -387,6 +388,7 @@ bin/
   qc_spectra.py       stage 2b
   search_mm.py        stage 4
   cleanup.py          stage 9
+  reprovenance.py     re-derive an old run's metrics (not a stage; see docs/provenance.md)
 docs/                 stage, configuration and provenance reference
 tests/                offline and live tests (see Testing)
 pyproject.toml        pytest configuration (the network and metamorpheus markers)

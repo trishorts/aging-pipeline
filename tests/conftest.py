@@ -55,3 +55,39 @@ def no_bridge(monkeypatch):
     monkeypatch.setattr(pymzlib, "bridge_version", lambda: {"bridge": "test", "mzlib": "test"}, raising=False)
     real = importlib.metadata.version
     monkeypatch.setattr(importlib.metadata, "version", lambda n: "0.0.test" if n == "mzlib" else real(n))
+
+
+def scan_headers(n_ms2=20):
+    """Synthetic .raw scan headers: one MS1 then n_ms2 Orbitrap HCD MS2, which is what the v1 QC gate
+    wants to see. Shared by the offline pipeline tests and the reprovenance tests."""
+    from types import SimpleNamespace
+    order = [1] + [2] * n_ms2
+    return SimpleNamespace(scan_count=len(order), columns={
+        "ms_order": order, "mz_analyzer": ["Orbitrap"] * len(order),
+        "dissociation_type": [""] + ["HCD"] * n_ms2, "retention_time": [float(i) for i in range(len(order))],
+        "selected_ion_charge_state_guess": [0] + [2] * n_ms2})
+
+
+@pytest.fixture
+def layout(work, fake_mm, monkeypatch, no_bridge):
+    """A work_root laid out as the pipeline lays one out, with stage 4 ready to run against fake_mm."""
+    import gzip
+    from types import SimpleNamespace
+    import qc_spectra
+    acc = "PXD000001"
+    src = work.root / "source" / "proteome.xml.gz"; src.parent.mkdir()
+    with gzip.open(src, "wt", encoding="utf-8") as fh:
+        fh.write("<uniprot><entry/></uniprot>")
+    run = work.root / "run_2026-01-01" / acc
+    spectra = run / "02_fetch" / "spectra"; spectra.mkdir(parents=True)
+    for n in ("a.raw", "b.raw"):
+        (spectra / n).write_bytes(b"x" * 1000)
+    work.write(
+        qc={"min_fraction_orbitrap_hcd": 0.9, "min_ms2": 10, "timeout_s": 5},
+        database={"uniprot_xml": str(src), "prepared": str(work.root / "db" / "proteome.xml"),
+                  "include_contaminants": True},
+        search={"metamorpheus_cmd": str(fake_mm), "metamorpheus_version": "1.1.11",
+                "accept_thermo_licence": True, "tasks": ["Calibration", "Gptmd", "Search"],
+                "max_threads": 2, "match_between_runs": True, "flag_min_id_rate": 0.15, "timeout_s": 600})
+    monkeypatch.setattr(qc_spectra.readers, "read_spectra", lambda f, timeout=None: scan_headers())
+    return SimpleNamespace(run=run, spectra=spectra, params=str(work.params_path), root=work.root, acc=acc)

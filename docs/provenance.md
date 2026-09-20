@@ -14,6 +14,7 @@ settings, and at what cost?* The schema identifier is `aging-provenance/3`.
 - [ID rate](#id-rate)
 - [Match-between-runs](#match-between-runs)
 - [Contamination](#contamination)
+- [Re-deriving an old record](#re-deriving-an-old-record)
 - [Automatic flags](#automatic-flags)
 
 ## Common fields
@@ -198,8 +199,57 @@ two shares:
 | `psm_share_definition` | `aging DEF-CONTAM-PSM v1` |
 | `contaminant_psms`, `target_plus_contaminant_psms` | The two counts behind `psm_share` |
 | `intensity_share_per_file` | Per file: contaminant ÷ (target + contaminant) protein-group intensity (apex intensity, from `AllQuantifiedProteinGroups.tsv`) |
+| `intensity_share_median`, `intensity_share_min`, `intensity_share_max` | The spread across files. **Read these before the dataset total.** On PXD036557 the dataset-level share is 7.0% while the per-file values run **2.6% to 18.9%**, and the high files are one cell line — a single total hides that completely |
 | `intensity_share_definition` | `QuantProject DEF-QC-9 v2`. Intensity metrics are QuantProject's; this is their contaminant intensity fraction (PSI MS:4000177) |
 | `top` | The five contaminant protein groups with the most summed intensity, named "protein name (organism)". Groups sharing a name and organism are merged |
+
+## Re-deriving an old record
+
+A provenance record holds two different kinds of thing, and only one of them may ever be rewritten:
+
+- **What happened** — commands, tool versions and hashes, wall clock, CPU and memory, input and output
+  digests. This is history. `reprovenance.py` never touches it, and a test asserts that.
+- **What the numbers mean** — `id_rate`, `mbr`, `contamination` and the `flags` derived from them. These
+  are interpretations of files still sitting on disk, under definitions that carry version numbers and
+  do move.
+
+When a definition is corrected, only the second kind goes stale. Re-running a search over 18 raw files
+for 21 minutes to change a label on numbers it would recompute identically is compute spent to avoid
+writing a tool, so the pipeline has the tool:
+
+```
+python bin/reprovenance.py <params.json> <stage_out_dir> [<spectra_dir>]
+```
+
+It recomputes the derived blocks with `search_mm.derive_metrics` — the same function the search stage
+itself calls, so there is one implementation and not two — bumps `schema` to the current version, and
+**appends a `rederived` entry** naming what changed, from what value to what value, under which pipeline
+commit. It never rewrites silently: a provenance file that had been quietly corrected would be worse
+than one that was quietly wrong.
+
+```json
+"rederived": [{
+  "utc": "2026-09-20T...", "tool": "reprovenance.py",
+  "from_schema": "aging-provenance/2", "to_schema": "aging-provenance/3",
+  "pipeline": {"version": "0.1.0", "commit": "..."},
+  "rederived": ["id_rate", "mbr", "contamination", "flags"],
+  "changes": {
+    "id_rate": {"psms_1pct": {"was": 27958, "now": 26582},
+                "rate": {"was": 0.1049, "now": 0.0998}},
+    "contamination": "added (absent before)",
+    "flags": {"removed": ["low_id_rate: 27958/266402 = 10.5% ..."],
+              "added":   ["low_id_rate: 26582/266402 = 9.98% ...",
+                          "high_contamination: 18.92% ... 5.50% median across 18 files ..."]}
+  }
+}]
+```
+
+The spectra are recovered from the record's own `inputs`, so the caller need not remember them. If the
+raw files have since been deleted, that is fine and the run is still re-derivable — but the entry lists
+`spectra_absent`, because a flag that depends on a file beside the spectra (`no_design_file`) cannot be
+re-checked without them, and a re-derived record must never look more certain than it is.
+
+It refuses a stage it does not own, and refuses a record whose run did not succeed.
 
 ## Automatic flags
 
@@ -208,9 +258,9 @@ the issue in words.
 
 | Flag | Raised when | What to check |
 |---|---|---|
-| `low_id_rate` | PSMs at 1% FDR ÷ MS2 scans < `search.flag_min_id_rate` | MS2 quality, unassigned charges, unexpected modifications or organisms, a wrong database |
+| `low_id_rate` | PSMs at 1% FDR (`aging DEF-PSM-1PCT v1`) ÷ MS2 scans < `search.flag_min_id_rate`. Printed to **two decimals** on purpose: this dataset's canonical rate is 9.98% and the superseded FDR-engine rate was 10.49%, which round to 10.0% and 10.5% and make a definition change look like a rounding wobble | MS2 quality, unassigned charges, unexpected modifications or organisms, a wrong database |
 | `calibration_failed` | The MetaMorpheus log reports a calibration failure | GPTMD and search ran on uncalibrated spectra: inspect the file |
-| `high_contamination` | Any file's contaminant intensity share > `search.flag_max_contaminant_intensity_share` | `contamination.top`; sample handling; serum in culture media |
+| `high_contamination` | Any file's contaminant intensity share > `search.flag_max_contaminant_intensity_share`. The message carries the **worst file and the median**, because the spread is the informative part | `contamination.top`; sample handling; serum in culture media. On PXD036557 the contaminants are bovine serum proteins and the share tracks the cell line |
 | `mbr_kept_exceeds_msms` | `mbr_kept` > `msms_peaks` | MBR dominating quantification is implausible: inspect the peaks table |
 | `low_core_use` | Average cores < half of `search.max_threads` | I/O limits, thread contention, or an under-parallel task |
 | `no_design_file` | No `ExperimentalDesign.tsv` beside the spectra | **Always raised today** (stage 3 is planned). Each file is its own sample with no normalization: don't compare conditions |

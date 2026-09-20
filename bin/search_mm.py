@@ -24,6 +24,128 @@ from provenance import Provenance, file_entry, sha256
 TASK_FILE = {"Calibration": "CalibrationTask.toml", "Gptmd": "GptmdTask.toml", "Search": "SearchTask.toml"}
 
 
+def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
+    """Recompute every DERIVED block of a search stage from the MetaMorpheus outputs already on disk.
+
+    Reads `out`, never runs MetaMorpheus, and returns ``(blocks, flags, notes)`` instead of touching a
+    Provenance record. `main` calls it at the end of a run; `reprovenance.py` calls it to re-derive an
+    OLD run's numbers under today's definitions without spending the compute again.
+
+    That second caller is why this is a function. Definitions move (S21, S23): `psms_1pct` meant the
+    FDR-engine count in `aging-provenance/2` and means `aging DEF-PSM-1PCT v1` from /3 on. A run searched
+    under a superseded definition is not wrong, it is *labelled* wrong, and re-searching 18 files for 21
+    minutes to correct a label would be a manual workaround wearing a pipeline's clothes (D4).
+    """
+    p = params["search"]
+    mm = out / "mm"
+    search_dirs = sorted(mm.glob("Task*SearchTask"))
+    blocks, flags, notes = {}, [], []
+    # Automatic suspicion flags (user: follow up on anything suspicious). They land in provenance.json
+    # and feed results/SUSPICIOUS.md; they never fail the stage by themselves.
+    log_text = (out / "metamorpheus.log").read_text(encoding="utf-8", errors="replace")
+    if "Calibration failure" in log_text:
+        flags.append("calibration_failed: GPTMD/search ran on uncalibrated spectra (S7)")
+    if search_dirs and (search_dirs[-1] / "results.txt").exists():
+        # results.txt prints two different counts (S21). aging DEF-PSM-1PCT v1 is the summary line, target PSMs
+        # only; the FDR engine's log line ("PSMs within 1% FDR", the first of several) is higher and is kept
+        # beside it under its own definition, so neither is mistaken for the other.
+        txt = (search_dirs[-1] / "results.txt").read_text(encoding="utf-8", errors="replace")
+        m = re.search(r"All target PSMs with q-value <= 0\.01: (\d+)", txt)
+        e = re.search(r"PSMs within 1% FDR: (\d+)", txt)
+        psms = int(m.group(1)) if m else None
+        ms2 = sum(r["ms2"] for r in json.loads(qc.read_text(encoding="utf-8")).values())
+        blocks["id_rate"] = {"definition": "aging DEF-PSM-1PCT v1", "psms_1pct": psms, "ms2": ms2,
+                               "rate": round(psms / ms2, 4) if psms and ms2 else None,
+                               "psms_fdr_engine_1pct": int(e.group(1)) if e else None,
+                               "psms_fdr_engine_definition": "aging DEF-PSM-FDRENGINE v1"}
+        if psms is not None and ms2 and psms / ms2 < p.get("flag_min_id_rate", 0.15):
+            # Two decimals, deliberately: this dataset's canonical rate is 9.98% and the superseded
+            # FDR-engine rate was 10.49%. At one decimal they read 10.0% and 10.5%, which makes the
+            # correction that S23 is about look like a rounding wobble.
+            flags.append(f"low_id_rate: {psms}/{ms2} = {psms / ms2:.2%} of MS2 identified (S3)")
+    peaks = next(iter(sorted(search_dirs[-1].glob("AllQuantifiedPeaks.tsv"))), None) if search_dirs else None
+    if peaks:
+
+        # QuantProject DEF-MBR-ROW / DEF-MBR-KEPT v1 (thread 009, checked against MM 1.1.10 / mzLib 1.0.589):
+        # the peaks table is written UNFILTERED, so raw MBR rows are not transfers used in quant. The
+        # headline is kept / msms, never rows / msms (our first S4 flag used rows and was wrong).
+        thr = 0.01                         # SearchParameters.MbrFdrThreshold default; not yet read from the TOML
+        rows = kept = random_won = msms = 0
+        with peaks.open(encoding="utf-8") as fh:
+            for r in csv.DictReader(fh, delimiter="\t"):
+                kind = r.get("Peak Detection Type")
+                if kind == "MSMS":
+                    msms += 1
+                elif kind == "MBR":
+                    rows += 1
+                    rr = r.get("Random RT", "").lower() == "true"
+                    random_won += rr
+                    try:
+                        q = float(r.get("PIP Q-Value") or "nan")
+                    except ValueError:
+                        q = float("nan")
+                    if q < thr and not rr and r.get("Decoy Peptide", "").lower() != "true":
+                        kept += 1
+        blocks["mbr"] = {"definition": "QuantProject DEF-QC-MBR v1", "mbr_rows": rows, "mbr_random_rt_won": random_won,
+                           "mbr_kept": kept, "msms_peaks": msms, "mbr_fdr_threshold": thr,
+                           "kept_over_msms": round(kept / msms, 3) if msms else None}
+        if msms and kept > msms:
+            flags.append(f"mbr_kept_exceeds_msms: kept MBR {kept} > MSMS {msms} (DEF-MBR-KEPT v1)")
+    # Degree of contamination (user: a good QC value), checked against MetaMorpheus 1.1.11: a row is a
+    # contaminant when `Decoy/Contaminant/Target` (PSMs) or `Protein Decoy/Contaminant/Target` (protein
+    # groups) is exactly "C". PSM share = aging DEF-CONTAM-PSM v1: QValue <= 0.01, decoys excluded, ambiguous
+    # ("C|T") rows count as not-contaminant. Intensity share = QuantProject DEF-QC-9 v2 (intensity is theirs):
+    # per file, C over C + T groups' Intensity_<file> in AllQuantifiedProteinGroups.tsv (apex, DEF-PEP-INT v1).
+    if (search_dirs and params["database"].get("include_contaminants", True)
+            and (search_dirs[-1] / "AllPSMs.psmtsv").exists()):
+        sd = search_dirs[-1]
+        with (sd / "AllPSMs.psmtsv").open(encoding="utf-8") as fh:
+            psm = [r for r in csv.DictReader(fh, delimiter="\t") if float(r.get("QValue") or 1) <= 0.01]
+        tgt = [r for r in psm if not r["Decoy/Contaminant/Target"].startswith("D")]
+        c_psm = sum(1 for r in tgt if r["Decoy/Contaminant/Target"] == "C")
+        pg_file = sd / "AllQuantifiedProteinGroups.tsv"
+        per_file, top = {}, {}
+        if pg_file.exists():
+            with pg_file.open(encoding="utf-8") as fh:
+                pgs = list(csv.DictReader(fh, delimiter="\t"))
+            for col in [k for k in (pgs[0] if pgs else {}) if k.startswith("Intensity_")]:
+                tot = sum(float(r[col] or 0) for r in pgs if r["Protein Decoy/Contaminant/Target"] in ("T", "C"))
+                con = sum(float(r[col] or 0) for r in pgs if r["Protein Decoy/Contaminant/Target"] == "C")
+                per_file[col[len("Intensity_"):]] = round(con / tot, 4) if tot else None
+            for r in pgs:
+                if r["Protein Decoy/Contaminant/Target"] == "C":
+                    top[f'{r["Protein Full Name"]} ({r["Organism"]})'] = sum(
+                        float(r[k] or 0) for k in r if k.startswith("Intensity_"))
+        # Per-file SPREAD, not just the total (S17's follow-up): on PXD036557 the dataset-level share is
+        # 7.0% while the per-file values run 2.6% to 18.9%, and the high files are one cell line. A single
+        # dataset-level number would have hidden that entirely.
+        vals = sorted(v for v in per_file.values() if v is not None)
+        worst = vals[-1] if vals else 0
+        med = vals[len(vals) // 2] if vals else 0
+        blocks["contamination"] = {
+            "psm_share": round(c_psm / len(tgt), 4) if tgt else None, "psm_share_definition": "aging DEF-CONTAM-PSM v1",
+            "contaminant_psms": c_psm, "target_plus_contaminant_psms": len(tgt),
+            "intensity_share_per_file": per_file, "intensity_share_definition": "QuantProject DEF-QC-9 v2",
+            "intensity_share_median": med, "intensity_share_min": vals[0] if vals else None,
+            "intensity_share_max": worst,
+            "top": [k for k, _ in sorted(top.items(), key=lambda kv: -kv[1])[:5]]}
+        if worst > p.get("flag_max_contaminant_intensity_share", 0.05):
+            flags.append(f"high_contamination: {worst:.2%} of protein intensity in the worst file, "
+                         f"{med:.2%} median across {len(per_file)} files (DEF-QC-9 v2)")
+
+    # Known gaps stated on every run, so no result is mistaken for a designed or deposit-ready one.
+    design = [f.parent / "ExperimentalDesign.tsv" for f in spectra_files[:1]]
+    if not any(d.exists() for d in design):
+        flags.append("no_design_file: FlashLFQ treated each file as its own biorep under one blank condition; "
+                     "no normalization; not usable for condition comparisons (owner: QuantProject projection)")
+    if not list(mm.glob("**/*.sdrf.tsv")):
+        flags.append("no_output_sdrf: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)")
+
+    if p["match_between_runs"] and len(spectra_files) < 2:
+        notes.append("MatchBetweenRuns is on but only one spectra file was searched: MBR has nothing to transfer.")
+    return blocks, flags, notes
+
+
 def main(params_path: str, spectra: str, out_dir: str) -> None:
     params = json.loads(Path(params_path).read_text(encoding="utf-8"))
     # Always the prepared, uncompressed copy (db_prepare.py): a .gz makes MM write temp.xml beside it.
@@ -135,101 +257,16 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
                  *sorted(mm.glob("allResults.txt")))
     for ts in sorted(mm.glob("Task Settings/*.toml")):
         prov.outputs(ts)
-    # Automatic suspicion flags (user: follow up on anything suspicious). They land in provenance.json
-    # and feed results/SUSPICIOUS.md; they never fail the stage by themselves.
-    flags = []
-    log_text = (out / "metamorpheus.log").read_text(encoding="utf-8", errors="replace")
-    if "Calibration failure" in log_text:
-        flags.append("calibration_failed: GPTMD/search ran on uncalibrated spectra (S7)")
-    if search_dirs and (search_dirs[-1] / "results.txt").exists():
-        # results.txt prints two different counts (S21). aging DEF-PSM-1PCT v1 is the summary line, target PSMs
-        # only; the FDR engine's log line ("PSMs within 1% FDR", the first of several) is higher and is kept
-        # beside it under its own definition, so neither is mistaken for the other.
-        txt = (search_dirs[-1] / "results.txt").read_text(encoding="utf-8", errors="replace")
-        m = re.search(r"All target PSMs with q-value <= 0\.01: (\d+)", txt)
-        e = re.search(r"PSMs within 1% FDR: (\d+)", txt)
-        psms = int(m.group(1)) if m else None
-        ms2 = sum(r["ms2"] for r in json.loads(qc.read_text(encoding="utf-8")).values())
-        prov.rec["id_rate"] = {"definition": "aging DEF-PSM-1PCT v1", "psms_1pct": psms, "ms2": ms2,
-                               "rate": round(psms / ms2, 4) if psms and ms2 else None,
-                               "psms_fdr_engine_1pct": int(e.group(1)) if e else None,
-                               "psms_fdr_engine_definition": "aging DEF-PSM-FDRENGINE v1"}
-        if psms is not None and ms2 and psms / ms2 < p.get("flag_min_id_rate", 0.15):
-            flags.append(f"low_id_rate: {psms}/{ms2} = {psms / ms2:.1%} of MS2 identified (S3)")
-    peaks = next(iter(sorted(search_dirs[-1].glob("AllQuantifiedPeaks.tsv"))), None) if search_dirs else None
-    if peaks:
-
-        # QuantProject DEF-MBR-ROW / DEF-MBR-KEPT v1 (thread 009, checked against MM 1.1.10 / mzLib 1.0.589):
-        # the peaks table is written UNFILTERED, so raw MBR rows are not transfers used in quant. The
-        # headline is kept / msms, never rows / msms (our first S4 flag used rows and was wrong).
-        thr = 0.01                         # SearchParameters.MbrFdrThreshold default; not yet read from the TOML
-        rows = kept = random_won = msms = 0
-        with peaks.open(encoding="utf-8") as fh:
-            for r in csv.DictReader(fh, delimiter="\t"):
-                kind = r.get("Peak Detection Type")
-                if kind == "MSMS":
-                    msms += 1
-                elif kind == "MBR":
-                    rows += 1
-                    rr = r.get("Random RT", "").lower() == "true"
-                    random_won += rr
-                    try:
-                        q = float(r.get("PIP Q-Value") or "nan")
-                    except ValueError:
-                        q = float("nan")
-                    if q < thr and not rr and r.get("Decoy Peptide", "").lower() != "true":
-                        kept += 1
-        prov.rec["mbr"] = {"definition": "QuantProject DEF-QC-MBR v1", "mbr_rows": rows, "mbr_random_rt_won": random_won,
-                           "mbr_kept": kept, "msms_peaks": msms, "mbr_fdr_threshold": thr,
-                           "kept_over_msms": round(kept / msms, 3) if msms else None}
-        if msms and kept > msms:
-            flags.append(f"mbr_kept_exceeds_msms: kept MBR {kept} > MSMS {msms} (DEF-MBR-KEPT v1)")
-    # Degree of contamination (user: a good QC value), checked against MetaMorpheus 1.1.11: a row is a
-    # contaminant when `Decoy/Contaminant/Target` (PSMs) or `Protein Decoy/Contaminant/Target` (protein
-    # groups) is exactly "C". PSM share = aging DEF-CONTAM-PSM v1: QValue <= 0.01, decoys excluded, ambiguous
-    # ("C|T") rows count as not-contaminant. Intensity share = QuantProject DEF-QC-9 v2 (intensity is theirs):
-    # per file, C over C + T groups' Intensity_<file> in AllQuantifiedProteinGroups.tsv (apex, DEF-PEP-INT v1).
-    if (search_dirs and params["database"].get("include_contaminants", True)
-            and (search_dirs[-1] / "AllPSMs.psmtsv").exists()):
-        sd = search_dirs[-1]
-        with (sd / "AllPSMs.psmtsv").open(encoding="utf-8") as fh:
-            psm = [r for r in csv.DictReader(fh, delimiter="\t") if float(r.get("QValue") or 1) <= 0.01]
-        tgt = [r for r in psm if not r["Decoy/Contaminant/Target"].startswith("D")]
-        c_psm = sum(1 for r in tgt if r["Decoy/Contaminant/Target"] == "C")
-        pg_file = sd / "AllQuantifiedProteinGroups.tsv"
-        per_file, top = {}, {}
-        if pg_file.exists():
-            with pg_file.open(encoding="utf-8") as fh:
-                pgs = list(csv.DictReader(fh, delimiter="\t"))
-            for col in [k for k in (pgs[0] if pgs else {}) if k.startswith("Intensity_")]:
-                tot = sum(float(r[col] or 0) for r in pgs if r["Protein Decoy/Contaminant/Target"] in ("T", "C"))
-                con = sum(float(r[col] or 0) for r in pgs if r["Protein Decoy/Contaminant/Target"] == "C")
-                per_file[col[len("Intensity_"):]] = round(con / tot, 4) if tot else None
-            for r in pgs:
-                if r["Protein Decoy/Contaminant/Target"] == "C":
-                    top[f'{r["Protein Full Name"]} ({r["Organism"]})'] = sum(
-                        float(r[k] or 0) for k in r if k.startswith("Intensity_"))
-        worst = max((v for v in per_file.values() if v is not None), default=0)
-        prov.rec["contamination"] = {
-            "psm_share": round(c_psm / len(tgt), 4) if tgt else None, "psm_share_definition": "aging DEF-CONTAM-PSM v1",
-            "contaminant_psms": c_psm, "target_plus_contaminant_psms": len(tgt),
-            "intensity_share_per_file": per_file, "intensity_share_definition": "QuantProject DEF-QC-9 v2",
-            "top": [k for k, _ in sorted(top.items(), key=lambda kv: -kv[1])[:5]]}
-        if worst > p.get("flag_max_contaminant_intensity_share", 0.05):
-            flags.append(f"high_contamination: {worst:.1%} of protein intensity in the worst file (DEF-QC-9 v2)")
-
-    # Known gaps stated on every run, so no result is mistaken for a designed or deposit-ready one.
-    design = [f.parent / "ExperimentalDesign.tsv" for f in spectra_files[:1]]
-    if not any(d.exists() for d in design):
-        flags.append("no_design_file: FlashLFQ treated each file as its own biorep under one blank condition; "
-                     "no normalization; not usable for condition comparisons (owner: QuantProject projection)")
-    if not list(mm.glob("**/*.sdrf.tsv")):
-        flags.append("no_output_sdrf: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)")
+    # Derived blocks and automatic suspicion flags (user: follow up on anything suspicious). They land in
+    # provenance.json and feed results/SUSPICIOUS.md; they never fail the stage by themselves. Shared with
+    # reprovenance.py so an old run can be re-derived under today's definitions without re-searching.
+    blocks, flags, notes = derive_metrics(out, params, spectra_files, qc)
+    prov.rec.update(blocks)
+    for n in notes:
+        prov.note(n)
     prov.rec["flags"] = flags
     prov.rec["expected_cores"] = p["max_threads"]
 
-    if p["match_between_runs"] and len(spectra_files) < 2:
-        prov.note("MatchBetweenRuns is on but only one spectra file was searched: MBR has nothing to transfer.")
     prov.write(out)
     print(json.dumps({"exit_code": rc, "success": ok, **{k: str(v) for k, v in key.items()}}, indent=2))
     sys.exit(0 if ok else 1)

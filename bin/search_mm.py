@@ -208,6 +208,7 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     if release != p["metamorpheus_version"]:
         sys.exit(f"MetaMorpheus is {release}, params expect {p['metamorpheus_version']}")
     tomls = []
+    tolerance_overrides = {}
     for i, task in enumerate(p["tasks"], 1):
         src = toml_dir / TASK_FILE[task]
         text = src.read_text(encoding="utf-8")
@@ -215,9 +216,28 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
         if task == "Search":
             mbr = "true" if p["match_between_runs"] else "false"
             text = re.sub(r"^MatchBetweenRuns = \w+", f"MatchBetweenRuns = {mbr}", text, flags=re.M)
+        # Optional mass-tolerance overrides, applied to EVERY task. MetaMorpheus's defaults assume
+        # high-resolution fragments; on a low-resolution MS2 dataset they silently identify only the
+        # small subset that happens to fall inside a high-res window, and calibration fails outright
+        # for the same reason (S38). The value is written exactly as MetaMorpheus writes one, e.g.
+        # "±0.3500 Absolute" or "±20.0000 PPM". The `= ` in the pattern is what keeps this off
+        # `ProductMassTolerance_LowRes`, which must not be touched.
+        for key, field in (("product_mass_tolerance", "ProductMassTolerance"),
+                           ("precursor_mass_tolerance", "PrecursorMassTolerance")):
+            value = p.get(key)
+            if value:
+                text, n = re.subn(rf'^{field} = ".*"$', f'{field} = "{value}"', text, flags=re.M)
+                if n != 1:
+                    sys.exit(f"{key}: expected exactly one {field} line in {src.name}, replaced {n}")
+                tolerance_overrides[f"{task}.{field}"] = value
         dst = toml_dir / f"{i}_{TASK_FILE[task]}"
         dst.write_text(text, encoding="utf-8"); tomls.append(dst)
     prov.inputs(*tomls)
+    if tolerance_overrides:
+        # A deviation from the pinned engine's defaults is a fact about the result, not a
+        # convenience, so it is recorded and flagged rather than left in the params file.
+        prov.rec["tolerance_overrides"] = tolerance_overrides
+
 
     # 2. one invocation for the whole chain
     # Do NOT create this dir: MetaMorpheus 1.1.9 seeds it (Data/, Mods/ ...) only when it does not

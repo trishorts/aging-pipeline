@@ -16,11 +16,17 @@ import os, sys
 from pathlib import Path
 
 RELEASE = os.environ.get("FAKE_MM_RELEASE", "1.1.11")
+# The real `-g` output carries both product-tolerance keys in [CommonParameters]. The fake needs them
+# so the override path is exercised, and so a test can prove `ProductMassTolerance_LowRes` — which
+# shares a prefix with the key being replaced — is left alone.
+TOLERANCES = ("ProductMassTolerance = \"±20.0000 PPM\"\n"
+              "ProductMassTolerance_LowRes = \"±0.3500 Absolute\"\n"
+              "PrecursorMassTolerance = \"±5.0000 PPM\"\n")
 TOML = {
-    "CalibrationTask.toml": "TaskType = \"Calibrate\"\n[CommonParameters]\nMaxThreadsToUsePerFile = 1\n",
-    "GptmdTask.toml": "TaskType = \"Gptmd\"\n[CommonParameters]\nMaxThreadsToUsePerFile = 1\n",
+    "CalibrationTask.toml": "TaskType = \"Calibrate\"\n[CommonParameters]\nMaxThreadsToUsePerFile = 1\n" + TOLERANCES,
+    "GptmdTask.toml": "TaskType = \"Gptmd\"\n[CommonParameters]\nMaxThreadsToUsePerFile = 1\n" + TOLERANCES,
     "SearchTask.toml": "TaskType = \"Search\"\n[SearchParameters]\nMatchBetweenRuns = false\n"
-                       "[CommonParameters]\nMaxThreadsToUsePerFile = 1\n",
+                       "[CommonParameters]\nMaxThreadsToUsePerFile = 1\n" + TOLERANCES,
 }
 
 

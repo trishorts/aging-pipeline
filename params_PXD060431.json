@@ -96,6 +96,8 @@
       "Search"
     ],
     "max_threads": 32,
+    "product_mass_tolerance": "±0.5000 Absolute",
+    "_product_mass_tolerance_why": "S38. The first search of this dataset used MetaMorpheus's default ProductMassTolerance of ±20 PPM, which is a high-resolution tolerance, and every one of 39,579 matched ions in a 4,000-PSM sample fell inside ±20 ppm with a hard cutoff there - so only the small biased subset of ion-trap fragments that happened to land in a high-res window could match at all. The result was a 2.27% ID rate, a calibration failure on all 30 files, and MBR-kept exceeding MS/MS peaks. MetaMorpheus ships ProductMassTolerance_LowRes = ±0.3500 Absolute beside the default and did not select it. ±0.5 Da is the conventional ion-trap fragment tolerance and is deliberately a little looser than MetaMorpheus's own low-res value, because these are rapid-scan-rate ion-trap spectra. The precursor tolerance is NOT overridden: MS1 is Orbitrap here and the measured precursor error is tight (median -3.11 ppm, 1st-99th -4.95 to +531 ppm, the tail being isotope errors), so the default ±5 PPM is correct. This is a deviation from the pinned engine's defaults under D12 and is recorded in provenance as tolerance_overrides.",
     "match_between_runs": true,
     "flag_min_id_rate": 0.15,
     "flag_max_contaminant_intensity_share": 0.05,

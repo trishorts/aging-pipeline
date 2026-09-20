@@ -123,6 +123,35 @@ def test_an_acquisition_exception_does_not_waive_a_failure_it_does_not_name(layo
         search_mm.main(L.params, str(L.spectra), str(L.run / "04_search"))
 
 
+def test_mass_tolerance_overrides_reach_every_task_and_spare_the_lowres_line(layout, work):
+    """A low-resolution dataset needs a fragment tolerance MetaMorpheus's defaults do not give it
+    (S38). The override must hit every task - calibration fails for the same reason the search
+    under-identifies - and must NOT touch `ProductMassTolerance_LowRes`, which is a different key
+    that happens to share a prefix."""
+    L = layout
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    work.write(search={**work.params()["search"],
+                       "product_mass_tolerance": "±0.3500 Absolute",
+                       "precursor_mass_tolerance": "±10.0000 PPM"})
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    for toml in sorted((L.run / "04_search" / "tasks").glob("[0-9]_*.toml")):
+        body = toml.read_text(encoding="utf-8")
+        assert 'ProductMassTolerance = "±0.3500 Absolute"' in body
+        assert 'PrecursorMassTolerance = "±10.0000 PPM"' in body
+        assert 'ProductMassTolerance_LowRes = "±0.3500 Absolute"' in body   # untouched default
+    rec = prov(L.run / "04_search")
+    assert rec["tolerance_overrides"]["Search.ProductMassTolerance"] == "±0.3500 Absolute"
+
+
+def test_no_tolerance_override_leaves_the_defaults_and_records_nothing(layout):
+    L = layout
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    assert "tolerance_overrides" not in prov(L.run / "04_search")
+
+
 def test_search_refuses_a_different_metamorpheus_release(layout, monkeypatch):
     L = layout
     stage(db_prepare.main, L.params, str(L.root / "db"))

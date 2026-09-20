@@ -118,6 +118,8 @@ peaks, which are Orbitrap here, and identification from ion-trap HCD is sound �
 | `tasks` | list | `["Calibration", "Gptmd", "Search"]` | The MetaMorpheus tasks, in order. The allowed names are exactly these three |
 | `max_threads` | int | `32` | Written into every task's `MaxThreadsToUsePerFile`. The provenance flags `low_core_use` when the average is under half of this |
 | `match_between_runs` | bool | `true` | Written into the search task's `MatchBetweenRuns`. It's within one dataset only, because each run is one accession |
+| `product_mass_tolerance` | string | *(optional; MetaMorpheus's default)* | Written into **every** task's `ProductMassTolerance`, in MetaMorpheus's own spelling — `"±0.5000 Absolute"` or `"±20.0000 PPM"`. See below |
+| `precursor_mass_tolerance` | string | *(optional; MetaMorpheus's default)* | The same, for `PrecursorMassTolerance` |
 | `flag_min_id_rate` | float 0–1 | `0.15` (optional key) | Flag `low_id_rate` when PSMs at 1% FDR ÷ MS2 scans fall below this |
 | `flag_max_contaminant_intensity_share` | float 0–1 | `0.05` (optional key) | Flag `high_contamination` when any file's contaminant share of protein intensity exceeds this |
 | `timeout_s` | int | `21600` | Intended as the maximum wall time for MetaMorpheus, but **not enforced yet**: a hung process isn't killed. Under Nextflow, set a process `time` limit |
@@ -125,6 +127,42 @@ peaks, which are Orbitrap here, and identification from ion-trap HCD is sound �
 Settings not listed here aren't changed: they're MetaMorpheus's own defaults for the pinned release.
 To change a search setting that isn't a key here, extend `search_mm.py` so the change is named in
 the parameters and so recorded. Don't hand-edit generated TOMLs.
+
+### Mass-tolerance overrides, and when you need one
+
+Both tolerance keys are optional, and leaving them out is right for almost every dataset: MetaMorpheus's
+defaults are chosen for the high-resolution data this pipeline normally admits.
+
+They exist because a **low-resolution MS2** dataset is not merely searched *less well* by the default —
+it is searched almost not at all, and quietly. MetaMorpheus's default `ProductMassTolerance` is
+`±20.0000 PPM`. Ion-trap fragments are accurate to a few tenths of a dalton, which is *hundreds* of ppm,
+so a 20 ppm window matches only the small and biased subset of fragments that happen to land inside it.
+On PXD060431 that produced a 2.27% identification rate, a calibration failure on all 30 files, and more
+quantified peaks coming from match-between-runs than from MS/MS — none of which looks like a tolerance
+problem from the outside.
+
+The way to see it is to measure the errors the search actually accepted:
+
+```
+1st–99th percentile of matched-ion error: −19.4 … +19.7 ppm
+matched ions beyond ±20 ppm:              0.0% of 39,579
+```
+
+A hard cutoff at exactly the configured tolerance means the tolerance, not the data, set the limit.
+
+**A conventional ion-trap fragment tolerance is `"±0.5000 Absolute"`.** Note that MetaMorpheus already
+carries a `ProductMassTolerance_LowRes` of `±0.3500 Absolute` in the same file and did **not** select it
+for this data; these keys do not touch that line, and whether the engine should choose it on its own is
+an upstream question.
+
+**Override only what is wrong.** On PXD060431 the MS1 is Orbitrap and the measured precursor error is
+tight (median −3.11 ppm), so `precursor_mass_tolerance` is left alone and only the product tolerance is
+widened. Widening a tolerance that was already correct costs sensitivity and specificity for nothing.
+
+An override is **a deviation from the pinned engine's defaults**, so it is recorded rather than left in
+a params file: `provenance.json` gains a `tolerance_overrides` block naming each task and key that was
+changed. If exactly one matching line is not found in a task's generated TOML, the stage **fails** —
+silently changing nothing would be worse than stopping.
 
 ## Nextflow parameters (`main.nf`, untested)
 

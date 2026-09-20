@@ -200,6 +200,8 @@ python bin/search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
 - the running MetaMorpheus reports a release other than `search.metamorpheus_version`;
 - there's no QC report, or a file in it failed for a reason that no `qc.acquisition_exception`
   waives (a report written before `fail_reasons` existed has no waivable reason, so it refuses);
+- a `search.product_mass_tolerance` or `search.precursor_mass_tolerance` override is set but its
+  key is not found exactly once in a generated task TOML — silently changing nothing would be worse;
 - contaminants are on but MetaMorpheus's shipped `Contaminants/MetaMorpheusContaminants.xml` is missing.
 
 **What it does.**

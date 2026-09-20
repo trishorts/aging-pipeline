@@ -11,9 +11,9 @@ It is the pipeline deliverable of an NCEMS working group on aging, whose questio
 age at different rates, and can proteoform- and PTM-level measurements see aging signal that bulk
 protein abundance misses?* It is built at the Smith lab, University of Wisconsin–Madison.
 
-> **Status: working prototype (v0.1).** Stages 0, 1, 2, 2b, 4 and 9 run end to end on Windows. They
+> **Status: working prototype (v0.1).** Stages 0, 1, 2, 2b, 4, 5 and 9 run end to end on Windows. They
 > have searched all 18 files of PXD036557 with MetaMorpheus 1.1.11. The Nextflow wiring
-> (`main.nf`) has **not** been run yet. Stages 3, 5, 6 and 7 are planned. See
+> (`main.nf`) has **not** been run yet. Stages 3, 6 and 7 are planned. See
 > [Status and known limitations](#status-and-known-limitations) before you rely on anything here.
 
 ## Contents
@@ -52,6 +52,7 @@ Detailed documentation:
 | 5 | Reanalysis SDRF and deposition bundle | — | ⏳ waits on MetaMorpheus `WriteSdrf` (unreleased) |
 | 6 | Map proteins to GO terms and subcellular compartments | — | ⏳ planned |
 | 7 | Cross-dataset age effects per protein, PTM site and organelle | — | ⏳ planned |
+| 5 | **QC payload.** Build `qc-payload/1` from the search outputs for the `qc` templates to render | `bin/qc_payload.py` | ✅ runs |
 | 9 | **Cleanup:** delete the re-obtainable raw spectra after a successful search | `bin/cleanup.py` | ✅ runs (only on explicit request) |
 | — | **Re-derive** a finished run's metrics under today's definitions, without re-searching | `bin/reprovenance.py` | ✅ runs (a maintenance tool, not a stage) |
 
@@ -118,6 +119,7 @@ python -m venv .venv
    python bin/fetch.py      $P $ACC $RUN/$ACC/02_fetch
    python bin/qc_spectra.py $P $RUN/$ACC/02_fetch/spectra $RUN/$ACC/02b_qc
    python bin/search_mm.py  $P $RUN/$ACC/02_fetch/spectra $RUN/$ACC/04_search
+   python bin/qc_payload.py $P $RUN/$ACC/04_search $RUN/$ACC/02b_qc $RUN/$ACC/05_qc
    ```
 
 4. **Check the result.** Open `04_search/provenance.json`. `success` must be `true`. Read the `flags`

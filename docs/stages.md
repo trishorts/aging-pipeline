@@ -243,6 +243,69 @@ FDR thresholds. They are recorded exactly in `tasks/*.toml` and `mm/Task Setting
 
 ---
 
+## Stage 5: `qc_payload.py`, build the QC payload
+
+| | |
+|---|---|
+| **Runs** | after stage 4 |
+| **Reads** | `<search_dir>/mm/Task*SearchTask/` (`results.txt`, `AllPSMs.psmtsv`, `AllQuantifiedPeaks.tsv`, `AllQuantifiedProteinGroups.tsv`), `Task1CalibrationTask/*-calib.toml`, and `<qc_dir>/qc_report.json` |
+| **Writes** | `qc_payload.json`, `provenance.json` |
+| **Usage** | `qc_payload.py <params.json> <search_dir> <qc_dir> <out_dir> [accession]` |
+
+The `qc` project owns the QC templates and their contract (`qc-payload/1`); this stage only supplies
+the numbers. The payload is then rendered by qc's own tool:
+
+```
+python -m qctemplates validate <out_dir>/qc_payload.json
+python -m qctemplates render   <out_dir>/qc_payload.json <out_dir>
+```
+
+**We supply values, never verdicts.** Gates, outlier detection and the derived ratios (`id_rate`,
+`mbr_msms_ratio`) are qc's to compute, and the contract says so. Supplying them here would put one
+rule in two places and let the two drift. Every value that has a written definition carries its ID, so
+a template renders a number it did not define and can still say where the meaning came from.
+
+**Two shapes in the contract drive the code.** `pg_missing_frac` is a per-file metric that needs the
+*dataset* first — the share of the dataset's quantified protein groups absent from this file — so the
+build is two-pass. And `id_rt_coverage` divides by run minutes, which is a stage-2b fact rather than a
+search fact, which is why the stage takes both directories.
+
+**The accession** comes from `fetch.accession`, or from the optional fifth argument for older params
+files that leave it null and pass it on the command line as `fetch.py` does. A payload that cannot be
+named is refused rather than written with a null, because qc's schema requires a string and an
+unnamed payload is useless the moment two datasets exist.
+
+**An acquisition exception travels with the numbers.** If `qc.acquisition_exception` is set
+(see [configuration](configuration.md#acquisition_exception)), its restriction is written into the
+payload's `dataset.notes`, so a rendered report states what its numbers may not be used for.
+
+### Parsing rules worth knowing
+
+- **File keys** drop the extension *and* MetaMorpheus's `-calib` suffix, so `results.txt`'s
+  `QE-002106_GM1_a-calib` and the file `QE-002106_GM1_a-calib.toml` land on the same key. `.toml`
+  counts as an extension here: leaving it on makes `calibration_ok` false for a run that calibrated
+  perfectly well.
+- **Ambiguous cells are dropped, not guessed.** MetaMorpheus writes `a|b` when a value is
+  unresolved; there is no single number for those.
+- **Mass-error metrics use `Notch 0` only**, per the contract — an isotope-error PSM's precursor error
+  is offset by a neutron and would smear the distribution that exists to show calibration.
+- **`msms_peaks` and `mbr_kept` use the same `classify_peak` function as stage 4**, so QuantProject's
+  `DEF-MBR-KEPT v1` has one implementation. A file whose every MBR candidate was rejected gets
+  `mbr_kept: 0`, not an absent value — qc renders absent as a dash, and "no transfers survived" is a
+  different fact from "not measured".
+- **The per-file counts in `results.txt` come from a separate per-file FDR calculation** and are not a
+  partition of the dataset totals. They must never be summed into one (see
+  [the definition register](provenance.md#the-definition-register)).
+
+### Known limitation
+
+`qctemplates` currently ships no installable package metadata, so `python -m qctemplates` runs only
+from a checkout of the `qc` project rather than from anywhere on `PATH`. Building and validating a
+payload is unaffected; chaining the *render* into an automated run is not yet possible without
+pointing at that checkout.
+
+---
+
 ## Stage 9: `cleanup.py`, delete re-obtainable raw spectra
 
 ```

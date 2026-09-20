@@ -24,6 +24,37 @@ from provenance import Provenance, file_entry, sha256
 TASK_FILE = {"Calibration": "CalibrationTask.toml", "Gptmd": "GptmdTask.toml", "Search": "SearchTask.toml"}
 
 
+MBR_FDR_THRESHOLD = 0.01   # SearchParameters.MbrFdrThreshold default; not yet read from the TOML
+
+
+def classify_peak(row: dict, thr: float = MBR_FDR_THRESHOLD):
+    """Classify one `AllQuantifiedPeaks.tsv` row. Returns ``(kind, random_rt_won)``.
+
+    `kind` is ``"msms"``, ``"mbr_kept"``, ``"mbr_other"`` or ``None`` (a row that is neither).
+    **This is the single implementation of QuantProject's DEF-MBR-KEPT v1** (thread 009, checked
+    against MM 1.1.10 / mzLib 1.0.589): the peaks table is written UNFILTERED, so a raw MBR row is not
+    a transfer used in quant. The headline is kept / msms, never rows / msms — counting rows is what
+    produced the false S4 alarm.
+
+    It lives here rather than inside `derive_metrics` because `qc_payload.py` needs the same rule
+    **per file** while `derive_metrics` needs it per dataset, and a definition with two
+    implementations is a definition that will drift.
+    """
+    kind = row.get("Peak Detection Type")
+    if kind == "MSMS":
+        return "msms", False
+    if kind != "MBR":
+        return None, False
+    random_rt = (row.get("Random RT") or "").lower() == "true"
+    try:
+        q = float(row.get("PIP Q-Value") or "nan")
+    except ValueError:
+        q = float("nan")
+    decoy = (row.get("Decoy Peptide") or "").lower() == "true"
+    kept = q < thr and not random_rt and not decoy
+    return ("mbr_kept" if kept else "mbr_other"), random_rt
+
+
 def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
     """Recompute every DERIVED block of a search stage from the MetaMorpheus outputs already on disk.
 
@@ -69,22 +100,17 @@ def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
         # QuantProject DEF-MBR-ROW / DEF-MBR-KEPT v1 (thread 009, checked against MM 1.1.10 / mzLib 1.0.589):
         # the peaks table is written UNFILTERED, so raw MBR rows are not transfers used in quant. The
         # headline is kept / msms, never rows / msms (our first S4 flag used rows and was wrong).
-        thr = 0.01                         # SearchParameters.MbrFdrThreshold default; not yet read from the TOML
+        thr = MBR_FDR_THRESHOLD
         rows = kept = random_won = msms = 0
         with peaks.open(encoding="utf-8") as fh:
             for r in csv.DictReader(fh, delimiter="\t"):
-                kind = r.get("Peak Detection Type")
-                if kind == "MSMS":
+                kind, is_random = classify_peak(r, thr)
+                if kind == "msms":
                     msms += 1
-                elif kind == "MBR":
+                elif kind is not None:
                     rows += 1
-                    rr = r.get("Random RT", "").lower() == "true"
-                    random_won += rr
-                    try:
-                        q = float(r.get("PIP Q-Value") or "nan")
-                    except ValueError:
-                        q = float("nan")
-                    if q < thr and not rr and r.get("Decoy Peptide", "").lower() != "true":
+                    random_won += is_random
+                    if kind == "mbr_kept":
                         kept += 1
         blocks["mbr"] = {"definition": "QuantProject DEF-QC-MBR v1", "mbr_rows": rows, "mbr_random_rt_won": random_won,
                            "mbr_kept": kept, "msms_peaks": msms, "mbr_fdr_threshold": thr,

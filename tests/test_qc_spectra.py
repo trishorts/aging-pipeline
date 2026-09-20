@@ -19,7 +19,8 @@ def spectra(n_ms2, analyzer, dissociation):
 
 FILES = {"good.raw": spectra(20, "Orbitrap", "HCD"),
          "iontrap.raw": spectra(20, "IonTrap", "CID"),
-         "blank.raw": spectra(3, "Orbitrap", "HCD")}
+         "blank.raw": spectra(3, "Orbitrap", "HCD"),
+         "hilow.raw": spectra(20, "IonTrap2D", "HCD")}
 
 
 @pytest.fixture
@@ -47,3 +48,16 @@ def test_ion_trap_ms2_or_too_few_ms2_fails_with_exit_2(run):
     assert code == 2
     assert not report["iontrap.raw"]["pass"] and report["iontrap.raw"]["ms2_analyzer_dissociation"] == {"IonTrap/CID": 20}
     assert not report["blank.raw"]["pass"] and report["blank.raw"]["ms2"] == 3
+
+
+def test_each_failure_is_named_separately_so_a_waiver_can_be_scoped(run):
+    """search_mm can waive `low_res_ms2` under a user-granted acquisition exception but never
+    `too_few_ms2`, so the two must not collapse into one boolean."""
+    code, report = run(["good.raw", "iontrap.raw", "blank.raw", "hilow.raw"])
+    assert code == 2
+    assert report["good.raw"]["fail_reasons"] == []
+    assert report["iontrap.raw"]["fail_reasons"] == ["low_res_ms2"]
+    assert report["blank.raw"]["fail_reasons"] == ["too_few_ms2"]
+    # PXD060431's shape (S37): plenty of MS2, all of them HCD read out in the ion trap.
+    assert report["hilow.raw"]["fail_reasons"] == ["low_res_ms2"]
+    assert report["hilow.raw"]["ms2_analyzer_dissociation"] == {"IonTrap2D/HCD": 20}

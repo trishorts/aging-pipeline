@@ -203,9 +203,27 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     qc = out.parent / "02b_qc" / "qc_report.json"
     if not qc.exists():
         sys.exit(f"no QC report at {qc}: run qc_spectra.py first (v1 requires high-res Orbitrap HCD MS2)")
-    failed = [n for n, r in json.loads(qc.read_text(encoding="utf-8")).items() if not r["pass"]]
+    report = json.loads(qc.read_text(encoding="utf-8"))
+    failed = {n: r.get("fail_reasons") or ["unspecified"] for n, r in report.items() if not r["pass"]}
+    exception_flag = None
     if failed:
-        sys.exit(f"QC failed for {failed}: not high-res Orbitrap HCD MS2, or too few MS2 scans")
+        # A dataset may carry an acquisition exception: an explicit, user-granted waiver naming the
+        # exact QC conditions it forgives. It is scoped on purpose - a file failing anything the
+        # exception does not name still fails, so a waiver cannot quietly become a blanket override.
+        exc = params["qc"].get("acquisition_exception") or {}
+        waived = set(exc.get("waives") or [])
+        unwaived = {n: [r for r in rs if r not in waived] for n, rs in failed.items()}
+        unwaived = {n: rs for n, rs in unwaived.items() if rs}
+        if unwaived or not waived:
+            sys.exit(f"QC failed for {sorted(unwaived or failed)}: "
+                     f"not high-res Orbitrap HCD MS2, or too few MS2 scans")
+        reasons = sorted({r for rs in failed.values() for r in rs})
+        exception_flag = (
+            f"acquisition_exception: {len(failed)} file(s) failed QC on {reasons} and were searched "
+            f"under a user-granted waiver ({exc.get('granted_by', '?')}, {exc.get('granted_date', '?')}). "
+            f"Results are restricted to {exc.get('restricts_to') or ['?']} and must NOT be used for "
+            f"{exc.get('bars') or ['?']}")
+        prov.rec["acquisition_exception"] = {**exc, "files": sorted(failed), "fail_reasons": reasons}
     prov.inputs(qc)
     # Contaminants (S15): MetaMorpheus ships Contaminants/MetaMorpheusContaminants.xml but CMD uses only
     # the databases passed with -d. Without it, keratins, trypsin, serum albumin etc. have nowhere to match.
@@ -261,6 +279,8 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     # provenance.json and feed results/SUSPICIOUS.md; they never fail the stage by themselves. Shared with
     # reprovenance.py so an old run can be re-derived under today's definitions without re-searching.
     blocks, flags, notes = derive_metrics(out, params, spectra_files, qc)
+    if exception_flag:
+        flags.insert(0, exception_flag)
     prov.rec.update(blocks)
     for n in notes:
         prov.note(n)

@@ -79,6 +79,8 @@ python bin/discover.py <params.json> <out_dir>
 **`ms2_class`** is a pre-screen, not a verdict:
 
 - `orbitrap_hcd_only`: the instrument can only read MS2 in the Orbitrap (Q Exactive, Exploris).
+  **This is only as good as the deposited instrument name**, which PXD060431 showed can name an
+  instrument that could not have produced the files. Stage 2b is the check that holds.
 - `check_ms2`: a hybrid (Velos, Elite, Fusion, Lumos, Eclipse, …) that *may* read MS2 in the ion trap.
   Stage 2b decides by reading the file.
 - `low_res`: dropped.
@@ -153,14 +155,28 @@ python bin/qc_spectra.py <params.json> <spectra_dir> <out_dir>
 - at least `min_fraction_orbitrap_hcd` of its MS2 scans are HCD with an Orbitrap analyzer;
 - it has at least `min_ms2` MS2 scans.
 
-**Per file, the report gives:** `pass`, `scans`, `ms2`, `fraction_orbitrap_hcd`,
+**Per file, the report gives:** `pass`, `fail_reasons`, `scans`, `ms2`, `fraction_orbitrap_hcd`,
 `ms2_analyzer_dissociation` (e.g. `{"Orbitrap/HCD": 14790}`), `run_minutes`, and the six commonest
 precursor `charge_states`.
 
-**Why.** An instrument's name doesn't say where MS2 was read. Hybrids can use the ion trap with CID,
+`fail_reasons` names each failed condition separately — `low_res_ms2`, `too_few_ms2` — and is empty
+for a passing file. The two are kept apart so that a `qc.acquisition_exception` can waive one
+without waiving the other (see [configuration](configuration.md#acquisition_exception)).
+
+**Why.** An instrument's name doesn't say where MS2 was read — and it can be simply wrong. Hybrids can
+use the ion trap with CID, Tribrids can fragment with HCD and read the fragments out in the ion trap,
 and low-resolution MS2 would change the search's behaviour silently. The MS2 count and run length also
 catch blanks, and datasets whose description doesn't match their files. Stage 4 **refuses to search**
 a dataset whose QC report has any failing file.
+
+This is the stage that earns its keep on metadata nobody could have checked earlier. PXD060431's
+deposited SDRF names an *Orbitrap Exploris 480* — an instrument with no ion trap, and therefore one
+that discovery classifies as `orbitrap_hcd_only` and never re-examines. All 30 of its files turned out
+to be `ITMS + c NSI r d Full ms2 <mz>@hcd33.00`: HCD fragmentation read out in the ion trap, with
+`fraction_orbitrap_hcd` exactly `0.0000`. Only reading the files caught it.
+
+The one way past this gate is a `qc.acquisition_exception`, which must name the conditions it waives
+and records the restriction in `provenance.json` and in `flags`.
 
 ---
 
@@ -182,7 +198,8 @@ python bin/search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
 - `<out_dir>/mm` already exists. MetaMorpheus never cleans an existing output folder, so every run gets
   a fresh one;
 - the running MetaMorpheus reports a release other than `search.metamorpheus_version`;
-- there's no QC report, or any file in it failed;
+- there's no QC report, or a file in it failed for a reason that no `qc.acquisition_exception`
+  waives (a report written before `fail_reasons` existed has no waivable reason, so it refuses);
 - contaminants are on but MetaMorpheus's shipped `Contaminants/MetaMorpheusContaminants.xml` is missing.
 
 **What it does.**

@@ -32,9 +32,17 @@ def main(params_path: str, spectra_dir: str, out_dir: str) -> None:
         pair = collections.Counter((c["mz_analyzer"][i], c["dissociation_type"][i]) for i in ms2)
         hi = pair.get(("Orbitrap", "HCD"), 0)
         frac = hi / len(ms2) if ms2 else 0.0
-        passed = frac >= q["min_fraction_orbitrap_hcd"] and len(ms2) >= q["min_ms2"]
+        # Name each failure separately. search_mm can waive `low_res_ms2` under an explicit,
+        # dataset-scoped acquisition exception (see docs/configuration.md); `too_few_ms2` is never
+        # waivable, because a file with no spectra is not an acquisition choice.
+        reasons = []
+        if frac < q["min_fraction_orbitrap_hcd"]:
+            reasons.append("low_res_ms2")
+        if len(ms2) < q["min_ms2"]:
+            reasons.append("too_few_ms2")
+        passed = not reasons
         report[f.name] = {
-            "pass": passed, "scans": s.scan_count, "ms2": len(ms2),
+            "pass": passed, "fail_reasons": reasons, "scans": s.scan_count, "ms2": len(ms2),
             "fraction_orbitrap_hcd": round(frac, 4),
             "ms2_analyzer_dissociation": {f"{a}/{d}": n for (a, d), n in pair.most_common()},
             "run_minutes": round(max(c["retention_time"]) if c["retention_time"] else 0, 2),

@@ -87,6 +87,42 @@ def test_search_refuses_without_a_passing_qc_report(layout, monkeypatch):
         search_mm.main(L.params, str(L.spectra), str(L.run / "04_search"))
 
 
+EXCEPTION = {"reason": "PXD060431 is high-low: Orbitrap MS1, HCD read out in the ion trap (S37)",
+             "granted_by": "user", "granted_date": "2026-09-20", "waives": ["low_res_ms2"],
+             "restricts_to": ["abundance"], "bars": ["ptm_stoichiometry", "ptm_site_localization"]}
+
+
+def test_search_runs_under_an_acquisition_exception_and_says_so(layout, work, monkeypatch):
+    """A user-granted waiver lets low-res MS2 through, and the run carries that fact in its flags and
+    its provenance so no downstream query can use it without seeing the restriction."""
+    L = layout
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    monkeypatch.setattr(qc_spectra.readers, "read_spectra",
+                        lambda f, timeout=None: scan_headers(ms2_analyzer="IonTrap2D"))
+    assert stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc")) == 2
+    work.write(qc={**work.params()["qc"], "acquisition_exception": EXCEPTION})
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    rec = prov(L.run / "04_search")
+    assert rec["acquisition_exception"]["waives"] == ["low_res_ms2"]
+    assert rec["acquisition_exception"]["fail_reasons"] == ["low_res_ms2"]
+    assert sorted(rec["acquisition_exception"]["files"]) == ["a.raw", "b.raw"]
+    flag = next(f for f in rec["flags"] if f.startswith("acquisition_exception:"))
+    assert "ptm_stoichiometry" in flag and "abundance" in flag
+
+
+def test_an_acquisition_exception_does_not_waive_a_failure_it_does_not_name(layout, work, monkeypatch):
+    """The waiver is scoped: too_few_ms2 is not in `waives`, so the file still fails. A waiver must
+    never become a blanket override."""
+    L = layout
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    monkeypatch.setattr(qc_spectra.readers, "read_spectra",
+                        lambda f, timeout=None: scan_headers(n_ms2=3, ms2_analyzer="IonTrap2D"))
+    assert stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc")) == 2
+    work.write(qc={**work.params()["qc"], "acquisition_exception": EXCEPTION})
+    with pytest.raises(SystemExit, match="QC failed"):
+        search_mm.main(L.params, str(L.spectra), str(L.run / "04_search"))
+
+
 def test_search_refuses_a_different_metamorpheus_release(layout, monkeypatch):
     L = layout
     stage(db_prepare.main, L.params, str(L.root / "db"))

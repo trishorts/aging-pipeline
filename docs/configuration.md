@@ -56,6 +56,48 @@ The instrument lists are literal text.
 | `min_fraction_orbitrap_hcd` | float 0–1 | `0.9` | The minimum fraction of MS2 scans that are HCD read in the Orbitrap |
 | `min_ms2` | int | `5000` | The minimum number of MS2 scans (catches blanks and failed runs) |
 | `timeout_s` | int | `1800` | The timeout for reading one file's scan headers |
+| `acquisition_exception` | object | absent | A scoped waiver that lets a named QC failure through. See below |
+
+Each file's `qc_report.json` entry carries a `fail_reasons` list naming every condition it failed —
+`low_res_ms2` (below `min_fraction_orbitrap_hcd`) and `too_few_ms2` (below `min_ms2`) — so a waiver can
+forgive one without forgiving the other. A passing file has an empty list.
+
+### `acquisition_exception`
+
+Stage 4 refuses to search a file that failed QC. An `acquisition_exception` is the only way past that,
+and it is deliberately awkward: it must **name the conditions it waives**, and a file that fails
+anything it does not name still fails. A waiver cannot quietly become a blanket override.
+
+```json
+"acquisition_exception": {
+  "reason":       "why this deposit fails, in enough detail to re-check",
+  "granted_by":   "user",
+  "granted_date": "2026-09-20",
+  "waives":       ["low_res_ms2"],
+  "restricts_to": ["abundance"],
+  "bars":         ["ptm_stoichiometry", "ptm_site_localization"],
+  "rationale":    "why the restricted use is still sound"
+}
+```
+
+| Key | Meaning |
+|---|---|
+| `waives` | The `fail_reasons` this exception forgives. `too_few_ms2` should never be waived — a file with almost no spectra is not an acquisition choice |
+| `restricts_to` / `bars` | What the results may and may not be used for. Not enforced by the pipeline; they are recorded so a downstream consumer can enforce them |
+| the rest | Free text, copied verbatim into provenance |
+
+When it fires, the run is **not** silently normal. `provenance.json` gains an `acquisition_exception`
+block holding the whole object plus the files and reasons it applied to, and `flags` gains a line
+naming the restriction. Both travel with the results into the repository, so a query cannot reach the
+data without the restriction being visible beside it.
+
+**Worked example — PXD060431 (`params_PXD060431.json`).** Its deposited SDRF says *Orbitrap Exploris
+480*, but all 30 files are high-low: MS1 in the Orbitrap and every MS2 read out in the ion trap
+(`ITMS + c NSI r d Full ms2 <mz>@hcd33.00`), so `fraction_orbitrap_hcd` is exactly `0.0000`
+everywhere. An Exploris has no ion trap, so the instrument metadata could not be trusted and only the
+file-level check caught it. The waiver admits the dataset for **abundance** — quantification reads MS1
+peaks, which are Orbitrap here, and identification from ion-trap HCD is sound — and bars it from
+**site-level PTM claims**, which is what low-resolution fragments cannot support.
 
 ## `database` (stages 0 and 4)
 

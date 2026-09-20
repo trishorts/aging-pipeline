@@ -57,14 +57,17 @@ def no_bridge(monkeypatch):
     monkeypatch.setattr(importlib.metadata, "version", lambda n: "0.0.test" if n == "mzlib" else real(n))
 
 
-def scan_headers(n_ms2=20):
-    """Synthetic .raw scan headers: one MS1 then n_ms2 Orbitrap HCD MS2, which is what the v1 QC gate
-    wants to see. Shared by the offline pipeline tests and the reprovenance tests."""
+def scan_headers(n_ms2=20, ms2_analyzer="Orbitrap", ms2_dissociation="HCD"):
+    """Synthetic .raw scan headers: one MS1 then n_ms2 MS2, Orbitrap HCD by default, which is what the
+    v1 QC gate wants to see. `ms2_analyzer="IonTrap2D"` reproduces the high-low method that failed
+    PXD060431 (S37): an Orbitrap MS1 with HCD fragments read out in the ion trap. Shared by the offline
+    pipeline tests and the reprovenance tests."""
     from types import SimpleNamespace
     order = [1] + [2] * n_ms2
     return SimpleNamespace(scan_count=len(order), columns={
-        "ms_order": order, "mz_analyzer": ["Orbitrap"] * len(order),
-        "dissociation_type": [""] + ["HCD"] * n_ms2, "retention_time": [float(i) for i in range(len(order))],
+        "ms_order": order, "mz_analyzer": ["Orbitrap"] + [ms2_analyzer] * n_ms2,
+        "dissociation_type": [""] + [ms2_dissociation] * n_ms2,
+        "retention_time": [float(i) for i in range(len(order))],
         "selected_ion_charge_state_guess": [0] + [2] * n_ms2})
 
 

@@ -195,6 +195,28 @@ def test_contaminant_database_can_be_overridden(layout, work, tmp_path):
     assert any("overridden" in n for n in rec.get("notes", []))
 
 
+def test_search_type_is_written_and_validated(layout, work):
+    """ClassicSearch is intractable at a wide fragment tolerance (S38), so the mode is selectable -
+    and a typo must refuse rather than silently leave Classic in place."""
+    L = layout
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    work.write(search={**work.params()["search"], "search_type": "Modern"})
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    toml = (L.run / "04_search" / "tasks" / "3_SearchTask.toml").read_text(encoding="utf-8")
+    assert 'SearchType = "Modern"' in toml
+    assert prov(L.run / "04_search")["search_type"] == "Modern"
+
+
+def test_search_type_refuses_a_value_metamorpheus_does_not_have(layout, work):
+    L = layout
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    work.write(search={**work.params()["search"], "search_type": "Fast"})
+    with pytest.raises(SystemExit, match="search_type"):
+        search_mm.main(L.params, str(L.spectra), str(L.run / "04_search"))
+
+
 def test_search_refuses_a_different_metamorpheus_release(layout, monkeypatch):
     L = layout
     stage(db_prepare.main, L.params, str(L.root / "db"))

@@ -26,6 +26,7 @@ TOML = {
     "CalibrationTask.toml": "TaskType = \"Calibrate\"\n[CommonParameters]\nMaxThreadsToUsePerFile = 1\n" + TOLERANCES,
     "GptmdTask.toml": "TaskType = \"Gptmd\"\n[CommonParameters]\nMaxThreadsToUsePerFile = 1\n" + TOLERANCES,
     "SearchTask.toml": "TaskType = \"Search\"\n[SearchParameters]\nMatchBetweenRuns = false\n"
+                       "SearchType = \"Classic\"\n"
                        "[CommonParameters]\nMaxThreadsToUsePerFile = 1\n" + TOLERANCES,
 }
 

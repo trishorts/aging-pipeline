@@ -120,6 +120,7 @@ peaks, which are Orbitrap here, and identification from ion-trap HCD is sound �
 | `max_threads` | int | `32` | Written into every task's `MaxThreadsToUsePerFile`. The provenance flags `low_core_use` when the average is under half of this |
 | `match_between_runs` | bool | `true` | Written into the search task's `MatchBetweenRuns`. It's within one dataset only, because each run is one accession |
 | `product_mass_tolerance` | string | *(optional; MetaMorpheus's default)* | Written into **every** task's `ProductMassTolerance`, in MetaMorpheus's own spelling — `"±0.5000 Absolute"` or `"±20.0000 PPM"`. See below |
+| `search_type` | `Classic` · `Modern` · `NonSpecific` | *(optional; MetaMorpheus's default, `Classic`)* | Written into the search task's `SearchType`. An unknown value is **refused**. See below |
 | `precursor_mass_tolerance` | string | *(optional; MetaMorpheus's default)* | The same, for `PrecursorMassTolerance` |
 | `exclude_files` | list of names | *(optional)* | Spectra file names to leave out of the search. Every name must exist in the spectra directory, or the stage **refuses** — a typo would otherwise silently search everything. Pair it with `exclude_files_why` |
 | `exclude_files_why` | string | *(optional)* | Why those files are excluded. Copied into `provenance.json` beside the names |
@@ -157,6 +158,14 @@ A hard cutoff at exactly the configured tolerance means the tolerance, not the d
 carries a `ProductMassTolerance_LowRes` of `±0.3500 Absolute` in the same file and did **not** select it
 for this data; these keys do not touch that line, and whether the engine should choose it on its own is
 an upstream question.
+
+**A wide tolerance can outgrow `Classic` search.** `Classic` scores every candidate peptide against
+every spectrum, which is fine at a high-resolution tolerance and can be intractable at a wide one. On
+PXD060431's ion-trap spectra (~1,000 peaks per MS2) at `±0.5000 Absolute`, it searched 22 files in
+192 seconds and then spent hours on the 23rd at 52 sustained cores — three times over, with GPTMD and
+without it, on a different file each time, where each of those files had searched in ~7 seconds in
+another run. The cost is the candidate space, not any one file. `search_type = "Modern"` indexes
+fragments instead and is the mode meant for this case.
 
 **Override only what is wrong.** On PXD060431 the MS1 is Orbitrap and the measured precursor error is
 tight (median −3.11 ppm), so `precursor_mass_tolerance` is left alone and only the product tolerance is

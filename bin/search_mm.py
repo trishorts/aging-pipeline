@@ -22,6 +22,7 @@ from pathlib import Path
 from provenance import Provenance, file_entry, sha256
 
 TASK_FILE = {"Calibration": "CalibrationTask.toml", "Gptmd": "GptmdTask.toml", "Search": "SearchTask.toml"}
+SEARCH_TYPES = {"Classic", "Modern", "NonSpecific"}
 
 
 MBR_FDR_THRESHOLD = 0.01   # SearchParameters.MbrFdrThreshold default; not yet read from the TOML
@@ -216,6 +217,19 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
         if task == "Search":
             mbr = "true" if p["match_between_runs"] else "false"
             text = re.sub(r"^MatchBetweenRuns = \w+", f"MatchBetweenRuns = {mbr}", text, flags=re.M)
+            # `Classic` scores every candidate peptide against every spectrum. That is fine for a
+            # high-resolution fragment tolerance and intractable for a wide one: on PXD060431's
+            # ion-trap spectra (~1,000 peaks per MS2) at ±0.5 Da it searched 22 files in 192 s and
+            # then spent hours on the 23rd, at 52 sustained cores, three times over (S38). `Modern`
+            # indexes fragments instead, which is the mode built for exactly that case.
+            st = p.get("search_type")
+            if st:
+                if st not in SEARCH_TYPES:
+                    sys.exit(f"search.search_type must be one of {sorted(SEARCH_TYPES)}, not {st!r}")
+                text, n = re.subn(r'^SearchType = ".*"$', f'SearchType = "{st}"', text, flags=re.M)
+                if n != 1:
+                    sys.exit(f"search_type: expected exactly one SearchType line in {src.name}, replaced {n}")
+                prov.rec["search_type"] = st
         # Optional mass-tolerance overrides, applied to EVERY task. MetaMorpheus's defaults assume
         # high-resolution fragments; on a low-resolution MS2 dataset they silently identify only the
         # small subset that happens to fall inside a high-res window, and calibration fails outright

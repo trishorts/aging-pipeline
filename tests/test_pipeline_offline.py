@@ -6,6 +6,7 @@ tests/fake_metamorpheus.py. The test checks the wiring between stages: directory
 provenance links, refusal rules, the success check, and the measurements and flags in provenance.json.
 """
 import json
+from pathlib import Path
 
 import pytest
 
@@ -150,6 +151,48 @@ def test_no_tolerance_override_leaves_the_defaults_and_records_nothing(layout):
     stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
     assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
     assert "tolerance_overrides" not in prov(L.run / "04_search")
+
+
+def test_exclude_files_drops_named_spectra_and_records_the_hole(layout, work):
+    """An exclusion is a hole in the dataset, so it must be named rather than inferred, and it must
+    appear in provenance. PXD060431's HumanHFreducedEF_5 is why this exists (S38)."""
+    L = layout
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    work.write(search={**work.params()["search"], "exclude_files": ["b.raw"],
+                       "exclude_files_why": "stalled in ClassicSearchEngine"})
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    rec = prov(L.run / "04_search")
+    assert rec["excluded_files"]["files"] == ["b.raw"]
+    assert "stalled" in rec["excluded_files"]["reason"]
+    searched = [Path(a).name for a in rec["commands"][-1]]
+    assert "a.raw" in searched and "b.raw" not in searched
+
+
+def test_exclude_files_refuses_a_name_that_is_not_there(layout, work):
+    """A typo in an exclusion list would silently search everything. Refuse instead."""
+    L = layout
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    work.write(search={**work.params()["search"], "exclude_files": ["typo.raw"]})
+    with pytest.raises(SystemExit, match="not in"):
+        search_mm.main(L.params, str(L.spectra), str(L.run / "04_search"))
+
+
+def test_contaminant_database_can_be_overridden(layout, work, tmp_path):
+    """A Search-only re-run must be able to use GPTMD's augmented contaminant database, or the
+    contamination metrics stop being comparable with the full chain's."""
+    L = layout
+    gptmd_contam = tmp_path / "MetaMorpheusContaminantsGPTMD.xml"
+    gptmd_contam.write_text("<uniprot><entry/></uniprot>", encoding="utf-8")
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    work.write(database={**work.params()["database"], "contaminants": str(gptmd_contam)})
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    rec = prov(L.run / "04_search")
+    assert str(gptmd_contam) in rec["commands"][-1]
+    assert not any(a.endswith("MetaMorpheusContaminants.xml") for a in rec["commands"][-1])
+    assert any("overridden" in n for n in rec.get("notes", []))
 
 
 def test_search_refuses_a_different_metamorpheus_release(layout, monkeypatch):

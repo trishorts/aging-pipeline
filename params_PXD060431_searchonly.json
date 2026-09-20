@@ -1,0 +1,117 @@
+{
+  "_comment": "Prototype params (aging D5-b: every choice is a versioned file). Nextflow reads the same file via -params-file.",
+  "run_date": "2026-09-19",
+  "work_root": "F:/aging_data",
+  "discover": {
+    "keywords": [
+      "aging",
+      "ageing",
+      "senescence",
+      "longevity"
+    ],
+    "organism": "Homo sapiens (human)",
+    "require_sdrf_file": false,
+    "thermo_instrument_patterns": [
+      "Q Exactive",
+      "Orbitrap",
+      "Exploris",
+      "Fusion",
+      "Lumos",
+      "Eclipse",
+      "LTQ",
+      "Velos",
+      "Elite"
+    ],
+    "orbitrap_ms2_only_patterns": [
+      "Q Exactive",
+      "Exploris"
+    ],
+    "hybrid_patterns": [
+      "Velos",
+      "Elite",
+      "Fusion",
+      "Lumos",
+      "Eclipse",
+      "Orbitrap XL",
+      "Orbitrap Tribrid"
+    ],
+    "dia_patterns": [
+      "data-independent",
+      "DIA-NN",
+      "DIANN",
+      "SWATH",
+      "Spectronaut",
+      "diaPASEF",
+      "dia-PASEF",
+      "\\bDIA\\b",
+      "Astral"
+    ],
+    "label_patterns": [
+      "\\bTMT",
+      "tandem mass tag",
+      "iTRAQ",
+      "isobaric",
+      "SILAC",
+      "TMTpro",
+      "dimethyl label"
+    ],
+    "timeout_s": 300
+  },
+  "fetch": {
+    "accession": "PXD060431",
+    "max_files": 30,
+    "pick": "all",
+    "parallel_downloads": 6,
+    "max_file_mb": 2000,
+    "extension": ".raw",
+    "timeout_s": 3600
+  },
+  "qc": {
+    "_rule": "v1 keeps only high-res HCD with MS2 read in the Orbitrap (user, 2026-09-18)",
+    "min_fraction_orbitrap_hcd": 0.9,
+    "min_ms2": 5000,
+    "timeout_s": 1800,
+    "acquisition_exception": {
+      "reason": "All 30 files are high-low: MS1 in the Orbitrap (FTMS + c NSI Full ms) but every one of 1,309,117 MS2 scans is IonTrap2D/HCD (ITMS + c NSI r d Full ms2 <mz>@hcd33.00) - HCD fragmentation read out in the ion trap at rapid scan rate, so fraction_orbitrap_hcd is exactly 0.0000 in every file. The deposited SDRF says Orbitrap Exploris 480, which has no ion trap and cannot emit an ITMS scan, so the instrument metadata is wrong and discovery could not have caught it (S37). MS2 counts (29,141-53,233) and run lengths (a uniform 58 min) are healthy: the acquisition is sound, it is just not the one the v1 rule allows.",
+      "granted_by": "user",
+      "granted_date": "2026-09-20",
+      "waives": [
+        "low_res_ms2"
+      ],
+      "restricts_to": [
+        "abundance"
+      ],
+      "bars": [
+        "ptm_stoichiometry",
+        "ptm_site_localization"
+      ],
+      "rationale": "Quantification reads MS1 peaks, which ARE Orbitrap here, and peptide identification from ion-trap HCD is sound - so abundance-level age effects are well founded. What low-resolution MS2 costs is fragment mass accuracy, and therefore confidence in WHERE a modification sits. This dataset is the only one in the corpus carrying donor ages (20 of 30 files, with sex), so it is the only one that can produce an age_effect row at all; admitting it for abundance and barring it from site-level PTM claims takes the part the data supports and refuses the part it does not."
+    }
+  },
+  "database": {
+    "uniprot_xml": "E:/CodeReview/go/data/raw/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml.gz",
+    "prepared": "F:/aging_data/run_2026-09-19/PXD060431/04_search_lowres_stalled/mm/Task2GptmdTask/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18GPTMD.xml",
+    "include_contaminants": true,
+    "contaminants": "F:/aging_data/run_2026-09-19/PXD060431/04_search_lowres_stalled/mm/Task2GptmdTask/MetaMorpheusContaminantsGPTMD.xml"
+  },
+  "search": {
+    "metamorpheus_cmd": "F:/ClaudeTestBuilds/aging/MetaMorpheus-1.1.11/CMD.exe",
+    "metamorpheus_version": "1.1.11",
+    "accept_thermo_licence": true,
+    "tasks": [
+      "Search"
+    ],
+    "max_threads": 32,
+    "product_mass_tolerance": "±0.5000 Absolute",
+    "_product_mass_tolerance_why": "S38. The first search of this dataset used MetaMorpheus's default ProductMassTolerance of ±20 PPM, which is a high-resolution tolerance, and every one of 39,579 matched ions in a 4,000-PSM sample fell inside ±20 ppm with a hard cutoff there - so only the small biased subset of ion-trap fragments that happened to land in a high-res window could match at all. The result was a 2.27% ID rate, a calibration failure on all 30 files, and MBR-kept exceeding MS/MS peaks. MetaMorpheus ships ProductMassTolerance_LowRes = ±0.3500 Absolute beside the default and did not select it. ±0.5 Da is the conventional ion-trap fragment tolerance and is deliberately a little looser than MetaMorpheus's own low-res value, because these are rapid-scan-rate ion-trap spectra. The precursor tolerance is NOT overridden: MS1 is Orbitrap here and the measured precursor error is tight (median -3.11 ppm, 1st-99th -4.95 to +531 ppm, the tail being isotope errors), so the default ±5 PPM is correct. This is a deviation from the pinned engine's defaults under D12 and is recorded in provenance as tolerance_overrides.",
+    "match_between_runs": true,
+    "flag_min_id_rate": 0.15,
+    "flag_max_contaminant_intensity_share": 0.05,
+    "timeout_s": 21600,
+    "exclude_files": [
+      "HumanHFreducedEF_5.raw"
+    ],
+    "exclude_files_why": "Stalled in ClassicSearchEngine for >90 min against ~7 s for every other file, under ProductMassTolerance = +/-0.5000 Absolute. Not a corrupt download: sha256 matches the fetch manifest and peaks/MS2 median 1,072 vs 1,023 for the adjacent HumanHFreducedEF_2. Cause unknown; reported upstream."
+  },
+  "_run": "SEARCH-ONLY RE-RUN (S38). The full chain of 2026-09-20 stalled: HumanHFreducedEF_5 sat in ClassicSearchEngine for over 90 minutes while its 25 predecessors took ~7 s each, on 48 cores, with no progress emitted. The file is NOT a bad download - its bytes hash to the download record and its peak data is indistinguishable from HumanHFreducedEF_2, which searched in 7 s. It is excluded and the search is re-run alone against the GPTMD database that run already wrote, so calibration (16 min, failed anyway) and GPTMD (44 min) are not repeated. HumanHFreducedEF_5 is in the systolic-heart-failure arm, which carries no age or sex metadata, so the age axis is unaffected."
+}

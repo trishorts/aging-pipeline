@@ -246,6 +246,21 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     settings = Path(params["work_root"]) / "mm_settings" / release
     settings.parent.mkdir(parents=True, exist_ok=True)
     spectra_files = sorted(Path(spectra).glob("*.raw")) if Path(spectra).is_dir() else [Path(spectra)]
+    # Named files can be excluded from a search. This is for a file that cannot be searched rather
+    # than one you would rather not search: PXD060431's HumanHFreducedEF_5 sat in ClassicSearchEngine
+    # for over 90 minutes while its 25 predecessors took 7 seconds each, on a file whose bytes hash to
+    # the download record and whose peak data is indistinguishable from its neighbours' (S38). An
+    # exclusion is a hole in the dataset, so it is named, recorded in provenance and never inferred.
+    excluded = list(params["search"].get("exclude_files") or [])
+    if excluded:
+        missing = sorted(set(excluded) - {f.name for f in spectra_files})
+        if missing:
+            sys.exit(f"search.exclude_files names {missing}, which are not in {spectra}")
+        spectra_files = [f for f in spectra_files if f.name not in excluded]
+        if not spectra_files:
+            sys.exit("search.exclude_files excluded every file")
+        prov.rec["excluded_files"] = {"files": sorted(excluded),
+                                      "reason": params["search"].get("exclude_files_why", "")}
     qc = out.parent / "02b_qc" / "qc_report.json"
     if not qc.exists():
         sys.exit(f"no QC report at {qc}: run qc_spectra.py first (v1 requires high-res Orbitrap HCD MS2)")
@@ -275,10 +290,17 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     # the databases passed with -d. Without it, keratins, trypsin, serum albumin etc. have nowhere to match.
     dbs = [db]
     if params["database"].get("include_contaminants", True):
-        contam = cmd.parent / "Contaminants" / "MetaMorpheusContaminants.xml"
+        # `contaminants` overrides the shipped file. It exists so that a Search-only re-run can use
+        # the GPTMD task's own augmented contaminant database, which is the one the full chain would
+        # have searched — pointing a re-run at the shipped file instead would quietly drop every
+        # contaminant modification GPTMD discovered and make the contamination metrics incomparable.
+        override = params["database"].get("contaminants")
+        contam = Path(override) if override else cmd.parent / "Contaminants" / "MetaMorpheusContaminants.xml"
         if not contam.exists():
             sys.exit(f"contaminant database missing at {contam}")
         dbs.append(str(contam))
+        if override:
+            prov.note(f"contaminant database overridden: {contam}")
     else:
         prov.note("contaminant database NOT included (params.database.include_contaminants = false)")
     prov.inputs(*spectra_files, *dbs)

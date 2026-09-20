@@ -106,6 +106,7 @@ peaks, which are Orbitrap here, and identification from ion-trap HCD is sound �
 | `uniprot_xml` | path | — | The source proteome, UniProt XML, `.xml` or `.xml.gz` |
 | `prepared` | path | — | **Must be** `<work_root>/db/<uniprot_xml's name without .gz>`, which is where stage 0 writes it. Stage 4 searches this file |
 | `include_contaminants` | bool | `true` | Also search MetaMorpheus's shipped `Contaminants/MetaMorpheusContaminants.xml`. Turning it off is for controlled experiments only, and a note records it |
+| `contaminants` | path | *(optional)* | Use this contaminant database instead of the shipped one. Needed when re-running only the Search task against a GPTMD database: the GPTMD task writes its own augmented `MetaMorpheusContaminantsGPTMD.xml`, and searching the shipped file instead would drop every contaminant modification GPTMD found and make the contamination metrics incomparable with a full-chain run |
 
 ## `search` (stage 4)
 
@@ -120,6 +121,8 @@ peaks, which are Orbitrap here, and identification from ion-trap HCD is sound �
 | `match_between_runs` | bool | `true` | Written into the search task's `MatchBetweenRuns`. It's within one dataset only, because each run is one accession |
 | `product_mass_tolerance` | string | *(optional; MetaMorpheus's default)* | Written into **every** task's `ProductMassTolerance`, in MetaMorpheus's own spelling — `"±0.5000 Absolute"` or `"±20.0000 PPM"`. See below |
 | `precursor_mass_tolerance` | string | *(optional; MetaMorpheus's default)* | The same, for `PrecursorMassTolerance` |
+| `exclude_files` | list of names | *(optional)* | Spectra file names to leave out of the search. Every name must exist in the spectra directory, or the stage **refuses** — a typo would otherwise silently search everything. Pair it with `exclude_files_why` |
+| `exclude_files_why` | string | *(optional)* | Why those files are excluded. Copied into `provenance.json` beside the names |
 | `flag_min_id_rate` | float 0–1 | `0.15` (optional key) | Flag `low_id_rate` when PSMs at 1% FDR ÷ MS2 scans fall below this |
 | `flag_max_contaminant_intensity_share` | float 0–1 | `0.05` (optional key) | Flag `high_contamination` when any file's contaminant share of protein intensity exceeds this |
 | `timeout_s` | int | `21600` | Intended as the maximum wall time for MetaMorpheus, but **not enforced yet**: a hung process isn't killed. Under Nextflow, set a process `time` limit |

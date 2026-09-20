@@ -202,6 +202,7 @@ python bin/search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
   waives (a report written before `fail_reasons` existed has no waivable reason, so it refuses);
 - a `search.product_mass_tolerance` or `search.precursor_mass_tolerance` override is set but its
   key is not found exactly once in a generated task TOML — silently changing nothing would be worse;
+- `search.exclude_files` names a file that is not in the spectra directory, or excludes all of them;
 - contaminants are on but MetaMorpheus's shipped `Contaminants/MetaMorpheusContaminants.xml` is missing.
 
 **What it does.**

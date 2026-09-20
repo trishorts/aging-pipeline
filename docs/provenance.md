@@ -14,6 +14,7 @@ settings, and at what cost?* The schema identifier is `aging-provenance/3`.
 - [ID rate](#id-rate)
 - [Match-between-runs](#match-between-runs)
 - [Contamination](#contamination)
+- [The definition register](#the-definition-register)
 - [Re-deriving an old record](#re-deriving-an-old-record)
 - [Automatic flags](#automatic-flags)
 
@@ -127,7 +128,8 @@ provenance keeps both, each with its own definition:
 ### Reproducing `psms_1pct` from `AllPSMs.psmtsv`
 
 A reader that wants to rebuild the canonical count from the PSM table needs **four** conditions, not
-three:
+three — and even then it is an **approximation**, for a reason given under
+[the register](#the-definition-register) and measured below:
 
 | Condition | Why |
 |---|---|
@@ -162,7 +164,43 @@ FDR calculation per file** (`WriteIndividualPsmResults` re-runs `CalculatePsmAnd
 file's PSMs), so they are not a partition of the dataset-level count and must not be summed: the 18
 per-file lines here total 26,746.
 
-All of the above was checked against MetaMorpheus 1.1.11's source and against this run's output.
+### How close the reproduction actually gets
+
+The four-condition predicate reproduces the canonical PSM count **exactly on the run it was derived
+from**, and not on every run. Measured on three datasets, all MetaMorpheus 1.1.11, against the
+`results.txt` summary lines:
+
+| Dataset | PSMs (predicate − canonical) | Peptides (predicate − canonical) | Protein groups |
+|---|---:|---:|---:|
+| PXD036557 (18 files) | **0** | **0** | 0 |
+| PXD027318 (18 files) | **−14** | **+2** | 0 |
+| PXD032202 (21 files) | **−6** | **−3** | 0 |
+
+So the error is small, but it is **not one-directional**, and a predicate that is short on one dataset
+can be over on another. Two separate mechanisms are at work and they pull opposite ways:
+
+- **Deficits** come from the ambiguous-notch family described above: MetaMorpheus counts the
+  unresolved in-memory value while the writer deliberately writes the best hypothesis's, so rows that
+  the producer rejected look like they pass, and rows it accepted can look like they fail.
+- **Overshoots** come from **printing**. `QValue` is written to six decimals, so a true q-value
+  anywhere in (0.01, 0.0100005) prints as `0.010000` — it satisfies any file-side `<= 0.01` test while
+  the producer's count, reading the unrounded double, rejects it. This can only ever overshoot.
+
+The prediction that follows was checked and held on all three datasets: counting rows that pass the
+predicate and print `QValue` as exactly `0.010000` gives **0, 4 and 0** respectively — an overshoot
+occurred only where such rows exist, and never exceeded their count.
+
+The general statement, which is not specific to MetaMorpheus:
+
+> **No file-side predicate can reproduce a count whose threshold coincides with a printable value.**
+> The writer rounds; the counter does not.
+
+**So `aging:DEF-PSM-1PCT` is defined as the `results.txt` summary line, and the predicate is an
+approximation of it.** The canonical number is always the producer's. A consumer that selects rows
+with the predicate should expect a small disagreement with the headline and report it rather than
+reconcile it away.
+
+All of the above was checked against MetaMorpheus 1.1.11's source and against these runs' output.
 
 ## Match-between-runs
 
@@ -202,6 +240,49 @@ two shares:
 | `intensity_share_median`, `intensity_share_min`, `intensity_share_max` | The spread across files. **Read these before the dataset total.** On PXD036557 the dataset-level share is 7.0% while the per-file values run **2.6% to 18.9%**, and the high files are one cell line — a single total hides that completely |
 | `intensity_share_definition` | `QuantProject DEF-QC-9 v2`. Intensity metrics are QuantProject's; this is their contaminant intensity fraction (PSI MS:4000177) |
 | `top` | The five contaminant protein groups with the most summed intensity, named "protein name (organism)". Groups sharing a name and organism are merged |
+
+## The definition register
+
+Every number this pipeline reports carries a **definition ID**, namespaced `<owner>:<ID> v<n>`. The
+owner is whoever gets to change the meaning: `aging` for the counts below, `QuantProject` for the
+quantitative ones, and a consumer never redefines someone else's number.
+
+**Every definition states its grain**, and that is not decoration. The rule, which a repository
+consumer asked us to make explicit after finding it only in prose:
+
+> **A number is stored at the grain at which it was measured. Never coarser, and never finer.**
+
+*Never coarser*, because aggregating destroys structure that cannot be recovered: PXD036557's
+dataset-level contaminant intensity share is 7.0%, while its per-file values run 2.6% to 18.9% and the
+high ones are a single cell line. Storing only the total hides that completely.
+
+*Never finer*, because splitting invents a number the producer never computed. `results.txt` prints
+per-file PSM and peptide lines, and the tables under `Individual File Results/` come from a **separate
+FDR calculation per file** — they are not a partition of the dataset-level count and must never be
+summed. On the 18-file PXD036557 run they total 26,746 against a dataset figure of 26,582.
+
+It follows that **two grains of one quantity are two definitions**, not one metric queried
+differently. A dataset-level contaminant intensity share is not `DEF-QC-9` rolled up; it is a
+different quantity, and it would need its own ID and a stated weighting — note that the unweighted
+mean of ratios is not the ratio of sums.
+
+| Definition | Grain | What it counts |
+|---|---|---|
+| `aging:DEF-PSM-1PCT v1` | **dataset** | `results.txt`'s summary line `All target PSMs with q-value <= 0.01`. Target only, contaminants excluded. Reproducing it from `AllPSMs.psmtsv` needs four conditions — see [ID rate](#id-rate) — and that reproduction is an **approximation**, not a definition |
+| `aging:DEF-PSM-FDRENGINE v1` | **dataset** | The FDR engine's `PSMs within 1% FDR` log line. Higher, and appears to include contaminants. Recorded for comparison; never reported |
+| `aging:DEF-PEPTIDE-1PCT v1` | **dataset** | `All target peptides with q-value <= 0.01`, at peptide-level FDR, one row per full sequence |
+| `aging:DEF-PROTEINGROUP-1PCT v1` | **dataset** | `Protein QValue <= 0.01` and not decoy. **Contaminant groups are counted**, unlike the PSM and peptide lines |
+| `aging:DEF-MS2 v1` | **run**, summed to dataset for reporting | MS2 scans, from the QC report. Verified equal to MetaMorpheus's own `All MS2 Scans` line |
+| `aging:DEF-RUN-MINUTES v1` | **run** | The largest retention time in the file. Never a dataset figure |
+| `aging:DEF-PRECURSORS v1` | **run**, summed to dataset for reporting | Precursor envelopes, **not** precursor scans |
+| `aging:DEF-CONTAM-PSM v1` | **dataset** | Contaminant PSMs ÷ (target + contaminant) PSMs at q ≤ 0.01, decoys excluded. An ambiguous `C\|T` counts as not-contaminant and stays in the denominator |
+| `QuantProject:DEF-QC-9 v2` | **run** | Contaminant ÷ (target + contaminant) protein-group apex intensity, **per file**. The median/min/max this pipeline also records are named as *summaries of the per-run values*, and are not a dataset-level measurement of the same quantity |
+| `QuantProject:DEF-QC-MBR v1` | **dataset** | The MBR block's counting rule; its "kept" rule is `DEF-MBR-KEPT v1` (count `QuantProject` kept peaks only — the peaks table is unfiltered) |
+
+**Why `DEF-MS2` and `DEF-PRECURSORS` say "run, summed to dataset"** and `DEF-PSM-1PCT` does not: a scan
+count *is* a partition. Every MS2 scan belongs to exactly one file, so the dataset figure is the sum
+and nothing is invented. A 1% FDR count is not a partition, because the FDR is recomputed on each
+subset. The distinction is the whole rule in one line.
 
 ## Re-deriving an old record
 

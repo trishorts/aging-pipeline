@@ -1,0 +1,97 @@
+{
+  "_comment": "Prototype params (aging D5-b: every choice is a versioned file). Nextflow reads the same file via -params-file.",
+  "run_date": "2026-09-19",
+  "work_root": "F:/aging_data",
+  "discover": {
+    "keywords": [
+      "aging",
+      "ageing",
+      "senescence",
+      "longevity"
+    ],
+    "organism": "Homo sapiens (human)",
+    "require_sdrf_file": false,
+    "thermo_instrument_patterns": [
+      "Q Exactive",
+      "Orbitrap",
+      "Exploris",
+      "Fusion",
+      "Lumos",
+      "Eclipse",
+      "LTQ",
+      "Velos",
+      "Elite"
+    ],
+    "orbitrap_ms2_only_patterns": [
+      "Q Exactive",
+      "Exploris"
+    ],
+    "hybrid_patterns": [
+      "Velos",
+      "Elite",
+      "Fusion",
+      "Lumos",
+      "Eclipse",
+      "Orbitrap XL",
+      "Orbitrap Tribrid"
+    ],
+    "dia_patterns": [
+      "data-independent",
+      "DIA-NN",
+      "DIANN",
+      "SWATH",
+      "Spectronaut",
+      "diaPASEF",
+      "dia-PASEF",
+      "\\bDIA\\b",
+      "Astral"
+    ],
+    "label_patterns": [
+      "\\bTMT",
+      "tandem mass tag",
+      "iTRAQ",
+      "isobaric",
+      "SILAC",
+      "TMTpro",
+      "dimethyl label"
+    ],
+    "timeout_s": 300
+  },
+  "fetch": {
+    "accession": "PXD027318",
+    "max_files": 18,
+    "pick": "all",
+    "parallel_downloads": 6,
+    "_max_file_mb": "PXD027318's three largest raw files are 1.62-1.63 GB, so the 1500 MB ceiling used for PXD036557 would have silently dropped Q2, Q3 and P1 - three of the six files of the quiescence arm. Raised to admit all 18.",
+    "max_file_mb": 2000,
+    "extension": ".raw",
+    "timeout_s": 3600
+  },
+  "qc": {
+    "_rule": "v1 keeps only high-res HCD with MS2 read in the Orbitrap (user, 2026-09-18)",
+    "min_fraction_orbitrap_hcd": 0.9,
+    "min_ms2": 5000,
+    "timeout_s": 1800
+  },
+  "database": {
+    "uniprot_xml": "E:/CodeReview/go/data/raw/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml.gz",
+    "prepared": "F:/aging_data/db/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+    "include_contaminants": true
+  },
+  "search": {
+    "metamorpheus_cmd": "F:/ClaudeTestBuilds/aging/MetaMorpheus-1.1.11/CMD.exe",
+    "metamorpheus_version": "1.1.11",
+    "accept_thermo_licence": true,
+    "tasks": [
+      "Calibration",
+      "Gptmd",
+      "Search"
+    ],
+    "max_threads": 32,
+    "match_between_runs": true,
+    "flag_min_id_rate": 0.15,
+    "flag_max_contaminant_intensity_share": 0.05,
+    "timeout_s": 21600
+  },
+  "_run": "Second dataset. PXD027318, 'Senescence Biomarker Discovery by LC-MS-based Proteomics' (Delfarah et al.): 18 raw, 20.4 GB, primary human mammary epithelial cells (HMEC), WHOLE CELL LYSATE, label-free DDA, Q Exactive Plus. Chosen to complement PXD036557: same size and instrument family, but an unfractionated whole-cell proteome (so GO/organelle mapping is not distorted by a subcellular fraction) and three independent routes into senescence - replicative (A-sen/C-sen vs D-young/H-young), telomerase immortalisation (E-hTERT vs E-Luc) and quiescence (Q1-3 vs P1-3). The conditions are readable from the file names, which is the G2 no-design fallback this pipeline will need. NOTE: the 18 files span three acquisition dates (2017-11-20, 2018-01-02, 2021-05-17) with visibly different gradient lengths, so batch structure is expected and MBR across the three arms should be treated with suspicion."
+}

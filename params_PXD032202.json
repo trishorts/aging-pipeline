@@ -1,0 +1,96 @@
+{
+  "_comment": "Prototype params (aging D5-b: every choice is a versioned file). Nextflow reads the same file via -params-file.",
+  "run_date": "2026-09-19",
+  "work_root": "F:/aging_data",
+  "discover": {
+    "keywords": [
+      "aging",
+      "ageing",
+      "senescence",
+      "longevity"
+    ],
+    "organism": "Homo sapiens (human)",
+    "require_sdrf_file": false,
+    "thermo_instrument_patterns": [
+      "Q Exactive",
+      "Orbitrap",
+      "Exploris",
+      "Fusion",
+      "Lumos",
+      "Eclipse",
+      "LTQ",
+      "Velos",
+      "Elite"
+    ],
+    "orbitrap_ms2_only_patterns": [
+      "Q Exactive",
+      "Exploris"
+    ],
+    "hybrid_patterns": [
+      "Velos",
+      "Elite",
+      "Fusion",
+      "Lumos",
+      "Eclipse",
+      "Orbitrap XL",
+      "Orbitrap Tribrid"
+    ],
+    "dia_patterns": [
+      "data-independent",
+      "DIA-NN",
+      "DIANN",
+      "SWATH",
+      "Spectronaut",
+      "diaPASEF",
+      "dia-PASEF",
+      "\\bDIA\\b",
+      "Astral"
+    ],
+    "label_patterns": [
+      "\\bTMT",
+      "tandem mass tag",
+      "iTRAQ",
+      "isobaric",
+      "SILAC",
+      "TMTpro",
+      "dimethyl label"
+    ],
+    "timeout_s": 300
+  },
+  "fetch": {
+    "accession": "PXD032202",
+    "max_files": 21,
+    "pick": "all",
+    "parallel_downloads": 6,
+    "max_file_mb": 2000,
+    "extension": ".raw",
+    "timeout_s": 3600
+  },
+  "qc": {
+    "_rule": "v1 keeps only high-res HCD with MS2 read in the Orbitrap (user, 2026-09-18)",
+    "min_fraction_orbitrap_hcd": 0.9,
+    "min_ms2": 5000,
+    "timeout_s": 1800
+  },
+  "database": {
+    "uniprot_xml": "E:/CodeReview/go/data/raw/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml.gz",
+    "prepared": "F:/aging_data/db/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+    "include_contaminants": true
+  },
+  "search": {
+    "metamorpheus_cmd": "F:/ClaudeTestBuilds/aging/MetaMorpheus-1.1.11/CMD.exe",
+    "metamorpheus_version": "1.1.11",
+    "accept_thermo_licence": true,
+    "tasks": [
+      "Calibration",
+      "Gptmd",
+      "Search"
+    ],
+    "max_threads": 32,
+    "match_between_runs": true,
+    "flag_min_id_rate": 0.15,
+    "flag_max_contaminant_intensity_share": 0.05,
+    "timeout_s": 21600
+  },
+  "_run": "Third dataset. PXD032202, 'Global and comparative proteome signatures in the lens capsule, trabecular meshwork, and iris of patients with pseudoexfoliation glaucoma' (Sahay, Chakraborty & Rao, Front Mol Biosci 2022, PMID 35517867): 21 raw, 14.3 GB, Q Exactive, Top10 HCD, label-free DDA, WHOLE TISSUE and unfractionated. Chosen to complement PXD036557 and PXD027318, which are both cell culture: this is PRIMARY HUMAN TISSUE and it carries THREE tissues (lens capsule, trabecular meshwork, iris) in one deposit, which is the first thing in the instance that can speak to Q-P3 (do organs age along different trajectories). Pseudoexfoliation glaucoma is strongly age-related and the lens capsule is a basement membrane, where matrix ageing shows. Groups are PARTLY readable from the file names and the naming is inconsistent: CONT1-3 and CONTROL_1-3 are both controls, PXG1-3 and PXG_1-3 are both glaucoma, PXF_1-3 is pseudoexfoliation without glaucoma. Worse, THE TISSUE IS NOT IN THE FILE NAME - it is implied only by the Sample_NN ranges (43-48, 49-54, 55-57, 88-93), which is four blocks for three tissues. So the tissue assignment cannot be recovered from the deposit alone and must not be guessed; the run is searched as one dataset and the tissue axis is recorded as unavailable. NOTE: donor ages are NOT stated in the deposit or the paper, so this still does not give the instance an age axis."
+}

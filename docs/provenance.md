@@ -276,6 +276,7 @@ mean of ratios is not the ratio of sums.
 | `aging:DEF-RUN-MINUTES v1` | **run** | The largest retention time in the file. Never a dataset figure |
 | `aging:DEF-PRECURSORS v1` | **run**, summed to dataset for reporting | Precursor envelopes, **not** precursor scans |
 | `aging:DEF-CONTAM-PSM v1` | **dataset** | Contaminant PSMs ÷ (target + contaminant) PSMs at q ≤ 0.01, decoys excluded. An ambiguous `C\|T` counts as not-contaminant and stays in the denominator |
+| `aging:DEF-CONTAM-PSM-RUN v1` | **run** | Contaminant PSMs ÷ (target + contaminant) PSMs at q ≤ 0.01, decoys excluded, **within one file**. An ambiguous `C\|T` counts as not-contaminant and stays in the denominator. This is **not** `DEF-CONTAM-PSM v1` measured per file: that one is a dataset figure, and the register's own rule is that a number is stored at the grain it was measured at. A per-file share is a different quantity and carries a different ID, for the same reason a dataset-level contaminant intensity share is not `DEF-QC-9` rolled up |
 | `QuantProject:DEF-QC-9 v2` | **run** | Contaminant ÷ (target + contaminant) protein-group apex intensity, **per file**. The median/min/max this pipeline also records are named as *summaries of the per-run values*, and are not a dataset-level measurement of the same quantity |
 | `QuantProject:DEF-QC-MBR v1` | **dataset** | The MBR block's counting rule; its "kept" rule is `DEF-MBR-KEPT v1` (count `QuantProject` kept peaks only — the peaks table is unfiltered) |
 

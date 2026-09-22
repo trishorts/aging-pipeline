@@ -2,3 +2,10 @@
 # MetaMorpheus (the search engine) is a separate download: see README.md, Requirements.
 mzlib==0.1.1        # pyMzLib: PRIDE client and .raw scan headers (no .NET install needed)
 psutil>=5.9         # CPU and memory accounting in provenance.json (optional; wall time only without it)
+
+# OPTIONAL. qc's report templates, used by stage 5 for the canonical histogram bin edges and
+# by `qctemplates render` to turn the payload into tables, figures and an HTML report. The stage
+# runs without it: it falls back to a vendored copy of the same edges and says so in the payload
+# and in provenance.json. There is no public index for it yet, so it installs from a checkout:
+#     pip install -e <path to the qc project>
+# Pin `qctemplates==0.1.0` once it has a published source.

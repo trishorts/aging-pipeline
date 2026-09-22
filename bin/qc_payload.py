@@ -23,7 +23,7 @@ usage: qc_payload.py <params.json> <search_dir> <qc_dir> <out_dir> [accession]
 `accession` may be omitted when the params file sets `fetch.accession`; older params leave it
 null and pass it on the command line, exactly as fetch.py takes it.
 """
-import csv, json, re, statistics, sys
+import bisect, csv, json, re, statistics, sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -33,11 +33,42 @@ from search_mm import MBR_FDR_THRESHOLD, classify_peak
 csv.field_size_limit(10_000_000)
 
 SCHEMA = "qc-payload/1"
-# Bin edges copied from qc's own fixtures so our reports are comparable with theirs (qc 006 asks
-# whether these are a rule or an example; until they say, we match them exactly).
-PRECURSOR_BINS = [(-10.0, 10.0), 0.5]
-FRAGMENT_BINS = [(-30.0, 30.0), 1.0]
+
+# The bin edges are qc's RULE, not our copy of a number (qc 007 §4, answering our 006). They own
+# `qctemplates.spec.canonical_edges(key, run_minutes)`, so we call it when qctemplates is installed
+# and fall back to a vendored copy when it is not.
+#
+# Why a fallback at all, rather than a hard dependency: qc has no git remote yet, so the only install
+# source is a checkout or a hand-passed wheel, and D5 says an operator who is not us must be able to
+# run this pipeline. A hard import would make a public pipeline undeployable to satisfy a histogram.
+# A payload binned by the fallback still validates and still renders - qc said so explicitly - it
+# just stops lining up with everyone else's figures, so the fallback ANNOUNCES ITSELF in
+# `dataset.notes` and in provenance rather than passing silently.
+_VENDORED_EDGES = {"precursor_ppm": (-10.0, 10.0, 0.5), "fragment_ppm": (-30.0, 30.0, 1.0)}
 IDS_OVER_RT_BINS = 36
+
+try:  # pragma: no cover - exercised by whichever half is installed
+    from qctemplates.spec import canonical_edges as _canonical_edges
+    EDGES_SOURCE = "qctemplates.spec.canonical_edges"
+except ImportError:
+    _canonical_edges = None
+    EDGES_SOURCE = "vendored copy (qctemplates not installed)"
+
+
+def _linear_edges(low, high, width):
+    n = int(round((high - low) / width))
+    return [round(low + i * width, 9) for i in range(n + 1)]
+
+
+def edges_for(key: str, run_minutes=None):
+    """qc's canonical edges for one distribution, or None when they are not defined."""
+    if _canonical_edges is not None:
+        return _canonical_edges(key, run_minutes)
+    if key in _VENDORED_EDGES:
+        return _linear_edges(*_VENDORED_EDGES[key])
+    if key == "ids_over_rt":
+        return _linear_edges(0.0, run_minutes, run_minutes / IDS_OVER_RT_BINS) if run_minutes else None
+    raise KeyError(key)
 # A metric is only as good as the definition it was computed under (D20, dataRepo U7).
 DEFINITIONS = {
     "psms": {"id": "aging:DEF-PSM-1PCT", "version": "v1", "source": "pipeline/docs/provenance.md"},
@@ -46,6 +77,22 @@ DEFINITIONS = {
     "ms2_scans": {"id": "aging:DEF-MS2", "version": "v1", "source": "pipeline/docs/provenance.md"},
     "msms_peaks": {"id": "QuantProject:DEF-QC-MBR", "version": "v1", "source": "QuantProject/design/DATA-DEFINITIONS.md"},
     "mbr_kept": {"id": "QuantProject:DEF-MBR-KEPT", "version": "v1", "source": "QuantProject/design/DATA-DEFINITIONS.md"},
+    # `pg_missing_frac` is DEF-QC-13's `_msms` variant (see parse_protein_groups). qc's schema forbids
+    # extra keys on a definition entry, so the variant is named in `source` - the one free field whose
+    # job is already "where the meaning is written" - and stated again in `dataset.notes`, which their
+    # report prints verbatim. A number whose variant is not on the page is a number nobody can check.
+    "pg_missing_frac": {"id": "QuantProject:DEF-QC-13", "version": "v1",
+                        "source": "QuantProject/design/DATA-DEFINITIONS.md - the _msms variant "
+                                  "(SpectralCount_ > 0), per file"},
+    # NOT `aging:DEF-CONTAM-PSM v1`, which our own register defines at DATASET grain. A per-file
+    # contaminant share is a different quantity at a different grain, and the register's own rule is
+    # that a number is stored at the grain it was measured at, never coarser and never finer. Pushing
+    # a dataset definition down to a file is the same error as rolling a run definition up, which we
+    # have already told qc and QuantProject we would not do. Raised with qc in our 009.
+    "contaminant_psm_share": {"id": "aging:DEF-CONTAM-PSM-RUN", "version": "v1",
+                              "source": "pipeline/docs/provenance.md"},
+    "contaminant_intensity_frac": {"id": "QuantProject:DEF-QC-9", "version": "v2",
+                                   "source": "QuantProject/design/DATA-DEFINITIONS.md"},
 }
 
 
@@ -81,17 +128,21 @@ def num(v):
     return None if f != f else f
 
 
-def histogram(values, lo, hi, width):
+def histogram(values, edges):
     """`{"edges": [...], "counts": [...]}` with len(edges) == len(counts) + 1, values CLIPPED into
     the range as the contract's fixtures do - a tail outside the axis is still a count, and dropping
-    it would quietly change the total."""
-    n = int(round((hi - lo) / width))
-    edges = [round(lo + i * width, 10) for i in range(n + 1)]
-    counts = [0] * n
+    it would quietly change the total.
+
+    Takes the edges rather than (lo, hi, width) so that qc's `canonical_edges` is the only place the
+    binning rule lives. `bisect` rather than arithmetic because edges we did not compute need not be
+    uniform, and a future non-uniform rule should not silently mis-bin here.
+    """
+    lo, hi = edges[0], edges[-1]
+    counts = [0] * (len(edges) - 1)
     for v in values:
-        i = int((min(max(v, lo), hi) - lo) / width)
-        counts[min(i, n - 1)] += 1
-    return {"edges": edges, "counts": counts}
+        i = bisect.bisect_right(edges, min(max(v, lo), hi)) - 1
+        counts[min(max(i, 0), len(counts) - 1)] += 1
+    return {"edges": list(edges), "counts": counts}
 
 
 def iqr(xs):
@@ -145,10 +196,20 @@ def parse_psms(path: Path, run_minutes: dict):
     error is offset by a neutron and would smear the distribution that exists to show calibration.
     """
     per = defaultdict(lambda: {"charges": Counter(), "missed": [0, 0], "notch": [0, 0],
-                               "prec": [], "frag": [], "rts": []})
+                               "prec": [], "frag": [], "rts": [], "contam": [0, 0]})
     with path.open(newline="", encoding="utf-8") as fh:
         for row in csv.DictReader(fh, delimiter="\t"):
-            if (row.get("Decoy/Contaminant/Target") or "").strip() != "T":
+            td = (row.get("Decoy/Contaminant/Target") or "").strip()
+            # M13 counts the contaminant share BEFORE the target-only filter, over the same
+            # q <= 0.01 population, because its denominator is target + contaminant. An
+            # ambiguous `C|T` counts as not-contaminant and stays in the denominator.
+            if td and "D" not in td.upper():
+                cq = num(row.get("QValue"))
+                if cq is not None and cq <= 0.01:
+                    cf = per[stem(row.get("File Name"))]
+                    cf["contam"][0] += td == "C"
+                    cf["contam"][1] += 1
+            if td != "T":
                 continue
             q = num(row.get("QValue"))
             if q is None or q > 0.01:
@@ -189,6 +250,8 @@ def parse_psms(path: Path, run_minutes: dict):
             m["missed_cleavage_frac"] = round(f["missed"][0] / f["missed"][1], 4)
         if f["notch"][1]:
             m["notch_frac"] = round(f["notch"][0] / f["notch"][1], 4)
+        if f["contam"][1]:
+            m["contaminant_psm_share"] = round(f["contam"][0] / f["contam"][1], 4)
         if f["prec"]:
             m["precursor_ppm_median"] = round(statistics.median(f["prec"]), 4)
             m["precursor_ppm_iqr"] = iqr(f["prec"])
@@ -206,10 +269,10 @@ def parse_psms(path: Path, run_minutes: dict):
             hi = rts[min(n - 1, -(-99 * n // 100) - 1)]
             m["id_rt_coverage"] = round(max(0.0, (hi - lo) / minutes), 4)
         metrics[name] = m
-        d = {"precursor_ppm": histogram(f["prec"], *PRECURSOR_BINS[0], PRECURSOR_BINS[1]),
-             "fragment_ppm": histogram(f["frag"], *FRAGMENT_BINS[0], FRAGMENT_BINS[1])}
+        d = {"precursor_ppm": histogram(f["prec"], edges_for("precursor_ppm")),
+             "fragment_ppm": histogram(f["frag"], edges_for("fragment_ppm"))}
         if minutes:
-            d["ids_over_rt"] = histogram(f["rts"], 0.0, minutes, minutes / IDS_OVER_RT_BINS)
+            d["ids_over_rt"] = histogram(f["rts"], edges_for("ids_over_rt", minutes))
             d["run_minutes"] = minutes
         dists[name] = d
     return metrics, dists
@@ -237,35 +300,69 @@ def parse_peaks(path: Path):
 
 
 def parse_protein_groups(path: Path):
-    """Pass one of two: the dataset's quantified protein groups, and which files each appears in.
+    """Pass one of two: the dataset's quantified protein groups, which files each appears in, and
+    the per-file contaminant intensity fraction.
 
-    A group counts as quantified in a file when its `Intensity_<file>` is > 0. Only groups at 1% FDR
-    and not decoy are counted - the same predicate as `DEF-PROTEINGROUP-1PCT`, which INCLUDES
-    contaminant groups, so this is a completeness measure of what the search reported, not a
-    biological one.
+    **Presence is the `_msms` variant of `DEF-QC-13`**: a group counts as present in a file when its
+    `SpectralCount_<file>` is > 0, i.e. the file identified it itself. The `_any` variant (an
+    intensity, which MBR can transfer from a neighbouring file) is deliberately NOT what we send:
+    MBR is on in every run by user rule, so `_any` for one file is a function of the OTHER files in
+    the run, and a number like that is not a property of the file it is filed under. qc 008 §QC-Q9
+    carries the argument; `mbr_kept` (M10) is where the transfer contribution is visible instead.
+
+    Only groups at 1% FDR and not decoy are counted - the same predicate as `DEF-PROTEINGROUP-1PCT`,
+    which INCLUDES contaminant groups, so this is a completeness measure of what the search
+    reported, not a biological one. The file is written UNFILTERED (decoys, contaminants and
+    q > 0.01 are all in it), so the predicate is load-bearing rather than defensive: on the 18-file
+    PXD036557 run it is 1,652 groups out of 2,229 rows.
     """
     if not path.exists():
-        return None, {}, {}
+        return None, {}, {}, {}
     with path.open(newline="", encoding="utf-8") as fh:
         reader = csv.DictReader(fh, delimiter="\t")
-        cols = {c: stem(c[len("Intensity_"):]) for c in (reader.fieldnames or []) if c.startswith("Intensity_")}
+        fields = reader.fieldnames or []
+        counts = {c: stem(c[len("SpectralCount_"):]) for c in fields if c.startswith("SpectralCount_")}
+        inten = {c: stem(c[len("Intensity_"):]) for c in fields if c.startswith("Intensity_")}
         present = defaultdict(int)
         runs_per = Counter()
+        contam_int = defaultdict(float)
+        total_int = defaultdict(float)
         quantified = 0
+        # A sample group's column block is 2, 3 or 4 columns wide depending on four different
+        # conditions (QuantProject via qc 007 §7.3), so `SpectralCount_` can be absent from a real
+        # file. When it is, the `_msms` variant is NOT MEASURABLE - and qc's QC-Q8 rule is that
+        # absent means "not measured" while 0 means "measured, and it was zero". Returning a
+        # quantified count of 0 here would make every file look 100% complete against an empty
+        # denominator, or 100% missing, depending on which way the arithmetic fell. Refuse instead.
+        if not counts:
+            return None, {}, {}, {}
         for row in reader:
-            if (row.get("Protein Decoy/Contaminant/Target") or "").strip().upper().startswith("D"):
+            td = (row.get("Protein Decoy/Contaminant/Target") or "").strip().upper()
+            if td.startswith("D"):
                 continue
             q = num(row.get("Protein QValue"))
             if q is None or q > 0.01:
                 continue
-            hits = [f for c, f in cols.items() if (num(row.get(c)) or 0) > 0]
+            # QuantProject:DEF-QC-9 v2, run grain: contaminant / (target + contaminant) apex
+            # intensity, per file. A not-quantified protein cell is BLANK at MM 1.1.9+, not `0`
+            # (QuantProject via qc 007 §7.2), so `num()` returning None must read as absent and
+            # contribute nothing - never as a zero that is indistinguishable from a measured zero.
+            for c, f in inten.items():
+                v = num(row.get(c))
+                if v is None or v <= 0:
+                    continue
+                total_int[f] += v
+                if td == "C":
+                    contam_int[f] += v
+            hits = [f for c, f in counts.items() if (num(row.get(c)) or 0) > 0]
             if not hits:
                 continue
             quantified += 1
             runs_per[len(hits)] += 1
             for f in hits:
                 present[f] += 1
-        return quantified, present, {str(k): v for k, v in sorted(runs_per.items())}
+        contam = {f: round(contam_int.get(f, 0.0) / t, 4) for f, t in total_int.items() if t > 0}
+        return quantified, present, {str(k): v for k, v in sorted(runs_per.items())}, contam
 
 
 def main(params_path: str, search_dir: str, qc_dir: str, out_dir: str, accession: str = "") -> None:
@@ -295,16 +392,19 @@ def main(params_path: str, search_dir: str, qc_dir: str, out_dir: str, accession
     prov.inputs(psm_file)
     psm_metrics, dists = parse_psms(psm_file, run_minutes)
     peaks = parse_peaks(task / "AllQuantifiedPeaks.tsv")
-    quantified, present, runs_per = parse_protein_groups(task / "AllQuantifiedProteinGroups.tsv")
+    quantified, present, runs_per, contam_int = parse_protein_groups(task / "AllQuantifiedProteinGroups.tsv")
 
     names = sorted(set(counts) | set(psm_metrics) | set(run_minutes))
     files = []
     for name in names:
         m = {**counts.get(name, {}), **calib.get(name, {"calibration_ok": False}),
              **psm_metrics.get(name, {}), **peaks.get(name, {})}
-        # Pass two: a per-file metric that needed the dataset first.
+        # Pass two: per-file metrics that needed the dataset first.
         if quantified:
             m["pg_missing_frac"] = round((quantified - present.get(name, 0)) / quantified, 4)
+        # else: omitted, not zeroed. `pg_missing_frac` absent means the run could not measure it.
+        if name in contam_int:
+            m["contaminant_intensity_frac"] = contam_int[name]
         files.append({"file": name, "metrics": m, "distributions": dists.get(name, {})})
 
     sp = params.get("search", {})
@@ -328,6 +428,24 @@ def main(params_path: str, search_dir: str, qc_dir: str, out_dir: str, accession
         "dataset_metrics": {"protein_groups_quantified": quantified,
                             "runs_per_protein_group": runs_per},
     }
+    # Two facts a reader of the rendered report cannot recover from the numbers, so they are stated
+    # rather than left to be inferred. Both go in `notes`, which qc prints verbatim above the tiles.
+    if quantified:
+        payload["dataset"]["notes"].append(
+            "pg_missing_frac is DEF-QC-13's _msms variant (SpectralCount_ > 0), not _any: MBR is on "
+            "in every run, so an intensity-based completeness for one file would depend on the "
+            "other files in the run. See mbr_kept for the transfer contribution.")
+    else:
+        payload["dataset"]["notes"].append(
+            "pg_missing_frac is NOT REPORTED for this run: the protein-group table carries no "
+            "SpectralCount_ columns, so the _msms variant is not measurable. Absent means not "
+            "measured, not zero.")
+    if _canonical_edges is None:
+        payload["dataset"]["notes"].append(
+            "Histogram bins came from a VENDORED copy of qc's canonical edges, because qctemplates "
+            "is not installed here. The payload is valid and renders, but its figures may not line "
+            "up bin-for-bin with reports built where qctemplates is installed.")
+
     # An acquisition exception is a limit on what the numbers may be used for, so it travels with
     # them rather than living in the run that produced them (D24).
     exc = params.get("qc", {}).get("acquisition_exception")
@@ -341,6 +459,7 @@ def main(params_path: str, search_dir: str, qc_dir: str, out_dir: str, accession
     dest.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     prov.outputs(dest)
     prov.rec["files_described"] = len(files)
+    prov.rec["bin_edges_source"] = EDGES_SOURCE
     prov.write(out)
     print(json.dumps({"payload": str(dest), "files": len(files),
                       "protein_groups_quantified": quantified}, indent=2))

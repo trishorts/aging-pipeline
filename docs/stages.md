@@ -275,6 +275,42 @@ a template renders a number it did not define and can still say where the meanin
 build is two-pass. And `id_rt_coverage` divides by run minutes, which is a stage-2b fact rather than a
 search fact, which is why the stage takes both directories.
 
+**`pg_missing_frac` is `DEF-QC-13`'s `_msms` variant**, where a group counts as present in a file when
+its `SpectralCount_` is above zero — never the `_any` variant, which asks whether the file has an
+*intensity*. Match-between-runs is on in every run this pipeline produces, so an intensity can be
+transferred from a neighbouring file: under `_any`, one file's completeness would be a function of the
+*other* files in the run, and a number like that is not a property of the file it is filed under.
+`mbr_kept` is where the transfer contribution is visible instead. The payload states the variant in
+`dataset.notes`, because the metric's name does not.
+
+**When a run carries no `SpectralCount_` columns, `pg_missing_frac` is omitted rather than set to
+zero.** A sample group's column block in `AllQuantifiedProteinGroups.tsv` is two, three or four
+columns wide depending on what the search wrote, so their absence is a real case. qc's rule is that an
+absent value means *not measured* while `0` means *measured, and it was zero*; reporting zero
+completeness nobody measured would trip gates and enter medians as if it were an observation.
+
+**The protein-group table is read with a filter, and the filter is load-bearing.**
+`AllQuantifiedProteinGroups.tsv` is written *unfiltered* — decoys, contaminants and rows above 1% FDR
+are all in it — so the stage applies `DEF-PROTEINGROUP-1PCT` (not decoy, `Protein QValue ≤ 0.01`,
+contaminants **included**). On the 18-file PXD036557 run that is 1,652 groups out of 2,229 rows; a
+denominator of "rows in the file" would be wrong by about a third.
+
+**Contamination (M13).** `contaminant_intensity_frac` is `QuantProject:DEF-QC-9 v2` — contaminant over
+target-plus-contaminant apex intensity, per file. `contaminant_psm_share` is
+**`aging:DEF-CONTAM-PSM-RUN v1`**, a run-grain definition, and deliberately *not* `DEF-CONTAM-PSM v1`,
+which this project defines at dataset grain: a per-file share is a different quantity, not the dataset
+one pushed down. A not-quantified protein intensity cell is **blank**, not `0`, at MetaMorpheus 1.1.9
+and later, so a blank contributes nothing to either side of the ratio rather than reading as a zero.
+
+**Histogram bins are qc's rule, not our copy of their numbers.** The stage calls
+`qctemplates.spec.canonical_edges(key, run_minutes)` when `qctemplates` is installed. It is an
+**optional** dependency: when it is absent the stage falls back to a vendored copy of the same edges,
+so the pipeline still runs for an operator who does not have it, and the payload still validates and
+renders. The fallback announces itself — in `dataset.notes` and as `bin_edges_source` in
+`provenance.json` — because a payload binned by a stale copy would otherwise stop lining up with
+everyone else's figures silently. Install it with `pip install -e <path to qc>`; there is no public
+package index for it yet.
+
 **The accession** comes from `fetch.accession`, or from the optional fifth argument for older params
 files that leave it null and pass it on the command line as `fetch.py` does. A payload that cannot be
 named is refused rather than written with a null, because qc's schema requires a string and an

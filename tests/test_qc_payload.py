@@ -40,10 +40,22 @@ def test_ambiguous_cells_are_dropped_not_guessed():
 
 
 def test_histogram_clips_rather_than_dropping_the_tail():
-    h = qc_payload.histogram([-999, 0.1, 999], -10.0, 10.0, 0.5)
+    h = qc_payload.histogram([-999, 0.1, 999], qc_payload.edges_for("precursor_ppm"))
     assert len(h["edges"]) == len(h["counts"]) + 1
     assert sum(h["counts"]) == 3          # nothing lost off the ends
     assert h["counts"][0] == 1 and h["counts"][-1] == 1
+
+
+def test_bin_edges_follow_qcs_rule_not_a_copy_of_its_numbers():
+    """qc 007 §4: the edges are theirs. We call `canonical_edges` when qctemplates is installed and
+    fall back to a vendored copy when it is not -- and the two must agree, or the fallback is a
+    silent divergence rather than a stand-in."""
+    prec = qc_payload.edges_for("precursor_ppm")
+    frag = qc_payload.edges_for("fragment_ppm")
+    assert (prec[0], prec[-1], round(prec[1] - prec[0], 9)) == (-10.0, 10.0, 0.5)
+    assert (frag[0], frag[-1], round(frag[1] - frag[0], 9)) == (-30.0, 30.0, 1.0)
+    assert len(qc_payload.edges_for("ids_over_rt", 180.0)) == 37      # 36 equal bins
+    assert qc_payload.edges_for("ids_over_rt", None) is None          # undefined without a run length
 
 
 # ---------------------------------------------------------------- end to end
@@ -97,11 +109,16 @@ def search(work, tmp_path):
              "b-calib\tMBR\t0.001\tTrue\tFalse"]           # random RT won: not kept
     (task / "AllQuantifiedPeaks.tsv").write_text("\n".join(peaks) + "\n", encoding="utf-8")
 
-    pg = ["Protein Decoy/Contaminant/Target\tProtein QValue\tIntensity_a-calib\tIntensity_b-calib",
-          "T\t0.001\t100\t200",       # in both runs
-          "T\t0.001\t100\t0",         # only in a
-          "T\t0.5\t100\t100",         # above 1% FDR: not counted
-          "D\t0.001\t100\t100"]       # decoy: not counted
+    # SpectralCount_ AND Intensity_: presence is the `_msms` variant (SpectralCount_ > 0), while the
+    # contaminant fraction is an intensity ratio, so the two metrics read different columns of the
+    # same row. The `C` row is a contaminant: counted by DEF-PROTEINGROUP-1PCT, which is `!IsDecoy`.
+    pg = ["Protein Decoy/Contaminant/Target\tProtein QValue"
+          "\tSpectralCount_a-calib\tSpectralCount_b-calib\tIntensity_a-calib\tIntensity_b-calib",
+          "T\t0.001\t5\t7\t100\t200",     # identified in both runs
+          "T\t0.001\t5\t0\t100\t50",      # identified only in a -- but INTENSITY in b (MBR transfer)
+          "T\t0.5\t5\t5\t100\t100",       # above 1% FDR: not counted at all
+          "D\t0.001\t5\t5\t100\t100",     # decoy: not counted at all
+          "C\t0.001\t3\t3\t100\t100"]     # contaminant: counted, and drives the intensity fraction
     (task / "AllQuantifiedProteinGroups.tsv").write_text("\n".join(pg) + "\n", encoding="utf-8")
 
     qc_dir = tmp_path / "02b_qc"
@@ -170,10 +187,57 @@ def test_mbr_uses_the_shared_def_mbr_kept_rule(work, search):
 def test_pg_missing_frac_needs_the_dataset_first(work, search):
     p = build(work, search)
     m = {f["file"]: f["metrics"] for f in p["files"]}
-    assert p["dataset_metrics"]["protein_groups_quantified"] == 2
-    assert p["dataset_metrics"]["runs_per_protein_group"] == {"1": 1, "2": 1}
-    assert m["a"]["pg_missing_frac"] == 0.0     # a has both
-    assert m["b"]["pg_missing_frac"] == 0.5     # b is missing the a-only group
+    assert p["dataset_metrics"]["protein_groups_quantified"] == 3      # 2 target + 1 contaminant
+    assert p["dataset_metrics"]["runs_per_protein_group"] == {"1": 1, "2": 2}
+    assert m["a"]["pg_missing_frac"] == 0.0     # a identified all three
+    assert round(m["b"]["pg_missing_frac"], 4) == round(1 / 3, 4)
+
+
+def test_pg_missing_frac_is_the_msms_variant_so_mbr_cannot_inflate_it(work, search):
+    """QC-Q9: presence is `SpectralCount_ > 0`, never `Intensity_ > 0`.
+
+    The fixture's second group has SpectralCount_b = 0 and Intensity_b = 50 -- exactly what a
+    match-between-runs transfer looks like. Under the `_any` variant b would score as complete,
+    because a neighbouring file identified the group. Under `_msms` it is missing, which is the
+    file's own evidence and is the only reading that makes the number a property of the file.
+    """
+    m = {f["file"]: f["metrics"] for f in build(work, search)["files"]}
+    assert m["b"]["pg_missing_frac"] > 0.0
+    note = " ".join(build(work, search)["dataset"]["notes"])
+    assert "_msms" in note and "_any" in note
+
+
+def test_pg_missing_frac_is_absent_when_it_cannot_be_measured(work, search, tmp_path):
+    """qc's QC-Q8: absent means not measured, 0 means measured and zero.
+
+    A sample group's column block is 2-4 columns wide, so a real run can carry no SpectralCount_
+    at all. Reporting 0 there would claim a completeness nobody measured.
+    """
+    task = next((search[0] / "mm").glob("Task*SearchTask"))
+    pg = task / "AllQuantifiedProteinGroups.tsv"
+    rows = pg.read_text(encoding="utf-8").splitlines()
+    keep = [i for i, h in enumerate(rows[0].split("\t")) if not h.startswith("SpectralCount_")]
+    pg.write_text("\n".join("\t".join(r.split("\t")[i] for i in keep) for r in rows) + "\n",
+                  encoding="utf-8")
+    p = build(work, search)
+    assert p["dataset_metrics"]["protein_groups_quantified"] is None
+    assert all("pg_missing_frac" not in f["metrics"] for f in p["files"])
+    assert "NOT REPORTED" in " ".join(p["dataset"]["notes"])
+
+
+def test_m13_contamination_metrics(work, search):
+    """qc 007 §1. The intensity fraction is QuantProject's DEF-QC-9 v2 at RUN grain; the PSM share
+    is `aging:DEF-CONTAM-PSM-RUN v1` and NOT `DEF-CONTAM-PSM v1`, which our register defines at
+    dataset grain -- a per-file share is a different quantity, not the dataset one pushed down.
+    """
+    p = build(work, search)
+    m = {f["file"]: f["metrics"] for f in p["files"]}
+    # a: contaminant 100 of (100 + 100 + 100 + 100) target+contaminant intensity at 1% FDR
+    assert m["a"]["contaminant_intensity_frac"] == round(100 / 300, 4)
+    assert p["definitions"]["contaminant_intensity_frac"]["id"] == "QuantProject:DEF-QC-9"
+    assert p["definitions"]["contaminant_psm_share"]["id"] == "aging:DEF-CONTAM-PSM-RUN"
+    assert p["definitions"]["pg_missing_frac"]["id"] == "QuantProject:DEF-QC-13"
+    assert "_msms" in p["definitions"]["pg_missing_frac"]["source"]
 
 
 def test_an_acquisition_exception_travels_with_the_numbers(work, search):

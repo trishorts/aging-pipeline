@@ -419,7 +419,7 @@ pointing at that checkout.
 ## Stage 9: `cleanup.py`, delete re-obtainable raw spectra
 
 ```
-python bin/cleanup.py <params.json> <dataset_run_dir> [--dry-run]
+python bin/cleanup.py <params.json> <dataset_run_dir> [--dry-run] [--force]
 ```
 
 `<dataset_run_dir>` is `<work_root>/run_<run_date>/<accession>`.
@@ -441,6 +441,28 @@ elsewhere frees disk only when its last link is deleted.
 deliberate step.
 
 ---
+
+## `reprovenance.py`: re-derive an old run's metrics (a tool, not a stage)
+
+| | |
+|---|---|
+| **Runs** | on a finished stage directory, at any time |
+| **Reads** | the stage's `provenance.json` and the untouched MetaMorpheus outputs beside it |
+| **Writes** | the same `provenance.json`, with its **interpretations** recomputed |
+| **Usage** | `reprovenance.py <params.json> <stage_out_dir> [<spectra_dir>]` |
+
+A provenance record splits in two. **History** - the commands, tool versions, input and output
+hashes, and the measured resources - is what happened, is never rewritten, and a test asserts it.
+**Interpretations** - `id_rate`, `mbr`, `contamination`, `flags` - are what today's definitions make
+of those outputs, and they change when a definition changes.
+
+This tool recomputes the second kind without re-running MetaMorpheus. It exists because a definition
+correction should not cost a re-search: when `DEF-PSM-1PCT` was corrected to the summary line rather
+than the FDR engine's line, a 21-minute search would otherwise have been repeated to change a label
+on numbers it would have recomputed identically. The record states that it was re-derived, and when.
+
+**It never invents history.** If the outputs are gone it refuses rather than guessing, and it will not
+write an interpretation it cannot recompute from a file that is still present.
 
 ## `run_local.ps1`: Windows runner for one accession
 

@@ -22,6 +22,34 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
   Flags: `search_type` of `Modern` or `NonSpecific`, where `ModernSearchEngine` takes no library and
   the thing is loaded, ignored and updated anyway.
 
+### Fixed
+*From the first review pass on this code (2026-09-22). Each of these was a path that only ran when
+something had already gone wrong, which is why the test suite was green throughout.*
+
+- **`search.timeout_s` now actually bounds a search.** It never could before: the stage read
+  MetaMorpheus's output to end-of-file — which for a subprocess means until it exits — and only then
+  called `wait(timeout=...)`, so the timeout sat *after* the only thing that could need timing out. A
+  hung search blocked forever with no provenance written. The output is now read on a thread against a
+  real deadline, and on expiry the **process tree** is killed: `dotnet CMD.dll` makes the search a
+  child of the launcher, so killing the launcher alone left a 32-thread search running.
+  **This changes behaviour if you relied on the old effectively-infinite timeout** — a run that
+  previously hung now fails cleanly after `search.timeout_s` (default 21600) with
+  `timed_out_after_s` in its record.
+- **A locked file no longer destroys cleanup's deletion record.** `unlink` was unguarded and
+  provenance was written only after the loop, so one undeletable file aborted the stage *after* it had
+  already deleted others and the record of what went was never written. The record is now written in a
+  `finally`, and files that could not be deleted are listed under `not_deleted` with the reason.
+- **Cleanup refuses to overwrite its own record.** A second run over a cleaned directory found nothing
+  to delete and replaced the record of what the first removed with `0 files, 0 bytes`. Pass `--force`
+  to override. A `--dry-run` record neither blocks nor is blocked.
+- **One unreadable file no longer discards a whole dataset's QC.** `read_spectra` was unguarded, so a
+  corrupt or truncated `.raw` killed `qc_spectra.py` before `qc_report.json` was written, losing every
+  other file's verdict. It is now a per-file verdict, `fail_reasons: ["unreadable"]`.
+- **`too_few_ms2` and `unreadable` cannot be waived.** Both this README and the configuration
+  reference said `too_few_ms2` must never be waived by an acquisition exception, and **nothing
+  enforced it** — a waiver naming it was honoured. The scoping half of that mechanism was implemented
+  and tested; the absolute half was prose only. Naming either reason in `waives` is now refused.
+
 ### Changed
 - `search_mm.py`'s derived metrics are now one reusable function, `derive_metrics`, shared with
   `reprovenance.py` so a metric has one implementation and not two.

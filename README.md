@@ -21,9 +21,11 @@ protein abundance misses?* It is built at the Smith lab, University of Wisconsin
 - [What it does](#what-it-does)
 - [Requirements](#requirements)
 - [Quick start](#quick-start)
+- [Running on Linux, headless, and in a container](#running-on-linux-headless-and-in-a-container)
 - [Outputs](#outputs)
 - [Design principles](#design-principles)
 - [Status and known limitations](#status-and-known-limitations)
+- [Troubleshooting](docs/troubleshooting.md)
 - [Testing](#testing)
 - [Versioning](#versioning)
 - [Internal references](#internal-references)
@@ -37,6 +39,7 @@ Detailed documentation:
 | [`docs/stages.md`](docs/stages.md) | Each stage: purpose, command line, inputs, outputs, exit codes, and the rules it enforces |
 | [`docs/configuration.md`](docs/configuration.md) | Every key in `params.json`, with its default and its effect |
 | [`docs/provenance.md`](docs/provenance.md) | The `provenance.json` schema (`aging-provenance/3`), resource accounting, and the automatic QC flags |
+| [`docs/troubleshooting.md`](docs/troubleshooting.md) | Failures this pipeline has actually hit, what each looks like, and what to do. Start here when something breaks |
 | [`CHANGELOG.md`](CHANGELOG.md) | What changed, and when |
 
 ## What it does
@@ -142,8 +145,66 @@ to take the whole dataset.
 Hutchinson–Gilford progeria patient and a control; PRIDE lists a Q Exactive), MetaMorpheus 1.1.11,
 `MaxThreadsToUsePerFile = 32`, on a 64-logical-core, 512 GB workstation.
 Stage 4 took 21 min of wall time, averaged 20.6 cores, peaked at 15.2 GiB resident memory, and
-wrote 60 MB of results. 10.5% of MS2 spectra were identified at 1% FDR. Yours will differ.
+wrote 60 MB of results. **26,582 PSMs at 1% FDR over 266,402 MS2 scans — a 9.98% identification
+rate** (`aging DEF-PSM-1PCT v1`). Yours will differ.
+
+> Earlier revisions of this README said 10.5% here. That was the **FDR engine's** count
+> (27,958) rather than the summary line's (26,582) — two numbers `results.txt` prints for the
+> same run, which differ because the engine's includes contaminants. Always say which
+> definition a rate came from; 10.0% and 10.5% look like a rounding wobble and are not.
+> See [two PSM counts](docs/provenance.md#id-rate).
 Every run records its own numbers (see [resources](docs/provenance.md#resources)).
+
+## Running on Linux, headless, and in a container
+
+The pipeline is written to be run by someone who is not its author, on a server, without a display
+(design principle D5). Everything below is what is *known*; where something has not been verified, it
+says so rather than implying it works.
+
+**What has been verified on Linux.** Stages 0, 2b and 4 run on Ubuntu in CI against small test files,
+launching MetaMorpheus as `dotnet CMD.dll` and producing the same counts as Windows. mzLib's PRIDE
+client passes its own suite on Ubuntu 24.04. **No full-size dataset has been run end to end on
+Linux.** Treat the first one as a test.
+
+**Nothing is interactive.** No stage prompts, reads stdin, or opens a window. The Thermo licence is
+accepted by a parameter, not a dialogue — set `search.accept_thermo_licence`, which is your
+acceptance and is recorded in the provenance.
+
+**MetaMorpheus on Linux.** 1.1.11 is framework-dependent `net10.0`, so `dotnet CMD.dll` *is* the same
+program as `CMD.exe`. Point `search.metamorpheus_cmd` at the `.dll` and the stage runs it through
+`dotnet` automatically; set `search.dotnet` if the runtime is not on `PATH`. The release zip ships
+`runtimes/linux-x64` — no container is required for this.
+
+**Container recipe.** No image is published and none has been tested, so this is a recipe rather than
+a supported artefact:
+
+```dockerfile
+FROM mcr.microsoft.com/dotnet/runtime:10.0        # MetaMorpheus 1.1.11 targets net10.0
+RUN apt-get update && apt-get install -y python3 python3-pip git && rm -rf /var/lib/apt/lists/*
+COPY requirements.txt /opt/pipeline/
+RUN pip3 install --no-cache-dir -r /opt/pipeline/requirements.txt
+COPY bin/ /opt/pipeline/bin/
+# Mount at run time, never bake in:
+#   the MetaMorpheus release   -> search.metamorpheus_cmd
+#   the UniProt proteome       -> database.uniprot_xml
+#   a large writable volume    -> work_root
+WORKDIR /opt/pipeline
+```
+
+Three things to get right in any container:
+
+- **`work_root` must be a mounted volume.** Outputs are tens of gigabytes per dataset and must
+  outlive the container.
+- **`git` must be present** or the provenance record cannot capture the pipeline commit. It degrades
+  rather than failing, but a record without a commit is a weaker record.
+- **Do not pre-create the `--mmsettings` directory.** MetaMorpheus seeds it only when it does not
+  exist, and an empty one crashes it. The stage handles this; a `Dockerfile` that helpfully `mkdir`s
+  it will not.
+
+**Resumability.** Each stage writes to its own directory and can be re-run. Completed downloads are
+skipped, so re-running `fetch.py` only pays for what is missing — the single most useful recovery
+action. `search_mm.py` refuses to reuse an output directory, because MetaMorpheus never cleans one;
+give it a fresh path. See [troubleshooting](docs/troubleshooting.md).
 
 ## Outputs
 
@@ -256,8 +317,12 @@ Read this before you run anything on your own data.
 - **The match-between-runs FDR threshold** used in the provenance counts is fixed at 0.01, which is
   MetaMorpheus's default. It isn't yet read from the task settings.
 - **`run_local.ps1`'s default `-Python` path** is the developer's machine. Always pass `-Python`.
-- **`search.timeout_s` is not enforced.** A hung MetaMorpheus process isn't killed. Under Nextflow, set a
-  process `time` limit.
+- **Downloads of very large files may not complete at all.** EBI drops long transfers, and a retry
+  restarts from byte zero rather than resuming, so a file large enough to be dropped reliably is
+  unreachable however many attempts you allow. Measured: files of ~220 MB fetch at ~5 MB/s with four
+  parallel streams; a deposit of ~1.15 GB files failed after three attempts on one file, each dying
+  ~64 MB in, and again after eight. Raise `fetch.max_attempts` if you like, but the fix is byte-range
+  resume upstream. Prefer deposits with smaller files if you are working through a list.
 - **The accession is chosen by hand.** Nothing yet iterates over the frozen list's `keep = yes` rows.
 - **Discovery is human-only** (`discover.organism`), with four keywords. It's deliberately simple and
   conservative, and every dropped dataset records its reason.

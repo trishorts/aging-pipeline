@@ -11,7 +11,12 @@ Results, the GPTMD database, logs and provenance are kept.
 It refuses unless 04_search/provenance.json says success, and it records what it deleted (with the
 hashes from fetch's provenance) in 09_cleanup/provenance.json. `--dry-run` lists without deleting.
 
-usage: cleanup.py <params.json> <dataset_run_dir> [--dry-run]
+usage: cleanup.py <params.json> <dataset_run_dir> [--dry-run] [--force]
+
+`--force` overwrites an existing cleanup record. Without it the stage refuses to run twice over the
+same directory, because a second run finds nothing to delete and would replace the only record of
+what the first one removed with `0 files, 0 bytes`. A `--dry-run` record never blocks one, and is
+never blocked by one.
 """
 import json, sys
 from pathlib import Path

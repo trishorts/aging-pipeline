@@ -276,9 +276,18 @@ mean of ratios is not the ratio of sums.
 | `aging:DEF-RUN-MINUTES v1` | **run** | The largest retention time in the file. Never a dataset figure |
 | `aging:DEF-PRECURSORS v1` | **run**, summed to dataset for reporting | Precursor envelopes, **not** precursor scans |
 | `aging:DEF-CONTAM-PSM v1` | **dataset** | Contaminant PSMs ÷ (target + contaminant) PSMs at q ≤ 0.01, decoys excluded. An ambiguous `C\|T` counts as not-contaminant and stays in the denominator |
+| `aging:DEF-NONLEADING-ACCESSION v1` | **dataset** | Of the accessions carrying site-level evidence in one dataset (present in `ptm_sites`, `target_decoy = 'target'`), how many are **non-leading** members of their protein group — where the leading accession is the first in `protein_accessions`. Measured 2026-09-21: 28 of 816 (PXD036557), 56 of 3,840 (PXD027318), 53 of 1,717 (PXD032202) |
+| `aging:DEF-RAZOR-INSTABILITY v1` | **corpus** | Over a named set of datasets, of the accessions present in **two or more** of them, how many have a leadership that **changes**. Each such accession is `leads_always`, `leads_sometimes` or `leads_never`; the instability is `leads_sometimes + leads_never`. **Always reported as four numbers plus the corpus** — denominator and three class counts — because the statistic is a property of the corpus and rises with the number and diversity of datasets in it; a bare percentage is meaningless. Measured 2026-09-21 over the three datasets of catalog `817c2a1def53433f`: denominator 2,608, `leads_always` 2,427, `leads_sometimes` **131**, `leads_never` **50**, instability **181 (6.9%)**. Worked examples: CALM1 `P0DP23`, VAMP2 `P63027`, RAB6A `P20340`, GLUD2 `P49448`, TEAD3 `Q99594` |
 | `aging:DEF-CONTAM-PSM-RUN v1` | **run** | Contaminant PSMs ÷ (target + contaminant) PSMs at q ≤ 0.01, decoys excluded, **within one file**. An ambiguous `C\|T` counts as not-contaminant and stays in the denominator. This is **not** `DEF-CONTAM-PSM v1` measured per file: that one is a dataset figure, and the register's own rule is that a number is stored at the grain it was measured at. A per-file share is a different quantity and carries a different ID, for the same reason a dataset-level contaminant intensity share is not `DEF-QC-9` rolled up |
 | `QuantProject:DEF-QC-9 v2` | **run** | Contaminant ÷ (target + contaminant) protein-group apex intensity, **per file**. The median/min/max this pipeline also records are named as *summaries of the per-run values*, and are not a dataset-level measurement of the same quantity |
 | `QuantProject:DEF-QC-MBR v1` | **dataset** | The MBR block's counting rule; its "kept" rule is `DEF-MBR-KEPT v1` (count `QuantProject` kept peaks only — the peaks table is unfiltered) |
+
+**`DEF-NONLEADING-ACCESSION` and `DEF-RAZOR-INSTABILITY` are not one measurement at two grains**, and must never
+be quoted for each other. The first is per dataset and asks *how many accessions carrying evidence are not the
+leading member* (3.4% / 1.5% / 3.1%). The second is per corpus and asks *for how many accessions does leadership
+change between datasets* (6.9%). Neither is derivable from the other. They are adjacent percentages about
+protein-group membership in the same document, which is exactly the pair a reader will assume is the same number
+measured twice.
 
 **Why `DEF-MS2` and `DEF-PRECURSORS` say "run, summed to dataset"** and `DEF-PSM-1PCT` does not: a scan
 count *is* a partition. Every MS2 scan belongs to exactly one file, so the dataset figure is the sum

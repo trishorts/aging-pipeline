@@ -6,6 +6,22 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 
 ## [Unreleased]
 
+### Added
+- **Per-organism spectral libraries in the search task** (`bin/spectral_library.py`, user request).
+  The first search of an organism sets `WriteSpectralLibrary`; every search after it sets
+  `UpdateSpectralLibrary` and passes the current library as another `-d`, so the library is both used
+  during the search and grown by it. Search task only. Off unless
+  `search.spectral_library.enabled` is set.
+  A registry (`aging-spectral-library-registry/1`) keeps every version ever written — MetaMorpheus
+  names the file with a timestamp and drops it in the task folder, so the path has to be discovered
+  and recorded rather than predicted — with each version's parent, SHA-256, spectrum count and
+  producing run. `spectral_library.py list` / `rollback` move `current` to an earlier version without
+  hand-editing the file, and rolling back appends rather than deleting.
+  Refuses: `enabled` without an `organism`; a `current` library missing from disk (falling back to a
+  write would silently discard the chain); a registration whose parent moved while the search ran.
+  Flags: `search_type` of `Modern` or `NonSpecific`, where `ModernSearchEngine` takes no library and
+  the thing is loaded, ignored and updated anyway.
+
 ### Changed
 - `search_mm.py`'s derived metrics are now one reusable function, `derive_metrics`, shared with
   `reprovenance.py` so a metric has one implementation and not two.

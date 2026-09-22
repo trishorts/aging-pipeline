@@ -132,6 +132,31 @@ Settings not listed here aren't changed: they're MetaMorpheus's own defaults for
 To change a search setting that isn't a key here, extend `search_mm.py` so the change is named in
 the parameters and so recorded. Don't hand-edit generated TOMLs.
 
+### `spectral_library` (stage 4)
+
+One spectral library per organism, built up across searches. **Optional and off by default**, so a
+params file written before this existed behaves exactly as it did.
+
+| key | type | default | meaning |
+|---|---|---|---|
+| `enabled` | bool | `false` | Turn the library on for this run |
+| `organism` | string | *(required when enabled)* | The library this run belongs to — `human`, `mouse`, `rat`, … Lower-cased, spaces become underscores. **Refused if missing**: it is never inferred from `discover.organism`, which is a PRIDE facet string |
+| `root` | path | `<work_root>/spectral_libraries` | Where libraries and `registry.json` live. Under `work_root`, so `cleanup.py` deleting a run's spectra never touches them |
+
+```json
+"search": {
+  "spectral_library": { "enabled": true, "organism": "human" }
+}
+```
+
+The first search of an organism writes the library; every search after that updates it and consumes
+the current one. See [stages](stages.md#the-spectral-library) for the mechanics, the registry format,
+how to roll back, and the cases that are refused or flagged.
+
+**Note on `search_type`:** only `Classic` consults a spectral library. With `Modern` or
+`NonSpecific` the library is loaded, ignored during the search, and still updated afterwards — the
+stage flags that combination rather than letting it pass.
+
 ### Mass-tolerance overrides, and when you need one
 
 Both tolerance keys are optional, and leaving them out is right for almost every dataset: MetaMorpheus's

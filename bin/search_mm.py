@@ -19,6 +19,7 @@ usage: search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
 import collections, csv, json, re, shutil, subprocess, sys, time
 from pathlib import Path
 
+import spectral_library
 from provenance import Provenance, file_entry, sha256
 
 TASK_FILE = {"Calibration": "CalibrationTask.toml", "Gptmd": "GptmdTask.toml", "Search": "SearchTask.toml"}
@@ -208,6 +209,13 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
               cmd=" ".join(launch), cmd_dll_sha256=sha256(cmd.with_suffix(".dll")))
     if release != p["metamorpheus_version"]:
         sys.exit(f"MetaMorpheus is {release}, params expect {p['metamorpheus_version']}")
+    # Spectral library (user, 2026-09-21): the first search of an organism WRITES one, every search
+    # after that UPDATES it. Resolved before the TOMLs are generated because it decides two of their
+    # values, and before the run because it adds a database to `-d`.
+    lib_plan = spectral_library.plan(params)
+    for w in spectral_library.warnings(lib_plan, p):
+        prov.note(w)
+
     tomls = []
     tolerance_overrides = {}
     for i, task in enumerate(p["tasks"], 1):
@@ -230,6 +238,15 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
                 if n != 1:
                     sys.exit(f"search_type: expected exactly one SearchType line in {src.name}, replaced {n}")
                 prov.rec["search_type"] = st
+            # The two library booleans, on the SEARCH task only (user: "this will apply only to the
+            # search task"). Calibration and GPTMD have no such settings and must not acquire any.
+            if lib_plan is not None:
+                for field, value in lib_plan.toml_values.items():
+                    text, n = re.subn(rf"^{field} = \w+$", f"{field} = {str(value).lower()}", text, flags=re.M)
+                    if n != 1:
+                        sys.exit(f"spectral_library: expected exactly one {field} line in {src.name}, "
+                                 f"replaced {n} - the pinned MetaMorpheus does not have the setting "
+                                 f"this code was written against")
         # Optional mass-tolerance overrides, applied to EVERY task. MetaMorpheus's defaults assume
         # high-resolution fragments; on a low-resolution MS2 dataset they silently identify only the
         # small subset that happens to fall inside a high-res window, and calibration fails outright
@@ -247,6 +264,14 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
         dst = toml_dir / f"{i}_{TASK_FILE[task]}"
         dst.write_text(text, encoding="utf-8"); tomls.append(dst)
     prov.inputs(*tomls)
+    if lib_plan is not None:
+        prov.rec["spectral_library"] = {
+            "organism": lib_plan.organism,
+            "mode": lib_plan.mode,
+            "library_in": lib_plan.library_in,
+            "parent_version": lib_plan.parent_version,
+            "registry": str(spectral_library.registry_path(lib_plan.cfg)),
+        }
     if tolerance_overrides:
         # A deviation from the pinned engine's defaults is a fact about the result, not a
         # convenience, so it is recorded and flagged rather than left in the params file.
@@ -317,6 +342,13 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
             prov.note(f"contaminant database overridden: {contam}")
     else:
         prov.note("contaminant database NOT included (params.database.include_contaminants = false)")
+    if lib_plan is not None and lib_plan.library_in:
+        # A library is supplied as another `-d`: DbForTask decides by extension (.msp/.msl) alone.
+        # It rides through the whole chain - GPTMD forwards it in NewDatabases - so one -d is enough
+        # for Calibration -> GPTMD -> Search as well as for a Search-only re-run.
+        dbs.append(lib_plan.library_in)
+        prov.note(f"spectral library in use: {lib_plan.library_in} "
+                  f"({lib_plan.organism}, parent version {lib_plan.parent_version})")
     prov.inputs(*spectra_files, *dbs)
     run = [*launch, "-t", *map(str, tomls), "-s", *map(str, spectra_files), "-d", *dbs,
            "-o", str(out / "mm"), "--mmsettings", str(settings), "-v", "normal"]
@@ -360,7 +392,31 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     # Derived blocks and automatic suspicion flags (user: follow up on anything suspicious). They land in
     # provenance.json and feed results/SUSPICIOUS.md; they never fail the stage by themselves. Shared with
     # reprovenance.py so an old run can be re-derived under today's definitions without re-searching.
+    # Register the library only when the search actually succeeded: a failed run's partial library
+    # must not become the parent of the next one.
+    if lib_plan is not None:
+        if ok and search_dirs:
+            try:
+                rec = spectral_library.register(
+                    lib_plan, search_dirs[-1],
+                    run_label=f"{params.get('run_date', '')}/{params.get('fetch', {}).get('accession', '')}".strip("/"),
+                    accession=params.get("fetch", {}).get("accession") or "",
+                    metamorpheus=release)
+                prov.rec["spectral_library"]["written"] = rec
+                prov.outputs(Path(lib_plan.cfg["root"]) / rec["path"])
+                prov.note(f"spectral library {lib_plan.organism} v{rec['version']:03d}: "
+                          f"{rec['n_spectra']:,} spectra, {rec['path']}")
+            except RuntimeError as e:
+                # Never fatal: the search stands, the library did not advance, and the ledger says so.
+                prov.rec["spectral_library"]["error"] = str(e)
+                prov.note(str(e))
+        else:
+            prov.note("spectral library NOT registered: the search did not succeed, so this run's "
+                      "library cannot become the parent of the next one")
+
     blocks, flags, notes = derive_metrics(out, params, spectra_files, qc)
+    if lib_plan is not None and prov.rec.get("spectral_library", {}).get("error"):
+        flags.insert(0, prov.rec["spectral_library"]["error"])
     if exception_flag:
         flags.insert(0, exception_flag)
     prov.rec.update(blocks)

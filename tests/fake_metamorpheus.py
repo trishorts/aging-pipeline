@@ -11,6 +11,7 @@ MetaMorpheus's science. Environment switches for the failure paths:
   FAKE_MM_RELEASE=<x>            report release <x> instead of 1.1.11 (the version guard)
   FAKE_MM_NO_PROTEIN_GROUPS=1    omit AllQuantifiedProteinGroups.tsv (FlashLFQ failing silently)
   FAKE_MM_EXIT=<n>               exit with code <n>
+  FAKE_MM_NO_SPECTRAL_LIBRARY=1  write no .msp even when the search TOML asks for one
 """
 import os, sys
 from pathlib import Path
@@ -27,6 +28,9 @@ TOML = {
     "GptmdTask.toml": "TaskType = \"Gptmd\"\n[CommonParameters]\nMaxThreadsToUsePerFile = 1\n" + TOLERANCES,
     "SearchTask.toml": "TaskType = \"Search\"\n[SearchParameters]\nMatchBetweenRuns = false\n"
                        "SearchType = \"Classic\"\n"
+                       # Both library booleans, as 1.1.11 writes them: two independent settings,
+                       # which is why setting both would produce two libraries.
+                       "WriteSpectralLibrary = false\nUpdateSpectralLibrary = false\n"
                        "[CommonParameters]\nMaxThreadsToUsePerFile = 1\n" + TOLERANCES,
 }
 
@@ -85,6 +89,25 @@ def main():
     (sd / "AllQuantifiedPeaks.tsv").write_text("\n".join(peaks) + "\n", encoding="utf-8")
     # Both counts, as 1.1.11 prints them: the target-only summary line first, then the FDR engine's (S21).
     (sd / "results.txt").write_text("All target PSMs with q-value <= 0.01: 8\n\nPSMs within 1% FDR: 9\n", encoding="utf-8")
+    # The spectral library, under MetaMorpheus's own timestamped names (MetaMorpheusTask.cs:1125
+    # and :1139) and in the SEARCH TASK's folder, because that is where the real one lands and the
+    # pipeline has to discover it rather than predict it.
+    search_toml = next((t for t in values("-t") if t.endswith("SearchTask.toml")), None)
+    if search_toml and not os.environ.get("FAKE_MM_NO_SPECTRAL_LIBRARY"):
+        cfg = Path(search_toml).read_text(encoding="utf-8")
+        libs = [Path(d) for d in values("-d") if Path(d).suffix.lower() in (".msp", ".msl")]
+        stamp = "2026-09-21-12-00-00"
+        if "UpdateSpectralLibrary = true" in cfg:
+            # An update MERGES: every spectrum of the loaded library, plus one for this run. Carrying
+            # the parent's spectra forward is what makes a test able to prove the chain grows.
+            carried = sum(1 for lib in libs for line in lib.read_text(encoding="utf-8").splitlines()
+                          if line.startswith("Name:"))
+            names = [f"Name: CARRIED{i}/2" for i in range(carried)] + [f"Name: NEW{stamp}/2"]
+            (sd / f"updateSpectralLibrary_{stamp}.msp").write_text(
+                "\n".join(names) + "\n", encoding="utf-8")
+        elif "WriteSpectralLibrary = true" in cfg:
+            (sd / f"SpectralLibrary_{stamp}.msp").write_text(
+                "Name: PEPTIDEK/2\nName: PEPTIDER/2\n", encoding="utf-8")
     (out / "allResults.txt").write_text("fake run\n", encoding="utf-8")
     (out / "Task Settings").mkdir()
     (out / "Task Settings" / "Task3SearchTaskconfig.toml").write_text("fake\n", encoding="utf-8")

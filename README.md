@@ -48,13 +48,14 @@ Detailed documentation:
 | 2 | **Fetch** the raw spectra and any SDRF for one accession | `bin/fetch.py` | ✅ runs |
 | 2b | **Spectra QC.** Admit only high-resolution HCD MS2 read in the Orbitrap | `bin/qc_spectra.py` | ✅ runs |
 | 3 | Experimental design from SDRF | — | ⏳ planned; runs are flagged `no_design_file` until then |
-| 4 | **Search and quantify:** MetaMorpheus calibration → GPTMD → search + FlashLFQ, in one invocation | `bin/search_mm.py` | ✅ runs |
+| 4 | **Search and quantify:** MetaMorpheus calibration → GPTMD → search + FlashLFQ, in one invocation, optionally building a per-organism spectral library | `bin/search_mm.py` | ✅ runs |
 | 5 | Reanalysis SDRF and deposition bundle | — | ⏳ waits on MetaMorpheus `WriteSdrf` (unreleased) |
 | 6 | Map proteins to GO terms and subcellular compartments | — | ⏳ planned |
 | 7 | Cross-dataset age effects per protein, PTM site and organelle | — | ⏳ planned |
 | 5 | **QC payload.** Build `qc-payload/1` from the search outputs for the `qc` templates to render | `bin/qc_payload.py` | ✅ runs |
 | 9 | **Cleanup:** delete the re-obtainable raw spectra after a successful search | `bin/cleanup.py` | ✅ runs (only on explicit request) |
 | — | **Re-derive** a finished run's metrics under today's definitions, without re-searching | `bin/reprovenance.py` | ✅ runs (a maintenance tool, not a stage) |
+| — | **Inspect or roll back** the per-organism spectral libraries stage 4 builds | `bin/spectral_library.py` | ✅ runs (a maintenance tool, not a stage) |
 
 Numbering leaves room for the planned stages. Search is still stage 4 even while stage 3 doesn't exist.
 
@@ -391,6 +392,7 @@ bin/
   search_mm.py        stage 4
   cleanup.py          stage 9
   reprovenance.py     re-derive an old run's metrics (not a stage; see docs/provenance.md)
+  spectral_library.py per-organism spectral libraries: the registry, and `list` / `rollback`
 docs/                 stage, configuration and provenance reference
 tests/                offline and live tests (see Testing)
 pyproject.toml        pytest configuration (the network and metamorpheus markers)

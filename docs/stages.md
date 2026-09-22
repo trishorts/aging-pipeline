@@ -248,6 +248,75 @@ FDR thresholds. They are recorded exactly in `tasks/*.toml` and `mm/Task Setting
 
 ---
 
+### The spectral library
+
+**One library per organism, written by the first search and updated by every search after it.** Off
+unless `search.spectral_library.enabled` is true; see
+[configuration](configuration.md#spectral_library-stage-4). It applies to the **search task only** —
+calibration and GPTMD never write or update one, and a test asserts their task files never acquire
+the settings.
+
+```
+first search of an organism     WriteSpectralLibrary = true    (nothing to consume yet)
+every search after that         UpdateSpectralLibrary = true   + the current library passed with -d
+```
+
+**Never both.** `PostSearchAnalysisTask` acts on the two booleans in two independent `if` blocks, so
+setting both writes two libraries.
+
+**The library is used during the search, not merely produced by it** — `ClassicSearchEngine` takes it
+as an argument. It is supplied as another `-d` database, because `DbForTask` decides a database is a
+library by extension alone (`.msp` or `.msl`); one `-d` covers the whole chain, since the GPTMD task
+forwards a library in its `NewDatabases`. `EverythingRunnerEngine` refuses a run whose databases are
+*all* libraries, so the protein database is still required — which it always is here.
+
+**An update merges, so a library only grows.** For each (full sequence, charge) MetaMorpheus keeps
+whichever has more evidence — the library's spectrum when its matched-ion count exceeds the new PSM's
+truncated score, otherwise the new PSM — then adds every (sequence, charge) the library did not have.
+A later search cannot silently delete a peptide an earlier one contributed.
+
+**Why there is a registry.** MetaMorpheus writes the library into the *task's own folder* under a
+**timestamped** name — `SpectralLibrary_<time>.msp` for a write, `updateSpectralLibrary_<time>.msp`
+for an update. The path cannot be predicted, so the stage discovers it after the run, copies it into
+the library root under a stable name, and records it:
+
+```
+<root>/registry.json                  aging-spectral-library-registry/1
+<root>/human/human.v001.msp           every version ever written, never overwritten
+<root>/human/human.v002.msp
+```
+
+`organisms.<organism>.current` is the version the next search will consume;
+`organisms.<organism>.versions[]` is the full chain, each entry carrying its parent version, its
+SHA-256, its spectrum count, and the run and accession that produced it. The copy leaves
+MetaMorpheus's original in the run folder, so the run stays a faithful record and the two can be
+checked against each other by hash.
+
+**Going back.** Point `current` at an earlier version:
+
+```
+python bin/spectral_library.py list     params.json
+python bin/spectral_library.py rollback params.json human 1
+```
+
+Rolling back removes nothing. The next search of that organism updates *from* the version you chose
+and appends a new one, so the chain records the decision instead of hiding it.
+
+**Four refusals and a flag**, because each of these is otherwise silent:
+
+| situation | behaviour |
+|---|---|
+| `enabled` with no `organism` | **refused.** The key is never derived from `discover.organism`: that is a PRIDE facet string, and string-munging it into a library key is how mouse spectra end up in the human library |
+| `current` names a file that is not on disk | **refused.** Falling back to a write would start a second chain and discard everything the first accumulated — visible only as a library that got *smaller* |
+| another search registered while this one ran | **refused at registration.** The run's library is left in the run folder, unregistered, so nothing is lost and the merge is deliberate rather than a race |
+| the search did not succeed | not registered. A partial library must not become the next one's parent |
+| `search_type` is `Modern` or `NonSpecific` | **flagged.** `ModernSearchEngine` takes no library at all, so it is loaded, never consulted, and still updated afterwards — it would grow without ever having contributed an identification |
+| configured but no `.msp` was produced | **flagged**, and the library does not advance. The search itself still stands |
+
+`provenance.json` carries a `spectral_library` block: the organism, the mode, the library consumed,
+the parent version, the registry path, and — on success — the version record including the spectrum
+count and the name MetaMorpheus actually used.
+
 ## Stage 5: `qc_payload.py`, build the QC payload
 
 | | |

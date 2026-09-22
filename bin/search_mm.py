@@ -201,6 +201,49 @@ def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
     return blocks, flags, notes
 
 
+def known_mods(mods_dir: Path) -> set:
+    """(category, "ID on TG") for every modification in the pinned MetaMorpheus's own Mods/*.txt.
+    This is the name MetaMorpheus lists in ListOfModsGptmd, so a requested mod is checked against the
+    program that will read it rather than against a list of our own."""
+    found = set()
+    for f in sorted(mods_dir.glob("*.txt")):
+        mid = targets = cat = None
+        for line in f.read_text(encoding="utf-8", errors="replace").splitlines():
+            if line.startswith("ID   "):
+                mid, targets, cat = line[5:].strip(), None, None
+            elif line.startswith("TG   "):
+                targets = [t.strip().rstrip(".") for t in line[5:].split(" or ")]
+            elif line.startswith("MT   "):
+                cat = line[5:].strip()
+            elif line.startswith("//") and mid and targets and cat:
+                found.update((cat, f"{mid} on {t}") for t in targets)
+                mid = targets = cat = None
+    return found
+
+
+def add_gptmd_mods(text: str, extra: list, known: set) -> tuple:
+    """Append `category<TAB>name` entries to ListOfModsGptmd, which the TOML stores as one string with
+    the TAB as a literal backslash-t escape and entries separated by two of them. Refuses a name the
+    pinned MetaMorpheus does not define: an unknown entry would otherwise be dropped without a word,
+    which is how the GG remnant went unsearched (its category, Trypsin Digested, is not in the default
+    list at all)."""
+    m = re.search(r'^ListOfModsGptmd = "(.*)"$', text, flags=re.M)
+    if not m:
+        sys.exit("gptmd_extra_mods: no ListOfModsGptmd line in the GPTMD task")
+    entries = [e for e in m.group(1).split("\\t\\t") if e]
+    added = []
+    for item in extra:
+        cat, _, name = item.partition("\t")
+        if (cat, name) not in known:
+            sys.exit(f"gptmd_extra_mods: {cat!r} / {name!r} is not defined in the pinned MetaMorpheus's Mods files")
+        entry = f"{cat}\\t{name}"
+        if entry not in entries:
+            entries.append(entry)
+            added.append(item)
+    new = "\\t\\t".join(entries)
+    return text[:m.start(1)] + new + text[m.end(1):], added
+
+
 def main(params_path: str, spectra: str, out_dir: str) -> None:
     params = json.loads(Path(params_path).read_text(encoding="utf-8"))
     # Always the prepared, uncompressed copy (db_prepare.py): a .gz makes MM write temp.xml beside it.
@@ -249,6 +292,14 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
         src = toml_dir / TASK_FILE[task]
         text = src.read_text(encoding="utf-8")
         text = re.sub(r"^MaxThreadsToUsePerFile = \d+", f"MaxThreadsToUsePerFile = {p['max_threads']}", text, flags=re.M)
+        if task == "Gptmd" and p.get("gptmd_extra_mods"):
+            # MetaMorpheus's default GPTMD list omits the per-protease remnant categories, so the diGly
+            # (GG) remnant of ubiquitin, NEDD8 and ISG15 is never discovered unless named here (D40).
+            text, added = add_gptmd_mods(text, p["gptmd_extra_mods"], known_mods(cmd.parent / "Mods"))
+            prov.rec["gptmd_extra_mods"] = p["gptmd_extra_mods"]
+            if added:
+                prov.note(f"GPTMD list extended with {len(added)} modification(s) beyond MetaMorpheus's default: "
+                          + "; ".join(a.replace("\t", " / ") for a in added))
         if task == "Search":
             mbr = "true" if p["match_between_runs"] else "false"
             text = re.sub(r"^MatchBetweenRuns = \w+", f"MatchBetweenRuns = {mbr}", text, flags=re.M)

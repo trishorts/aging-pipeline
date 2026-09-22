@@ -7,6 +7,11 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 ## [Unreleased]
 
 ### Changed
+- **GPTMD now looks for the diGly (GG) remnant on lysine** (`search.gptmd_extra_mods`). MetaMorpheus's
+  default GPTMD list has no per-protease remnant category, and GG is filed under `Trypsin Digested`, so
+  every search before this one could not discover a ubiquitination site. Names are validated against
+  the pinned MetaMorpheus's modification files. Datasets searched earlier have no GG sites: that is a
+  property of the search, not of the samples.
 - **Discovery reads every text field PRIDE gives** (title, project description, both protocols,
   keywords, experiment types, quantification methods), not only the protocols. Metabolic labelling
   (`metabolic_label_patterns`) now counts as `labelled`. Affinity enrichments (`enrichment_patterns`) are

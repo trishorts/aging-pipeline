@@ -133,6 +133,9 @@
     "spectral_library": {
       "enabled": true,
       "organism": "human"
-    }
+    },
+    "gptmd_extra_mods": [
+      "Trypsin Digested\tGG (Ubiquitination Site) on K"
+    ]
   }
 }

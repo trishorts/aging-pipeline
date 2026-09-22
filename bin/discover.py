@@ -17,6 +17,35 @@ import pymzlib.pride as pride
 from provenance import Provenance, pymzlib_tool
 
 
+def screen_text(h) -> str:
+    """Every free-text field PRIDE gives for a project. The protocols alone are not enough: PXD015928's
+    only mention of heavy-water labelling is in its project description (S46)."""
+    parts = [getattr(h, "title", "") or "", getattr(h, "project_description", "") or "",
+             getattr(h, "sample_processing_protocol", "") or "", getattr(h, "data_processing_protocol", "") or ""]
+    for field in ("keywords", "experiment_types", "quantification_methods"):
+        parts.extend(getattr(h, field, None) or [])
+    return " ".join(parts)
+
+
+def screen(h, p: dict) -> tuple:
+    """(reason, evidence) for a project v1 must not search as a whole-proteome label-free experiment, or
+    ("", "") if it passes. Excludes DIA and any labelling (isobaric or metabolic); DEFERS enrichment,
+    whose intensities describe a bait or an affinity matrix, not a proteome (S44). The evidence is the
+    matched text with context, so every decision can be audited and reversed."""
+    text = screen_text(h)
+    checks = [("dia", p.get("dia_patterns", [])),
+              ("labelled", [*p.get("label_patterns", []), *p.get("metabolic_label_patterns", [])]),
+              ("enriched", p.get("enrichment_patterns", []))]
+    for reason, patterns in checks:
+        if not patterns:
+            continue
+        m = re.search("|".join(patterns), text, re.IGNORECASE)
+        if m:
+            a, b = max(0, m.start() - 40), min(len(text), m.end() + 40)
+            return reason, " ".join(text[a:b].split())
+    return "", ""
+
+
 def main(params_path: str, out_dir: str) -> None:
     params = json.loads(Path(params_path).read_text(encoding="utf-8"))
     p = params["discover"]
@@ -30,8 +59,6 @@ def main(params_path: str, out_dir: str) -> None:
         for h in pride.search(kw, timeout=p["timeout_s"]):
             hits.setdefault(h.accession, (h, set()))[1].add(kw)
 
-    dia = re.compile("|".join(p["dia_patterns"]), re.IGNORECASE)
-    label = re.compile("|".join(p["label_patterns"]), re.IGNORECASE)
     only = re.compile("|".join(map(re.escape, p["orbitrap_ms2_only_patterns"])), re.IGNORECASE)
     hybrid = re.compile("|".join(map(re.escape, p["hybrid_patterns"])), re.IGNORECASE)
 
@@ -56,18 +83,18 @@ def main(params_path: str, out_dir: str) -> None:
 
     rows = []
     for acc, (h, kws) in sorted(hits.items()):
-        text = " ".join([*h.experiment_types, h.sample_processing_protocol or "", h.data_processing_protocol or ""])
+        screened, evidence = screen(h, p)
         raw_files = [f for f in h.project_file_names if f.lower().endswith(".raw")]
         has_sdrf = any("sdrf" in f.lower() for f in h.project_file_names)
         reason = ""
         if not any(w in h.organisms for w in wanted):
             reason = "organism"
-        elif dia.search(text):
-            reason = "dia"
-        elif label.search(text):
-            # v1 is label-free. PRIDE's quantification field and even curated SDRFs can miss labelling
-            # (PXD048658: TMT in the protocol, 'label free' in the community SDRF), so read the protocol.
-            reason = "labelled"
+        elif screened:
+            # v1 is label-free whole-proteome DDA. PRIDE's quantification field and even curated SDRFs
+            # miss labelling (PXD048658: TMT in the protocol, 'label free' in the SDRF), and a project
+            # description can be the only place it is stated (PXD015928, heavy water), so every text
+            # field is read.
+            reason = screened
         elif not any(thermo.search(i) for i in h.instruments):
             reason = "not_thermo"
         elif ms2_class(h.instruments) == "low_res":
@@ -78,6 +105,7 @@ def main(params_path: str, out_dir: str) -> None:
             reason = "no_sdrf"
         rows.append({
             "accession": acc, "keep": "yes" if not reason else "no", "drop_reason": reason,
+            "screen_evidence": evidence if reason == screened else "",
             "keywords_hit": ";".join(sorted(kws)), "has_sdrf_file": has_sdrf,
             "n_raw_listed": len(raw_files), "ms2_class": ms2_class(h.instruments),
             "instruments": ";".join(h.instruments),

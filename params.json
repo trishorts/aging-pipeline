@@ -55,7 +55,47 @@
       "TMTpro",
       "dimethyl label"
     ],
-    "timeout_s": 300
+    "timeout_s": 300,
+    "metabolic_label_patterns": [
+      "heavy[- ]?(labell?ed )?water",
+      "\\bD2O\\b",
+      "deuterium",
+      "deuterated water",
+      "\\b15N\\b",
+      "pulsed?[- ]?SILAC",
+      "metabolic(ally)? label",
+      "\\b13C6\\b",
+      "heavy (lysine|arginine)"
+    ],
+    "enrichment_patterns": [
+      "immunoprecipitat",
+      "\\bco-?IP\\b",
+      "\\bIP-MS\\b",
+      "pull-?down",
+      "(?<!without the use of )(?<!without )affinity (purif|enrich|capture)",
+      "streptavidin",
+      "\\bBioID\\b",
+      "\\bTurboID\\b",
+      "\\bAPEX2\\b|\\bAPEX[- ](based|mediated|tagged|fusion|labell?ing|proximity)",
+      "proximity[- ]labell?ing",
+      "kinobead",
+      "phospho(peptide)?[- ]?enrich",
+      "\\bTiO2\\b",
+      "\\bIMAC\\b",
+      "Fe-NTA",
+      "\\bK-?GG\\b",
+      "di-?gly(cine)? remnant",
+      "ubiquitin remnant",
+      "glyco(peptide)?[- ]?enrich",
+      "crosslinking mass spectrometry",
+      "cross-linking mass spectrometry",
+      "\\bXL-MS\\b",
+      "\\bDSSO\\b",
+      "interactome",
+      "GFP-?trap",
+      "\\bLyso-?IP\\b",
+      "organelle (isolation|purification|enrichment)"
+    ]
   },
   "fetch": {
     "accession": null,

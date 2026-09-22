@@ -30,6 +30,8 @@ Paths may use forward slashes on every OS.
 | `hybrid_patterns` | list of strings | Velos, Elite, Fusion, Lumos, Eclipse, Orbitrap XL, Orbitrap Tribrid | Hybrids that may read MS2 in the ion trap → `ms2_class = check_ms2` (stage 2b decides). Any instrument name containing "orbitrap" is also treated as `check_ms2` |
 | `dia_patterns` | list of **regexes** | `data-independent`, `DIA-NN`, `SWATH`, `\bDIA\b`, `Astral`, … | Matched case-insensitively against the experiment types and the protocol text → `dia` |
 | `label_patterns` | list of **regexes** | `\bTMT`, `tandem mass tag`, `iTRAQ`, `isobaric`, `SILAC`, `TMTpro`, `dimethyl label` | Matched against the same text → `labelled` |
+| `metabolic_label_patterns` | list of **regexes** | heavy water, `\bD2O\b`, deuterium, `\b15N\b`, pulsed SILAC, … | Metabolic labelling → `labelled` |
+| `enrichment_patterns` | list of **regexes** | immunoprecipitation, pull-down, streptavidin, BioID, TurboID, APEX2, kinobead, TiO2/IMAC, K-GG, … | → `enriched`. Patterns are written so that words shared with ordinary proteomics do not match: the chromatographic "apex" is not APEX2, and "without affinity enrichment" is not an enrichment |
 | `timeout_s` | int | `300` | The timeout for each PRIDE search call |
 
 `dia_patterns` and `label_patterns` are regular expressions (write `\\b` in JSON for a word boundary).

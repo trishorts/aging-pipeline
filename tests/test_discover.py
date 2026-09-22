@@ -1,5 +1,6 @@
 """discover.py (stage 1): filter order, one row per hit, the summary. PRIDE is replaced by fakes."""
 import csv, json
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
@@ -67,3 +68,47 @@ def test_summary_counts(run):
     assert (s["union_hits"], s["kept"], s["kept_with_sdrf_file"]) == (8, 2, 1)
     assert s["dropped_by_reason"] == {"dia": 1, "labelled": 1, "low_res_instrument": 1,
                                       "no_raw_listed": 1, "not_thermo": 1, "organism": 1}
+
+
+# --- the screen reads every text field, and knows metabolic labelling and enrichment (S44, S46) ------
+
+SCREEN = {"dia_patterns": [r"\bDIA\b"], "label_patterns": [r"\bTMT"],
+          "metabolic_label_patterns": ["heavy[- ]?(labell?ed )?water", r"\bD2O\b"],
+          "enrichment_patterns": ["streptavidin", "kinobead", "crosslinking mass spectrometry"]}
+
+
+def proj(**text):
+    base = dict(title="", project_description="", sample_processing_protocol="", data_processing_protocol="",
+                keywords=[], experiment_types=[], quantification_methods=[])
+    return SimpleNamespace(**{**base, **text})
+
+
+def test_heavy_water_in_the_description_alone_is_labelled():
+    # PXD015928: the protocols never mention the label; only the project description does.
+    reason, evidence = discover.screen(proj(project_description="rats fed heavy labelled water for 127 days"), SCREEN)
+    assert reason == "labelled" and "heavy labelled water" in evidence
+
+
+def test_an_affinity_enrichment_is_deferred_as_enriched_with_its_evidence():
+    reason, evidence = discover.screen(proj(sample_processing_protocol="bound to streptavidin beads"), SCREEN)
+    assert reason == "enriched" and "streptavidin" in evidence
+    assert discover.screen(proj(keywords=["Kinobead", "Memory"]), SCREEN)[0] == "enriched"
+
+
+def test_biology_that_merely_shares_a_word_is_not_flagged():
+    # PXD067622 is about DNA-protein crosslinks, the lesion, not crosslinking mass spectrometry.
+    assert discover.screen(proj(title="DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging"), SCREEN) == ("", "")
+
+
+def test_labelling_wins_over_enrichment_so_an_exclusion_is_never_softened_to_a_deferral():
+    assert discover.screen(proj(project_description="TMT-labelled streptavidin pulldown"), SCREEN)[0] == "labelled"
+
+
+def test_a_chromatographic_or_anatomical_apex_is_not_apex2_labelling():
+    params = {"enrichment_patterns": json.load(open(Path(discover.__file__).parents[1] / "params.json"))["discover"]["enrichment_patterns"]}
+    for text in ("Dynamic exclusion was set to 40 s, and apex trigger was enabled",
+                 "Peak intensities (at RT apex) for top 3 unique peptides",
+                 "neonatal hearts (uninjured apex) into a fine powder"):
+        assert discover.screen(proj(sample_processing_protocol=text), params) == ("", ""), text
+    assert discover.screen(proj(sample_processing_protocol="cells expressing APEX2 were labelled"), params)[0] == "enriched"
+    assert discover.screen(proj(title="LC-MS Without the Use of Affinity Enrichment"), params) == ("", "")

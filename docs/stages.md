@@ -64,7 +64,8 @@ python bin/discover.py <params.json> <out_dir>
    |---|---|
    | `organism` | none of `discover.organism`'s names is among the project's organisms |
    | `dia` | The experiment types or the protocol text match a `dia_patterns` entry |
-   | `labelled` | The experiment types or the protocol text match a `label_patterns` entry (TMT, iTRAQ, SILAC, …) |
+   | `labelled` | Any text field matches a `label_patterns` or `metabolic_label_patterns` entry (TMT, iTRAQ, SILAC, heavy water/D2O, 15N, …) |
+   | `enriched` | Any text field matches an `enrichment_patterns` entry (IP, pulldown, streptavidin/BioID/TurboID/APEX2, kinobead, phospho or diGly enrichment, crosslinking MS, …). An enrichment's intensities describe a bait or an affinity matrix, not a proteome |
    | `not_thermo` | No instrument matches `thermo_instrument_patterns` |
    | `low_res_instrument` | The only instruments are ion-trap-only (e.g. a plain LTQ) |
    | `no_raw_listed` | The project lists no `.raw` files |

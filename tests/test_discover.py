@@ -104,6 +104,27 @@ def test_labelling_wins_over_enrichment_so_an_exclusion_is_never_softened_to_a_d
     assert discover.screen(proj(project_description="TMT-labelled streptavidin pulldown"), SCREEN)[0] == "labelled"
 
 
+def test_an_enrichment_is_kept_and_annotated_not_dropped(work, monkeypatch, no_bridge):
+    # A LAMP1-TurboID pulldown is a lysosome proteome: enrichment is recorded, never a reason to drop.
+    lyso = hit("PXD000009", protocol="LAMP1-GFP-TurboID, biotinylated proteins captured on streptavidin beads")
+    tmt = hit("PXD000010", protocol="streptavidin pulldown, then TMT 10-plex")
+    monkeypatch.setattr(discover.pride, "search", lambda kw, timeout=None: [lyso, tmt])
+    work.write(discover={**DISCOVER, **SCREEN, "keywords": ["aging"]})
+    out = work.root / "01_discover"
+    discover.main(str(work.params_path), str(out))
+    rows = {r["accession"]: r for r in csv.DictReader((out / "candidates_2026-01-01.tsv").open(encoding="utf-8"), delimiter="\t")}
+    assert rows["PXD000009"]["keep"] == "yes" and rows["PXD000009"]["enrichment"] == "other"
+    assert "streptavidin" in rows["PXD000009"]["screen_evidence"]
+    assert rows["PXD000010"]["drop_reason"] == "labelled"          # labelling still excludes
+
+
+def test_enrichment_kind_uses_the_repository_vocabulary():
+    assert discover.enrichment_kind("phosphopeptides enriched by TiO2 beads") == "phospho"
+    assert discover.enrichment_kind("K-GG remnant antibody") == "ubiquitin_GG"
+    assert discover.enrichment_kind("lectin glycopeptide enrichment") == "glyco"
+    assert discover.enrichment_kind("SPRTN-TurboID streptavidin pulldown") == "other"
+
+
 def test_a_chromatographic_or_anatomical_apex_is_not_apex2_labelling():
     params = {"enrichment_patterns": json.load(open(Path(discover.__file__).parents[1] / "params.json"))["discover"]["enrichment_patterns"]}
     for text in ("Dynamic exclusion was set to 40 s, and apex trigger was enabled",

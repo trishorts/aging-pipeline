@@ -65,7 +65,12 @@ python bin/discover.py <params.json> <out_dir>
    | `organism` | none of `discover.organism`'s names is among the project's organisms |
    | `dia` | The experiment types or the protocol text match a `dia_patterns` entry |
    | `labelled` | Any text field matches a `label_patterns` or `metabolic_label_patterns` entry (TMT, iTRAQ, SILAC, heavy water/D2O, 15N, …) |
-   | `enriched` | Any text field matches an `enrichment_patterns` entry (IP, pulldown, streptavidin/BioID/TurboID/APEX2, kinobead, phospho or diGly enrichment, crosslinking MS, …). An enrichment's intensities describe a bait or an affinity matrix, not a proteome |
+
+   **Enrichment is recorded, never a drop reason.** A project whose text matches `enrichment_patterns` (IP,
+   pulldown, streptavidin/BioID/TurboID/APEX2, kinobead, phospho or diGly enrichment, crosslinking MS, …) is
+   kept, with `enrichment` (`phospho`, `ubiquitin_GG`, `glyco` or `other`) and the matched `screen_evidence`
+   in its row. An organelle-targeted pulldown is an organelle proteome. What the label prevents is reading
+   an enrichment's intensities as whole-cell abundance, or pooling them with whole proteomes.
    | `not_thermo` | No instrument matches `thermo_instrument_patterns` |
    | `low_res_instrument` | The only instruments are ion-trap-only (e.g. a plain LTQ) |
    | `no_raw_listed` | The project lists no `.raw` files |

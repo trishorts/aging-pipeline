@@ -27,11 +27,27 @@ def screen_text(h) -> str:
     return " ".join(parts)
 
 
+def enrichment_kind(evidence: str) -> str:
+    """Map enrichment evidence onto dataRepo's Enrichment vocabulary. Affinity purifications, pulldowns,
+    proximity labelling and kinobeads have no value of their own there yet, so they are `other`, and the
+    evidence text says which."""
+    e = evidence.lower()
+    if re.search(r"phospho|tio2|\bimac\b|fe-nta", e):
+        return "phospho"
+    if re.search(r"k-?gg|di-?gly|ubiquitin remnant", e):
+        return "ubiquitin_GG"
+    if re.search(r"glyco", e):
+        return "glyco"
+    return "other"
+
+
 def screen(h, p: dict) -> tuple:
-    """(reason, evidence) for a project v1 must not search as a whole-proteome label-free experiment, or
-    ("", "") if it passes. Excludes DIA and any labelling (isobaric or metabolic); DEFERS enrichment,
-    whose intensities describe a bait or an affinity matrix, not a proteome (S44). The evidence is the
-    matched text with context, so every decision can be audited and reversed."""
+    """(reason, evidence) for a project, or ("", "") if nothing matched. `dia` and `labelled` EXCLUDE a
+    project under v1 (label-free DDA only). `enriched` does NOT: an enrichment is searched and annotated
+    (user, 2026-09-22: "I don't see why enrichment blocks organelle" -- a LAMP1-TurboID pulldown is a
+    lysosome proteome). What an annotation prevents is reading an enrichment's intensities as whole-cell
+    abundance or pooling them with whole proteomes, so it has to travel with the data (S44). The evidence
+    is the matched text with context, so every decision can be audited and reversed."""
     text = screen_text(h)
     checks = [("dia", p.get("dia_patterns", [])),
               ("labelled", [*p.get("label_patterns", []), *p.get("metabolic_label_patterns", [])]),
@@ -84,12 +100,13 @@ def main(params_path: str, out_dir: str) -> None:
     rows = []
     for acc, (h, kws) in sorted(hits.items()):
         screened, evidence = screen(h, p)
+        enriched = screened == "enriched"
         raw_files = [f for f in h.project_file_names if f.lower().endswith(".raw")]
         has_sdrf = any("sdrf" in f.lower() for f in h.project_file_names)
         reason = ""
         if not any(w in h.organisms for w in wanted):
             reason = "organism"
-        elif screened:
+        elif screened and not enriched:
             # v1 is label-free whole-proteome DDA. PRIDE's quantification field and even curated SDRFs
             # miss labelling (PXD048658: TMT in the protocol, 'label free' in the SDRF), and a project
             # description can be the only place it is stated (PXD015928, heavy water), so every text
@@ -105,7 +122,8 @@ def main(params_path: str, out_dir: str) -> None:
             reason = "no_sdrf"
         rows.append({
             "accession": acc, "keep": "yes" if not reason else "no", "drop_reason": reason,
-            "screen_evidence": evidence if reason == screened else "",
+            "screen_evidence": evidence if (reason == screened or enriched) else "",
+            "enrichment": enrichment_kind(evidence) if enriched else "none",
             "keywords_hit": ";".join(sorted(kws)), "has_sdrf_file": has_sdrf,
             "n_raw_listed": len(raw_files), "ms2_class": ms2_class(h.instruments),
             "instruments": ";".join(h.instruments),

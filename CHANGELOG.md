@@ -9,10 +9,11 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 ### Changed
 - **Discovery reads every text field PRIDE gives** (title, project description, both protocols,
   keywords, experiment types, quantification methods), not only the protocols. Metabolic labelling
-  (`metabolic_label_patterns`) now counts as `labelled`, and affinity enrichments get a new drop reason,
-  `enriched` (`enrichment_patterns`). The screen is `discover.screen()`, and each dropped row carries its
-  `screen_evidence`. On one real queue it caught a heavy-water labelling time course whose protocols
-  never mentioned the label, plus 15 labelled and 69 enriched deposits.
+  (`metabolic_label_patterns`) now counts as `labelled`. Affinity enrichments (`enrichment_patterns`) are
+  kept and annotated with an `enrichment` column (`phospho`, `ubiquitin_GG`, `glyco`, `other`), never
+  dropped: an organelle-targeted pulldown is an organelle proteome. The screen is `discover.screen()`,
+  and each row carries its `screen_evidence`. On one real queue it caught a heavy-water labelling time
+  course whose protocols never mentioned the label, plus 15 labelled deposits.
 - **`fetch.pick` now defaults to `all`**, and taking fewer files than a deposit lists is always flagged
   `subset_of_deposit` in `provenance.json`, with `raw_files_listed` and `raw_files_chosen`. That
   includes files dropped by `max_file_mb`. The old default, `median_size`, picks files by size, and

@@ -27,7 +27,20 @@ def main(params_path: str, spectra_dir: str, out_dir: str) -> None:
     report = {}
     for f in sorted(Path(spectra_dir).glob("*.raw")):
         prov.command(["pymzlib.readers.read_spectra", f.name, "peaks=False"])
-        s = readers.read_spectra(f, timeout=q["timeout_s"]); c = s.columns
+        try:
+            s = readers.read_spectra(f, timeout=q["timeout_s"])
+        except Exception as e:
+            # An unreadable file is a THIRD kind of failure, alongside low_res_ms2 and too_few_ms2,
+            # and it used to be an exception instead of a verdict - so one corrupt .raw threw away
+            # the other seventeen files' QC and no report was written at all. Downloads are retried
+            # rather than resumed (S33), so a truncated file is not a remote possibility.
+            # `unreadable` is NEVER waivable: a file we cannot read is not an acquisition choice.
+            report[f.name] = {"pass": False, "fail_reasons": ["unreadable"], "error": str(e)[:500],
+                              "scans": None, "ms2": 0, "fraction_orbitrap_hcd": None,
+                              "run_minutes": None}
+            prov.note(f"{f.name}: unreadable ({type(e).__name__}); recorded as a failure and skipped")
+            continue
+        c = s.columns
         ms2 = [i for i, o in enumerate(c["ms_order"]) if o == 2]
         pair = collections.Counter((c["mz_analyzer"][i], c["dissociation_type"][i]) for i in ms2)
         hi = pair.get(("Orbitrap", "HCD"), 0)

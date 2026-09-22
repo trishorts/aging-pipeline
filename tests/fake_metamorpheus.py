@@ -12,6 +12,7 @@ MetaMorpheus's science. Environment switches for the failure paths:
   FAKE_MM_NO_PROTEIN_GROUPS=1    omit AllQuantifiedProteinGroups.tsv (FlashLFQ failing silently)
   FAKE_MM_EXIT=<n>               exit with code <n>
   FAKE_MM_NO_SPECTRAL_LIBRARY=1  write no .msp even when the search TOML asks for one
+  FAKE_MM_HANG=<s>               print one line, then sleep <s> without exiting (the F1 timeout path)
 """
 import os, sys
 from pathlib import Path
@@ -63,6 +64,14 @@ def main():
         return 0
 
     out = Path(arg("-o")); out.mkdir(parents=True)
+    hang = os.environ.get("FAKE_MM_HANG")
+    if hang:
+        # A search that produces output and then stops making progress, which is what a real stall
+        # looks like: stdout stays OPEN, so a reader iterating the pipe blocks forever.
+        print("Starting task: Task1CalibrationTask", flush=True)
+        import time as _t
+        _t.sleep(float(hang))
+        return 0
     spectra = [Path(s).stem for s in values("-s")]
     for i, task in enumerate(["CalibrationTask", "GptmdTask", "SearchTask"], 1):
         print(f"Starting task: Task{i}{task}", flush=True)

@@ -82,7 +82,7 @@ anything it does not name still fails. A waiver cannot quietly become a blanket 
 
 | Key | Meaning |
 |---|---|
-| `waives` | The `fail_reasons` this exception forgives. `too_few_ms2` should never be waived — a file with almost no spectra is not an acquisition choice |
+| `waives` | The `fail_reasons` this exception forgives. **`too_few_ms2` and `unreadable` cannot be waived — naming either one is refused with an error**, because a file with almost no spectra, or one the reader cannot open, is not an acquisition choice. (Before 2026-09-22 this was advice that nothing enforced.) `too_few_ms2` should never be waived — a file with almost no spectra is not an acquisition choice |
 | `restricts_to` / `bars` | What the results may and may not be used for. Not enforced by the pipeline; they are recorded so a downstream consumer can enforce them |
 | the rest | Free text, copied verbatim into provenance |
 

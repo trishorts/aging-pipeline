@@ -17,6 +17,7 @@ Rules for running it:
 usage: search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
 """
 import collections, csv, json, re, shutil, subprocess, sys, time
+import threading
 from pathlib import Path
 
 import spectral_library
@@ -24,9 +25,35 @@ from provenance import Provenance, file_entry, sha256
 
 TASK_FILE = {"Calibration": "CalibrationTask.toml", "Gptmd": "GptmdTask.toml", "Search": "SearchTask.toml"}
 SEARCH_TYPES = {"Classic", "Modern", "NonSpecific"}
+# QC failures an acquisition exception may NOT forgive, whatever it names. A low-resolution MS2 is
+# an acquisition choice and can be waived with the restriction recorded (D24); a file with almost
+# no spectra, or one the reader cannot open, is not a choice about acquisition at all.
+NEVER_WAIVABLE = {"too_few_ms2", "unreadable"}
 
 
 MBR_FDR_THRESHOLD = 0.01   # SearchParameters.MbrFdrThreshold default; not yet read from the TOML
+
+
+def kill_tree(proc) -> None:
+    """Terminate a process and its descendants.
+
+    `dotnet CMD.dll` runs the search as a CHILD of the launcher, and on Windows there is no
+    process-group kill, so `proc.kill()` alone leaves the real search running.
+    """
+    try:
+        import psutil
+        parent = psutil.Process(proc.pid)
+        for child in parent.children(recursive=True):
+            try:
+                child.kill()
+            except Exception:
+                pass
+    except Exception:
+        pass
+    try:
+        proc.kill()
+    except Exception:
+        pass
 
 
 def classify_peak(row: dict, thr: float = MBR_FDR_THRESHOLD):
@@ -311,7 +338,15 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
         # exact QC conditions it forgives. It is scoped on purpose - a file failing anything the
         # exception does not name still fails, so a waiver cannot quietly become a blanket override.
         exc = params["qc"].get("acquisition_exception") or {}
-        waived = set(exc.get("waives") or [])
+        waived = set(exc.get("waives") or []) - NEVER_WAIVABLE
+        refused = set(exc.get("waives") or []) & NEVER_WAIVABLE
+        if refused:
+            # The docs said these "should never be waived" and nothing enforced it, so a waiver
+            # naming one was honoured. A waiver is a safety mechanism; an unenforced rule in it is
+            # worse than no rule, because the operator believes the guard exists.
+            sys.exit(f"acquisition_exception waives {sorted(refused)}, which cannot be waived: "
+                     f"a file with almost no MS2, or one we cannot read at all, is not an "
+                     f"acquisition choice. Remove it from `waives`.")
         unwaived = {n: [r for r in rs if r not in waived] for n, rs in failed.items()}
         unwaived = {n: rs for n, rs in unwaived.items() if rs}
         if unwaived or not waived:
@@ -360,17 +395,41 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     # MetaMorpheus task gets its own wall time, CPU, average cores and peak memory (D11).
     t0 = prov.monitor.t0
     marks = []                                   # (task, "start"|"end", t)
+    # `for line in proc.stdout` blocks until the pipe reaches EOF, which for a subprocess means until
+    # it EXITS. Reading the log that way and then calling `proc.wait(timeout=...)` put the timeout
+    # after the only thing that could ever need timing out, so `search.timeout_s` could not fire and a
+    # hung search blocked forever with no provenance written. That is what every PXD060431 stall did
+    # (S38), and nobody noticed the guard rail itself was inoperative. Read on a thread so the
+    # deadline is real.
+    timed_out = False
     with (out / "metamorpheus.log").open("w", encoding="utf-8") as log:
         proc = subprocess.Popen(run, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
                                 text=True, encoding="utf-8", errors="replace", bufsize=1)
-        for line in proc.stdout:
-            t = round(time.monotonic() - t0, 1)
-            log.write(f"{t}\t{line}")
-            m = re.match(r"\s*(Starting|Finished) task: (\S+)", line)
-            if m:
-                marks.append((m.group(2), "start" if m.group(1) == "Starting" else "end", t))
-        rc = proc.wait(timeout=p["timeout_s"])
+
+        def pump():
+            for line in proc.stdout:
+                t = round(time.monotonic() - t0, 1)
+                log.write(f"{t}\t{line}")
+                m = re.match(r"\s*(Starting|Finished) task: (\S+)", line)
+                if m:
+                    marks.append((m.group(2), "start" if m.group(1) == "Starting" else "end", t))
+
+        reader = threading.Thread(target=pump, daemon=True)
+        reader.start()
+        try:
+            rc = proc.wait(timeout=p["timeout_s"])
+        except subprocess.TimeoutExpired:
+            timed_out = True
+            # Kill the tree, not just the launcher: `dotnet CMD.dll` makes CMD a CHILD, so killing
+            # the parent would leave a 32-thread search holding the machine while the caller moves on.
+            kill_tree(proc)
+            rc = proc.wait(timeout=60)
+        reader.join(timeout=10)
     prov.rec["exit_code"] = rc
+    if timed_out:
+        prov.rec["timed_out_after_s"] = p["timeout_s"]
+        prov.note(f"KILLED: the search exceeded search.timeout_s ({p['timeout_s']} s) and the process "
+                  f"tree was terminated. Partial outputs in {out / 'mm'} are NOT a completed search.")
     starts = {k: t for k, s, t in marks if s == "start"}
     prov.rec["per_task_resources"] = {k: prov.monitor.window(starts[k], t) for k, s, t in marks
                                       if s == "end" and k in starts and getattr(prov.monitor, "series", None)}

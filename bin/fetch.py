@@ -79,7 +79,9 @@ def main(params_path: str, accession: str, out_dir: str) -> None:
     ftp_raw_names = {f.file_name for f in ftp if f.file_name.lower().endswith(ext)}
     missing_from_rest = sorted(ftp_raw_names - {f.file_name for f in raws})
 
+    n_listed = len(raws)
     raws = [f for f in raws if f.file_size_bytes <= p["max_file_mb"] * 1_000_000]
+    n_oversize = n_listed - len(raws)
     # The smallest file is often a blank or a failed run (user), so the prototype takes the median.
     raws.sort(key=lambda f: f.file_size_bytes)
     if p["pick"] == "all":
@@ -94,6 +96,16 @@ def main(params_path: str, accession: str, out_dir: str) -> None:
     else:
         chosen = raws[: p["max_files"]]
     sdrfs = [f for f in rest if "sdrf" in f.file_name.lower()]
+    # A subset of a deposit is a design decision, and making it by file size or name is how an arm or an
+    # acquisition batch silently goes missing (S43: a median-size window kept 1 of 3 wild-type controls).
+    # It is allowed -- a probe needs one file -- but it is never silent.
+    prov.rec["raw_files_listed"] = n_listed
+    prov.rec["raw_files_chosen"] = len(chosen)
+    if len(chosen) < n_listed:
+        prov.rec.setdefault("flags", []).append(
+            f"subset_of_deposit: {len(chosen)} of {n_listed} raw files (pick={p['pick']}"
+            + (f", {n_oversize} above max_file_mb={p['max_file_mb']}" if n_oversize else "")
+            + "); results describe this subset, not the experiment")
 
     spectra_dir = out / "spectra"; meta_dir = out / "metadata"
     prov.command(["pymzlib.pride.download_files", *[f.file_name for f in chosen + sdrfs], "overwrite=False"])

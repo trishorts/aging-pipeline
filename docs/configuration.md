@@ -41,7 +41,7 @@ The instrument lists are literal text.
 |---|---|---|---|
 | `accession` | string or null | `null` | **Not read by `fetch.py`.** The accession is its command-line argument. It's kept as a record |
 | `max_files` | int | `1` | How many files to take (ignored when `pick` is `all`) |
-| `pick` | `median_size` · `first_by_name` · `all` | `median_size` | Which files ([details](stages.md#stage-2-fetchpy-download-one-accession)). With `median_size`, the smallest file is chosen only if it's the only candidate left. Any other value is rejected |
+| `pick` | `all` · `median_size` · `first_by_name` | `all` | Which files ([details](stages.md#stage-2-fetchpy-download-one-accession)). `all` takes the whole deposit and is the only choice for results you will interpret; the others are for probing, and any subset is flagged `subset_of_deposit` in provenance. With `median_size`, the smallest file is chosen only if it's the only candidate left. Any other value is rejected |
 | `parallel_downloads` | int | `4` | Concurrent downloads |
 | `max_file_mb` | int | `1500` | Skip files larger than this (in MB, 10⁶ bytes). **Check it against the deposit before a run**: PXD027318's three largest files are 1.62–1.63 GB, so the default would have silently dropped half of one experimental arm |
 | `max_attempts` | int | `3` | Attempts per file before the stage fails. Only a `ServiceUnavailableError` (a dropped connection) is retried; any other error fails at once |

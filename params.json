@@ -60,7 +60,7 @@
   "fetch": {
     "accession": null,
     "max_files": 1,
-    "pick": "median_size",
+    "pick": "all",
     "parallel_downloads": 4,
     "max_file_mb": 1500,
     "extension": ".raw",

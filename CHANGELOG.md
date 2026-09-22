@@ -6,6 +6,13 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 
 ## [Unreleased]
 
+### Changed
+- **`fetch.pick` now defaults to `all`**, and taking fewer files than a deposit lists is always flagged
+  `subset_of_deposit` in `provenance.json`, with `raw_files_listed` and `raw_files_chosen`. That
+  includes files dropped by `max_file_mb`. The old default, `median_size`, picks files by size, and
+  size tracks sample type: on real deposits a median-size window kept 1 of 3 wild-type controls and
+  dropped most of one acquisition batch. `median_size` remains for probing.
+
 ### Added
 - **Per-organism spectral libraries in the search task** (`bin/spectral_library.py`, user request).
   The first search of an organism sets `WriteSpectralLibrary`; every search after it sets

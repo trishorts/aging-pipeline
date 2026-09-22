@@ -115,12 +115,20 @@ python bin/fetch.py <params.json> <accession> <out_dir>
    is a known PRIDE inconsistency.
 2. It drops files larger than `max_file_mb`.
 3. It chooses files according to `pick`:
-   - `median_size` (the default): `max_files` files centred on the median size. The smallest file is
-     often a blank or a failed run, so it isn't chosen unless it's the only candidate left.
+   - `all` (the default): every remaining file. **Use this for any run whose results you mean to
+     interpret.** An experiment is its whole deposit.
+   - `median_size`: `max_files` files centred on the median size. Meant for probing, e.g. taking one file
+     to check the acquisition. The smallest file is often a blank or a failed run, so it isn't chosen
+     unless it's the only candidate left.
    - `first_by_name`: the first `max_files` files by name.
-   - `all`: every remaining file.
 
    Any other value is rejected before anything is downloaded.
+
+   **Choosing a subset is a design decision, and file size is a bad way to make it.** Size tracks sample
+   type (blanks, controls, IPs, gel bands and acquisition batches all differ). A size window over one
+   real deposit kept 1 of its 3 wild-type controls and dropped most of an acquisition batch from another.
+   So whenever fewer files are chosen than the deposit lists (including files dropped by `max_file_mb`),
+   `provenance.json` carries a `subset_of_deposit` flag, plus `raw_files_listed` and `raw_files_chosen`.
 4. It downloads the chosen files, `parallel_downloads` at a time, plus every SDRF file.
 5. It records each file's PRIDE size and checksum (when PRIDE has one), its local size and its SHA-256.
 

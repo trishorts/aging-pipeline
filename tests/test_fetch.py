@@ -58,6 +58,30 @@ def test_manifest_records_hash_sdrf_and_rest_ftp_difference(work, fake_pride):
     assert len(m["sdrf"]) == 1
 
 
+def _prov(work):
+    return json.loads((work.root / "run_2026-01-01" / "PXD1" / "02_fetch" / "provenance.json").read_text(encoding="utf-8"))
+
+
+def test_a_subset_of_the_deposit_is_flagged_never_silent(work, fake_pride):
+    run(work)  # median_size, one file of five listed
+    prov = _prov(work)
+    assert prov["raw_files_listed"] == 5 and prov["raw_files_chosen"] == 1
+    assert any(f.startswith("subset_of_deposit: 1 of 5") for f in prov["flags"])
+
+
+def test_even_pick_all_is_flagged_when_the_size_cap_drops_a_file(work, fake_pride):
+    run(work, pick="all")  # huge.raw exceeds max_file_mb
+    flags = _prov(work)["flags"]
+    assert any("subset_of_deposit: 4 of 5" in f and "1 above max_file_mb" in f for f in flags)
+
+
+def test_the_whole_deposit_carries_no_subset_flag(work, fake_pride):
+    run(work, pick="all", max_file_mb=10_000)
+    prov = _prov(work)
+    assert prov["raw_files_chosen"] == prov["raw_files_listed"] == 5
+    assert not any(f.startswith("subset_of_deposit") for f in prov.get("flags", []))
+
+
 def test_unknown_pick_is_rejected_before_downloading(work, fake_pride):
     with pytest.raises(SystemExit, match="fetch.pick"):
         run(work, pick="smallest")

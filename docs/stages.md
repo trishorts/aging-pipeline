@@ -62,7 +62,7 @@ python bin/discover.py <params.json> <out_dir>
 
    | `drop_reason` | Rule |
    |---|---|
-   | `organism` | `discover.organism` is not among the project's organisms |
+   | `organism` | none of `discover.organism`'s names is among the project's organisms |
    | `dia` | The experiment types or the protocol text match a `dia_patterns` entry |
    | `labelled` | The experiment types or the protocol text match a `label_patterns` entry (TMT, iTRAQ, SILAC, …) |
    | `not_thermo` | No instrument matches `thermo_instrument_patterns` |

@@ -45,13 +45,22 @@ def main(params_path: str, out_dir: str) -> None:
         return "low_res"
     thermo = re.compile("|".join(re.escape(s) for s in p["thermo_instrument_patterns"]), re.IGNORECASE)
 
+    # `organism` accepts one name or several, and the match stays EXACT against the project's own
+    # organism list. PRIDE carries the same species under more than one spelling -- "Mus musculus
+    # (mouse)" on 448 aging hits and a bare "Mus musculus" on 47 more -- so a single string quietly
+    # drops a tenth of the mouse corpus, and a substring rule would sweep in "Rattus rattus (black
+    # rat)" alongside "Rattus norvegicus (rat)". A list of exact names is the only form that is both
+    # complete and safe.
+    wanted = p["organism"]
+    wanted = [wanted] if isinstance(wanted, str) else list(wanted)
+
     rows = []
     for acc, (h, kws) in sorted(hits.items()):
         text = " ".join([*h.experiment_types, h.sample_processing_protocol or "", h.data_processing_protocol or ""])
         raw_files = [f for f in h.project_file_names if f.lower().endswith(".raw")]
         has_sdrf = any("sdrf" in f.lower() for f in h.project_file_names)
         reason = ""
-        if p["organism"] not in h.organisms:
+        if not any(w in h.organisms for w in wanted):
             reason = "organism"
         elif dia.search(text):
             reason = "dia"
@@ -82,7 +91,8 @@ def main(params_path: str, out_dir: str) -> None:
 
     kept = [r for r in rows if r["keep"] == "yes"]
     summary = {
-        "run_date": params["run_date"], "keywords": p["keywords"], "union_hits": len(rows),
+        "run_date": params["run_date"], "keywords": p["keywords"], "organism": wanted,
+        "union_hits": len(rows),
         "kept": len(kept), "kept_with_sdrf_file": sum(1 for r in kept if r["has_sdrf_file"]),
         "dropped_by_reason": {k: sum(1 for r in rows if r["drop_reason"] == k)
                               for k in sorted({r["drop_reason"] for r in rows if r["drop_reason"]})},

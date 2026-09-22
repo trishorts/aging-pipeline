@@ -23,7 +23,7 @@ Paths may use forward slashes on every OS.
 | Key | Type | Default in `params.json` | Meaning |
 |---|---|---|---|
 | `keywords` | list of strings | `["aging", "ageing", "senescence", "longevity"]` | One PRIDE search per keyword; hits are unioned |
-| `organism` | string | `"Homo sapiens (human)"` | Must exactly match an entry in the project's PRIDE organism list |
+| `organism` | string **or list of strings** | `"Homo sapiens (human)"` | Each name must match an entry in the project's PRIDE organism list **exactly**; a project is kept if it matches any of them. Use a list where PRIDE carries one species under several spellings — `["Mus musculus (mouse)", "Mus musculus"]` keeps 47 aging deposits that the first name alone drops. Do **not** be tempted by substring matching: `"Rattus norvegicus"` as a substring also matches nothing useful, while a loose rule would pull in `Rattus rattus (black rat)` |
 | `require_sdrf_file` | bool | `false` | When `true`, drop projects without an SDRF file (`no_sdrf`) |
 | `thermo_instrument_patterns` | list of strings | Q Exactive, Orbitrap, Exploris, Fusion, Lumos, Eclipse, LTQ, Velos, Elite | Literal, case-insensitive substrings; one must match an instrument, or the project is dropped as `not_thermo` |
 | `orbitrap_ms2_only_patterns` | list of strings | Q Exactive, Exploris | Instruments that can only read MS2 in the Orbitrap → `ms2_class = orbitrap_hcd_only` |

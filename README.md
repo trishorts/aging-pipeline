@@ -324,7 +324,7 @@ Read this before you run anything on your own data.
   ~64 MB in, and again after eight. Raise `fetch.max_attempts` if you like, but the fix is byte-range
   resume upstream. Prefer deposits with smaller files if you are working through a list.
 - **The accession is chosen by hand.** Nothing yet iterates over the frozen list's `keep = yes` rows.
-- **Discovery is human-only** (`discover.organism`), with four keywords. It's deliberately simple and
+- **Discovery searches the organisms you name** (`discover.organism`, one name or a list), with four keywords. It's deliberately simple and
   conservative, and every dropped dataset records its reason.
 
 ## Testing

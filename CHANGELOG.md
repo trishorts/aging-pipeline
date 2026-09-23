@@ -16,6 +16,10 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
   MetaMorpheus accepts. `contaminant_psm_share` moves to `DEF-CONTAM-PSM-RUN v2` for the same reason.
   `contaminant_intensity_frac` no longer applies a 1% protein filter that `DEF-QC-9` does not state, so it
   now agrees with the provenance block (19.1% was 18.92% for the same PXD036557 file).
+- **Enrichments get dataRepo 0.16.0's four capture values** (`immunoprecipitation`, `proximity_labelling`,
+  `affinity_purification`, `chemical_probe`) instead of `other`, read from the whole PRIDE record rather
+  than the 40-character evidence snippet. Proximity labelling and chemical probes take priority over
+  affinity purification, because both are captured on streptavidin.
 - **`DEF-RAZOR-INSTABILITY v1` and `DEF-NONLEADING-ACCESSION v1` are retired.** MetaMorpheus has no leading
   protein; both measured alphabetical order within a group. The replacement is
   `DEF-COMPOSITION-INSTABILITY v1`.

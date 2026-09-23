@@ -27,17 +27,32 @@ def screen_text(h) -> str:
     return " ".join(parts)
 
 
-def enrichment_kind(evidence: str) -> str:
-    """Map enrichment evidence onto dataRepo's Enrichment vocabulary. Affinity purifications, pulldowns,
-    proximity labelling and kinobeads have no value of their own there yet, so they are `other`, and the
-    evidence text says which."""
-    e = evidence.lower()
-    if re.search(r"phospho|tio2|\bimac\b|fe-nta", e):
-        return "phospho"
-    if re.search(r"k-?gg|di-?gly|ubiquitin remnant", e):
-        return "ubiquitin_GG"
-    if re.search(r"glyco", e):
-        return "glyco"
+# dataRepo's Enrichment vocabulary (0.16.0 added the four capture values; our dataRepo 046). ORDER MATTERS:
+# the first kind whose pattern appears anywhere in the record wins. PTM enrichments come first because
+# they are named for what is enriched. Proximity labelling precedes affinity purification because
+# TurboID/BioID captures ARE streptavidin pulldowns, and a chemical probe precedes it for the same
+# reason (PXD058611 captures its persulfide probe on streptavidin).
+_ENRICHMENT_KINDS = (
+    ("phospho", r"phospho(peptide)?[- ]?enrich|\btio2\b|\bimac\b|fe-nta"),
+    ("ubiquitin_GG", r"\bk-?gg\b|di-?gly(cine)? remnant|ubiquitin remnant"),
+    ("glyco", r"glyco(peptide)?[- ]?enrich|lectin"),
+    ("proximity_labelling", r"\bturboid\b|\bbioid\b|\bapex2\b|proximity[- ]labell?ing"),
+    ("chemical_probe", r"kinobead|chemical probe|activity-based probe|\bdcp-?bio"),
+    ("immunoprecipitation", r"immunoprecipitat|\bco-?ip\b|\bip-ms\b|\blyso-?ip\b"),
+    ("affinity_purification", r"affinity (purif|enrich|capture)|pull-?down|gfp-?trap|streptavidin|\bflag\b"),
+)
+
+
+def enrichment_kind(text: str) -> str:
+    """Map a PRIDE record's text (`screen_text`, not the short evidence snippet) onto dataRepo's
+    Enrichment vocabulary. The snippet is only 40 characters either side of the first match, which is
+    too little: PXD058611's snippet says "streptavidin" while its probe is named elsewhere in the
+    protocol. Returns `other` when the record is enriched in a way the vocabulary has no value for
+    (an interactome, XL-MS, organelle isolation)."""
+    t = text.lower()
+    for kind, pattern in _ENRICHMENT_KINDS:
+        if re.search(pattern, t):
+            return kind
     return "other"
 
 
@@ -123,7 +138,7 @@ def main(params_path: str, out_dir: str) -> None:
         rows.append({
             "accession": acc, "keep": "yes" if not reason else "no", "drop_reason": reason,
             "screen_evidence": evidence if (reason == screened or enriched) else "",
-            "enrichment": enrichment_kind(evidence) if enriched else "none",
+            "enrichment": enrichment_kind(screen_text(h)) if enriched else "none",
             "keywords_hit": ";".join(sorted(kws)), "has_sdrf_file": has_sdrf,
             "n_raw_listed": len(raw_files), "ms2_class": ms2_class(h.instruments),
             "instruments": ";".join(h.instruments),

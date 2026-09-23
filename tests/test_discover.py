@@ -113,7 +113,7 @@ def test_an_enrichment_is_kept_and_annotated_not_dropped(work, monkeypatch, no_b
     out = work.root / "01_discover"
     discover.main(str(work.params_path), str(out))
     rows = {r["accession"]: r for r in csv.DictReader((out / "candidates_2026-01-01.tsv").open(encoding="utf-8"), delimiter="\t")}
-    assert rows["PXD000009"]["keep"] == "yes" and rows["PXD000009"]["enrichment"] == "other"
+    assert rows["PXD000009"]["keep"] == "yes" and rows["PXD000009"]["enrichment"] == "proximity_labelling"
     assert "streptavidin" in rows["PXD000009"]["screen_evidence"]
     assert rows["PXD000010"]["drop_reason"] == "labelled"          # labelling still excludes
 
@@ -122,7 +122,15 @@ def test_enrichment_kind_uses_the_repository_vocabulary():
     assert discover.enrichment_kind("phosphopeptides enriched by TiO2 beads") == "phospho"
     assert discover.enrichment_kind("K-GG remnant antibody") == "ubiquitin_GG"
     assert discover.enrichment_kind("lectin glycopeptide enrichment") == "glyco"
-    assert discover.enrichment_kind("SPRTN-TurboID streptavidin pulldown") == "other"
+    # The four capture values dataRepo 0.16.0 added (our dataRepo 046), and the priority between them.
+    assert discover.enrichment_kind("SPRTN-TurboID streptavidin pulldown") == "proximity_labelling"
+    assert discover.enrichment_kind("Wt/mutCHD6 immunoprecipitation was performed") == "immunoprecipitation"
+    assert discover.enrichment_kind("the kinobead assay identified the upstream kinases") == "chemical_probe"
+    assert discover.enrichment_kind("Affinity purification coupled with mass spectrometry") == "affinity_purification"
+    # PXD058611: the probe is named far from "streptavidin", which is why the whole record is read.
+    assert discover.enrichment_kind("100 uM DCP-Bio1 ... Sera-Mag Magnetic Streptavidin particles") == "chemical_probe"
+    # enriched, but in a way the vocabulary has no value for
+    assert discover.enrichment_kind("an XL-MS interactome") == "other"
 
 
 def test_a_chromatographic_or_anatomical_apex_is_not_apex2_labelling():

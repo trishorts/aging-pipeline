@@ -378,9 +378,21 @@ are all in it — so the stage applies `DEF-PROTEINGROUP-1PCT` (not decoy, `Prot
 contaminants **included**). On the 18-file PXD036557 run that is 1,652 groups out of 2,229 rows; a
 denominator of "rows in the file" would be wrong by about a third.
 
+That filter decides **presence** (`pg_missing_frac`) only. The contaminant intensity fraction below is
+summed over every `C` and `T` row, because its definition states no protein-FDR filter.
+
+**Two PSM populations per file, on purpose.** The `psms`, `peptides` and `protein_groups` counts are
+MetaMorpheus's per-file `results.txt` lines, each from an FDR it recomputes on that file alone, and carry
+the `-RUN` definitions (`DEF-PSM-1PCT-RUN` and siblings). Every PSM-derived metric and distribution
+describes a different set: the **whole-search** 1% PSMs that came from the file, read from
+`AllPSMs.psmtsv` with `QValue ≤ 0.01`, `QValue Notch ≤ 0.01` and an unambiguous notch
+(`DEF-PSM-1PCT-INFILE`). That file is written before the per-file recalculation, so its q-values are
+whole-search. The stage refuses a PSM table without `QValue Notch` rather than silently widening the set.
+
 **Contamination (M13).** `contaminant_intensity_frac` is `QuantProject:DEF-QC-9 v2` — contaminant over
-target-plus-contaminant apex intensity, per file. `contaminant_psm_share` is
-**`aging:DEF-CONTAM-PSM-RUN v1`**, a run-grain definition, and deliberately *not* `DEF-CONTAM-PSM v1`,
+target-plus-contaminant apex intensity, per file, over every `C` and `T` row. `contaminant_psm_share` is
+**`aging:DEF-CONTAM-PSM-RUN v2`** over the `DEF-PSM-1PCT-INFILE` population (v1 filtered on `QValue`
+alone), a run-grain definition, and deliberately *not* `DEF-CONTAM-PSM v1`,
 which this project defines at dataset grain: a per-file share is a different quantity, not the dataset
 one pushed down. A not-quantified protein intensity cell is **blank**, not `0`, at MetaMorpheus 1.1.9
 and later, so a blank contributes nothing to either side of the ratio rather than reading as a zero.

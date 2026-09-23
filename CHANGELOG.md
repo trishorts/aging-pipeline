@@ -7,6 +7,18 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 ## [Unreleased]
 
 ### Changed
+- **The qc payload names the grain of every count, and its PSM metrics use MetaMorpheus's own 1% filter.**
+  The per-file `psms` / `peptides` / `protein_groups` counts now carry the run-grain definitions
+  `aging:DEF-PSM-1PCT-RUN`, `DEF-PEPTIDE-1PCT-RUN` and `DEF-PROTEINGROUP-1PCT-RUN` instead of the dataset
+  ones, because MetaMorpheus recomputes FDR on each file alone for those lines. PSM-derived metrics and
+  distributions now require `QValue Notch ≤ 0.01` and an unambiguous notch as well as `QValue ≤ 0.01`
+  (`DEF-PSM-1PCT-INFILE v1`); before, they filtered on `QValue` alone, which is a slightly wider set than
+  MetaMorpheus accepts. `contaminant_psm_share` moves to `DEF-CONTAM-PSM-RUN v2` for the same reason.
+  `contaminant_intensity_frac` no longer applies a 1% protein filter that `DEF-QC-9` does not state, so it
+  now agrees with the provenance block (19.1% was 18.92% for the same PXD036557 file).
+- **`DEF-RAZOR-INSTABILITY v1` and `DEF-NONLEADING-ACCESSION v1` are retired.** MetaMorpheus has no leading
+  protein; both measured alphabetical order within a group. The replacement is
+  `DEF-COMPOSITION-INSTABILITY v1`.
 - **GPTMD now looks for the diGly (GG) remnant on lysine** (`search.gptmd_extra_mods`). MetaMorpheus's
   default GPTMD list has no per-protease remnant category, and GG is filed under `Trypsin Digested`, so
   every search before this one could not discover a ubiquitination site. Names are validated against

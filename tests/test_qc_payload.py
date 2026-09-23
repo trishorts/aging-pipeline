@@ -72,14 +72,14 @@ b - Target peptides with q-value <= 0.01: 16
 b - Target protein groups with q-value <= 0.01: 9
 """
 
-PSM_COLS = ["File Name", "Decoy/Contaminant/Target", "QValue", "Notch", "Mass Diff (ppm)",
-            "Matched Ion Mass Diff (Ppm)", "Missed Cleavages", "Precursor Charge",
-            "Scan Retention Time"]
+PSM_COLS = ["File Name", "Decoy/Contaminant/Target", "QValue", "QValue Notch", "Notch",
+            "Mass Diff (ppm)", "Matched Ion Mass Diff (Ppm)", "Missed Cleavages",
+            "Precursor Charge", "Scan Retention Time"]
 
 
 def psm(f, dct="T", q="0.001", notch="0", ppm="1.0", frag="[b2+1:1.0, y3+1:-2.0]",
-        mc="0", ch="2.00000", rt="10.0"):
-    return [f, dct, q, notch, ppm, frag, mc, ch, rt]
+        mc="0", ch="2.00000", rt="10.0", qn="0.001"):
+    return [f, dct, q, qn, notch, ppm, frag, mc, ch, rt]
 
 
 @pytest.fixture
@@ -100,6 +100,10 @@ def search(work, tmp_path):
     rows += ["\t".join(psm("b-calib", notch="1"))]          # isotope error: out of the ppm metrics
     rows += ["\t".join(psm("b-calib", dct="D"))]            # decoy: out entirely
     rows += ["\t".join(psm("b-calib", q="0.5"))]            # above 1% FDR: out entirely
+    # QC-Q12: passes QValue but fails the notch q-value MetaMorpheus also requires -- out entirely,
+    # including from the contaminant share, which used to count it.
+    rows += ["\t".join(psm("b-calib", dct="C", qn="0.2"))]
+    rows += ["\t".join(psm("b-calib", notch="0|1"))]        # ambiguous notch (S22): out entirely
     (task / "AllPSMs.psmtsv").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
     peaks = ["File Name\tPeak Detection Type\tPIP Q-Value\tRandom RT\tDecoy Peptide",
@@ -155,6 +159,36 @@ def test_counts_come_from_the_per_file_lines(work, search):
     m = {f["file"]: f["metrics"] for f in build(work, search)["files"]}
     assert m["a"]["ms2_scans"] == 100 and m["a"]["psms"] == 10
     assert m["b"]["peptides"] == 16 and m["b"]["protein_groups"] == 9
+
+
+def test_per_file_counts_carry_per_file_definitions(work, search):
+    """qc 010 QC-Q13: a per-file line comes from that file's own FDR, so it is never filed under the
+    dataset definition, and the payload says which PSM population each number describes."""
+    p = build(work, search)
+    assert p["definitions"]["psms"]["id"] == "aging:DEF-PSM-1PCT-RUN"
+    assert p["definitions"]["peptides"]["id"] == "aging:DEF-PEPTIDE-1PCT-RUN"
+    assert p["definitions"]["protein_groups"]["id"] == "aging:DEF-PROTEINGROUP-1PCT-RUN"
+    assert "DEF-PSM-1PCT-INFILE" in " ".join(p["dataset"]["notes"])
+
+
+def test_psm_population_is_the_filter_metamorpheus_applies(work, search):
+    """QC-Q12: QValue AND QValue Notch <= 0.01, unambiguous notch. b keeps only its Notch-1 target;
+    the contaminant that failed the notch q-value and the ambiguous-notch row are both out."""
+    m = {f["file"]: f["metrics"] for f in build(work, search)["files"]}
+    assert m["b"]["notch_frac"] == 1.0
+    assert m["b"]["contaminant_psm_share"] == 0.0
+    assert m["b"]["charge_2_frac"] == 1.0
+
+
+def test_refuses_a_psm_table_without_the_notch_q_value(work, search):
+    task = next((search[0] / "mm").glob("Task*SearchTask"))
+    f = task / "AllPSMs.psmtsv"
+    rows = f.read_text(encoding="utf-8").splitlines()
+    i = rows[0].split("\t").index("QValue Notch")
+    f.write_text("\n".join("\t".join(c for j, c in enumerate(r.split("\t")) if j != i) for r in rows) + "\n",
+                 encoding="utf-8")
+    with pytest.raises(SystemExit, match="QValue Notch"):
+        build(work, search)
 
 
 def test_calibration_ok_keys_on_the_toml_and_reads_the_plus_minus_string(work, search):
@@ -227,13 +261,14 @@ def test_pg_missing_frac_is_absent_when_it_cannot_be_measured(work, search, tmp_
 
 def test_m13_contamination_metrics(work, search):
     """qc 007 §1. The intensity fraction is QuantProject's DEF-QC-9 v2 at RUN grain; the PSM share
-    is `aging:DEF-CONTAM-PSM-RUN v1` and NOT `DEF-CONTAM-PSM v1`, which our register defines at
+    is `aging:DEF-CONTAM-PSM-RUN` (v2 since QC-Q12) and NOT `DEF-CONTAM-PSM v1`, which our register defines at
     dataset grain -- a per-file share is a different quantity, not the dataset one pushed down.
     """
     p = build(work, search)
     m = {f["file"]: f["metrics"] for f in p["files"]}
-    # a: contaminant 100 of (100 + 100 + 100 + 100) target+contaminant intensity at 1% FDR
-    assert m["a"]["contaminant_intensity_frac"] == round(100 / 300, 4)
+    # a: contaminant 100 of every T and C row's intensity (100 + 100 + 100 + 100). DEF-QC-9 states no
+    # protein-FDR filter, so the q = 0.5 target row counts too (QC-Q15); the decoy never does.
+    assert m["a"]["contaminant_intensity_frac"] == round(100 / 400, 4)
     assert p["definitions"]["contaminant_intensity_frac"]["id"] == "QuantProject:DEF-QC-9"
     assert p["definitions"]["contaminant_psm_share"]["id"] == "aging:DEF-CONTAM-PSM-RUN"
     assert p["definitions"]["pg_missing_frac"]["id"] == "QuantProject:DEF-QC-13"

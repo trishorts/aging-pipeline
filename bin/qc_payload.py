@@ -70,10 +70,14 @@ def edges_for(key: str, run_minutes=None):
         return _linear_edges(0.0, run_minutes, run_minutes / IDS_OVER_RT_BINS) if run_minutes else None
     raise KeyError(key)
 # A metric is only as good as the definition it was computed under (D20, dataRepo U7).
+#
+# The three counts are MetaMorpheus's PER-FILE `results.txt` lines, and each of those comes from an
+# FDR recomputed on that file's PSMs alone (PostSearchAnalysisTask at 1.1.11). They are therefore
+# the `-RUN` definitions, never the dataset ones: a dataset count is not their sum (qc 010 QC-Q13).
 DEFINITIONS = {
-    "psms": {"id": "aging:DEF-PSM-1PCT", "version": "v1", "source": "pipeline/docs/provenance.md"},
-    "peptides": {"id": "aging:DEF-PEPTIDE-1PCT", "version": "v1", "source": "pipeline/docs/provenance.md"},
-    "protein_groups": {"id": "aging:DEF-PROTEINGROUP-1PCT", "version": "v1", "source": "pipeline/docs/provenance.md"},
+    "psms": {"id": "aging:DEF-PSM-1PCT-RUN", "version": "v1", "source": "pipeline/docs/provenance.md"},
+    "peptides": {"id": "aging:DEF-PEPTIDE-1PCT-RUN", "version": "v1", "source": "pipeline/docs/provenance.md"},
+    "protein_groups": {"id": "aging:DEF-PROTEINGROUP-1PCT-RUN", "version": "v1", "source": "pipeline/docs/provenance.md"},
     "ms2_scans": {"id": "aging:DEF-MS2", "version": "v1", "source": "pipeline/docs/provenance.md"},
     "msms_peaks": {"id": "QuantProject:DEF-QC-MBR", "version": "v1", "source": "QuantProject/design/DATA-DEFINITIONS.md"},
     "mbr_kept": {"id": "QuantProject:DEF-MBR-KEPT", "version": "v1", "source": "QuantProject/design/DATA-DEFINITIONS.md"},
@@ -89,7 +93,7 @@ DEFINITIONS = {
     # that a number is stored at the grain it was measured at, never coarser and never finer. Pushing
     # a dataset definition down to a file is the same error as rolling a run definition up, which we
     # have already told qc and QuantProject we would not do. Raised with qc in our 009.
-    "contaminant_psm_share": {"id": "aging:DEF-CONTAM-PSM-RUN", "version": "v1",
+    "contaminant_psm_share": {"id": "aging:DEF-CONTAM-PSM-RUN", "version": "v2",
                               "source": "pipeline/docs/provenance.md"},
     "contaminant_intensity_frac": {"id": "QuantProject:DEF-QC-9", "version": "v2",
                                    "source": "QuantProject/design/DATA-DEFINITIONS.md"},
@@ -189,8 +193,22 @@ def parse_calibration(cal_dir: Path):
     return out
 
 
+def accepted_1pct(row) -> bool:
+    """The whole-search 1% set, as far as a file-side test can reproduce it (`aging:DEF-PSM-1PCT-INFILE v1`).
+
+    MetaMorpheus's q-value filter is `QValue <= t AND QValueNotch <= t` (`FilteredPsms` at 1.1.11), and
+    an ambiguous `Notch` fails in memory while the TSV prints the best hypothesis's notch q-value (S22),
+    so those rows are excluded too. `AllPSMs.psmtsv` is written BEFORE the per-file FDR recalculation,
+    so these are whole-search q-values: the population is the dataset's accepted PSMs that came from
+    this file, not the file's own per-file FDR set (which is what the `psms` count line reports).
+    """
+    q, qn = num(row.get("QValue")), num(row.get("QValue Notch"))
+    notch = (row.get("Notch") or "").strip()
+    return q is not None and qn is not None and q <= 0.01 and qn <= 0.01 and "|" not in notch
+
+
 def parse_psms(path: Path, run_minutes: dict):
-    """Per-file PSM metrics and distributions, over target PSMs at 1% FDR.
+    """Per-file PSM metrics and distributions, over `accepted_1pct` target PSMs.
 
     The contract restricts the mass-error metrics to `Notch 0` - an isotope-error PSM's precursor
     error is offset by a neutron and would smear the distribution that exists to show calibration.
@@ -198,21 +216,23 @@ def parse_psms(path: Path, run_minutes: dict):
     per = defaultdict(lambda: {"charges": Counter(), "missed": [0, 0], "notch": [0, 0],
                                "prec": [], "frag": [], "rts": [], "contam": [0, 0]})
     with path.open(newline="", encoding="utf-8") as fh:
-        for row in csv.DictReader(fh, delimiter="\t"):
+        reader = csv.DictReader(fh, delimiter="\t")
+        if "QValue Notch" not in (reader.fieldnames or []):
+            # Without it the population silently widens to QValue alone, which is the v1 behaviour
+            # qc 010 QC-Q12 caught. Refuse rather than describe a different set of PSMs.
+            sys.exit(f"{path} has no `QValue Notch` column: cannot apply the 1% filter MetaMorpheus uses")
+        for row in reader:
             td = (row.get("Decoy/Contaminant/Target") or "").strip()
-            # M13 counts the contaminant share BEFORE the target-only filter, over the same
-            # q <= 0.01 population, because its denominator is target + contaminant. An
-            # ambiguous `C|T` counts as not-contaminant and stays in the denominator.
-            if td and "D" not in td.upper():
-                cq = num(row.get("QValue"))
-                if cq is not None and cq <= 0.01:
-                    cf = per[stem(row.get("File Name"))]
-                    cf["contam"][0] += td == "C"
-                    cf["contam"][1] += 1
-            if td != "T":
+            if not accepted_1pct(row):
                 continue
-            q = num(row.get("QValue"))
-            if q is None or q > 0.01:
+            # M13 counts the contaminant share BEFORE the target-only filter, over the same
+            # population, because its denominator is target + contaminant. An ambiguous `C|T`
+            # counts as not-contaminant and stays in the denominator.
+            if td and "D" not in td.upper():
+                cf = per[stem(row.get("File Name"))]
+                cf["contam"][0] += td == "C"
+                cf["contam"][1] += 1
+            if td != "T":
                 continue
             f = per[stem(row.get("File Name"))]
             ch = num(row.get("Precursor Charge"))
@@ -310,7 +330,8 @@ def parse_protein_groups(path: Path):
     the run, and a number like that is not a property of the file it is filed under. qc 008 §QC-Q9
     carries the argument; `mbr_kept` (M10) is where the transfer contribution is visible instead.
 
-    Only groups at 1% FDR and not decoy are counted - the same predicate as `DEF-PROTEINGROUP-1PCT`,
+    For presence, only groups at 1% FDR and not decoy are counted (the contaminant intensity fraction
+    is not filtered by FDR; see DEF-QC-9 below) - the same predicate as `DEF-PROTEINGROUP-1PCT`,
     which INCLUDES contaminant groups, so this is a completeness measure of what the search
     reported, not a biological one. The file is written UNFILTERED (decoys, contaminants and
     q > 0.01 are all in it), so the predicate is load-bearing rather than defensive: on the 18-file
@@ -340,13 +361,13 @@ def parse_protein_groups(path: Path):
             td = (row.get("Protein Decoy/Contaminant/Target") or "").strip().upper()
             if td.startswith("D"):
                 continue
-            q = num(row.get("Protein QValue"))
-            if q is None or q > 0.01:
-                continue
             # QuantProject:DEF-QC-9 v2, run grain: contaminant / (target + contaminant) apex
-            # intensity, per file. A not-quantified protein cell is BLANK at MM 1.1.9+, not `0`
-            # (QuantProject via qc 007 §7.2), so `num()` returning None must read as absent and
-            # contribute nothing - never as a zero that is indistinguishable from a measured zero.
+            # intensity, per file, over EVERY C and T row of the protein table. The definition states
+            # no protein-FDR filter, so none is applied here: filtering to 1% first made this 19.1%
+            # where the provenance block, which follows the text, said 18.92% for the same file
+            # (qc 010 QC-Q15). Whether a filter belongs in it is QuantProject's call.
+            # A not-quantified protein cell is BLANK at MM 1.1.9+, not `0` (QuantProject via qc 007
+            # §7.2), so `num()` returning None reads as absent and contributes nothing.
             for c, f in inten.items():
                 v = num(row.get(c))
                 if v is None or v <= 0:
@@ -354,6 +375,9 @@ def parse_protein_groups(path: Path):
                 total_int[f] += v
                 if td == "C":
                     contam_int[f] += v
+            q = num(row.get("Protein QValue"))
+            if q is None or q > 0.01:
+                continue
             hits = [f for c, f in counts.items() if (num(row.get(c)) or 0) > 0]
             if not hits:
                 continue
@@ -428,8 +452,14 @@ def main(params_path: str, search_dir: str, qc_dir: str, out_dir: str, accession
         "dataset_metrics": {"protein_groups_quantified": quantified,
                             "runs_per_protein_group": runs_per},
     }
-    # Two facts a reader of the rendered report cannot recover from the numbers, so they are stated
-    # rather than left to be inferred. Both go in `notes`, which qc prints verbatim above the tiles.
+    # Facts a reader of the rendered report cannot recover from the numbers, so they are stated
+    # rather than left to be inferred. They go in `notes`, which qc prints verbatim above the tiles.
+    payload["dataset"]["notes"].append(
+        "Two PSM populations appear per file, on purpose (qc 010 QC-Q12). The psms / peptides / "
+        "protein_groups counts are MetaMorpheus's per-file lines, each from an FDR recomputed on that "
+        "file alone (the -RUN definitions). The PSM-derived metrics and distributions describe the "
+        "WHOLE-SEARCH 1% set restricted to the file: QValue <= 0.01 and QValue Notch <= 0.01 at "
+        "whole-search q, unambiguous notch (aging:DEF-PSM-1PCT-INFILE v1). Neither is a sum of the other.")
     if quantified:
         payload["dataset"]["notes"].append(
             "pg_missing_frac is DEF-QC-13's _msms variant (SpectralCount_ > 0), not _any: MBR is on "

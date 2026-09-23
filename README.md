@@ -422,7 +422,7 @@ so each rule traces to the decision behind it. You don't need them to run the pi
 | `D9` | A provenance record on every output |
 | `D11` | Compute and memory are recorded for every stage |
 | `S3`, `S4`, `S5`, `S7`, `S15` | Entries in the project's findings ledger: low ID rate, MBR over-counting (fixed), low core use, calibration failure, and missing contaminant database (fixed) |
-| `DEF-…` | Metric definitions: `DEF-MBR-KEPT`/`DEF-MBR-ROW`/`DEF-QC-MBR` ([MBR counts](docs/provenance.md#match-between-runs)), `DEF-PSM-1PCT`/`DEF-PSM-FDRENGINE` ([ID rate](docs/provenance.md#id-rate)), `DEF-CONTAM-PSM` and QuantProject's `DEF-QC-9` ([contamination](docs/provenance.md#contamination)), `DEF-PEP-INT` (apex intensity) |
+| `DEF-…` | Metric definitions: `DEF-MBR-KEPT`/`DEF-MBR-ROW`/`DEF-QC-MBR` ([MBR counts](docs/provenance.md#match-between-runs)), `DEF-PSM-1PCT`/`DEF-PSM-FDRENGINE` ([ID rate](docs/provenance.md#id-rate)), the per-file `DEF-*-1PCT-RUN` counts and the `DEF-PSM-1PCT-INFILE` population behind the qc payload's PSM metrics, `DEF-CONTAM-PSM` and QuantProject's `DEF-QC-9` ([contamination](docs/provenance.md#contamination)), `DEF-PEP-INT` (apex intensity) |
 | `REQ-…` | Feature requests filed with the tools this pipeline uses, e.g. download retry and checksums in mzLib's PRIDE client, and `.raw` input in pyMetaMorpheus |
 | `mzLib #…`, `MetaMorpheus #…` | Issue or pull-request numbers in those GitHub repositories |
 | `<project> NNN`, `Q…`, `D5-b`… | Messages and answers in coordination threads with the tools' projects (not public) |

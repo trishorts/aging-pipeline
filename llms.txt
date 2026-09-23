@@ -1,0 +1,38 @@
+# Aging proteomics repository
+
+> Search and quantification results for 10 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `f656bfc22cf1f675` (datarepo 0.15.0, schema 0.0.7, built 2026-09-23T12:29:23+00:00); cite that id with any number you reuse.
+
+**Notice:** Preview. This data is being re-processed and will be regenerated; numbers on these pages will change. Cite a catalog id with anything you reuse.
+
+Before you answer from this data:
+
+- Counts at 1% FDR come from the `*_1pct` views (`psms_1pct`, `peptidoforms_1pct`, `protein_groups_1pct`). The base tables also hold decoys and sub-threshold matches.
+- Each dataset page lists its open findings. A `low_id_rate` or `sdrf_skeleton` finding means the absence of a protein, or of sample metadata, is weak evidence.
+- An empty table means nothing was delivered. It does not mean the answer is zero or none. The MCP `describe` tool says which tables are empty.
+- Contaminant proteins (e.g. bovine albumin, porcine trypsin) are flagged and carry their own species. They are reagents, not evidence about the sample's organism.
+- A protein group's accession list is kept in the search engine's order, and MetaMorpheus writes it alphabetically. The first accession is not a leading or razor protein, and nothing in this repository names one.
+
+## Datasets
+
+- [PXD023381: Transcriptional and proteomic characterization of telomere-induced senescence in a human alveolar epithelial cell line](datasets/PXD023381.html): PXD023381 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 42,391 PSMs, 10,057 peptidoforms and 1,272 protein groups, and the repository holds 4,884 PTM sites for it. 6 open warnings about it are recorded.
+- [PXD024803: CHD6 IP from human induced pluripotent stem cells LC-MS-MS](datasets/PXD024803.html): PXD024803 is a DDA label-free dataset (Homo sapiens) with 28 runs, 28 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 381,861 PSMs, 37,993 peptidoforms and 2,155 protein groups, and the repository holds 19,352 PTM sites for it. 6 open warnings about it are recorded.
+- [PXD027318: Identification of a Proteomic Signature of Senescence in Primary Human Mammary Epithelial Cells](datasets/PXD027318.html): PXD027318 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 378,168 PSMs, 49,399 peptidoforms and 4,478 protein groups, and the repository holds 21,714 PTM sites for it. 6 open warnings about it are recorded.
+- [PXD028852: Proteins enriched on damaged lysosomes in 293T](datasets/PXD028852.html): PXD028852 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 88,981 PSMs, 27,972 peptidoforms and 2,801 protein groups, and the repository holds 8,142 PTM sites for it. 6 open warnings about it are recorded.
+- [PXD032040: Translational specialization in pluripotency by RBPMS poises future lineage-decisions](datasets/PXD032040.html): PXD032040 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 118,909 PSMs, 21,185 peptidoforms and 2,538 protein groups, and the repository holds 9,610 PTM sites for it. 5 open warnings about it are recorded.
+- [PXD032202: Global and comparative proteome signatures in the lens capsule, trabecular meshwork, and iris of patients with pseudoexfoliation glaucoma](datasets/PXD032202.html): PXD032202 is a DDA label-free dataset (Homo sapiens) with 21 runs, 21 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 183,023 PSMs, 21,771 peptidoforms and 1,925 protein groups, and the repository holds 14,099 PTM sites for it. 5 open warnings about it are recorded.
+- [PXD036557: Modelling Premature Cardiac Aging with Induced Pluripotent Stem Cells From a Hutchinson-Gilford Progeria Syndrome Patient](datasets/PXD036557.html): PXD036557 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 26,582 PSMs, 5,541 peptidoforms and 1,652 protein groups, and the repository holds 2,091 PTM sites for it. 5 open warnings about it are recorded.
+- [PXD049018: BJ cyto-nuclear translocation upon STING activation](datasets/PXD049018.html): PXD049018 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 104,580 PSMs, 17,820 peptidoforms and 1,613 protein groups, and the repository holds 9,543 PTM sites for it. 6 open warnings about it are recorded.
+- [PXD050351: Targeting upstream Hippo-pathway kinases releases the scaffolder WWC1 to promote synaptic plasticity and long-term memory in mice](datasets/PXD050351.html): PXD050351 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 213,425 PSMs, 16,322 peptidoforms and 1,477 protein groups, and the repository holds 7,668 PTM sites for it. 6 open warnings about it are recorded.
+- [PXD067622: DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging and Embryonic Lethality](datasets/PXD067622.html): PXD067622 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 620,539 PSMs, 44,352 peptidoforms and 4,147 protein groups, and the repository holds 20,596 PTM sites for it. 5 open warnings about it are recorded.
+
+## Access
+
+- [datasets.json](datasets.json): every fact on these pages, as JSON.
+- [MCP server](https://github.com/trishorts/dataRepo/blob/master/docs/mcp.md): `datarepo mcp --catalog <catalog.duckdb>` serves a catalog to an agent over stdio (describe, search, read-only SQL).
+- [Schema](https://github.com/trishorts/dataRepo/tree/master/docs/schema): every table and column, with its meaning.
+- Bulk Parquet download: not published yet.
+
+## Optional
+
+- [Source code](https://github.com/trishorts/dataRepo): the ingester and catalog builder that made this data.
+- [Limitations](https://github.com/trishorts/dataRepo/blob/master/docs/limitations.md): what the repository does not yet hold.

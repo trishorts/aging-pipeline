@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://trishorts.github.io/aging-pipeline/sitemap.xml

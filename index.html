@@ -12,8 +12,8 @@
  "@type": "DataCatalog",
  "name": "Aging proteomics repository",
  "url": "https://trishorts.github.io/aging-pipeline/index.html",
- "identifier": "datarepo:catalog:f656bfc22cf1f675",
- "description": "Search and quantification results for 10 public proteomics datasets reanalysed with one pipeline, for questions about how organelle proteomes change with age.",
+ "identifier": "datarepo:catalog:70bcd76acebf16f3",
+ "description": "Search and quantification results for 12 public proteomics datasets reanalysed with one pipeline, for questions about how organelle proteomes change with age.",
  "dataset": [
   {
    "@type": "Dataset",
@@ -38,6 +38,12 @@
    "name": "PXD028852",
    "identifier": "PXD028852",
    "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD028852.html"
+  },
+  {
+   "@type": "Dataset",
+   "name": "PXD031782",
+   "identifier": "PXD031782",
+   "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD031782.html"
   },
   {
    "@type": "Dataset",
@@ -71,6 +77,12 @@
   },
   {
    "@type": "Dataset",
+   "name": "PXD058611",
+   "identifier": "PXD058611",
+   "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD058611.html"
+  },
+  {
+   "@type": "Dataset",
    "name": "PXD067622",
    "identifier": "PXD067622",
    "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067622.html"
@@ -80,7 +92,6 @@
 </script>
 </head>
 <body>
-<div class="notice" role="note">Preview. This data is being re-processed and will be regenerated; numbers on these pages will change. Cite a catalog id with anything you reuse.</div>
 <header>
 <h1>Aging proteomics repository</h1>
 <p class="tagline">Public proteomics data, reanalysed with one pipeline, for questions about aging.</p>
@@ -93,19 +104,20 @@
 <h2>How it works</h2>
 <ul><li><a href="https://github.com/trishorts/aging-pipeline"><strong>aging-pipeline</strong></a> finds aging datasets in PRIDE, downloads and quality-checks the raw spectra, and searches and quantifies them with <a href="https://github.com/smith-chem-wisc/MetaMorpheus">MetaMorpheus</a>, including GPTMD to discover post-translational modifications, and FlashLFQ.</li><li><a href="https://github.com/trishorts/dataRepo"><strong>dataRepo</strong></a> stores the results in one schema and serves them to people and to AI agents. This site is generated from its catalog.</li></ul>
 <p><strong>Where it stands.</strong> The repository holds identifications, quantities and PTM sites. It does not yet hold age effects, organelle assignments or sample ages, so it cannot answer the group&#x27;s question on its own yet. Those are the next stages of the pipeline. Each dataset page lists the known problems with that dataset. Please read them before using its numbers.</p>
+<p><strong>Many datasets are enrichments, not whole proteomes.</strong> Immunoprecipitations, proximity-labelling and affinity pulldowns, and chemical-probe captures are kept, because an organelle pulldown is an organelle proteome, and each is labelled with its enrichment. Their intensities describe the captured material. Do not read them as whole-cell abundance, or pool them with whole proteomes.</p>
 <p>Built at the Smith lab, University of Wisconsin–Madison. Questions and problems: please open an issue on <a href="https://github.com/trishorts/aging-pipeline/issues">aging-pipeline</a>.</p>
 </section>
 <div class="tiles">
-<div class="tile"><div class="tile-label">Datasets</div><div class="tile-value" title="10">10</div><div class="tile-note">public PRIDE datasets, each reanalysed from its raw files</div></div>
-<div class="tile"><div class="tile-label">Raw files searched</div><div class="tile-value" title="204">204</div><div class="tile-note">LC-MS/MS runs</div></div>
-<div class="tile"><div class="tile-label">Spectra searched</div><div class="tile-value" title="4,453,229">4.45M</div><div class="tile-note">MS2 scans in the raw files, summed (aging:DEF-MS2)</div></div>
-<div class="tile"><div class="tile-label">PSMs at 1% FDR</div><div class="tile-value" title="2,158,459">2.16M</div><div class="tile-note">target peptide-spectrum matches, as the search engine counts them</div></div>
-<div class="tile"><div class="tile-label">Proteins identified</div><div class="tile-value" title="9,236">9,236</div><div class="tile-note">accessions with 1%-FDR evidence, decoys and contaminants excluded; 4,112 of them in 3 or more datasets</div></div>
-<div class="tile"><div class="tile-label">PTM sites</div><div class="tile-value" title="117,699">118K</div><div class="tile-note">modified residues on proteins, 130 kinds of modification</div></div>
+<div class="tile"><div class="tile-label">Datasets</div><div class="tile-value" title="12">12</div><div class="tile-note">public PRIDE datasets, each reanalysed from its raw files</div></div>
+<div class="tile"><div class="tile-label">Raw files searched</div><div class="tile-value" title="252">252</div><div class="tile-note">LC-MS/MS runs</div></div>
+<div class="tile"><div class="tile-label">Spectra searched</div><div class="tile-value" title="5,672,412">5.67M</div><div class="tile-note">MS2 scans in the raw files, summed (aging:DEF-MS2)</div></div>
+<div class="tile"><div class="tile-label">PSMs at 1% FDR</div><div class="tile-value" title="2,557,221">2.56M</div><div class="tile-note">target peptide-spectrum matches, as the search engine counts them</div></div>
+<div class="tile"><div class="tile-label">Proteins identified</div><div class="tile-value" title="12,749">12.7K</div><div class="tile-note">accessions with 1%-FDR evidence, decoys and contaminants excluded; 4,088 of them in 3 or more datasets</div></div>
+<div class="tile"><div class="tile-label">PTM sites</div><div class="tile-value" title="131,936">132K</div><div class="tile-note">modified residues on proteins, 131 kinds of modification</div></div>
 </div>
-<p class="note">Figures of merit from catalog <code>f656bfc22cf1f675</code>. Hover a number for its exact value.</p>
+<p class="note">Figures of merit from catalog <code>70bcd76acebf16f3</code>. Hover a number for its exact value.</p>
 <h2>This repository</h2>
-<p class="lede">Search and quantification results for 10 public proteomics datasets,
+<p class="lede">Search and quantification results for 12 public proteomics datasets,
 reanalysed with one pipeline and stored with the same schema, so they can be compared. The question
 they serve is how organelle proteomes change with age.</p>
 <p><strong>For AI agents:</strong> start at <a href="llms.txt"><code>llms.txt</code></a>. The same facts
@@ -118,31 +130,33 @@ about a dataset. Read them before using it.</p>
 <th class="num">Runs</th><th class="num">PSMs</th><th class="num">Protein groups</th>
 <th class="num">PTM sites</th><th class="num">Warnings</th></tr></thead>
 <tbody>
-<tr><td><a href="datasets/PXD023381.html">PXD023381</a></td><td>Transcriptional and proteomic characterization of telomere-induced senescence in a human alveolar epithelial cell line</td><td>Homo sapiens</td><td>other</td><td class="num">20</td><td class="num">42,391</td><td class="num">1,272</td><td class="num">4,884</td><td class="num">6</td></tr>
-<tr><td><a href="datasets/PXD024803.html">PXD024803</a></td><td>CHD6 IP from human induced pluripotent stem cells LC-MS-MS</td><td>Homo sapiens</td><td>other</td><td class="num">28</td><td class="num">381,861</td><td class="num">2,155</td><td class="num">19,352</td><td class="num">6</td></tr>
+<tr><td><a href="datasets/PXD023381.html">PXD023381</a></td><td>Transcriptional and proteomic characterization of telomere-induced senescence in a human alveolar epithelial cell line</td><td>Homo sapiens</td><td>affinity_purification</td><td class="num">20</td><td class="num">42,391</td><td class="num">1,272</td><td class="num">4,884</td><td class="num">6</td></tr>
+<tr><td><a href="datasets/PXD024803.html">PXD024803</a></td><td>CHD6 IP from human induced pluripotent stem cells LC-MS-MS</td><td>Homo sapiens</td><td>immunoprecipitation</td><td class="num">28</td><td class="num">381,861</td><td class="num">2,155</td><td class="num">19,352</td><td class="num">6</td></tr>
 <tr><td><a href="datasets/PXD027318.html">PXD027318</a></td><td>Identification of a Proteomic Signature of Senescence in Primary Human Mammary Epithelial Cells</td><td>Homo sapiens</td><td>none</td><td class="num">18</td><td class="num">378,168</td><td class="num">4,478</td><td class="num">21,714</td><td class="num">6</td></tr>
-<tr><td><a href="datasets/PXD028852.html">PXD028852</a></td><td>Proteins enriched on damaged lysosomes in 293T</td><td>Homo sapiens</td><td>other</td><td class="num">20</td><td class="num">88,981</td><td class="num">2,801</td><td class="num">8,142</td><td class="num">6</td></tr>
-<tr><td><a href="datasets/PXD032040.html">PXD032040</a></td><td>Translational specialization in pluripotency by RBPMS poises future lineage-decisions</td><td>Homo sapiens</td><td>none</td><td class="num">15</td><td class="num">118,909</td><td class="num">2,538</td><td class="num">9,610</td><td class="num">5</td></tr>
+<tr><td><a href="datasets/PXD028852.html">PXD028852</a></td><td>Proteins enriched on damaged lysosomes in 293T</td><td>Homo sapiens</td><td>proximity_labelling</td><td class="num">20</td><td class="num">88,981</td><td class="num">2,801</td><td class="num">8,142</td><td class="num">6</td></tr>
+<tr><td><a href="datasets/PXD031782.html">PXD031782</a></td><td>Label-free quantitative (LFQ) proteomic analysis of redox mediated posttranslational modifications (PTM) in the cartilag</td><td>Mus musculus</td><td>none</td><td class="num">12</td><td class="num">60,442</td><td class="num">1,851</td><td class="num">6,440</td><td class="num">5</td></tr>
+<tr><td><a href="datasets/PXD032040.html">PXD032040</a></td><td>Translational specialization in pluripotency by RBPMS poises future lineage-decisions</td><td>Homo sapiens</td><td>immunoprecipitation</td><td class="num">15</td><td class="num">118,909</td><td class="num">2,538</td><td class="num">9,610</td><td class="num">5</td></tr>
 <tr><td><a href="datasets/PXD032202.html">PXD032202</a></td><td>Global and comparative proteome signatures in the lens capsule, trabecular meshwork, and iris of patients with pseudoexfoliation glaucoma</td><td>Homo sapiens</td><td>none</td><td class="num">21</td><td class="num">183,023</td><td class="num">1,925</td><td class="num">14,099</td><td class="num">5</td></tr>
 <tr><td><a href="datasets/PXD036557.html">PXD036557</a></td><td>Modelling Premature Cardiac Aging with Induced Pluripotent Stem Cells From a Hutchinson-Gilford Progeria Syndrome Patient</td><td>Homo sapiens</td><td>none</td><td class="num">18</td><td class="num">26,582</td><td class="num">1,652</td><td class="num">2,091</td><td class="num">5</td></tr>
-<tr><td><a href="datasets/PXD049018.html">PXD049018</a></td><td>BJ cyto-nuclear translocation upon STING activation</td><td>Homo sapiens</td><td>other</td><td class="num">20</td><td class="num">104,580</td><td class="num">1,613</td><td class="num">9,543</td><td class="num">6</td></tr>
-<tr><td><a href="datasets/PXD050351.html">PXD050351</a></td><td>Targeting upstream Hippo-pathway kinases releases the scaffolder WWC1 to promote synaptic plasticity and long-term memory in mice</td><td>Homo sapiens</td><td>other</td><td class="num">20</td><td class="num">213,425</td><td class="num">1,477</td><td class="num">7,668</td><td class="num">6</td></tr>
-<tr><td><a href="datasets/PXD067622.html">PXD067622</a></td><td>DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging and Embryonic Lethality</td><td>Homo sapiens</td><td>other</td><td class="num">24</td><td class="num">620,539</td><td class="num">4,147</td><td class="num">20,596</td><td class="num">5</td></tr>
+<tr><td><a href="datasets/PXD049018.html">PXD049018</a></td><td>BJ cyto-nuclear translocation upon STING activation</td><td>Homo sapiens</td><td>proximity_labelling</td><td class="num">20</td><td class="num">104,580</td><td class="num">1,613</td><td class="num">9,543</td><td class="num">6</td></tr>
+<tr><td><a href="datasets/PXD050351.html">PXD050351</a></td><td>Targeting upstream Hippo-pathway kinases releases the scaffolder WWC1 to promote synaptic plasticity and long-term memory in mice</td><td>Homo sapiens</td><td>chemical_probe</td><td class="num">20</td><td class="num">213,425</td><td class="num">1,477</td><td class="num">7,668</td><td class="num">5</td></tr>
+<tr><td><a href="datasets/PXD058611.html">PXD058611</a></td><td>Enhanced non-enzymatic H2S generation extends lifespan and healthspan in male mice</td><td>Mus musculus</td><td>chemical_probe</td><td class="num">36</td><td class="num">338,320</td><td class="num">2,250</td><td class="num">7,797</td><td class="num">5</td></tr>
+<tr><td><a href="datasets/PXD067622.html">PXD067622</a></td><td>DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging and Embryonic Lethality</td><td>Homo sapiens</td><td>proximity_labelling</td><td class="num">24</td><td class="num">620,539</td><td class="num">4,147</td><td class="num">20,596</td><td class="num">5</td></tr>
 </tbody>
 </table></div>
 <h2>This catalog</h2>
 <dl>
-<dt>Catalog id</dt><dd><code>f656bfc22cf1f675</code></dd>
-<dt>Built</dt><dd>2026-09-23T12:29:23+00:00</dd>
-<dt>Built by</dt><dd>datarepo 0.15.0, catalog format 4</dd>
-<dt>Schema</dt><dd>0.0.7</dd>
+<dt>Catalog id</dt><dd><code>70bcd76acebf16f3</code></dd>
+<dt>Built</dt><dd>2026-09-23T13:19:26+00:00</dd>
+<dt>Built by</dt><dd>datarepo 0.17.1, catalog format 4</dd>
+<dt>Schema</dt><dd>0.0.8</dd>
 <dt>Instance</dt><dd>aging</dd>
 </dl>
 </main>
 <footer>
 Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.17.1 from catalog
-<code>f656bfc22cf1f675</code>, built 2026-09-23T12:29:23+00:00 by datarepo
-0.15.0 (schema 0.0.7).
+<code>70bcd76acebf16f3</code>, built 2026-09-23T13:19:26+00:00 by datarepo
+0.17.1 (schema 0.0.8).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

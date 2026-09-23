@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "f656bfc22cf1f675",
+  "catalog_id": "70bcd76acebf16f3",
   "catalog_version": "4",
-  "schema_version": "0.0.7",
-  "builder_version": "0.15.0",
-  "built_utc": "2026-09-23T12:29:23+00:00",
+  "schema_version": "0.0.8",
+  "builder_version": "0.17.1",
+  "built_utc": "2026-09-23T13:19:26+00:00",
   "instance": "aging"
  },
  "datasets": [
   {
    "dataset_id": "PXD023381",
-   "bundle_id": "c442269ec48201dd",
+   "bundle_id": "135309c3dabfb851",
    "title": "Transcriptional and proteomic characterization of telomere-induced senescence in a human alveolar epithelial cell line",
    "organisms": [
     "NCBITaxon:9606"
@@ -19,7 +19,7 @@
    "quant_method": "label_free",
    "labelling": "none",
    "enrichment": [
-    "other"
+    "affinity_purification"
    ],
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
@@ -148,20 +148,20 @@
     }
    },
    "bundle": {
-    "bundle_id": "c442269ec48201dd",
-    "written_utc": "2026-09-23T05:56:21+00:00",
-    "ingester_version": "0.15.0",
+    "bundle_id": "135309c3dabfb851",
+    "written_utc": "2026-09-23T13:14:53+00:00",
+    "ingester_version": "0.17.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
     ]
    },
-   "summary": "PXD023381 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 42,391 PSMs, 10,057 peptidoforms and 1,272 protein groups, and the repository holds 4,884 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD023381 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 42,391 PSMs, 10,057 peptidoforms and 1,272 protein groups, and the repository holds 4,884 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD023381.html"
   },
   {
    "dataset_id": "PXD024803",
-   "bundle_id": "924f199c47963404",
+   "bundle_id": "94fb767cebfdc434",
    "title": "CHD6 IP from human induced pluripotent stem cells LC-MS-MS",
    "organisms": [
     "NCBITaxon:9606"
@@ -170,7 +170,7 @@
    "quant_method": "label_free",
    "labelling": "none",
    "enrichment": [
-    "other"
+    "immunoprecipitation"
    ],
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
@@ -299,20 +299,20 @@
     }
    },
    "bundle": {
-    "bundle_id": "924f199c47963404",
-    "written_utc": "2026-09-23T02:59:50+00:00",
-    "ingester_version": "0.15.0",
+    "bundle_id": "94fb767cebfdc434",
+    "written_utc": "2026-09-23T13:06:55+00:00",
+    "ingester_version": "0.17.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
     ]
    },
-   "summary": "PXD024803 is a DDA label-free dataset (Homo sapiens) with 28 runs, 28 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 381,861 PSMs, 37,993 peptidoforms and 2,155 protein groups, and the repository holds 19,352 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD024803 is a DDA label-free dataset (Homo sapiens) with 28 runs, 28 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 381,861 PSMs, 37,993 peptidoforms and 2,155 protein groups, and the repository holds 19,352 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD024803.html"
   },
   {
    "dataset_id": "PXD027318",
-   "bundle_id": "b3c005d1566f279c",
+   "bundle_id": "c1d5e0cdd9466c20",
    "title": "Identification of a Proteomic Signature of Senescence in Primary Human Mammary Epithelial Cells",
    "organisms": [
     "NCBITaxon:9606"
@@ -450,9 +450,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "b3c005d1566f279c",
-    "written_utc": "2026-09-22T20:02:35+00:00",
-    "ingester_version": "0.15.0",
+    "bundle_id": "c1d5e0cdd9466c20",
+    "written_utc": "2026-09-23T12:51:09+00:00",
+    "ingester_version": "0.16.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -464,7 +464,7 @@
   },
   {
    "dataset_id": "PXD028852",
-   "bundle_id": "15c3df865fea261f",
+   "bundle_id": "446e37c9c7615324",
    "title": "Proteins enriched on damaged lysosomes in 293T",
    "organisms": [
     "NCBITaxon:9606"
@@ -473,7 +473,7 @@
    "quant_method": "label_free",
    "labelling": "none",
    "enrichment": [
-    "other"
+    "proximity_labelling"
    ],
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
@@ -597,20 +597,159 @@
     }
    },
    "bundle": {
-    "bundle_id": "15c3df865fea261f",
-    "written_utc": "2026-09-23T03:34:43+00:00",
-    "ingester_version": "0.15.0",
+    "bundle_id": "446e37c9c7615324",
+    "written_utc": "2026-09-23T13:08:28+00:00",
+    "ingester_version": "0.17.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "peptidoforms_target_1pct"
     ]
    },
-   "summary": "PXD028852 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 88,981 PSMs, 27,972 peptidoforms and 2,801 protein groups, and the repository holds 8,142 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD028852 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 88,981 PSMs, 27,972 peptidoforms and 2,801 protein groups, and the repository holds 8,142 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD028852.html"
   },
   {
+   "dataset_id": "PXD031782",
+   "bundle_id": "c1b4a9ad096fcf63",
+   "title": "Label-free quantitative (LFQ) proteomic analysis of redox mediated posttranslational modifications (PTM) in the cartilag",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 60442,
+   "n_peptidoforms_1pct": 11413,
+   "n_protein_groups_1pct": 1851,
+   "n_psms_all": 144943,
+   "n_ptm_sites": 6440,
+   "n_quant_values": 58597,
+   "n_open_findings": 5,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "11cd40eafbd19a417cbec739b6963fb715807c82",
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "13.29% of protein intensity in the worst file, 2.34% median across 12 files (DEF-QC-9 v2)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 275 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 2062
+    },
+    {
+     "modification_name": "Carbamyl on X",
+     "modification": "UNIMOD:5",
+     "n_sites": 1794
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 518
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 243
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 195
+    },
+    {
+     "modification_name": "Ammonia loss on C",
+     "modification": "UNIMOD:385",
+     "n_sites": 192
+    },
+    {
+     "modification_name": "Sodium on E",
+     "modification": "UNIMOD:30",
+     "n_sites": 145
+    },
+    {
+     "modification_name": "Ammonia loss on N",
+     "modification": "UNIMOD:385",
+     "n_sites": 133
+    },
+    {
+     "modification_name": "Sodium on D",
+     "modification": "UNIMOD:30",
+     "n_sites": 130
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 95
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.1555,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0155,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "c1b4a9ad096fcf63",
+    "written_utc": "2026-09-23T13:17:16+00:00",
+    "ingester_version": "0.17.1",
+    "reconciliation_ok": true,
+    "reconciliation_failed": []
+   },
+   "summary": "PXD031782 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 60,442 PSMs, 11,413 peptidoforms and 1,851 protein groups, and the repository holds 6,440 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD031782.html"
+  },
+  {
    "dataset_id": "PXD032040",
-   "bundle_id": "f8472006e31ebd52",
+   "bundle_id": "e5e36af06da7b4a0",
    "title": "Translational specialization in pluripotency by RBPMS poises future lineage-decisions",
    "organisms": [
     "NCBITaxon:9606"
@@ -619,7 +758,7 @@
    "quant_method": "label_free",
    "labelling": "none",
    "enrichment": [
-    "none"
+    "immunoprecipitation"
    ],
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
@@ -743,18 +882,18 @@
     }
    },
    "bundle": {
-    "bundle_id": "f8472006e31ebd52",
-    "written_utc": "2026-09-22T20:12:53+00:00",
-    "ingester_version": "0.15.0",
+    "bundle_id": "e5e36af06da7b4a0",
+    "written_utc": "2026-09-23T12:56:27+00:00",
+    "ingester_version": "0.17.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
-   "summary": "PXD032040 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 118,909 PSMs, 21,185 peptidoforms and 2,538 protein groups, and the repository holds 9,610 PTM sites for it. 5 open warnings about it are recorded.",
+   "summary": "PXD032040 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 118,909 PSMs, 21,185 peptidoforms and 2,538 protein groups, and the repository holds 9,610 PTM sites for it. 5 open warnings about it are recorded.",
    "page": "datasets/PXD032040.html"
   },
   {
    "dataset_id": "PXD032202",
-   "bundle_id": "1b1f95e97ee58c27",
+   "bundle_id": "b8f5b9b17a0e8f73",
    "title": "Global and comparative proteome signatures in the lens capsule, trabecular meshwork, and iris of patients with pseudoexfoliation glaucoma",
    "organisms": [
     "NCBITaxon:9606"
@@ -882,9 +1021,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "1b1f95e97ee58c27",
-    "written_utc": "2026-09-22T20:05:11+00:00",
-    "ingester_version": "0.15.0",
+    "bundle_id": "b8f5b9b17a0e8f73",
+    "written_utc": "2026-09-23T12:54:43+00:00",
+    "ingester_version": "0.17.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -895,7 +1034,7 @@
   },
   {
    "dataset_id": "PXD036557",
-   "bundle_id": "e02df80dced8478d",
+   "bundle_id": "d15c8938fd855483",
    "title": "Modelling Premature Cardiac Aging with Induced Pluripotent Stem Cells From a Hutchinson-Gilford Progeria Syndrome Patient",
    "organisms": [
     "NCBITaxon:9606"
@@ -1025,9 +1164,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "e02df80dced8478d",
-    "written_utc": "2026-09-22T19:59:27+00:00",
-    "ingester_version": "0.15.0",
+    "bundle_id": "d15c8938fd855483",
+    "written_utc": "2026-09-23T12:48:09+00:00",
+    "ingester_version": "0.16.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -1036,7 +1175,7 @@
   },
   {
    "dataset_id": "PXD049018",
-   "bundle_id": "8806c073fff21e68",
+   "bundle_id": "f85df0125ba18b43",
    "title": "BJ cyto-nuclear translocation upon STING activation",
    "organisms": [
     "NCBITaxon:9606"
@@ -1045,7 +1184,7 @@
    "quant_method": "label_free",
    "labelling": "none",
    "enrichment": [
-    "other"
+    "proximity_labelling"
    ],
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
@@ -1169,20 +1308,20 @@
     }
    },
    "bundle": {
-    "bundle_id": "8806c073fff21e68",
-    "written_utc": "2026-09-23T04:38:48+00:00",
-    "ingester_version": "0.15.0",
+    "bundle_id": "f85df0125ba18b43",
+    "written_utc": "2026-09-23T13:11:16+00:00",
+    "ingester_version": "0.17.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
     ]
    },
-   "summary": "PXD049018 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 104,580 PSMs, 17,820 peptidoforms and 1,613 protein groups, and the repository holds 9,543 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD049018 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 104,580 PSMs, 17,820 peptidoforms and 1,613 protein groups, and the repository holds 9,543 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD049018.html"
   },
   {
    "dataset_id": "PXD050351",
-   "bundle_id": "a9c5d5bb612ebaed",
+   "bundle_id": "2f139899636f413b",
    "title": "Targeting upstream Hippo-pathway kinases releases the scaffolder WWC1 to promote synaptic plasticity and long-term memory in mice",
    "organisms": [
     "NCBITaxon:9606"
@@ -1191,7 +1330,7 @@
    "quant_method": "label_free",
    "labelling": "none",
    "enrichment": [
-    "other"
+    "chemical_probe"
    ],
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
@@ -1204,7 +1343,7 @@
    "n_psms_all": 304129,
    "n_ptm_sites": 7668,
    "n_quant_values": 297823,
-   "n_open_findings": 6,
+   "n_open_findings": 5,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
    "sdrf_status": "absent",
@@ -1230,11 +1369,6 @@
      "code": "no_sdrf",
      "severity": "warning",
      "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
-    },
-    {
-     "code": "ptm_site_residue_mismatch",
-     "severity": "warning",
-     "message": "0 ptm_sites row(s) name a residue that is not at their position in the searched sequence, and 1 have a position beyond the protein's length. Treat those positions as wrong. Counts are in bundle.json under protein_databases.site_residue_check."
     },
     {
      "code": "unplaced_ptm_sites",
@@ -1320,20 +1454,166 @@
     }
    },
    "bundle": {
-    "bundle_id": "a9c5d5bb612ebaed",
-    "written_utc": "2026-09-23T05:33:59+00:00",
-    "ingester_version": "0.15.0",
+    "bundle_id": "2f139899636f413b",
+    "written_utc": "2026-09-23T13:13:40+00:00",
+    "ingester_version": "0.17.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
     ]
    },
-   "summary": "PXD050351 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 213,425 PSMs, 16,322 peptidoforms and 1,477 protein groups, and the repository holds 7,668 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD050351 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and enrichment: chemical_probe. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 213,425 PSMs, 16,322 peptidoforms and 1,477 protein groups, and the repository holds 7,668 PTM sites for it. 5 open warnings about it are recorded.",
    "page": "datasets/PXD050351.html"
   },
   {
+   "dataset_id": "PXD058611",
+   "bundle_id": "c8f75dad67fdeeb5",
+   "title": "Enhanced non-enzymatic H2S generation extends lifespan and healthspan in male mice",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "chemical_probe"
+   ],
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 36,
+   "n_samples": 36,
+   "n_psms_1pct": 338320,
+   "n_peptidoforms_1pct": 18275,
+   "n_protein_groups_1pct": 2250,
+   "n_psms_all": 351261,
+   "n_ptm_sites": 7797,
+   "n_quant_values": 405803,
+   "n_open_findings": 5,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "11cd40eafbd19a417cbec739b6963fb715807c82",
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 338320 where the producer reported 338322 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 419 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "collapsed_duplicate_rows",
+     "severity": "info",
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD058611:Q9ES70;Q9ES74 written 2 times; quant_values: 2 identifier(s), 2 row(s) dropped, e.g. PXD058611:201:label_free:protein_group:PXD058611:Q9ES70;Q9ES74:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 1928
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 1031
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 609
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 409
+    },
+    {
+     "modification_name": "N6-acetyllysine on K",
+     "modification": "UNIMOD:1",
+     "n_sites": 374
+    },
+    {
+     "modification_name": "Acetylation on K",
+     "modification": "UNIMOD:1",
+     "n_sites": 304
+    },
+    {
+     "modification_name": "Hydroxylation on K",
+     "modification": "UNIMOD:35",
+     "n_sites": 270
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 265
+    },
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 255
+    },
+    {
+     "modification_name": "N-acetylalanine on A",
+     "modification": "UNIMOD:1",
+     "n_sites": 204
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.4074,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0091,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "c8f75dad67fdeeb5",
+    "written_utc": "2026-09-23T13:16:33+00:00",
+    "ingester_version": "0.17.1",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct"
+    ]
+   },
+   "summary": "PXD058611 is a DDA label-free dataset (Mus musculus) with 36 runs, 36 samples and enrichment: chemical_probe. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 338,320 PSMs, 18,275 peptidoforms and 2,250 protein groups, and the repository holds 7,797 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD058611.html"
+  },
+  {
    "dataset_id": "PXD067622",
-   "bundle_id": "cf7decac30113b21",
+   "bundle_id": "3ea43fd4444f85f3",
    "title": "DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging and Embryonic Lethality",
    "organisms": [
     "NCBITaxon:9606"
@@ -1342,7 +1622,7 @@
    "quant_method": "label_free",
    "labelling": "none",
    "enrichment": [
-    "other"
+    "proximity_labelling"
    ],
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
@@ -1466,15 +1746,15 @@
     }
    },
    "bundle": {
-    "bundle_id": "cf7decac30113b21",
-    "written_utc": "2026-09-23T01:20:31+00:00",
-    "ingester_version": "0.15.0",
+    "bundle_id": "3ea43fd4444f85f3",
+    "written_utc": "2026-09-23T13:02:36+00:00",
+    "ingester_version": "0.17.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
     ]
    },
-   "summary": "PXD067622 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 620,539 PSMs, 44,352 peptidoforms and 4,147 protein groups, and the repository holds 20,596 PTM sites for it. 5 open warnings about it are recorded.",
+   "summary": "PXD067622 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 620,539 PSMs, 44,352 peptidoforms and 4,147 protein groups, and the repository holds 20,596 PTM sites for it. 5 open warnings about it are recorded.",
    "page": "datasets/PXD067622.html"
   }
  ]

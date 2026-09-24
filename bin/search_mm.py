@@ -20,6 +20,7 @@ import collections, csv, json, re, shutil, subprocess, sys, time
 import threading
 from pathlib import Path
 
+import contam_shared
 import spectral_library
 from db_prepare import record_dir
 from provenance import Provenance, file_entry, sha256
@@ -188,12 +189,27 @@ def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
         vals = sorted(v for v in per_file.values() if v is not None)
         worst = vals[-1] if vals else 0
         med = vals[len(vals) // 2] if vals else 0
+        # D53: DEF-QC-9 above is the LOWER bound (it cannot see a protein that is in both the contaminant
+        # panel and the proteome: RemoveContaminant makes it `T`). The UPPER bound also counts those.
+        contam_db = params["database"].get("contaminants") or str(
+            Path(params["search"]["metamorpheus_cmd"]).parent / "Contaminants" / "MetaMorpheusContaminants.xml")
+        upper, shared_n, shared_sha = {}, None, None
+        if pg_file.exists() and Path(contam_db).exists():
+            proteomes = [params["database"]["prepared"], *(params["database"].get("extra_prepared") or [])]
+            shared, shared_sha = contam_shared.shared_accessions(contam_db, [x for x in proteomes if Path(x).exists()])
+            shared_n = len(shared)
+            upper = contam_shared.share_per_file(pgs, shared)
+        uvals = sorted(v for v in upper.values() if v is not None)
         blocks["contamination"] = {
             "psm_share": round(c_psm / len(tgt), 4) if tgt else None, "psm_share_definition": "aging DEF-CONTAM-PSM v1",
             "contaminant_psms": c_psm, "target_plus_contaminant_psms": len(tgt),
             "intensity_share_per_file": per_file, "intensity_share_definition": "QuantProject DEF-QC-9 v3.5",
             "intensity_share_median": med, "intensity_share_min": vals[0] if vals else None,
             "intensity_share_max": worst,
+            "intensity_share_upper_per_file": upper, "intensity_share_upper_definition": contam_shared.DEFINITION,
+            "intensity_share_upper_median": uvals[len(uvals) // 2] if uvals else None,
+            "intensity_share_upper_max": uvals[-1] if uvals else None,
+            "shared_accessions_n": shared_n, "shared_accessions_sha256": shared_sha,
             "top": [k for k, _ in sorted(top.items(), key=lambda kv: -kv[1])[:5]]}
         if worst > p.get("flag_max_contaminant_intensity_share", 0.05):
             flags.append(f"high_contamination: {worst:.2%} of protein intensity in the worst file, "

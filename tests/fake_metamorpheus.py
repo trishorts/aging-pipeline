@@ -86,10 +86,10 @@ def main():
     (sd / "AllQuantifiedPeptides.tsv").write_text("Sequence\nPEPTIDE\n", encoding="utf-8")
     cols = "\t".join(f"Intensity_{s}" for s in spectra)
     # DEF-QC-9 v3.5 filters both row sets at Protein QValue <= 0.01, so the q = 0.5 row must not count.
-    pg = [f"Protein Full Name\tOrganism\tProtein Decoy/Contaminant/Target\tProtein QValue\t{cols}",
-          "Titin\tHomo sapiens\tT\t0.001\t" + "\t".join("90" for _ in spectra),
-          "Serum albumin\tBos taurus\tC\t0.001\t" + "\t".join("10" for _ in spectra),
-          "Nebulin\tHomo sapiens\tT\t0.5\t" + "\t".join("900" for _ in spectra)]
+    pg = [f"Protein Accession\tProtein Full Name\tOrganism\tProtein Decoy/Contaminant/Target\tProtein QValue\t{cols}",
+          "Q8WZ42\tTitin\tHomo sapiens\tT\t0.001\t" + "\t".join("90" for _ in spectra),
+          "P02769\tSerum albumin\tBos taurus\tC\t0.001\t" + "\t".join("10" for _ in spectra),
+          "P20929\tNebulin\tHomo sapiens\tT\t0.5\t" + "\t".join("900" for _ in spectra)]
     if not os.environ.get("FAKE_MM_NO_PROTEIN_GROUPS"):          # simulates FlashLFQ failing with exit 0
         (sd / "AllQuantifiedProteinGroups.tsv").write_text("\n".join(pg) + "\n", encoding="utf-8")
     peaks = ["Peak Detection Type\tRandom RT\tPIP Q-Value\tDecoy Peptide",

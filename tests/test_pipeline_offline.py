@@ -329,3 +329,16 @@ def test_each_database_keeps_its_own_provenance_record(layout, work):
     ups = {Path(u["path"]).as_posix() for u in prov(L.run / "04_search")["upstream"] if u["stage"] == "db_prepare"}
     assert any(u.endswith("_provenance/proteome.xml/provenance.json") for u in ups)
     assert any(u.endswith(f"_provenance/{iso.name}/provenance.json") for u in ups)
+
+
+def test_the_contamination_block_carries_both_bounds(layout):
+    """D53: DEF-QC-9 is the lower bound, DEF-CONTAM-INT-SHARED the upper; with no protein in both the
+    contaminant panel and the proteome (the fake's panel is empty) the two are equal."""
+    L = layout
+    assert stage(db_prepare.main, L.params, str(L.root / "db")) == 0
+    assert stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc")) == 0
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    c = prov(L.run / "04_search")["contamination"]
+    assert c["intensity_share_upper_definition"] == "aging DEF-CONTAM-INT-SHARED v1"
+    assert c["shared_accessions_n"] == 0 and len(c["shared_accessions_sha256"]) == 64
+    assert c["intensity_share_upper_per_file"] == c["intensity_share_per_file"]

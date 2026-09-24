@@ -76,7 +76,7 @@ does not do top-down proteomics.
 | Requirement | Version | Why |
 |---|---|---|
 | Python | 3.11+ (developed on 3.13) | The stage scripts |
-| [`mzlib`](https://pypi.org/project/mzlib/) (pyMzLib) | 0.1.1 | PRIDE search and download, and the `.raw` scan headers. No .NET install needed |
+| [`mzlib`](https://pypi.org/project/mzlib/) (pyMzLib) | 0.2.0 | PRIDE search and download, and the `.raw` scan headers. No .NET install needed |
 | [`psutil`](https://pypi.org/project/psutil/) | any recent | CPU and memory accounting. Optional: without it, only wall time is recorded |
 | [MetaMorpheus](https://github.com/smith-chem-wisc/MetaMorpheus/releases) command-line release | **1.1.11 exactly** | Stage 4 refuses any other release (see [configuration](docs/configuration.md#search-stage-4)) |
 | A UniProt proteome in XML format (`.xml` or `.xml.gz`) | — | The search database. XML carries UniProt's annotated PTMs, which GPTMD uses as its starting point |
@@ -277,6 +277,9 @@ These rules come from the working group. The code enforces them unless a rule sa
    searches only the databases passed to it. Stage 4 passes the shipped contaminant database unless
    `database.include_contaminants` is `false` (for controlled experiments only). Keratins, trypsin and
    serum albumin then match as contaminants (`C`) rather than being forced onto human proteins.
+   **Targeted isoforms are searched beside the proteome.** Since 2026-09-24 the batch also passes a
+   small literature-chosen isoform database for the dataset's organism (`database.extra_xml`). Datasets
+   searched before then keep the search they had; each dataset's provenance lists `extra_databases`.
 8. **Match-between-runs on within a dataset, never across datasets.** Each run is one accession, so MBR
    can't cross datasets. Apex intensity is the quant value. That's MetaMorpheus 1.1.11's default, which
    the pipeline doesn't change.
@@ -397,7 +400,7 @@ Everything that determines a result is under version control, or is pinned and r
 |---|---|
 | The pipeline (scripts, `main.nf`, configs, docs) | Git. Releases follow [semantic versioning](https://semver.org/). Each release is a git tag (`v0.1.0`), its number is in [`VERSION`](VERSION), and [`CHANGELOG.md`](CHANGELOG.md) says what changed |
 | Parameters | The parameters file is versioned alongside the code; every run records the file's SHA-256 |
-| Python dependencies | Pinned in [`requirements.txt`](requirements.txt) (`mzlib==0.1.1`) |
+| Python dependencies | Pinned in [`requirements.txt`](requirements.txt) (`mzlib==0.2.0`) |
 | MetaMorpheus | Pinned to one release. Stage 4 refuses any other and records the binary's SHA-256 |
 | The protein database | Recorded by file name and SHA-256 at every search. UniProt releases are dated in the file name |
 | Data | PRIDE is the source; every downloaded file's SHA-256 is recorded at fetch |

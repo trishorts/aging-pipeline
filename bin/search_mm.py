@@ -84,6 +84,15 @@ def classify_peak(row: dict, thr: float = MBR_FDR_THRESHOLD):
     return ("mbr_kept" if kept else "mbr_other"), random_rt
 
 
+def _pg_1pct(row: dict) -> bool:
+    """DEF-QC-9 v3.5's row filter: a protein group at `Protein QValue` <= 0.01. A blank or ambiguous
+    q-value fails, as it would in MetaMorpheus."""
+    try:
+        return float(row.get("Protein QValue") or "nan") <= 0.01
+    except ValueError:
+        return False
+
+
 def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
     """Recompute every DERIVED block of a search stage from the MetaMorpheus outputs already on disk.
 
@@ -149,8 +158,9 @@ def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
     # Degree of contamination (user: a good QC value), checked against MetaMorpheus 1.1.11: a row is a
     # contaminant when `Decoy/Contaminant/Target` (PSMs) or `Protein Decoy/Contaminant/Target` (protein
     # groups) is exactly "C". PSM share = aging DEF-CONTAM-PSM v1: QValue <= 0.01, decoys excluded, ambiguous
-    # ("C|T") rows count as not-contaminant. Intensity share = QuantProject DEF-QC-9 v2 (intensity is theirs):
-    # per file, C over C + T groups' Intensity_<file> in AllQuantifiedProteinGroups.tsv (apex, DEF-PEP-INT v1).
+    # ("C|T") rows count as not-contaminant. Intensity share = QuantProject DEF-QC-9 v3.5 (intensity is theirs):
+    # per file, C over C + T groups' Intensity_<file> in AllQuantifiedProteinGroups.tsv (apex, DEF-PEP-INT v1),
+    # both row sets at `Protein QValue` <= 0.01. v2 (no filter) produced every search before 2026-09-24 (D41).
     if (search_dirs and params["database"].get("include_contaminants", True)
             and (search_dirs[-1] / "AllPSMs.psmtsv").exists()):
         sd = search_dirs[-1]
@@ -162,7 +172,7 @@ def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
         per_file, top = {}, {}
         if pg_file.exists():
             with pg_file.open(encoding="utf-8") as fh:
-                pgs = list(csv.DictReader(fh, delimiter="\t"))
+                pgs = [r for r in csv.DictReader(fh, delimiter="\t") if _pg_1pct(r)]
             for col in [k for k in (pgs[0] if pgs else {}) if k.startswith("Intensity_")]:
                 tot = sum(float(r[col] or 0) for r in pgs if r["Protein Decoy/Contaminant/Target"] in ("T", "C"))
                 con = sum(float(r[col] or 0) for r in pgs if r["Protein Decoy/Contaminant/Target"] == "C")
@@ -180,13 +190,13 @@ def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
         blocks["contamination"] = {
             "psm_share": round(c_psm / len(tgt), 4) if tgt else None, "psm_share_definition": "aging DEF-CONTAM-PSM v1",
             "contaminant_psms": c_psm, "target_plus_contaminant_psms": len(tgt),
-            "intensity_share_per_file": per_file, "intensity_share_definition": "QuantProject DEF-QC-9 v2",
+            "intensity_share_per_file": per_file, "intensity_share_definition": "QuantProject DEF-QC-9 v3.5",
             "intensity_share_median": med, "intensity_share_min": vals[0] if vals else None,
             "intensity_share_max": worst,
             "top": [k for k, _ in sorted(top.items(), key=lambda kv: -kv[1])[:5]]}
         if worst > p.get("flag_max_contaminant_intensity_share", 0.05):
             flags.append(f"high_contamination: {worst:.2%} of protein intensity in the worst file, "
-                         f"{med:.2%} median across {len(per_file)} files (DEF-QC-9 v2)")
+                         f"{med:.2%} median across {len(per_file)} files (DEF-QC-9 v3.5)")
 
     # Known gaps stated on every run, so no result is mistaken for a designed or deposit-ready one.
     design = [f.parent / "ExperimentalDesign.tsv" for f in spectra_files[:1]]
@@ -428,6 +438,19 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
             prov.note(f"contaminant database overridden: {contam}")
     else:
         prov.note("contaminant database NOT included (params.database.include_contaminants = false)")
+    # EXTRA protein databases (G61): the targeted aging isoform entries (D43), searched BESIDE the
+    # reference proteome, never instead of it. After the proteome and the contaminants, so the
+    # first database in `inputs` is still the reference proteome, which is what dataRepo reads as
+    # "the search database". An isoform is claimed only on an isoform-unique peptide (D8).
+    extras = [str(x) for x in params["database"].get("extra_prepared") or []]
+    for x in extras:
+        if not Path(x).exists():
+            sys.exit(f"extra database {x} missing: run db_prepare.py first")
+    dbs.extend(extras)
+    prov.rec["extra_databases"] = extras
+    if extras:
+        prov.note("extra protein database(s) searched beside the reference proteome: "
+                  + ", ".join(Path(x).name for x in extras))
     if lib_plan is not None and lib_plan.library_in:
         # A library is supplied as another `-d`: DbForTask decides by extension (.msp/.msl) alone.
         # It rides through the whole chain - GPTMD forwards it in NewDatabases - so one -d is enough

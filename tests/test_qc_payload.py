@@ -223,8 +223,10 @@ def test_pg_missing_frac_needs_the_dataset_first(work, search):
     m = {f["file"]: f["metrics"] for f in p["files"]}
     assert p["dataset_metrics"]["protein_groups_quantified"] == 3      # 2 target + 1 contaminant
     assert p["dataset_metrics"]["runs_per_protein_group"] == {"1": 1, "2": 2}
-    assert m["a"]["pg_missing_frac"] == 0.0     # a identified all three
-    assert round(m["b"]["pg_missing_frac"], 4) == round(1 / 3, 4)
+    assert m["a"]["pg_missing_frac_msms"] == 0.0     # a identified all three
+    assert round(m["b"]["pg_missing_frac_msms"], 4) == round(1 / 3, 4)
+    # qc 012 QC-Q17: the `_any` variant is not computed, so its field is absent -- never 0.
+    assert all("pg_missing_frac" not in mm for mm in m.values())
 
 
 def test_pg_missing_frac_is_the_msms_variant_so_mbr_cannot_inflate_it(work, search):
@@ -236,7 +238,7 @@ def test_pg_missing_frac_is_the_msms_variant_so_mbr_cannot_inflate_it(work, sear
     file's own evidence and is the only reading that makes the number a property of the file.
     """
     m = {f["file"]: f["metrics"] for f in build(work, search)["files"]}
-    assert m["b"]["pg_missing_frac"] > 0.0
+    assert m["b"]["pg_missing_frac_msms"] > 0.0
     note = " ".join(build(work, search)["dataset"]["notes"])
     assert "_msms" in note and "_any" in note
 
@@ -255,24 +257,49 @@ def test_pg_missing_frac_is_absent_when_it_cannot_be_measured(work, search, tmp_
                   encoding="utf-8")
     p = build(work, search)
     assert p["dataset_metrics"]["protein_groups_quantified"] is None
-    assert all("pg_missing_frac" not in f["metrics"] for f in p["files"])
+    assert all("pg_missing_frac" not in f["metrics"] and "pg_missing_frac_msms" not in f["metrics"]
+               for f in p["files"])
     assert "NOT REPORTED" in " ".join(p["dataset"]["notes"])
 
 
 def test_m13_contamination_metrics(work, search):
-    """qc 007 §1. The intensity fraction is QuantProject's DEF-QC-9 v2 at RUN grain; the PSM share
+    """qc 007 §1. The intensity fraction is QuantProject's DEF-QC-9 v3.5 at RUN grain; the PSM share
     is `aging:DEF-CONTAM-PSM-RUN` (v2 since QC-Q12) and NOT `DEF-CONTAM-PSM v1`, which our register defines at
     dataset grain -- a per-file share is a different quantity, not the dataset one pushed down.
     """
     p = build(work, search)
     m = {f["file"]: f["metrics"] for f in p["files"]}
-    # a: contaminant 100 of every T and C row's intensity (100 + 100 + 100 + 100). DEF-QC-9 states no
-    # protein-FDR filter, so the q = 0.5 target row counts too (QC-Q15); the decoy never does.
-    assert m["a"]["contaminant_intensity_frac"] == round(100 / 400, 4)
+    # a: contaminant 100 of the T and C rows at Protein QValue <= 0.01 (100 + 100 + 100). DEF-QC-9
+    # v3.5 filters both row sets, so the q = 0.5 target row does NOT count (qc 012); the decoy never does.
+    assert m["a"]["contaminant_intensity_frac"] == round(100 / 300, 4)
     assert p["definitions"]["contaminant_intensity_frac"]["id"] == "QuantProject:DEF-QC-9"
+    assert p["definitions"]["contaminant_intensity_frac"]["version"] == "v3.5"
     assert p["definitions"]["contaminant_psm_share"]["id"] == "aging:DEF-CONTAM-PSM-RUN"
-    assert p["definitions"]["pg_missing_frac"]["id"] == "QuantProject:DEF-QC-13"
-    assert "_msms" in p["definitions"]["pg_missing_frac"]["source"]
+    assert p["definitions"]["pg_missing_frac_msms"]["id"] == "QuantProject:DEF-QC-13"
+    assert "_msms" in p["definitions"]["pg_missing_frac_msms"]["source"]
+    assert "pg_missing_frac" not in p["definitions"]
+
+
+def test_whole_search_counts_come_from_the_summary_lines(work, search):
+    """qc 012 QC-Q13/Q17: one count per grain, from results.txt's summary lines, never a sum."""
+    task = next((search[0] / "mm").glob("Task*SearchTask"))
+    res = task / "results.txt"
+    res.write_text(res.read_text(encoding="utf-8")
+                   + "All target PSMs with q-value <= 0.01: 26582\n"
+                   + "All target peptides with q-value <= 0.01: 5541\n"
+                   + "All target protein groups with q-value <= 0.01 (1% FDR): 1652\n"
+                   + "PSMs within 1% FDR: 27000\n", encoding="utf-8")
+    p = build(work, search)
+    d = p["dataset_metrics"]
+    assert (d["dataset_psms"], d["dataset_peptides"], d["dataset_protein_groups"]) == (26582, 5541, 1652)
+    assert p["definitions"]["dataset_psms"]["id"] == "aging:DEF-PSM-1PCT"
+    assert p["definitions"]["dataset_protein_groups"]["id"] == "aging:DEF-PROTEINGROUP-1PCT"
+
+
+def test_a_missing_summary_line_is_absent_not_zero(work, search):
+    """The fixture's results.txt has only per-file lines. Their sum (30 PSMs) must not appear."""
+    d = build(work, search)["dataset_metrics"]
+    assert not {"dataset_psms", "dataset_peptides", "dataset_protein_groups"} & set(d)
 
 
 def test_an_acquisition_exception_travels_with_the_numbers(work, search):

@@ -65,9 +65,16 @@ another on `ResponseEnded` rather than anything in the client. On a clean re-run
 BridgeError: PRIDE FTP directory listing failed with status 403 Forbidden
 ```
 
-Observed once during sustained downloading, and transient — both the REST and FTP listings worked
-normally when retried a minute later. Treat it as rate limiting: pause, then retry. It is **not** in
-the tolerated-outage set, so a live test fails rather than skips on it, which is deliberate.
+Observed during sustained downloading, and transient: on a listing, and twice on a download of a
+public `.raw` file, which served normally when fetched again. `fetch` therefore retries a 403 (and a
+408, 429 or 5xx) within `fetch.max_attempts`; a 404 is never retried. It is **not** in the live tests'
+tolerated-outage set, so a live test fails rather than skips on it, which is deliberate.
+
+### `ProjectNotFoundError: The FTP directory ... listed no files`
+
+Seen once for a project whose FTP directory held 46 files when listed again under three hours later.
+`fetch` retries an **empty** listing (up to 4 attempts, `fetch.listing_backoff_s` apart) before
+believing it. A project that genuinely does not exist raises a different message and fails at once.
 
 ### `fetch.max_file_mb` silently dropped files
 

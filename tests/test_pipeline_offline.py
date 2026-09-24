@@ -248,3 +248,38 @@ def test_exit_0_without_protein_groups_is_not_success(layout, monkeypatch):
 def test_cleanup_refuses_before_a_successful_search(layout):
     with pytest.raises(SystemExit, match="refusing"):
         cleanup.main(layout.params, str(layout.run))
+
+
+def test_an_extra_database_is_prepared_and_searched_beside_the_proteome(layout, work):
+    """G61: the targeted aging isoform entries are an EXTRA `-d`, after the proteome and the
+    contaminants, so the first database in `inputs` is still the reference proteome (which is what
+    dataRepo reads as the search database)."""
+    L = layout
+    iso = L.root / "source" / "aging_isoforms_tier1-2_human.xml"
+    iso.write_text("<uniprot><entry><accession>P02545-6</accession></entry></uniprot>", encoding="utf-8")
+    db = dict(work.params()["database"])
+    db.update(extra_xml=[str(iso)], extra_prepared=[str(L.root / "db" / iso.name)])
+    work.write(database=db)
+
+    assert stage(db_prepare.main, L.params, str(L.root / "db")) == 0
+    assert (L.root / "db" / iso.name).read_text(encoding="utf-8") == iso.read_text(encoding="utf-8")
+    assert stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc")) == 0
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+
+    rec = prov(L.run / "04_search")
+    run_cmd = rec["commands"][-1]
+    dbs = run_cmd[run_cmd.index("-d") + 1: run_cmd.index("-o")]
+    assert [Path(x).name for x in dbs] == ["proteome.xml", "MetaMorpheusContaminants.xml", iso.name]
+    assert rec["extra_databases"] == [str(L.root / "db" / iso.name)]
+    db_inputs = [i["path"] for i in rec["inputs"] if str(i["path"]).endswith(".xml")]
+    assert Path(db_inputs[0]).name == "proteome.xml", "the reference proteome stays first"
+
+
+def test_a_missing_extra_database_stops_the_search(layout, work):
+    L = layout
+    db = dict(work.params()["database"])
+    db.update(extra_prepared=[str(L.root / "db" / "not_prepared.xml")])
+    work.write(database=db)
+    assert stage(db_prepare.main, L.params, str(L.root / "db")) == 0
+    assert stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc")) == 0
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) != 0

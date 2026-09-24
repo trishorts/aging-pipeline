@@ -6,7 +6,10 @@ use overwrite=False, so a rerun skips files that are complete (pyMzLib 003 D5-d)
 A transfer that dies mid-flight is RETRIED here (`fetch.max_attempts`, default 3, with linear
 backoff). This is the orchestrator's policy, not a client feature: pymzlib raises
 `ServiceUnavailableError` for a transport failure, and for a download that is a thing to retry rather
-than a reason to abandon 20 GB of work. Only that error class is retried; anything else fails the
+than a reason to abandon 20 GB of work. Two more shapes are retried because EBI produced them
+transiently and each one cost a whole deposit (S52, 2026-09-23/24): an HTTP 403/429/5xx that pymzlib
+raises as a bare `BridgeError` ("failed with status NNN", wording pinned by pride's tests), and an FTP
+listing that comes back empty (`ProjectNotFoundError` "... listed no files"). Anything else fails the
 stage immediately, exactly as in the live-test rule.
 
 Known gaps, recorded rather than worked around:
@@ -19,12 +22,13 @@ Known gaps, recorded rather than worked around:
 
 usage: fetch.py <params.json> <accession> <out_dir>
 """
-import hashlib, json, sys, time
+import hashlib, json, re, sys, time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import pymzlib.pride as pride
 from pymzlib import ServiceUnavailableError
+from pymzlib._bridge import BridgeError
 from provenance import Provenance, pymzlib_tool
 
 
@@ -36,10 +40,39 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+# S52: public files returned 403 Forbidden and later 200. A status is read from the message because
+# pymzlib 0.2.0 carries no status attribute (pride #1350 adds one upstream).
+_TRANSIENT_STATUS = re.compile(r"failed with status (403|408|429|5\d\d)\b")
+
+
+def is_transient(e: Exception) -> bool:
+    """True for an error worth retrying: a transport failure, or an HTTP status EBI has been seen to
+    return transiently. A 404 or a malformed request is NOT transient and fails at once."""
+    if isinstance(e, ServiceUnavailableError):
+        return True
+    return isinstance(e, BridgeError) and bool(_TRANSIENT_STATUS.search(str(e)))
+
+
+def list_with_retry(fn, accession, attempts=3, backoff_s=60.0):
+    """Call a PRIDE listing, retrying an EMPTY FTP listing and a transport failure (S52: PXD058248's
+    listing was empty at 11:57 UTC and held 46 files under three hours later). A project that is
+    genuinely not found fails after the last attempt, as before. Returns (result, attempts_used)."""
+    for attempt in range(1, attempts + 1):
+        try:
+            return fn(accession), attempt
+        except pride.ProjectNotFoundError as e:
+            if "listed no files" not in str(e) or attempt == attempts:
+                raise
+        except Exception as e:
+            if not is_transient(e) or attempt == attempts:
+                raise
+        time.sleep(backoff_s * attempt)
+
+
 def download_with_retry(f, spectra_dir, timeout, attempts=3, backoff_s=10.0):
     """Download one PRIDE file, retrying a transport failure. Returns (path, seconds, attempts_used).
 
-    Only `ServiceUnavailableError` is retried. EBI drops connections on long transfers - observed on
+    `is_transient()` decides what is retried. EBI drops connections on long transfers - observed on
     PXD027318 as "The response ended prematurely, with at least 334864664 additional bytes expected"
     after 7.7 GB of an 18-file set - and one such drop used to abandon the whole stage along with every
     other file's work. Any other exception is a real failure and propagates immediately, which is the
@@ -55,7 +88,9 @@ def download_with_retry(f, spectra_dir, timeout, attempts=3, backoff_s=10.0):
         try:
             path = pride.download_files([f], spectra_dir, overwrite=False, timeout=timeout)[0]
             return path, round(time.monotonic() - t0, 1), attempt
-        except ServiceUnavailableError as e:
+        except Exception as e:
+            if not is_transient(e):
+                raise
             last = e
             if attempt < attempts:
                 time.sleep(backoff_s * attempt)
@@ -72,8 +107,14 @@ def main(params_path: str, accession: str, out_dir: str) -> None:
     prov.upstream(out.parent.parent / "01_discover" / "provenance.json")
     prov.command(["pymzlib.pride.list_files", accession]); prov.command(["pymzlib.pride.list_ftp_files", accession])
 
-    rest = pride.list_files(accession)
-    ftp = pride.list_ftp_files(accession)
+    listing_attempts = min(int(p.get("max_attempts", 3)), 4)
+    listing_backoff_s = float(p.get("listing_backoff_s", 60))
+    rest, n_rest = list_with_retry(pride.list_files, accession, listing_attempts, listing_backoff_s)
+    ftp, n_ftp = list_with_retry(pride.list_ftp_files, accession, listing_attempts, listing_backoff_s)
+    prov.rec["listing_attempts"] = {"list_files": n_rest, "list_ftp_files": n_ftp}
+    if n_rest > 1 or n_ftp > 1:
+        prov.rec.setdefault("flags", []).append(
+            f"listing_retried: list_files x{n_rest}, list_ftp_files x{n_ftp} (S52)")
     ext = p["extension"].lower()
     raws = [f for f in rest if f.file_name.lower().endswith(ext)]
     ftp_raw_names = {f.file_name for f in ftp if f.file_name.lower().endswith(ext)}

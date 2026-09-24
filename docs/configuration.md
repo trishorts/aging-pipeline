@@ -46,7 +46,8 @@ The instrument lists are literal text.
 | `pick` | `all` · `median_size` · `first_by_name` | `all` | Which files ([details](stages.md#stage-2-fetchpy-download-one-accession)). `all` takes the whole deposit and is the only choice for results you will interpret; the others are for probing, and any subset is flagged `subset_of_deposit` in provenance. With `median_size`, the smallest file is chosen only if it's the only candidate left. Any other value is rejected |
 | `parallel_downloads` | int | `4` | Concurrent downloads |
 | `max_file_mb` | int | `1500` | Skip files larger than this (in MB, 10⁶ bytes). **Check it against the deposit before a run**: PXD027318's three largest files are 1.62–1.63 GB, so the default would have silently dropped half of one experimental arm |
-| `max_attempts` | int | `3` | Attempts per file before the stage fails. Only a `ServiceUnavailableError` (a dropped connection) is retried; any other error fails at once |
+| `max_attempts` | int | `3` | Attempts per file before the stage fails. Retried: a `ServiceUnavailableError` (a dropped connection) and an HTTP 403, 408, 429 or 5xx (`failed with status NNN`), which EBI has returned transiently for public files. Any other error, a 404 included, fails at once. The two listings are retried too, capped at 4 attempts, when the FTP listing comes back empty |
+| `listing_backoff_s` | float | `60` | Seconds to wait before retrying an empty or failed listing, multiplied by the attempt number |
 | `retry_backoff_s` | float | `10` | Seconds to wait before a retry, multiplied by the attempt number (10 s, then 20 s). No sleep after the final attempt |
 | `extension` | string | `".raw"` | The spectra file extension to fetch. Leave it as `.raw`: stages 2b, 4 and 9 look only for `*.raw` |
 | `timeout_s` | int | `3600` | The timeout per file download |
@@ -107,6 +108,8 @@ peaks, which are Orbitrap here, and identification from ion-trap HCD is sound �
 |---|---|---|---|
 | `uniprot_xml` | path | — | The source proteome, UniProt XML, `.xml` or `.xml.gz` |
 | `prepared` | path | — | **Must be** `<work_root>/db/<uniprot_xml's name without .gz>`, which is where stage 0 writes it. Stage 4 searches this file |
+| `extra_xml` | list of paths | `[]` | Further protein databases (UniProt XML) that stage 0 prepares beside the proteome, e.g. the targeted aging isoform database for the dataset's organism |
+| `extra_prepared` | list of paths | `[]` | **Must be** `<work_root>/db/<name>` for each `extra_xml` entry. Stage 4 passes them as extra `-d` databases after the proteome and the contaminants, and refuses to run if one is missing |
 | `include_contaminants` | bool | `true` | Also search MetaMorpheus's shipped `Contaminants/MetaMorpheusContaminants.xml`. Turning it off is for controlled experiments only, and a note records it |
 | `contaminants` | path | *(optional)* | Use this contaminant database instead of the shipped one. Needed when re-running only the Search task against a GPTMD database: the GPTMD task writes its own augmented `MetaMorpheusContaminantsGPTMD.xml`, and searching the shipped file instead would drop every contaminant modification GPTMD found and make the contamination metrics incomparable with a full-chain run |
 

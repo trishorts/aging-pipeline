@@ -25,8 +25,8 @@ python bin/db_prepare.py <params.json> <out_dir>
 
 | | |
 |---|---|
-| **Reads** | `database.uniprot_xml` (`.xml` or `.xml.gz`) |
-| **Writes** | `<out_dir>/<name without .gz>` and `<out_dir>/provenance.json`. It prints the prepared path |
+| **Reads** | `database.uniprot_xml` (`.xml` or `.xml.gz`), and each file in `database.extra_xml` if set |
+| **Writes** | `<out_dir>/<name without .gz>` for each, and `<out_dir>/provenance.json`. It prints each prepared path, the proteome first |
 | **Exit codes** | 0 success · non-zero on a read/write error |
 
 **What it does.** It decompresses (or copies) the database once into the pipeline's own work area.
@@ -37,8 +37,14 @@ file under the real name. If the prepared file already exists, it is reused and 
 input file*. That writes into whichever folder holds the database, and concurrent searches collide on
 it. Searching an uncompressed copy in the work area avoids both problems.
 
-**Keep in step:** `database.prepared` must equal `<out_dir>/<file name without .gz>`, and `<out_dir>`
-should be `<work_root>/db`. Stage 4 reads the database from `database.prepared`, and it looks for this
+**Extra databases.** `database.extra_xml` lists further protein databases to prepare the same way,
+each under its own name. The one in use is the targeted **aging isoform database**: literature-chosen
+UniProt isoform entries (Tier 1+2; 49 human, 18 mouse, 15 rat), one file per organism. It is searched
+*beside* the reference proteome, never instead of it. Isoform entries carry no GO terms, so GO maps by
+the base accession, and an isoform is claimed only on a peptide unique to it.
+
+**Keep in step:** `database.prepared` must equal `<out_dir>/<file name without .gz>`, likewise each entry
+of `database.extra_prepared`, and `<out_dir>` should be `<work_root>/db`. Stage 4 reads the database from `database.prepared`, and it looks for this
 stage's provenance in the same folder.
 
 ---
@@ -235,7 +241,9 @@ python bin/search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
    instead of a version.
 3. **It runs calibration → GPTMD → search in one invocation.** MetaMorpheus chains the tasks, passing
    calibrated spectra and the GPTMD-augmented database forward. The databases passed are the prepared
-   proteome **plus the shipped contaminant database**, unless `database.include_contaminants` is `false`.
+   proteome **plus the shipped contaminant database**, unless `database.include_contaminants` is `false`,
+   then any `database.extra_prepared` files (recorded as `extra_databases` in provenance). The proteome
+   is always first, so it is the database a reader of the provenance finds first.
    MetaMorpheus's settings folder is `<work_root>/mm_settings/<release>/`. The script deliberately doesn't
    create it, because MetaMorpheus crashes on an empty pre-created settings folder.
 4. **It times each task.** Every log line is stamped with elapsed seconds, and each task's wall time, CPU,
@@ -353,20 +361,26 @@ python -m qctemplates render   <out_dir>/qc_payload.json <out_dir>
 rule in two places and let the two drift. Every value that has a written definition carries its ID, so
 a template renders a number it did not define and can still say where the meaning came from.
 
-**Two shapes in the contract drive the code.** `pg_missing_frac` is a per-file metric that needs the
-*dataset* first — the share of the dataset's quantified protein groups absent from this file — so the
-build is two-pass. And `id_rt_coverage` divides by run minutes, which is a stage-2b fact rather than a
+**Two shapes in the contract drive the code.** `pg_missing_frac_msms` is a per-file metric that needs
+the *dataset* first — the share of the dataset's quantified protein groups this file did not itself
+identify — so the build is two-pass. And `id_rt_coverage` divides by run minutes, which is a stage-2b fact rather than a
 search fact, which is why the stage takes both directories.
 
-**`pg_missing_frac` is `DEF-QC-13`'s `_msms` variant**, where a group counts as present in a file when
+**`pg_missing_frac_msms` is `DEF-QC-13`'s `_msms` variant**, where a group counts as present in a file when
 its `SpectralCount_` is above zero — never the `_any` variant, which asks whether the file has an
 *intensity*. Match-between-runs is on in every run this pipeline produces, so an intensity can be
 transferred from a neighbouring file: under `_any`, one file's completeness would be a function of the
 *other* files in the run, and a number like that is not a property of the file it is filed under.
-`mbr_kept` is where the transfer contribution is visible instead. The payload states the variant in
-`dataset.notes`, because the metric's name does not.
+`mbr_kept` is where the transfer contribution is visible instead. qc's contract gives the two
+variants separate fields: `pg_missing_frac` is `_any`, which this stage does not compute, so that field
+is always **absent** (not measured), never 0.
 
-**When a run carries no `SpectralCount_` columns, `pg_missing_frac` is omitted rather than set to
+**Whole-search counts.** `dataset_metrics.dataset_psms`, `dataset_peptides` and
+`dataset_protein_groups` are `results.txt`'s summary lines (`aging:DEF-PSM-1PCT`, `DEF-PEPTIDE-1PCT`,
+`DEF-PROTEINGROUP-1PCT` v1). They are read, never summed from the per-file lines, and a missing line
+leaves its key absent. On the 18-file PXD036557 search they are 26,582 / 5,541 / 1,652.
+
+**When a run carries no `SpectralCount_` columns, `pg_missing_frac_msms` is omitted rather than set to
 zero.** A sample group's column block in `AllQuantifiedProteinGroups.tsv` is two, three or four
 columns wide depending on what the search wrote, so their absence is a real case. qc's rule is that an
 absent value means *not measured* while `0` means *measured, and it was zero*; reporting zero
@@ -378,8 +392,8 @@ are all in it — so the stage applies `DEF-PROTEINGROUP-1PCT` (not decoy, `Prot
 contaminants **included**). On the 18-file PXD036557 run that is 1,652 groups out of 2,229 rows; a
 denominator of "rows in the file" would be wrong by about a third.
 
-That filter decides **presence** (`pg_missing_frac`) only. The contaminant intensity fraction below is
-summed over every `C` and `T` row, because its definition states no protein-FDR filter.
+The same filter applies to **presence** (`pg_missing_frac_msms`) and, since `DEF-QC-9 v3.5`, to the
+contaminant intensity fraction below.
 
 **Two PSM populations per file, on purpose.** The `psms`, `peptides` and `protein_groups` counts are
 MetaMorpheus's per-file `results.txt` lines, each from an FDR it recomputes on that file alone, and carry
@@ -389,8 +403,10 @@ describes a different set: the **whole-search** 1% PSMs that came from the file,
 (`DEF-PSM-1PCT-INFILE`). That file is written before the per-file recalculation, so its q-values are
 whole-search. The stage refuses a PSM table without `QValue Notch` rather than silently widening the set.
 
-**Contamination (M13).** `contaminant_intensity_frac` is `QuantProject:DEF-QC-9 v2` — contaminant over
-target-plus-contaminant apex intensity, per file, over every `C` and `T` row. `contaminant_psm_share` is
+**Contamination (M13).** `contaminant_intensity_frac` is `QuantProject:DEF-QC-9 v3.5` — contaminant over
+target-plus-contaminant apex intensity, per file, over the `C` and `T` rows at `Protein QValue ≤ 0.01`.
+v2 (payloads and searches before 2026-09-24) summed every `C` and `T` row; on PXD036557's worst file
+that is 18.92% under v2 and 19.1% under v3.5. `contaminant_psm_share` is
 **`aging:DEF-CONTAM-PSM-RUN v2`** over the `DEF-PSM-1PCT-INFILE` population (v1 filtered on `QValue`
 alone), a run-grain definition, and deliberately *not* `DEF-CONTAM-PSM v1`,
 which this project defines at dataset grain: a per-file share is a different quantity, not the dataset

@@ -13,8 +13,11 @@ template renders a number it did not define and can say where the meaning came f
 
 Two shapes in the contract drive the code:
 
-* `pg_missing_frac` is a per-file metric that needs the DATASET first (the share of the dataset's
-  quantified protein groups absent from this file), so the build is two-pass.
+* `pg_missing_frac_msms` is a per-file metric that needs the DATASET first (the share of the
+  dataset's quantified protein groups this file did not itself identify), so the build is two-pass.
+  `pg_missing_frac` (the `_any` variant) is not computed and is therefore omitted (qc 012 QC-Q17).
+* The three whole-search counts go in `dataset_metrics` under their own dataset definitions, read
+  from `results.txt`'s summary lines, never summed from the per-file lines (qc 012).
 * `id_rt_coverage` divides by run minutes, which is a stage-2b fact rather than a search fact, so the
   stage takes BOTH the search directory and the qc directory.
 
@@ -81,13 +84,16 @@ DEFINITIONS = {
     "ms2_scans": {"id": "aging:DEF-MS2", "version": "v1", "source": "pipeline/docs/provenance.md"},
     "msms_peaks": {"id": "QuantProject:DEF-QC-MBR", "version": "v1", "source": "QuantProject/design/DATA-DEFINITIONS.md"},
     "mbr_kept": {"id": "QuantProject:DEF-MBR-KEPT", "version": "v1", "source": "QuantProject/design/DATA-DEFINITIONS.md"},
-    # `pg_missing_frac` is DEF-QC-13's `_msms` variant (see parse_protein_groups). qc's schema forbids
-    # extra keys on a definition entry, so the variant is named in `source` - the one free field whose
-    # job is already "where the meaning is written" - and stated again in `dataset.notes`, which their
-    # report prints verbatim. A number whose variant is not on the page is a number nobody can check.
-    "pg_missing_frac": {"id": "QuantProject:DEF-QC-13", "version": "v1",
-                        "source": "QuantProject/design/DATA-DEFINITIONS.md - the _msms variant "
-                                  "(SpectralCount_ > 0), per file"},
+    # DEF-QC-13's `_msms` variant has its own field since qc 5232feb (qc 012 QC-Q17): `pg_missing_frac`
+    # is the `_any` variant, which we do not compute, so it is omitted (null = not measured, never 0).
+    "pg_missing_frac_msms": {"id": "QuantProject:DEF-QC-13", "version": "v1",
+                             "source": "QuantProject/design/DATA-DEFINITIONS.md - the _msms variant "
+                                       "(SpectralCount_ > 0), per file"},
+    # Whole-search counts (qc 012): results.txt's summary lines, one definition per grain.
+    "dataset_psms": {"id": "aging:DEF-PSM-1PCT", "version": "v1", "source": "pipeline/docs/provenance.md"},
+    "dataset_peptides": {"id": "aging:DEF-PEPTIDE-1PCT", "version": "v1", "source": "pipeline/docs/provenance.md"},
+    "dataset_protein_groups": {"id": "aging:DEF-PROTEINGROUP-1PCT", "version": "v1",
+                               "source": "pipeline/docs/provenance.md"},
     # NOT `aging:DEF-CONTAM-PSM v1`, which our own register defines at DATASET grain. A per-file
     # contaminant share is a different quantity at a different grain, and the register's own rule is
     # that a number is stored at the grain it was measured at, never coarser and never finer. Pushing
@@ -95,7 +101,7 @@ DEFINITIONS = {
     # have already told qc and QuantProject we would not do. Raised with qc in our 009.
     "contaminant_psm_share": {"id": "aging:DEF-CONTAM-PSM-RUN", "version": "v2",
                               "source": "pipeline/docs/provenance.md"},
-    "contaminant_intensity_frac": {"id": "QuantProject:DEF-QC-9", "version": "v2",
+    "contaminant_intensity_frac": {"id": "QuantProject:DEF-QC-9", "version": "v3.5",
                                    "source": "QuantProject/design/DATA-DEFINITIONS.md"},
 }
 
@@ -167,6 +173,26 @@ def parse_results_txt(path: Path):
                      ("protein_groups", r"^(.+?) - Target protein groups with q-value <= 0\.01: (\d+)$")):
         for name, n in re.findall(pat, text, re.M):
             out[stem(name)][key] = int(n)
+    return out
+
+
+_DATASET_LINES = (
+    ("dataset_psms", r"^All target PSMs with q-value <= 0\.01: (\d+)"),
+    ("dataset_peptides", r"^All target peptides with q-value <= 0\.01: (\d+)"),
+    ("dataset_protein_groups", r"^All target protein groups with q-value <= 0\.01[^:]*: (\d+)"),
+)
+
+
+def parse_dataset_counts(path: Path):
+    """The whole-search counts: results.txt's SUMMARY lines (aging DEF-PSM/PEPTIDE/PROTEINGROUP-1PCT
+    v1). Not the FDR engine's "PSMs within 1% FDR" line (S21), and never a sum of the per-file lines.
+    A line that is absent gives no key, not a zero."""
+    text = path.read_text(encoding="utf-8", errors="replace")
+    out = {}
+    for key, pat in _DATASET_LINES:
+        m = re.search(pat, text, re.M)
+        if m:
+            out[key] = int(m.group(1))
     return out
 
 
@@ -331,7 +357,7 @@ def parse_protein_groups(path: Path):
     carries the argument; `mbr_kept` (M10) is where the transfer contribution is visible instead.
 
     For presence, only groups at 1% FDR and not decoy are counted (the contaminant intensity fraction
-    is not filtered by FDR; see DEF-QC-9 below) - the same predicate as `DEF-PROTEINGROUP-1PCT`,
+    uses the same 1% filter since DEF-QC-9 v3.5) - the same predicate as `DEF-PROTEINGROUP-1PCT`,
     which INCLUDES contaminant groups, so this is a completeness measure of what the search
     reported, not a biological one. The file is written UNFILTERED (decoys, contaminants and
     q > 0.01 are all in it), so the predicate is load-bearing rather than defensive: on the 18-file
@@ -361,11 +387,13 @@ def parse_protein_groups(path: Path):
             td = (row.get("Protein Decoy/Contaminant/Target") or "").strip().upper()
             if td.startswith("D"):
                 continue
-            # QuantProject:DEF-QC-9 v2, run grain: contaminant / (target + contaminant) apex
-            # intensity, per file, over EVERY C and T row of the protein table. The definition states
-            # no protein-FDR filter, so none is applied here: filtering to 1% first made this 19.1%
-            # where the provenance block, which follows the text, said 18.92% for the same file
-            # (qc 010 QC-Q15). Whether a filter belongs in it is QuantProject's call.
+            q = num(row.get("Protein QValue"))
+            if q is None or q > 0.01:
+                continue
+            # QuantProject:DEF-QC-9 v3.5, run grain: contaminant / (target + contaminant) apex
+            # intensity, per file, over the C and T rows at `Protein QValue` <= 0.01 (QuantProject
+            # 004 to qc; qc 012). v2 had no filter and gave 18.92% where v3.5 gives 19.1% on the same
+            # file. Payloads built before 2026-09-24 keep `v2` (D41).
             # A not-quantified protein cell is BLANK at MM 1.1.9+, not `0` (QuantProject via qc 007
             # §7.2), so `num()` returning None reads as absent and contributes nothing.
             for c, f in inten.items():
@@ -375,9 +403,6 @@ def parse_protein_groups(path: Path):
                 total_int[f] += v
                 if td == "C":
                     contam_int[f] += v
-            q = num(row.get("Protein QValue"))
-            if q is None or q > 0.01:
-                continue
             hits = [f for c, f in counts.items() if (num(row.get(c)) or 0) > 0]
             if not hits:
                 continue
@@ -411,6 +436,7 @@ def main(params_path: str, search_dir: str, qc_dir: str, out_dir: str, accession
     results = task / "results.txt"
     prov.inputs(results)
     counts = parse_results_txt(results)
+    dataset_counts = parse_dataset_counts(results)
     calib = parse_calibration(search / "mm" / "Task1CalibrationTask")
     psm_file = task / "AllPSMs.psmtsv"
     prov.inputs(psm_file)
@@ -425,8 +451,9 @@ def main(params_path: str, search_dir: str, qc_dir: str, out_dir: str, accession
              **psm_metrics.get(name, {}), **peaks.get(name, {})}
         # Pass two: per-file metrics that needed the dataset first.
         if quantified:
-            m["pg_missing_frac"] = round((quantified - present.get(name, 0)) / quantified, 4)
-        # else: omitted, not zeroed. `pg_missing_frac` absent means the run could not measure it.
+            m["pg_missing_frac_msms"] = round((quantified - present.get(name, 0)) / quantified, 4)
+        # else: omitted, not zeroed. Absent means the run could not measure it. `pg_missing_frac`
+        # (`_any`) is never written: we do not compute it (qc 012 QC-Q17).
         if name in contam_int:
             m["contaminant_intensity_frac"] = contam_int[name]
         files.append({"file": name, "metrics": m, "distributions": dists.get(name, {})})
@@ -449,7 +476,8 @@ def main(params_path: str, search_dir: str, qc_dir: str, out_dir: str, accession
         },
         "files": files,
         "definitions": DEFINITIONS,
-        "dataset_metrics": {"protein_groups_quantified": quantified,
+        "dataset_metrics": {**dataset_counts,
+                            "protein_groups_quantified": quantified,
                             "runs_per_protein_group": runs_per},
     }
     # Facts a reader of the rendered report cannot recover from the numbers, so they are stated
@@ -462,12 +490,13 @@ def main(params_path: str, search_dir: str, qc_dir: str, out_dir: str, accession
         "whole-search q, unambiguous notch (aging:DEF-PSM-1PCT-INFILE v1). Neither is a sum of the other.")
     if quantified:
         payload["dataset"]["notes"].append(
-            "pg_missing_frac is DEF-QC-13's _msms variant (SpectralCount_ > 0), not _any: MBR is on "
-            "in every run, so an intensity-based completeness for one file would depend on the "
-            "other files in the run. See mbr_kept for the transfer contribution.")
+            "pg_missing_frac_msms is DEF-QC-13's _msms variant (SpectralCount_ > 0). The _any variant "
+            "(pg_missing_frac) is not computed and is absent: MBR is on in every run, so an "
+            "intensity-based completeness for one file would depend on the other files in the run. "
+            "See mbr_kept for the transfer contribution.")
     else:
         payload["dataset"]["notes"].append(
-            "pg_missing_frac is NOT REPORTED for this run: the protein-group table carries no "
+            "pg_missing_frac_msms is NOT REPORTED for this run: the protein-group table carries no "
             "SpectralCount_ columns, so the _msms variant is not measurable. Absent means not "
             "measured, not zero.")
     if _canonical_edges is None:

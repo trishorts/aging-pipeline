@@ -164,3 +164,73 @@ def test_backoff_grows_between_attempts(monkeypatch, tmp_path):
 
     fetch.download_with_retry(_File(), tmp_path / "spectra", timeout=5, attempts=3, backoff_s=10)
     assert slept == [10, 20], "linear backoff, and no sleep after the final attempt"
+
+
+# ---- S52: transient EBI errors that used to cost a whole deposit ----------------------------------
+
+from pymzlib._bridge import BridgeError
+
+
+def _status(msg):
+    return BridgeError("HttpRequestException", msg)
+
+
+def test_a_transient_http_status_is_retried(monkeypatch, tmp_path):
+    """PXD051203 and PXD028975 each died on a 403 for a public file that served 200 the next day."""
+    calls = []
+
+    def once_forbidden(files, out_dir, overwrite=False, timeout=None):
+        calls.append(1)
+        if len(calls) == 1:
+            raise _status("PRIDE download failed with status 403 Forbidden for 'https://x/a.raw'.")
+        return _Flaky(0)(files, out_dir)
+
+    monkeypatch.setattr(fetch.pride, "download_files", once_forbidden)
+    monkeypatch.setattr(fetch.time, "sleep", lambda _s: None)
+    _path, _s, attempts = fetch.download_with_retry(_File(), tmp_path / "s", timeout=5, attempts=3, backoff_s=0)
+    assert attempts == 2
+
+
+@pytest.mark.parametrize("msg,expected", [
+    ("PRIDE download failed with status 403 Forbidden for 'u'", True),
+    ("PRIDE request failed with status 429 Too Many Requests", True),
+    ("PRIDE request failed with status 503 Service Unavailable", True),
+    ("PRIDE download failed with status 404 Not Found for 'u'", False),
+    ("PRIDE download failed with status 4030 x", False),
+    ("the bridge crashed", False),
+])
+def test_only_transient_statuses_count_as_transient(msg, expected):
+    assert fetch.is_transient(_status(msg)) is expected
+
+
+def test_an_empty_ftp_listing_is_retried_then_believed(monkeypatch):
+    """PXD058248's listing was empty at 11:57 UTC and held 46 files under three hours later."""
+    monkeypatch.setattr(fetch.time, "sleep", lambda _s: None)
+    calls = []
+
+    def flaky(acc):
+        calls.append(acc)
+        if len(calls) < 2:
+            raise fetch.pride.ProjectNotFoundError(f"The FTP directory for '{acc}' listed no files.")
+        return ["a.raw"]
+
+    assert fetch.list_with_retry(flaky, "PXD1", 3, 0) == (["a.raw"], 2)
+
+    def always_empty(acc):
+        raise fetch.pride.ProjectNotFoundError(f"The FTP directory for '{acc}' listed no files.")
+
+    with pytest.raises(fetch.pride.ProjectNotFoundError):
+        fetch.list_with_retry(always_empty, "PXD2", 3, 0)
+
+
+def test_a_project_that_does_not_exist_is_not_retried(monkeypatch):
+    monkeypatch.setattr(fetch.time, "sleep", lambda _s: None)
+    calls = []
+
+    def gone(acc):
+        calls.append(acc)
+        raise fetch.pride.ProjectNotFoundError(f"No PRIDE project has the accession '{acc}'.")
+
+    with pytest.raises(fetch.pride.ProjectNotFoundError):
+        fetch.list_with_retry(gone, "PXD9", 3, 0)
+    assert len(calls) == 1

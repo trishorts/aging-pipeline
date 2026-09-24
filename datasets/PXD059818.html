@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PXD059818: Simultaneous profiling of native-state proteomes and transcriptomes of brain cell types using proximity labeling</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" type="text/plain" href="../llms.txt" title="llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org/",
+ "@type": "Dataset",
+ "dct:conformsTo": {
+  "@id": "https://bioschemas.org/profiles/Dataset/1.0-RELEASE",
+  "@type": "CreativeWork"
+ },
+ "@id": "https://trishorts.github.io/aging-pipeline/datasets/PXD059818.html",
+ "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059818.html",
+ "name": "PXD059818 reanalysis: Simultaneous profiling of native-state proteomes and transcriptomes of brain cell types using proximity labeling",
+ "identifier": [
+  "PXD059818",
+  "datarepo:bundle:9bbf1f12b7c63778"
+ ],
+ "description": "PXD059818 is a DDA label-free dataset (Mus musculus) with 38 runs, 38 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 491,515 PSMs, 40,770 peptidoforms and 4,418 protein groups, and the repository holds 18,944 PTM sites for it. 6 open warnings about it are recorded.",
+ "version": "9bbf1f12b7c63778",
+ "dateModified": "2026-09-23T23:27:07+00:00",
+ "keywords": [
+  "proteomics",
+  "mass spectrometry",
+  "reanalysis",
+  "aging",
+  "Mus musculus"
+ ],
+ "measurementTechnique": "mass spectrometry",
+ "variableMeasured": [
+  "peptide-spectrum match",
+  "peptidoform",
+  "protein group",
+  "PTM site",
+  "protein abundance"
+ ],
+ "isBasedOn": "https://www.ebi.ac.uk/pride/archive/projects/PXD059818",
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "creator": {
+  "@type": "Organization",
+  "name": "NCEMS Aging Proteome Working Group"
+ },
+ "includedInDataCatalog": {
+  "@type": "DataCatalog",
+  "name": "datarepo catalog d5858fad734a1e41",
+  "url": "https://trishorts.github.io/aging-pipeline/index.html"
+ }
+}
+</script>
+</head>
+<body>
+<header>
+<p class="crumb"><a href="../index.html">Aging proteomics repository</a> / PXD059818</p>
+<h1>Simultaneous profiling of native-state proteomes and transcriptomes of brain cell types using proximity labeling</h1>
+<p>PXD059818 · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD059818">PRIDE record</a></p>
+</header>
+<main>
+<div class="generated"><span class="label">Generated summary</span>
+PXD059818 is a DDA label-free dataset (Mus musculus) with 38 runs, 38 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 491,515 PSMs, 40,770 peptidoforms and 4,418 protein groups, and the repository holds 18,944 PTM sites for it. 6 open warnings about it are recorded.
+<br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
+
+<h2>Open findings</h2>
+<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 491515 where the producer reported 491520 (results.txt: All target PSMs with q-value &lt;= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
+<div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>50.19% of protein intensity in the worst file, 5.01% median across 38 files (DEF-QC-9 v2)</div>
+<div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
+<div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
+<div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 1738 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
+<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
+<div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 2 identifier(s), 3 row(s) dropped, e.g. PXD059818:O88207;Q61245;Q64739 written 3 times; quant_values: 2 identifier(s), 3 row(s) dropped, e.g. PXD059818:christina_Aldh1l1_Camk2a_8tcl_07:label_free:protein_group:PXD059818:O88207;Q61245;Q64739:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 3 times. The full list is in bundle.json under collapsed_duplicates.</div>
+<div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
+
+<h2>What was found</h2>
+<div class="scroll"><table><tbody>
+<tr><td>PSMs at 1% FDR</td><td class="num">491,515</td></tr>
+<tr><td>Peptidoforms at 1% FDR</td><td class="num">40,770</td></tr>
+<tr><td>Protein groups at 1% FDR</td><td class="num">4,418</td></tr>
+<tr><td>PTM sites</td><td class="num">18,944</td></tr>
+<tr><td>Quantitative values</td><td class="num">626,142</td></tr>
+<tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">886,810</td></tr>
+<tr><td>MS2 identification rate <span class="note">(aging:DEF-ID-RATE)</span></td><td class="num">33.0%</td></tr>
+<tr><td>Contaminant share of PSMs <span class="note">(aging:DEF-CONTAM-PSM)</span></td><td class="num">6.5%</td></tr>
+</tbody></table></div>
+
+<h2>How it was measured</h2>
+<dl>
+<dt>Organism</dt><dd>Mus musculus</dd>
+<dt>Acquisition</dt><dd>DDA</dd>
+<dt>Quantification</dt><dd>label_free</dd>
+<dt>Labelling</dt><dd>none</dd>
+<dt>Enrichment</dt><dd>other</dd>
+<dt>Instrument vendor</dt><dd>not recorded</dd>
+<dt>Runs / samples</dt><dd>38 / 38</dd>
+<dt>Sample metadata</dt><dd>absent</dd>
+<dt>Search engine</dt><dd>MetaMorpheus 1.1.11</dd>
+<dt>Protein database</dt><dd>uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml</dd>
+<dt>Pipeline commit</dt><dd><a href="https://github.com/trishorts/aging/tree/d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad">d9a53813dfbd</a></dd>
+</dl>
+
+<h2>Most frequent modifications</h2>
+<div class="scroll"><table>
+<thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
+<tbody>
+<tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">7,732</td></tr>
+<tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">3,483</td></tr>
+<tr><td>Deamidation on N</td><td>UNIMOD:7</td><td class="num">1,766</td></tr>
+<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">602</td></tr>
+<tr><td>Sodium on E</td><td>UNIMOD:30</td><td class="num">359</td></tr>
+<tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">335</td></tr>
+<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">334</td></tr>
+<tr><td>Sodium on D</td><td>UNIMOD:30</td><td class="num">305</td></tr>
+<tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">232</td></tr>
+<tr><td>N-acetylalanine on A</td><td>UNIMOD:1</td><td class="num">213</td></tr>
+</tbody></table></div>
+<p class="note">Target proteins only, the 10 most frequent. A dash in the UNIMOD column means the
+modification has no UNIMOD term in the registry that searched it, not that it is unknown.</p>
+
+<h2>Data</h2>
+<p>The Parquet files for this dataset are not published yet.</p>
+<dl>
+<dt>Bundle</dt><dd><code>9bbf1f12b7c63778</code>, written 2026-09-23T23:27:07+00:00 by ingester 0.16.0</dd>
+<dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
+<dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
+<dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
+</dl>
+</main>
+<footer>
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.17.2 from catalog
+<code>d5858fad734a1e41</code>, built 2026-09-24T17:13:48+00:00 by datarepo
+0.17.2 (schema 0.0.8).
+Every number on this site is read from that catalog; cite its id with any number you reuse.
+</footer>
+</body>
+</html>

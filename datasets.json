@@ -1,13 +1,743 @@
 {
  "catalog": {
-  "catalog_id": "70bcd76acebf16f3",
+  "catalog_id": "d5858fad734a1e41",
   "catalog_version": "4",
   "schema_version": "0.0.8",
-  "builder_version": "0.17.1",
-  "built_utc": "2026-09-23T13:19:26+00:00",
+  "builder_version": "0.17.2",
+  "built_utc": "2026-09-24T17:13:48+00:00",
   "instance": "aging"
  },
  "datasets": [
+  {
+   "dataset_id": "PXD010115",
+   "bundle_id": "76d5241dc9c4b53c",
+   "title": "Quantification of the Soluble Receptor of Advanced Glycation End-Products (sRAGE) by LC-MS Without the Use of Affinity Enrichment",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "instrument_vendor": "Thermo",
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 118418,
+   "n_peptidoforms_1pct": 10287,
+   "n_protein_groups_1pct": 436,
+   "n_psms_all": 189826,
+   "n_ptm_sites": 7593,
+   "n_quant_values": 53515,
+   "n_open_findings": 7,
+   "instruments": [
+    "Q Exactive"
+   ],
+   "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+   "sdrf_status": "trusted",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 118418 where the producer reported 118420 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 10288 where the producer reported 10287 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "9.50% of protein intensity in the worst file, 3.88% median across 12 files (DEF-QC-9 v2)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "sdrf_skeleton",
+     "severity": "warning",
+     "message": "The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 546 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 2606
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 1054
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 854
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 819
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 304
+    },
+    {
+     "modification_name": "Citrullination on R",
+     "modification": "UNIMOD:7",
+     "n_sites": 222
+    },
+    {
+     "modification_name": "Ammonia loss on N",
+     "modification": "UNIMOD:385",
+     "n_sites": 190
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 167
+    },
+    {
+     "modification_name": "Ammonia loss on C",
+     "modification": "UNIMOD:385",
+     "n_sites": 130
+    },
+    {
+     "modification_name": "Hydroxylation on K",
+     "modification": "UNIMOD:35",
+     "n_sites": 108
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.5431,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.015,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "76d5241dc9c4b53c",
+    "written_utc": "2026-09-24T08:30:42+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct",
+     "peptidoforms_target_1pct"
+    ]
+   },
+   "summary": "PXD010115 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 118,418 PSMs, 10,287 peptidoforms and 436 protein groups, and the repository holds 7,593 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD010115.html"
+  },
+  {
+   "dataset_id": "PXD011314",
+   "bundle_id": "d4000ed8b9fdd30e",
+   "title": "Profiling of Methylglyoxal Blood Metabolism and Advanced Glycation End-Product Proteome using a Chemical Probe",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "other"
+   ],
+   "instrument_vendor": "Thermo",
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 17,
+   "n_samples": 17,
+   "n_psms_1pct": 3994,
+   "n_peptidoforms_1pct": 497,
+   "n_protein_groups_1pct": 54,
+   "n_psms_all": 80276,
+   "n_ptm_sites": 343,
+   "n_quant_values": 2543,
+   "n_open_findings": 6,
+   "instruments": [
+    "Q Exactive"
+   ],
+   "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+   "sdrf_status": "trusted",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "calibration_failed",
+     "severity": "warning",
+     "message": "GPTMD/search ran on uncalibrated spectra (S7)"
+    },
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "42.09% of protein intensity in the worst file, 24.21% median across 17 files (DEF-QC-9 v2)"
+    },
+    {
+     "code": "low_id_rate",
+     "severity": "warning",
+     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 3994/552408 = 0.72% of MS2 identified (S3)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "sdrf_skeleton",
+     "severity": "warning",
+     "message": "The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 9 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 52
+    },
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 31
+    },
+    {
+     "modification_name": "Carbamyl on X",
+     "modification": "UNIMOD:5",
+     "n_sites": 24
+    },
+    {
+     "modification_name": "Calcium on E",
+     "modification": "UNIMOD:951",
+     "n_sites": 20
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 11
+    },
+    {
+     "modification_name": "Magnesium on E",
+     "modification": "UNIMOD:956",
+     "n_sites": 10
+    },
+    {
+     "modification_name": "Methylation on K",
+     "modification": "UNIMOD:34",
+     "n_sites": 10
+    },
+    {
+     "modification_name": "Sodium on E",
+     "modification": "UNIMOD:30",
+     "n_sites": 8
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 7
+    },
+    {
+     "modification_name": "Hydroxylation on K",
+     "modification": "UNIMOD:35",
+     "n_sites": 7
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.0072,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0834,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "d4000ed8b9fdd30e",
+    "written_utc": "2026-09-23T20:24:38+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": true,
+    "reconciliation_failed": []
+   },
+   "summary": "PXD011314 is a DDA label-free dataset (Homo sapiens) with 17 runs, 17 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 3,994 PSMs, 497 peptidoforms and 54 protein groups, and the repository holds 343 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD011314.html"
+  },
+  {
+   "dataset_id": "PXD018315",
+   "bundle_id": "5b8cec3898a3e5f8",
+   "title": "Identification of proteins that interact with the lncRNA Sarrah",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "other"
+   ],
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 40,
+   "n_samples": 40,
+   "n_psms_1pct": 78341,
+   "n_peptidoforms_1pct": 8002,
+   "n_protein_groups_1pct": 1443,
+   "n_psms_all": 269356,
+   "n_ptm_sites": 5090,
+   "n_quant_values": 166706,
+   "n_open_findings": 5,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "58.01% of protein intensity in the worst file, 24.67% median across 40 files (DEF-QC-9 v2)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 269 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 1294
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 1052
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 279
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 119
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 111
+    },
+    {
+     "modification_name": "GG (Ubiquitination Site) on K",
+     "modification": null,
+     "n_sites": 91
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 88
+    },
+    {
+     "modification_name": "Hydroxylation on K",
+     "modification": "UNIMOD:35",
+     "n_sites": 66
+    },
+    {
+     "modification_name": "Carbamyl on X",
+     "modification": "UNIMOD:5",
+     "n_sites": 60
+    },
+    {
+     "modification_name": "N-acetylalanine on A",
+     "modification": "UNIMOD:1",
+     "n_sites": 52
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.1815,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.1853,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "5b8cec3898a3e5f8",
+    "written_utc": "2026-09-24T10:01:20+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": true,
+    "reconciliation_failed": []
+   },
+   "summary": "PXD018315 is a DDA label-free dataset (Mus musculus) with 40 runs, 40 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 78,341 PSMs, 8,002 peptidoforms and 1,443 protein groups, and the repository holds 5,090 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD018315.html"
+  },
+  {
+   "dataset_id": "PXD018655",
+   "bundle_id": "7b6496962eeb27ec",
+   "title": "Proteomic analysis of small extracellular vesicles derived from human ESCs",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 15,
+   "n_samples": 15,
+   "n_psms_1pct": 202687,
+   "n_peptidoforms_1pct": 35922,
+   "n_protein_groups_1pct": 4338,
+   "n_psms_all": 546215,
+   "n_ptm_sites": 16126,
+   "n_quant_values": 176017,
+   "n_open_findings": 6,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 202687 where the producer reported 202691 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 35923 where the producer reported 35922 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 704 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "collapsed_duplicate_rows",
+     "severity": "info",
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD018655:Q6NZ67;Q6P582 written 2 times; quant_values: 1 identifier(s), 1 row(s) dropped, e.g. PXD018655:P20190500568_B2_F3:label_free:protein_group:PXD018655:Q6NZ67;Q6P582:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 7440
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 3969
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 865
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 412
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 379
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 297
+    },
+    {
+     "modification_name": "Formylation on K",
+     "modification": "UNIMOD:122",
+     "n_sites": 296
+    },
+    {
+     "modification_name": "N-acetylalanine on A",
+     "modification": "UNIMOD:1",
+     "n_sites": 259
+    },
+    {
+     "modification_name": "Fe[III] on E",
+     "modification": "UNIMOD:1870",
+     "n_sites": 186
+    },
+    {
+     "modification_name": "Ammonia loss on N",
+     "modification": "UNIMOD:385",
+     "n_sites": 168
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.2975,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0069,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "7b6496962eeb27ec",
+    "written_utc": "2026-09-23T19:57:40+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct",
+     "peptidoforms_target_1pct"
+    ]
+   },
+   "summary": "PXD018655 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 202,687 PSMs, 35,922 peptidoforms and 4,338 protein groups, and the repository holds 16,126 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD018655.html"
+  },
+  {
+   "dataset_id": "PXD022128",
+   "bundle_id": "b3269ae3b0b9bbaa",
+   "title": "A genome-wide screen for essentiality upon telomerase inhibition identifies a novel p53 regulator, C16ORF72/TAPR1",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "other"
+   ],
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 18,
+   "n_samples": 18,
+   "n_psms_1pct": 38885,
+   "n_peptidoforms_1pct": 4662,
+   "n_protein_groups_1pct": 1255,
+   "n_psms_all": 104507,
+   "n_ptm_sites": 1388,
+   "n_quant_values": 78232,
+   "n_open_findings": 5,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "low_id_rate",
+     "severity": "warning",
+     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 38885/310334 = 12.53% of MS2 identified (S3)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 628 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 815
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 204
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 75
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 38
+    },
+    {
+     "modification_name": "N-acetylalanine on A",
+     "modification": "UNIMOD:1",
+     "n_sites": 30
+    },
+    {
+     "modification_name": "Phosphoserine on S",
+     "modification": "UNIMOD:21",
+     "n_sites": 28
+    },
+    {
+     "modification_name": "N6-acetyllysine on K",
+     "modification": "UNIMOD:1",
+     "n_sites": 20
+    },
+    {
+     "modification_name": "Fe[III] on E",
+     "modification": "UNIMOD:1870",
+     "n_sites": 15
+    },
+    {
+     "modification_name": "N-acetylserine on S",
+     "modification": "UNIMOD:1",
+     "n_sites": 14
+    },
+    {
+     "modification_name": "N6,N6-dimethyllysine on K",
+     "modification": "UNIMOD:36",
+     "n_sites": 14
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.1253,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.078,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "b3269ae3b0b9bbaa",
+    "written_utc": "2026-09-24T13:25:40+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": true,
+    "reconciliation_failed": []
+   },
+   "summary": "PXD022128 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 38,885 PSMs, 4,662 peptidoforms and 1,255 protein groups, and the repository holds 1,388 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD022128.html"
+  },
   {
    "dataset_id": "PXD023381",
    "bundle_id": "135309c3dabfb851",
@@ -311,6 +1041,149 @@
    "page": "datasets/PXD024803.html"
   },
   {
+   "dataset_id": "PXD026608",
+   "bundle_id": "7767c8a583cc4af5",
+   "title": "Integrated analysis of proteomics and phosphoproteomics on rat hearts with aging and hypertension",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "phospho"
+   ],
+   "instrument_vendor": "Thermo",
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 166654,
+   "n_peptidoforms_1pct": 7986,
+   "n_protein_groups_1pct": 1293,
+   "n_psms_all": 494410,
+   "n_ptm_sites": 9214,
+   "n_quant_values": 58344,
+   "n_open_findings": 5,
+   "instruments": [
+    "Q Exactive HF-X"
+   ],
+   "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml",
+   "sdrf_status": "trusted",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 166654 where the producer reported 166661 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "sdrf_skeleton",
+     "severity": "warning",
+     "message": "The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 210 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Phosphoserine on S",
+     "modification": "UNIMOD:21",
+     "n_sites": 1762
+    },
+    {
+     "modification_name": "Phosphorylation on S",
+     "modification": "UNIMOD:21",
+     "n_sites": 1707
+    },
+    {
+     "modification_name": "Phosphorylation on T",
+     "modification": "UNIMOD:21",
+     "n_sites": 902
+    },
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 826
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 631
+    },
+    {
+     "modification_name": "Carbamyl on X",
+     "modification": "UNIMOD:5",
+     "n_sites": 419
+    },
+    {
+     "modification_name": "Formylation on K",
+     "modification": "UNIMOD:122",
+     "n_sites": 369
+    },
+    {
+     "modification_name": "Phosphothreonine on T",
+     "modification": "UNIMOD:21",
+     "n_sites": 267
+    },
+    {
+     "modification_name": "Sodium on E",
+     "modification": "UNIMOD:30",
+     "n_sites": 190
+    },
+    {
+     "modification_name": "Phosphorylation on Y",
+     "modification": "UNIMOD:21",
+     "n_sites": 189
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.1791,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0171,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "7767c8a583cc4af5",
+    "written_utc": "2026-09-23T13:41:31+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct"
+    ]
+   },
+   "summary": "PXD026608 is a DDA label-free dataset (Rattus norvegicus) with 12 runs, 12 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 166,654 PSMs, 7,986 peptidoforms and 1,293 protein groups, and the repository holds 9,214 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD026608.html"
+  },
+  {
    "dataset_id": "PXD027318",
    "bundle_id": "c1d5e0cdd9466c20",
    "title": "Identification of a Proteomic Signature of Senescence in Primary Human Mammary Epithelial Cells",
@@ -609,6 +1482,135 @@
    "page": "datasets/PXD028852.html"
   },
   {
+   "dataset_id": "PXD029116",
+   "bundle_id": "46048d454e28a118",
+   "title": "Articular cartilage proteome differentiates by zones during osteoarthritis",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 30,
+   "n_samples": 30,
+   "n_psms_1pct": 64783,
+   "n_peptidoforms_1pct": 4304,
+   "n_protein_groups_1pct": 422,
+   "n_psms_all": 114615,
+   "n_ptm_sites": 3512,
+   "n_quant_values": 65328,
+   "n_open_findings": 3,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 17 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 1109
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 396
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 376
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 334
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 254
+    },
+    {
+     "modification_name": "4-hydroxyproline on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 139
+    },
+    {
+     "modification_name": "Ammonia loss on C",
+     "modification": "UNIMOD:385",
+     "n_sites": 97
+    },
+    {
+     "modification_name": "Citrullination on R",
+     "modification": "UNIMOD:7",
+     "n_sites": 66
+    },
+    {
+     "modification_name": "Ammonia loss on N",
+     "modification": "UNIMOD:385",
+     "n_sites": 64
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 48
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.3104,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0162,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "46048d454e28a118",
+    "written_utc": "2026-09-24T01:43:32+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": true,
+    "reconciliation_failed": []
+   },
+   "summary": "PXD029116 is a DDA label-free dataset (Homo sapiens) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 64,783 PSMs, 4,304 peptidoforms and 422 protein groups, and the repository holds 3,512 PTM sites for it. 3 open warnings about it are recorded.",
+   "page": "datasets/PXD029116.html"
+  },
+  {
    "dataset_id": "PXD031782",
    "bundle_id": "c1b4a9ad096fcf63",
    "title": "Label-free quantitative (LFQ) proteomic analysis of redox mediated posttranslational modifications (PTM) in the cartilag",
@@ -892,6 +1894,157 @@
    "page": "datasets/PXD032040.html"
   },
   {
+   "dataset_id": "PXD032044",
+   "bundle_id": "6c4f9d86e506f9e2",
+   "title": "Characterization of the skeletal muscle proteome in under-nourished old rats",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 44,
+   "n_samples": 44,
+   "n_psms_1pct": 680855,
+   "n_peptidoforms_1pct": 30191,
+   "n_protein_groups_1pct": 2024,
+   "n_psms_all": 1798356,
+   "n_ptm_sites": 23073,
+   "n_quant_values": 450696,
+   "n_open_findings": 6,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "11cd40eafbd19a417cbec739b6963fb715807c82",
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 680855 where the producer reported 680867 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "6.08% of protein intensity in the worst file, 2.09% median across 44 files (DEF-QC-9 v2)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 5472 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "collapsed_duplicate_rows",
+     "severity": "info",
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD032044:P70604;P70605 written 2 times; quant_values: 1 identifier(s), 1 row(s) dropped, e.g. PXD032044:8600_22-S-S_:label_free:protein_group:PXD032044:P70604;P70605:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 5410
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 4063
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 1462
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 1252
+    },
+    {
+     "modification_name": "Carbamyl on K",
+     "modification": "UNIMOD:5",
+     "n_sites": 1058
+    },
+    {
+     "modification_name": "Carbamyl on X",
+     "modification": "UNIMOD:5",
+     "n_sites": 823
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 618
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 564
+    },
+    {
+     "modification_name": "Carbamyl on M",
+     "modification": "UNIMOD:5",
+     "n_sites": 489
+    },
+    {
+     "modification_name": "GG (Ubiquitination Site) on K",
+     "modification": null,
+     "n_sites": 476
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.4988,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0174,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "6c4f9d86e506f9e2",
+    "written_utc": "2026-09-24T15:19:00+00:00",
+    "ingester_version": "0.17.2",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct"
+    ]
+   },
+   "summary": "PXD032044 is a DDA label-free dataset (Rattus norvegicus) with 44 runs, 44 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 680,855 PSMs, 30,191 peptidoforms and 2,024 protein groups, and the repository holds 23,073 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD032044.html"
+  },
+  {
    "dataset_id": "PXD032202",
    "bundle_id": "b8f5b9b17a0e8f73",
    "title": "Global and comparative proteome signatures in the lens capsule, trabecular meshwork, and iris of patients with pseudoexfoliation glaucoma",
@@ -1031,6 +2184,159 @@
    },
    "summary": "PXD032202 is a DDA label-free dataset (Homo sapiens) with 21 runs, 21 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 183,023 PSMs, 21,771 peptidoforms and 1,925 protein groups, and the repository holds 14,099 PTM sites for it. 5 open warnings about it are recorded.",
    "page": "datasets/PXD032202.html"
+  },
+  {
+   "dataset_id": "PXD034432",
+   "bundle_id": "b4ebed6a0a2d4196",
+   "title": "Tracking prostate carcinogenesis over time through urine proteome profiling in an animal model: an exploratory approach",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "instrument_vendor": "Thermo",
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 10,
+   "n_samples": 10,
+   "n_psms_1pct": 31738,
+   "n_peptidoforms_1pct": 2596,
+   "n_protein_groups_1pct": 416,
+   "n_psms_all": 60860,
+   "n_ptm_sites": 2304,
+   "n_quant_values": 23393,
+   "n_open_findings": 7,
+   "instruments": [
+    "Q Exactive HF"
+   ],
+   "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml",
+   "sdrf_status": "trusted",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 31738 where the producer reported 31742 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "16.88% of protein intensity in the worst file, 11.73% median across 10 files (DEF-QC-9 v2)"
+    },
+    {
+     "code": "low_id_rate",
+     "severity": "warning",
+     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 31742/713218 = 4.45% of MS2 identified (S3)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "sdrf_skeleton",
+     "severity": "warning",
+     "message": "The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 20 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 654
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 352
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 142
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 69
+    },
+    {
+     "modification_name": "Methylation on K",
+     "modification": "UNIMOD:34",
+     "n_sites": 61
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 59
+    },
+    {
+     "modification_name": "Formylation on K",
+     "modification": "UNIMOD:122",
+     "n_sites": 45
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 45
+    },
+    {
+     "modification_name": "Methylation on R",
+     "modification": "UNIMOD:34",
+     "n_sites": 43
+    },
+    {
+     "modification_name": "Ammonia loss on N",
+     "modification": "UNIMOD:385",
+     "n_sites": 41
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.0445,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.1023,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "b4ebed6a0a2d4196",
+    "written_utc": "2026-09-24T10:40:43+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct"
+    ]
+   },
+   "summary": "PXD034432 is a DDA label-free dataset (Rattus norvegicus) with 10 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 31,738 PSMs, 2,596 peptidoforms and 416 protein groups, and the repository holds 2,304 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD034432.html"
   },
   {
    "dataset_id": "PXD036557",
@@ -1466,6 +2772,289 @@
    "page": "datasets/PXD050351.html"
   },
   {
+   "dataset_id": "PXD056433",
+   "bundle_id": "0bc80a4cb9eeb48e",
+   "title": "M1 polyubiquitin targets in the hippocampus of young and aged male rats following contextual fear conditioning",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "other"
+   ],
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 40,
+   "n_samples": 40,
+   "n_psms_1pct": 72646,
+   "n_peptidoforms_1pct": 920,
+   "n_protein_groups_1pct": 262,
+   "n_psms_all": 243325,
+   "n_ptm_sites": 1580,
+   "n_quant_values": 26745,
+   "n_open_findings": 6,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "79.93% of protein intensity in the worst file, 43.91% median across 40 files (DEF-QC-9 v2)"
+    },
+    {
+     "code": "low_id_rate",
+     "severity": "warning",
+     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 72646/529227 = 13.73% of MS2 identified (S3)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 196 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 230
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 55
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 51
+    },
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 50
+    },
+    {
+     "modification_name": "GG (Ubiquitination Site) on K",
+     "modification": null,
+     "n_sites": 33
+    },
+    {
+     "modification_name": "Citrullination on R",
+     "modification": "UNIMOD:7",
+     "n_sites": 30
+    },
+    {
+     "modification_name": "Fe[II] on E",
+     "modification": "UNIMOD:952",
+     "n_sites": 18
+    },
+    {
+     "modification_name": "Fe[III] on E",
+     "modification": "UNIMOD:1870",
+     "n_sites": 17
+    },
+    {
+     "modification_name": "Water Loss on E",
+     "modification": "UNIMOD:27",
+     "n_sites": 16
+    },
+    {
+     "modification_name": "Glutarylation on K",
+     "modification": "UNIMOD:1848",
+     "n_sites": 15
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.1373,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.4657,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "0bc80a4cb9eeb48e",
+    "written_utc": "2026-09-24T07:49:22+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": true,
+    "reconciliation_failed": []
+   },
+   "summary": "PXD056433 is a DDA label-free dataset (Rattus norvegicus) with 40 runs, 40 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 72,646 PSMs, 920 peptidoforms and 262 protein groups, and the repository holds 1,580 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD056433.html"
+  },
+  {
+   "dataset_id": "PXD058082",
+   "bundle_id": "4dc4a0c5c84962fa",
+   "title": "Major toxin composition of particulate matter from a coal-fired power plant and its proteomics-associated toxicological ",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 15,
+   "n_samples": 15,
+   "n_psms_1pct": 40780,
+   "n_peptidoforms_1pct": 4568,
+   "n_protein_groups_1pct": 1184,
+   "n_psms_all": 55543,
+   "n_ptm_sites": 1717,
+   "n_quant_values": 82081,
+   "n_open_findings": 4,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "low_id_rate",
+     "severity": "warning",
+     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 40780/329646 = 12.37% of MS2 identified (S3)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 74 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "collapsed_duplicate_rows",
+     "severity": "info",
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD058082:Q2M3X8;Q501J7 written 2 times; quant_values: 1 identifier(s), 1 row(s) dropped, e.g. PXD058082:Lung_PM25_MM_Low_D10X_N3:label_free:protein_group:PXD058082:Q2M3X8;Q501J7:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 1011
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 308
+    },
+    {
+     "modification_name": "Calcium on D",
+     "modification": "UNIMOD:951",
+     "n_sites": 84
+    },
+    {
+     "modification_name": "Calcium on E",
+     "modification": "UNIMOD:951",
+     "n_sites": 75
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 56
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 26
+    },
+    {
+     "modification_name": "Water Loss on E",
+     "modification": "UNIMOD:27",
+     "n_sites": 18
+    },
+    {
+     "modification_name": "N6-acetyllysine on K",
+     "modification": "UNIMOD:1",
+     "n_sites": 16
+    },
+    {
+     "modification_name": "Magnesium on D",
+     "modification": "UNIMOD:956",
+     "n_sites": 13
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 9
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.1237,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0123,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "4dc4a0c5c84962fa",
+    "written_utc": "2026-09-23T14:00:00+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": true,
+    "reconciliation_failed": []
+   },
+   "summary": "PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 40,780 PSMs, 4,568 peptidoforms and 1,184 protein groups, and the repository holds 1,717 PTM sites for it. 4 open warnings about it are recorded.",
+   "page": "datasets/PXD058082.html"
+  },
+  {
    "dataset_id": "PXD058611",
    "bundle_id": "c8f75dad67fdeeb5",
    "title": "Enhanced non-enzymatic H2S generation extends lifespan and healthspan in male mice",
@@ -1610,6 +3199,157 @@
    },
    "summary": "PXD058611 is a DDA label-free dataset (Mus musculus) with 36 runs, 36 samples and enrichment: chemical_probe. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 338,320 PSMs, 18,275 peptidoforms and 2,250 protein groups, and the repository holds 7,797 PTM sites for it. 5 open warnings about it are recorded.",
    "page": "datasets/PXD058611.html"
+  },
+  {
+   "dataset_id": "PXD059818",
+   "bundle_id": "9bbf1f12b7c63778",
+   "title": "Simultaneous profiling of native-state proteomes and transcriptomes of brain cell types using proximity labeling",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "other"
+   ],
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 38,
+   "n_samples": 38,
+   "n_psms_1pct": 491515,
+   "n_peptidoforms_1pct": 40770,
+   "n_protein_groups_1pct": 4418,
+   "n_psms_all": 886810,
+   "n_ptm_sites": 18944,
+   "n_quant_values": 626142,
+   "n_open_findings": 6,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 491515 where the producer reported 491520 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "50.19% of protein intensity in the worst file, 5.01% median across 38 files (DEF-QC-9 v2)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 1738 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "collapsed_duplicate_rows",
+     "severity": "info",
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 2 identifier(s), 3 row(s) dropped, e.g. PXD059818:O88207;Q61245;Q64739 written 3 times; quant_values: 2 identifier(s), 3 row(s) dropped, e.g. PXD059818:christina_Aldh1l1_Camk2a_8tcl_07:label_free:protein_group:PXD059818:O88207;Q61245;Q64739:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 3 times. The full list is in bundle.json under collapsed_duplicates."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 7732
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 3483
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 1766
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 602
+    },
+    {
+     "modification_name": "Sodium on E",
+     "modification": "UNIMOD:30",
+     "n_sites": 359
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 335
+    },
+    {
+     "modification_name": "Phosphoserine on S",
+     "modification": "UNIMOD:21",
+     "n_sites": 334
+    },
+    {
+     "modification_name": "Sodium on D",
+     "modification": "UNIMOD:30",
+     "n_sites": 305
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 232
+    },
+    {
+     "modification_name": "N-acetylalanine on A",
+     "modification": "UNIMOD:1",
+     "n_sites": 213
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.3298,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0652,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "9bbf1f12b7c63778",
+    "written_utc": "2026-09-23T23:27:07+00:00",
+    "ingester_version": "0.16.0",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct"
+    ]
+   },
+   "summary": "PXD059818 is a DDA label-free dataset (Mus musculus) with 38 runs, 38 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 491,515 PSMs, 40,770 peptidoforms and 4,418 protein groups, and the repository holds 18,944 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD059818.html"
   },
   {
    "dataset_id": "PXD067622",

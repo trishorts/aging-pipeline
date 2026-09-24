@@ -303,3 +303,29 @@ def test_an_excluded_file_that_failed_qc_does_not_block_the_search(layout, work,
     assert rec["excluded_files"] == {"files": ["b.raw"], "reason": "D52: too_few_ms2"}
     run_cmd = rec["commands"][-1]
     assert not any(a.endswith("b.raw") for a in run_cmd)
+
+
+def test_each_database_keeps_its_own_provenance_record(layout, work):
+    """DATAREPO-49: one shared db/provenance.json was overwritten by every later preparation, so each
+    search's upstream db_prepare record pointed at a file that no longer matched its sha256."""
+    L = layout
+    assert stage(db_prepare.main, L.params, str(L.root / "db")) == 0
+    main_rec = db_prepare.record_dir(L.root / "db" / "proteome.xml") / "provenance.json"
+    assert main_rec.exists()
+    before = main_rec.read_bytes()
+
+    iso = L.root / "source" / "aging_isoforms_tier1-2_human.xml"
+    iso.write_text("<uniprot><entry><accession>P02545-6</accession></entry></uniprot>", encoding="utf-8")
+    db = dict(work.params()["database"])
+    db.update(extra_xml=[str(iso)], extra_prepared=[str(L.root / "db" / iso.name)])
+    work.write(database=db)
+    assert stage(db_prepare.main, L.params, str(L.root / "db")) == 0
+    assert main_rec.read_bytes() == before, "a later preparation must not rewrite an earlier record"
+    iso_rec = db_prepare.record_dir(L.root / "db" / iso.name) / "provenance.json"
+    assert iso_rec.exists() and not (L.root / "db" / "provenance.json").exists()
+
+    assert stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc")) == 0
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    ups = {Path(u["path"]).as_posix() for u in prov(L.run / "04_search")["upstream"] if u["stage"] == "db_prepare"}
+    assert any(u.endswith("_provenance/proteome.xml/provenance.json") for u in ups)
+    assert any(u.endswith(f"_provenance/{iso.name}/provenance.json") for u in ups)

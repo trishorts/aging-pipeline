@@ -21,6 +21,7 @@ import threading
 from pathlib import Path
 
 import spectral_library
+from db_prepare import record_dir
 from provenance import Provenance, file_entry, sha256
 
 TASK_FILE = {"Calibration": "CalibrationTask.toml", "Gptmd": "GptmdTask.toml", "Search": "SearchTask.toml"}
@@ -271,7 +272,8 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     sp = Path(spectra)
     prov.upstream(out.parent / "02b_qc" / "provenance.json",                         # qc
                   (sp if sp.is_dir() else sp.parent).parent / "provenance.json",       # fetch
-                  Path(db).parent / "provenance.json")                                 # db_prepare
+                  *[record_dir(x) / "provenance.json"                                  # db_prepare, one
+                    for x in [db, *(params["database"].get("extra_prepared") or [])]])  # per database
 
     # 1. default TOMLs generated here, then only params-named settings are changed
     toml_dir = out / "tasks"; toml_dir.mkdir(exist_ok=True)

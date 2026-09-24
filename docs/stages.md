@@ -26,7 +26,9 @@ python bin/db_prepare.py <params.json> <out_dir>
 | | |
 |---|---|
 | **Reads** | `database.uniprot_xml` (`.xml` or `.xml.gz`), and each file in `database.extra_xml` if set |
-| **Writes** | `<out_dir>/<name without .gz>` for each, and `<out_dir>/provenance.json`. It prints each prepared path, the proteome first |
+| **Writes** | `<out_dir>/<name without .gz>` for each, and ONE record per database at `<out_dir>/_provenance/<database name>/provenance.json`. It prints each prepared path, the proteome first |
+
+Each database's record is written when that database is prepared and never rewritten, because the searches that used it point at its sha256. Until 2026-09-24 every preparation overwrote a single `<out_dir>/provenance.json`, so a later preparation destroyed the record every earlier search pointed at.
 | **Exit codes** | 0 success · non-zero on a read/write error |
 
 **What it does.** It decompresses (or copies) the database once into the pipeline's own work area.
@@ -45,7 +47,7 @@ the base accession, and an isoform is claimed only on a peptide unique to it.
 
 **Keep in step:** `database.prepared` must equal `<out_dir>/<file name without .gz>`, likewise each entry
 of `database.extra_prepared`, and `<out_dir>` should be `<work_root>/db`. Stage 4 reads the database from `database.prepared`, and it looks for this
-stage's provenance in the same folder.
+stage's provenance under `<out_dir>/_provenance/<database name>/`, one record per database it searches.
 
 ---
 

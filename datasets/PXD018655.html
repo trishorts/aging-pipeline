@@ -19,11 +19,11 @@
  "name": "PXD018655 reanalysis: Proteomic analysis of small extracellular vesicles derived from human ESCs",
  "identifier": [
   "PXD018655",
-  "datarepo:bundle:7b6496962eeb27ec"
+  "datarepo:bundle:7a9bca300f966fef"
  ],
  "description": "PXD018655 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 202,687 PSMs, 35,922 peptidoforms and 4,338 protein groups, and the repository holds 16,126 PTM sites for it. 6 open warnings about it are recorded.",
- "version": "7b6496962eeb27ec",
- "dateModified": "2026-09-23T19:57:40+00:00",
+ "version": "7a9bca300f966fef",
+ "dateModified": "2026-09-24T18:09:46+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog d5858fad734a1e41",
+  "name": "datarepo catalog bff2ddb866c033c8",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -71,7 +71,7 @@ PXD018655 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples an
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 704 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
 <div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
-<div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD018655:Q6NZ67;Q6P582 written 2 times; quant_values: 1 identifier(s), 1 row(s) dropped, e.g. PXD018655:P20190500568_B2_F3:label_free:protein_group:PXD018655:Q6NZ67;Q6P582:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates.</div>
+<div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD018655:Q6NZ67;Q6P582 written 2 times; quant_values: 15 identifier(s), 15 row(s) dropped, e.g. PXD018655:P20190500568_B1_F1:label_free:protein_group:PXD018655:Q6NZ67;Q6P582:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates.</div>
 <div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
 
 <h2>What was found</h2>
@@ -80,7 +80,7 @@ PXD018655 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples an
 <tr><td>Peptidoforms at 1% FDR</td><td class="num">35,922</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">4,338</td></tr>
 <tr><td>PTM sites</td><td class="num">16,126</td></tr>
-<tr><td>Quantitative values</td><td class="num">176,017</td></tr>
+<tr><td>Quantitative values</td><td class="num">232,596</td></tr>
 <tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">546,215</td></tr>
 <tr><td>MS2 identification rate <span class="note">(aging:DEF-ID-RATE)</span></td><td class="num">29.8%</td></tr>
 <tr><td>Contaminant share of PSMs <span class="note">(aging:DEF-CONTAM-PSM)</span></td><td class="num">0.7%</td></tr>
@@ -122,16 +122,16 @@ modification has no UNIMOD term in the registry that searched it, not that it is
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>7b6496962eeb27ec</code>, written 2026-09-23T19:57:40+00:00 by ingester 0.16.0</dd>
+<dt>Bundle</dt><dd><code>7a9bca300f966fef</code>, written 2026-09-24T18:09:46+00:00 by ingester 0.18.1</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct, peptidoforms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.17.2 from catalog
-<code>d5858fad734a1e41</code>, built 2026-09-24T17:13:48+00:00 by datarepo
-0.17.2 (schema 0.0.8).
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.18.1 from catalog
+<code>bff2ddb866c033c8</code>, built 2026-09-24T18:27:40+00:00 by datarepo
+0.18.1 (schema 0.0.9).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

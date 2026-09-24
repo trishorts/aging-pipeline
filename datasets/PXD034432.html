@@ -19,11 +19,11 @@
  "name": "PXD034432 reanalysis: Tracking prostate carcinogenesis over time through urine proteome profiling in an animal model: an exploratory approach",
  "identifier": [
   "PXD034432",
-  "datarepo:bundle:b4ebed6a0a2d4196"
+  "datarepo:bundle:406f37a5c0ea51ab"
  ],
  "description": "PXD034432 is a DDA label-free dataset (Rattus norvegicus) with 10 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 31,738 PSMs, 2,596 peptidoforms and 416 protein groups, and the repository holds 2,304 PTM sites for it. 7 open warnings about it are recorded.",
- "version": "b4ebed6a0a2d4196",
- "dateModified": "2026-09-24T10:40:43+00:00",
+ "version": "406f37a5c0ea51ab",
+ "dateModified": "2026-09-24T18:22:49+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog d5858fad734a1e41",
+  "name": "datarepo catalog bff2ddb866c033c8",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -69,7 +69,7 @@ PXD034432 is a DDA label-free dataset (Rattus norvegicus) with 10 runs, 10 sampl
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>16.88% of protein intensity in the worst file, 11.73% median across 10 files (DEF-QC-9 v2)</div>
 <div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 31742/713218 = 4.45% of MS2 identified (S3)</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
-<div class="finding warning"><span class="code">sdrf_skeleton</span> <span class="note">warning</span><br>The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated.</div>
+<div class="finding warning"><span class="code">sdrf_uncoded</span> <span class="note">warning</span><br>The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: organism part: Urine. Match on it as text; it has not been mapped to a term.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 20 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
 <div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
 <div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
@@ -80,7 +80,7 @@ PXD034432 is a DDA label-free dataset (Rattus norvegicus) with 10 runs, 10 sampl
 <tr><td>Peptidoforms at 1% FDR</td><td class="num">2,596</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">416</td></tr>
 <tr><td>PTM sites</td><td class="num">2,304</td></tr>
-<tr><td>Quantitative values</td><td class="num">23,393</td></tr>
+<tr><td>Quantitative values</td><td class="num">28,975</td></tr>
 <tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">60,860</td></tr>
 <tr><td>MS2 identification rate <span class="note">(aging:DEF-ID-RATE)</span></td><td class="num">4.5%</td></tr>
 <tr><td>Contaminant share of PSMs <span class="note">(aging:DEF-CONTAM-PSM)</span></td><td class="num">10.2%</td></tr>
@@ -122,16 +122,16 @@ modification has no UNIMOD term in the registry that searched it, not that it is
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>b4ebed6a0a2d4196</code>, written 2026-09-24T10:40:43+00:00 by ingester 0.16.0</dd>
+<dt>Bundle</dt><dd><code>406f37a5c0ea51ab</code>, written 2026-09-24T18:22:49+00:00 by ingester 0.18.1</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.17.2 from catalog
-<code>d5858fad734a1e41</code>, built 2026-09-24T17:13:48+00:00 by datarepo
-0.17.2 (schema 0.0.8).
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.18.1 from catalog
+<code>bff2ddb866c033c8</code>, built 2026-09-24T18:27:40+00:00 by datarepo
+0.18.1 (schema 0.0.9).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

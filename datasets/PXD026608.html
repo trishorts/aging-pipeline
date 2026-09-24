@@ -19,11 +19,11 @@
  "name": "PXD026608 reanalysis: Integrated analysis of proteomics and phosphoproteomics on rat hearts with aging and hypertension",
  "identifier": [
   "PXD026608",
-  "datarepo:bundle:7767c8a583cc4af5"
+  "datarepo:bundle:dd23a478b23cfa41"
  ],
  "description": "PXD026608 is a DDA label-free dataset (Rattus norvegicus) with 12 runs, 12 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 166,654 PSMs, 7,986 peptidoforms and 1,293 protein groups, and the repository holds 9,214 PTM sites for it. 5 open warnings about it are recorded.",
- "version": "7767c8a583cc4af5",
- "dateModified": "2026-09-23T13:41:31+00:00",
+ "version": "dd23a478b23cfa41",
+ "dateModified": "2026-09-24T18:05:43+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog d5858fad734a1e41",
+  "name": "datarepo catalog bff2ddb866c033c8",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -67,7 +67,7 @@ PXD026608 is a DDA label-free dataset (Rattus norvegicus) with 12 runs, 12 sampl
 <h2>Open findings</h2>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 166654 where the producer reported 166661 (results.txt: All target PSMs with q-value &lt;= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
-<div class="finding warning"><span class="code">sdrf_skeleton</span> <span class="note">warning</span><br>The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated.</div>
+<div class="finding warning"><span class="code">sdrf_uncoded</span> <span class="note">warning</span><br>The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: organism part: heart. Match on it as text; it has not been mapped to a term.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 210 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
 <div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
 <div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
@@ -78,7 +78,7 @@ PXD026608 is a DDA label-free dataset (Rattus norvegicus) with 12 runs, 12 sampl
 <tr><td>Peptidoforms at 1% FDR</td><td class="num">7,986</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">1,293</td></tr>
 <tr><td>PTM sites</td><td class="num">9,214</td></tr>
-<tr><td>Quantitative values</td><td class="num">58,344</td></tr>
+<tr><td>Quantitative values</td><td class="num">70,383</td></tr>
 <tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">494,410</td></tr>
 <tr><td>MS2 identification rate <span class="note">(aging:DEF-ID-RATE)</span></td><td class="num">17.9%</td></tr>
 <tr><td>Contaminant share of PSMs <span class="note">(aging:DEF-CONTAM-PSM)</span></td><td class="num">1.7%</td></tr>
@@ -120,16 +120,16 @@ modification has no UNIMOD term in the registry that searched it, not that it is
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>7767c8a583cc4af5</code>, written 2026-09-23T13:41:31+00:00 by ingester 0.16.0</dd>
+<dt>Bundle</dt><dd><code>dd23a478b23cfa41</code>, written 2026-09-24T18:05:43+00:00 by ingester 0.18.1</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.17.2 from catalog
-<code>d5858fad734a1e41</code>, built 2026-09-24T17:13:48+00:00 by datarepo
-0.17.2 (schema 0.0.8).
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.18.1 from catalog
+<code>bff2ddb866c033c8</code>, built 2026-09-24T18:27:40+00:00 by datarepo
+0.18.1 (schema 0.0.9).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

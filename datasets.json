@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "d5858fad734a1e41",
-  "catalog_version": "4",
-  "schema_version": "0.0.8",
-  "builder_version": "0.17.2",
-  "built_utc": "2026-09-24T17:13:48+00:00",
+  "catalog_id": "bff2ddb866c033c8",
+  "catalog_version": "5",
+  "schema_version": "0.0.9",
+  "builder_version": "0.18.1",
+  "built_utc": "2026-09-24T18:27:40+00:00",
   "instance": "aging"
  },
  "datasets": [
   {
    "dataset_id": "PXD010115",
-   "bundle_id": "76d5241dc9c4b53c",
+   "bundle_id": "eb859152d274b3aa",
    "title": "Quantification of the Soluble Receptor of Advanced Glycation End-Products (sRAGE) by LC-MS Without the Use of Affinity Enrichment",
    "organisms": [
     "NCBITaxon:9606"
@@ -21,6 +21,7 @@
    "enrichment": [
     "none"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": "Thermo",
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -31,7 +32,7 @@
    "n_protein_groups_1pct": 436,
    "n_psms_all": 189826,
    "n_ptm_sites": 7593,
-   "n_quant_values": 53515,
+   "n_quant_values": 70187,
    "n_open_findings": 7,
    "instruments": [
     "Q Exactive"
@@ -67,9 +68,9 @@
      "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
     },
     {
-     "code": "sdrf_skeleton",
+     "code": "sdrf_uncoded",
      "severity": "warning",
-     "message": "The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated."
+     "message": "The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: organism part: Blood serum. Match on it as text; it has not been mapped to a term."
     },
     {
      "code": "unplaced_ptm_sites",
@@ -150,9 +151,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "76d5241dc9c4b53c",
-    "written_utc": "2026-09-24T08:30:42+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "eb859152d274b3aa",
+    "written_utc": "2026-09-24T18:20:38+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -164,7 +165,7 @@
   },
   {
    "dataset_id": "PXD011314",
-   "bundle_id": "d4000ed8b9fdd30e",
+   "bundle_id": "a50f83f29d029521",
    "title": "Profiling of Methylglyoxal Blood Metabolism and Advanced Glycation End-Product Proteome using a Chemical Probe",
    "organisms": [
     "NCBITaxon:9606"
@@ -175,6 +176,7 @@
    "enrichment": [
     "other"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": "Thermo",
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -185,7 +187,7 @@
    "n_protein_groups_1pct": 54,
    "n_psms_all": 80276,
    "n_ptm_sites": 343,
-   "n_quant_values": 2543,
+   "n_quant_values": 3940,
    "n_open_findings": 6,
    "instruments": [
     "Q Exactive"
@@ -221,9 +223,9 @@
      "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
     },
     {
-     "code": "sdrf_skeleton",
+     "code": "sdrf_uncoded",
      "severity": "warning",
-     "message": "The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated."
+     "message": "The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: organism part: Blood. Match on it as text; it has not been mapped to a term."
     },
     {
      "code": "unplaced_ptm_sites",
@@ -299,9 +301,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "d4000ed8b9fdd30e",
-    "written_utc": "2026-09-23T20:24:38+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "a50f83f29d029521",
+    "written_utc": "2026-09-24T18:10:43+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -310,7 +312,7 @@
   },
   {
    "dataset_id": "PXD018315",
-   "bundle_id": "5b8cec3898a3e5f8",
+   "bundle_id": "95ea66e482b1a0b5",
    "title": "Identification of proteins that interact with the lncRNA Sarrah",
    "organisms": [
     "NCBITaxon:10090"
@@ -321,6 +323,7 @@
    "enrichment": [
     "other"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -331,7 +334,7 @@
    "n_protein_groups_1pct": 1443,
    "n_psms_all": 269356,
    "n_ptm_sites": 5090,
-   "n_quant_values": 166706,
+   "n_quant_values": 245529,
    "n_open_findings": 5,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
@@ -438,9 +441,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "5b8cec3898a3e5f8",
-    "written_utc": "2026-09-24T10:01:20+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "95ea66e482b1a0b5",
+    "written_utc": "2026-09-24T18:22:27+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -449,7 +452,7 @@
   },
   {
    "dataset_id": "PXD018655",
-   "bundle_id": "7b6496962eeb27ec",
+   "bundle_id": "7a9bca300f966fef",
    "title": "Proteomic analysis of small extracellular vesicles derived from human ESCs",
    "organisms": [
     "NCBITaxon:9606"
@@ -460,6 +463,7 @@
    "enrichment": [
     "none"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -470,7 +474,7 @@
    "n_protein_groups_1pct": 4338,
    "n_psms_all": 546215,
    "n_ptm_sites": 16126,
-   "n_quant_values": 176017,
+   "n_quant_values": 232596,
    "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -516,7 +520,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD018655:Q6NZ67;Q6P582 written 2 times; quant_values: 1 identifier(s), 1 row(s) dropped, e.g. PXD018655:P20190500568_B2_F3:label_free:protein_group:PXD018655:Q6NZ67;Q6P582:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD018655:Q6NZ67;Q6P582 written 2 times; quant_values: 15 identifier(s), 15 row(s) dropped, e.g. PXD018655:P20190500568_B1_F1:label_free:protein_group:PXD018655:Q6NZ67;Q6P582:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -587,9 +591,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "7b6496962eeb27ec",
-    "written_utc": "2026-09-23T19:57:40+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "7a9bca300f966fef",
+    "written_utc": "2026-09-24T18:09:46+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -601,7 +605,7 @@
   },
   {
    "dataset_id": "PXD022128",
-   "bundle_id": "b3269ae3b0b9bbaa",
+   "bundle_id": "eb0dd100a4cb1998",
    "title": "A genome-wide screen for essentiality upon telomerase inhibition identifies a novel p53 regulator, C16ORF72/TAPR1",
    "organisms": [
     "NCBITaxon:9606"
@@ -612,6 +616,7 @@
    "enrichment": [
     "other"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -622,7 +627,7 @@
    "n_protein_groups_1pct": 1255,
    "n_psms_all": 104507,
    "n_ptm_sites": 1388,
-   "n_quant_values": 78232,
+   "n_quant_values": 102226,
    "n_open_findings": 5,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -729,9 +734,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "b3269ae3b0b9bbaa",
-    "written_utc": "2026-09-24T13:25:40+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "eb0dd100a4cb1998",
+    "written_utc": "2026-09-24T18:23:52+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -740,7 +745,7 @@
   },
   {
    "dataset_id": "PXD023381",
-   "bundle_id": "135309c3dabfb851",
+   "bundle_id": "0b767ad16772c35a",
    "title": "Transcriptional and proteomic characterization of telomere-induced senescence in a human alveolar epithelial cell line",
    "organisms": [
     "NCBITaxon:9606"
@@ -751,6 +756,7 @@
    "enrichment": [
     "affinity_purification"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -761,7 +767,7 @@
    "n_protein_groups_1pct": 1272,
    "n_psms_all": 94112,
    "n_ptm_sites": 4884,
-   "n_quant_values": 75272,
+   "n_quant_values": 107864,
    "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -807,7 +813,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD023381:P13928;Q5VT79 written 2 times; quant_values: 1 identifier(s), 1 row(s) dropped, e.g. PXD023381:MSB40882Band_07:label_free:protein_group:PXD023381:P13928;Q5VT79:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD023381:P13928;Q5VT79 written 2 times; quant_values: 20 identifier(s), 20 row(s) dropped, e.g. PXD023381:MSB40881Band_01:label_free:protein_group:PXD023381:P13928;Q5VT79:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -878,9 +884,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "135309c3dabfb851",
-    "written_utc": "2026-09-23T13:14:53+00:00",
-    "ingester_version": "0.17.1",
+    "bundle_id": "0b767ad16772c35a",
+    "written_utc": "2026-09-24T17:45:49+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -891,7 +897,7 @@
   },
   {
    "dataset_id": "PXD024803",
-   "bundle_id": "94fb767cebfdc434",
+   "bundle_id": "0fe127ce3b3896ba",
    "title": "CHD6 IP from human induced pluripotent stem cells LC-MS-MS",
    "organisms": [
     "NCBITaxon:9606"
@@ -902,6 +908,7 @@
    "enrichment": [
     "immunoprecipitation"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -912,7 +919,7 @@
    "n_protein_groups_1pct": 2155,
    "n_psms_all": 593941,
    "n_ptm_sites": 19352,
-   "n_quant_values": 417949,
+   "n_quant_values": 501487,
    "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -958,7 +965,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 4 identifier(s), 20 row(s) dropped, e.g. PXD024803:A2A2Z9;Q8IVF6 written 2 times; quant_values: 18 identifier(s), 86 row(s) dropped, e.g. PXD024803:20180519_Q2_UC_ColID_596_ProjID_1195_Papantonis_1:label_free:protein_group:PXD024803:A6NCW0;A8MUK1;C9J2P7;C9JJH3;C9JLJ4;C9JPN9;C9JVI0;D6R901;D6R9N7;D6RA61;D6RBQ6;D6RCP7;D6RJB6;Q0WX57;Q7RTZ2:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 14 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 4 identifier(s), 20 row(s) dropped, e.g. PXD024803:A2A2Z9;Q8IVF6 written 2 times; quant_values: 119 identifier(s), 595 row(s) dropped, e.g. PXD024803:20180519_Q2_UC_ColID_596_ProjID_1195_Papantonis_1:label_free:protein_group:PXD024803:A2A2Z9;Q8IVF6:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -1029,9 +1036,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "94fb767cebfdc434",
-    "written_utc": "2026-09-23T13:06:55+00:00",
-    "ingester_version": "0.17.1",
+    "bundle_id": "0fe127ce3b3896ba",
+    "written_utc": "2026-09-24T17:39:04+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -1042,7 +1049,7 @@
   },
   {
    "dataset_id": "PXD026608",
-   "bundle_id": "7767c8a583cc4af5",
+   "bundle_id": "dd23a478b23cfa41",
    "title": "Integrated analysis of proteomics and phosphoproteomics on rat hearts with aging and hypertension",
    "organisms": [
     "NCBITaxon:10116"
@@ -1053,6 +1060,7 @@
    "enrichment": [
     "phospho"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": "Thermo",
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -1063,7 +1071,7 @@
    "n_protein_groups_1pct": 1293,
    "n_psms_all": 494410,
    "n_ptm_sites": 9214,
-   "n_quant_values": 58344,
+   "n_quant_values": 70383,
    "n_open_findings": 5,
    "instruments": [
     "Q Exactive HF-X"
@@ -1089,9 +1097,9 @@
      "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
     },
     {
-     "code": "sdrf_skeleton",
+     "code": "sdrf_uncoded",
      "severity": "warning",
-     "message": "The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated."
+     "message": "The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: organism part: heart. Match on it as text; it has not been mapped to a term."
     },
     {
      "code": "unplaced_ptm_sites",
@@ -1172,9 +1180,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "7767c8a583cc4af5",
-    "written_utc": "2026-09-23T13:41:31+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "dd23a478b23cfa41",
+    "written_utc": "2026-09-24T18:05:43+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -1185,7 +1193,7 @@
   },
   {
    "dataset_id": "PXD027318",
-   "bundle_id": "c1d5e0cdd9466c20",
+   "bundle_id": "c17bffa1d9ebf5c8",
    "title": "Identification of a Proteomic Signature of Senescence in Primary Human Mammary Epithelial Cells",
    "organisms": [
     "NCBITaxon:9606"
@@ -1196,6 +1204,7 @@
    "enrichment": [
     "none"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -1206,7 +1215,7 @@
    "n_protein_groups_1pct": 4478,
    "n_psms_all": 575812,
    "n_ptm_sites": 21714,
-   "n_quant_values": 359684,
+   "n_quant_values": 450391,
    "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -1252,7 +1261,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 2 row(s) dropped, e.g. PXD027318:A6NJZ7;A6NNM3;Q9UFD9 written 3 times; quant_values: 1 identifier(s), 2 row(s) dropped, e.g. PXD027318:20210517_HMEC_Q2_04:label_free:protein_group:PXD027318:A6NJZ7;A6NNM3;Q9UFD9:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 3 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 2 row(s) dropped, e.g. PXD027318:A6NJZ7;A6NNM3;Q9UFD9 written 3 times; quant_values: 18 identifier(s), 36 row(s) dropped, e.g. PXD027318:02-01-18_AD-HMEC-WCL_E-Luc_D1_02:label_free:protein_group:PXD027318:A6NJZ7;A6NNM3;Q9UFD9:QuantProject:DEF-PROT-SPC written 3 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -1323,9 +1332,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "c1d5e0cdd9466c20",
-    "written_utc": "2026-09-23T12:51:09+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "c17bffa1d9ebf5c8",
+    "written_utc": "2026-09-24T17:21:38+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -1337,7 +1346,7 @@
   },
   {
    "dataset_id": "PXD028852",
-   "bundle_id": "446e37c9c7615324",
+   "bundle_id": "f453bde8d711b067",
    "title": "Proteins enriched on damaged lysosomes in 293T",
    "organisms": [
     "NCBITaxon:9606"
@@ -1348,6 +1357,7 @@
    "enrichment": [
     "proximity_labelling"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -1358,7 +1368,7 @@
    "n_protein_groups_1pct": 2801,
    "n_psms_all": 185134,
    "n_ptm_sites": 8142,
-   "n_quant_values": 114345,
+   "n_quant_values": 180144,
    "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -1470,9 +1480,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "446e37c9c7615324",
-    "written_utc": "2026-09-23T13:08:28+00:00",
-    "ingester_version": "0.17.1",
+    "bundle_id": "f453bde8d711b067",
+    "written_utc": "2026-09-24T17:40:34+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "peptidoforms_target_1pct"
@@ -1483,7 +1493,7 @@
   },
   {
    "dataset_id": "PXD029116",
-   "bundle_id": "46048d454e28a118",
+   "bundle_id": "a9a1e16b2a66589d",
    "title": "Articular cartilage proteome differentiates by zones during osteoarthritis",
    "organisms": [
     "NCBITaxon:9606"
@@ -1494,6 +1504,7 @@
    "enrichment": [
     "none"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -1504,7 +1515,7 @@
    "n_protein_groups_1pct": 422,
    "n_psms_all": 114615,
    "n_ptm_sites": 3512,
-   "n_quant_values": 65328,
+   "n_quant_values": 83847,
    "n_open_findings": 3,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -1601,9 +1612,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "46048d454e28a118",
-    "written_utc": "2026-09-24T01:43:32+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "a9a1e16b2a66589d",
+    "written_utc": "2026-09-24T18:18:13+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -1612,7 +1623,7 @@
   },
   {
    "dataset_id": "PXD031782",
-   "bundle_id": "c1b4a9ad096fcf63",
+   "bundle_id": "e14df1cb4a037418",
    "title": "Label-free quantitative (LFQ) proteomic analysis of redox mediated posttranslational modifications (PTM) in the cartilag",
    "organisms": [
     "NCBITaxon:10090"
@@ -1623,6 +1634,7 @@
    "enrichment": [
     "none"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -1633,7 +1645,7 @@
    "n_protein_groups_1pct": 1851,
    "n_psms_all": 144943,
    "n_ptm_sites": 6440,
-   "n_quant_values": 58597,
+   "n_quant_values": 80487,
    "n_open_findings": 5,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
@@ -1740,9 +1752,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "c1b4a9ad096fcf63",
-    "written_utc": "2026-09-23T13:17:16+00:00",
-    "ingester_version": "0.17.1",
+    "bundle_id": "e14df1cb4a037418",
+    "written_utc": "2026-09-24T17:48:40+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -1751,7 +1763,7 @@
   },
   {
    "dataset_id": "PXD032040",
-   "bundle_id": "e5e36af06da7b4a0",
+   "bundle_id": "80b3a1021ee075c7",
    "title": "Translational specialization in pluripotency by RBPMS poises future lineage-decisions",
    "organisms": [
     "NCBITaxon:9606"
@@ -1762,6 +1774,7 @@
    "enrichment": [
     "immunoprecipitation"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -1772,7 +1785,7 @@
    "n_protein_groups_1pct": 2538,
    "n_psms_all": 234986,
    "n_ptm_sites": 9610,
-   "n_quant_values": 182870,
+   "n_quant_values": 218505,
    "n_open_findings": 5,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -1813,7 +1826,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD032040:A8MPP1;Q92771;Q96FC9 written 2 times; quant_values: 3 identifier(s), 3 row(s) dropped, e.g. PXD032040:20161028_AWH_ColID_236_ProjectID_240_Deniz_Kurian_IgG1:label_free:protein_group:PXD032040:A8MPP1;Q92771;Q96FC9:PROVISIONAL:PROTEIN-INTENSITY written 2 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD032040:A8MPP1;Q92771;Q96FC9 written 2 times; quant_values: 17 identifier(s), 17 row(s) dropped, e.g. PXD032040:20161028_AWH_ColID_236_ProjectID_240_Deniz_Kurian_IgG1:label_free:protein_group:PXD032040:A8MPP1;Q92771;Q96FC9:QuantProject:DEF-PROT-INT written 2 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -1884,9 +1897,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "e5e36af06da7b4a0",
-    "written_utc": "2026-09-23T12:56:27+00:00",
-    "ingester_version": "0.17.0",
+    "bundle_id": "80b3a1021ee075c7",
+    "written_utc": "2026-09-24T17:27:08+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -1895,7 +1908,7 @@
   },
   {
    "dataset_id": "PXD032044",
-   "bundle_id": "6c4f9d86e506f9e2",
+   "bundle_id": "32e260f52994f77b",
    "title": "Characterization of the skeletal muscle proteome in under-nourished old rats",
    "organisms": [
     "NCBITaxon:10116"
@@ -1906,6 +1919,7 @@
    "enrichment": [
     "none"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -1916,7 +1930,7 @@
    "n_protein_groups_1pct": 2024,
    "n_psms_all": 1798356,
    "n_ptm_sites": 23073,
-   "n_quant_values": 450696,
+   "n_quant_values": 599702,
    "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml",
@@ -1962,7 +1976,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD032044:P70604;P70605 written 2 times; quant_values: 1 identifier(s), 1 row(s) dropped, e.g. PXD032044:8600_22-S-S_:label_free:protein_group:PXD032044:P70604;P70605:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD032044:P70604;P70605 written 2 times; quant_values: 44 identifier(s), 44 row(s) dropped, e.g. PXD032044:8540_22-S-P_:label_free:protein_group:PXD032044:P70604;P70605:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -2033,9 +2047,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "6c4f9d86e506f9e2",
-    "written_utc": "2026-09-24T15:19:00+00:00",
-    "ingester_version": "0.17.2",
+    "bundle_id": "32e260f52994f77b",
+    "written_utc": "2026-09-24T18:02:38+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -2046,7 +2060,7 @@
   },
   {
    "dataset_id": "PXD032202",
-   "bundle_id": "b8f5b9b17a0e8f73",
+   "bundle_id": "50a864942b417f3a",
    "title": "Global and comparative proteome signatures in the lens capsule, trabecular meshwork, and iris of patients with pseudoexfoliation glaucoma",
    "organisms": [
     "NCBITaxon:9606"
@@ -2057,6 +2071,7 @@
    "enrichment": [
     "none"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -2067,7 +2082,7 @@
    "n_protein_groups_1pct": 1925,
    "n_psms_all": 584134,
    "n_ptm_sites": 14099,
-   "n_quant_values": 141327,
+   "n_quant_values": 182742,
    "n_open_findings": 5,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -2174,9 +2189,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "b8f5b9b17a0e8f73",
-    "written_utc": "2026-09-23T12:54:43+00:00",
-    "ingester_version": "0.17.0",
+    "bundle_id": "50a864942b417f3a",
+    "written_utc": "2026-09-24T17:25:27+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -2187,7 +2202,7 @@
   },
   {
    "dataset_id": "PXD034432",
-   "bundle_id": "b4ebed6a0a2d4196",
+   "bundle_id": "406f37a5c0ea51ab",
    "title": "Tracking prostate carcinogenesis over time through urine proteome profiling in an animal model: an exploratory approach",
    "organisms": [
     "NCBITaxon:10116"
@@ -2198,6 +2213,7 @@
    "enrichment": [
     "none"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": "Thermo",
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -2208,7 +2224,7 @@
    "n_protein_groups_1pct": 416,
    "n_psms_all": 60860,
    "n_ptm_sites": 2304,
-   "n_quant_values": 23393,
+   "n_quant_values": 28975,
    "n_open_findings": 7,
    "instruments": [
     "Q Exactive HF"
@@ -2244,9 +2260,9 @@
      "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
     },
     {
-     "code": "sdrf_skeleton",
+     "code": "sdrf_uncoded",
      "severity": "warning",
-     "message": "The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated."
+     "message": "The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: organism part: Urine. Match on it as text; it has not been mapped to a term."
     },
     {
      "code": "unplaced_ptm_sites",
@@ -2327,9 +2343,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "b4ebed6a0a2d4196",
-    "written_utc": "2026-09-24T10:40:43+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "406f37a5c0ea51ab",
+    "written_utc": "2026-09-24T18:22:49+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -2340,7 +2356,7 @@
   },
   {
    "dataset_id": "PXD036557",
-   "bundle_id": "d15c8938fd855483",
+   "bundle_id": "f375717680d87d19",
    "title": "Modelling Premature Cardiac Aging with Induced Pluripotent Stem Cells From a Hutchinson-Gilford Progeria Syndrome Patient",
    "organisms": [
     "NCBITaxon:9606"
@@ -2351,6 +2367,7 @@
    "enrichment": [
     "none"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": "Thermo",
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -2361,7 +2378,7 @@
    "n_protein_groups_1pct": 1652,
    "n_psms_all": 42958,
    "n_ptm_sites": 2091,
-   "n_quant_values": 50085,
+   "n_quant_values": 78411,
    "n_open_findings": 5,
    "instruments": [
     "Q Exactive Plus"
@@ -2470,9 +2487,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "d15c8938fd855483",
-    "written_utc": "2026-09-23T12:48:09+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "f375717680d87d19",
+    "written_utc": "2026-09-24T17:17:48+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -2481,7 +2498,7 @@
   },
   {
    "dataset_id": "PXD049018",
-   "bundle_id": "f85df0125ba18b43",
+   "bundle_id": "48fd853ff95730fa",
    "title": "BJ cyto-nuclear translocation upon STING activation",
    "organisms": [
     "NCBITaxon:9606"
@@ -2492,6 +2509,7 @@
    "enrichment": [
     "proximity_labelling"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -2502,7 +2520,7 @@
    "n_protein_groups_1pct": 1613,
    "n_psms_all": 397274,
    "n_ptm_sites": 9543,
-   "n_quant_values": 80726,
+   "n_quant_values": 131994,
    "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -2614,9 +2632,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "f85df0125ba18b43",
-    "written_utc": "2026-09-23T13:11:16+00:00",
-    "ingester_version": "0.17.1",
+    "bundle_id": "48fd853ff95730fa",
+    "written_utc": "2026-09-24T17:42:59+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -2627,7 +2645,7 @@
   },
   {
    "dataset_id": "PXD050351",
-   "bundle_id": "2f139899636f413b",
+   "bundle_id": "52b9b0e8a2808828",
    "title": "Targeting upstream Hippo-pathway kinases releases the scaffolder WWC1 to promote synaptic plasticity and long-term memory in mice",
    "organisms": [
     "NCBITaxon:9606"
@@ -2638,6 +2656,7 @@
    "enrichment": [
     "chemical_probe"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -2648,7 +2667,7 @@
    "n_protein_groups_1pct": 1477,
    "n_psms_all": 304129,
    "n_ptm_sites": 7668,
-   "n_quant_values": 297823,
+   "n_quant_values": 339017,
    "n_open_findings": 5,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -2689,7 +2708,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD050351:O75122;Q7Z460 written 2 times; quant_values: 1 identifier(s), 1 row(s) dropped, e.g. PXD050351:03189_GD3_P036532_B00_A00_R1:label_free:protein_group:PXD050351:O75122;Q7Z460:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD050351:O75122;Q7Z460 written 2 times; quant_values: 20 identifier(s), 20 row(s) dropped, e.g. PXD050351:03189_GA1_P036513_B00_A00_R1:label_free:protein_group:PXD050351:O75122;Q7Z460:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -2760,9 +2779,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "2f139899636f413b",
-    "written_utc": "2026-09-23T13:13:40+00:00",
-    "ingester_version": "0.17.1",
+    "bundle_id": "52b9b0e8a2808828",
+    "written_utc": "2026-09-24T17:44:52+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -2773,7 +2792,7 @@
   },
   {
    "dataset_id": "PXD056433",
-   "bundle_id": "0bc80a4cb9eeb48e",
+   "bundle_id": "899f339a864d9d5b",
    "title": "M1 polyubiquitin targets in the hippocampus of young and aged male rats following contextual fear conditioning",
    "organisms": [
     "NCBITaxon:10116"
@@ -2784,6 +2803,7 @@
    "enrichment": [
     "other"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -2794,7 +2814,7 @@
    "n_protein_groups_1pct": 262,
    "n_psms_all": 243325,
    "n_ptm_sites": 1580,
-   "n_quant_values": 26745,
+   "n_quant_values": 51884,
    "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml",
@@ -2906,9 +2926,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "0bc80a4cb9eeb48e",
-    "written_utc": "2026-09-24T07:49:22+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "899f339a864d9d5b",
+    "written_utc": "2026-09-24T18:19:17+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -2917,7 +2937,7 @@
   },
   {
    "dataset_id": "PXD058082",
-   "bundle_id": "4dc4a0c5c84962fa",
+   "bundle_id": "65c382f5618a8efa",
    "title": "Major toxin composition of particulate matter from a coal-fired power plant and its proteomics-associated toxicological ",
    "organisms": [
     "NCBITaxon:10090"
@@ -2928,6 +2948,7 @@
    "enrichment": [
     "none"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -2938,7 +2959,7 @@
    "n_protein_groups_1pct": 1184,
    "n_psms_all": 55543,
    "n_ptm_sites": 1717,
-   "n_quant_values": 82081,
+   "n_quant_values": 94045,
    "n_open_findings": 4,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
@@ -2974,7 +2995,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD058082:Q2M3X8;Q501J7 written 2 times; quant_values: 1 identifier(s), 1 row(s) dropped, e.g. PXD058082:Lung_PM25_MM_Low_D10X_N3:label_free:protein_group:PXD058082:Q2M3X8;Q501J7:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD058082:Q2M3X8;Q501J7 written 2 times; quant_values: 15 identifier(s), 15 row(s) dropped, e.g. PXD058082:Lung_PM25_MM_High_D10X_N1:label_free:protein_group:PXD058082:Q2M3X8;Q501J7:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -3045,9 +3066,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "4dc4a0c5c84962fa",
-    "written_utc": "2026-09-23T14:00:00+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "65c382f5618a8efa",
+    "written_utc": "2026-09-24T18:06:22+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -3056,7 +3077,7 @@
   },
   {
    "dataset_id": "PXD058611",
-   "bundle_id": "c8f75dad67fdeeb5",
+   "bundle_id": "861ca96494c8e207",
    "title": "Enhanced non-enzymatic H2S generation extends lifespan and healthspan in male mice",
    "organisms": [
     "NCBITaxon:10090"
@@ -3067,6 +3088,7 @@
    "enrichment": [
     "chemical_probe"
    ],
+   "enrichment_mixed": true,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -3077,8 +3099,8 @@
    "n_protein_groups_1pct": 2250,
    "n_psms_all": 351261,
    "n_ptm_sites": 7797,
-   "n_quant_values": 405803,
-   "n_open_findings": 5,
+   "n_quant_values": 516599,
+   "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
    "sdrf_status": "absent",
@@ -3094,6 +3116,11 @@
      "code": "count_mismatch",
      "severity": "warning",
      "message": "The bundle holds 338320 where the producer reported 338322 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "mixed_enrichment",
+     "severity": "warning",
+     "message": "The runs of this dataset differ in enrichment: 21 run(s) [chemical_probe]; 15 run(s) [none]. The dataset's own `enrichment` is the producer's declaration and is true of only some runs, so answer any enrichment-dependent question per run from `runs.enrichment`, and never pool its runs as one kind."
     },
     {
      "code": "no_design_file",
@@ -3118,7 +3145,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD058611:Q9ES70;Q9ES74 written 2 times; quant_values: 2 identifier(s), 2 row(s) dropped, e.g. PXD058611:201:label_free:protein_group:PXD058611:Q9ES70;Q9ES74:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD058611:Q9ES70;Q9ES74 written 2 times; quant_values: 36 identifier(s), 36 row(s) dropped, e.g. PXD058611:178:label_free:protein_group:PXD058611:Q9ES70;Q9ES74:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -3189,20 +3216,20 @@
     }
    },
    "bundle": {
-    "bundle_id": "c8f75dad67fdeeb5",
-    "written_utc": "2026-09-23T13:16:33+00:00",
-    "ingester_version": "0.17.1",
+    "bundle_id": "861ca96494c8e207",
+    "written_utc": "2026-09-24T17:47:43+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
     ]
    },
-   "summary": "PXD058611 is a DDA label-free dataset (Mus musculus) with 36 runs, 36 samples and enrichment: chemical_probe. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 338,320 PSMs, 18,275 peptidoforms and 2,250 protein groups, and the repository holds 7,797 PTM sites for it. 5 open warnings about it are recorded.",
+   "summary": "PXD058611 is a DDA label-free dataset (Mus musculus) with 36 runs, 36 samples and runs that differ in enrichment (chemical_probe on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 338,320 PSMs, 18,275 peptidoforms and 2,250 protein groups, and the repository holds 7,797 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD058611.html"
   },
   {
    "dataset_id": "PXD059818",
-   "bundle_id": "9bbf1f12b7c63778",
+   "bundle_id": "1e219d9ce8661007",
    "title": "Simultaneous profiling of native-state proteomes and transcriptomes of brain cell types using proximity labeling",
    "organisms": [
     "NCBITaxon:10090"
@@ -3213,6 +3240,7 @@
    "enrichment": [
     "other"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -3223,7 +3251,7 @@
    "n_protein_groups_1pct": 4418,
    "n_psms_all": 886810,
    "n_ptm_sites": 18944,
-   "n_quant_values": 626142,
+   "n_quant_values": 832074,
    "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
@@ -3269,7 +3297,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 2 identifier(s), 3 row(s) dropped, e.g. PXD059818:O88207;Q61245;Q64739 written 3 times; quant_values: 2 identifier(s), 3 row(s) dropped, e.g. PXD059818:christina_Aldh1l1_Camk2a_8tcl_07:label_free:protein_group:PXD059818:O88207;Q61245;Q64739:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 3 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 2 identifier(s), 3 row(s) dropped, e.g. PXD059818:O88207;Q61245;Q64739 written 3 times; quant_values: 76 identifier(s), 114 row(s) dropped, e.g. PXD059818:christina_Aldh1l1_Camk2a_21ip_01:label_free:protein_group:PXD059818:O88207;Q61245;Q64739:QuantProject:DEF-PROT-SPC written 3 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -3340,9 +3368,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "9bbf1f12b7c63778",
-    "written_utc": "2026-09-23T23:27:07+00:00",
-    "ingester_version": "0.16.0",
+    "bundle_id": "1e219d9ce8661007",
+    "written_utc": "2026-09-24T18:17:09+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -3353,7 +3381,7 @@
   },
   {
    "dataset_id": "PXD067622",
-   "bundle_id": "3ea43fd4444f85f3",
+   "bundle_id": "d5cf665b6eeded99",
    "title": "DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging and Embryonic Lethality",
    "organisms": [
     "NCBITaxon:9606"
@@ -3364,6 +3392,7 @@
    "enrichment": [
     "proximity_labelling"
    ],
+   "enrichment_mixed": false,
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
@@ -3374,7 +3403,7 @@
    "n_protein_groups_1pct": 4147,
    "n_psms_all": 966134,
    "n_ptm_sites": 20596,
-   "n_quant_values": 693494,
+   "n_quant_values": 780600,
    "n_open_findings": 5,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
@@ -3415,7 +3444,7 @@
     {
      "code": "collapsed_duplicate_rows",
      "severity": "info",
-     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD067622:A6NCW0;A8MUK1;C9J2P7;C9JJH3;C9JLJ4;C9JPN9;C9JVI0;D6R901;D6R9N7;D6RA61;D6RBQ6;D6RCP7;D6RJB6;Q0WX57;Q7RTZ2 written 2 times; quant_values: 3 identifier(s), 3 row(s) dropped, e.g. PXD067622:20240830_HF_LC3_MAA_RK_12032_CA_DMSO4:label_free:protein_group:PXD067622:A6NCW0;A8MUK1;C9J2P7;C9JJH3;C9JLJ4;C9JPN9;C9JVI0;D6R901;D6R9N7;D6RA61;D6RBQ6;D6RCP7;D6RJB6;Q0WX57;Q7RTZ2:PROVISIONAL:PROTEIN-SPECTRAL-COUNT written 2 times. The full list is in bundle.json under collapsed_duplicates."
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD067622:A6NCW0;A8MUK1;C9J2P7;C9JJH3;C9JLJ4;C9JPN9;C9JVI0;D6R901;D6R9N7;D6RA61;D6RBQ6;D6RCP7;D6RJB6;Q0WX57;Q7RTZ2 written 2 times; quant_values: 24 identifier(s), 24 row(s) dropped, e.g. PXD067622:20240830_HF_LC3_MAA_RK_12032_CA_DMSO4:label_free:protein_group:PXD067622:A6NCW0;A8MUK1;C9J2P7;C9JJH3;C9JLJ4;C9JPN9;C9JVI0;D6R901;D6R9N7;D6RA61;D6RBQ6;D6RCP7;D6RJB6;Q0WX57;Q7RTZ2:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates."
     },
     {
      "code": "no_output_sdrf",
@@ -3486,9 +3515,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "3ea43fd4444f85f3",
-    "written_utc": "2026-09-23T13:02:36+00:00",
-    "ingester_version": "0.17.0",
+    "bundle_id": "d5cf665b6eeded99",
+    "written_utc": "2026-09-24T17:34:36+00:00",
+    "ingester_version": "0.18.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"

@@ -130,6 +130,8 @@ peaks, which are Orbitrap here, and identification from ion-trap HCD is sound �
 | `precursor_mass_tolerance` | string | *(optional; MetaMorpheus's default)* | The same, for `PrecursorMassTolerance` |
 | `exclude_files` | list of names | *(optional)* | Spectra file names to leave out of the search. Every name must exist in the spectra directory, or the stage **refuses** — a typo would otherwise silently search everything. Pair it with `exclude_files_why` |
 | `exclude_files_why` | string | *(optional)* | Why those files are excluded. Copied into `provenance.json` beside the names |
+
+An excluded file's QC verdict does not gate the search: a deposit whose one blank or failed injection fails `too_few_ms2` can be searched without it, and the exclusion is recorded rather than the deposit dropped. The batch runner does this only for `too_few_ms2`, at most 10% of a deposit's files, with at least one file passing; any other QC failure still stops the search.
 | `flag_min_id_rate` | float 0–1 | `0.15` (optional key) | Flag `low_id_rate` when PSMs at 1% FDR ÷ MS2 scans fall below this |
 | `flag_max_contaminant_intensity_share` | float 0–1 | `0.05` (optional key) | Flag `high_contamination` when any file's contaminant share of protein intensity exceeds this |
 | `timeout_s` | int | `21600` | Intended as the maximum wall time for MetaMorpheus, but **not enforced yet**: a hung process isn't killed. Under Nextflow, set a process `time` limit |

@@ -392,7 +392,10 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
     if not qc.exists():
         sys.exit(f"no QC report at {qc}: run qc_spectra.py first (v1 requires high-res Orbitrap HCD MS2)")
     report = json.loads(qc.read_text(encoding="utf-8"))
-    failed = {n: r.get("fail_reasons") or ["unspecified"] for n, r in report.items() if not r["pass"]}
+    # A file excluded above is not searched, so its QC verdict does not gate the search (D52: a blank or
+    # failed injection is excluded with a record instead of dropping the deposit).
+    failed = {n: r.get("fail_reasons") or ["unspecified"] for n, r in report.items()
+              if not r["pass"] and n not in excluded}
     exception_flag = None
     if failed:
         # A dataset may carry an acquisition exception: an explicit, user-granted waiver naming the

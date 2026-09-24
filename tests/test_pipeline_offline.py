@@ -283,3 +283,23 @@ def test_a_missing_extra_database_stops_the_search(layout, work):
     assert stage(db_prepare.main, L.params, str(L.root / "db")) == 0
     assert stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc")) == 0
     assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) != 0
+
+
+def test_an_excluded_file_that_failed_qc_does_not_block_the_search(layout, work, monkeypatch):
+    """D52: a blank or failed injection (`too_few_ms2`) is excluded with a record instead of dropping the
+    deposit. Before, search_mm refused because the excluded file's QC verdict still counted."""
+    L = layout
+    monkeypatch.setattr(qc_spectra.readers, "read_spectra",
+                        lambda f, timeout=None: scan_headers(n_ms2=2 if str(f).endswith("b.raw") else 20))
+    assert stage(db_prepare.main, L.params, str(L.root / "db")) == 0
+    assert stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc")) != 0   # b fails
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) != 0  # refused
+
+    s = dict(work.params()["search"])
+    s.update(exclude_files=["b.raw"], exclude_files_why="D52: too_few_ms2")
+    work.write(search=s)
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search_2")) == 0
+    rec = prov(L.run / "04_search_2")
+    assert rec["excluded_files"] == {"files": ["b.raw"], "reason": "D52: too_few_ms2"}
+    run_cmd = rec["commands"][-1]
+    assert not any(a.endswith("b.raw") for a in run_cmd)

@@ -19,11 +19,11 @@
  "name": "PXD036557 reanalysis: Modelling Premature Cardiac Aging with Induced Pluripotent Stem Cells From a Hutchinson-Gilford Progeria Syndrome Patient",
  "identifier": [
   "PXD036557",
-  "datarepo:bundle:f375717680d87d19"
+  "datarepo:bundle:7b2c30d78080c9d5"
  ],
- "description": "PXD036557 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 26,582 PSMs, 5,541 peptidoforms and 1,652 protein groups, and the repository holds 2,091 PTM sites for it. 5 open warnings about it are recorded.",
- "version": "f375717680d87d19",
- "dateModified": "2026-09-24T17:17:48+00:00",
+ "description": "PXD036557 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 26,582 PSMs, 5,541 peptidoforms and 1,652 protein groups, and the repository holds 2,091 PTM sites for it. 6 open warnings about it are recorded.",
+ "version": "7b2c30d78080c9d5",
+ "dateModified": "2026-09-24T23:15:29+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog b89fd37e4e4ee174",
+  "name": "datarepo catalog 45df3b97d67eee8d",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,7 +61,7 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD036557 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 26,582 PSMs, 5,541 peptidoforms and 1,652 protein groups, and the repository holds 2,091 PTM sites for it. 5 open warnings about it are recorded.
+PXD036557 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 26,582 PSMs, 5,541 peptidoforms and 1,652 protein groups, and the repository holds 2,091 PTM sites for it. 6 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
@@ -70,6 +70,7 @@ PXD036557 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples an
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
 <div class="finding warning"><span class="code">sdrf_skeleton</span> <span class="note">warning</span><br>The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 30 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
+<div class="finding warning"><span class="code">upstream_provenance_changed</span> <span class="note">warning</span><br>The search recorded its upstream &#x27;db_prepare&#x27; provenance (db/provenance.json) with sha256 6c40902506a8bd4a99fe884bae6d95be46f8a1647d50570879ddcd3b3a79de59, and the file there now has 812ce696ba3f0ee2a1f79241b5e16e9267d6199f7598af77391178b825658963: it was overwritten after the search. It is left out of this bundle rather than read as this search&#x27;s record. The search&#x27;s own record of the db_prepare stage is gone unless the producer archived it.</div>
 <div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
 
 <h2>What was found</h2>
@@ -120,16 +121,16 @@ modification has no UNIMOD term in the registry that searched it, not that it is
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>f375717680d87d19</code>, written 2026-09-24T17:17:48+00:00 by ingester 0.18.1</dd>
+<dt>Bundle</dt><dd><code>7b2c30d78080c9d5</code>, written 2026-09-24T23:15:29+00:00 by ingester 0.19.0</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts</dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.18.1 from catalog
-<code>b89fd37e4e4ee174</code>, built 2026-09-24T23:05:52+00:00 by datarepo
-0.18.1 (schema 0.0.9).
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.19.0 from catalog
+<code>45df3b97d67eee8d</code>, built 2026-09-24T23:49:09+00:00 by datarepo
+0.19.0 (schema 0.0.9).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

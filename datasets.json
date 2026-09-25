@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "bb6555174e444fdc",
+  "catalog_id": "62d419643e71320c",
   "catalog_version": "5",
   "schema_version": "0.0.9",
   "builder_version": "0.19.0",
-  "built_utc": "2026-09-25T08:53:01+00:00",
+  "built_utc": "2026-09-25T10:24:16+00:00",
   "instance": "aging"
  },
  "datasets": [
@@ -50,12 +50,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 10288 where the producer reported 10287 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 118418 where the producer reported 118420 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 118418 where the producer reported 118420 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 10288 where the producer reported 10287 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "high_contamination",
@@ -505,12 +505,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 35923 where the producer reported 35922 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 202687 where the producer reported 202691 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 202687 where the producer reported 202691 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 35923 where the producer reported 35922 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",
@@ -767,6 +767,154 @@
    },
    "summary": "PXD022128 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 38,885 PSMs, 4,662 peptidoforms and 1,255 protein groups, and the repository holds 1,388 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD022128.html"
+  },
+  {
+   "dataset_id": "PXD022180",
+   "bundle_id": "7a947d54b275aa48",
+   "title": "Mytho, An Uncharacterized Gene that Controls Longevity and WIPI2-dependent Autophagy",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "immunoprecipitation"
+   ],
+   "enrichment_mixed": false,
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 18,
+   "n_samples": 18,
+   "n_psms_1pct": 118826,
+   "n_peptidoforms_1pct": 19279,
+   "n_protein_groups_1pct": 1850,
+   "n_psms_all": 231684,
+   "n_ptm_sites": 9102,
+   "n_quant_values": 145463,
+   "n_open_findings": 6,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "e6230debdbd8bed58c0c6aaa2abdec59beb8bbed",
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 19279 where the producer reported 19256 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 118826 where the producer reported 118864 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "32.91% of protein intensity in the worst file, 11.91% median across 18 files (DEF-QC-9 v3.5)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 434 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 2782
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 1459
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 754
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 560
+    },
+    {
+     "modification_name": "Fe[III] on E",
+     "modification": "UNIMOD:1870",
+     "n_sites": 230
+    },
+    {
+     "modification_name": "N-acetylalanine on A",
+     "modification": "UNIMOD:1",
+     "n_sites": 197
+    },
+    {
+     "modification_name": "Fe[III] on D",
+     "modification": "UNIMOD:1870",
+     "n_sites": 195
+    },
+    {
+     "modification_name": "Citrullination on R",
+     "modification": "UNIMOD:7",
+     "n_sites": 172
+    },
+    {
+     "modification_name": "Fe[II] on E",
+     "modification": "UNIMOD:952",
+     "n_sites": 172
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 158
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.2288,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0638,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "7a947d54b275aa48",
+    "written_utc": "2026-09-25T10:20:49+00:00",
+    "ingester_version": "0.19.0",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct",
+     "peptidoforms_target_1pct"
+    ]
+   },
+   "summary": "PXD022180 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 118,826 PSMs, 19,279 peptidoforms and 1,850 protein groups, and the repository holds 9,102 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD022180.html"
   },
   {
    "dataset_id": "PXD023381",
@@ -1271,12 +1419,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",

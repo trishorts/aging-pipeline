@@ -19,11 +19,11 @@
  "name": "PXD027318 reanalysis: Identification of a Proteomic Signature of Senescence in Primary Human Mammary Epithelial Cells",
  "identifier": [
   "PXD027318",
-  "datarepo:bundle:d6ba854f7a20b7c8"
+  "datarepo:bundle:df70a8e19fef4216"
  ],
  "description": "PXD027318 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 378,168 PSMs, 49,399 peptidoforms and 4,478 protein groups, and the repository holds 21,714 PTM sites for it. 7 open warnings about it are recorded.",
- "version": "d6ba854f7a20b7c8",
- "dateModified": "2026-09-25T17:42:00+00:00",
+ "version": "df70a8e19fef4216",
+ "dateModified": "2026-09-25T19:27:03+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 313bf7ff28f87beb",
+  "name": "datarepo catalog 1e2f13be6f121fd7",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -65,8 +65,8 @@ PXD027318 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples an
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value &lt;= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value &lt;= 0.01). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
+<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value &lt;= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 818 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
@@ -74,6 +74,7 @@ PXD027318 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples an
 <div class="finding warning"><span class="code">upstream_provenance_changed</span> <span class="note">warning</span><br>The search recorded its upstream &#x27;db_prepare&#x27; provenance (db/provenance.json) with sha256 6c40902506a8bd4a99fe884bae6d95be46f8a1647d50570879ddcd3b3a79de59, and the file there now has 812ce696ba3f0ee2a1f79241b5e16e9267d6199f7598af77391178b825658963: it was overwritten after the search. It is left out of this bundle rather than read as this search&#x27;s record. The search&#x27;s own record of the db_prepare stage is gone unless the producer archived it.</div>
 <div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 2 row(s) dropped, e.g. PXD027318:A6NJZ7;A6NNM3;Q9UFD9 written 3 times; quant_values: 18 identifier(s), 36 row(s) dropped, e.g. PXD027318:02-01-18_AD-HMEC-WCL_E-Luc_D1_02:label_free:protein_group:PXD027318:A6NJZ7;A6NNM3;Q9UFD9:QuantProject:DEF-PROT-SPC written 3 times. The full list is in bundle.json under collapsed_duplicates.</div>
 <div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
+<div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>263 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
 
 <h2>What was found</h2>
 <div class="scroll"><table><tbody>
@@ -123,16 +124,16 @@ modification has no UNIMOD term in the registry that searched it, not that it is
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>d6ba854f7a20b7c8</code>, written 2026-09-25T17:42:00+00:00 by ingester 0.19.1</dd>
+<dt>Bundle</dt><dd><code>df70a8e19fef4216</code>, written 2026-09-25T19:27:03+00:00 by ingester 0.21.0</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct, peptidoforms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.19.1 from catalog
-<code>313bf7ff28f87beb</code>, built 2026-09-25T19:02:55+00:00 by datarepo
-0.19.1 (schema 0.0.9).
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.21.0 from catalog
+<code>1e2f13be6f121fd7</code>, built 2026-09-25T20:40:50+00:00 by datarepo
+0.21.0 (schema 0.0.11).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

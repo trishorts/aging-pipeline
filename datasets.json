@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "313bf7ff28f87beb",
-  "catalog_version": "5",
-  "schema_version": "0.0.9",
-  "builder_version": "0.19.1",
-  "built_utc": "2026-09-25T19:02:55+00:00",
+  "catalog_id": "1e2f13be6f121fd7",
+  "catalog_version": "6",
+  "schema_version": "0.0.11",
+  "builder_version": "0.21.0",
+  "built_utc": "2026-09-25T20:40:50+00:00",
   "instance": "aging"
  },
  "datasets": [
   {
    "dataset_id": "PXD010115",
-   "bundle_id": "e0758a505529c623",
+   "bundle_id": "841875479ec5fc48",
    "title": "Quantification of the Soluble Receptor of Advanced Glycation End-Products (sRAGE) by LC-MS Without the Use of Affinity Enrichment",
    "organisms": [
     "NCBITaxon:9606"
@@ -91,6 +91,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "48 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -156,9 +161,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "e0758a505529c623",
-    "written_utc": "2026-09-25T18:33:41+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "841875479ec5fc48",
+    "written_utc": "2026-09-25T20:12:30+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -170,7 +175,7 @@
   },
   {
    "dataset_id": "PXD011314",
-   "bundle_id": "36d13bf5ca438efa",
+   "bundle_id": "a479cfa687d216e8",
    "title": "Profiling of Methylglyoxal Blood Metabolism and Advanced Glycation End-Product Proteome using a Chemical Probe",
    "organisms": [
     "NCBITaxon:9606"
@@ -246,6 +251,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "4 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -311,9 +321,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "36d13bf5ca438efa",
-    "written_utc": "2026-09-25T18:26:36+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "a479cfa687d216e8",
+    "written_utc": "2026-09-25T20:05:46+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -322,7 +332,7 @@
   },
   {
    "dataset_id": "PXD018315",
-   "bundle_id": "e6ed92b89fa49aad",
+   "bundle_id": "0fdb0db6142e4c02",
    "title": "Identification of proteins that interact with the lncRNA Sarrah",
    "organisms": [
     "NCBITaxon:10090"
@@ -391,6 +401,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "29 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -456,9 +471,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "e6ed92b89fa49aad",
-    "written_utc": "2026-09-25T18:35:14+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "0fdb0db6142e4c02",
+    "written_utc": "2026-09-25T20:13:43+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -467,7 +482,7 @@
   },
   {
    "dataset_id": "PXD018655",
-   "bundle_id": "213dce9dee65aafd",
+   "bundle_id": "2819a602fbd7bfe6",
    "title": "Proteomic analysis of small extracellular vesicles derived from human ESCs",
    "organisms": [
     "NCBITaxon:9606"
@@ -505,12 +520,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 202687 where the producer reported 202691 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 35923 where the producer reported 35922 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 35923 where the producer reported 35922 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 202687 where the producer reported 202691 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",
@@ -546,6 +561,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "15 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -611,9 +631,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "213dce9dee65aafd",
-    "written_utc": "2026-09-25T18:25:58+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "2819a602fbd7bfe6",
+    "written_utc": "2026-09-25T20:05:09+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -625,7 +645,7 @@
   },
   {
    "dataset_id": "PXD022128",
-   "bundle_id": "f0ceb450a28ce75d",
+   "bundle_id": "04eed287b89d843f",
    "title": "A genome-wide screen for essentiality upon telomerase inhibition identifies a novel p53 regulator, C16ORF72/TAPR1",
    "organisms": [
     "NCBITaxon:9606"
@@ -694,6 +714,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "11 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -759,9 +784,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "f0ceb450a28ce75d",
-    "written_utc": "2026-09-25T18:36:13+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "04eed287b89d843f",
+    "written_utc": "2026-09-25T20:14:40+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -770,7 +795,7 @@
   },
   {
    "dataset_id": "PXD022180",
-   "bundle_id": "6566aacdbcae8c5a",
+   "bundle_id": "8448855d0ef571e5",
    "title": "Mytho, An Uncharacterized Gene that Controls Longevity and WIPI2-dependent Autophagy",
    "organisms": [
     "NCBITaxon:9606"
@@ -839,6 +864,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "6 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -904,9 +934,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "6566aacdbcae8c5a",
-    "written_utc": "2026-09-25T18:58:59+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "8448855d0ef571e5",
+    "written_utc": "2026-09-25T20:36:43+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -918,7 +948,7 @@
   },
   {
    "dataset_id": "PXD023381",
-   "bundle_id": "e96c01fac55c7b8d",
+   "bundle_id": "f8aa5f76f3aa19c0",
    "title": "Transcriptional and proteomic characterization of telomere-induced senescence in a human alveolar epithelial cell line",
    "organisms": [
     "NCBITaxon:9606"
@@ -997,6 +1027,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "7 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -1062,9 +1097,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "e96c01fac55c7b8d",
-    "written_utc": "2026-09-25T18:03:40+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "f8aa5f76f3aa19c0",
+    "written_utc": "2026-09-25T19:47:00+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -1075,7 +1110,7 @@
   },
   {
    "dataset_id": "PXD024803",
-   "bundle_id": "2ddbc7cacb0b40ec",
+   "bundle_id": "537644a7fca4cebc",
    "title": "CHD6 IP from human induced pluripotent stem cells LC-MS-MS",
    "organisms": [
     "NCBITaxon:9606"
@@ -1098,7 +1133,7 @@
    "n_psms_all": 593941,
    "n_ptm_sites": 19352,
    "n_quant_values": 501487,
-   "n_open_findings": 7,
+   "n_open_findings": 8,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
    "sdrf_status": "absent",
@@ -1131,6 +1166,11 @@
      "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
     },
     {
+     "code": "occupancy_not_stored",
+     "severity": "warning",
+     "message": "Of 80359 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 546 duplicate entry for one site and run. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA."
+    },
+    {
      "code": "unplaced_ptm_sites",
      "severity": "warning",
      "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 1260 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
@@ -1154,6 +1194,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "104 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -1219,20 +1264,20 @@
     }
    },
    "bundle": {
-    "bundle_id": "2ddbc7cacb0b40ec",
-    "written_utc": "2026-09-25T17:57:18+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "537644a7fca4cebc",
+    "written_utc": "2026-09-25T19:41:25+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
     ]
    },
-   "summary": "PXD024803 is a DDA label-free dataset (Homo sapiens) with 28 runs, 28 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 381,861 PSMs, 37,993 peptidoforms and 2,155 protein groups, and the repository holds 19,352 PTM sites for it. 7 open warnings about it are recorded.",
+   "summary": "PXD024803 is a DDA label-free dataset (Homo sapiens) with 28 runs, 28 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 381,861 PSMs, 37,993 peptidoforms and 2,155 protein groups, and the repository holds 19,352 PTM sites for it. 8 open warnings about it are recorded.",
    "page": "datasets/PXD024803.html"
   },
   {
    "dataset_id": "PXD026608",
-   "bundle_id": "99de86300b13a479",
+   "bundle_id": "eb4114158558e4c9",
    "title": "Integrated analysis of proteomics and phosphoproteomics on rat hearts with aging and hypertension",
    "organisms": [
     "NCBITaxon:10116"
@@ -1303,6 +1348,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "154 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -1368,9 +1418,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "99de86300b13a479",
-    "written_utc": "2026-09-25T18:22:54+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "eb4114158558e4c9",
+    "written_utc": "2026-09-25T20:02:33+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -1381,7 +1431,7 @@
   },
   {
    "dataset_id": "PXD027318",
-   "bundle_id": "d6ba854f7a20b7c8",
+   "bundle_id": "df70a8e19fef4216",
    "title": "Identification of a Proteomic Signature of Senescence in Primary Human Mammary Epithelial Cells",
    "organisms": [
     "NCBITaxon:9606"
@@ -1419,12 +1469,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",
@@ -1460,6 +1510,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "263 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -1525,9 +1580,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "d6ba854f7a20b7c8",
-    "written_utc": "2026-09-25T17:42:00+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "df70a8e19fef4216",
+    "written_utc": "2026-09-25T19:27:03+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -1539,7 +1594,7 @@
   },
   {
    "dataset_id": "PXD028852",
-   "bundle_id": "3132570ce9c6920a",
+   "bundle_id": "444e75c571172028",
    "title": "Proteins enriched on damaged lysosomes in 293T",
    "organisms": [
     "NCBITaxon:9606"
@@ -1613,6 +1668,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "4 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -1678,9 +1738,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "3132570ce9c6920a",
-    "written_utc": "2026-09-25T17:58:48+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "444e75c571172028",
+    "written_utc": "2026-09-25T19:42:34+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "peptidoforms_target_1pct"
@@ -1691,7 +1751,7 @@
   },
   {
    "dataset_id": "PXD028975",
-   "bundle_id": "f68ce9690efc2c32",
+   "bundle_id": "0537c3cfc6afa5f6",
    "title": "Engineering Extracellular Vesicles by Three-dimensional Dynamic Culture of Human Mesenchymal Stem Cells",
    "organisms": [
     "NCBITaxon:9606"
@@ -1770,6 +1830,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "177 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -1835,9 +1900,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "f68ce9690efc2c32",
-    "written_utc": "2026-09-25T18:52:59+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "0537c3cfc6afa5f6",
+    "written_utc": "2026-09-25T20:31:19+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -1848,7 +1913,7 @@
   },
   {
    "dataset_id": "PXD029116",
-   "bundle_id": "0794209d64f4f548",
+   "bundle_id": "7170aee68f73fd7b",
    "title": "Articular cartilage proteome differentiates by zones during osteoarthritis",
    "organisms": [
     "NCBITaxon:9606"
@@ -1907,6 +1972,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "15 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -1972,9 +2042,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "0794209d64f4f548",
-    "written_utc": "2026-09-25T18:31:42+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "7170aee68f73fd7b",
+    "written_utc": "2026-09-25T20:10:46+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -1983,7 +2053,7 @@
   },
   {
    "dataset_id": "PXD031782",
-   "bundle_id": "4006e50f63c95138",
+   "bundle_id": "fb6fc2af4a58c6a2",
    "title": "Label-free quantitative (LFQ) proteomic analysis of redox mediated posttranslational modifications (PTM) in the cartilag",
    "organisms": [
     "NCBITaxon:10090"
@@ -2052,6 +2122,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "5 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -2117,9 +2192,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "4006e50f63c95138",
-    "written_utc": "2026-09-25T18:06:13+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "fb6fc2af4a58c6a2",
+    "written_utc": "2026-09-25T19:49:15+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -2128,7 +2203,7 @@
   },
   {
    "dataset_id": "PXD032040",
-   "bundle_id": "6dd6981303ef11a6",
+   "bundle_id": "7759d22e87a1f18a",
    "title": "Translational specialization in pluripotency by RBPMS poises future lineage-decisions",
    "organisms": [
     "NCBITaxon:9606"
@@ -2202,6 +2277,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "53 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -2267,9 +2347,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "6dd6981303ef11a6",
-    "written_utc": "2026-09-25T17:46:54+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "7759d22e87a1f18a",
+    "written_utc": "2026-09-25T19:31:32+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -2278,7 +2358,7 @@
   },
   {
    "dataset_id": "PXD032044",
-   "bundle_id": "83380b6d95dd1170",
+   "bundle_id": "62262736237afd22",
    "title": "Characterization of the skeletal muscle proteome in under-nourished old rats",
    "organisms": [
     "NCBITaxon:10116"
@@ -2301,7 +2381,7 @@
    "n_psms_all": 1798356,
    "n_ptm_sites": 23073,
    "n_quant_values": 599702,
-   "n_open_findings": 7,
+   "n_open_findings": 8,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml",
    "sdrf_status": "absent",
@@ -2334,6 +2414,11 @@
      "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
     },
     {
+     "code": "occupancy_not_stored",
+     "severity": "warning",
+     "message": "Of 106123 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 2 duplicate entry for one site and run. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA."
+    },
+    {
      "code": "unplaced_ptm_sites",
      "severity": "warning",
      "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 5472 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
@@ -2357,6 +2442,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "51 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -2422,20 +2512,20 @@
     }
    },
    "bundle": {
-    "bundle_id": "83380b6d95dd1170",
-    "written_utc": "2026-09-25T18:20:13+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "62262736237afd22",
+    "written_utc": "2026-09-25T20:00:28+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
     ]
    },
-   "summary": "PXD032044 is a DDA label-free dataset (Rattus norvegicus) with 44 runs, 44 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 680,855 PSMs, 30,191 peptidoforms and 2,024 protein groups, and the repository holds 23,073 PTM sites for it. 7 open warnings about it are recorded.",
+   "summary": "PXD032044 is a DDA label-free dataset (Rattus norvegicus) with 44 runs, 44 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 680,855 PSMs, 30,191 peptidoforms and 2,024 protein groups, and the repository holds 23,073 PTM sites for it. 8 open warnings about it are recorded.",
    "page": "datasets/PXD032044.html"
   },
   {
    "dataset_id": "PXD032046",
-   "bundle_id": "8be58feb51c88d63",
+   "bundle_id": "abef4dba118ca3a7",
    "title": "Translational specialization in pluripotency by RBPMS poises future lineage-decisions",
    "organisms": [
     "NCBITaxon:9606"
@@ -2494,6 +2584,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "6 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -2559,9 +2654,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "8be58feb51c88d63",
-    "written_utc": "2026-09-25T18:57:12+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "abef4dba118ca3a7",
+    "written_utc": "2026-09-25T20:35:03+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -2570,7 +2665,7 @@
   },
   {
    "dataset_id": "PXD032202",
-   "bundle_id": "78ff26a87d43197a",
+   "bundle_id": "9db9cd73dd8cd70e",
    "title": "Global and comparative proteome signatures in the lens capsule, trabecular meshwork, and iris of patients with pseudoexfoliation glaucoma",
    "organisms": [
     "NCBITaxon:9606"
@@ -2639,6 +2734,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "293 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -2704,9 +2804,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "78ff26a87d43197a",
-    "written_utc": "2026-09-25T17:45:31+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "9db9cd73dd8cd70e",
+    "written_utc": "2026-09-25T19:30:15+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -2717,7 +2817,7 @@
   },
   {
    "dataset_id": "PXD034432",
-   "bundle_id": "cc3a22e7c4724999",
+   "bundle_id": "e802abda939292cc",
    "title": "Tracking prostate carcinogenesis over time through urine proteome profiling in an animal model: an exploratory approach",
    "organisms": [
     "NCBITaxon:10116"
@@ -2798,6 +2898,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "6 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -2863,9 +2968,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "cc3a22e7c4724999",
-    "written_utc": "2026-09-25T18:35:33+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "e802abda939292cc",
+    "written_utc": "2026-09-25T20:14:02+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -2876,7 +2981,7 @@
   },
   {
    "dataset_id": "PXD036557",
-   "bundle_id": "7fffcea3e4218741",
+   "bundle_id": "d84bfcb323ac073e",
    "title": "Modelling Premature Cardiac Aging with Induced Pluripotent Stem Cells From a Hutchinson-Gilford Progeria Syndrome Patient",
    "organisms": [
     "NCBITaxon:9606"
@@ -2947,6 +3052,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "9 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -3012,9 +3122,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "7fffcea3e4218741",
-    "written_utc": "2026-09-25T17:38:54+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "d84bfcb323ac073e",
+    "written_utc": "2026-09-25T19:23:55+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -3023,7 +3133,7 @@
   },
   {
    "dataset_id": "PXD047289",
-   "bundle_id": "0e3f59a9a66b8853",
+   "bundle_id": "04ddaabe64483eae",
    "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
    "organisms": [
     "NCBITaxon:10116"
@@ -3092,6 +3202,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "8 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -3157,9 +3272,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "0e3f59a9a66b8853",
-    "written_utc": "2026-09-25T18:57:48+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "04ddaabe64483eae",
+    "written_utc": "2026-09-25T20:35:36+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -3168,7 +3283,7 @@
   },
   {
    "dataset_id": "PXD047292",
-   "bundle_id": "f9cc3637fe10b42c",
+   "bundle_id": "2a8b511fe33dc4b8",
    "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
    "organisms": [
     "NCBITaxon:10116"
@@ -3237,6 +3352,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "6 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -3302,9 +3422,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "f9cc3637fe10b42c",
-    "written_utc": "2026-09-25T18:56:04+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "2a8b511fe33dc4b8",
+    "written_utc": "2026-09-25T20:34:01+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -3313,7 +3433,7 @@
   },
   {
    "dataset_id": "PXD049018",
-   "bundle_id": "60b2a1c48564b901",
+   "bundle_id": "c1fafb44894d7875",
    "title": "BJ cyto-nuclear translocation upon STING activation",
    "organisms": [
     "NCBITaxon:9606"
@@ -3387,6 +3507,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "18 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -3452,9 +3577,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "60b2a1c48564b901",
-    "written_utc": "2026-09-25T18:01:11+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "c1fafb44894d7875",
+    "written_utc": "2026-09-25T19:44:49+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -3465,7 +3590,7 @@
   },
   {
    "dataset_id": "PXD050351",
-   "bundle_id": "17bc19e6116be4d1",
+   "bundle_id": "8a18f4d4daeed01e",
    "title": "Targeting upstream Hippo-pathway kinases releases the scaffolder WWC1 to promote synaptic plasticity and long-term memory in mice",
    "organisms": [
     "NCBITaxon:9606"
@@ -3539,6 +3664,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "19 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -3604,9 +3734,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "17bc19e6116be4d1",
-    "written_utc": "2026-09-25T18:02:52+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "8a18f4d4daeed01e",
+    "written_utc": "2026-09-25T19:46:16+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -3617,7 +3747,7 @@
   },
   {
    "dataset_id": "PXD051203",
-   "bundle_id": "37b4e1e3933e2bfa",
+   "bundle_id": "355dfd4878984f70",
    "title": "Protein degradation targets in the retrosplenial cortex of the female aged brain",
    "organisms": [
     "NCBITaxon:10116"
@@ -3696,6 +3826,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "10 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -3761,9 +3896,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "37b4e1e3933e2bfa",
-    "written_utc": "2026-09-25T18:54:23+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "355dfd4878984f70",
+    "written_utc": "2026-09-25T20:32:25+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -3774,7 +3909,7 @@
   },
   {
    "dataset_id": "PXD051644",
-   "bundle_id": "f1c26dd9dd97f777",
+   "bundle_id": "fed06476fcf98a16",
    "title": "Protein degradation targets in hippocampus of the aged brain following context exposure",
    "organisms": [
     "NCBITaxon:10116"
@@ -3848,6 +3983,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "8 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -3913,9 +4053,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "f1c26dd9dd97f777",
-    "written_utc": "2026-09-25T18:53:30+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "fed06476fcf98a16",
+    "written_utc": "2026-09-25T20:31:50+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -3924,7 +4064,7 @@
   },
   {
    "dataset_id": "PXD056433",
-   "bundle_id": "f4b2fb675e4310cb",
+   "bundle_id": "7139fc869f38370a",
    "title": "M1 polyubiquitin targets in the hippocampus of young and aged male rats following contextual fear conditioning",
    "organisms": [
     "NCBITaxon:10116"
@@ -3998,6 +4138,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "39 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -4063,9 +4208,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "f4b2fb675e4310cb",
-    "written_utc": "2026-09-25T18:32:29+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "7139fc869f38370a",
+    "written_utc": "2026-09-25T20:11:31+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -4074,7 +4219,7 @@
   },
   {
    "dataset_id": "PXD058082",
-   "bundle_id": "460554023945f3ff",
+   "bundle_id": "15fe0bf10bd9091a",
    "title": "Major toxin composition of particulate matter from a coal-fired power plant and its proteomics-associated toxicological ",
    "organisms": [
     "NCBITaxon:10090"
@@ -4208,9 +4353,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "460554023945f3ff",
-    "written_utc": "2026-09-25T18:23:26+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "15fe0bf10bd9091a",
+    "written_utc": "2026-09-25T20:02:57+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -4219,7 +4364,7 @@
   },
   {
    "dataset_id": "PXD058248",
-   "bundle_id": "038fc47dd49568af",
+   "bundle_id": "80455dad14f8880d",
    "title": "K63 polyubiquitin targets in the hippocampus across the lifespan",
    "organisms": [
     "NCBITaxon:10116"
@@ -4288,6 +4433,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "120 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -4353,9 +4503,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "038fc47dd49568af",
-    "written_utc": "2026-09-25T18:55:31+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "80455dad14f8880d",
+    "written_utc": "2026-09-25T20:33:30+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -4364,7 +4514,7 @@
   },
   {
    "dataset_id": "PXD058611",
-   "bundle_id": "a27fbad7bf0e5f96",
+   "bundle_id": "15e4ffafc4e4420d",
    "title": "Enhanced non-enzymatic H2S generation extends lifespan and healthspan in male mice",
    "organisms": [
     "NCBITaxon:10090"
@@ -4443,6 +4593,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "63 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -4508,9 +4663,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "a27fbad7bf0e5f96",
-    "written_utc": "2026-09-25T18:05:21+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "15e4ffafc4e4420d",
+    "written_utc": "2026-09-25T19:48:29+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -4521,7 +4676,7 @@
   },
   {
    "dataset_id": "PXD059818",
-   "bundle_id": "5e0a4e8c68bdb9ab",
+   "bundle_id": "0cf2eb213a13c89f",
    "title": "Simultaneous profiling of native-state proteomes and transcriptomes of brain cell types using proximity labeling",
    "organisms": [
     "NCBITaxon:10090"
@@ -4600,6 +4755,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "50 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -4665,9 +4825,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "5e0a4e8c68bdb9ab",
-    "written_utc": "2026-09-25T18:30:51+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "0cf2eb213a13c89f",
+    "written_utc": "2026-09-25T20:10:03+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -4678,7 +4838,7 @@
   },
   {
    "dataset_id": "PXD067622",
-   "bundle_id": "9eaf317f9d51e6df",
+   "bundle_id": "263d368c4503b3b6",
    "title": "DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging and Embryonic Lethality",
    "organisms": [
     "NCBITaxon:9606"
@@ -4752,6 +4912,11 @@
      "code": "no_output_sdrf",
      "severity": "info",
      "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "105 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
     }
    ],
    "modifications": [
@@ -4817,9 +4982,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "9eaf317f9d51e6df",
-    "written_utc": "2026-09-25T17:53:15+00:00",
-    "ingester_version": "0.19.1",
+    "bundle_id": "263d368c4503b3b6",
+    "written_utc": "2026-09-25T19:37:52+00:00",
+    "ingester_version": "0.21.0",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"

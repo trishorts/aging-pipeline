@@ -19,11 +19,11 @@
  "name": "PXD051203 reanalysis: Protein degradation targets in the retrosplenial cortex of the female aged brain",
  "identifier": [
   "PXD051203",
-  "datarepo:bundle:dc67feb364db01df"
+  "datarepo:bundle:37b4e1e3933e2bfa"
  ],
- "description": "PXD051203 is a DDA label-free dataset (Rattus norvegicus) with 40 runs, 40 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 34,047 PSMs, 3,744 peptidoforms and 797 protein groups, and the repository holds 2,048 PTM sites for it. 8 open warnings about it are recorded.",
- "version": "dc67feb364db01df",
- "dateModified": "2026-09-25T02:50:32+00:00",
+ "description": "PXD051203 is a DDA label-free dataset (Rattus norvegicus) with 39 runs, 39 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 34,047 PSMs, 3,744 peptidoforms and 797 protein groups, and the repository holds 2,048 PTM sites for it. 7 open warnings about it are recorded.",
+ "version": "37b4e1e3933e2bfa",
+ "dateModified": "2026-09-25T18:54:23+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 62d419643e71320c",
+  "name": "datarepo catalog 313bf7ff28f87beb",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,18 +61,18 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD051203 is a DDA label-free dataset (Rattus norvegicus) with 40 runs, 40 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 34,047 PSMs, 3,744 peptidoforms and 797 protein groups, and the repository holds 2,048 PTM sites for it. 8 open warnings about it are recorded.
+PXD051203 is a DDA label-free dataset (Rattus norvegicus) with 39 runs, 39 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 34,047 PSMs, 3,744 peptidoforms and 797 protein groups, and the repository holds 2,048 PTM sites for it. 7 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 40 where the producer reported 39 (ingest manifest: files). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 34047 where the producer reported 34043 (results.txt: All target PSMs with q-value &lt;= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>76.87% of protein intensity in the worst file, 49.20% median across 39 files (DEF-QC-9 v3.5)</div>
-<div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 34043/613899 = 5.55% of MS2 identified (S3)</div>
+<div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 34043/613377 = 5.55% of MS2 identified (S3)</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 188 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
 <div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
+<div class="finding info"><span class="code">excluded_from_search</span> <span class="note">info</span><br>The deposited file 240301_JaromeFemaleRSC_A5_02.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer&#x27;s reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: f4f31154ab874df1927de64e68c58aff8109a154fd3651399614fc6b5ac6f6e1.</div>
 <div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
 
 <h2>What was found</h2>
@@ -95,7 +95,7 @@ PXD051203 is a DDA label-free dataset (Rattus norvegicus) with 40 runs, 40 sampl
 <dt>Labelling</dt><dd>none</dd>
 <dt>Enrichment</dt><dd>affinity_purification</dd>
 <dt>Instrument vendor</dt><dd>not recorded</dd>
-<dt>Runs / samples</dt><dd>40 / 40</dd>
+<dt>Runs / samples</dt><dd>39 / 39</dd>
 <dt>Sample metadata</dt><dd>absent</dd>
 <dt>Search engine</dt><dd>MetaMorpheus 1.1.11</dd>
 <dt>Protein database</dt><dd>uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml</dd>
@@ -123,16 +123,16 @@ modification has no UNIMOD term in the registry that searched it, not that it is
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>dc67feb364db01df</code>, written 2026-09-25T02:50:32+00:00 by ingester 0.19.0</dd>
-<dt>Reconciliation</dt><dd>failed: psms_target_1pct, runs <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
+<dt>Bundle</dt><dd><code>37b4e1e3933e2bfa</code>, written 2026-09-25T18:54:23+00:00 by ingester 0.19.1</dd>
+<dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.19.0 from catalog
-<code>62d419643e71320c</code>, built 2026-09-25T10:24:16+00:00 by datarepo
-0.19.0 (schema 0.0.9).
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.19.1 from catalog
+<code>313bf7ff28f87beb</code>, built 2026-09-25T19:02:55+00:00 by datarepo
+0.19.1 (schema 0.0.9).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "62d419643e71320c",
+  "catalog_id": "313bf7ff28f87beb",
   "catalog_version": "5",
   "schema_version": "0.0.9",
-  "builder_version": "0.19.0",
-  "built_utc": "2026-09-25T10:24:16+00:00",
+  "builder_version": "0.19.1",
+  "built_utc": "2026-09-25T19:02:55+00:00",
   "instance": "aging"
  },
  "datasets": [
   {
    "dataset_id": "PXD010115",
-   "bundle_id": "d7579aab0cd90e79",
+   "bundle_id": "e0758a505529c623",
    "title": "Quantification of the Soluble Receptor of Advanced Glycation End-Products (sRAGE) by LC-MS Without the Use of Affinity Enrichment",
    "organisms": [
     "NCBITaxon:9606"
@@ -156,9 +156,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "d7579aab0cd90e79",
-    "written_utc": "2026-09-25T00:09:21+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "e0758a505529c623",
+    "written_utc": "2026-09-25T18:33:41+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -170,7 +170,7 @@
   },
   {
    "dataset_id": "PXD011314",
-   "bundle_id": "bac1b92dc175b5a3",
+   "bundle_id": "36d13bf5ca438efa",
    "title": "Profiling of Methylglyoxal Blood Metabolism and Advanced Glycation End-Product Proteome using a Chemical Probe",
    "organisms": [
     "NCBITaxon:9606"
@@ -311,9 +311,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "bac1b92dc175b5a3",
-    "written_utc": "2026-09-25T00:02:55+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "36d13bf5ca438efa",
+    "written_utc": "2026-09-25T18:26:36+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -322,7 +322,7 @@
   },
   {
    "dataset_id": "PXD018315",
-   "bundle_id": "9217ce58a20da294",
+   "bundle_id": "e6ed92b89fa49aad",
    "title": "Identification of proteins that interact with the lncRNA Sarrah",
    "organisms": [
     "NCBITaxon:10090"
@@ -456,9 +456,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "9217ce58a20da294",
-    "written_utc": "2026-09-25T00:10:31+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "e6ed92b89fa49aad",
+    "written_utc": "2026-09-25T18:35:14+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -467,7 +467,7 @@
   },
   {
    "dataset_id": "PXD018655",
-   "bundle_id": "7e6c08fc41aa9aba",
+   "bundle_id": "213dce9dee65aafd",
    "title": "Proteomic analysis of small extracellular vesicles derived from human ESCs",
    "organisms": [
     "NCBITaxon:9606"
@@ -611,9 +611,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "7e6c08fc41aa9aba",
-    "written_utc": "2026-09-25T00:02:20+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "213dce9dee65aafd",
+    "written_utc": "2026-09-25T18:25:58+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -625,7 +625,7 @@
   },
   {
    "dataset_id": "PXD022128",
-   "bundle_id": "59460165d396ca40",
+   "bundle_id": "f0ceb450a28ce75d",
    "title": "A genome-wide screen for essentiality upon telomerase inhibition identifies a novel p53 regulator, C16ORF72/TAPR1",
    "organisms": [
     "NCBITaxon:9606"
@@ -759,9 +759,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "59460165d396ca40",
-    "written_utc": "2026-09-25T00:11:26+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "f0ceb450a28ce75d",
+    "written_utc": "2026-09-25T18:36:13+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -770,7 +770,7 @@
   },
   {
    "dataset_id": "PXD022180",
-   "bundle_id": "7a947d54b275aa48",
+   "bundle_id": "6566aacdbcae8c5a",
    "title": "Mytho, An Uncharacterized Gene that Controls Longevity and WIPI2-dependent Autophagy",
    "organisms": [
     "NCBITaxon:9606"
@@ -904,9 +904,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "7a947d54b275aa48",
-    "written_utc": "2026-09-25T10:20:49+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "6566aacdbcae8c5a",
+    "written_utc": "2026-09-25T18:58:59+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -918,7 +918,7 @@
   },
   {
    "dataset_id": "PXD023381",
-   "bundle_id": "59a125d7b2ff7555",
+   "bundle_id": "e96c01fac55c7b8d",
    "title": "Transcriptional and proteomic characterization of telomere-induced senescence in a human alveolar epithelial cell line",
    "organisms": [
     "NCBITaxon:9606"
@@ -1062,9 +1062,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "59a125d7b2ff7555",
-    "written_utc": "2026-09-24T23:45:13+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "e96c01fac55c7b8d",
+    "written_utc": "2026-09-25T18:03:40+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -1075,7 +1075,7 @@
   },
   {
    "dataset_id": "PXD024803",
-   "bundle_id": "2aac5b4cdf84f508",
+   "bundle_id": "2ddbc7cacb0b40ec",
    "title": "CHD6 IP from human induced pluripotent stem cells LC-MS-MS",
    "organisms": [
     "NCBITaxon:9606"
@@ -1219,9 +1219,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "2aac5b4cdf84f508",
-    "written_utc": "2026-09-24T23:39:25+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "2ddbc7cacb0b40ec",
+    "written_utc": "2026-09-25T17:57:18+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -1232,7 +1232,7 @@
   },
   {
    "dataset_id": "PXD026608",
-   "bundle_id": "65cd34696bfec25b",
+   "bundle_id": "99de86300b13a479",
    "title": "Integrated analysis of proteomics and phosphoproteomics on rat hearts with aging and hypertension",
    "organisms": [
     "NCBITaxon:10116"
@@ -1368,9 +1368,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "65cd34696bfec25b",
-    "written_utc": "2026-09-24T23:59:47+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "99de86300b13a479",
+    "written_utc": "2026-09-25T18:22:54+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -1381,7 +1381,7 @@
   },
   {
    "dataset_id": "PXD027318",
-   "bundle_id": "b98033667fae2715",
+   "bundle_id": "d6ba854f7a20b7c8",
    "title": "Identification of a Proteomic Signature of Senescence in Primary Human Mammary Epithelial Cells",
    "organisms": [
     "NCBITaxon:9606"
@@ -1525,9 +1525,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "b98033667fae2715",
-    "written_utc": "2026-09-24T23:19:08+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "d6ba854f7a20b7c8",
+    "written_utc": "2026-09-25T17:42:00+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct",
@@ -1539,7 +1539,7 @@
   },
   {
    "dataset_id": "PXD028852",
-   "bundle_id": "a0672f09f783afde",
+   "bundle_id": "3132570ce9c6920a",
    "title": "Proteins enriched on damaged lysosomes in 293T",
    "organisms": [
     "NCBITaxon:9606"
@@ -1678,9 +1678,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "a0672f09f783afde",
-    "written_utc": "2026-09-24T23:40:52+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "3132570ce9c6920a",
+    "written_utc": "2026-09-25T17:58:48+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "peptidoforms_target_1pct"
@@ -1691,7 +1691,7 @@
   },
   {
    "dataset_id": "PXD028975",
-   "bundle_id": "6c0047e371ed6267",
+   "bundle_id": "f68ce9690efc2c32",
    "title": "Engineering Extracellular Vesicles by Three-dimensional Dynamic Culture of Human Mesenchymal Stem Cells",
    "organisms": [
     "NCBITaxon:9606"
@@ -1835,9 +1835,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "6c0047e371ed6267",
-    "written_utc": "2026-09-25T00:26:35+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "f68ce9690efc2c32",
+    "written_utc": "2026-09-25T18:52:59+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -1848,7 +1848,7 @@
   },
   {
    "dataset_id": "PXD029116",
-   "bundle_id": "60d9f40cf5ceec08",
+   "bundle_id": "0794209d64f4f548",
    "title": "Articular cartilage proteome differentiates by zones during osteoarthritis",
    "organisms": [
     "NCBITaxon:9606"
@@ -1972,9 +1972,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "60d9f40cf5ceec08",
-    "written_utc": "2026-09-25T00:07:41+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "0794209d64f4f548",
+    "written_utc": "2026-09-25T18:31:42+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -1983,7 +1983,7 @@
   },
   {
    "dataset_id": "PXD031782",
-   "bundle_id": "532a2da146ea483f",
+   "bundle_id": "4006e50f63c95138",
    "title": "Label-free quantitative (LFQ) proteomic analysis of redox mediated posttranslational modifications (PTM) in the cartilag",
    "organisms": [
     "NCBITaxon:10090"
@@ -2117,9 +2117,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "532a2da146ea483f",
-    "written_utc": "2026-09-24T23:47:19+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "4006e50f63c95138",
+    "written_utc": "2026-09-25T18:06:13+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -2128,7 +2128,7 @@
   },
   {
    "dataset_id": "PXD032040",
-   "bundle_id": "e7d75ddab47ae499",
+   "bundle_id": "6dd6981303ef11a6",
    "title": "Translational specialization in pluripotency by RBPMS poises future lineage-decisions",
    "organisms": [
     "NCBITaxon:9606"
@@ -2267,9 +2267,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "e7d75ddab47ae499",
-    "written_utc": "2026-09-24T23:24:54+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "6dd6981303ef11a6",
+    "written_utc": "2026-09-25T17:46:54+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -2278,7 +2278,7 @@
   },
   {
    "dataset_id": "PXD032044",
-   "bundle_id": "0b1e91db5f178451",
+   "bundle_id": "83380b6d95dd1170",
    "title": "Characterization of the skeletal muscle proteome in under-nourished old rats",
    "organisms": [
     "NCBITaxon:10116"
@@ -2422,9 +2422,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "0b1e91db5f178451",
-    "written_utc": "2026-09-24T23:57:47+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "83380b6d95dd1170",
+    "written_utc": "2026-09-25T18:20:13+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -2435,7 +2435,7 @@
   },
   {
    "dataset_id": "PXD032046",
-   "bundle_id": "3d7a039316c742bb",
+   "bundle_id": "8be58feb51c88d63",
    "title": "Translational specialization in pluripotency by RBPMS poises future lineage-decisions",
    "organisms": [
     "NCBITaxon:9606"
@@ -2559,9 +2559,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "3d7a039316c742bb",
-    "written_utc": "2026-09-25T05:41:08+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "8be58feb51c88d63",
+    "written_utc": "2026-09-25T18:57:12+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -2570,7 +2570,7 @@
   },
   {
    "dataset_id": "PXD032202",
-   "bundle_id": "51e69ede8f6d84b0",
+   "bundle_id": "78ff26a87d43197a",
    "title": "Global and comparative proteome signatures in the lens capsule, trabecular meshwork, and iris of patients with pseudoexfoliation glaucoma",
    "organisms": [
     "NCBITaxon:9606"
@@ -2704,9 +2704,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "51e69ede8f6d84b0",
-    "written_utc": "2026-09-24T23:22:54+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "78ff26a87d43197a",
+    "written_utc": "2026-09-25T17:45:31+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -2717,7 +2717,7 @@
   },
   {
    "dataset_id": "PXD034432",
-   "bundle_id": "a27c8e7f190d895a",
+   "bundle_id": "cc3a22e7c4724999",
    "title": "Tracking prostate carcinogenesis over time through urine proteome profiling in an animal model: an exploratory approach",
    "organisms": [
     "NCBITaxon:10116"
@@ -2863,9 +2863,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "a27c8e7f190d895a",
-    "written_utc": "2026-09-25T00:10:48+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "cc3a22e7c4724999",
+    "written_utc": "2026-09-25T18:35:33+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -2876,7 +2876,7 @@
   },
   {
    "dataset_id": "PXD036557",
-   "bundle_id": "7b2c30d78080c9d5",
+   "bundle_id": "7fffcea3e4218741",
    "title": "Modelling Premature Cardiac Aging with Induced Pluripotent Stem Cells From a Hutchinson-Gilford Progeria Syndrome Patient",
    "organisms": [
     "NCBITaxon:9606"
@@ -3012,9 +3012,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "7b2c30d78080c9d5",
-    "written_utc": "2026-09-24T23:15:29+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "7fffcea3e4218741",
+    "written_utc": "2026-09-25T17:38:54+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -3023,7 +3023,7 @@
   },
   {
    "dataset_id": "PXD047289",
-   "bundle_id": "5b85582634ccf12a",
+   "bundle_id": "0e3f59a9a66b8853",
    "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
    "organisms": [
     "NCBITaxon:10116"
@@ -3157,9 +3157,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "5b85582634ccf12a",
-    "written_utc": "2026-09-25T08:49:42+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "0e3f59a9a66b8853",
+    "written_utc": "2026-09-25T18:57:48+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -3168,7 +3168,7 @@
   },
   {
    "dataset_id": "PXD047292",
-   "bundle_id": "0cb6a8b5cb26876e",
+   "bundle_id": "f9cc3637fe10b42c",
    "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
    "organisms": [
     "NCBITaxon:10116"
@@ -3302,9 +3302,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "0cb6a8b5cb26876e",
-    "written_utc": "2026-09-25T04:53:41+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "f9cc3637fe10b42c",
+    "written_utc": "2026-09-25T18:56:04+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -3313,7 +3313,7 @@
   },
   {
    "dataset_id": "PXD049018",
-   "bundle_id": "4bedc7eda6e99469",
+   "bundle_id": "60b2a1c48564b901",
    "title": "BJ cyto-nuclear translocation upon STING activation",
    "organisms": [
     "NCBITaxon:9606"
@@ -3452,9 +3452,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "4bedc7eda6e99469",
-    "written_utc": "2026-09-24T23:43:02+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "60b2a1c48564b901",
+    "written_utc": "2026-09-25T18:01:11+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -3465,7 +3465,7 @@
   },
   {
    "dataset_id": "PXD050351",
-   "bundle_id": "b07c91235e44716d",
+   "bundle_id": "17bc19e6116be4d1",
    "title": "Targeting upstream Hippo-pathway kinases releases the scaffolder WWC1 to promote synaptic plasticity and long-term memory in mice",
    "organisms": [
     "NCBITaxon:9606"
@@ -3604,9 +3604,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "b07c91235e44716d",
-    "written_utc": "2026-09-24T23:44:32+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "17bc19e6116be4d1",
+    "written_utc": "2026-09-25T18:02:52+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -3617,7 +3617,7 @@
   },
   {
    "dataset_id": "PXD051203",
-   "bundle_id": "dc67feb364db01df",
+   "bundle_id": "37b4e1e3933e2bfa",
    "title": "Protein degradation targets in the retrosplenial cortex of the female aged brain",
    "organisms": [
     "NCBITaxon:10116"
@@ -3632,15 +3632,15 @@
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
-   "n_runs": 40,
-   "n_samples": 40,
+   "n_runs": 39,
+   "n_samples": 39,
    "n_psms_1pct": 34047,
    "n_peptidoforms_1pct": 3744,
    "n_protein_groups_1pct": 797,
    "n_psms_all": 145048,
    "n_ptm_sites": 2048,
    "n_quant_values": 94399,
-   "n_open_findings": 8,
+   "n_open_findings": 7,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml",
    "sdrf_status": "absent",
@@ -3655,11 +3655,6 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 40 where the producer reported 39 (ingest manifest: files). Both numbers are kept; treat the producer's as canonical until the difference is explained."
-    },
-    {
-     "code": "count_mismatch",
-     "severity": "warning",
      "message": "The bundle holds 34047 where the producer reported 34043 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
@@ -3670,7 +3665,7 @@
     {
      "code": "low_id_rate",
      "severity": "warning",
-     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 34043/613899 = 5.55% of MS2 identified (S3)"
+     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 34043/613377 = 5.55% of MS2 identified (S3)"
     },
     {
      "code": "no_design_file",
@@ -3691,6 +3686,11 @@
      "code": "unresolved_modifications",
      "severity": "warning",
      "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "excluded_from_search",
+     "severity": "info",
+     "message": "The deposited file 240301_JaromeFemaleRSC_A5_02.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: f4f31154ab874df1927de64e68c58aff8109a154fd3651399614fc6b5ac6f6e1."
     },
     {
      "code": "no_output_sdrf",
@@ -3761,21 +3761,20 @@
     }
    },
    "bundle": {
-    "bundle_id": "dc67feb364db01df",
-    "written_utc": "2026-09-25T02:50:32+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "37b4e1e3933e2bfa",
+    "written_utc": "2026-09-25T18:54:23+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
-     "psms_target_1pct",
-     "runs"
+     "psms_target_1pct"
     ]
    },
-   "summary": "PXD051203 is a DDA label-free dataset (Rattus norvegicus) with 40 runs, 40 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 34,047 PSMs, 3,744 peptidoforms and 797 protein groups, and the repository holds 2,048 PTM sites for it. 8 open warnings about it are recorded.",
+   "summary": "PXD051203 is a DDA label-free dataset (Rattus norvegicus) with 39 runs, 39 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 34,047 PSMs, 3,744 peptidoforms and 797 protein groups, and the repository holds 2,048 PTM sites for it. 7 open warnings about it are recorded.",
    "page": "datasets/PXD051203.html"
   },
   {
    "dataset_id": "PXD051644",
-   "bundle_id": "16b2db36e2c00fa2",
+   "bundle_id": "f1c26dd9dd97f777",
    "title": "Protein degradation targets in hippocampus of the aged brain following context exposure",
    "organisms": [
     "NCBITaxon:10116"
@@ -3790,15 +3789,15 @@
    "instrument_vendor": null,
    "search_engine": "MetaMorpheus",
    "search_engine_version": "1.1.11",
-   "n_runs": 24,
-   "n_samples": 24,
+   "n_runs": 23,
+   "n_samples": 23,
    "n_psms_1pct": 24449,
    "n_peptidoforms_1pct": 2293,
    "n_protein_groups_1pct": 497,
    "n_psms_all": 109421,
    "n_ptm_sites": 1696,
    "n_quant_values": 50926,
-   "n_open_findings": 7,
+   "n_open_findings": 6,
    "instruments": null,
    "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml",
    "sdrf_status": "absent",
@@ -3811,11 +3810,6 @@
    "credit": "NCEMS Aging Proteome Working Group",
    "findings": [
     {
-     "code": "count_mismatch",
-     "severity": "warning",
-     "message": "The bundle holds 24 where the producer reported 23 (ingest manifest: files). Both numbers are kept; treat the producer's as canonical until the difference is explained."
-    },
-    {
      "code": "high_contamination",
      "severity": "warning",
      "message": "60.87% of protein intensity in the worst file, 47.38% median across 23 files (DEF-QC-9 v3.5)"
@@ -3823,7 +3817,7 @@
     {
      "code": "low_id_rate",
      "severity": "warning",
-     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 24449/381923 = 6.40% of MS2 identified (S3)"
+     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 24449/381822 = 6.40% of MS2 identified (S3)"
     },
     {
      "code": "no_design_file",
@@ -3844,6 +3838,11 @@
      "code": "unresolved_modifications",
      "severity": "warning",
      "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "excluded_from_search",
+     "severity": "info",
+     "message": "The deposited file 240316_JaromeMale_M1_01.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: c88456b671c622d518a90f261abf31f59558c1e32c3d19b132ae33893a36a171."
     },
     {
      "code": "no_output_sdrf",
@@ -3914,20 +3913,18 @@
     }
    },
    "bundle": {
-    "bundle_id": "16b2db36e2c00fa2",
-    "written_utc": "2026-09-25T00:27:29+00:00",
-    "ingester_version": "0.19.0",
-    "reconciliation_ok": false,
-    "reconciliation_failed": [
-     "runs"
-    ]
+    "bundle_id": "f1c26dd9dd97f777",
+    "written_utc": "2026-09-25T18:53:30+00:00",
+    "ingester_version": "0.19.1",
+    "reconciliation_ok": true,
+    "reconciliation_failed": []
    },
-   "summary": "PXD051644 is a DDA label-free dataset (Rattus norvegicus) with 24 runs, 24 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 24,449 PSMs, 2,293 peptidoforms and 497 protein groups, and the repository holds 1,696 PTM sites for it. 7 open warnings about it are recorded.",
+   "summary": "PXD051644 is a DDA label-free dataset (Rattus norvegicus) with 23 runs, 23 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 24,449 PSMs, 2,293 peptidoforms and 497 protein groups, and the repository holds 1,696 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD051644.html"
   },
   {
    "dataset_id": "PXD056433",
-   "bundle_id": "29687c13314724d5",
+   "bundle_id": "f4b2fb675e4310cb",
    "title": "M1 polyubiquitin targets in the hippocampus of young and aged male rats following contextual fear conditioning",
    "organisms": [
     "NCBITaxon:10116"
@@ -4066,9 +4063,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "29687c13314724d5",
-    "written_utc": "2026-09-25T00:08:24+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "f4b2fb675e4310cb",
+    "written_utc": "2026-09-25T18:32:29+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -4077,7 +4074,7 @@
   },
   {
    "dataset_id": "PXD058082",
-   "bundle_id": "c045a6ef5769e849",
+   "bundle_id": "460554023945f3ff",
    "title": "Major toxin composition of particulate matter from a coal-fired power plant and its proteomics-associated toxicological ",
    "organisms": [
     "NCBITaxon:10090"
@@ -4211,9 +4208,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "c045a6ef5769e849",
-    "written_utc": "2026-09-25T00:00:10+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "460554023945f3ff",
+    "written_utc": "2026-09-25T18:23:26+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -4222,7 +4219,7 @@
   },
   {
    "dataset_id": "PXD058248",
-   "bundle_id": "cb823e2117f4241b",
+   "bundle_id": "038fc47dd49568af",
    "title": "K63 polyubiquitin targets in the hippocampus across the lifespan",
    "organisms": [
     "NCBITaxon:10116"
@@ -4356,9 +4353,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "cb823e2117f4241b",
-    "written_utc": "2026-09-25T04:06:26+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "038fc47dd49568af",
+    "written_utc": "2026-09-25T18:55:31+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": true,
     "reconciliation_failed": []
    },
@@ -4367,7 +4364,7 @@
   },
   {
    "dataset_id": "PXD058611",
-   "bundle_id": "150fdcc1153e1f64",
+   "bundle_id": "a27fbad7bf0e5f96",
    "title": "Enhanced non-enzymatic H2S generation extends lifespan and healthspan in male mice",
    "organisms": [
     "NCBITaxon:10090"
@@ -4511,9 +4508,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "150fdcc1153e1f64",
-    "written_utc": "2026-09-24T23:46:35+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "a27fbad7bf0e5f96",
+    "written_utc": "2026-09-25T18:05:21+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -4524,7 +4521,7 @@
   },
   {
    "dataset_id": "PXD059818",
-   "bundle_id": "1e6ed8b3798fd3f5",
+   "bundle_id": "5e0a4e8c68bdb9ab",
    "title": "Simultaneous profiling of native-state proteomes and transcriptomes of brain cell types using proximity labeling",
    "organisms": [
     "NCBITaxon:10090"
@@ -4668,9 +4665,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "1e6ed8b3798fd3f5",
-    "written_utc": "2026-09-25T00:06:59+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "5e0a4e8c68bdb9ab",
+    "written_utc": "2026-09-25T18:30:51+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"
@@ -4681,7 +4678,7 @@
   },
   {
    "dataset_id": "PXD067622",
-   "bundle_id": "b032991f6805b572",
+   "bundle_id": "9eaf317f9d51e6df",
    "title": "DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging and Embryonic Lethality",
    "organisms": [
     "NCBITaxon:9606"
@@ -4820,9 +4817,9 @@
     }
    },
    "bundle": {
-    "bundle_id": "b032991f6805b572",
-    "written_utc": "2026-09-24T23:34:11+00:00",
-    "ingester_version": "0.19.0",
+    "bundle_id": "9eaf317f9d51e6df",
+    "written_utc": "2026-09-25T17:53:15+00:00",
+    "ingester_version": "0.19.1",
     "reconciliation_ok": false,
     "reconciliation_failed": [
      "psms_target_1pct"

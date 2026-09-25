@@ -6,6 +6,12 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 
 ## [Unreleased]
 
+### Fixed
+- **`id_rate.ms2` counts only the files the search saw.** It summed the QC report, which covers every file
+  on disk, so a file in `search.exclude_files` (D52) inflated the denominator: PXD051644's excluded blank
+  added 101 MS2 scans that `results.txt` never counted (381,923 against 381,822). `reprovenance.py`
+  re-derives an existing record the same way.
+
 ### Changed
 - **The qc payload names the grain of every count, and its PSM metrics use MetaMorpheus's own 1% filter.**
   The per-file `psms` / `peptides` / `protein_groups` counts now carry the run-grain definitions

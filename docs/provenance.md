@@ -120,7 +120,7 @@ provenance keeps both, each with its own definition:
 |---|---|
 | `psms_1pct` | **The canonical count.** The summary line `All target PSMs with q-value <= 0.01`: target PSMs only |
 | `definition` | `aging DEF-PSM-1PCT v1` |
-| `ms2` | MS2 scans across all files, from the QC report |
+| `ms2` | MS2 scans across the searched files, from the QC report. A file in `search.exclude_files` is left out, so this equals `results.txt`'s `All MS2 Scans` |
 | `rate` | `psms_1pct ÷ ms2`. The `low_id_rate` flag uses it |
 | `psms_fdr_engine_1pct` | The FDR engine's log line `PSMs within 1% FDR` (its first occurrence). It is higher, and it appears to include contaminant PSMs. Report `psms_1pct`, not this |
 | `psms_fdr_engine_definition` | `aging DEF-PSM-FDRENGINE v1` |

@@ -124,7 +124,11 @@ def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
         m = re.search(r"All target PSMs with q-value <= 0\.01: (\d+)", txt)
         e = re.search(r"PSMs within 1% FDR: (\d+)", txt)
         psms = int(m.group(1)) if m else None
-        ms2 = sum(r["ms2"] for r in json.loads(qc.read_text(encoding="utf-8")).values())
+        # The denominator is the MS2 the search saw. The QC report covers every file on disk, so a file in
+        # `search.exclude_files` (D52) is left out here, or the rate counts scans nobody searched
+        # (DATAREPO-52: PXD051644's excluded blank added 101 scans that results.txt never saw).
+        excluded = set(p.get("exclude_files") or [])
+        ms2 = sum(r["ms2"] for n, r in json.loads(qc.read_text(encoding="utf-8")).items() if n not in excluded)
         blocks["id_rate"] = {"definition": "aging DEF-PSM-1PCT v1", "psms_1pct": psms, "ms2": ms2,
                                "rate": round(psms / ms2, 4) if psms and ms2 else None,
                                "psms_fdr_engine_1pct": int(e.group(1)) if e else None,

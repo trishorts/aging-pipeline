@@ -261,7 +261,7 @@ provenance names that case.
 
 **Measurements it adds to the provenance:**
 - `id_rate`: target PSMs at 1% FDR (the summary line of `results.txt`) over the MS2 count from the QC
-  report ([definition](provenance.md#id-rate)).
+  report, summed over the searched files only ([definition](provenance.md#id-rate)).
 - `mbr`: match-between-runs counts ([how they are counted](provenance.md#match-between-runs)).
 - `contamination`: the share of contaminant PSMs and intensity ([definition](provenance.md#contamination)).
 - `flags`: [automatic flags](provenance.md#automatic-flags) for follow-up.

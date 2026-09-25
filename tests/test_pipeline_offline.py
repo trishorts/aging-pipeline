@@ -303,6 +303,8 @@ def test_an_excluded_file_that_failed_qc_does_not_block_the_search(layout, work,
     assert rec["excluded_files"] == {"files": ["b.raw"], "reason": "D52: too_few_ms2"}
     run_cmd = rec["commands"][-1]
     assert not any(a.endswith("b.raw") for a in run_cmd)
+    # DATAREPO-52: the id-rate denominator is the searched files' MS2 only, not b.raw's 2 as well
+    assert rec["id_rate"]["ms2"] == 20
 
 
 def test_each_database_keeps_its_own_provenance_record(layout, work):

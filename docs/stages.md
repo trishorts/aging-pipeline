@@ -135,6 +135,11 @@ python bin/fetch.py <params.json> <accession> <out_dir>
      to check the acquisition. The smallest file is often a blank or a failed run, so it isn't chosen
      unless it's the only candidate left.
    - `first_by_name`: the first `max_files` files by name.
+   - `probe_spread`: up to three files for an acquisition probe: the median by size, and the first and
+     last by name (`max_files` is ignored). One median file cannot see a deposit that mixes methods;
+     PXD022196's did not, and 11 of its 43 files turned out to be ion-trap CID. Names usually carry the
+     instrument, date or batch, so the two ends of the name order reach a second method cheaply. The
+     smallest file is left out while any other remains.
 
    Any other value is rejected before anything is downloaded.
 

@@ -32,6 +32,29 @@ from pymzlib._bridge import BridgeError
 from provenance import Provenance, pymzlib_tool
 
 
+PICKS = ("all", "median_size", "first_by_name", "probe_spread")
+
+
+def probe_spread(raws: list) -> list:
+    """Up to three probe files: the median by size, and the first and last by name.
+
+    One median file cannot see a deposit that mixes acquisition methods. PXD022196's median file was a
+    QE-HF Orbitrap/HCD run and passed, and only after all 43 files had downloaded did QC find 11 Fusion
+    files with ion-trap CID MS2. Their names sort to one end (`Fusion_2020...` against `QEHF_2019...`),
+    as instrument, date and batch prefixes usually do, so the two ends of the name order are the cheapest
+    way to reach a second method. The smallest file is left out while any other remains (user rule: it is
+    often a blank). `raws` must be sorted by size, smallest first.
+    """
+    pool = raws[1:] if len(raws) > 1 else raws
+    by_name = sorted(pool, key=lambda f: f.file_name)
+    picks = [raws[len(raws) // 2], by_name[0], by_name[-1]]
+    chosen, seen = [], set()
+    for f in picks:
+        if f.file_name not in seen:
+            seen.add(f.file_name); chosen.append(f)
+    return chosen
+
+
 def sha256(path: Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as fh:
@@ -99,8 +122,8 @@ def download_with_retry(f, spectra_dir, timeout, attempts=3, backoff_s=10.0):
 
 def main(params_path: str, accession: str, out_dir: str) -> None:
     p = json.loads(Path(params_path).read_text(encoding="utf-8"))["fetch"]
-    if p["pick"] not in ("median_size", "first_by_name", "all"):
-        sys.exit(f"fetch.pick = {p['pick']!r}: expected median_size, first_by_name or all")
+    if p["pick"] not in PICKS:
+        sys.exit(f"fetch.pick = {p['pick']!r}: expected one of {', '.join(PICKS)}")
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     prov = Provenance("fetch", params_path, "fetch"); pymzlib_tool(prov)
     prov.rec["accession"] = accession
@@ -134,6 +157,8 @@ def main(params_path: str, accession: str, out_dir: str) -> None:
         mid = len(raws) // 2
         start = max(0, mid - p["max_files"] // 2)
         chosen = raws[start: start + p["max_files"]]
+    elif p["pick"] == "probe_spread" and raws:
+        chosen = probe_spread(raws)
     else:
         chosen = raws[: p["max_files"]]
     sdrfs = [f for f in rest if "sdrf" in f.file_name.lower()]

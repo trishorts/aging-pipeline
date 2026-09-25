@@ -45,6 +45,31 @@ def test_median_size_never_takes_the_smallest_or_the_oversized(work, fake_pride)
     assert [f["name"] for f in m["files"]] == ["s2.raw"]
 
 
+def test_probe_spread_takes_the_median_and_both_ends_of_the_name_order_never_the_smallest(work, fake_pride):
+    m = run(work, pick="probe_spread")
+    assert sorted(f["name"] for f in m["files"]) == ["s1.raw", "s2.raw", "s3.raw"]
+    assert "blank.raw" not in {f["name"] for f in m["files"]}
+
+
+def test_probe_spread_reaches_a_second_instrument_the_median_misses():
+    """PXD022196: 32 QE-HF files and 11 larger Fusion files. The median file is QE-HF; a Fusion file sorts
+    first by name, so the spread probes both methods before the full download."""
+    raws = [pf(f"QEHF_20190113_band_{i:02d}.raw", 600 + i) for i in range(32)]
+    raws += [pf(f"Fusion_20200526_ctrl_{i:02d}.raw", 2000 + i) for i in range(11)]
+    raws.sort(key=lambda f: f.file_size_bytes)
+    names = [f.file_name for f in fetch.probe_spread(raws)]
+    assert names[0].startswith("QEHF"), "the median is still the first probe file"
+    assert any(n.startswith("Fusion") for n in names)
+    assert len(names) == len(set(names)) <= 3
+
+
+def test_probe_spread_on_one_or_two_files():
+    one = [pf("a.raw", 5)]
+    assert [f.file_name for f in fetch.probe_spread(one)] == ["a.raw"]
+    two = [pf("small.raw", 5), pf("big.raw", 9)]
+    assert [f.file_name for f in fetch.probe_spread(two)] == ["big.raw"]
+
+
 def test_all_takes_everything_under_the_size_cap_sorted_by_name(work, fake_pride):
     m = run(work, pick="all")
     assert [f["name"] for f in m["files"]] == ["blank.raw", "s1.raw", "s2.raw", "s3.raw"]

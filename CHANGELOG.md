@@ -6,6 +6,11 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 
 ## [Unreleased]
 
+### Added
+- **`fetch.pick = probe_spread`**: probe up to three files, the median by size and the first and last
+  by name, instead of one. PXD022196 passed a one-file probe on its median QE-HF file and failed full QC
+  after all 43 files had downloaded, because 11 Fusion files are ion-trap CID. Their names sort to one end.
+
 ### Fixed
 - **`id_rate.ms2` counts only the files the search saw.** It summed the QC report, which covers every file
   on disk, so a file in `search.exclude_files` (D52) inflated the denominator: PXD051644's excluded blank

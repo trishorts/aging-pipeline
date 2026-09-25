@@ -115,7 +115,8 @@
   "database": {
     "uniprot_xml": "E:/CodeReview/go/data/raw/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml.gz",
     "prepared": "F:/aging_data/db/uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
-    "include_contaminants": true
+    "include_contaminants": true,
+    "contaminant_exclude": "data/contaminant_panel_exclude_v1.tsv"
   },
   "search": {
     "metamorpheus_cmd": "F:/ClaudeTestBuilds/aging/MetaMorpheus-1.1.11/CMD.exe",

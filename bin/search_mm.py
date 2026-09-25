@@ -20,11 +20,13 @@ import collections, csv, json, re, shutil, subprocess, sys, time
 import threading
 from pathlib import Path
 
+import contam_panel
 import contam_shared
 import spectral_library
 from db_prepare import record_dir
 from provenance import Provenance, file_entry, sha256
 
+PIPELINE_DIR = Path(__file__).resolve().parent.parent   # relative `database.contaminant_exclude` resolves here
 TASK_FILE = {"Calibration": "CalibrationTask.toml", "Gptmd": "GptmdTask.toml", "Search": "SearchTask.toml"}
 SEARCH_TYPES = {"Classic", "Modern", "NonSpecific"}
 # QC failures an acquisition exception may NOT forgive, whatever it names. A low-resolution MS2 is
@@ -195,8 +197,9 @@ def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
         med = vals[len(vals) // 2] if vals else 0
         # D53: DEF-QC-9 above is the LOWER bound (it cannot see a protein that is in both the contaminant
         # panel and the proteome: RemoveContaminant makes it `T`). The UPPER bound also counts those.
-        contam_db = params["database"].get("contaminants") or str(
-            Path(params["search"]["metamorpheus_cmd"]).parent / "Contaminants" / "MetaMorpheusContaminants.xml")
+        # The panel the search actually used (D54: possibly the reduced copy), so the bound matches the search.
+        contam_db = str(contam_panel.resolve(params, PIPELINE_DIR, Path(params["work_root"]) / "db" / "contaminants")[0]) \
+            if contam_panel.source_panel(params).exists() else str(contam_panel.source_panel(params))
         upper, shared_n, shared_sha = {}, None, None
         if pg_file.exists() and Path(contam_db).exists():
             proteomes = [params["database"]["prepared"], *(params["database"].get("extra_prepared") or [])]
@@ -455,12 +458,17 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
         # have searched — pointing a re-run at the shipped file instead would quietly drop every
         # contaminant modification GPTMD discovered and make the contamination metrics incomparable.
         override = params["database"].get("contaminants")
-        contam = Path(override) if override else cmd.parent / "Contaminants" / "MetaMorpheusContaminants.xml"
-        if not contam.exists():
-            sys.exit(f"contaminant database missing at {contam}")
+        if not contam_panel.source_panel(params).exists():
+            sys.exit(f"contaminant database missing at {contam_panel.source_panel(params)}")
+        # D54 (S58): `contaminant_exclude` drops listed entries (the human spike-in standard) from the panel first.
+        contam, panel_rec = contam_panel.resolve(params, PIPELINE_DIR, Path(params["work_root"]) / "db" / "contaminants")
         dbs.append(str(contam))
         if override:
-            prov.note(f"contaminant database overridden: {contam}")
+            prov.note(f"contaminant database overridden: {contam_panel.source_panel(params)}")
+        if panel_rec:
+            prov.rec["contaminant_panel"] = panel_rec
+            prov.note(f"contaminant panel reduced by {len(panel_rec['excluded'])} entries "
+                      f"({Path(panel_rec['exclude_list']).name}, D54)")
     else:
         prov.note("contaminant database NOT included (params.database.include_contaminants = false)")
     # EXTRA protein databases (G61): the targeted aging isoform entries (D43), searched BESIDE the

@@ -244,6 +244,19 @@ two shares:
 | `shared_accessions_n`, `shared_accessions_sha256` | How many primary accessions the contaminant panel and the searched proteome share, and the sha256 of that sorted list, computed from the databases this search used |
 | `top` | The five contaminant protein groups with the most summed intensity, named "protein name (organism)". Groups sharing a name and organism are merged |
 
+### The contaminant panel
+
+When `database.contaminant_exclude` is set, `contaminant_panel` records what was searched in place of the shipped panel:
+
+| Field | Meaning |
+|---|---|
+| `source`, `source_sha256` | the panel before exclusion (the shipped one, or the `contaminants` override) |
+| `exclude_list`, `exclude_list_sha256` | the TSV of accessions removed |
+| `excluded` | the accessions actually removed |
+| `searched`, `searched_sha256` | the reduced panel passed to MetaMorpheus; the contamination bounds use it too |
+
+A record without it searched the panel unchanged (every search before 2026-09-25).
+
 ## The definition register
 
 Every number this pipeline reports carries a **definition ID**, namespaced `<owner>:<ID> v<n>`. The

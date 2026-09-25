@@ -5,7 +5,7 @@ fetch would place them), the .raw reader returns synthetic scan headers, and Met
 tests/fake_metamorpheus.py. The test checks the wiring between stages: directory conventions, upstream
 provenance links, refusal rules, the success check, and the measurements and flags in provenance.json.
 """
-import json
+import json, re
 from pathlib import Path
 
 import pytest
@@ -177,6 +177,52 @@ def test_exclude_files_refuses_a_name_that_is_not_there(layout, work):
     work.write(search={**work.params()["search"], "exclude_files": ["typo.raw"]})
     with pytest.raises(SystemExit, match="not in"):
         search_mm.main(L.params, str(L.spectra), str(L.run / "04_search"))
+
+
+PANEL = ("<uniprot>\n<entry><accession>P13645</accession><name>K1C10_HUMAN</name></entry>\n"
+         "<entry><accession>Q06830</accession><name>PRDX1_HUMAN</name></entry>\n"
+         "<entry><accession>P10636</accession><name>TAU_HUMAN</name></entry>\n</uniprot>\n")
+
+
+def test_contaminant_exclude_searches_a_reduced_panel_and_records_it(layout, work, tmp_path):
+    """D54 (S58): listed human spike-in proteins are dropped from the panel before the search, the reduced copy is
+    what MetaMorpheus gets, and the record names both inputs, what was removed and the file searched."""
+    L = layout
+    panel = tmp_path / "panel.xml"; panel.write_text(PANEL, encoding="utf-8")
+    lst = tmp_path / "exclude.tsv"
+    lst.write_text("# test\naccession\tgene\nQ06830\tPRDX1\nP10636\tMAPT\n", encoding="utf-8")
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    work.write(database={**work.params()["database"], "contaminants": str(panel), "contaminant_exclude": str(lst)})
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    rec = prov(L.run / "04_search")
+    searched = Path(rec["contaminant_panel"]["searched"])
+    assert str(searched) in rec["commands"][-1] and str(panel) not in rec["commands"][-1]
+    text = searched.read_text(encoding="utf-8")
+    assert "P13645" in text and "Q06830" not in text and "P10636" not in text
+    assert rec["contaminant_panel"]["excluded"] == ["P10636", "Q06830"]
+    assert len(rec["contaminant_panel"]["source_sha256"]) == 64 and len(rec["contaminant_panel"]["exclude_list_sha256"]) == 64
+
+
+def test_contaminant_exclude_refuses_a_list_written_for_another_panel(layout, work, tmp_path):
+    L = layout
+    panel = tmp_path / "panel.xml"; panel.write_text(PANEL, encoding="utf-8")
+    lst = tmp_path / "exclude.tsv"; lst.write_text("accession\nP99999\n", encoding="utf-8")
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    work.write(database={**work.params()["database"], "contaminants": str(panel), "contaminant_exclude": str(lst)})
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) != 0
+
+
+def test_the_shipped_exclusion_list_matches_the_pinned_panel():
+    """Every accession in data/contaminant_panel_exclude_v1.tsv is in MetaMorpheus 1.1.11's panel, when it is here."""
+    shipped = Path("F:/ClaudeTestBuilds/aging/MetaMorpheus-1.1.11/Contaminants/MetaMorpheusContaminants.xml")
+    if not shipped.exists():
+        pytest.skip("MetaMorpheus 1.1.11 not installed on this machine")
+    import contam_panel
+    drop = contam_panel.excluded_accessions(Path(search_mm.PIPELINE_DIR) / "data" / "contaminant_panel_exclude_v1.tsv")
+    assert len(drop) == 41
+    assert drop <= set(re.findall(r"<accession>([^<]+)</accession>", shipped.read_text(encoding="utf-8")))
 
 
 def test_contaminant_database_can_be_overridden(layout, work, tmp_path):

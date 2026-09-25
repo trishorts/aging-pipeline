@@ -6,6 +6,14 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 
 ## [Unreleased]
 
+### Changed
+- **The contaminant panel is searched without its human spike-in standard** (`database.contaminant_exclude`, default
+  `data/contaminant_panel_exclude_v1.tsv`, 41 entries). MetaMorpheus's shipped panel carries a UPS1/UPS2-like
+  standard (PRDX1, SOD1, CAT, CKM, MAPT and others). In every mouse and rat dataset it relabelled 2-15 native
+  proteins as contaminant, including 10% of reported contamination in an old-rat muscle deposit. The reduced
+  panel is content-addressed and recorded as `contaminant_panel` (both inputs' sha256, the removed accessions, the
+  file searched). Salivary amylase, dermokine and lactotransferrin stay in the panel as real handling contaminants.
+
 ### Added
 - **`fetch.pick = probe_spread`**: probe up to three files, the median by size and the first and last
   by name, instead of one. PXD022196 passed a one-file probe on its median QE-HF file and failed full QC

@@ -277,6 +277,11 @@ These rules come from the working group. The code enforces them unless a rule sa
    searches only the databases passed to it. Stage 4 passes the shipped contaminant database unless
    `database.include_contaminants` is `false` (for controlled experiments only). Keratins, trypsin and
    serum albumin then match as contaminants (`C`) rather than being forced onto human proteins.
+   **The panel is searched without its human spike-in standard** (since 2026-09-25). The shipped panel also
+   carries 41 ordinary human proteins of a spike-in standard (PRDX1, SOD1, CAT, CKM, MAPT and others). In mouse
+   and rat data they took peptides from the native proteins and labelled them contaminant, so
+   `database.contaminant_exclude` removes them. Datasets searched before then keep the panel they had; their
+   provenance has no `contaminant_panel` block.
    **Targeted isoforms are searched beside the proteome.** Since 2026-09-24 the batch also passes a
    small literature-chosen isoform database for the dataset's organism (`database.extra_xml`). Datasets
    searched before then keep the search they had; each dataset's provenance lists `extra_databases`.

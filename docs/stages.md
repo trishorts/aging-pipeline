@@ -249,6 +249,8 @@ python bin/search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
 3. **It runs calibration → GPTMD → search in one invocation.** MetaMorpheus chains the tasks, passing
    calibrated spectra and the GPTMD-augmented database forward. The databases passed are the prepared
    proteome **plus the shipped contaminant database**, unless `database.include_contaminants` is `false`,
+   minus any entries listed in `database.contaminant_exclude` (the shipped list drops a human spike-in
+   standard; the reduced copy and both inputs' sha256 are recorded as `contaminant_panel`),
    then any `database.extra_prepared` files (recorded as `extra_databases` in provenance). The proteome
    is always first, so it is the database a reader of the provenance finds first.
    MetaMorpheus's settings folder is `<work_root>/mm_settings/<release>/`. The script deliberately doesn't

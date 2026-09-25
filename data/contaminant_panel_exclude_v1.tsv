@@ -1,0 +1,46 @@
+# Human entries removed from MetaMorpheus 1.1.11's shipped contaminant panel before searching (aging D54, S58).
+# They are ordinary cellular and serum proteins matching a human spike-in protein standard (UPS1/UPS2-like), not
+# reagents. In mouse and rat searches they captured native proteins' peptides and labelled them contaminant.
+# Reviewed by eye 2026-09-25: AMY1A, DMKN and LTF stay in the panel (saliva, skin, tears).
+accession	gene	name	reason
+P08758	ANXA5	Annexin A5	spike-in standard protein, not a reagent
+P61769	B2M	Beta-2-microglobulin	spike-in standard protein, not a reagent
+P55957	BID	BH3-interacting domain death agonist	spike-in standard protein, not a reagent
+P01031	C5	Complement C5	spike-in standard protein, not a reagent
+P00915	CA1	Carbonic anhydrase 1	spike-in standard protein, not a reagent
+P00918	CA2	Carbonic anhydrase 2	spike-in standard protein, not a reagent
+P04040	CAT	Catalase	spike-in standard protein, not a reagent
+P06732	CKM	Creatine kinase M-type	spike-in standard protein, not a reagent
+P02741	CRP	C-reactive protein	spike-in standard protein, not a reagent
+P07339	CTSD	Cathepsin D	spike-in standard protein, not a reagent
+P08311	CTSG	Cathepsin G	spike-in standard protein, not a reagent
+P10145	CXCL8	Interleukin-8	spike-in standard protein, not a reagent
+P00167	CYB5A	Cytochrome b5	spike-in standard protein, not a reagent
+P99999	CYCS	Cytochrome c	spike-in standard protein, not a reagent
+P01133	EGF	Pro-epidermal growth factor	spike-in standard protein, not a reagent
+P05413	FABP3	Fatty acid-binding protein, heart	spike-in standard protein, not a reagent
+P06396	GSN	Gelsolin	spike-in standard protein, not a reagent
+P08263	GSTA1	Glutathione S-transferase A1	spike-in standard protein, not a reagent
+P09211	GSTP1	Glutathione S-transferase P	spike-in standard protein, not a reagent
+P12081	HARS	Histidine--tRNA ligase, cytoplasmic	spike-in standard protein, not a reagent
+P01112	HRAS	GTPase HRas	spike-in standard protein, not a reagent
+P01344	IGF2	Insulin-like growth factor II	spike-in standard protein, not a reagent
+P41159	LEP	Leptin	spike-in standard protein, not a reagent
+P10636	MAPT	Microtubule-associated protein tau	spike-in standard protein, not a reagent
+P02144	MB	Myoglobin	spike-in standard protein, not a reagent
+Q15843	NEDD8	NEDD8	spike-in standard protein, not a reagent
+P15559	NQO1	NAD(P)H dehydrogenase [quinone] 1	spike-in standard protein, not a reagent
+P16083	NQO2	Ribosyldihydronicotinamide dehydrogenase [quinone]	spike-in standard protein, not a reagent
+P01127	PDGFB	Platelet-derived growth factor subunit B	spike-in standard protein, not a reagent
+P62937	PPIA	Peptidyl-prolyl cis-trans isomerase A	spike-in standard protein, not a reagent
+Q06830	PRDX1	Peroxiredoxin-1	spike-in standard protein, not a reagent
+P02753	RBP4	Retinol-binding protein 4	spike-in standard protein, not a reagent
+P62979	RPS27A	Ubiquitin-40S ribosomal protein S27a	spike-in standard protein, not a reagent
+P01008	SERPINC1	Antithrombin-III	spike-in standard protein, not a reagent
+P00441	SOD1	Superoxide dismutase [Cu-Zn]	spike-in standard protein, not a reagent
+P63165	SUMO1	Small ubiquitin-related modifier 1	spike-in standard protein, not a reagent
+P01375	TNF	Tumor necrosis factor	spike-in standard protein, not a reagent
+P10599	TXN	Thioredoxin	spike-in standard protein, not a reagent
+O00762	UBE2C	Ubiquitin-conjugating enzyme E2 C	spike-in standard protein, not a reagent
+P51965	UBE2E1	Ubiquitin-conjugating enzyme E2 E1	spike-in standard protein, not a reagent
+P63279	UBE2I	SUMO-conjugating enzyme UBC9	spike-in standard protein, not a reagent

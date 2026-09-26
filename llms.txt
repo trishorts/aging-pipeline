@@ -1,6 +1,6 @@
 # Aging proteomics repository
 
-> Search and quantification results for 33 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `c16e95f79df1da11` (datarepo 0.21.0, schema 0.0.11, built 2026-09-26T12:23:23+00:00); cite that id with any number you reuse.
+> Search and quantification results for 33 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `933c5a2a4621db30` (datarepo 0.21.0, schema 0.0.11, built 2026-09-26T12:50:14+00:00); cite that id with any number you reuse.
 
 Before you answer from this data:
 

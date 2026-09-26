@@ -12,7 +12,7 @@
  "@type": "DataCatalog",
  "name": "Aging proteomics repository",
  "url": "https://trishorts.github.io/aging-pipeline/index.html",
- "identifier": "datarepo:catalog:e625d0577ec03b8f",
+ "identifier": "datarepo:catalog:c16e95f79df1da11",
  "description": "Search and quantification results for 33 public proteomics datasets reanalysed with one pipeline, for questions about how organelle proteomes change with age.",
  "dataset": [
   {
@@ -230,7 +230,7 @@
 <h2>How it works</h2>
 <ul><li><a href="https://github.com/trishorts/aging-pipeline"><strong>aging-pipeline</strong></a> finds aging datasets in PRIDE, downloads and quality-checks the raw spectra, and searches and quantifies them with <a href="https://github.com/smith-chem-wisc/MetaMorpheus">MetaMorpheus</a>, including GPTMD to discover post-translational modifications, and FlashLFQ.</li><li><a href="https://github.com/trishorts/dataRepo"><strong>dataRepo</strong></a> stores the results in one schema and serves them to people and to AI agents. This site is generated from its catalog.</li></ul>
 <h2>Where it stands</h2>
-<ul><li><strong>33 datasets, 12 of them whole proteomes</strong> (no enrichment step): human 19 (8 whole); rat 9 (2 whole); mouse 5 (2 whole).</li><li><strong>Enrichments:</strong> affinity_purification 7; other 5; immunoprecipitation 3; proximity_labelling 3; chemical_probe 1; mixed runs 1; phospho 1.</li><li><strong>Beyond identifications and quantities:</strong> per-run PTM site occupancy (470,332 rows, 33 datasets) and protein-to-gene mappings (344,183 rows). These, and every individual protein, are in the catalog and reachable through the MCP server, not on these pages. The catalog file itself is not published yet.</li><li><strong>Not held yet:</strong> sample ages (0 rows), age effects (0 rows), organelle assignments, and an experimental design for any dataset. Every dataset was quantified with each raw file as its own condition.</li><li>These counts are from catalog <code>e625d0577ec03b8f</code>.</li></ul>
+<ul><li><strong>33 datasets, 12 of them whole proteomes</strong> (no enrichment step): human 19 (8 whole); rat 9 (2 whole); mouse 5 (2 whole).</li><li><strong>Enrichments:</strong> affinity_purification 7; other 5; immunoprecipitation 3; proximity_labelling 3; chemical_probe 1; mixed runs 1; phospho 1.</li><li><strong>Beyond identifications and quantities:</strong> per-run PTM site occupancy (470,332 rows, 33 datasets) and protein-to-gene mappings (344,183 rows). These, and every individual protein, are in the catalog and reachable through the MCP server, not on these pages. The catalog file itself is not published yet.</li><li><strong>Not held yet:</strong> sample ages (40 rows), age effects (0 rows), organelle assignments, and an experimental design for any dataset. Every dataset was quantified with each raw file as its own condition.</li><li>These counts are from catalog <code>c16e95f79df1da11</code>.</li></ul>
 <p>So the repository cannot answer the group&#x27;s question on its own yet: ages, designs and organelle assignments are the next stages of the pipeline. Each dataset page lists the known problems with that dataset. Please read them before using its numbers.</p>
 <h2>Before you use these numbers</h2>
 <ul><li><strong>A dataset&#x27;s organism is the species of the protein database it was searched against.</strong> It is not an independent check of the sample, and no cell line or tissue is recorded yet. Where a title disagrees (PXD050351 says &quot;in mice&quot;; its samples are a human cell line), the searched species is the one to trust.</li><li><strong>A deposited SDRF labels the samples; it is not an experimental design.</strong> Where one exists it names organism, tissue and replicate, and no dataset has conditions assigned to runs yet.</li><li><strong>Protein-group counts at 1% FDR include contaminant groups.</strong> The MCP server&#x27;s views say so and let you separate them.</li><li><strong>In mouse and rat datasets, some groups labelled contaminant are native proteins.</strong> The search&#x27;s contaminant panel carries some ordinary human proteins (for example tau, creatine kinase M and peroxiredoxin-1), and rodent peptides shared with them are credited to the panel. Contamination figures for those datasets are therefore somewhat overstated.</li><li><strong>One chemistry can appear under two modification names</strong> (phosphoserine is listed both under its UniProt name and its search-engine name). Count by chemistry, not by name.</li></ul>
@@ -245,7 +245,7 @@
 <div class="tile"><div class="tile-label">Proteins identified</div><div class="tile-value" title="20,662">20.7K</div><div class="tile-note">accessions with 1%-FDR evidence, decoys and contaminants excluded; 8,474 of them in 3 or more datasets</div></div>
 <div class="tile"><div class="tile-label">PTM sites</div><div class="tile-value" title="280,714">281K</div><div class="tile-note">modified residues on proteins, 141 kinds of modification</div></div>
 </div>
-<p class="note">Figures of merit from catalog <code>e625d0577ec03b8f</code>. Hover a number for its exact value.</p>
+<p class="note">Figures of merit from catalog <code>c16e95f79df1da11</code>. Hover a number for its exact value.</p>
 <h2>This repository</h2>
 <p class="lede">Search and quantification results for 33 public proteomics datasets,
 reanalysed with one pipeline and stored with the same schema, so they can be compared. The question
@@ -297,8 +297,8 @@ about a dataset. Read them before using it.</p>
 </table></div>
 <h2>This catalog</h2>
 <dl>
-<dt>Catalog id</dt><dd><code>e625d0577ec03b8f</code></dd>
-<dt>Built</dt><dd>2026-09-25T23:13:51+00:00</dd>
+<dt>Catalog id</dt><dd><code>c16e95f79df1da11</code></dd>
+<dt>Built</dt><dd>2026-09-26T12:23:23+00:00</dd>
 <dt>Built by</dt><dd>datarepo 0.21.0, catalog format 6</dd>
 <dt>Schema</dt><dd>0.0.11</dd>
 <dt>Instance</dt><dd>aging</dd>
@@ -306,7 +306,7 @@ about a dataset. Read them before using it.</p>
 </main>
 <footer>
 Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.21.0 from catalog
-<code>e625d0577ec03b8f</code>, built 2026-09-25T23:13:51+00:00 by datarepo
+<code>c16e95f79df1da11</code>, built 2026-09-26T12:23:23+00:00 by datarepo
 0.21.0 (schema 0.0.11).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>

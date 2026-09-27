@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "124579d616885a34",
+  "catalog_id": "bb0edb15d7b60b99",
   "catalog_version": "6",
   "schema_version": "0.0.11",
   "builder_version": "0.21.0",
-  "built_utc": "2026-09-27T02:58:34+00:00",
+  "built_utc": "2026-09-27T06:17:46+00:00",
   "instance": "aging"
  },
  "datasets": [
@@ -354,12 +354,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 10288 where the producer reported 10287 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 118418 where the producer reported 118420 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 118418 where the producer reported 118420 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 10288 where the producer reported 10287 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "high_contamination",
@@ -824,12 +824,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 35923 where the producer reported 35922 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 202687 where the producer reported 202691 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 202687 where the producer reported 202691 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 35923 where the producer reported 35922 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",
@@ -1137,12 +1137,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 118826 where the producer reported 118864 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 19279 where the producer reported 19256 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 19279 where the producer reported 19256 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 118826 where the producer reported 118864 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "high_contamination",
@@ -1895,6 +1895,163 @@
    },
    "summary": "PXD027318 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 378,168 PSMs, 49,399 peptidoforms and 4,478 protein groups, and the repository holds 21,714 PTM sites for it. 7 open warnings about it are recorded.",
    "page": "datasets/PXD027318.html"
+  },
+  {
+   "dataset_id": "PXD027734",
+   "bundle_id": "14a0b387d8429fd1",
+   "title": "Proximity-biotinylation (BioID) to dissect cytoplasmic p53 signaling networks under nutrient stress",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "proximity_labelling"
+   ],
+   "enrichment_mixed": false,
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 19,
+   "n_samples": 19,
+   "n_psms_1pct": 487714,
+   "n_peptidoforms_1pct": 64404,
+   "n_protein_groups_1pct": 5373,
+   "n_psms_all": 1089046,
+   "n_ptm_sites": 24220,
+   "n_quant_values": 583510,
+   "n_open_findings": 6,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "519a6ec49dcd639a1d8fc69e63a698d198382cd8",
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 487714 where the producer reported 487751 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "5.35% of protein intensity in the worst file, 4.51% median across 19 files (DEF-QC-9 v3.5)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 673 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "collapsed_duplicate_rows",
+     "severity": "info",
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 3 identifier(s), 13 row(s) dropped, e.g. PXD027734:A6NCW0;A8MUK1;C9J2P7;C9JJH3;C9JLJ4;C9JPN9;C9JVI0;D6R901;D6R9N7;D6RA61;D6RBQ6;D6RCP7;D6RJB6;Q0WX57;Q7RTZ2 written 12 times; quant_values: 57 identifier(s), 247 row(s) dropped, e.g. PXD027734:20201113_EX1_UM8_zenez001_SA_EPICXS_markusP53_V5-EGFP_GM_01:label_free:protein_group:PXD027734:A6NCW0;A8MUK1;C9J2P7;C9JJH3;C9JLJ4;C9JPN9;C9JVI0;D6R901;D6R9N7;D6RA61;D6RBQ6;D6RCP7;D6RJB6;Q0WX57;Q7RTZ2:QuantProject:DEF-PROT-SPC written 12 times. The full list is in bundle.json under collapsed_duplicates."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "49 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 10107
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 3315
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 2393
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 2367
+    },
+    {
+     "modification_name": "Citrullination on R",
+     "modification": "UNIMOD:7",
+     "n_sites": 987
+    },
+    {
+     "modification_name": "Ammonia loss on N",
+     "modification": "UNIMOD:385",
+     "n_sites": 458
+    },
+    {
+     "modification_name": "Phosphoserine on S",
+     "modification": "UNIMOD:21",
+     "n_sites": 350
+    },
+    {
+     "modification_name": "N-acetylalanine on A",
+     "modification": "UNIMOD:1",
+     "n_sites": 342
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 309
+    },
+    {
+     "modification_name": "Formylation on K",
+     "modification": "UNIMOD:122",
+     "n_sites": 279
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.4478,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0877,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "14a0b387d8429fd1",
+    "written_utc": "2026-09-27T06:13:27+00:00",
+    "ingester_version": "0.21.0",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct"
+    ]
+   },
+   "summary": "PXD027734 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 487,714 PSMs, 64,404 peptidoforms and 5,373 protein groups, and the repository holds 24,220 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD027734.html"
   },
   {
    "dataset_id": "PXD028852",
@@ -3805,12 +3962,12 @@
     {
      "code": "excluded_from_search",
      "severity": "info",
-     "message": "The deposited file 230517_Jarome3_Y4_02.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: 58f452c0f450990d1e4d25a080bd4da7f953e41f466c0693836f1160adb12e10."
+     "message": "The deposited file 230517_Jarome3_Y1_01.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: f21737645c3bcb5f043543b1a63873cc06bfb9e6a74edf5fd8afc60788fda8ed."
     },
     {
      "code": "excluded_from_search",
      "severity": "info",
-     "message": "The deposited file 230517_Jarome3_Y1_01.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: f21737645c3bcb5f043543b1a63873cc06bfb9e6a74edf5fd8afc60788fda8ed."
+     "message": "The deposited file 230517_Jarome3_Y4_02.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: 58f452c0f450990d1e4d25a080bd4da7f953e41f466c0693836f1160adb12e10."
     },
     {
      "code": "no_output_sdrf",

@@ -291,6 +291,35 @@ def test_exit_0_without_protein_groups_is_not_success(layout, monkeypatch):
     assert rec["success"] is False and any("FlashLFQ failed silently" in n for n in rec["notes"])
 
 
+def test_a_design_metamorpheus_could_not_use_fails_the_search(layout, monkeypatch):
+    """D48: with ExperimentalDesign.tsv present, 1.1.11's '... Skipping quantification' warning (exit 0,
+    quantified without the design) is a failure, matched on the shared suffix (QuantProject 029)."""
+    L = layout
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    (L.spectra / "ExperimentalDesign.tsv").write_text("FileName\tCondition\tBiorep\tFraction\tTechrep\n",
+                                                     encoding="utf-8")
+    monkeypatch.setenv("FAKE_MM_SKIP_QUANT", "1")
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 1
+    rec = prov(L.run / "04_search")
+    assert rec["success"] is False and rec["exit_code"] == 0
+    assert any(n.startswith("FAILED (D48)") and "biorep 2 is missing" in n for n in rec["notes"])
+    assert any(f.startswith("quantification_skipped") for f in rec["flags"])
+
+
+def test_the_skip_warning_without_a_design_is_flagged_not_failed(layout, monkeypatch):
+    """No design file: the warning means normalization was asked for without one. Flag it; the stage stands."""
+    L = layout
+    stage(db_prepare.main, L.params, str(L.root / "db"))
+    stage(qc_spectra.main, L.params, str(L.spectra), str(L.run / "02b_qc"))
+    monkeypatch.setenv("FAKE_MM_SKIP_QUANT", "1")
+    assert stage(search_mm.main, L.params, str(L.spectra), str(L.run / "04_search")) == 0
+    rec = prov(L.run / "04_search")
+    assert rec["success"] is True
+    assert any(f.startswith("quantification_skipped") for f in rec["flags"])
+    assert not any(n.startswith("FAILED (D48)") for n in rec["notes"])
+
+
 def test_cleanup_refuses_before_a_successful_search(layout):
     with pytest.raises(SystemExit, match="refusing"):
         cleanup.main(layout.params, str(layout.run))

@@ -13,6 +13,7 @@ MetaMorpheus's science. Environment switches for the failure paths:
   FAKE_MM_EXIT=<n>               exit with code <n>
   FAKE_MM_NO_SPECTRAL_LIBRARY=1  write no .msp even when the search TOML asks for one
   FAKE_MM_HANG=<s>               print one line, then sleep <s> without exiting (the F1 timeout path)
+  FAKE_MM_SKIP_QUANT=1           print 1.1.11's design warning, "... Skipping quantification", and exit 0 (D48)
 """
 import os, sys
 from pathlib import Path
@@ -76,6 +77,10 @@ def main():
     for i, task in enumerate(["CalibrationTask", "GptmdTask", "SearchTask"], 1):
         print(f"Starting task: Task{i}{task}", flush=True)
         (out / f"Task{i}{task}").mkdir()
+        if task == "SearchTask" and os.environ.get("FAKE_MM_SKIP_QUANT"):
+            # PostSearchAnalysisTask.cs:578 in 1.1.11; the head varies with the first error.
+            print("Error reading experimental design file: Condition \"x\" biorep 2 is missing. "
+                  "Skipping quantification", flush=True)
         print(f"Finished task: Task{i}{task}", flush=True)
     (out / "Task2GptmdTask" / "db-GPTMD.xml").write_text("<uniprot/>", encoding="utf-8")
     sd = out / "Task3SearchTask"

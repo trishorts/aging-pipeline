@@ -12,7 +12,8 @@ Rules for running it:
   * a fresh output directory every run (MetaMorpheus never cleans an existing one);
   * the Thermo licence is accepted explicitly (--acceptThermoLicence, a params setting), and settings
     live in a writable --mmsettings dir;
-  * FlashLFQ can fail with exit 0, so success requires AllQuantifiedProteinGroups.tsv to exist.
+  * FlashLFQ can fail with exit 0, so success requires AllQuantifiedProteinGroups.tsv to exist;
+  * a run with ExperimentalDesign.tsv fails when MetaMorpheus logs "... Skipping quantification" (D48).
 
 usage: search_mm.py <params.json> <spectra_dir_or_file> <out_dir>
 """
@@ -36,6 +37,9 @@ NEVER_WAIVABLE = {"too_few_ms2", "unreadable"}
 
 
 MBR_FDR_THRESHOLD = 0.01   # SearchParameters.MbrFdrThreshold default; not yet read from the TOML
+# The shared tail of MetaMorpheus's "could not use the experimental design" warnings (PostSearchAnalysisTask.cs
+# :578 and :584, PostGlycoSearchAnalysisTask.cs :476 in 1.1.11). The head carries the first error and varies.
+SKIP_QUANT_SUFFIX = ". Skipping quantification"
 
 
 def kill_tree(proc) -> None:
@@ -118,6 +122,9 @@ def derive_metrics(out: Path, params: dict, spectra_files, qc: Path):
     log_text = (out / "metamorpheus.log").read_text(encoding="utf-8", errors="replace")
     if "Calibration failure" in log_text:
         flags.append("calibration_failed: GPTMD/search ran on uncalibrated spectra (S7)")
+    if SKIP_QUANT_SUFFIX in log_text:
+        flags.append("quantification_skipped: MetaMorpheus could not use an experimental design and quantified "
+                     "without it (fails the stage when the run carries ExperimentalDesign.tsv, D48)")
     if search_dirs and (search_dirs[-1] / "results.txt").exists():
         # results.txt prints two different counts (S21). aging DEF-PSM-1PCT v1 is the summary line, target PSMs
         # only; the FDR engine's log line ("PSMs within 1% FDR", the first of several) is higher and is kept
@@ -548,6 +555,16 @@ def main(params_path: str, spectra: str, out_dir: str) -> None:
            for n in ("AllPSMs.psmtsv", "AllPeptides.psmtsv", "AllQuantifiedProteinGroups.tsv", "AllQuantifiedPeptides.tsv")}
     gptmd_db = next(iter(sorted(mm.glob("Task*GptmdTask/*GPTMD.xml"))), None)
     ok = rc == 0 and all(key.values())
+    # D48: a run that carries an experimental design must be quantified BY it. MetaMorpheus 1.1.11 reports a
+    # design it could not use as a warning, exits 0 and quantifies without it, from three call sites whose
+    # messages share only this suffix (QuantProject 029 section 2). With a design present that is a failure.
+    has_design = any((f.parent / "ExperimentalDesign.tsv").exists() for f in spectra_files[:1])
+    log_text = (out / "metamorpheus.log").read_text(encoding="utf-8", errors="replace")
+    skipped = [l.split("\t", 1)[-1].strip() for l in log_text.splitlines() if SKIP_QUANT_SUFFIX in l]
+    if skipped and has_design:
+        ok = False
+        prov.note(f"FAILED (D48): the run carries ExperimentalDesign.tsv but MetaMorpheus skipped quantification "
+                  f"with it: {skipped[0]}")
     prov.rec["success"] = ok
     if rc == 0 and not key["AllQuantifiedProteinGroups.tsv"]:
         prov.note("exit 0 but no AllQuantifiedProteinGroups.tsv: FlashLFQ failed silently (pyMM 003 Q4)")

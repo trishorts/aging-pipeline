@@ -143,6 +143,13 @@ built for that case.
 
 FlashLFQ failed silently. The stage detects this, notes it, and reports `success: false`.
 
+### `FAILED (D48)` note: MetaMorpheus skipped quantification
+
+The spectra folder has an `ExperimentalDesign.tsv`, and MetaMorpheus logged a line ending
+`. Skipping quantification`: the design did not match the files (a missing biorep, an unknown file name)
+or could not be read. The note quotes MetaMorpheus's line. Fix the design and search again into a fresh
+output folder.
+
 ### MetaMorpheus CLI quirks
 
 - `--version` prints the help text and exits non-zero. The release comes from the `-g` banner instead.

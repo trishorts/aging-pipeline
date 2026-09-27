@@ -264,7 +264,9 @@ under Nextflow, set a process `time` limit.
 **Success** requires exit code 0 **and** all four result tables in the search task folder:
 `AllPSMs.psmtsv`, `AllPeptides.psmtsv`, `AllQuantifiedPeptides.tsv`, `AllQuantifiedProteinGroups.tsv`.
 FlashLFQ can fail while MetaMorpheus still exits 0, so exit code 0 alone isn't enough. A note in the
-provenance names that case.
+provenance names that case. A run that carries `ExperimentalDesign.tsv` also fails when MetaMorpheus
+logs `... Skipping quantification`: it could not use the design, exited 0 and quantified without it,
+which would silently undo the design (flag `quantification_skipped`).
 
 **Measurements it adds to the provenance:**
 - `id_rate`: target PSMs at 1% FDR (the summary line of `results.txt`) over the MS2 count from the QC

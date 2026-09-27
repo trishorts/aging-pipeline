@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "bb0edb15d7b60b99",
+  "catalog_id": "4ae1e971efa278f2",
   "catalog_version": "6",
   "schema_version": "0.0.11",
   "builder_version": "0.21.0",
-  "built_utc": "2026-09-27T06:17:46+00:00",
+  "built_utc": "2026-09-27T08:57:54+00:00",
   "instance": "aging"
  },
  "datasets": [
@@ -1251,6 +1251,153 @@
    "page": "datasets/PXD022180.html"
   },
   {
+   "dataset_id": "PXD022737",
+   "bundle_id": "f0f42a4452069377",
+   "title": "proteomic changes in aging rats treated with the cognitive enhancer CE-123",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 24,
+   "n_samples": 24,
+   "n_psms_1pct": 529493,
+   "n_peptidoforms_1pct": 38953,
+   "n_protein_groups_1pct": 3122,
+   "n_psms_all": 1187099,
+   "n_ptm_sites": 26729,
+   "n_quant_values": 699163,
+   "n_open_findings": 5,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "519a6ec49dcd639a1d8fc69e63a698d198382cd8",
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 529493 where the producer reported 529512 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 2474 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "73 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 6708
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 5197
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 2636
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 2334
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 1161
+    },
+    {
+     "modification_name": "Formylation on K",
+     "modification": "UNIMOD:122",
+     "n_sites": 832
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 764
+    },
+    {
+     "modification_name": "Carbamyl on X",
+     "modification": "UNIMOD:5",
+     "n_sites": 741
+    },
+    {
+     "modification_name": "Ammonia loss on N",
+     "modification": "UNIMOD:385",
+     "n_sites": 623
+    },
+    {
+     "modification_name": "Citrullination on R",
+     "modification": "UNIMOD:7",
+     "n_sites": 514
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.7648,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0095,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "f0f42a4452069377",
+    "written_utc": "2026-09-27T08:53:16+00:00",
+    "ingester_version": "0.21.0",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct"
+    ]
+   },
+   "summary": "PXD022737 is a DDA label-free dataset (Rattus norvegicus) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 529,493 PSMs, 38,953 peptidoforms and 3,122 protein groups, and the repository holds 26,729 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD022737.html"
+  },
+  {
    "dataset_id": "PXD023381",
    "bundle_id": "f8aa5f76f3aa19c0",
    "title": "Transcriptional and proteomic characterization of telomere-induced senescence in a human alveolar epithelial cell line",
@@ -1773,12 +1920,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",

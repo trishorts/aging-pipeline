@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "0417e48d00401696",
+  "catalog_id": "15c9b7a0bbef1019",
   "catalog_version": "6",
   "schema_version": "0.0.11",
   "builder_version": "0.21.0",
-  "built_utc": "2026-09-27T20:32:30+00:00",
+  "built_utc": "2026-09-27T22:17:39+00:00",
   "instance": "aging"
  },
  "datasets": [
@@ -5288,6 +5288,161 @@
    "page": "datasets/PXD051644.html"
   },
   {
+   "dataset_id": "PXD052189",
+   "bundle_id": "91380644a316448c",
+   "title": "Microglial-derived C1q integrates into neuronal ribonucleoprotein complexes and impacts protein homeostasis in the aging",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 32,
+   "n_samples": 32,
+   "n_psms_1pct": 15718,
+   "n_peptidoforms_1pct": 1752,
+   "n_protein_groups_1pct": 577,
+   "n_psms_all": 464166,
+   "n_ptm_sites": 1456,
+   "n_quant_values": 42297,
+   "n_open_findings": 7,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22_agingPTM-v1.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "af0df8d7a2f4d5dabc2543a65d1c0b5e68f7f84e",
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "calibration_failed",
+     "severity": "warning",
+     "message": "GPTMD/search ran on uncalibrated spectra (S7)"
+    },
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "81.31% of protein intensity in the worst file, 37.48% median across 32 files (DEF-QC-9 v3.5)"
+    },
+    {
+     "code": "low_id_rate",
+     "severity": "warning",
+     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 15718/885703 = 1.77% of MS2 identified (S3)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 17 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "2 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 330
+    },
+    {
+     "modification_name": "N-acetylalanine on A",
+     "modification": "UNIMOD:1",
+     "n_sites": 105
+    },
+    {
+     "modification_name": "Acetylation on X",
+     "modification": "UNIMOD:1",
+     "n_sites": 82
+    },
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 72
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 56
+    },
+    {
+     "modification_name": "N-acetylmethionine on M",
+     "modification": "UNIMOD:1",
+     "n_sites": 54
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 52
+    },
+    {
+     "modification_name": "Ammonia loss on N",
+     "modification": "UNIMOD:385",
+     "n_sites": 42
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 30
+    },
+    {
+     "modification_name": "Carbamyl on X",
+     "modification": "UNIMOD:5",
+     "n_sites": 28
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.0177,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.2682,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "91380644a316448c",
+    "written_utc": "2026-09-27T22:10:47+00:00",
+    "ingester_version": "0.21.0",
+    "reconciliation_ok": true,
+    "reconciliation_failed": []
+   },
+   "summary": "PXD052189 is a DDA label-free dataset (Mus musculus) with 32 runs, 32 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 15,718 PSMs, 1,752 peptidoforms and 577 protein groups, and the repository holds 1,456 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD052189.html"
+  },
+  {
    "dataset_id": "PXD056433",
    "bundle_id": "7139fc869f38370a",
    "title": "M1 polyubiquitin targets in the hippocampus of young and aged male rats following contextual fear conditioning",
@@ -5777,12 +5932,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 82089 where the producer reported 82088 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 1.05151e+06 where the producer reported 1.0515e+06 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 1.05151e+06 where the producer reported 1.0515e+06 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 82089 where the producer reported 82088 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",

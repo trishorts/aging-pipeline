@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7972ee320713bc19",
+  "catalog_id": "0417e48d00401696",
   "catalog_version": "6",
   "schema_version": "0.0.11",
   "builder_version": "0.21.0",
-  "built_utc": "2026-09-27T19:09:04+00:00",
+  "built_utc": "2026-09-27T20:32:30+00:00",
   "instance": "aging"
  },
  "datasets": [
@@ -2077,12 +2077,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",
@@ -4047,6 +4047,156 @@
    "page": "datasets/PXD036557.html"
   },
   {
+   "dataset_id": "PXD047288",
+   "bundle_id": "d38fbe9630848d01",
+   "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "affinity_purification"
+   ],
+   "enrichment_mixed": false,
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 36,
+   "n_samples": 36,
+   "n_psms_1pct": 7794,
+   "n_peptidoforms_1pct": 953,
+   "n_protein_groups_1pct": 329,
+   "n_psms_all": 222974,
+   "n_ptm_sites": 1767,
+   "n_quant_values": 49666,
+   "n_open_findings": 6,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000002494_AND_revi_2026-09-22_agingPTM-v1.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "af0df8d7a2f4d5dabc2543a65d1c0b5e68f7f84e",
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "91.23% of protein intensity in the worst file, 85.49% median across 36 files (DEF-QC-9 v3.5)"
+    },
+    {
+     "code": "low_id_rate",
+     "severity": "warning",
+     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 7794/712536 = 1.09% of MS2 identified (S3)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 123 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "27 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 278
+    },
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 85
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 44
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 31
+    },
+    {
+     "modification_name": "Citrullination on R",
+     "modification": "UNIMOD:7",
+     "n_sites": 28
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 28
+    },
+    {
+     "modification_name": "4-hydroxyproline on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 19
+    },
+    {
+     "modification_name": "Phosphoserine on S",
+     "modification": "UNIMOD:21",
+     "n_sites": 17
+    },
+    {
+     "modification_name": "Ammonia loss on N",
+     "modification": "UNIMOD:385",
+     "n_sites": 15
+    },
+    {
+     "modification_name": "Methylation on K",
+     "modification": "UNIMOD:34",
+     "n_sites": 12
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.0109,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.7538,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "d38fbe9630848d01",
+    "written_utc": "2026-09-27T20:25:03+00:00",
+    "ingester_version": "0.21.0",
+    "reconciliation_ok": true,
+    "reconciliation_failed": []
+   },
+   "summary": "PXD047288 is a DDA label-free dataset (Rattus norvegicus) with 36 runs, 36 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 7,794 PSMs, 953 peptidoforms and 329 protein groups, and the repository holds 1,767 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD047288.html"
+  },
+  {
    "dataset_id": "PXD047289",
    "bundle_id": "04ddaabe64483eae",
    "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
@@ -4416,12 +4566,12 @@
     {
      "code": "excluded_from_search",
      "severity": "info",
-     "message": "The deposited file 230517_Jarome3_Y1_01.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: f21737645c3bcb5f043543b1a63873cc06bfb9e6a74edf5fd8afc60788fda8ed."
+     "message": "The deposited file 230517_Jarome3_Y4_02.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: 58f452c0f450990d1e4d25a080bd4da7f953e41f466c0693836f1160adb12e10."
     },
     {
      "code": "excluded_from_search",
      "severity": "info",
-     "message": "The deposited file 230517_Jarome3_Y4_02.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: 58f452c0f450990d1e4d25a080bd4da7f953e41f466c0693836f1160adb12e10."
+     "message": "The deposited file 230517_Jarome3_Y1_01.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: f21737645c3bcb5f043543b1a63873cc06bfb9e6a74edf5fd8afc60788fda8ed."
     },
     {
      "code": "no_output_sdrf",
@@ -5627,12 +5777,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 1.05151e+06 where the producer reported 1.0515e+06 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 82089 where the producer reported 82088 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 82089 where the producer reported 82088 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 1.05151e+06 where the producer reported 1.0515e+06 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",

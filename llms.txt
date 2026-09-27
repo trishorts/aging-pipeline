@@ -1,6 +1,6 @@
 # Aging proteomics repository
 
-> Search and quantification results for 34 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `deddfb23a567c7c7` (datarepo 0.21.0, schema 0.0.11, built 2026-09-26T13:54:43+00:00); cite that id with any number you reuse.
+> Search and quantification results for 35 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `70075a67475306c8` (datarepo 0.21.0, schema 0.0.11, built 2026-09-27T02:06:40+00:00); cite that id with any number you reuse.
 
 Before you answer from this data:
 
@@ -12,6 +12,7 @@ Before you answer from this data:
 
 ## Datasets
 
+- [PXD007906: A secretome profile indicative of oleate-induced proliferation of HepG2 hepatocellular carcinoma cell line](datasets/PXD007906.html): PXD007906 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 874,388 PSMs, 40,437 peptidoforms and 3,284 protein groups, and the repository holds 24,446 PTM sites for it. 5 open warnings about it are recorded.
 - [PXD009430: Modulation of the ATM / autophagy pathway tips the balance between senescence and apoptosis in response to a quadruplex ligand](datasets/PXD009430.html): PXD009430 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 301,032 PSMs, 21,029 peptidoforms and 2,786 protein groups, and the repository holds 15,510 PTM sites for it. 5 open warnings about it are recorded.
 - [PXD010115: Quantification of the Soluble Receptor of Advanced Glycation End-Products (sRAGE) by LC-MS Without the Use of Affinity Enrichment](datasets/PXD010115.html): PXD010115 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 118,418 PSMs, 10,287 peptidoforms and 436 protein groups, and the repository holds 7,593 PTM sites for it. 8 open warnings about it are recorded.
 - [PXD011314: Profiling of Methylglyoxal Blood Metabolism and Advanced Glycation End-Product Proteome using a Chemical Probe](datasets/PXD011314.html): PXD011314 is a DDA label-free dataset (Homo sapiens) with 17 runs, 17 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 3,994 PSMs, 497 peptidoforms and 54 protein groups, and the repository holds 343 PTM sites for it. 7 open warnings about it are recorded.

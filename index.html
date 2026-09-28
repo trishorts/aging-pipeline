@@ -12,8 +12,8 @@
  "@type": "DataCatalog",
  "name": "Aging proteomics repository",
  "url": "https://trishorts.github.io/aging-pipeline/index.html",
- "identifier": "datarepo:catalog:7262b269c64f8829",
- "description": "Search and quantification results for 47 public proteomics datasets reanalysed with one pipeline, for questions about how organelle proteomes change with age.",
+ "identifier": "datarepo:catalog:7e60a2edbf09708b",
+ "description": "Search and quantification results for 48 public proteomics datasets reanalysed with one pipeline, for questions about how organelle proteomes change with age.",
  "dataset": [
   {
    "@type": "Dataset",
@@ -80,6 +80,12 @@
    "name": "PXD023381",
    "identifier": "PXD023381",
    "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD023381.html"
+  },
+  {
+   "@type": "Dataset",
+   "name": "PXD024478",
+   "identifier": "PXD024478",
+   "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024478.html"
   },
   {
    "@type": "Dataset",
@@ -314,7 +320,7 @@
 <h2>How it works</h2>
 <ul><li><a href="https://github.com/trishorts/aging-pipeline"><strong>aging-pipeline</strong></a> finds aging datasets in PRIDE, downloads and quality-checks the raw spectra, and searches and quantifies them with <a href="https://github.com/smith-chem-wisc/MetaMorpheus">MetaMorpheus</a>, including GPTMD to discover post-translational modifications, and FlashLFQ.</li><li><a href="https://github.com/trishorts/dataRepo"><strong>dataRepo</strong></a> stores the results in one schema and serves them to people and to AI agents. This site is generated from its catalog.</li></ul>
 <h2>Where it stands</h2>
-<ul><li><strong>47 datasets, 18 of them whole proteomes</strong> (no enrichment step): human 25 (11 whole); rat 14 (3 whole); mouse 8 (4 whole).</li><li><strong>Enrichments:</strong> affinity_purification 12; proximity_labelling 5; other 5; immunoprecipitation 4; chemical_probe 1; mixed runs 1; phospho 1.</li><li><strong>Beyond identifications and quantities:</strong> per-run PTM site occupancy (768,555 rows, 47 datasets) and protein-to-gene mappings (504,635 rows). These, and every individual protein, are in the catalog and reachable through the MCP server, not on these pages. The catalog file itself is not published yet.</li><li><strong>Sample ages:</strong> 308 runs in PXD047289, PXD056458, PXD047293, PXD051644, PXD056433, PXD058253, PXD047292, PXD051203, PXD058248, curated from the depositors&#x27; own records and paper.</li><li><strong>Not held yet:</strong> age effects, organelle assignments, and an experimental design for any dataset. Every dataset was quantified with each raw file as its own condition.</li><li>These counts are from catalog <code>7262b269c64f8829</code>.</li></ul>
+<ul><li><strong>48 datasets, 19 of them whole proteomes</strong> (no enrichment step): human 26 (12 whole); rat 14 (3 whole); mouse 8 (4 whole).</li><li><strong>Enrichments:</strong> affinity_purification 12; proximity_labelling 5; other 5; immunoprecipitation 4; chemical_probe 1; mixed runs 1; phospho 1.</li><li><strong>Beyond identifications and quantities:</strong> per-run PTM site occupancy (786,460 rows, 48 datasets) and protein-to-gene mappings (524,542 rows). These, and every individual protein, are in the catalog and reachable through the MCP server, not on these pages. The catalog file itself is not published yet.</li><li><strong>Sample ages:</strong> 308 runs in PXD051644, PXD056433, PXD058253, PXD058248, PXD051203, PXD047292, PXD047293, PXD056458, PXD047289, curated from the depositors&#x27; own records and paper.</li><li><strong>Not held yet:</strong> age effects, organelle assignments, and an experimental design for any dataset. Every dataset was quantified with each raw file as its own condition.</li><li>These counts are from catalog <code>7e60a2edbf09708b</code>.</li></ul>
 <p>So the repository cannot answer the group&#x27;s question on its own yet: ages, designs and organelle assignments are the next stages of the pipeline. Each dataset page lists the known problems with that dataset. Please read them before using its numbers.</p>
 <h2>Use it with your own AI agent</h2>
 <p>Any assistant that can read a web page (Claude, ChatGPT, Gemini, or your own agent with a fetch tool) can work from this site. There is nothing to install.</p>
@@ -334,16 +340,16 @@
 <p>Built at the Smith lab, University of Wisconsin–Madison. Questions and problems: please open an issue on <a href="https://github.com/trishorts/aging-pipeline/issues">aging-pipeline</a>.</p>
 </section>
 <div class="tiles">
-<div class="tile"><div class="tile-label">Datasets</div><div class="tile-value" title="47">47</div><div class="tile-note">public PRIDE datasets, each reanalysed from its raw files</div></div>
-<div class="tile"><div class="tile-label">Raw files searched</div><div class="tile-value" title="1,099">1,099</div><div class="tile-note">LC-MS/MS runs</div></div>
-<div class="tile"><div class="tile-label">Spectra searched</div><div class="tile-value" title="29,458,003">29.5M</div><div class="tile-note">MS2 scans in the raw files, summed (aging:DEF-MS2)</div></div>
-<div class="tile"><div class="tile-label">PSMs at 1% FDR</div><div class="tile-value" title="9,873,465">9.87M</div><div class="tile-note">target peptide-spectrum matches, as the search engine counts them</div></div>
-<div class="tile"><div class="tile-label">Proteins identified</div><div class="tile-value" title="24,335">24.3K</div><div class="tile-note">accessions with 1%-FDR evidence, decoys and contaminants excluded; 11,573 of them in 3 or more datasets</div></div>
-<div class="tile"><div class="tile-label">PTM sites</div><div class="tile-value" title="448,139">448K</div><div class="tile-note">modified residues on proteins, 147 kinds of modification</div></div>
+<div class="tile"><div class="tile-label">Datasets</div><div class="tile-value" title="48">48</div><div class="tile-note">public PRIDE datasets, each reanalysed from its raw files</div></div>
+<div class="tile"><div class="tile-label">Raw files searched</div><div class="tile-value" title="1,119">1,119</div><div class="tile-note">LC-MS/MS runs</div></div>
+<div class="tile"><div class="tile-label">Spectra searched</div><div class="tile-value" title="30,586,104">30.6M</div><div class="tile-note">MS2 scans in the raw files, summed (aging:DEF-MS2)</div></div>
+<div class="tile"><div class="tile-label">PSMs at 1% FDR</div><div class="tile-value" title="10,343,269">10.3M</div><div class="tile-note">target peptide-spectrum matches, as the search engine counts them</div></div>
+<div class="tile"><div class="tile-label">Proteins identified</div><div class="tile-value" title="24,772">24.8K</div><div class="tile-note">accessions with 1%-FDR evidence, decoys and contaminants excluded; 12,155 of them in 3 or more datasets</div></div>
+<div class="tile"><div class="tile-label">PTM sites</div><div class="tile-value" title="479,520">480K</div><div class="tile-note">modified residues on proteins, 147 kinds of modification</div></div>
 </div>
-<p class="note">Figures of merit from catalog <code>7262b269c64f8829</code>. Hover a number for its exact value.</p>
+<p class="note">Figures of merit from catalog <code>7e60a2edbf09708b</code>. Hover a number for its exact value.</p>
 <h2>This repository</h2>
-<p class="lede">Search and quantification results for 47 public proteomics datasets,
+<p class="lede">Search and quantification results for 48 public proteomics datasets,
 reanalysed with one pipeline and stored with the same schema, so they can be compared. The question
 they serve is how organelle proteomes change with age.</p>
 <p><strong>For AI agents:</strong> start at <a href="llms.txt"><code>llms.txt</code></a>. The same facts
@@ -367,6 +373,7 @@ about a dataset. Read them before using it.</p>
 <tr><td><a href="datasets/PXD022180.html">PXD022180</a></td><td>Mytho, An Uncharacterized Gene that Controls Longevity and WIPI2-dependent Autophagy</td><td>Homo sapiens</td><td>immunoprecipitation</td><td class="num">18</td><td class="num">118,826</td><td class="num">1,850</td><td class="num">9,102</td><td class="num">6</td></tr>
 <tr><td><a href="datasets/PXD022737.html">PXD022737</a></td><td>proteomic changes in aging rats treated with the cognitive enhancer CE-123</td><td>Rattus norvegicus</td><td>none</td><td class="num">24</td><td class="num">529,493</td><td class="num">3,122</td><td class="num">26,729</td><td class="num">5</td></tr>
 <tr><td><a href="datasets/PXD023381.html">PXD023381</a></td><td>Transcriptional and proteomic characterization of telomere-induced senescence in a human alveolar epithelial cell line</td><td>Homo sapiens</td><td>affinity_purification</td><td class="num">20</td><td class="num">42,391</td><td class="num">1,272</td><td class="num">4,884</td><td class="num">7</td></tr>
+<tr><td><a href="datasets/PXD024478.html">PXD024478</a></td><td>RNA polymerase I transcription disturbances lead to instable ribosomes in Cockayne syndrome</td><td>Homo sapiens</td><td>none</td><td class="num">20</td><td class="num">469,804</td><td class="num">7,014</td><td class="num">31,381</td><td class="num">5</td></tr>
 <tr><td><a href="datasets/PXD024803.html">PXD024803</a></td><td>CHD6 IP from human induced pluripotent stem cells LC-MS-MS</td><td>Homo sapiens</td><td>immunoprecipitation</td><td class="num">28</td><td class="num">381,861</td><td class="num">2,155</td><td class="num">19,352</td><td class="num">8</td></tr>
 <tr><td><a href="datasets/PXD026608.html">PXD026608</a></td><td>Integrated analysis of proteomics and phosphoproteomics on rat hearts with aging and hypertension</td><td>Rattus norvegicus</td><td>phospho</td><td class="num">12</td><td class="num">166,654</td><td class="num">1,293</td><td class="num">9,214</td><td class="num">6</td></tr>
 <tr><td><a href="datasets/PXD027318.html">PXD027318</a></td><td>Identification of a Proteomic Signature of Senescence in Primary Human Mammary Epithelial Cells</td><td>Homo sapiens</td><td>none</td><td class="num">18</td><td class="num">378,168</td><td class="num">4,478</td><td class="num">21,714</td><td class="num">7</td></tr>
@@ -407,8 +414,8 @@ about a dataset. Read them before using it.</p>
 </table></div>
 <h2>This catalog</h2>
 <dl>
-<dt>Catalog id</dt><dd><code>7262b269c64f8829</code></dd>
-<dt>Built</dt><dd>2026-09-28T04:24:25+00:00</dd>
+<dt>Catalog id</dt><dd><code>7e60a2edbf09708b</code></dd>
+<dt>Built</dt><dd>2026-09-28T09:10:33+00:00</dd>
 <dt>Built by</dt><dd>datarepo 0.21.0, catalog format 6</dd>
 <dt>Schema</dt><dd>0.0.11</dd>
 <dt>Instance</dt><dd>aging</dd>
@@ -416,7 +423,7 @@ about a dataset. Read them before using it.</p>
 </main>
 <footer>
 Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.21.0 from catalog
-<code>7262b269c64f8829</code>, built 2026-09-28T04:24:25+00:00 by datarepo
+<code>7e60a2edbf09708b</code>, built 2026-09-28T09:10:33+00:00 by datarepo
 0.21.0 (schema 0.0.11).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>

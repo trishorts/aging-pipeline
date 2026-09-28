@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PXD024478: RNA polymerase I transcription disturbances lead to instable ribosomes in Cockayne syndrome</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" type="text/plain" href="../llms.txt" title="llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org/",
+ "@type": "Dataset",
+ "dct:conformsTo": {
+  "@id": "https://bioschemas.org/profiles/Dataset/1.0-RELEASE",
+  "@type": "CreativeWork"
+ },
+ "@id": "https://trishorts.github.io/aging-pipeline/datasets/PXD024478.html",
+ "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024478.html",
+ "name": "PXD024478 reanalysis: RNA polymerase I transcription disturbances lead to instable ribosomes in Cockayne syndrome",
+ "identifier": [
+  "PXD024478",
+  "datarepo:bundle:c1718dd512850d59"
+ ],
+ "description": "PXD024478 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 469,804 PSMs, 73,911 peptidoforms and 7,014 protein groups, and the repository holds 31,381 PTM sites for it. 5 open warnings about it are recorded.",
+ "version": "c1718dd512850d59",
+ "dateModified": "2026-09-28T09:03:03+00:00",
+ "keywords": [
+  "proteomics",
+  "mass spectrometry",
+  "reanalysis",
+  "aging",
+  "Homo sapiens"
+ ],
+ "measurementTechnique": "mass spectrometry",
+ "variableMeasured": [
+  "peptide-spectrum match",
+  "peptidoform",
+  "protein group",
+  "PTM site",
+  "protein abundance"
+ ],
+ "isBasedOn": "https://www.ebi.ac.uk/pride/archive/projects/PXD024478",
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "creator": {
+  "@type": "Organization",
+  "name": "NCEMS Aging Proteome Working Group"
+ },
+ "includedInDataCatalog": {
+  "@type": "DataCatalog",
+  "name": "datarepo catalog 7e60a2edbf09708b",
+  "url": "https://trishorts.github.io/aging-pipeline/index.html"
+ }
+}
+</script>
+</head>
+<body>
+<header>
+<p class="crumb"><a href="../index.html">Aging proteomics repository</a> / PXD024478</p>
+<h1>RNA polymerase I transcription disturbances lead to instable ribosomes in Cockayne syndrome</h1>
+<p>PXD024478 · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD024478">PRIDE record</a></p>
+</header>
+<main>
+<div class="generated"><span class="label">Generated summary</span>
+PXD024478 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 469,804 PSMs, 73,911 peptidoforms and 7,014 protein groups, and the repository holds 31,381 PTM sites for it. 5 open warnings about it are recorded.
+<br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
+
+<h2>Open findings</h2>
+<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 469804 where the producer reported 469849 (results.txt: All target PSMs with q-value &lt;= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
+<div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
+<div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
+<div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 990 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
+<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
+<div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
+<div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>23 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
+
+<h2>What was found</h2>
+<div class="scroll"><table><tbody>
+<tr><td>PSMs at 1% FDR</td><td class="num">469,804</td></tr>
+<tr><td>Peptidoforms at 1% FDR</td><td class="num">73,911</td></tr>
+<tr><td>Protein groups at 1% FDR</td><td class="num">7,014</td></tr>
+<tr><td>PTM sites</td><td class="num">31,381</td></tr>
+<tr><td>Quantitative values</td><td class="num">495,547</td></tr>
+<tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">1,376,721</td></tr>
+<tr><td>MS2 identification rate <span class="note">(aging:DEF-ID-RATE)</span></td><td class="num">41.6%</td></tr>
+<tr><td>Contaminant share of PSMs <span class="note">(aging:DEF-CONTAM-PSM)</span></td><td class="num">0.5%</td></tr>
+</tbody></table></div>
+
+<h2>How it was measured</h2>
+<dl>
+<dt>Organism</dt><dd>Homo sapiens</dd>
+<dt>Acquisition</dt><dd>DDA</dd>
+<dt>Quantification</dt><dd>label_free</dd>
+<dt>Labelling</dt><dd>none</dd>
+<dt>Enrichment</dt><dd>none</dd>
+<dt>Instrument vendor</dt><dd>not recorded</dd>
+<dt>Runs / samples</dt><dd>20 / 20</dd>
+<dt>Sample metadata</dt><dd>absent</dd>
+<dt>Search engine</dt><dd>MetaMorpheus 1.1.11</dd>
+<dt>Protein database</dt><dd>uniprotkb_proteome_UP000005640_AND_revi_2026_09_18_agingPTM-v1.xml</dd>
+<dt>Pipeline commit</dt><dd><a href="https://github.com/trishorts/aging/tree/b1e214017270cd9fd0fc6071e5be1db77182ecb7">b1e214017270</a></dd>
+</dl>
+
+<h2>Most frequent modifications</h2>
+<div class="scroll"><table>
+<thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
+<tbody>
+<tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">16,076</td></tr>
+<tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">4,267</td></tr>
+<tr><td>Deamidation on N</td><td>UNIMOD:7</td><td class="num">3,029</td></tr>
+<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">2,721</td></tr>
+<tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">493</td></tr>
+<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">462</td></tr>
+<tr><td>Ammonia loss on N</td><td>UNIMOD:385</td><td class="num">343</td></tr>
+<tr><td>Citrullination on R</td><td>UNIMOD:7</td><td class="num">309</td></tr>
+<tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">284</td></tr>
+<tr><td>Fe[III] on E</td><td>UNIMOD:1870</td><td class="num">243</td></tr>
+</tbody></table></div>
+<p class="note">Target proteins only, the 10 most frequent. A dash in the UNIMOD column means the
+modification has no UNIMOD term in the registry that searched it, not that it is unknown.</p>
+
+<h2>Data</h2>
+<p>The Parquet files for this dataset are not published yet.</p>
+<dl>
+<dt>Bundle</dt><dd><code>c1718dd512850d59</code>, written 2026-09-28T09:03:03+00:00 by ingester 0.21.0</dd>
+<dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
+<dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
+<dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
+</dl>
+</main>
+<footer>
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.21.0 from catalog
+<code>7e60a2edbf09708b</code>, built 2026-09-28T09:10:33+00:00 by datarepo
+0.21.0 (schema 0.0.11).
+Every number on this site is read from that catalog; cite its id with any number you reuse.
+</footer>
+</body>
+</html>

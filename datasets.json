@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "61e7fbf0eaade7cc",
+  "catalog_id": "e55af6482711c0c0",
   "catalog_version": "6",
   "schema_version": "0.0.11",
   "builder_version": "0.21.0",
-  "built_utc": "2026-09-28T02:25:37+00:00",
+  "built_utc": "2026-09-28T03:24:13+00:00",
   "instance": "aging"
  },
  "datasets": [
@@ -6998,6 +6998,160 @@
    },
    "summary": "PXD067622 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 620,539 PSMs, 44,352 peptidoforms and 4,147 protein groups, and the repository holds 20,596 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD067622.html"
+  },
+  {
+   "dataset_id": "PXD073846",
+   "bundle_id": "b13ca26e64029fd1",
+   "title": "mtDNA alterations determine myoblast differentiation and disrupt skeletal muscle architecture",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "proximity_labelling"
+   ],
+   "enrichment_mixed": false,
+   "instrument_vendor": "Thermo",
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 165203,
+   "n_peptidoforms_1pct": 22717,
+   "n_protein_groups_1pct": 2251,
+   "n_psms_all": 278150,
+   "n_ptm_sites": 8299,
+   "n_quant_values": 207651,
+   "n_open_findings": 6,
+   "instruments": [
+    "Q Exactive Plus"
+   ],
+   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22_agingPTM-v1.xml",
+   "sdrf_status": "trusted",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "b1e214017270cd9fd0fc6071e5be1db77182ecb7",
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 165203 where the producer reported 165206 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "high_contamination",
+     "severity": "warning",
+     "message": "11.17% of protein intensity in the worst file, 4.89% median across 12 files (DEF-QC-9 v3.5)"
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "sdrf_uncoded",
+     "severity": "warning",
+     "message": "The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: organism part: Cell culture. Match on it as text; it has not been mapped to a term."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 375 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "13 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 3193
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 2374
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 635
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 424
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 255
+    },
+    {
+     "modification_name": "4-hydroxyproline on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 104
+    },
+    {
+     "modification_name": "Ammonia loss on N",
+     "modification": "UNIMOD:385",
+     "n_sites": 102
+    },
+    {
+     "modification_name": "Citrullination on R",
+     "modification": "UNIMOD:7",
+     "n_sites": 80
+    },
+    {
+     "modification_name": "Hydroxylation on N",
+     "modification": "UNIMOD:35",
+     "n_sites": 72
+    },
+    {
+     "modification_name": "N-acetylalanine on A",
+     "modification": "UNIMOD:1",
+     "n_sites": 49
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.7033,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.1146,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "b13ca26e64029fd1",
+    "written_utc": "2026-09-28T03:17:47+00:00",
+    "ingester_version": "0.21.0",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct"
+    ]
+   },
+   "summary": "PXD073846 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 165,203 PSMs, 22,717 peptidoforms and 2,251 protein groups, and the repository holds 8,299 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD073846.html"
   }
  ]
 }

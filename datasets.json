@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "15c9b7a0bbef1019",
+  "catalog_id": "61e7fbf0eaade7cc",
   "catalog_version": "6",
   "schema_version": "0.0.11",
   "builder_version": "0.21.0",
-  "built_utc": "2026-09-27T22:17:39+00:00",
+  "built_utc": "2026-09-28T02:25:37+00:00",
   "instance": "aging"
  },
  "datasets": [
@@ -2077,12 +2077,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 378168 where the producer reported 378182 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 49399 where the producer reported 49394 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",
@@ -4047,6 +4047,169 @@
    "page": "datasets/PXD036557.html"
   },
   {
+   "dataset_id": "PXD041139",
+   "bundle_id": "67eafd41807e0794",
+   "title": "Proteomic analysis reveals insufficient folliculogenesis in Aging Female associates with infertility",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "instrument_vendor": null,
+   "search_engine": "MetaMorpheus",
+   "search_engine_version": "1.1.11",
+   "n_runs": 14,
+   "n_samples": 14,
+   "n_psms_1pct": 426813,
+   "n_peptidoforms_1pct": 8184,
+   "n_protein_groups_1pct": 478,
+   "n_psms_all": 1522091,
+   "n_ptm_sites": 10247,
+   "n_quant_values": 106444,
+   "n_open_findings": 7,
+   "instruments": null,
+   "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18_agingPTM-v1.xml",
+   "sdrf_status": "absent",
+   "pipeline_repo": "https://github.com/trishorts/aging.git",
+   "pipeline_commit": "b1e214017270cd9fd0fc6071e5be1db77182ecb7",
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "licence": "CC-BY-4.0",
+   "credit": "NCEMS Aging Proteome Working Group",
+   "findings": [
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 8184 where the producer reported 8183 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "count_mismatch",
+     "severity": "warning",
+     "message": "The bundle holds 426813 where the producer reported 427069 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    },
+    {
+     "code": "no_design_file",
+     "severity": "warning",
+     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    },
+    {
+     "code": "no_sdrf",
+     "severity": "warning",
+     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+    },
+    {
+     "code": "occupancy_not_stored",
+     "severity": "warning",
+     "message": "Of 73707 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 3 duplicate entry for one site and run. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA."
+    },
+    {
+     "code": "unplaced_ptm_sites",
+     "severity": "warning",
+     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 2306 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    },
+    {
+     "code": "unresolved_modifications",
+     "severity": "warning",
+     "message": "3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    },
+    {
+     "code": "collapsed_duplicate_rows",
+     "severity": "info",
+     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 2 identifier(s), 2 row(s) dropped, e.g. PXD041139:P00325;P00326;P07327 written 2 times; quant_values: 28 identifier(s), 28 row(s) dropped, e.g. PXD041139:22060212_WS_AFF2:label_free:protein_group:PXD041139:P00325;P00326;P07327:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates."
+    },
+    {
+     "code": "no_output_sdrf",
+     "severity": "info",
+     "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    },
+    {
+     "code": "occupancy_decoy_groups",
+     "severity": "info",
+     "message": "78 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+    }
+   ],
+   "modifications": [
+    {
+     "modification_name": "Carbamidomethyl on C",
+     "modification": "UNIMOD:4",
+     "n_sites": 1205
+    },
+    {
+     "modification_name": "Deamidation on Q",
+     "modification": "UNIMOD:7",
+     "n_sites": 903
+    },
+    {
+     "modification_name": "Oxidation on M",
+     "modification": "UNIMOD:35",
+     "n_sites": 783
+    },
+    {
+     "modification_name": "Deamidation on N",
+     "modification": "UNIMOD:7",
+     "n_sites": 736
+    },
+    {
+     "modification_name": "Fe[III] on E",
+     "modification": "UNIMOD:1870",
+     "n_sites": 566
+    },
+    {
+     "modification_name": "Fe[II] on E",
+     "modification": "UNIMOD:952",
+     "n_sites": 436
+    },
+    {
+     "modification_name": "Sodium on E",
+     "modification": "UNIMOD:30",
+     "n_sites": 431
+    },
+    {
+     "modification_name": "Hydroxylation on P",
+     "modification": "UNIMOD:35",
+     "n_sites": 388
+    },
+    {
+     "modification_name": "Magnesium on E",
+     "modification": "UNIMOD:956",
+     "n_sites": 382
+    },
+    {
+     "modification_name": "Fe[III] on D",
+     "modification": "UNIMOD:1870",
+     "n_sites": 381
+    }
+   ],
+   "metrics": {
+    "id_rate": {
+     "value": 0.2897,
+     "definition_id": "aging:DEF-ID-RATE"
+    },
+    "contamination_psm_share": {
+     "value": 0.0115,
+     "definition_id": "aging:DEF-CONTAM-PSM"
+    }
+   },
+   "bundle": {
+    "bundle_id": "67eafd41807e0794",
+    "written_utc": "2026-09-28T02:18:32+00:00",
+    "ingester_version": "0.21.0",
+    "reconciliation_ok": false,
+    "reconciliation_failed": [
+     "psms_target_1pct",
+     "peptidoforms_target_1pct"
+    ]
+   },
+   "summary": "PXD041139 is a DDA label-free dataset (Homo sapiens) with 14 runs, 14 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 426,813 PSMs, 8,184 peptidoforms and 478 protein groups, and the repository holds 10,247 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD041139.html"
+  },
+  {
    "dataset_id": "PXD047288",
    "bundle_id": "d38fbe9630848d01",
    "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
@@ -5932,12 +6095,12 @@
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 1.05151e+06 where the producer reported 1.0515e+06 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 82089 where the producer reported 82088 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "count_mismatch",
      "severity": "warning",
-     "message": "The bundle holds 82089 where the producer reported 82088 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+     "message": "The bundle holds 1.05151e+06 where the producer reported 1.0515e+06 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
     },
     {
      "code": "no_design_file",

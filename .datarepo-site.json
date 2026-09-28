@@ -1,8 +1,9 @@
 {
- "catalog_id": "87c80f11d2bc78c5",
+ "catalog_id": "358d58a58dbe3042",
  "generator": "datarepo 0.21.0",
  "files": [
   "datasets.json",
+  "datasets/PXD006898.html",
   "datasets/PXD007906.html",
   "datasets/PXD009430.html",
   "datasets/PXD010115.html",

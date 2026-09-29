@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "c3e8d1e85612ed0c",
+  "catalog_id": "1234c3e28cf422e4",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.28.1",
-  "built_utc": "2026-09-29T09:30:28+00:00",
+  "built_utc": "2026-09-29T17:33:00+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2369,6 +2369,51 @@
    "json": "datasets/PXD067622.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067622.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067622.json"
+  },
+  {
+   "dataset_id": "PXD069093",
+   "title": "Kinome profiling of osteosarcoma patient-derived xenograft TT2 treated with palbociclib",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "affinity_purification"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 16,
+   "n_samples": 16,
+   "n_psms_1pct": 491552,
+   "n_peptidoforms_1pct": 24061,
+   "n_protein_groups_1pct": 2083,
+   "n_ptm_sites": 15594,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 3
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "high_contamination",
+    "no_design_file",
+    "no_output_sdrf",
+    "occupancy_decoy_groups",
+    "sdrf_skeleton",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD069093 is a DDA label-free dataset (Homo sapiens) with 16 runs, 16 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 491,552 PSMs, 24,061 peptidoforms and 2,083 protein groups, and the repository holds 15,594 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD069093.html",
+   "json": "datasets/PXD069093.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD069093.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD069093.json"
   },
   {
    "dataset_id": "PXD073846",

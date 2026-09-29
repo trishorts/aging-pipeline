@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "e2c031cdc14f3694",
+  "catalog_id": "c3e8d1e85612ed0c",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.28.1",
-  "built_utc": "2026-09-29T03:27:44+00:00",
+  "built_utc": "2026-09-29T09:30:28+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -231,6 +231,51 @@
    "json": "datasets/PXD011314.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011314.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011314.json"
+  },
+  {
+   "dataset_id": "PXD012985",
+   "title": "Translational regulation contributes to the secretory response of chondrocytic cells following exposure to Interleukin-1B",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 86118,
+   "n_peptidoforms_1pct": 16750,
+   "n_protein_groups_1pct": 2096,
+   "n_ptm_sites": 5652,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 3
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "high_contamination",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD012985 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 86,118 PSMs, 16,750 peptidoforms and 2,096 protein groups, and the repository holds 5,652 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD012985.html",
+   "json": "datasets/PXD012985.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD012985.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD012985.json"
   },
   {
    "dataset_id": "PXD013640",

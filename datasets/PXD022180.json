@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "e2c031cdc14f3694",
+  "catalog_id": "c3e8d1e85612ed0c",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.28.1",
-  "built_utc": "2026-09-29T03:27:44+00:00",
+  "built_utc": "2026-09-29T09:30:28+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -50,12 +50,12 @@
    {
     "code": "count_mismatch",
     "severity": "warning",
-    "message": "The bundle holds 19279 where the producer reported 19256 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    "message": "The bundle holds 118826 where the producer reported 118864 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
    },
    {
     "code": "count_mismatch",
     "severity": "warning",
-    "message": "The bundle holds 118826 where the producer reported 118864 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    "message": "The bundle holds 19279 where the producer reported 19256 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
    },
    {
     "code": "high_contamination",

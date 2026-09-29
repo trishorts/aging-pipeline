@@ -1,0 +1,302 @@
+{
+ "catalog": {
+  "catalog_id": "e2c031cdc14f3694",
+  "catalog_version": "8",
+  "schema_version": "0.0.13",
+  "builder_version": "0.28.1",
+  "built_utc": "2026-09-29T03:27:44+00:00",
+  "instance": "aging",
+  "base_url": "https://trishorts.github.io/aging-pipeline/"
+ },
+ "dataset": {
+  "dataset_id": "PXD022128",
+  "bundle_id": "77b669a70845435f",
+  "title": "A genome-wide screen for essentiality upon telomerase inhibition identifies a novel p53 regulator, C16ORF72/TAPR1",
+  "organisms": [
+   "NCBITaxon:9606"
+  ],
+  "acquisition": "DDA",
+  "quant_method": "label_free",
+  "labelling": "none",
+  "enrichment": [
+   "proximity_labelling"
+  ],
+  "enrichment_mixed": false,
+  "instrument_vendor": null,
+  "search_engine": "MetaMorpheus",
+  "search_engine_version": "1.1.11",
+  "n_runs": 18,
+  "n_samples": 18,
+  "n_psms_1pct": 38885,
+  "n_peptidoforms_1pct": 4662,
+  "n_protein_groups_1pct": 1255,
+  "n_psms_all": 104507,
+  "n_ptm_sites": 1388,
+  "n_quant_values": 102226,
+  "n_open_findings": 6,
+  "instruments": null,
+  "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+  "sdrf_status": "absent",
+  "pipeline_repo": "https://github.com/trishorts/aging.git",
+  "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+  "organism_names": [
+   "Homo sapiens"
+  ],
+  "licence": "CC-BY-4.0",
+  "credit": "NCEMS Aging Proteome Working Group",
+  "pipeline_public_repo": null,
+  "pipeline_public_commit": null,
+  "findings": [
+   {
+    "code": "low_id_rate",
+    "severity": "warning",
+    "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 38885/310334 = 12.53% of MS2 identified (S3)"
+   },
+   {
+    "code": "no_design_file",
+    "severity": "warning",
+    "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+   },
+   {
+    "code": "no_sdrf",
+    "severity": "warning",
+    "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+   },
+   {
+    "code": "unplaced_ptm_sites",
+    "severity": "warning",
+    "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 628 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+   },
+   {
+    "code": "unresolved_modifications",
+    "severity": "warning",
+    "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Trypsin Digested:GG (Ubiquitination Site) on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+   },
+   {
+    "code": "upstream_provenance_changed",
+    "severity": "warning",
+    "message": "The search recorded its upstream 'db_prepare' provenance (db/provenance.json) with sha256 61a5ddc7c43d6e64686241464086050a1bb5544878659194515f908d4d6cb2e2, and the file there now has 812ce696ba3f0ee2a1f79241b5e16e9267d6199f7598af77391178b825658963: it was overwritten after the search. It is left out of this bundle rather than read as this search's record. The search's own record of the db_prepare stage is gone unless the producer archived it."
+   },
+   {
+    "code": "no_output_sdrf",
+    "severity": "info",
+    "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+   },
+   {
+    "code": "occupancy_decoy_groups",
+    "severity": "info",
+    "message": "11 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+   }
+  ],
+  "modifications": [
+   {
+    "modification_name": "Carbamidomethyl on C",
+    "modification": "UNIMOD:4",
+    "n_sites": 815
+   },
+   {
+    "modification_name": "Oxidation on M",
+    "modification": "UNIMOD:35",
+    "n_sites": 204
+   },
+   {
+    "modification_name": "Deamidation on N",
+    "modification": "UNIMOD:7",
+    "n_sites": 75
+   },
+   {
+    "modification_name": "Deamidation on Q",
+    "modification": "UNIMOD:7",
+    "n_sites": 38
+   },
+   {
+    "modification_name": "N-acetylalanine on A",
+    "modification": "UNIMOD:1",
+    "n_sites": 30
+   },
+   {
+    "modification_name": "Phosphoserine on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 28
+   },
+   {
+    "modification_name": "N6-acetyllysine on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 20
+   },
+   {
+    "modification_name": "Fe[III] on E",
+    "modification": "UNIMOD:1870",
+    "n_sites": 15
+   },
+   {
+    "modification_name": "N-acetylserine on S",
+    "modification": "UNIMOD:1",
+    "n_sites": 14
+   },
+   {
+    "modification_name": "N6,N6-dimethyllysine on K",
+    "modification": "UNIMOD:36",
+    "n_sites": 14
+   },
+   {
+    "modification_name": "N6-methyllysine on K",
+    "modification": "UNIMOD:34",
+    "n_sites": 12
+   },
+   {
+    "modification_name": "Hydroxylation on P",
+    "modification": "UNIMOD:35",
+    "n_sites": 10
+   },
+   {
+    "modification_name": "Phosphorylation on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 10
+   },
+   {
+    "modification_name": "Asymmetric dimethylarginine on R",
+    "modification": "UNIMOD:36",
+    "n_sites": 9
+   },
+   {
+    "modification_name": "Hydroxylation on K",
+    "modification": "UNIMOD:35",
+    "n_sites": 7
+   },
+   {
+    "modification_name": "N6,N6,N6-trimethyllysine on K",
+    "modification": "UNIMOD:37",
+    "n_sites": 6
+   },
+   {
+    "modification_name": "Phosphothreonine on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 6
+   },
+   {
+    "modification_name": "Ammonia loss on N",
+    "modification": "UNIMOD:385",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "Citrullination on R",
+    "modification": "UNIMOD:7",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "Fe[III] on D",
+    "modification": "UNIMOD:1870",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "N-acetylmethionine on M",
+    "modification": "UNIMOD:1",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "Hydroxylation on N",
+    "modification": "UNIMOD:35",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Phosphorylation on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Sodium on D",
+    "modification": "UNIMOD:30",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Sodium on E",
+    "modification": "UNIMOD:30",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "3-hydroxyasparagine on N",
+    "modification": null,
+    "n_sites": 1
+   },
+   {
+    "modification_name": "3-hydroxyproline on P",
+    "modification": "UNIMOD:35",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Deamidated asparagine on N",
+    "modification": "UNIMOD:7",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylcysteine on C",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylglycine on G",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N5-methylglutamine on Q",
+    "modification": "UNIMOD:34",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N6-(2-hydroxyisobutyryl)lysine on K",
+    "modification": "UNIMOD:1849",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Omega-N-methylarginine on R",
+    "modification": "UNIMOD:34",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Water Loss on E",
+    "modification": "UNIMOD:27",
+    "n_sites": 1
+   }
+  ],
+  "metrics": {
+   "id_rate": {
+    "value": 0.1253,
+    "definition_id": "aging:DEF-ID-RATE"
+   },
+   "contamination_psm_share": {
+    "value": 0.078,
+    "definition_id": "aging:DEF-CONTAM-PSM"
+   }
+  },
+  "findings_by_severity": {
+   "error": 0,
+   "warning": 6,
+   "info": 2
+  },
+  "finding_codes": [
+   "low_id_rate",
+   "no_design_file",
+   "no_output_sdrf",
+   "no_sdrf",
+   "occupancy_decoy_groups",
+   "unplaced_ptm_sites",
+   "unresolved_modifications",
+   "upstream_provenance_changed"
+  ],
+  "bundle": {
+   "bundle_id": "77b669a70845435f",
+   "written_utc": "2026-09-28T21:36:54+00:00",
+   "ingester_version": "0.28.1",
+   "reconciliation_ok": true,
+   "reconciliation_failed": []
+  },
+  "summary": "PXD022128 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 38,885 PSMs, 4,662 peptidoforms and 1,255 protein groups, and the repository holds 1,388 PTM sites for it. 6 open warnings about it are recorded.",
+  "page": "datasets/PXD022128.html",
+  "json": "datasets/PXD022128.json",
+  "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022128.html",
+  "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022128.json"
+ },
+ "organisms_are": "`organisms` is the organism of the protein DATABASE the search used, not a statement about the samples. Sample annotation, where any exists, is in the catalog's `samples` and `sample_characteristics` tables."
+}

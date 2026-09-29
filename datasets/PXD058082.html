@@ -19,11 +19,11 @@
  "name": "PXD058082 reanalysis: Major toxin composition of particulate matter from a coal-fired power plant and its proteomics-associated toxicological ",
  "identifier": [
   "PXD058082",
-  "datarepo:bundle:15fe0bf10bd9091a"
+  "datarepo:bundle:fcc77b0b56d83d69"
  ],
  "description": "PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 40,780 PSMs, 4,568 peptidoforms and 1,184 protein groups, and the repository holds 1,717 PTM sites for it. 5 open warnings about it are recorded.",
- "version": "15fe0bf10bd9091a",
- "dateModified": "2026-09-25T20:02:57+00:00",
+ "version": "fcc77b0b56d83d69",
+ "dateModified": "2026-09-28T21:25:03+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 729912472d32b284",
+  "name": "datarepo catalog e2c031cdc14f3694",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -65,6 +65,7 @@ PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples an
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
+<p><strong>Recorded against this dataset: 0 errors, 5 warnings and 2 for information</strong></p>
 <div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 40780/329646 = 12.37% of MS2 identified (S3)</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
@@ -87,7 +88,7 @@ PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples an
 
 <h2>How it was measured</h2>
 <dl>
-<dt>Organism</dt><dd>Mus musculus</dd>
+<dt>Organism searched</dt><dd>Mus musculus <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
 <dt>Acquisition</dt><dd>DDA</dd>
 <dt>Quantification</dt><dd>label_free</dd>
 <dt>Labelling</dt><dd>none</dd>
@@ -100,7 +101,7 @@ PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples an
 <dt>Pipeline commit</dt><dd><a href="https://github.com/trishorts/aging/tree/d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad">d9a53813dfbd</a></dd>
 </dl>
 
-<h2>Most frequent modifications</h2>
+<h2>Modifications</h2>
 <div class="scroll"><table>
 <thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
 <tbody>
@@ -114,23 +115,49 @@ PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples an
 <tr><td>N6-acetyllysine on K</td><td>UNIMOD:1</td><td class="num">16</td></tr>
 <tr><td>Magnesium on D</td><td>UNIMOD:956</td><td class="num">13</td></tr>
 <tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">9</td></tr>
+<tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">5</td></tr>
+<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">5</td></tr>
+<tr><td>Citrullination on R</td><td>UNIMOD:7</td><td class="num">4</td></tr>
+<tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">4</td></tr>
+<tr><td>N-acetylalanine on A</td><td>UNIMOD:1</td><td class="num">4</td></tr>
+<tr><td>N-acetylmethionine on M</td><td>UNIMOD:1</td><td class="num">4</td></tr>
+<tr><td>N6,N6,N6-trimethyllysine on K</td><td>UNIMOD:37</td><td class="num">4</td></tr>
+<tr><td>Tele-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">4</td></tr>
+<tr><td>Deamidated asparagine on N</td><td>UNIMOD:7</td><td class="num">3</td></tr>
+<tr><td>Formylation on K</td><td>UNIMOD:122</td><td class="num">3</td></tr>
+<tr><td>Magnesium on E</td><td>UNIMOD:956</td><td class="num">3</td></tr>
+<tr><td>N-acetylserine on S</td><td>UNIMOD:1</td><td class="num">3</td></tr>
+<tr><td>N6-methyllysine on K</td><td>UNIMOD:34</td><td class="num">3</td></tr>
+<tr><td>5-glutamyl glycerylphosphorylethanolamine on E</td><td>UNIMOD:396</td><td class="num">2</td></tr>
+<tr><td>N-acetylglycine on G</td><td>UNIMOD:1</td><td class="num">2</td></tr>
+<tr><td>N6,N6-dimethyllysine on K</td><td>UNIMOD:36</td><td class="num">2</td></tr>
+<tr><td>Acetylation on K</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>Acetylation on X</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N-acetylvaline on V</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N-myristoyl glycine on G</td><td>UNIMOD:45</td><td class="num">1</td></tr>
+<tr><td>N6-crotonyllysine on K</td><td>—</td><td class="num">1</td></tr>
+<tr><td>Phosphothreonine on T</td><td>UNIMOD:21</td><td class="num">1</td></tr>
+<tr><td>Symmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">1</td></tr>
+<tr><td>Trimethylation on K</td><td>UNIMOD:37</td><td class="num">1</td></tr>
 </tbody></table></div>
-<p class="note">Target proteins only, the 10 most frequent. A dash in the UNIMOD column means the
-modification has no UNIMOD term in the registry that searched it, not that it is unknown.</p>
+<p class="note">Every modification with a site on a target protein, most frequent first. A dash in the UNIMOD
+column means the modification has no UNIMOD term in the registry that searched it, not that it is
+unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's); the catalog's
+<code>ptm_sites_by_chemistry</code> view merges them.</p>
 
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>15fe0bf10bd9091a</code>, written 2026-09-25T20:02:57+00:00 by ingester 0.21.0</dd>
+<dt>Bundle</dt><dd><code>fcc77b0b56d83d69</code>, written 2026-09-28T21:25:03+00:00 by ingester 0.28.1</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts</dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.21.0 from catalog
-<code>729912472d32b284</code>, built 2026-09-28T19:00:00+00:00 by datarepo
-0.21.0 (schema 0.0.11).
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.28.1 from catalog
+<code>e2c031cdc14f3694</code>, built 2026-09-29T03:27:44+00:00 by datarepo
+0.28.1 (schema 0.0.13).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

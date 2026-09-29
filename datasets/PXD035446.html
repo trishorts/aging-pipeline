@@ -19,11 +19,11 @@
  "name": "PXD035446 reanalysis: Extracellular vesicle-derived miRNAs improve stem cell-based therapeutic approaches in muscle wasting conditions.",
  "identifier": [
   "PXD035446",
-  "datarepo:bundle:07d6873bc63aca1c"
+  "datarepo:bundle:0668fc07dca1b585"
  ],
  "description": "PXD035446 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 17,467 PSMs, 1,246 peptidoforms and 151 protein groups, and the repository holds 945 PTM sites for it. 6 open warnings about it are recorded.",
- "version": "07d6873bc63aca1c",
- "dateModified": "2026-09-27T10:27:17+00:00",
+ "version": "0668fc07dca1b585",
+ "dateModified": "2026-09-28T22:23:50+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 729912472d32b284",
+  "name": "datarepo catalog e2c031cdc14f3694",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -65,6 +65,7 @@ PXD035446 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples an
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
+<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 2 for information</strong></p>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>19.35% of protein intensity in the worst file, 4.35% median across 12 files (DEF-QC-9 v3.5)</div>
 <div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 17467/171028 = 10.21% of MS2 identified (S3)</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
@@ -88,7 +89,7 @@ PXD035446 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples an
 
 <h2>How it was measured</h2>
 <dl>
-<dt>Organism</dt><dd>Mus musculus</dd>
+<dt>Organism searched</dt><dd>Mus musculus <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
 <dt>Acquisition</dt><dd>DDA</dd>
 <dt>Quantification</dt><dd>label_free</dd>
 <dt>Labelling</dt><dd>none</dd>
@@ -101,7 +102,7 @@ PXD035446 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples an
 <dt>Pipeline commit</dt><dd><a href="https://github.com/trishorts/aging/tree/519a6ec49dcd639a1d8fc69e63a698d198382cd8">519a6ec49dcd</a></dd>
 </dl>
 
-<h2>Most frequent modifications</h2>
+<h2>Modifications</h2>
 <div class="scroll"><table>
 <thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
 <tbody>
@@ -115,23 +116,54 @@ PXD035446 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples an
 <tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">13</td></tr>
 <tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">12</td></tr>
 <tr><td>4-hydroxyproline on P</td><td>UNIMOD:35</td><td class="num">11</td></tr>
+<tr><td>Acetylation on K</td><td>UNIMOD:1</td><td class="num">11</td></tr>
+<tr><td>Citrullination on R</td><td>UNIMOD:7</td><td class="num">10</td></tr>
+<tr><td>Ammonia loss on C</td><td>UNIMOD:385</td><td class="num">7</td></tr>
+<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">7</td></tr>
+<tr><td>Water Loss on E</td><td>UNIMOD:27</td><td class="num">7</td></tr>
+<tr><td>Fe[II] on E</td><td>UNIMOD:952</td><td class="num">6</td></tr>
+<tr><td>Methylation on R</td><td>UNIMOD:34</td><td class="num">4</td></tr>
+<tr><td>N6-acetyllysine on K</td><td>UNIMOD:1</td><td class="num">3</td></tr>
+<tr><td>Asymmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">2</td></tr>
+<tr><td>Carbamyl on R</td><td>UNIMOD:5</td><td class="num">2</td></tr>
+<tr><td>Hydroxybutyrylation on K</td><td>—</td><td class="num">2</td></tr>
+<tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">2</td></tr>
+<tr><td>Methylation on K</td><td>UNIMOD:34</td><td class="num">2</td></tr>
+<tr><td>(3R)-3-hydroxyasparagine on N</td><td>UNIMOD:35</td><td class="num">1</td></tr>
+<tr><td>Acetylation on X</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>Carbamyl on C</td><td>UNIMOD:5</td><td class="num">1</td></tr>
+<tr><td>Carbamyl on M</td><td>UNIMOD:5</td><td class="num">1</td></tr>
+<tr><td>Deamidated asparagine on N</td><td>UNIMOD:7</td><td class="num">1</td></tr>
+<tr><td>Fe[II] on D</td><td>UNIMOD:952</td><td class="num">1</td></tr>
+<tr><td>Glu to PyroGlu on Q</td><td>UNIMOD:28</td><td class="num">1</td></tr>
+<tr><td>N-acetylmethionine on M</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N-acetylserine on S</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N-acetylthreonine on T</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N6-methacryllysine on K</td><td>—</td><td class="num">1</td></tr>
+<tr><td>N6-succinyllysine on K</td><td>—</td><td class="num">1</td></tr>
+<tr><td>Omega-N-methylarginine on R</td><td>UNIMOD:34</td><td class="num">1</td></tr>
+<tr><td>Phosphothreonine on T</td><td>UNIMOD:21</td><td class="num">1</td></tr>
+<tr><td>Phosphotyrosine on Y</td><td>UNIMOD:21</td><td class="num">1</td></tr>
+<tr><td>Sulfonation on Y</td><td>UNIMOD:40</td><td class="num">1</td></tr>
 </tbody></table></div>
-<p class="note">Target proteins only, the 10 most frequent. A dash in the UNIMOD column means the
-modification has no UNIMOD term in the registry that searched it, not that it is unknown.</p>
+<p class="note">Every modification with a site on a target protein, most frequent first. A dash in the UNIMOD
+column means the modification has no UNIMOD term in the registry that searched it, not that it is
+unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's); the catalog's
+<code>ptm_sites_by_chemistry</code> view merges them.</p>
 
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>07d6873bc63aca1c</code>, written 2026-09-27T10:27:17+00:00 by ingester 0.21.0</dd>
+<dt>Bundle</dt><dd><code>0668fc07dca1b585</code>, written 2026-09-28T22:23:50+00:00 by ingester 0.28.1</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts</dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.21.0 from catalog
-<code>729912472d32b284</code>, built 2026-09-28T19:00:00+00:00 by datarepo
-0.21.0 (schema 0.0.11).
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.28.1 from catalog
+<code>e2c031cdc14f3694</code>, built 2026-09-29T03:27:44+00:00 by datarepo
+0.28.1 (schema 0.0.13).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

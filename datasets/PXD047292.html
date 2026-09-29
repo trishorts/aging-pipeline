@@ -19,11 +19,11 @@
  "name": "PXD047292 reanalysis: Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
  "identifier": [
   "PXD047292",
-  "datarepo:bundle:2a8b511fe33dc4b8"
+  "datarepo:bundle:339ada219ea1e77a"
  ],
  "description": "PXD047292 is a DDA label-free dataset (Rattus norvegicus) with 36 runs, 36 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 10,274 PSMs, 756 peptidoforms and 231 protein groups, and the repository holds 1,803 PTM sites for it. 6 open warnings about it are recorded.",
- "version": "2a8b511fe33dc4b8",
- "dateModified": "2026-09-25T20:34:01+00:00",
+ "version": "339ada219ea1e77a",
+ "dateModified": "2026-09-28T21:55:31+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 729912472d32b284",
+  "name": "datarepo catalog e2c031cdc14f3694",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -65,6 +65,7 @@ PXD047292 is a DDA label-free dataset (Rattus norvegicus) with 36 runs, 36 sampl
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
+<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 2 for information</strong></p>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>89.40% of protein intensity in the worst file, 74.26% median across 36 files (DEF-QC-9 v3.5)</div>
 <div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 10274/560252 = 1.83% of MS2 identified (S3)</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
@@ -88,7 +89,7 @@ PXD047292 is a DDA label-free dataset (Rattus norvegicus) with 36 runs, 36 sampl
 
 <h2>How it was measured</h2>
 <dl>
-<dt>Organism</dt><dd>Rattus norvegicus</dd>
+<dt>Organism searched</dt><dd>Rattus norvegicus <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
 <dt>Acquisition</dt><dd>DDA</dd>
 <dt>Quantification</dt><dd>label_free</dd>
 <dt>Labelling</dt><dd>none</dd>
@@ -101,7 +102,7 @@ PXD047292 is a DDA label-free dataset (Rattus norvegicus) with 36 runs, 36 sampl
 <dt>Pipeline commit</dt><dd><a href="https://github.com/trishorts/aging/tree/e6230debdbd8bed58c0c6aaa2abdec59beb8bbed">e6230debdbd8</a></dd>
 </dl>
 
-<h2>Most frequent modifications</h2>
+<h2>Modifications</h2>
 <div class="scroll"><table>
 <thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
 <tbody>
@@ -115,23 +116,74 @@ PXD047292 is a DDA label-free dataset (Rattus norvegicus) with 36 runs, 36 sampl
 <tr><td>Acetylation on K</td><td>UNIMOD:1</td><td class="num">16</td></tr>
 <tr><td>Ammonia loss on N</td><td>UNIMOD:385</td><td class="num">13</td></tr>
 <tr><td>Formylation on K</td><td>UNIMOD:122</td><td class="num">12</td></tr>
+<tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">10</td></tr>
+<tr><td>N-acetylalanine on A</td><td>UNIMOD:1</td><td class="num">9</td></tr>
+<tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">8</td></tr>
+<tr><td>Acetylation on X</td><td>UNIMOD:1</td><td class="num">5</td></tr>
+<tr><td>Hydroxybutyrylation on K</td><td>—</td><td class="num">5</td></tr>
+<tr><td>Phosphorylation on S</td><td>UNIMOD:21</td><td class="num">5</td></tr>
+<tr><td>Sodium on D</td><td>UNIMOD:30</td><td class="num">5</td></tr>
+<tr><td>Methylation on K</td><td>UNIMOD:34</td><td class="num">4</td></tr>
+<tr><td>Methylation on R</td><td>UNIMOD:34</td><td class="num">4</td></tr>
+<tr><td>N-acetylmethionine on M</td><td>UNIMOD:1</td><td class="num">4</td></tr>
+<tr><td>Water Loss on E</td><td>UNIMOD:27</td><td class="num">4</td></tr>
+<tr><td>Carbamyl on X</td><td>UNIMOD:5</td><td class="num">3</td></tr>
+<tr><td>Carboxylation on D</td><td>UNIMOD:299</td><td class="num">3</td></tr>
+<tr><td>Carboxylation on E</td><td>UNIMOD:299</td><td class="num">3</td></tr>
+<tr><td>Crotonylation on K</td><td>UNIMOD:1363</td><td class="num">3</td></tr>
+<tr><td>Deamidated asparagine on N</td><td>UNIMOD:7</td><td class="num">3</td></tr>
+<tr><td>Dimethylation on K</td><td>UNIMOD:36</td><td class="num">3</td></tr>
+<tr><td>GG (Ubiquitination Site) on K</td><td>—</td><td class="num">3</td></tr>
+<tr><td>Omega-N-methylarginine on R</td><td>UNIMOD:34</td><td class="num">3</td></tr>
+<tr><td>Symmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">3</td></tr>
+<tr><td>5-glutamyl glycerylphosphorylethanolamine on E</td><td>UNIMOD:396</td><td class="num">2</td></tr>
+<tr><td>Calcium on D</td><td>UNIMOD:951</td><td class="num">2</td></tr>
+<tr><td>Deamidated glutamine on Q</td><td>UNIMOD:7</td><td class="num">2</td></tr>
+<tr><td>N-acetylserine on S</td><td>UNIMOD:1</td><td class="num">2</td></tr>
+<tr><td>N-acetylvaline on V</td><td>UNIMOD:1</td><td class="num">2</td></tr>
+<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">2</td></tr>
+<tr><td>Phosphothreonine on T</td><td>UNIMOD:21</td><td class="num">2</td></tr>
+<tr><td>Sodium on E</td><td>UNIMOD:30</td><td class="num">2</td></tr>
+<tr><td>Sulfonation on Y</td><td>UNIMOD:40</td><td class="num">2</td></tr>
+<tr><td>Tele-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">2</td></tr>
+<tr><td>5-hydroxylysine on K</td><td>UNIMOD:35</td><td class="num">1</td></tr>
+<tr><td>Butyrylation on K</td><td>UNIMOD:1289</td><td class="num">1</td></tr>
+<tr><td>Calcium on E</td><td>UNIMOD:951</td><td class="num">1</td></tr>
+<tr><td>Carbamyl on K</td><td>UNIMOD:5</td><td class="num">1</td></tr>
+<tr><td>Carbamyl on M</td><td>UNIMOD:5</td><td class="num">1</td></tr>
+<tr><td>Carbamyl on R</td><td>UNIMOD:5</td><td class="num">1</td></tr>
+<tr><td>Carboxylation on K</td><td>UNIMOD:299</td><td class="num">1</td></tr>
+<tr><td>Dimethylation on R</td><td>UNIMOD:36</td><td class="num">1</td></tr>
+<tr><td>Glutarylation on K</td><td>UNIMOD:1848</td><td class="num">1</td></tr>
+<tr><td>Magnesium on D</td><td>UNIMOD:956</td><td class="num">1</td></tr>
+<tr><td>N-acetylglycine on G</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N-acetylthreonine on T</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N6-(2-hydroxyisobutyryl)lysine on K</td><td>UNIMOD:1849</td><td class="num">1</td></tr>
+<tr><td>N6-benzoyllysine on K</td><td>UNIMOD:136</td><td class="num">1</td></tr>
+<tr><td>N6-glutaryllysine on K</td><td>—</td><td class="num">1</td></tr>
+<tr><td>N6-isonicotinyllysine on K</td><td>UNIMOD:697</td><td class="num">1</td></tr>
+<tr><td>N6-succinyllysine on K</td><td>—</td><td class="num">1</td></tr>
+<tr><td>Phosphorylation on T</td><td>UNIMOD:21</td><td class="num">1</td></tr>
+<tr><td>Phosphorylation on Y</td><td>UNIMOD:21</td><td class="num">1</td></tr>
 </tbody></table></div>
-<p class="note">Target proteins only, the 10 most frequent. A dash in the UNIMOD column means the
-modification has no UNIMOD term in the registry that searched it, not that it is unknown.</p>
+<p class="note">Every modification with a site on a target protein, most frequent first. A dash in the UNIMOD
+column means the modification has no UNIMOD term in the registry that searched it, not that it is
+unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's); the catalog's
+<code>ptm_sites_by_chemistry</code> view merges them.</p>
 
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>2a8b511fe33dc4b8</code>, written 2026-09-25T20:34:01+00:00 by ingester 0.21.0</dd>
+<dt>Bundle</dt><dd><code>339ada219ea1e77a</code>, written 2026-09-28T21:55:31+00:00 by ingester 0.28.1</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts</dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.21.0 from catalog
-<code>729912472d32b284</code>, built 2026-09-28T19:00:00+00:00 by datarepo
-0.21.0 (schema 0.0.11).
+Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.28.1 from catalog
+<code>e2c031cdc14f3694</code>, built 2026-09-29T03:27:44+00:00 by datarepo
+0.28.1 (schema 0.0.13).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "f5ece180e0e1d158",
+  "catalog_id": "ed3a06982611c2a7",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.28.1",
-  "built_utc": "2026-09-30T05:12:12+00:00",
+  "built_utc": "2026-09-30T07:17:39+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -628,6 +628,51 @@
    "json": "datasets/PXD018655.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD018655.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD018655.json"
+  },
+  {
+   "dataset_id": "PXD018969",
+   "title": "Keap1 governs ageing-induced protein aggregation in endothelial cells",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 19,
+   "n_samples": 19,
+   "n_psms_1pct": 220119,
+   "n_peptidoforms_1pct": 17592,
+   "n_protein_groups_1pct": 2966,
+   "n_ptm_sites": 4903,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 3
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "high_contamination",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD018969 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 220,119 PSMs, 17,592 peptidoforms and 2,966 protein groups, and the repository holds 4,903 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD018969.html",
+   "json": "datasets/PXD018969.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD018969.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD018969.json"
   },
   {
    "dataset_id": "PXD022128",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "af2025734e83471f",
+  "catalog_id": "dc96124ec2bbb4af",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.28.1",
-  "built_utc": "2026-09-29T18:57:45+00:00",
+  "built_utc": "2026-09-30T02:31:43+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -363,6 +363,50 @@
    "json": "datasets/PXD013640.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD013640.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD013640.json"
+  },
+  {
+   "dataset_id": "PXD015079",
+   "title": "Epigenetic inactivation of the autophagy-lysosomal system in the Parkinson’s disease appendix",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 257480,
+   "n_peptidoforms_1pct": 31407,
+   "n_protein_groups_1pct": 2678,
+   "n_ptm_sites": 10395,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD015079 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 257,480 PSMs, 31,407 peptidoforms and 2,678 protein groups, and the repository holds 10,395 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD015079.html",
+   "json": "datasets/PXD015079.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD015079.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD015079.json"
   },
   {
    "dataset_id": "PXD017475",

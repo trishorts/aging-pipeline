@@ -1,6 +1,6 @@
 # Aging proteomics repository
 
-> Search and quantification results for 62 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `81ceb87ea745ee62` (datarepo 0.28.1, schema 0.0.13, built 2026-09-30T13:16:36+00:00); cite that id with any number you reuse.
+> Search and quantification results for 63 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `be36cf2e240186ed` (datarepo 0.28.1, schema 0.0.13, built 2026-09-30T16:20:33+00:00); cite that id with any number you reuse.
 
 Before you answer from this data:
 
@@ -76,6 +76,7 @@ Before you answer from this data:
 - [PXD067622: DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging and Embryonic Lethality](datasets/PXD067622.html): PXD067622 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 620,539 PSMs, 44,352 peptidoforms and 4,147 protein groups, and the repository holds 20,596 PTM sites for it. 6 open warnings about it are recorded.
 - [PXD069093: Kinome profiling of osteosarcoma patient-derived xenograft TT2 treated with palbociclib](datasets/PXD069093.html): PXD069093 is a DDA label-free dataset (Homo sapiens) with 16 runs, 16 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 491,552 PSMs, 24,061 peptidoforms and 2,083 protein groups, and the repository holds 15,594 PTM sites for it. 6 open warnings about it are recorded.
 - [PXD073846: mtDNA alterations determine myoblast differentiation and disrupt skeletal muscle architecture](datasets/PXD073846.html): PXD073846 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 165,203 PSMs, 22,717 peptidoforms and 2,251 protein groups, and the repository holds 8,299 PTM sites for it. 6 open warnings about it are recorded.
+- [PXD073999: Mechanisms of the antiproliferative effects of SIRT6 inhibition in melanoma: A multi-omics analysis](datasets/PXD073999.html): PXD073999 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 523,235 PSMs, 29,619 peptidoforms and 3,355 protein groups, and the repository holds 21,265 PTM sites for it. 6 open warnings about it are recorded.
 
 ## Access
 

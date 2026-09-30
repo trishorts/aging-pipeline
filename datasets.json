@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "81ceb87ea745ee62",
+  "catalog_id": "be36cf2e240186ed",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.28.1",
-  "built_utc": "2026-09-30T13:16:36+00:00",
+  "built_utc": "2026-09-30T16:20:33+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2766,6 +2766,51 @@
    "json": "datasets/PXD073846.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD073846.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD073846.json"
+  },
+  {
+   "dataset_id": "PXD073999",
+   "title": "Mechanisms of the antiproliferative effects of SIRT6 inhibition in melanoma: A multi-omics analysis",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 523235,
+   "n_peptidoforms_1pct": 29619,
+   "n_protein_groups_1pct": 3355,
+   "n_ptm_sites": 21265,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 3
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD073999 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 523,235 PSMs, 29,619 peptidoforms and 3,355 protein groups, and the repository holds 21,265 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD073999.html",
+   "json": "datasets/PXD073999.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD073999.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD073999.json"
   }
  ]
 }

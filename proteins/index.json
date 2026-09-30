@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "b549d1abf24d1ff3",
+  "catalog_id": "81ceb87ea745ee62",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.28.1",
-  "built_utc": "2026-09-30T12:32:52+00:00",
+  "built_utc": "2026-09-30T13:16:36+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -36,7 +36,7 @@
   },
   "A6": {
    "file": "proteins/A6.json",
-   "n": 146
+   "n": 147
   },
   "A7": {
    "file": "proteins/A7.json",
@@ -634,9 +634,49 @@
    "file": "proteins/P079.json",
    "n": 20
   },
-  "P08": {
-   "file": "proteins/P08.json",
-   "n": 130
+  "P080": {
+   "file": "proteins/P080.json",
+   "n": 15
+  },
+  "P081": {
+   "file": "proteins/P081.json",
+   "n": 17
+  },
+  "P082": {
+   "file": "proteins/P082.json",
+   "n": 18
+  },
+  "P083": {
+   "file": "proteins/P083.json",
+   "n": 4
+  },
+  "P084": {
+   "file": "proteins/P084.json",
+   "n": 12
+  },
+  "P085": {
+   "file": "proteins/P085.json",
+   "n": 22
+  },
+  "P086": {
+   "file": "proteins/P086.json",
+   "n": 15
+  },
+  "P087": {
+   "file": "proteins/P087.json",
+   "n": 14
+  },
+  "P088": {
+   "file": "proteins/P088.json",
+   "n": 4
+  },
+  "P089": {
+   "file": "proteins/P089.json",
+   "n": 8
+  },
+  "P08F": {
+   "file": "proteins/P08F.json",
+   "n": 1
   },
   "P09": {
    "file": "proteins/P09.json",
@@ -1820,7 +1860,7 @@
   },
   "Q70": {
    "file": "proteins/Q70.json",
-   "n": 27
+   "n": 28
   },
   "Q71": {
    "file": "proteins/Q71.json",
@@ -2168,7 +2208,7 @@
   },
   "Q8WX": {
    "file": "proteins/Q8WX.json",
-   "n": 40
+   "n": 41
   },
   "Q8WY": {
    "file": "proteins/Q8WY.json",
@@ -2904,12 +2944,12 @@
   }
  },
  "gene_shards": {
-  "A": 1164,
+  "A": 1165,
   "B": 293,
   "C": 1700,
   "D": 572,
   "E": 475,
-  "F": 550,
+  "F": 551,
   "G": 634,
   "H": 486,
   "I": 533,

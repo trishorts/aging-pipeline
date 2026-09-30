@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "ed3a06982611c2a7",
+  "catalog_id": "66b9cc91421c3b48",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.28.1",
-  "built_utc": "2026-09-30T07:17:39+00:00",
+  "built_utc": "2026-09-30T09:42:53+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -230,6 +230,49 @@
    "json": "datasets/PXD010115.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD010115.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD010115.json"
+  },
+  {
+   "dataset_id": "PXD010820",
+   "title": "O-GlcNAcylation enhances double strand break repair, promotes cancer cell proliferation and prevents therapy-induced senescence in irradiated tumors",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 258793,
+   "n_peptidoforms_1pct": 28177,
+   "n_protein_groups_1pct": 3360,
+   "n_ptm_sites": 15340,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "occupancy_decoy_groups",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD010820 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 258,793 PSMs, 28,177 peptidoforms and 3,360 protein groups, and the repository holds 15,340 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD010820.html",
+   "json": "datasets/PXD010820.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD010820.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD010820.json"
   },
   {
    "dataset_id": "PXD011314",

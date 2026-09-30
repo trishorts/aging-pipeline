@@ -12,8 +12,8 @@
  "@type": "DataCatalog",
  "name": "Aging proteomics repository",
  "url": "https://trishorts.github.io/aging-pipeline/index.html",
- "identifier": "datarepo:catalog:ed3a06982611c2a7",
- "description": "Search and quantification results for 59 public proteomics datasets reanalysed with one pipeline, for questions about how organelle proteomes change with age.",
+ "identifier": "datarepo:catalog:66b9cc91421c3b48",
+ "description": "Search and quantification results for 60 public proteomics datasets reanalysed with one pipeline, for questions about how organelle proteomes change with age.",
  "dataset": [
   {
    "@type": "Dataset",
@@ -44,6 +44,12 @@
    "name": "PXD010115",
    "identifier": "PXD010115",
    "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD010115.html"
+  },
+  {
+   "@type": "Dataset",
+   "name": "PXD010820",
+   "identifier": "PXD010820",
+   "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD010820.html"
   },
   {
    "@type": "Dataset",
@@ -386,7 +392,7 @@
 <h2>How it works</h2>
 <ul><li><a href="https://github.com/trishorts/aging-pipeline"><strong>aging-pipeline</strong></a> finds aging datasets in PRIDE, downloads and quality-checks the raw spectra, and searches and quantifies them with <a href="https://github.com/smith-chem-wisc/MetaMorpheus">MetaMorpheus</a>, including GPTMD to discover post-translational modifications, and FlashLFQ.</li><li><a href="https://github.com/trishorts/dataRepo"><strong>dataRepo</strong></a> stores the results in one schema and serves them to people and to AI agents. This site is generated from its catalog.</li></ul>
 <h2>Where it stands</h2>
-<ul><li><strong>59 datasets, 25 of them whole proteomes</strong> (no enrichment step): human 34 (18 whole); rat 14 (2 whole); mouse 11 (5 whole).</li><li><strong>Enrichments:</strong> affinity_purification 14; proximity_labelling 6; immunoprecipitation 5; other 4; chemical_probe 3; mixed runs 1; phospho 1.</li><li><strong>Beyond identifications and quantities:</strong> per-run PTM site occupancy (971,585 rows, 59 datasets) and protein-to-gene mappings (672,897 rows). These, and every individual protein, are in the catalog and reachable through the MCP server, not on these pages. The catalog file itself is not published yet.</li><li><strong>Sample ages:</strong> 308 runs in PXD051203, PXD047289, PXD047293, PXD047292, PXD056458, PXD051644, PXD056433, PXD058253, PXD058248, curated from the depositors&#x27; own records and paper.</li><li><strong>Not held yet:</strong> age effects, organelle assignments, and an experimental design for any dataset. Every dataset was quantified with each raw file as its own condition.</li><li>These counts are from catalog <code>ed3a06982611c2a7</code>.</li></ul>
+<ul><li><strong>60 datasets, 26 of them whole proteomes</strong> (no enrichment step): human 35 (19 whole); rat 14 (2 whole); mouse 11 (5 whole).</li><li><strong>Enrichments:</strong> affinity_purification 14; proximity_labelling 6; immunoprecipitation 5; other 4; chemical_probe 3; mixed runs 1; phospho 1.</li><li><strong>Beyond identifications and quantities:</strong> per-run PTM site occupancy (996,194 rows, 60 datasets) and protein-to-gene mappings (692,761 rows). These, and every individual protein, are in the catalog and reachable through the MCP server, not on these pages. The catalog file itself is not published yet.</li><li><strong>Sample ages:</strong> 308 runs in PXD047292, PXD051644, PXD056433, PXD058253, PXD047293, PXD051203, PXD056458, PXD058248, PXD047289, curated from the depositors&#x27; own records and paper.</li><li><strong>Not held yet:</strong> age effects, organelle assignments, and an experimental design for any dataset. Every dataset was quantified with each raw file as its own condition.</li><li>These counts are from catalog <code>66b9cc91421c3b48</code>.</li></ul>
 <p>So the repository cannot answer the group&#x27;s question on its own yet: ages, designs and organelle assignments are the next stages of the pipeline. Each dataset page lists the known problems with that dataset. Please read them before using its numbers.</p>
 <h2>Use it with your own AI agent</h2>
 <p>Any assistant that can read a web page (Claude, ChatGPT, Gemini, or your own agent with a fetch tool) can work from this site. There is nothing to install.</p>
@@ -406,17 +412,17 @@
 <p>Built at the Smith lab, University of Wisconsin–Madison. Questions and problems: please open an issue on <a href="https://github.com/trishorts/aging-pipeline/issues">aging-pipeline</a>.</p>
 </section>
 <div class="tiles">
-<div class="tile"><div class="tile-label">Datasets</div><div class="tile-value" title="59">59</div><div class="tile-note">public PRIDE datasets, each reanalysed from its raw files</div></div>
-<div class="tile"><div class="tile-label">Raw files searched</div><div class="tile-value" title="1,303">1,303</div><div class="tile-note">LC-MS/MS runs</div></div>
-<div class="tile"><div class="tile-label">Spectra searched</div><div class="tile-value" title="38,106,828">38.1M</div><div class="tile-note">MS2 scans in the raw files, summed (aging:DEF-MS2)</div></div>
-<div class="tile"><div class="tile-label">PSMs at 1% FDR</div><div class="tile-value" title="12,900,977">12.9M</div><div class="tile-note">target peptide-spectrum matches, as the search engine counts them</div></div>
-<div class="tile"><div class="tile-label">Proteins identified</div><div class="tile-value" title="26,776">26.8K</div><div class="tile-note">accessions with 1%-FDR evidence, decoys and contaminants excluded; 14,107 of them in 3 or more datasets</div></div>
-<div class="tile"><div class="tile-label">Proteins, whole-proteome datasets</div><div class="tile-value" title="20,733">20.7K</div><div class="tile-note">the same count over the 25 datasets with no enrichment step; an enriched dataset (pull-down, probe, IP) says nothing about the proteome</div></div>
-<div class="tile"><div class="tile-label">PTM sites</div><div class="tile-value" title="593,959">594K</div><div class="tile-note">modified residues on proteins, 152 kinds of modification</div></div>
+<div class="tile"><div class="tile-label">Datasets</div><div class="tile-value" title="60">60</div><div class="tile-note">public PRIDE datasets, each reanalysed from its raw files</div></div>
+<div class="tile"><div class="tile-label">Raw files searched</div><div class="tile-value" title="1,315">1,315</div><div class="tile-note">LC-MS/MS runs</div></div>
+<div class="tile"><div class="tile-label">Spectra searched</div><div class="tile-value" title="38,520,216">38.5M</div><div class="tile-note">MS2 scans in the raw files, summed (aging:DEF-MS2)</div></div>
+<div class="tile"><div class="tile-label">PSMs at 1% FDR</div><div class="tile-value" title="13,159,770">13.2M</div><div class="tile-note">target peptide-spectrum matches, as the search engine counts them</div></div>
+<div class="tile"><div class="tile-label">Proteins identified</div><div class="tile-value" title="26,843">26.8K</div><div class="tile-note">accessions with 1%-FDR evidence, decoys and contaminants excluded; 14,189 of them in 3 or more datasets</div></div>
+<div class="tile"><div class="tile-label">Proteins, whole-proteome datasets</div><div class="tile-value" title="20,833">20.8K</div><div class="tile-note">the same count over the 26 datasets with no enrichment step; an enriched dataset (pull-down, probe, IP) says nothing about the proteome</div></div>
+<div class="tile"><div class="tile-label">PTM sites</div><div class="tile-value" title="609,299">609K</div><div class="tile-note">modified residues on proteins, 152 kinds of modification</div></div>
 </div>
-<p class="note">Figures of merit from catalog <code>ed3a06982611c2a7</code>. Hover a number for its exact value.</p>
+<p class="note">Figures of merit from catalog <code>66b9cc91421c3b48</code>. Hover a number for its exact value.</p>
 <h2>This repository</h2>
-<p class="lede">Search and quantification results for 59 public proteomics datasets,
+<p class="lede">Search and quantification results for 60 public proteomics datasets,
 reanalysed with one pipeline and stored with the same schema, so they can be compared. The question
 they serve is how organelle proteomes change with age.</p>
 <p><strong>For AI agents:</strong> start at <a href="llms.txt"><code>llms.txt</code></a>. The same facts
@@ -425,7 +431,7 @@ as this page are in <a href="datasets.json"><code>datasets.json</code></a>.</p>
 <div class="scroll"><table>
 <thead><tr><th>Organism searched</th><th class="num">none</th><th class="num">affinity_purification</th><th class="num">chemical_probe</th><th class="num">chemical_probe (on some runs only; runs differ)</th><th class="num">immunoprecipitation</th><th class="num">other</th><th class="num">phospho</th><th class="num">proximity_labelling</th><th class="num">All</th></tr></thead>
 <tbody>
-<tr><td>Homo sapiens</td><td class="num">18</td><td class="num">4</td><td class="num">3</td><td class="num"></td><td class="num">4</td><td class="num"></td><td class="num"></td><td class="num">5</td><td class="num">34</td></tr>
+<tr><td>Homo sapiens</td><td class="num">19</td><td class="num">4</td><td class="num">3</td><td class="num"></td><td class="num">4</td><td class="num"></td><td class="num"></td><td class="num">5</td><td class="num">35</td></tr>
 <tr><td>Mus musculus</td><td class="num">5</td><td class="num">1</td><td class="num"></td><td class="num">1</td><td class="num">1</td><td class="num">2</td><td class="num"></td><td class="num">1</td><td class="num">11</td></tr>
 <tr><td>Rattus norvegicus</td><td class="num">2</td><td class="num">9</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">2</td><td class="num">1</td><td class="num"></td><td class="num">14</td></tr>
 </tbody></table></div>
@@ -444,6 +450,7 @@ Read them before using it. Organism is that of the protein database searched.</p
 <tr><td><a href="datasets/PXD007999.html">PXD007999</a></td><td>NRF2-dependent ECM -  Nrf2-Mediated Fibroblast Reprogramming Drives Cellular Senescence by Targeting the Matrisome</td><td>Mus musculus</td><td>none</td><td class="num">30</td><td class="num">404,489</td><td class="num">4,031</td><td class="num">20,858</td><td>0 E / 6 W / 2 I<br><span class="note">count_mismatch, high_contamination, no_design_file, no_output_sdrf, no_sdrf, occupancy_decoy_groups, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
 <tr><td><a href="datasets/PXD009430.html">PXD009430</a></td><td>Modulation of the ATM / autophagy pathway tips the balance between senescence and apoptosis in response to a quadruplex ligand</td><td>Homo sapiens</td><td>none</td><td class="num">12</td><td class="num">301,032</td><td class="num">2,786</td><td class="num">15,510</td><td>0 E / 5 W / 3 I<br><span class="note">collapsed_duplicate_rows, count_mismatch, no_design_file, no_output_sdrf, no_sdrf, occupancy_decoy_groups, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
 <tr><td><a href="datasets/PXD010115.html">PXD010115</a></td><td>Quantification of the Soluble Receptor of Advanced Glycation End-Products (sRAGE) by LC-MS Without the Use of Affinity Enrichment</td><td>Homo sapiens</td><td>none</td><td class="num">12</td><td class="num">118,418</td><td class="num">436</td><td class="num">7,593</td><td>0 E / 8 W / 2 I<br><span class="note">count_mismatch, high_contamination, no_design_file, no_output_sdrf, occupancy_decoy_groups, sdrf_uncoded, unplaced_ptm_sites, unresolved_modifications, upstream_provenance_changed</span></td></tr>
+<tr><td><a href="datasets/PXD010820.html">PXD010820</a></td><td>O-GlcNAcylation enhances double strand break repair, promotes cancer cell proliferation and prevents therapy-induced senescence in irradiated tumors</td><td>Homo sapiens</td><td>none</td><td class="num">12</td><td class="num">258,793</td><td class="num">3,360</td><td class="num">15,340</td><td>0 E / 5 W / 2 I<br><span class="note">count_mismatch, no_design_file, no_output_sdrf, occupancy_decoy_groups, sdrf_uncoded, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
 <tr><td><a href="datasets/PXD011314.html">PXD011314</a></td><td>Profiling of Methylglyoxal Blood Metabolism and Advanced Glycation End-Product Proteome using a Chemical Probe</td><td>Homo sapiens</td><td>chemical_probe</td><td class="num">17</td><td class="num">3,994</td><td class="num">54</td><td class="num">343</td><td>0 E / 7 W / 2 I<br><span class="note">calibration_failed, high_contamination, low_id_rate, no_design_file, no_output_sdrf, occupancy_decoy_groups, sdrf_uncoded, unplaced_ptm_sites, upstream_provenance_changed</span></td></tr>
 <tr><td><a href="datasets/PXD012985.html">PXD012985</a></td><td>Translational regulation contributes to the secretory response of chondrocytic cells following exposure to Interleukin-1B</td><td>Homo sapiens</td><td>none</td><td class="num">12</td><td class="num">86,118</td><td class="num">2,096</td><td class="num">5,652</td><td>0 E / 6 W / 3 I<br><span class="note">collapsed_duplicate_rows, count_mismatch, high_contamination, no_design_file, no_output_sdrf, no_sdrf, occupancy_decoy_groups, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
 <tr><td><a href="datasets/PXD013240.html">PXD013240</a></td><td>Intracellular proteome (SDS/Na-DoC) extract from EP/LP MSCs grown on soft/stiff hydrogels for 4 days</td><td>Homo sapiens</td><td>none</td><td class="num">16</td><td class="num">131,795</td><td class="num">2,779</td><td class="num">8,949</td><td>0 E / 5 W / 2 I<br><span class="note">high_contamination, no_design_file, no_output_sdrf, no_sdrf, occupancy_decoy_groups, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
@@ -502,8 +509,8 @@ Read them before using it. Organism is that of the protein database searched.</p
 </table></div>
 <h2>This catalog</h2>
 <dl>
-<dt>Catalog id</dt><dd><code>ed3a06982611c2a7</code></dd>
-<dt>Built</dt><dd>2026-09-30T07:17:39+00:00</dd>
+<dt>Catalog id</dt><dd><code>66b9cc91421c3b48</code></dd>
+<dt>Built</dt><dd>2026-09-30T09:42:53+00:00</dd>
 <dt>Built by</dt><dd>datarepo 0.28.1, catalog format 8</dd>
 <dt>Schema</dt><dd>0.0.13</dd>
 <dt>Instance</dt><dd>aging</dd>
@@ -511,7 +518,7 @@ Read them before using it. Organism is that of the protein database searched.</p
 </main>
 <footer>
 Generated by <a href="https://github.com/trishorts/dataRepo">datarepo</a> 0.28.1 from catalog
-<code>ed3a06982611c2a7</code>, built 2026-09-30T07:17:39+00:00 by datarepo
+<code>66b9cc91421c3b48</code>, built 2026-09-30T09:42:53+00:00 by datarepo
 0.28.1 (schema 0.0.13).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>

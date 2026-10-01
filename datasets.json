@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "b1e36874a1f90206",
+  "catalog_id": "1f7049ee663bf130",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-01T00:58:51+00:00",
+  "built_utc": "2026-10-01T18:53:31+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2900,6 +2900,51 @@
    "json": "datasets/PXD073999.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD073999.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD073999.json"
+  },
+  {
+   "dataset_id": "PXD075372",
+   "title": "Senescence inhibition by rapamycin mitigates radiation-induced atherosclerosis characteristics in human coronary endothelial cells",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 24,
+   "n_samples": 24,
+   "n_psms_1pct": 1111523,
+   "n_peptidoforms_1pct": 79285,
+   "n_protein_groups_1pct": 6046,
+   "n_ptm_sites": 73551,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 3
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD075372 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 1,111,523 PSMs, 79,285 peptidoforms and 6,046 protein groups, and the repository holds 73,551 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD075372.html",
+   "json": "datasets/PXD075372.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD075372.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD075372.json"
   }
  ]
 }

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PXD075372: Senescence inhibition by rapamycin mitigates radiation-induced atherosclerosis characteristics in human coronary endothelial cells</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" type="text/plain" href="../llms.txt" title="llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org/",
+ "@type": "Dataset",
+ "dct:conformsTo": {
+  "@id": "https://bioschemas.org/profiles/Dataset/1.0-RELEASE",
+  "@type": "CreativeWork"
+ },
+ "@id": "https://trishorts.github.io/aging-pipeline/datasets/PXD075372.html",
+ "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD075372.html",
+ "name": "PXD075372 reanalysis: Senescence inhibition by rapamycin mitigates radiation-induced atherosclerosis characteristics in human coronary endothelial cells",
+ "identifier": [
+  "PXD075372",
+  "datarepo:bundle:e982a3dfb717d4ea"
+ ],
+ "description": "PXD075372 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 1,111,523 PSMs, 79,285 peptidoforms and 6,046 protein groups, and the repository holds 73,551 PTM sites for it. 7 open warnings about it are recorded.",
+ "version": "e982a3dfb717d4ea",
+ "dateModified": "2026-10-01T18:39:57+00:00",
+ "keywords": [
+  "proteomics",
+  "mass spectrometry",
+  "reanalysis",
+  "aging",
+  "Homo sapiens"
+ ],
+ "measurementTechnique": "mass spectrometry",
+ "variableMeasured": [
+  "peptide-spectrum match",
+  "peptidoform",
+  "protein group",
+  "PTM site",
+  "protein abundance"
+ ],
+ "isBasedOn": "https://www.ebi.ac.uk/pride/archive/projects/PXD075372",
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "creator": {
+  "@type": "Organization",
+  "name": "NCEMS Aging Proteome Working Group"
+ },
+ "includedInDataCatalog": {
+  "@type": "DataCatalog",
+  "name": "datarepo catalog 1f7049ee663bf130",
+  "url": "https://trishorts.github.io/aging-pipeline/index.html"
+ }
+}
+</script>
+</head>
+<body>
+<header>
+<p class="crumb"><a href="../index.html">Aging proteomics repository</a> / PXD075372</p>
+<h1>Senescence inhibition by rapamycin mitigates radiation-induced atherosclerosis characteristics in human coronary endothelial cells</h1>
+<p>PXD075372 · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD075372">PRIDE record</a></p>
+</header>
+<main>
+<div class="generated"><span class="label">Generated summary</span>
+PXD075372 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 1,111,523 PSMs, 79,285 peptidoforms and 6,046 protein groups, and the repository holds 73,551 PTM sites for it. 7 open warnings about it are recorded.
+<br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
+
+<h2>Open findings</h2>
+<p><strong>Recorded against this dataset: 0 errors, 7 warnings and 3 for information</strong></p>
+<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 1.11152e+06 where the producer reported 1.1127e+06 (results.txt: All target PSMs with q-value &lt;= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
+<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 79286 where the producer reported 79285 (results.txt: All target peptides with q-value &lt;= 0.01). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
+<div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
+<div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
+<div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 250400 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 4 duplicate entry for one site and run (identical values; same protein group). &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
+<div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 3937 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
+<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
+<div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 3 identifier(s), 3 row(s) dropped, e.g. PXD075372:A0A1B0GTS1;A0A1B0GWH4 written 2 times; quant_values: 72 identifier(s), 72 row(s) dropped, e.g. PXD075372:QEX03_AM_230117_CW10_065.raw.thermo:label_free:protein_group:PXD075372:A0A1B0GTS1;A0A1B0GWH4:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates.</div>
+<div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
+<div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>261 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
+
+<h2>What was found</h2>
+<div class="scroll"><table><tbody>
+<tr><td>PSMs at 1% FDR</td><td class="num">1,111,523</td></tr>
+<tr><td>Peptidoforms at 1% FDR</td><td class="num">79,285</td></tr>
+<tr><td>Protein groups at 1% FDR</td><td class="num">6,046</td></tr>
+<tr><td>PTM sites</td><td class="num">73,551</td></tr>
+<tr><td>Quantitative values</td><td class="num">904,440</td></tr>
+<tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">1,550,591</td></tr>
+<tr><td>MS2 identification rate <span class="note">(aging:DEF-ID-RATE)</span></td><td class="num">77.9%</td></tr>
+<tr><td>Contaminant share of PSMs <span class="note">(aging:DEF-CONTAM-PSM)</span></td><td class="num">0.8%</td></tr>
+</tbody></table></div>
+
+<h2>How it was measured</h2>
+<dl>
+<dt>Organism searched</dt><dd>Homo sapiens <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
+<dt>Acquisition</dt><dd>DDA</dd>
+<dt>Quantification</dt><dd>label_free</dd>
+<dt>Labelling</dt><dd>none</dd>
+<dt>Enrichment</dt><dd>none</dd>
+<dt>Instrument vendor</dt><dd>not recorded</dd>
+<dt>Runs / samples</dt><dd>24 / 24</dd>
+<dt>Sample metadata</dt><dd>absent</dd>
+<dt>Search engine</dt><dd>MetaMorpheus 1.1.11</dd>
+<dt>Protein database</dt><dd>uniprotkb_proteome_UP000005640_AND_revi_2026_09_18_agingPTM-v1.xml</dd>
+<dt>Pipeline commit</dt><dd><a href="https://github.com/smith-chem-wisc/PXReprise/tree/19dd466d103f096be1398328534d1d8281a8a34e">19dd466d103f</a></dd>
+</dl>
+
+<h2>Modifications</h2>
+<div class="scroll"><table>
+<thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
+<tbody>
+<tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">16,276</td></tr>
+<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">9,416</td></tr>
+<tr><td>Deamidation on N</td><td>UNIMOD:7</td><td class="num">8,932</td></tr>
+<tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">5,530</td></tr>
+<tr><td>Citrullination on R</td><td>UNIMOD:7</td><td class="num">3,861</td></tr>
+<tr><td>Sodium on E</td><td>UNIMOD:30</td><td class="num">2,643</td></tr>
+<tr><td>Magnesium on E</td><td>UNIMOD:956</td><td class="num">2,604</td></tr>
+<tr><td>Carbamyl on X</td><td>UNIMOD:5</td><td class="num">2,306</td></tr>
+<tr><td>Sodium on D</td><td>UNIMOD:30</td><td class="num">2,198</td></tr>
+<tr><td>Magnesium on D</td><td>UNIMOD:956</td><td class="num">2,056</td></tr>
+<tr><td>Calcium on E</td><td>UNIMOD:951</td><td class="num">2,055</td></tr>
+<tr><td>Calcium on D</td><td>UNIMOD:951</td><td class="num">1,771</td></tr>
+<tr><td>Ammonia loss on N</td><td>UNIMOD:385</td><td class="num">1,332</td></tr>
+<tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">1,331</td></tr>
+<tr><td>Potassium on E</td><td>UNIMOD:530</td><td class="num">1,214</td></tr>
+<tr><td>Potassium on D</td><td>UNIMOD:530</td><td class="num">1,084</td></tr>
+<tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">747</td></tr>
+<tr><td>Ammonia loss on C</td><td>UNIMOD:385</td><td class="num">572</td></tr>
+<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">424</td></tr>
+<tr><td>N-acetylalanine on A</td><td>UNIMOD:1</td><td class="num">340</td></tr>
+<tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">335</td></tr>
+<tr><td>Methylation on K</td><td>UNIMOD:34</td><td class="num">312</td></tr>
+<tr><td>Carboxylation on E</td><td>UNIMOD:299</td><td class="num">305</td></tr>
+<tr><td>Carbamyl on K</td><td>UNIMOD:5</td><td class="num">288</td></tr>
+<tr><td>Carbamyl on M</td><td>UNIMOD:5</td><td class="num">266</td></tr>
+<tr><td>Methylation on R</td><td>UNIMOD:34</td><td class="num">265</td></tr>
+<tr><td>Carboxylation on D</td><td>UNIMOD:299</td><td class="num">253</td></tr>
+<tr><td>Carbamyl on R</td><td>UNIMOD:5</td><td class="num">239</td></tr>
+<tr><td>Dimethylation on K</td><td>UNIMOD:36</td><td class="num">235</td></tr>
+<tr><td>Formylation on K</td><td>UNIMOD:122</td><td class="num">232</td></tr>
+<tr><td>Dimethylation on R</td><td>UNIMOD:36</td><td class="num">228</td></tr>
+<tr><td>N-acetylmethionine on M</td><td>UNIMOD:1</td><td class="num">203</td></tr>
+<tr><td>Acetylation on K</td><td>UNIMOD:1</td><td class="num">190</td></tr>
+<tr><td>Water Loss on E</td><td>UNIMOD:27</td><td class="num">179</td></tr>
+<tr><td>N6-acetyllysine on K</td><td>UNIMOD:1</td><td class="num">145</td></tr>
+<tr><td>Acetylation on X</td><td>UNIMOD:1</td><td class="num">123</td></tr>
+<tr><td>Fe[II] on E</td><td>UNIMOD:952</td><td class="num">122</td></tr>
+<tr><td>N-acetylserine on S</td><td>UNIMOD:1</td><td class="num">116</td></tr>
+<tr><td>Nitrosylation on Y</td><td>UNIMOD:354</td><td class="num">116</td></tr>
+<tr><td>Trimethylation on K</td><td>UNIMOD:37</td><td class="num">109</td></tr>
+<tr><td>Phosphothreonine on T</td><td>UNIMOD:21</td><td class="num">107</td></tr>
+<tr><td>Fe[II] on D</td><td>UNIMOD:952</td><td class="num">102</td></tr>
+<tr><td>Carbamyl on C</td><td>UNIMOD:5</td><td class="num">94</td></tr>
+<tr><td>Phosphorylation on S</td><td>UNIMOD:21</td><td class="num">85</td></tr>
+<tr><td>Cu[I] on E</td><td>UNIMOD:531</td><td class="num">71</td></tr>
+<tr><td>Phosphorylation on T</td><td>UNIMOD:21</td><td class="num">70</td></tr>
+<tr><td>Fe[III] on D</td><td>UNIMOD:1870</td><td class="num">67</td></tr>
+<tr><td>Carboxylation on K</td><td>UNIMOD:299</td><td class="num">65</td></tr>
+<tr><td>Fe[III] on E</td><td>UNIMOD:1870</td><td class="num">62</td></tr>
+<tr><td>Cu[I] on D</td><td>UNIMOD:531</td><td class="num">59</td></tr>
+<tr><td>HexNAc on T</td><td>UNIMOD:43</td><td class="num">53</td></tr>
+<tr><td>Nitrosylation on C</td><td>UNIMOD:275</td><td class="num">51</td></tr>
+<tr><td>Omega-N-methylarginine on R</td><td>UNIMOD:34</td><td class="num">51</td></tr>
+<tr><td>GG (Ubiquitination Site) on K</td><td>—</td><td class="num">45</td></tr>
+<tr><td>Butyrylation on K</td><td>UNIMOD:1289</td><td class="num">42</td></tr>
+<tr><td>4-hydroxyproline on P</td><td>UNIMOD:35</td><td class="num">39</td></tr>
+<tr><td>Zinc on E</td><td>UNIMOD:954</td><td class="num">39</td></tr>
+<tr><td>Malonylation on K</td><td>UNIMOD:747</td><td class="num">38</td></tr>
+<tr><td>Zinc on D</td><td>UNIMOD:954</td><td class="num">38</td></tr>
+<tr><td>Hydroxybutyrylation on K</td><td>—</td><td class="num">37</td></tr>
+<tr><td>HexNAc on S</td><td>UNIMOD:43</td><td class="num">34</td></tr>
+<tr><td>N6-succinyllysine on K</td><td>—</td><td class="num">34</td></tr>
+<tr><td>Crotonylation on K</td><td>UNIMOD:1363</td><td class="num">32</td></tr>
+<tr><td>Phosphotyrosine on Y</td><td>UNIMOD:21</td><td class="num">26</td></tr>
+<tr><td>Sulfonation on Y</td><td>UNIMOD:40</td><td class="num">25</td></tr>
+<tr><td>Asymmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">22</td></tr>
+<tr><td>Glutarylation on K</td><td>UNIMOD:1848</td><td class="num">21</td></tr>
+<tr><td>N-acetylthreonine on T</td><td>UNIMOD:1</td><td class="num">21</td></tr>
+<tr><td>Phosphorylation on Y</td><td>UNIMOD:21</td><td class="num">21</td></tr>
+<tr><td>Succinylation on K</td><td>UNIMOD:64</td><td class="num">18</td></tr>
+<tr><td>N6,N6,N6-trimethyllysine on K</td><td>UNIMOD:37</td><td class="num">17</td></tr>
+<tr><td>N6-methyllysine on K</td><td>UNIMOD:34</td><td class="num">17</td></tr>
+<tr><td>N6-(2-hydroxyisobutyryl)lysine on K</td><td>UNIMOD:1849</td><td class="num">14</td></tr>
+<tr><td>N6-methacryllysine on K</td><td>—</td><td class="num">12</td></tr>
+<tr><td>N6-glutaryllysine on K</td><td>—</td><td class="num">11</td></tr>
+<tr><td>ADP-ribosylation on S</td><td>UNIMOD:213</td><td class="num">10</td></tr>
+<tr><td>Hydroxyproline on P</td><td>UNIMOD:35</td><td class="num">9</td></tr>
+<tr><td>N-acetylglycine on G</td><td>UNIMOD:1</td><td class="num">9</td></tr>
+<tr><td>Deamidated asparagine on N</td><td>UNIMOD:7</td><td class="num">8</td></tr>
+<tr><td>Dimethylated arginine on R</td><td>UNIMOD:36</td><td class="num">8</td></tr>
+<tr><td>N6-isonicotinyllysine on K</td><td>UNIMOD:697</td><td class="num">7</td></tr>
+<tr><td>S-nitrosocysteine on C</td><td>UNIMOD:275</td><td class="num">7</td></tr>
+<tr><td>Pyridoxal phosphate on K</td><td>UNIMOD:46</td><td class="num">6</td></tr>
+<tr><td>N-myristoyl glycine on G</td><td>UNIMOD:45</td><td class="num">5</td></tr>
+<tr><td>N6-crotonyllysine on K</td><td>—</td><td class="num">5</td></tr>
+<tr><td>Tele-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">5</td></tr>
+<tr><td>3&#x27;-nitrotyrosine on Y</td><td>—</td><td class="num">4</td></tr>
+<tr><td>Citrulline on R</td><td>UNIMOD:7</td><td class="num">4</td></tr>
+<tr><td>N-acetylvaline on V</td><td>UNIMOD:1</td><td class="num">4</td></tr>
+<tr><td>N6,N6-dimethyllysine on K</td><td>UNIMOD:36</td><td class="num">4</td></tr>
+<tr><td>N6-malonyllysine on K</td><td>—</td><td class="num">4</td></tr>
+<tr><td>3-hydroxyproline on P</td><td>UNIMOD:35</td><td class="num">3</td></tr>
+<tr><td>Carbamidomethyl on U</td><td>UNIMOD:4</td><td class="num">3</td></tr>
+<tr><td>HexNAc on Nxs</td><td>UNIMOD:43</td><td class="num">3</td></tr>
+<tr><td>N-acetylcysteine on C</td><td>UNIMOD:1</td><td class="num">3</td></tr>
+<tr><td>N5-methylglutamine on Q</td><td>UNIMOD:34</td><td class="num">3</td></tr>
+<tr><td>(3S)-3-hydroxyasparagine on N</td><td>—</td><td class="num">2</td></tr>
+<tr><td>5-glutamyl glycerylphosphorylethanolamine on E</td><td>UNIMOD:396</td><td class="num">2</td></tr>
+<tr><td>5-hydroxylysine on K</td><td>UNIMOD:35</td><td class="num">2</td></tr>
+<tr><td>Deamidated glutamine on Q</td><td>UNIMOD:7</td><td class="num">2</td></tr>
+<tr><td>N6-benzoyllysine on K</td><td>UNIMOD:136</td><td class="num">2</td></tr>
+<tr><td>S-palmitoyl cysteine on C</td><td>UNIMOD:47</td><td class="num">2</td></tr>
+<tr><td>(3S)-3-hydroxyaspartate on D</td><td>—</td><td class="num">1</td></tr>
+<tr><td>3-oxoalanine (Cys) on C</td><td>UNIMOD:402</td><td class="num">1</td></tr>
+<tr><td>4-hydroxylysine on K</td><td>UNIMOD:35</td><td class="num">1</td></tr>
+<tr><td>ADP-ribosylcysteine on C</td><td>UNIMOD:213</td><td class="num">1</td></tr>
+<tr><td>Cysteine persulfide on C</td><td>UNIMOD:421</td><td class="num">1</td></tr>
+<tr><td>Cysteine sulfinic acid (-SO2H) on C</td><td>UNIMOD:425</td><td class="num">1</td></tr>
+<tr><td>Diphthamide on H</td><td>UNIMOD:375</td><td class="num">1</td></tr>
+<tr><td>Glu to PyroGlu on Q</td><td>UNIMOD:28</td><td class="num">1</td></tr>
+<tr><td>HexNAc on Nxt</td><td>UNIMOD:43</td><td class="num">1</td></tr>
+<tr><td>Leucine methyl ester on L</td><td>UNIMOD:34</td><td class="num">1</td></tr>
+<tr><td>Methionine sulfoxide on M</td><td>UNIMOD:35</td><td class="num">1</td></tr>
+<tr><td>N-acetylaspartate on D</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N-acetylglutamate on E</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N-acetylproline on P</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N4,N4-dimethylasparagine on N</td><td>UNIMOD:36</td><td class="num">1</td></tr>
+<tr><td>N6-biotinyllysine on K</td><td>UNIMOD:3</td><td class="num">1</td></tr>
+<tr><td>Phosphohistidine on H</td><td>UNIMOD:21</td><td class="num">1</td></tr>
+<tr><td>Pros-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">1</td></tr>
+<tr><td>S-farnesyl cysteine on C</td><td>UNIMOD:44</td><td class="num">1</td></tr>
+</tbody></table></div>
+<p class="note">Every modification with a site on a target protein, most frequent first. A dash in the UNIMOD
+column means the modification has no UNIMOD term in the registry that searched it, not that it is
+unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's); the catalog's
+<code>ptm_sites_by_chemistry</code> view merges them.</p>
+
+<h2>Data</h2>
+<p>The Parquet files for this dataset are not published yet.</p>
+<dl>
+<dt>Bundle</dt><dd><code>e982a3dfb717d4ea</code>, written 2026-10-01T18:39:57+00:00 by ingester 0.32.0</dd>
+<dt>Reconciliation</dt><dd>failed: psms_target_1pct, peptidoforms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
+<dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
+<dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
+</dl>
+</main>
+<footer>
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 0.32.0 from catalog
+<code>1f7049ee663bf130</code>, built 2026-10-01T18:53:31+00:00 by datarepo
+0.32.0 (schema 0.0.13).
+Every number on this site is read from that catalog; cite its id with any number you reuse.
+</footer>
+</body>
+</html>

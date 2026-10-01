@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "1f7049ee663bf130",
+  "catalog_id": "38af713ac86c3151",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-01T18:53:31+00:00",
+  "built_utc": "2026-10-01T19:20:47+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD032044",
-  "bundle_id": "98b8c49ff31d135a",
+  "bundle_id": "6eca06c319b06f53",
   "title": "Characterization of the skeletal muscle proteome in under-nourished old rats",
   "organisms": [
    "NCBITaxon:10116"
@@ -50,7 +50,7 @@
    {
     "code": "count_mismatch",
     "severity": "warning",
-    "message": "The bundle holds 680855 where the producer reported 680867 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    "message": "The bundle holds 680855 where the producer reported 680867 (results.txt: All target PSMs with q-value <= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
    },
    {
     "code": "high_contamination",
@@ -684,9 +684,9 @@
    "upstream_provenance_changed"
   ],
   "bundle": {
-   "bundle_id": "98b8c49ff31d135a",
-   "written_utc": "2026-09-28T21:22:35+00:00",
-   "ingester_version": "0.28.1",
+   "bundle_id": "6eca06c319b06f53",
+   "written_utc": "2026-10-01T19:06:53+00:00",
+   "ingester_version": "0.32.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"

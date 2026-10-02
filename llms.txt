@@ -1,6 +1,6 @@
 # Aging proteomics repository
 
-> Search and quantification results for 73 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `2091f14c51785a71` (datarepo 0.32.0, schema 0.0.13, built 2026-10-02T12:10:37+00:00); cite that id with any number you reuse.
+> Search and quantification results for 74 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `795984fed3e46dba` (datarepo 0.32.0, schema 0.0.13, built 2026-10-02T15:28:55+00:00); cite that id with any number you reuse.
 
 Before you answer from this data:
 
@@ -14,6 +14,7 @@ Before you answer from this data:
 
 ## Datasets
 
+- [PXD006216: Chemotherapy-induced cellular senescence is characterized by aberrant lipid regulation and lipid peroxidation](datasets/PXD006216.html): PXD006216 is a DDA label-free dataset (Mus musculus) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 264,686 PSMs, 39,993 peptidoforms and 3,913 protein groups, and the repository holds 17,182 PTM sites for it. 7 open warnings about it are recorded.
 - [PXD006898: Quantitative proteomics of a human fetal ovary development timecourse](datasets/PXD006898.html): PXD006898 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 619,345 PSMs, 62,166 peptidoforms and 6,512 protein groups, and the repository holds 30,247 PTM sites for it. 5 open warnings about it are recorded.
 - [PXD007188: Mevalonate pathway activity is a key determinant of radiation sensitivity in head and neck cancer](datasets/PXD007188.html): PXD007188 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 329,655 PSMs, 54,431 peptidoforms and 5,696 protein groups, and the repository holds 26,662 PTM sites for it. 6 open warnings about it are recorded.
 - [PXD007906: A secretome profile indicative of oleate-induced proliferation of HepG2 hepatocellular carcinoma cell line](datasets/PXD007906.html): PXD007906 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 874,388 PSMs, 40,437 peptidoforms and 3,284 protein groups, and the repository holds 24,446 PTM sites for it. 5 open warnings about it are recorded.

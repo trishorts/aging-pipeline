@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "09b8a11607aa5af7",
+  "catalog_id": "5b33d8372e150382",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-02T09:28:28+00:00",
+  "built_utc": "2026-10-02T10:50:37+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -583,6 +583,50 @@
    "json": "datasets/PXD015079.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD015079.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD015079.json"
+  },
+  {
+   "dataset_id": "PXD017058",
+   "title": "Astrocyte Support for Oligodendrocyte Differentiation can be Conveyed via Extracellular Vesicles but Diminishes with Age",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 9,
+   "n_samples": 9,
+   "n_psms_1pct": 179558,
+   "n_peptidoforms_1pct": 28435,
+   "n_protein_groups_1pct": 2362,
+   "n_ptm_sites": 18402,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "high_contamination",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD017058 is a DDA label-free dataset (Mus musculus) with 9 runs, 9 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 179,558 PSMs, 28,435 peptidoforms and 2,362 protein groups, and the repository holds 18,402 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD017058.html",
+   "json": "datasets/PXD017058.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017058.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017058.json"
   },
   {
    "dataset_id": "PXD017475",

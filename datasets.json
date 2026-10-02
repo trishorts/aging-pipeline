@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "0274d89c0ec98e73",
+  "catalog_id": "c8500423e635dbed",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-01T23:35:54+00:00",
+  "built_utc": "2026-10-02T00:07:10+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -1249,6 +1249,49 @@
    "json": "datasets/PXD027734.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027734.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027734.json"
+  },
+  {
+   "dataset_id": "PXD028282",
+   "title": "Microdissected pyramidal cell proteomics of Alzheimer brain reveals alterations in Creatine Kinase B, 14-3-3-g and Heat Shock Cognate 71",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 10,
+   "n_samples": 10,
+   "n_psms_1pct": 8993,
+   "n_peptidoforms_1pct": 3429,
+   "n_protein_groups_1pct": 775,
+   "n_ptm_sites": 1179,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "high_contamination",
+    "low_id_rate",
+    "no_design_file",
+    "no_output_sdrf",
+    "occupancy_decoy_groups",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD028282 is a DDA label-free dataset (Homo sapiens) with 10 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 8,993 PSMs, 3,429 peptidoforms and 775 protein groups, and the repository holds 1,179 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD028282.html",
+   "json": "datasets/PXD028282.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD028282.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD028282.json"
   },
   {
    "dataset_id": "PXD028852",

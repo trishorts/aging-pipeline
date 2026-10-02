@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "c30c8262faf89792",
+  "catalog_id": "cb286d3f50b0e096",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-02T03:03:52+00:00",
+  "built_utc": "2026-10-02T07:26:31+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2495,6 +2495,50 @@
    "json": "datasets/PXD056458.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD056458.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD056458.json"
+  },
+  {
+   "dataset_id": "PXD057545",
+   "title": "Chaperone-mediated autophagy sex-specifically regulates neuronal activity by remodeling the synaptic proteome",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 24,
+   "n_samples": 24,
+   "n_psms_1pct": 619156,
+   "n_peptidoforms_1pct": 31412,
+   "n_protein_groups_1pct": 3558,
+   "n_ptm_sites": 12356,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 3
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD057545 is a DDA label-free dataset (Mus musculus) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 619,156 PSMs, 31,412 peptidoforms and 3,558 protein groups, and the repository holds 12,356 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD057545.html",
+   "json": "datasets/PXD057545.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057545.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057545.json"
   },
   {
    "dataset_id": "PXD058082",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "795984fed3e46dba",
+  "catalog_id": "ace3477637cd8655",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-02T15:28:55+00:00",
+  "built_utc": "2026-10-02T22:46:04+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -451,51 +451,6 @@
    "json": "datasets/PXD011740.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011740.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011740.json"
-  },
-  {
-   "dataset_id": "PXD012985",
-   "title": "Translational regulation contributes to the secretory response of chondrocytic cells following exposure to Interleukin-1B",
-   "organisms": [
-    "NCBITaxon:9606"
-   ],
-   "organism_names": [
-    "Homo sapiens"
-   ],
-   "acquisition": "DDA",
-   "quant_method": "label_free",
-   "labelling": "none",
-   "enrichment": [
-    "none"
-   ],
-   "enrichment_mixed": false,
-   "n_runs": 12,
-   "n_samples": 12,
-   "n_psms_1pct": 86118,
-   "n_peptidoforms_1pct": 16750,
-   "n_protein_groups_1pct": 2096,
-   "n_ptm_sites": 5652,
-   "sdrf_status": "absent",
-   "findings_by_severity": {
-    "error": 0,
-    "warning": 6,
-    "info": 3
-   },
-   "finding_codes": [
-    "collapsed_duplicate_rows",
-    "count_mismatch",
-    "high_contamination",
-    "no_design_file",
-    "no_output_sdrf",
-    "no_sdrf",
-    "occupancy_decoy_groups",
-    "unplaced_ptm_sites",
-    "unresolved_modifications"
-   ],
-   "summary": "PXD012985 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 86,118 PSMs, 16,750 peptidoforms and 2,096 protein groups, and the repository holds 5,652 PTM sites for it. 6 open warnings about it are recorded.",
-   "page": "datasets/PXD012985.html",
-   "json": "datasets/PXD012985.json",
-   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD012985.html",
-   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD012985.json"
   },
   {
    "dataset_id": "PXD013240",
@@ -1382,49 +1337,6 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027734.json"
   },
   {
-   "dataset_id": "PXD028282",
-   "title": "Microdissected pyramidal cell proteomics of Alzheimer brain reveals alterations in Creatine Kinase B, 14-3-3-g and Heat Shock Cognate 71",
-   "organisms": [
-    "NCBITaxon:9606"
-   ],
-   "organism_names": [
-    "Homo sapiens"
-   ],
-   "acquisition": "DDA",
-   "quant_method": "label_free",
-   "labelling": "none",
-   "enrichment": [
-    "none"
-   ],
-   "enrichment_mixed": false,
-   "n_runs": 10,
-   "n_samples": 10,
-   "n_psms_1pct": 8993,
-   "n_peptidoforms_1pct": 3429,
-   "n_protein_groups_1pct": 775,
-   "n_ptm_sites": 1179,
-   "sdrf_status": "trusted",
-   "findings_by_severity": {
-    "error": 0,
-    "warning": 5,
-    "info": 2
-   },
-   "finding_codes": [
-    "high_contamination",
-    "low_id_rate",
-    "no_design_file",
-    "no_output_sdrf",
-    "occupancy_decoy_groups",
-    "sdrf_uncoded",
-    "unplaced_ptm_sites"
-   ],
-   "summary": "PXD028282 is a DDA label-free dataset (Homo sapiens) with 10 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 8,993 PSMs, 3,429 peptidoforms and 775 protein groups, and the repository holds 1,179 PTM sites for it. 5 open warnings about it are recorded.",
-   "page": "datasets/PXD028282.html",
-   "json": "datasets/PXD028282.json",
-   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD028282.html",
-   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD028282.json"
-  },
-  {
    "dataset_id": "PXD028852",
    "title": "Proteins enriched on damaged lysosomes in 293T",
    "organisms": [
@@ -1868,6 +1780,49 @@
    "json": "datasets/PXD034432.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034432.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034432.json"
+  },
+  {
+   "dataset_id": "PXD035149",
+   "title": "ORP6 regulates astrocytic cholesterol metabolism and brain Aβ deposition",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 20,
+   "n_samples": 20,
+   "n_psms_1pct": 753674,
+   "n_peptidoforms_1pct": 30711,
+   "n_protein_groups_1pct": 3045,
+   "n_ptm_sites": 22372,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD035149 is a DDA label-free dataset (Mus musculus) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 753,674 PSMs, 30,711 peptidoforms and 3,045 protein groups, and the repository holds 22,372 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD035149.html",
+   "json": "datasets/PXD035149.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035149.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035149.json"
   },
   {
    "dataset_id": "PXD035171",
@@ -2980,52 +2935,6 @@
    "json": "datasets/PXD059818.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059818.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059818.json"
-  },
-  {
-   "dataset_id": "PXD062841",
-   "title": "Interactome quantitation reveals non-energetic mitochondrial roles in cell type specialization in murine kidney",
-   "organisms": [
-    "NCBITaxon:10090"
-   ],
-   "organism_names": [
-    "Mus musculus"
-   ],
-   "acquisition": "DDA",
-   "quant_method": "label_free",
-   "labelling": "none",
-   "enrichment": [
-    "other"
-   ],
-   "enrichment_mixed": false,
-   "n_runs": 35,
-   "n_samples": 35,
-   "n_psms_1pct": 18661,
-   "n_peptidoforms_1pct": 6152,
-   "n_protein_groups_1pct": 1570,
-   "n_ptm_sites": 6406,
-   "sdrf_status": "absent",
-   "findings_by_severity": {
-    "error": 0,
-    "warning": 8,
-    "info": 2
-   },
-   "finding_codes": [
-    "calibration_failed",
-    "count_mismatch",
-    "high_contamination",
-    "low_id_rate",
-    "no_design_file",
-    "no_output_sdrf",
-    "no_sdrf",
-    "occupancy_decoy_groups",
-    "unplaced_ptm_sites",
-    "unresolved_modifications"
-   ],
-   "summary": "PXD062841 is a DDA label-free dataset (Mus musculus) with 35 runs, 35 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 18,661 PSMs, 6,152 peptidoforms and 1,570 protein groups, and the repository holds 6,406 PTM sites for it. 8 open warnings about it are recorded.",
-   "page": "datasets/PXD062841.html",
-   "json": "datasets/PXD062841.json",
-   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD062841.html",
-   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD062841.json"
   },
   {
    "dataset_id": "PXD064236",

@@ -1,0 +1,522 @@
+{
+ "catalog": {
+  "catalog_id": "2091f14c51785a71",
+  "catalog_version": "8",
+  "schema_version": "0.0.13",
+  "builder_version": "0.32.0",
+  "built_utc": "2026-10-02T12:10:37+00:00",
+  "instance": "aging",
+  "base_url": "https://trishorts.github.io/aging-pipeline/"
+ },
+ "dataset": {
+  "dataset_id": "PXD035171",
+  "bundle_id": "285daf749308c1ee",
+  "title": "Natural aging and ovariectomy induces parallel phosphoproteomic alterations \nin skeletal muscle of female mice",
+  "organisms": [
+   "NCBITaxon:10090"
+  ],
+  "acquisition": "DDA",
+  "quant_method": "label_free",
+  "labelling": "none",
+  "enrichment": [
+   "phospho"
+  ],
+  "enrichment_mixed": false,
+  "instrument_vendor": null,
+  "search_engine": "MetaMorpheus",
+  "search_engine_version": "1.1.11",
+  "n_runs": 14,
+  "n_samples": 14,
+  "n_psms_1pct": 201493,
+  "n_peptidoforms_1pct": 21533,
+  "n_protein_groups_1pct": 1841,
+  "n_psms_all": 257439,
+  "n_ptm_sites": 14692,
+  "n_quant_values": 237853,
+  "n_open_findings": 4,
+  "instruments": null,
+  "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22_agingPTM-v1.xml",
+  "sdrf_status": "absent",
+  "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
+  "pipeline_commit": "100d1f65076833d570fc4b795fc159a37344e8c5",
+  "organism_names": [
+   "Mus musculus"
+  ],
+  "licence": "CC-BY-4.0",
+  "credit": "NCEMS Aging Proteome Working Group",
+  "pipeline_public_repo": null,
+  "pipeline_public_commit": null,
+  "findings": [
+   {
+    "code": "count_mismatch",
+    "severity": "warning",
+    "message": "The bundle holds 201493 where the producer reported 201514 (results.txt: All target PSMs with q-value <= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+   },
+   {
+    "code": "no_design_file",
+    "severity": "warning",
+    "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+   },
+   {
+    "code": "no_sdrf",
+    "severity": "warning",
+    "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
+   },
+   {
+    "code": "unplaced_ptm_sites",
+    "severity": "warning",
+    "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 1902 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+   },
+   {
+    "code": "no_output_sdrf",
+    "severity": "info",
+    "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+   },
+   {
+    "code": "occupancy_decoy_groups",
+    "severity": "info",
+    "message": "65 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+   }
+  ],
+  "modifications": [
+   {
+    "modification_name": "Phosphorylation on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 2341
+   },
+   {
+    "modification_name": "Phosphoserine on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 1916
+   },
+   {
+    "modification_name": "Carbamyl on X",
+    "modification": "UNIMOD:5",
+    "n_sites": 1392
+   },
+   {
+    "modification_name": "Phosphorylation on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 1118
+   },
+   {
+    "modification_name": "Sodium on E",
+    "modification": "UNIMOD:30",
+    "n_sites": 904
+   },
+   {
+    "modification_name": "Oxidation on M",
+    "modification": "UNIMOD:35",
+    "n_sites": 727
+   },
+   {
+    "modification_name": "Deamidation on N",
+    "modification": "UNIMOD:7",
+    "n_sites": 726
+   },
+   {
+    "modification_name": "Calcium on E",
+    "modification": "UNIMOD:951",
+    "n_sites": 599
+   },
+   {
+    "modification_name": "Sodium on D",
+    "modification": "UNIMOD:30",
+    "n_sites": 562
+   },
+   {
+    "modification_name": "Deamidation on Q",
+    "modification": "UNIMOD:7",
+    "n_sites": 506
+   },
+   {
+    "modification_name": "Calcium on D",
+    "modification": "UNIMOD:951",
+    "n_sites": 367
+   },
+   {
+    "modification_name": "Phosphorylation on Y",
+    "modification": "UNIMOD:21",
+    "n_sites": 330
+   },
+   {
+    "modification_name": "Phosphothreonine on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 279
+   },
+   {
+    "modification_name": "Fe[III] on E",
+    "modification": "UNIMOD:1870",
+    "n_sites": 253
+   },
+   {
+    "modification_name": "Magnesium on E",
+    "modification": "UNIMOD:956",
+    "n_sites": 227
+   },
+   {
+    "modification_name": "Carbamyl on K",
+    "modification": "UNIMOD:5",
+    "n_sites": 193
+   },
+   {
+    "modification_name": "Fe[III] on D",
+    "modification": "UNIMOD:1870",
+    "n_sites": 183
+   },
+   {
+    "modification_name": "Carbamidomethyl on C",
+    "modification": "UNIMOD:4",
+    "n_sites": 165
+   },
+   {
+    "modification_name": "Hydroxylation on P",
+    "modification": "UNIMOD:35",
+    "n_sites": 157
+   },
+   {
+    "modification_name": "Ammonia loss on N",
+    "modification": "UNIMOD:385",
+    "n_sites": 131
+   },
+   {
+    "modification_name": "Magnesium on D",
+    "modification": "UNIMOD:956",
+    "n_sites": 126
+   },
+   {
+    "modification_name": "Citrullination on R",
+    "modification": "UNIMOD:7",
+    "n_sites": 76
+   },
+   {
+    "modification_name": "Hydroxylation on N",
+    "modification": "UNIMOD:35",
+    "n_sites": 76
+   },
+   {
+    "modification_name": "Hydroxylation on K",
+    "modification": "UNIMOD:35",
+    "n_sites": 68
+   },
+   {
+    "modification_name": "Phosphotyrosine on Y",
+    "modification": "UNIMOD:21",
+    "n_sites": 62
+   },
+   {
+    "modification_name": "Fe[II] on E",
+    "modification": "UNIMOD:952",
+    "n_sites": 60
+   },
+   {
+    "modification_name": "Water Loss on E",
+    "modification": "UNIMOD:27",
+    "n_sites": 57
+   },
+   {
+    "modification_name": "4-hydroxyproline on P",
+    "modification": "UNIMOD:35",
+    "n_sites": 54
+   },
+   {
+    "modification_name": "N-acetylalanine on A",
+    "modification": "UNIMOD:1",
+    "n_sites": 53
+   },
+   {
+    "modification_name": "Sulfonation on Y",
+    "modification": "UNIMOD:40",
+    "n_sites": 50
+   },
+   {
+    "modification_name": "Potassium on E",
+    "modification": "UNIMOD:530",
+    "n_sites": 43
+   },
+   {
+    "modification_name": "ADP-ribosylation on S",
+    "modification": "UNIMOD:213",
+    "n_sites": 38
+   },
+   {
+    "modification_name": "Cu[I] on E",
+    "modification": "UNIMOD:531",
+    "n_sites": 38
+   },
+   {
+    "modification_name": "Carbamyl on M",
+    "modification": "UNIMOD:5",
+    "n_sites": 37
+   },
+   {
+    "modification_name": "N-acetylserine on S",
+    "modification": "UNIMOD:1",
+    "n_sites": 36
+   },
+   {
+    "modification_name": "Fe[II] on D",
+    "modification": "UNIMOD:952",
+    "n_sites": 35
+   },
+   {
+    "modification_name": "Potassium on D",
+    "modification": "UNIMOD:530",
+    "n_sites": 35
+   },
+   {
+    "modification_name": "Acetylation on X",
+    "modification": "UNIMOD:1",
+    "n_sites": 31
+   },
+   {
+    "modification_name": "Carbamyl on R",
+    "modification": "UNIMOD:5",
+    "n_sites": 31
+   },
+   {
+    "modification_name": "HexNAc on T",
+    "modification": "UNIMOD:43",
+    "n_sites": 30
+   },
+   {
+    "modification_name": "Methylation on K",
+    "modification": "UNIMOD:34",
+    "n_sites": 26
+   },
+   {
+    "modification_name": "Zinc on E",
+    "modification": "UNIMOD:954",
+    "n_sites": 25
+   },
+   {
+    "modification_name": "Cu[I] on D",
+    "modification": "UNIMOD:531",
+    "n_sites": 21
+   },
+   {
+    "modification_name": "N-acetylmethionine on M",
+    "modification": "UNIMOD:1",
+    "n_sites": 20
+   },
+   {
+    "modification_name": "N6-acetyllysine on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 20
+   },
+   {
+    "modification_name": "HexNAc on S",
+    "modification": "UNIMOD:43",
+    "n_sites": 18
+   },
+   {
+    "modification_name": "Pyridoxal phosphate on K",
+    "modification": "UNIMOD:46",
+    "n_sites": 16
+   },
+   {
+    "modification_name": "Zinc on D",
+    "modification": "UNIMOD:954",
+    "n_sites": 16
+   },
+   {
+    "modification_name": "Acetylation on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 14
+   },
+   {
+    "modification_name": "Omega-N-methylarginine on R",
+    "modification": "UNIMOD:34",
+    "n_sites": 9
+   },
+   {
+    "modification_name": "Trimethylation on K",
+    "modification": "UNIMOD:37",
+    "n_sites": 9
+   },
+   {
+    "modification_name": "Carboxylation on K",
+    "modification": "UNIMOD:299",
+    "n_sites": 8
+   },
+   {
+    "modification_name": "Dimethylation on K",
+    "modification": "UNIMOD:36",
+    "n_sites": 8
+   },
+   {
+    "modification_name": "N6,N6-dimethyllysine on K",
+    "modification": "UNIMOD:36",
+    "n_sites": 8
+   },
+   {
+    "modification_name": "Carboxylation on E",
+    "modification": "UNIMOD:299",
+    "n_sites": 6
+   },
+   {
+    "modification_name": "Deamidated asparagine on N",
+    "modification": "UNIMOD:7",
+    "n_sites": 6
+   },
+   {
+    "modification_name": "N-acetylthreonine on T",
+    "modification": "UNIMOD:1",
+    "n_sites": 6
+   },
+   {
+    "modification_name": "N6,N6,N6-trimethyllysine on K",
+    "modification": "UNIMOD:37",
+    "n_sites": 6
+   },
+   {
+    "modification_name": "Carboxylation on D",
+    "modification": "UNIMOD:299",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "N6-benzoyllysine on K",
+    "modification": "UNIMOD:136",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "Methylation on R",
+    "modification": "UNIMOD:34",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "N-acetylglycine on G",
+    "modification": "UNIMOD:1",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "N-acetylvaline on V",
+    "modification": "UNIMOD:1",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "N6-methyllysine on K",
+    "modification": "UNIMOD:34",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Pros-methylhistidine on H",
+    "modification": "UNIMOD:34",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Tele-methylhistidine on H",
+    "modification": "UNIMOD:34",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "5-hydroxylysine on K",
+    "modification": "UNIMOD:35",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "Dimethylation on R",
+    "modification": "UNIMOD:36",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "Glutarylation on K",
+    "modification": "UNIMOD:1848",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "5-glutamyl glycerylphosphorylethanolamine on E",
+    "modification": "UNIMOD:396",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "3-hydroxyproline on P",
+    "modification": "UNIMOD:35",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Ammonia loss on C",
+    "modification": "UNIMOD:385",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Asymmetric dimethylarginine on R",
+    "modification": "UNIMOD:36",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Cysteine persulfide on C",
+    "modification": "UNIMOD:421",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Formylation on K",
+    "modification": "UNIMOD:122",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "HexNAc on Nxs",
+    "modification": "UNIMOD:43",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N6-malonyllysine on K",
+    "modification": null,
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N6-succinyllysine on K",
+    "modification": null,
+    "n_sites": 1
+   },
+   {
+    "modification_name": "S-nitrosocysteine on C",
+    "modification": "UNIMOD:275",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Tele-8alpha-FAD histidine on H",
+    "modification": "UNIMOD:50",
+    "n_sites": 1
+   }
+  ],
+  "metrics": {
+   "id_rate": {
+    "value": 0.4834,
+    "definition_id": "aging:DEF-ID-RATE"
+   },
+   "contamination_psm_share": {
+    "value": 0.0035,
+    "definition_id": "aging:DEF-CONTAM-PSM"
+   }
+  },
+  "findings_by_severity": {
+   "error": 0,
+   "warning": 4,
+   "info": 2
+  },
+  "finding_codes": [
+   "count_mismatch",
+   "no_design_file",
+   "no_output_sdrf",
+   "no_sdrf",
+   "occupancy_decoy_groups",
+   "unplaced_ptm_sites"
+  ],
+  "bundle": {
+   "bundle_id": "285daf749308c1ee",
+   "written_utc": "2026-10-02T11:54:56+00:00",
+   "ingester_version": "0.32.0",
+   "reconciliation_ok": false,
+   "reconciliation_failed": [
+    "psms_target_1pct"
+   ]
+  },
+  "summary": "PXD035171 is a DDA label-free dataset (Mus musculus) with 14 runs, 14 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 201,493 PSMs, 21,533 peptidoforms and 1,841 protein groups, and the repository holds 14,692 PTM sites for it. 4 open warnings about it are recorded.",
+  "page": "datasets/PXD035171.html",
+  "json": "datasets/PXD035171.json",
+  "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035171.html",
+  "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035171.json"
+ },
+ "organisms_are": "`organisms` is the organism of the protein DATABASE the search used, not a statement about the samples. Sample annotation, where any exists, is in the catalog's `samples` and `sample_characteristics` tables."
+}

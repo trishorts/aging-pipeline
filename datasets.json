@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "cb286d3f50b0e096",
+  "catalog_id": "09b8a11607aa5af7",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-02T07:26:31+00:00",
+  "built_utc": "2026-10-02T09:28:28+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -805,6 +805,49 @@
    "json": "datasets/PXD018969.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD018969.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD018969.json"
+  },
+  {
+   "dataset_id": "PXD021762",
+   "title": "Mitochondrial mistranslation is modulated by metabolic stress",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 33,
+   "n_samples": 33,
+   "n_psms_1pct": 225628,
+   "n_peptidoforms_1pct": 16587,
+   "n_protein_groups_1pct": 1545,
+   "n_ptm_sites": 7638,
+   "sdrf_status": "unmatched",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "occupancy_decoy_groups",
+    "sdrf_unmatched",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD021762 is a DDA label-free dataset (Mus musculus) with 33 runs, 33 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 225,628 PSMs, 16,587 peptidoforms and 1,545 protein groups, and the repository holds 7,638 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD021762.html",
+   "json": "datasets/PXD021762.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD021762.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD021762.json"
   },
   {
    "dataset_id": "PXD022128",

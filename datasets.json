@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "20e2ff3636cede6a",
+  "catalog_id": "f0becd87cb733140",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-03T09:30:26+00:00",
+  "built_utc": "2026-10-03T13:55:49+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -1334,6 +1334,49 @@
    "json": "datasets/PXD025280.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD025280.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD025280.json"
+  },
+  {
+   "dataset_id": "PXD025321",
+   "title": "Integrated molecular landscape perturbations underlie cellular responses during hyperammonemia",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 15,
+   "n_samples": 15,
+   "n_psms_1pct": 736489,
+   "n_peptidoforms_1pct": 53407,
+   "n_protein_groups_1pct": 4249,
+   "n_ptm_sites": 24712,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD025321 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 736,489 PSMs, 53,407 peptidoforms and 4,249 protein groups, and the repository holds 24,712 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD025321.html",
+   "json": "datasets/PXD025321.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD025321.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD025321.json"
   },
   {
    "dataset_id": "PXD026608",

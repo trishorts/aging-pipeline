@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "50890a585a7c0a7f",
+  "catalog_id": "3cfea2cbf9a170aa",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-03T03:47:52+00:00",
+  "built_utc": "2026-10-03T05:53:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2667,6 +2667,49 @@
    "json": "datasets/PXD056458.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD056458.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD056458.json"
+  },
+  {
+   "dataset_id": "PXD057409",
+   "title": "Integrated multiomics analyses of the molecular landscape of sarcopenia in alcohol related liver disease_C2C12 myotube p",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 9,
+   "n_samples": 9,
+   "n_psms_1pct": 472414,
+   "n_peptidoforms_1pct": 43984,
+   "n_protein_groups_1pct": 3966,
+   "n_ptm_sites": 17497,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD057409 is a DDA label-free dataset (Mus musculus) with 9 runs, 9 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 472,414 PSMs, 43,984 peptidoforms and 3,966 protein groups, and the repository holds 17,497 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD057409.html",
+   "json": "datasets/PXD057409.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057409.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057409.json"
   },
   {
    "dataset_id": "PXD057545",

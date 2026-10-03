@@ -1,6 +1,6 @@
 # Aging proteomics repository
 
-> Search and quantification results for 73 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `ab00c15d659a0ec3` (datarepo 0.32.0, schema 0.0.13, built 2026-10-03T02:04:20+00:00); cite that id with any number you reuse.
+> Search and quantification results for 74 public proteomics datasets, reanalysed with one pipeline into one schema, for questions about how organelle proteomes change with age. Every number here comes from catalog `50890a585a7c0a7f` (datarepo 0.32.0, schema 0.0.13, built 2026-10-03T03:47:52+00:00); cite that id with any number you reuse.
 
 Before you answer from this data:
 
@@ -88,6 +88,7 @@ in skeletal muscle of female mice](datasets/PXD035171.html): PXD035171 is a DDA 
 - [PXD073846: mtDNA alterations determine myoblast differentiation and disrupt skeletal muscle architecture](datasets/PXD073846.html): PXD073846 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 165,203 PSMs, 22,717 peptidoforms and 2,251 protein groups, and the repository holds 8,299 PTM sites for it. 6 open warnings about it are recorded.
 - [PXD073999: Mechanisms of the antiproliferative effects of SIRT6 inhibition in melanoma: A multi-omics analysis](datasets/PXD073999.html): PXD073999 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 523,235 PSMs, 29,619 peptidoforms and 3,355 protein groups, and the repository holds 21,265 PTM sites for it. 6 open warnings about it are recorded.
 - [PXD075372: Senescence inhibition by rapamycin mitigates radiation-induced atherosclerosis characteristics in human coronary endothelial cells](datasets/PXD075372.html): PXD075372 is a DDA label-free dataset (Homo sapiens) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 1,111,523 PSMs, 79,285 peptidoforms and 6,046 protein groups, and the repository holds 73,551 PTM sites for it. 7 open warnings about it are recorded.
+- [PXD077298: Sinapic acid promotes disaggregation and extracellular secretion of polyglutamine repeats containing aggregates and resc](datasets/PXD077298.html): PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 237,752 PSMs, 37,228 peptidoforms and 4,560 protein groups, and the repository holds 16,413 PTM sites for it. 7 open warnings about it are recorded.
 
 ## Access
 

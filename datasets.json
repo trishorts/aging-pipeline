@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "a52832ed1fe982ca",
+  "catalog_id": "5738595853c50d63",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-03T18:45:03+00:00",
+  "built_utc": "2026-10-03T21:23:47+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -713,6 +713,49 @@
    "json": "datasets/PXD013640.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD013640.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD013640.json"
+  },
+  {
+   "dataset_id": "PXD014097",
+   "title": "Auto-phosphorylation at serine 166 regulates RIP kinase 1 mediated cell death and inflammation",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "phospho"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 145364,
+   "n_peptidoforms_1pct": 21050,
+   "n_protein_groups_1pct": 3935,
+   "n_ptm_sites": 18749,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD014097 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 145,364 PSMs, 21,050 peptidoforms and 3,935 protein groups, and the repository holds 18,749 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD014097.html",
+   "json": "datasets/PXD014097.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD014097.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD014097.json"
   },
   {
    "dataset_id": "PXD015079",

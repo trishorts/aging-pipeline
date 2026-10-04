@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "27d94937c5511d0e",
+  "catalog_id": "a5cacf7c3451b942",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-04T18:03:01+00:00",
+  "built_utc": "2026-10-04T21:25:26+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -20,7 +20,7 @@
   },
   "A2": {
    "file": "proteins/A2.json",
-   "n": 199
+   "n": 200
   },
   "A3": {
    "file": "proteins/A3.json",
@@ -124,7 +124,7 @@
   },
   "D3": {
    "file": "proteins/D3.json",
-   "n": 156
+   "n": 157
   },
   "D4": {
    "file": "proteins/D4.json",
@@ -1522,9 +1522,33 @@
    "file": "proteins/P69.json",
    "n": 12
   },
-  "P70": {
-   "file": "proteins/P70.json",
-   "n": 169
+  "P701": {
+   "file": "proteins/P701.json",
+   "n": 20
+  },
+  "P702": {
+   "file": "proteins/P702.json",
+   "n": 38
+  },
+  "P703": {
+   "file": "proteins/P703.json",
+   "n": 34
+  },
+  "P704": {
+   "file": "proteins/P704.json",
+   "n": 28
+  },
+  "P705": {
+   "file": "proteins/P705.json",
+   "n": 18
+  },
+  "P706": {
+   "file": "proteins/P706.json",
+   "n": 27
+  },
+  "P707": {
+   "file": "proteins/P707.json",
+   "n": 4
   },
   "P78": {
    "file": "proteins/P78.json",
@@ -1980,7 +2004,7 @@
   },
   "Q3T": {
    "file": "proteins/Q3T.json",
-   "n": 157
+   "n": 158
   },
   "Q3U0": {
    "file": "proteins/Q3U0.json",
@@ -2880,7 +2904,7 @@
   },
   "Q8BH": {
    "file": "proteins/Q8BH.json",
-   "n": 105
+   "n": 106
   },
   "Q8BI": {
    "file": "proteins/Q8BI.json",
@@ -3740,7 +3764,7 @@
   },
   "Q9D2": {
    "file": "proteins/Q9D2.json",
-   "n": 55
+   "n": 56
   },
   "Q9D3": {
    "file": "proteins/Q9D3.json",
@@ -3748,7 +3772,7 @@
   },
   "Q9D4": {
    "file": "proteins/Q9D4.json",
-   "n": 31
+   "n": 32
   },
   "Q9D5": {
    "file": "proteins/Q9D5.json",
@@ -4507,7 +4531,7 @@
   "P": 1515,
   "Q": 16,
   "R": 872,
-  "S": 1759,
+  "S": 1761,
   "T": 1262,
   "U": 310,
   "V": 132,

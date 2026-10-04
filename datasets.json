@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "a5cacf7c3451b942",
+  "catalog_id": "2e47fef383f21aed",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-04T21:25:26+00:00",
+  "built_utc": "2026-10-04T22:43:01+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2126,6 +2126,50 @@
    "json": "datasets/PXD032240.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD032240.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD032240.json"
+  },
+  {
+   "dataset_id": "PXD034059",
+   "title": "Induction of senescence renders cancer cells highly immunogenic",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 44,
+   "n_samples": 44,
+   "n_psms_1pct": 2005,
+   "n_peptidoforms_1pct": 77,
+   "n_protein_groups_1pct": 50,
+   "n_ptm_sites": 118,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 8,
+    "info": 1
+   },
+   "finding_codes": [
+    "calibration_failed",
+    "count_mismatch",
+    "high_contamination",
+    "low_id_rate",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD034059 is a DDA label-free dataset (Mus musculus) with 44 runs, 44 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 2,005 PSMs, 77 peptidoforms and 50 protein groups, and the repository holds 118 PTM sites for it. 8 open warnings about it are recorded.",
+   "page": "datasets/PXD034059.html",
+   "json": "datasets/PXD034059.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034059.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034059.json"
   },
   {
    "dataset_id": "PXD034432",

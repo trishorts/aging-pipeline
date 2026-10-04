@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7304c18d9da964d2",
+  "catalog_id": "27d94937c5511d0e",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-04T13:52:04+00:00",
+  "built_utc": "2026-10-04T18:03:01+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2477,6 +2477,51 @@
    "json": "datasets/PXD041139.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD041139.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD041139.json"
+  },
+  {
+   "dataset_id": "PXD042301",
+   "title": "Mapping of the podocin proximity-dependent proteome reveals novel components of the kidney podocyte foot process.",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "proximity_labelling"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 31,
+   "n_samples": 1,
+   "n_psms_1pct": 363181,
+   "n_peptidoforms_1pct": 31017,
+   "n_protein_groups_1pct": 3712,
+   "n_ptm_sites": 12533,
+   "sdrf_status": "partial",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 3
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "high_contamination",
+    "no_design_file",
+    "no_output_sdrf",
+    "occupancy_decoy_groups",
+    "sdrf_partial",
+    "sdrf_skeleton",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD042301 is a DDA label-free dataset (Mus musculus) with 31 runs, 1 sample and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 363,181 PSMs, 31,017 peptidoforms and 3,712 protein groups, and the repository holds 12,533 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD042301.html",
+   "json": "datasets/PXD042301.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD042301.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD042301.json"
   },
   {
    "dataset_id": "PXD043964",

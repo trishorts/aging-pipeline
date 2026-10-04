@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "dfd3a4a753bdafce",
+  "catalog_id": "7304c18d9da964d2",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-04T09:26:09+00:00",
+  "built_utc": "2026-10-04T13:52:04+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2969,6 +2969,49 @@
    "json": "datasets/PXD052189.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD052189.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD052189.json"
+  },
+  {
+   "dataset_id": "PXD053288",
+   "title": "RyR2-mediated calcium leak increases glyoxalase I in the aging brain",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 728145,
+   "n_peptidoforms_1pct": 65392,
+   "n_protein_groups_1pct": 4934,
+   "n_ptm_sites": 41129,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD053288 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 728,145 PSMs, 65,392 peptidoforms and 4,934 protein groups, and the repository holds 41,129 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD053288.html",
+   "json": "datasets/PXD053288.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD053288.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD053288.json"
   },
   {
    "dataset_id": "PXD056433",

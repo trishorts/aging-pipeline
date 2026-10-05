@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "8e73dd043f4e6055",
+  "catalog_id": "9d493d30e3880f5a",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-05T14:25:32+00:00",
+  "built_utc": "2026-10-05T16:13:33+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -3676,6 +3676,49 @@
    "json": "datasets/PXD059818.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059818.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059818.json"
+  },
+  {
+   "dataset_id": "PXD060982",
+   "title": "mTOR orchestrates sequential phases of ependymal cell differentiation by acting on their alternative cell cycle and cent",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "phospho"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 8,
+   "n_samples": 8,
+   "n_psms_1pct": 315008,
+   "n_peptidoforms_1pct": 42707,
+   "n_protein_groups_1pct": 5833,
+   "n_ptm_sites": 47667,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "occupancy_decoy_groups",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD060982 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 315,008 PSMs, 42,707 peptidoforms and 5,833 protein groups, and the repository holds 47,667 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD060982.html",
+   "json": "datasets/PXD060982.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD060982.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD060982.json"
   },
   {
    "dataset_id": "PXD064236",

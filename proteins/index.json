@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "5ecb12ce98e13443",
+  "catalog_id": "8e73dd043f4e6055",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-05T13:41:59+00:00",
+  "built_utc": "2026-10-05T14:25:32+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -20,7 +20,7 @@
   },
   "A2A": {
    "file": "proteins/A2A.json",
-   "n": 162
+   "n": 161
   },
   "A2B": {
    "file": "proteins/A2B.json",
@@ -156,7 +156,7 @@
   },
   "D3": {
    "file": "proteins/D3.json",
-   "n": 160
+   "n": 159
   },
   "D4": {
    "file": "proteins/D4.json",
@@ -318,25 +318,9 @@
    "file": "proteins/O007.json",
    "n": 14
   },
-  "O085": {
-   "file": "proteins/O085.json",
-   "n": 29
-  },
-  "O086": {
-   "file": "proteins/O086.json",
-   "n": 35
-  },
-  "O087": {
-   "file": "proteins/O087.json",
-   "n": 37
-  },
-  "O088": {
-   "file": "proteins/O088.json",
-   "n": 22
-  },
-  "O089": {
-   "file": "proteins/O089.json",
-   "n": 23
+  "O08": {
+   "file": "proteins/O08.json",
+   "n": 146
   },
   "O09": {
    "file": "proteins/O09.json",
@@ -2248,7 +2232,7 @@
   },
   "Q3TT": {
    "file": "proteins/Q3TT.json",
-   "n": 8
+   "n": 7
   },
   "Q3TU": {
    "file": "proteins/Q3TU.json",
@@ -3216,7 +3200,7 @@
   },
   "Q8BH": {
    "file": "proteins/Q8BH.json",
-   "n": 111
+   "n": 110
   },
   "Q8BI": {
    "file": "proteins/Q8BI.json",
@@ -4080,7 +4064,7 @@
   },
   "Q9D2": {
    "file": "proteins/Q9D2.json",
-   "n": 57
+   "n": 56
   },
   "Q9D3": {
    "file": "proteins/Q9D3.json",
@@ -4851,7 +4835,7 @@
   "P": 1532,
   "Q": 16,
   "R": 885,
-  "S": 1786,
+  "S": 1784,
   "T": 1273,
   "U": 311,
   "V": 135,

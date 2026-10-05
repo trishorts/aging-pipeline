@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "5ecb12ce98e13443",
+  "catalog_id": "8e73dd043f4e6055",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-05T13:41:59+00:00",
+  "built_utc": "2026-10-05T14:25:32+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2260,50 +2260,6 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD032240.json"
   },
   {
-   "dataset_id": "PXD034059",
-   "title": "Induction of senescence renders cancer cells highly immunogenic",
-   "organisms": [
-    "NCBITaxon:10090"
-   ],
-   "organism_names": [
-    "Mus musculus"
-   ],
-   "acquisition": "DDA",
-   "quant_method": "label_free",
-   "labelling": "none",
-   "enrichment": [
-    "none"
-   ],
-   "enrichment_mixed": false,
-   "n_runs": 44,
-   "n_samples": 44,
-   "n_psms_1pct": 2005,
-   "n_peptidoforms_1pct": 77,
-   "n_protein_groups_1pct": 50,
-   "n_ptm_sites": 118,
-   "sdrf_status": "absent",
-   "findings_by_severity": {
-    "error": 0,
-    "warning": 8,
-    "info": 1
-   },
-   "finding_codes": [
-    "calibration_failed",
-    "count_mismatch",
-    "high_contamination",
-    "low_id_rate",
-    "no_design_file",
-    "no_output_sdrf",
-    "no_sdrf",
-    "unplaced_ptm_sites"
-   ],
-   "summary": "PXD034059 is a DDA label-free dataset (Mus musculus) with 44 runs, 44 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 2,005 PSMs, 77 peptidoforms and 50 protein groups, and the repository holds 118 PTM sites for it. 8 open warnings about it are recorded.",
-   "page": "datasets/PXD034059.html",
-   "json": "datasets/PXD034059.json",
-   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034059.html",
-   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034059.json"
-  },
-  {
    "dataset_id": "PXD034432",
    "title": "Tracking prostate carcinogenesis over time through urine proteome profiling in an animal model: an exploratory approach",
    "organisms": [
@@ -2698,52 +2654,6 @@
    "json": "datasets/PXD042301.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD042301.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD042301.json"
-  },
-  {
-   "dataset_id": "PXD042302",
-   "title": "Mapping of the podocin proximity-dependent proteome reveals novel components of the kidney podocyte foot process.",
-   "organisms": [
-    "NCBITaxon:10090"
-   ],
-   "organism_names": [
-    "Mus musculus"
-   ],
-   "acquisition": "DDA",
-   "quant_method": "label_free",
-   "labelling": "none",
-   "enrichment": [
-    "proximity_labelling"
-   ],
-   "enrichment_mixed": false,
-   "n_runs": 31,
-   "n_samples": 1,
-   "n_psms_1pct": 362452,
-   "n_peptidoforms_1pct": 30922,
-   "n_protein_groups_1pct": 3709,
-   "n_ptm_sites": 12511,
-   "sdrf_status": "partial",
-   "findings_by_severity": {
-    "error": 0,
-    "warning": 7,
-    "info": 3
-   },
-   "finding_codes": [
-    "collapsed_duplicate_rows",
-    "count_mismatch",
-    "high_contamination",
-    "no_design_file",
-    "no_output_sdrf",
-    "occupancy_decoy_groups",
-    "sdrf_partial",
-    "sdrf_skeleton",
-    "unplaced_ptm_sites",
-    "unresolved_modifications"
-   ],
-   "summary": "PXD042302 is a DDA label-free dataset (Mus musculus) with 31 runs, 1 sample and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 362,452 PSMs, 30,922 peptidoforms and 3,709 protein groups, and the repository holds 12,511 PTM sites for it. 7 open warnings about it are recorded.",
-   "page": "datasets/PXD042302.html",
-   "json": "datasets/PXD042302.json",
-   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD042302.html",
-   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD042302.json"
   },
   {
    "dataset_id": "PXD043964",
@@ -4049,9 +3959,10 @@
    "quant_method": "label_free",
    "labelling": "none",
    "enrichment": [
+    "immunoprecipitation",
     "other"
    ],
-   "enrichment_mixed": false,
+   "enrichment_mixed": true,
    "n_runs": 22,
    "n_samples": 22,
    "n_psms_1pct": 237752,
@@ -4061,12 +3972,13 @@
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
-    "warning": 7,
+    "warning": 8,
     "info": 2
    },
    "finding_codes": [
     "count_mismatch",
     "high_contamination",
+    "mixed_enrichment",
     "no_design_file",
     "no_output_sdrf",
     "no_sdrf",
@@ -4074,7 +3986,7 @@
     "unplaced_ptm_sites",
     "unresolved_modifications"
    ],
-   "summary": "PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 237,752 PSMs, 37,228 peptidoforms and 4,560 protein groups, and the repository holds 16,413 PTM sites for it. 7 open warnings about it are recorded.",
+   "summary": "PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and runs that differ in enrichment (immunoprecipitation and other on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 237,752 PSMs, 37,228 peptidoforms and 4,560 protein groups, and the repository holds 16,413 PTM sites for it. 8 open warnings about it are recorded.",
    "page": "datasets/PXD077298.html",
    "json": "datasets/PXD077298.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD077298.html",

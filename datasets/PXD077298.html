@@ -19,11 +19,11 @@
  "name": "PXD077298 reanalysis: Sinapic acid promotes disaggregation and extracellular secretion of polyglutamine repeats containing aggregates and resc",
  "identifier": [
   "PXD077298",
-  "datarepo:bundle:a250a167a4512715"
+  "datarepo:bundle:d706d3364263db1f"
  ],
- "description": "PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 237,752 PSMs, 37,228 peptidoforms and 4,560 protein groups, and the repository holds 16,413 PTM sites for it. 7 open warnings about it are recorded.",
- "version": "a250a167a4512715",
- "dateModified": "2026-10-03T03:32:27+00:00",
+ "description": "PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and runs that differ in enrichment (immunoprecipitation and other on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 237,752 PSMs, 37,228 peptidoforms and 4,560 protein groups, and the repository holds 16,413 PTM sites for it. 8 open warnings about it are recorded.",
+ "version": "d706d3364263db1f",
+ "dateModified": "2026-10-05T13:56:51+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 5ecb12ce98e13443",
+  "name": "datarepo catalog 8e73dd043f4e6055",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,14 +61,15 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 237,752 PSMs, 37,228 peptidoforms and 4,560 protein groups, and the repository holds 16,413 PTM sites for it. 7 open warnings about it are recorded.
+PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and runs that differ in enrichment (immunoprecipitation and other on some runs; see each run&#x27;s own). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 237,752 PSMs, 37,228 peptidoforms and 4,560 protein groups, and the repository holds 16,413 PTM sites for it. 8 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 7 warnings and 2 for information</strong></p>
-<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 37228 where the producer reported 37227 (results.txt: All target peptides with q-value &lt;= 0.01). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
+<p><strong>Recorded against this dataset: 0 errors, 8 warnings and 2 for information</strong></p>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 237752 where the producer reported 237767 (results.txt: All target PSMs with q-value &lt;= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
+<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 37228 where the producer reported 37227 (results.txt: All target peptides with q-value &lt;= 0.01). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>67.90% of protein intensity in the worst file, 7.23% median across 22 files (DEF-QC-9 v3.5)</div>
+<div class="finding warning"><span class="code">mixed_enrichment</span> <span class="note">warning</span><br>The runs of this dataset differ in enrichment: 8 run(s) [immunoprecipitation]; 8 run(s) [none]; 6 run(s) [other]. The dataset&#x27;s own `enrichment` is the producer&#x27;s declaration and is true of only some runs, so answer any enrichment-dependent question per run from `runs.enrichment`, and never pool its runs as one kind.</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 1320 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
@@ -94,7 +95,7 @@ PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples an
 <dt>Acquisition</dt><dd>DDA</dd>
 <dt>Quantification</dt><dd>label_free</dd>
 <dt>Labelling</dt><dd>none</dd>
-<dt>Enrichment</dt><dd>other</dd>
+<dt>Enrichment</dt><dd>immunoprecipitation, other (on some runs only; runs differ)</dd>
 <dt>Instrument vendor</dt><dd>not recorded</dd>
 <dt>Runs / samples</dt><dd>22 / 22</dd>
 <dt>Sample metadata</dt><dd>absent</dd>
@@ -208,7 +209,7 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>a250a167a4512715</code>, written 2026-10-03T03:32:27+00:00 by ingester 0.32.0</dd>
+<dt>Bundle</dt><dd><code>d706d3364263db1f</code>, written 2026-10-05T13:56:51+00:00 by ingester 0.32.0</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct, peptidoforms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
@@ -216,7 +217,7 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 </main>
 <footer>
 Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 0.32.0 from catalog
-<code>5ecb12ce98e13443</code>, built 2026-10-05T13:41:59+00:00 by datarepo
+<code>8e73dd043f4e6055</code>, built 2026-10-05T14:25:32+00:00 by datarepo
 0.32.0 (schema 0.0.13).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>

@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "5ecb12ce98e13443",
+  "catalog_id": "8e73dd043f4e6055",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-05T13:41:59+00:00",
+  "built_utc": "2026-10-05T14:25:32+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD077298",
-  "bundle_id": "a250a167a4512715",
+  "bundle_id": "d706d3364263db1f",
   "title": "Sinapic acid promotes disaggregation and extracellular secretion of polyglutamine repeats containing aggregates and resc",
   "organisms": [
    "NCBITaxon:10090"
@@ -19,9 +19,10 @@
   "quant_method": "label_free",
   "labelling": "none",
   "enrichment": [
+   "immunoprecipitation",
    "other"
   ],
-  "enrichment_mixed": false,
+  "enrichment_mixed": true,
   "instrument_vendor": null,
   "search_engine": "MetaMorpheus",
   "search_engine_version": "1.1.11",
@@ -33,7 +34,7 @@
   "n_psms_all": 407486,
   "n_ptm_sites": 16413,
   "n_quant_values": 361835,
-  "n_open_findings": 7,
+  "n_open_findings": 8,
   "instruments": null,
   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22_agingPTM-v1.xml",
   "sdrf_status": "absent",
@@ -50,17 +51,22 @@
    {
     "code": "count_mismatch",
     "severity": "warning",
-    "message": "The bundle holds 37228 where the producer reported 37227 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    "message": "The bundle holds 237752 where the producer reported 237767 (results.txt: All target PSMs with q-value <= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
    },
    {
     "code": "count_mismatch",
     "severity": "warning",
-    "message": "The bundle holds 237752 where the producer reported 237767 (results.txt: All target PSMs with q-value <= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    "message": "The bundle holds 37228 where the producer reported 37227 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
    },
    {
     "code": "high_contamination",
     "severity": "warning",
     "message": "67.90% of protein intensity in the worst file, 7.23% median across 22 files (DEF-QC-9 v3.5)"
+   },
+   {
+    "code": "mixed_enrichment",
+    "severity": "warning",
+    "message": "The runs of this dataset differ in enrichment: 8 run(s) [immunoprecipitation]; 8 run(s) [none]; 6 run(s) [other]. The dataset's own `enrichment` is the producer's declaration and is true of only some runs, so answer any enrichment-dependent question per run from `runs.enrichment`, and never pool its runs as one kind."
    },
    {
     "code": "no_design_file",
@@ -567,12 +573,13 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 7,
+   "warning": 8,
    "info": 2
   },
   "finding_codes": [
    "count_mismatch",
    "high_contamination",
+   "mixed_enrichment",
    "no_design_file",
    "no_output_sdrf",
    "no_sdrf",
@@ -581,8 +588,8 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "a250a167a4512715",
-   "written_utc": "2026-10-03T03:32:27+00:00",
+   "bundle_id": "d706d3364263db1f",
+   "written_utc": "2026-10-05T13:56:51+00:00",
    "ingester_version": "0.32.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
@@ -590,7 +597,7 @@
     "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 237,752 PSMs, 37,228 peptidoforms and 4,560 protein groups, and the repository holds 16,413 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and runs that differ in enrichment (immunoprecipitation and other on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 237,752 PSMs, 37,228 peptidoforms and 4,560 protein groups, and the repository holds 16,413 PTM sites for it. 8 open warnings about it are recorded.",
   "page": "datasets/PXD077298.html",
   "json": "datasets/PXD077298.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD077298.html",

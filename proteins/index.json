@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "ce626e445807cb27",
+  "catalog_id": "f904e31c3e305577",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-05T00:40:53+00:00",
+  "built_utc": "2026-10-05T07:00:53+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,19 +12,51 @@
  "protein_shards": {
   "A0": {
    "file": "proteins/A0.json",
-   "n": 243
+   "n": 244
   },
   "A1": {
    "file": "proteins/A1.json",
    "n": 44
   },
-  "A2": {
-   "file": "proteins/A2.json",
-   "n": 200
+  "A2A": {
+   "file": "proteins/A2A.json",
+   "n": 160
+  },
+  "A2B": {
+   "file": "proteins/A2B.json",
+   "n": 4
+  },
+  "A2C": {
+   "file": "proteins/A2C.json",
+   "n": 4
+  },
+  "A2I": {
+   "file": "proteins/A2I.json",
+   "n": 2
+  },
+  "A2N": {
+   "file": "proteins/A2N.json",
+   "n": 1
+  },
+  "A2P": {
+   "file": "proteins/A2P.json",
+   "n": 1
+  },
+  "A2R": {
+   "file": "proteins/A2R.json",
+   "n": 27
+  },
+  "A2T": {
+   "file": "proteins/A2T.json",
+   "n": 1
+  },
+  "A2V": {
+   "file": "proteins/A2V.json",
+   "n": 7
   },
   "A3": {
    "file": "proteins/A3.json",
-   "n": 16
+   "n": 17
   },
   "A4": {
    "file": "proteins/A4.json",
@@ -40,11 +72,11 @@
   },
   "A7": {
    "file": "proteins/A7.json",
-   "n": 11
+   "n": 12
   },
   "A8": {
    "file": "proteins/A8.json",
-   "n": 58
+   "n": 59
   },
   "A9": {
    "file": "proteins/A9.json",
@@ -56,7 +88,7 @@
   },
   "B1": {
    "file": "proteins/B1.json",
-   "n": 52
+   "n": 53
   },
   "B2": {
    "file": "proteins/B2.json",
@@ -124,7 +156,7 @@
   },
   "D3": {
    "file": "proteins/D3.json",
-   "n": 157
+   "n": 159
   },
   "D4": {
    "file": "proteins/D4.json",
@@ -160,7 +192,7 @@
   },
   "E9": {
    "file": "proteins/E9.json",
-   "n": 124
+   "n": 129
   },
   "F1": {
    "file": "proteins/F1.json",
@@ -288,7 +320,7 @@
   },
   "O08": {
    "file": "proteins/O08.json",
-   "n": 141
+   "n": 142
   },
   "O09": {
    "file": "proteins/O09.json",
@@ -348,7 +380,7 @@
   },
   "O351": {
    "file": "proteins/O351.json",
-   "n": 27
+   "n": 30
   },
   "O352": {
    "file": "proteins/O352.json",
@@ -356,11 +388,11 @@
   },
   "O353": {
    "file": "proteins/O353.json",
-   "n": 27
+   "n": 28
   },
   "O354": {
    "file": "proteins/O354.json",
-   "n": 34
+   "n": 35
   },
   "O355": {
    "file": "proteins/O355.json",
@@ -380,7 +412,7 @@
   },
   "O359": {
    "file": "proteins/O359.json",
-   "n": 27
+   "n": 28
   },
   "O431": {
    "file": "proteins/O431.json",
@@ -420,7 +452,7 @@
   },
   "O5": {
    "file": "proteins/O5.json",
-   "n": 157
+   "n": 162
   },
   "O602": {
    "file": "proteins/O602.json",
@@ -456,7 +488,7 @@
   },
   "O70": {
    "file": "proteins/O70.json",
-   "n": 128
+   "n": 130
   },
   "O71": {
    "file": "proteins/O71.json",
@@ -532,7 +564,7 @@
   },
   "O885": {
    "file": "proteins/O885.json",
-   "n": 32
+   "n": 33
   },
   "O886": {
    "file": "proteins/O886.json",
@@ -544,7 +576,7 @@
   },
   "O888": {
    "file": "proteins/O888.json",
-   "n": 36
+   "n": 37
   },
   "O889": {
    "file": "proteins/O889.json",
@@ -884,7 +916,7 @@
   },
   "P090": {
    "file": "proteins/P090.json",
-   "n": 21
+   "n": 22
   },
   "P091": {
    "file": "proteins/P091.json",
@@ -908,7 +940,7 @@
   },
   "P096": {
    "file": "proteins/P096.json",
-   "n": 19
+   "n": 20
   },
   "P097": {
    "file": "proteins/P097.json",
@@ -924,15 +956,51 @@
   },
   "P0C": {
    "file": "proteins/P0C.json",
-   "n": 163
+   "n": 164
   },
   "P0D": {
    "file": "proteins/P0D.json",
-   "n": 112
+   "n": 114
   },
-  "P10": {
-   "file": "proteins/P10.json",
-   "n": 119
+  "P100": {
+   "file": "proteins/P100.json",
+   "n": 10
+  },
+  "P101": {
+   "file": "proteins/P101.json",
+   "n": 15
+  },
+  "P102": {
+   "file": "proteins/P102.json",
+   "n": 7
+  },
+  "P103": {
+   "file": "proteins/P103.json",
+   "n": 5
+  },
+  "P104": {
+   "file": "proteins/P104.json",
+   "n": 7
+  },
+  "P105": {
+   "file": "proteins/P105.json",
+   "n": 8
+  },
+  "P106": {
+   "file": "proteins/P106.json",
+   "n": 30
+  },
+  "P107": {
+   "file": "proteins/P107.json",
+   "n": 13
+  },
+  "P108": {
+   "file": "proteins/P108.json",
+   "n": 15
+  },
+  "P109": {
+   "file": "proteins/P109.json",
+   "n": 9
   },
   "P110": {
    "file": "proteins/P110.json",
@@ -972,7 +1040,7 @@
   },
   "P119": {
    "file": "proteins/P119.json",
-   "n": 9
+   "n": 10
   },
   "P12": {
    "file": "proteins/P12.json",
@@ -1018,9 +1086,45 @@
    "file": "proteins/P139.json",
    "n": 8
   },
-  "P14": {
-   "file": "proteins/P14.json",
-   "n": 99
+  "P140": {
+   "file": "proteins/P140.json",
+   "n": 7
+  },
+  "P141": {
+   "file": "proteins/P141.json",
+   "n": 11
+  },
+  "P142": {
+   "file": "proteins/P142.json",
+   "n": 12
+  },
+  "P143": {
+   "file": "proteins/P143.json",
+   "n": 6
+  },
+  "P144": {
+   "file": "proteins/P144.json",
+   "n": 13
+  },
+  "P145": {
+   "file": "proteins/P145.json",
+   "n": 6
+  },
+  "P146": {
+   "file": "proteins/P146.json",
+   "n": 18
+  },
+  "P147": {
+   "file": "proteins/P147.json",
+   "n": 6
+  },
+  "P148": {
+   "file": "proteins/P148.json",
+   "n": 12
+  },
+  "P149": {
+   "file": "proteins/P149.json",
+   "n": 8
   },
   "P15": {
    "file": "proteins/P15.json",
@@ -1028,7 +1132,7 @@
   },
   "P16": {
    "file": "proteins/P16.json",
-   "n": 99
+   "n": 100
   },
   "P170": {
    "file": "proteins/P170.json",
@@ -1052,7 +1156,7 @@
   },
   "P175": {
    "file": "proteins/P175.json",
-   "n": 8
+   "n": 9
   },
   "P176": {
    "file": "proteins/P176.json",
@@ -1088,7 +1192,7 @@
   },
   "P22": {
    "file": "proteins/P22.json",
-   "n": 88
+   "n": 89
   },
   "P23": {
    "file": "proteins/P23.json",
@@ -1104,11 +1208,11 @@
   },
   "P26": {
    "file": "proteins/P26.json",
-   "n": 66
+   "n": 67
   },
   "P27": {
    "file": "proteins/P27.json",
-   "n": 76
+   "n": 77
   },
   "P28": {
    "file": "proteins/P28.json",
@@ -1124,7 +1228,7 @@
   },
   "P31": {
    "file": "proteins/P31.json",
-   "n": 91
+   "n": 92
   },
   "P32": {
    "file": "proteins/P32.json",
@@ -1192,7 +1296,7 @@
   },
   "P39": {
    "file": "proteins/P39.json",
-   "n": 31
+   "n": 32
   },
   "P40": {
    "file": "proteins/P40.json",
@@ -1216,15 +1320,47 @@
   },
   "P46": {
    "file": "proteins/P46.json",
-   "n": 65
+   "n": 66
   },
   "P47": {
    "file": "proteins/P47.json",
    "n": 80
   },
-  "P48": {
-   "file": "proteins/P48.json",
-   "n": 124
+  "P480": {
+   "file": "proteins/P480.json",
+   "n": 17
+  },
+  "P481": {
+   "file": "proteins/P481.json",
+   "n": 7
+  },
+  "P482": {
+   "file": "proteins/P482.json",
+   "n": 5
+  },
+  "P483": {
+   "file": "proteins/P483.json",
+   "n": 15
+  },
+  "P484": {
+   "file": "proteins/P484.json",
+   "n": 15
+  },
+  "P485": {
+   "file": "proteins/P485.json",
+   "n": 15
+  },
+  "P486": {
+   "file": "proteins/P486.json",
+   "n": 12
+  },
+  "P487": {
+   "file": "proteins/P487.json",
+   "n": 31
+  },
+  "P489": {
+   "file": "proteins/P489.json",
+   "n": 9
   },
   "P490": {
    "file": "proteins/P490.json",
@@ -1284,7 +1420,7 @@
   },
   "P504": {
    "file": "proteins/P504.json",
-   "n": 24
+   "n": 25
   },
   "P505": {
    "file": "proteins/P505.json",
@@ -1292,7 +1428,7 @@
   },
   "P506": {
    "file": "proteins/P506.json",
-   "n": 9
+   "n": 10
   },
   "P507": {
    "file": "proteins/P507.json",
@@ -1320,7 +1456,7 @@
   },
   "P514": {
    "file": "proteins/P514.json",
-   "n": 8
+   "n": 9
   },
   "P515": {
    "file": "proteins/P515.json",
@@ -1336,11 +1472,11 @@
   },
   "P518": {
    "file": "proteins/P518.json",
-   "n": 34
+   "n": 35
   },
   "P519": {
    "file": "proteins/P519.json",
-   "n": 20
+   "n": 21
   },
   "P52": {
    "file": "proteins/P52.json",
@@ -1356,7 +1492,7 @@
   },
   "P55": {
    "file": "proteins/P55.json",
-   "n": 115
+   "n": 116
   },
   "P56": {
    "file": "proteins/P56.json",
@@ -1492,7 +1628,7 @@
   },
   "P629": {
    "file": "proteins/P629.json",
-   "n": 37
+   "n": 38
   },
   "P630": {
    "file": "proteins/P630.json",
@@ -1520,11 +1656,11 @@
   },
   "P69": {
    "file": "proteins/P69.json",
-   "n": 12
+   "n": 13
   },
   "P701": {
    "file": "proteins/P701.json",
-   "n": 20
+   "n": 21
   },
   "P702": {
    "file": "proteins/P702.json",
@@ -1532,7 +1668,7 @@
   },
   "P703": {
    "file": "proteins/P703.json",
-   "n": 34
+   "n": 35
   },
   "P704": {
    "file": "proteins/P704.json",
@@ -1564,7 +1700,7 @@
   },
   "P81": {
    "file": "proteins/P81.json",
-   "n": 23
+   "n": 24
   },
   "P82": {
    "file": "proteins/P82.json",
@@ -1600,7 +1736,7 @@
   },
   "P974": {
    "file": "proteins/P974.json",
-   "n": 44
+   "n": 45
   },
   "P975": {
    "file": "proteins/P975.json",
@@ -1636,15 +1772,15 @@
   },
   "Q01": {
    "file": "proteins/Q01.json",
-   "n": 84
+   "n": 86
   },
   "Q02": {
    "file": "proteins/Q02.json",
-   "n": 84
+   "n": 86
   },
   "Q03": {
    "file": "proteins/Q03.json",
-   "n": 65
+   "n": 66
   },
   "Q04": {
    "file": "proteins/Q04.json",
@@ -1652,11 +1788,11 @@
   },
   "Q05": {
    "file": "proteins/Q05.json",
-   "n": 66
+   "n": 67
   },
   "Q06": {
    "file": "proteins/Q06.json",
-   "n": 51
+   "n": 52
   },
   "Q07": {
    "file": "proteins/Q07.json",
@@ -1664,7 +1800,7 @@
   },
   "Q08": {
    "file": "proteins/Q08.json",
-   "n": 84
+   "n": 86
   },
   "Q09": {
    "file": "proteins/Q09.json",
@@ -1704,7 +1840,7 @@
   },
   "Q0V": {
    "file": "proteins/Q0V.json",
-   "n": 48
+   "n": 51
   },
   "Q0W": {
    "file": "proteins/Q0W.json",
@@ -1800,7 +1936,7 @@
   },
   "Q148": {
    "file": "proteins/Q148.json",
-   "n": 20
+   "n": 21
   },
   "Q149": {
    "file": "proteins/Q149.json",
@@ -1820,7 +1956,7 @@
   },
   "Q14D": {
    "file": "proteins/Q14D.json",
-   "n": 6
+   "n": 7
   },
   "Q150": {
    "file": "proteins/Q150.json",
@@ -1952,7 +2088,7 @@
   },
   "Q2": {
    "file": "proteins/Q2.json",
-   "n": 143
+   "n": 144
   },
   "Q30": {
    "file": "proteins/Q30.json",
@@ -2002,13 +2138,125 @@
    "file": "proteins/Q3S.json",
    "n": 22
   },
-  "Q3T": {
-   "file": "proteins/Q3T.json",
-   "n": 158
+  "Q3T0": {
+   "file": "proteins/Q3T0.json",
+   "n": 1
+  },
+  "Q3T1": {
+   "file": "proteins/Q3T1.json",
+   "n": 7
+  },
+  "Q3T8": {
+   "file": "proteins/Q3T8.json",
+   "n": 1
+  },
+  "Q3T9": {
+   "file": "proteins/Q3T9.json",
+   "n": 4
+  },
+  "Q3TA": {
+   "file": "proteins/Q3TA.json",
+   "n": 6
+  },
+  "Q3TB": {
+   "file": "proteins/Q3TB.json",
+   "n": 7
+  },
+  "Q3TC": {
+   "file": "proteins/Q3TC.json",
+   "n": 10
+  },
+  "Q3TD": {
+   "file": "proteins/Q3TD.json",
+   "n": 9
+  },
+  "Q3TE": {
+   "file": "proteins/Q3TE.json",
+   "n": 5
+  },
+  "Q3TF": {
+   "file": "proteins/Q3TF.json",
+   "n": 3
+  },
+  "Q3TG": {
+   "file": "proteins/Q3TG.json",
+   "n": 2
+  },
+  "Q3TH": {
+   "file": "proteins/Q3TH.json",
+   "n": 9
+  },
+  "Q3TI": {
+   "file": "proteins/Q3TI.json",
+   "n": 6
+  },
+  "Q3TJ": {
+   "file": "proteins/Q3TJ.json",
+   "n": 4
+  },
+  "Q3TK": {
+   "file": "proteins/Q3TK.json",
+   "n": 3
+  },
+  "Q3TL": {
+   "file": "proteins/Q3TL.json",
+   "n": 8
+  },
+  "Q3TM": {
+   "file": "proteins/Q3TM.json",
+   "n": 5
+  },
+  "Q3TN": {
+   "file": "proteins/Q3TN.json",
+   "n": 5
+  },
+  "Q3TP": {
+   "file": "proteins/Q3TP.json",
+   "n": 4
+  },
+  "Q3TQ": {
+   "file": "proteins/Q3TQ.json",
+   "n": 5
+  },
+  "Q3TR": {
+   "file": "proteins/Q3TR.json",
+   "n": 5
+  },
+  "Q3TS": {
+   "file": "proteins/Q3TS.json",
+   "n": 1
+  },
+  "Q3TT": {
+   "file": "proteins/Q3TT.json",
+   "n": 8
+  },
+  "Q3TU": {
+   "file": "proteins/Q3TU.json",
+   "n": 4
+  },
+  "Q3TV": {
+   "file": "proteins/Q3TV.json",
+   "n": 8
+  },
+  "Q3TW": {
+   "file": "proteins/Q3TW.json",
+   "n": 6
+  },
+  "Q3TX": {
+   "file": "proteins/Q3TX.json",
+   "n": 7
+  },
+  "Q3TY": {
+   "file": "proteins/Q3TY.json",
+   "n": 13
+  },
+  "Q3TZ": {
+   "file": "proteins/Q3TZ.json",
+   "n": 6
   },
   "Q3U0": {
    "file": "proteins/Q3U0.json",
-   "n": 11
+   "n": 12
   },
   "Q3U1": {
    "file": "proteins/Q3U1.json",
@@ -2020,7 +2268,7 @@
   },
   "Q3U3": {
    "file": "proteins/Q3U3.json",
-   "n": 13
+   "n": 15
   },
   "Q3U4": {
    "file": "proteins/Q3U4.json",
@@ -2040,7 +2288,7 @@
   },
   "Q3U8": {
    "file": "proteins/Q3U8.json",
-   "n": 4
+   "n": 5
   },
   "Q3U9": {
    "file": "proteins/Q3U9.json",
@@ -2088,11 +2336,11 @@
   },
   "Q3UK": {
    "file": "proteins/Q3UK.json",
-   "n": 5
+   "n": 6
   },
   "Q3UL": {
    "file": "proteins/Q3UL.json",
-   "n": 11
+   "n": 12
   },
   "Q3UM": {
    "file": "proteins/Q3UM.json",
@@ -2124,7 +2372,7 @@
   },
   "Q3UU": {
    "file": "proteins/Q3UU.json",
-   "n": 9
+   "n": 11
   },
   "Q3UV": {
    "file": "proteins/Q3UV.json",
@@ -2144,11 +2392,11 @@
   },
   "Q3UZ": {
    "file": "proteins/Q3UZ.json",
-   "n": 12
+   "n": 13
   },
   "Q3V": {
    "file": "proteins/Q3V.json",
-   "n": 53
+   "n": 55
   },
   "Q3Y": {
    "file": "proteins/Q3Y.json",
@@ -2212,7 +2460,7 @@
   },
   "Q4V": {
    "file": "proteins/Q4V.json",
-   "n": 70
+   "n": 71
   },
   "Q4W": {
    "file": "proteins/Q4W.json",
@@ -2224,7 +2472,7 @@
   },
   "Q50": {
    "file": "proteins/Q50.json",
-   "n": 25
+   "n": 26
   },
   "Q52": {
    "file": "proteins/Q52.json",
@@ -2236,7 +2484,7 @@
   },
   "Q56": {
    "file": "proteins/Q56.json",
-   "n": 45
+   "n": 46
   },
   "Q57": {
    "file": "proteins/Q57.json",
@@ -2264,11 +2512,11 @@
   },
   "Q5E": {
    "file": "proteins/Q5E.json",
-   "n": 21
+   "n": 23
   },
   "Q5F": {
    "file": "proteins/Q5F.json",
-   "n": 58
+   "n": 60
   },
   "Q5G": {
    "file": "proteins/Q5G.json",
@@ -2276,7 +2524,7 @@
   },
   "Q5H": {
    "file": "proteins/Q5H.json",
-   "n": 45
+   "n": 46
   },
   "Q5I": {
    "file": "proteins/Q5I.json",
@@ -2288,7 +2536,7 @@
   },
   "Q5K": {
    "file": "proteins/Q5K.json",
-   "n": 4
+   "n": 5
   },
   "Q5M": {
    "file": "proteins/Q5M.json",
@@ -2296,7 +2544,7 @@
   },
   "Q5N": {
    "file": "proteins/Q5N.json",
-   "n": 23
+   "n": 24
   },
   "Q5P": {
    "file": "proteins/Q5P.json",
@@ -2304,15 +2552,15 @@
   },
   "Q5Q": {
    "file": "proteins/Q5Q.json",
-   "n": 12
+   "n": 13
   },
   "Q5R": {
    "file": "proteins/Q5R.json",
-   "n": 53
+   "n": 54
   },
   "Q5S": {
    "file": "proteins/Q5S.json",
-   "n": 109
+   "n": 113
   },
   "Q5T": {
    "file": "proteins/Q5T.json",
@@ -2320,7 +2568,7 @@
   },
   "Q5U": {
    "file": "proteins/Q5U.json",
-   "n": 93
+   "n": 94
   },
   "Q5V": {
    "file": "proteins/Q5V.json",
@@ -2332,7 +2580,7 @@
   },
   "Q5X": {
    "file": "proteins/Q5X.json",
-   "n": 129
+   "n": 130
   },
   "Q5Y": {
    "file": "proteins/Q5Y.json",
@@ -2342,13 +2590,33 @@
    "file": "proteins/Q5Z.json",
    "n": 1
   },
-  "Q60": {
-   "file": "proteins/Q60.json",
-   "n": 134
+  "Q605": {
+   "file": "proteins/Q605.json",
+   "n": 13
+  },
+  "Q606": {
+   "file": "proteins/Q606.json",
+   "n": 28
+  },
+  "Q607": {
+   "file": "proteins/Q607.json",
+   "n": 36
+  },
+  "Q608": {
+   "file": "proteins/Q608.json",
+   "n": 32
+  },
+  "Q609": {
+   "file": "proteins/Q609.json",
+   "n": 32
+  },
+  "Q60I": {
+   "file": "proteins/Q60I.json",
+   "n": 1
   },
   "Q610": {
    "file": "proteins/Q610.json",
-   "n": 38
+   "n": 42
   },
   "Q611": {
    "file": "proteins/Q611.json",
@@ -2396,7 +2664,7 @@
   },
   "Q622": {
    "file": "proteins/Q622.json",
-   "n": 29
+   "n": 30
   },
   "Q623": {
    "file": "proteins/Q623.json",
@@ -2428,7 +2696,7 @@
   },
   "Q63": {
    "file": "proteins/Q63.json",
-   "n": 193
+   "n": 194
   },
   "Q640": {
    "file": "proteins/Q640.json",
@@ -2440,15 +2708,15 @@
   },
   "Q642": {
    "file": "proteins/Q642.json",
-   "n": 25
+   "n": 26
   },
   "Q643": {
    "file": "proteins/Q643.json",
-   "n": 32
+   "n": 33
   },
   "Q644": {
    "file": "proteins/Q644.json",
-   "n": 23
+   "n": 24
   },
   "Q645": {
    "file": "proteins/Q645.json",
@@ -2460,7 +2728,7 @@
   },
   "Q647": {
    "file": "proteins/Q647.json",
-   "n": 12
+   "n": 14
   },
   "Q64F": {
    "file": "proteins/Q64F.json",
@@ -2484,7 +2752,7 @@
   },
   "Q66": {
    "file": "proteins/Q66.json",
-   "n": 79
+   "n": 81
   },
   "Q67": {
    "file": "proteins/Q67.json",
@@ -2492,11 +2760,11 @@
   },
   "Q68": {
    "file": "proteins/Q68.json",
-   "n": 105
+   "n": 106
   },
   "Q69": {
    "file": "proteins/Q69.json",
-   "n": 61
+   "n": 63
   },
   "Q6A": {
    "file": "proteins/Q6A.json",
@@ -2512,11 +2780,11 @@
   },
   "Q6E": {
    "file": "proteins/Q6E.json",
-   "n": 12
+   "n": 13
   },
   "Q6F": {
    "file": "proteins/Q6F.json",
-   "n": 7
+   "n": 8
   },
   "Q6G": {
    "file": "proteins/Q6G.json",
@@ -2528,11 +2796,11 @@
   },
   "Q6I": {
    "file": "proteins/Q6I.json",
-   "n": 96
+   "n": 97
   },
   "Q6J": {
    "file": "proteins/Q6J.json",
-   "n": 15
+   "n": 16
   },
   "Q6K": {
    "file": "proteins/Q6K.json",
@@ -2548,11 +2816,11 @@
   },
   "Q6N": {
    "file": "proteins/Q6N.json",
-   "n": 141
+   "n": 146
   },
   "Q6P0": {
    "file": "proteins/Q6P0.json",
-   "n": 8
+   "n": 9
   },
   "Q6P1": {
    "file": "proteins/Q6P1.json",
@@ -2588,7 +2856,7 @@
   },
   "Q6P9": {
    "file": "proteins/Q6P9.json",
-   "n": 39
+   "n": 40
   },
   "Q6PA": {
    "file": "proteins/Q6PA.json",
@@ -2596,15 +2864,15 @@
   },
   "Q6PB": {
    "file": "proteins/Q6PB.json",
-   "n": 7
+   "n": 8
   },
   "Q6PC": {
    "file": "proteins/Q6PC.json",
-   "n": 22
+   "n": 23
   },
   "Q6PD": {
    "file": "proteins/Q6PD.json",
-   "n": 36
+   "n": 37
   },
   "Q6PE": {
    "file": "proteins/Q6PE.json",
@@ -2612,11 +2880,11 @@
   },
   "Q6PF": {
    "file": "proteins/Q6PF.json",
-   "n": 18
+   "n": 19
   },
   "Q6PG": {
    "file": "proteins/Q6PG.json",
-   "n": 22
+   "n": 23
   },
   "Q6PH": {
    "file": "proteins/Q6PH.json",
@@ -2672,7 +2940,7 @@
   },
   "Q6R": {
    "file": "proteins/Q6R.json",
-   "n": 24
+   "n": 25
   },
   "Q6S": {
    "file": "proteins/Q6S.json",
@@ -2680,7 +2948,7 @@
   },
   "Q6T": {
    "file": "proteins/Q6T.json",
-   "n": 27
+   "n": 28
   },
   "Q6U": {
    "file": "proteins/Q6U.json",
@@ -2712,7 +2980,7 @@
   },
   "Q6ZP": {
    "file": "proteins/Q6ZP.json",
-   "n": 27
+   "n": 28
   },
   "Q6ZQ": {
    "file": "proteins/Q6ZQ.json",
@@ -2740,7 +3008,7 @@
   },
   "Q6ZW": {
    "file": "proteins/Q6ZW.json",
-   "n": 25
+   "n": 26
   },
   "Q6ZX": {
    "file": "proteins/Q6ZX.json",
@@ -2798,9 +3066,33 @@
    "file": "proteins/Q7S.json",
    "n": 2
   },
-  "Q7T": {
-   "file": "proteins/Q7T.json",
-   "n": 202
+  "Q7TM": {
+   "file": "proteins/Q7TM.json",
+   "n": 28
+  },
+  "Q7TN": {
+   "file": "proteins/Q7TN.json",
+   "n": 47
+  },
+  "Q7TP": {
+   "file": "proteins/Q7TP.json",
+   "n": 34
+  },
+  "Q7TQ": {
+   "file": "proteins/Q7TQ.json",
+   "n": 36
+  },
+  "Q7TR": {
+   "file": "proteins/Q7TR.json",
+   "n": 2
+  },
+  "Q7TS": {
+   "file": "proteins/Q7TS.json",
+   "n": 51
+  },
+  "Q7TT": {
+   "file": "proteins/Q7TT.json",
+   "n": 13
   },
   "Q7Z2": {
    "file": "proteins/Q7Z2.json",
@@ -2828,7 +3120,7 @@
   },
   "Q80S": {
    "file": "proteins/Q80S.json",
-   "n": 10
+   "n": 11
   },
   "Q80T": {
    "file": "proteins/Q80T.json",
@@ -2836,23 +3128,23 @@
   },
   "Q80U": {
    "file": "proteins/Q80U.json",
-   "n": 53
+   "n": 54
   },
   "Q80V": {
    "file": "proteins/Q80V.json",
-   "n": 41
+   "n": 43
   },
   "Q80W": {
    "file": "proteins/Q80W.json",
-   "n": 57
+   "n": 58
   },
   "Q80X": {
    "file": "proteins/Q80X.json",
-   "n": 50
+   "n": 51
   },
   "Q80Y": {
    "file": "proteins/Q80Y.json",
-   "n": 47
+   "n": 48
   },
   "Q80Z": {
    "file": "proteins/Q80Z.json",
@@ -2860,7 +3152,7 @@
   },
   "Q81": {
    "file": "proteins/Q81.json",
-   "n": 65
+   "n": 66
   },
   "Q86S": {
    "file": "proteins/Q86S.json",
@@ -2896,19 +3188,19 @@
   },
   "Q8BF": {
    "file": "proteins/Q8BF.json",
-   "n": 27
+   "n": 28
   },
   "Q8BG": {
    "file": "proteins/Q8BG.json",
-   "n": 120
+   "n": 125
   },
   "Q8BH": {
    "file": "proteins/Q8BH.json",
-   "n": 106
+   "n": 108
   },
   "Q8BI": {
    "file": "proteins/Q8BI.json",
-   "n": 39
+   "n": 42
   },
   "Q8BJ": {
    "file": "proteins/Q8BJ.json",
@@ -2920,19 +3212,19 @@
   },
   "Q8BL": {
    "file": "proteins/Q8BL.json",
-   "n": 44
+   "n": 45
   },
   "Q8BM": {
    "file": "proteins/Q8BM.json",
-   "n": 54
+   "n": 55
   },
   "Q8BN": {
    "file": "proteins/Q8BN.json",
-   "n": 20
+   "n": 21
   },
   "Q8BP": {
    "file": "proteins/Q8BP.json",
-   "n": 31
+   "n": 32
   },
   "Q8BQ": {
    "file": "proteins/Q8BQ.json",
@@ -2960,11 +3252,11 @@
   },
   "Q8BW": {
    "file": "proteins/Q8BW.json",
-   "n": 50
+   "n": 52
   },
   "Q8BX": {
    "file": "proteins/Q8BX.json",
-   "n": 40
+   "n": 41
   },
   "Q8BY": {
    "file": "proteins/Q8BY.json",
@@ -2972,19 +3264,19 @@
   },
   "Q8BZ": {
    "file": "proteins/Q8BZ.json",
-   "n": 39
+   "n": 41
   },
   "Q8C0": {
    "file": "proteins/Q8C0.json",
-   "n": 58
+   "n": 59
   },
   "Q8C1": {
    "file": "proteins/Q8C1.json",
-   "n": 36
+   "n": 37
   },
   "Q8C2": {
    "file": "proteins/Q8C2.json",
-   "n": 15
+   "n": 17
   },
   "Q8C3": {
    "file": "proteins/Q8C3.json",
@@ -2992,7 +3284,7 @@
   },
   "Q8C4": {
    "file": "proteins/Q8C4.json",
-   "n": 22
+   "n": 23
   },
   "Q8C5": {
    "file": "proteins/Q8C5.json",
@@ -3000,11 +3292,11 @@
   },
   "Q8C6": {
    "file": "proteins/Q8C6.json",
-   "n": 17
+   "n": 18
   },
   "Q8C7": {
    "file": "proteins/Q8C7.json",
-   "n": 24
+   "n": 25
   },
   "Q8C8": {
    "file": "proteins/Q8C8.json",
@@ -3024,19 +3316,19 @@
   },
   "Q8CC": {
    "file": "proteins/Q8CC.json",
-   "n": 28
+   "n": 29
   },
   "Q8CD": {
    "file": "proteins/Q8CD.json",
-   "n": 30
+   "n": 31
   },
   "Q8CE": {
    "file": "proteins/Q8CE.json",
-   "n": 23
+   "n": 27
   },
   "Q8CF": {
    "file": "proteins/Q8CF.json",
-   "n": 50
+   "n": 51
   },
   "Q8CG": {
    "file": "proteins/Q8CG.json",
@@ -3048,7 +3340,7 @@
   },
   "Q8CI": {
    "file": "proteins/Q8CI.json",
-   "n": 64
+   "n": 66
   },
   "Q8CJ": {
    "file": "proteins/Q8CJ.json",
@@ -3088,7 +3380,7 @@
   },
   "Q8K0": {
    "file": "proteins/Q8K0.json",
-   "n": 62
+   "n": 63
   },
   "Q8K1": {
    "file": "proteins/Q8K1.json",
@@ -3096,11 +3388,11 @@
   },
   "Q8K2": {
    "file": "proteins/Q8K2.json",
-   "n": 76
+   "n": 80
   },
   "Q8K3": {
    "file": "proteins/Q8K3.json",
-   "n": 72
+   "n": 75
   },
   "Q8K4": {
    "file": "proteins/Q8K4.json",
@@ -3192,23 +3484,23 @@
   },
   "Q8Q": {
    "file": "proteins/Q8Q.json",
-   "n": 21
+   "n": 23
   },
   "Q8R0": {
    "file": "proteins/Q8R0.json",
-   "n": 62
+   "n": 66
   },
   "Q8R1": {
    "file": "proteins/Q8R1.json",
-   "n": 63
+   "n": 65
   },
   "Q8R2": {
    "file": "proteins/Q8R2.json",
-   "n": 46
+   "n": 47
   },
   "Q8R3": {
    "file": "proteins/Q8R3.json",
-   "n": 57
+   "n": 60
   },
   "Q8R4": {
    "file": "proteins/Q8R4.json",
@@ -3248,15 +3540,19 @@
   },
   "Q8VC": {
    "file": "proteins/Q8VC.json",
-   "n": 94
+   "n": 98
   },
   "Q8VD": {
    "file": "proteins/Q8VD.json",
-   "n": 69
+   "n": 70
   },
   "Q8VE": {
    "file": "proteins/Q8VE.json",
-   "n": 64
+   "n": 66
+  },
+  "Q8VF": {
+   "file": "proteins/Q8VF.json",
+   "n": 1
   },
   "Q8VG": {
    "file": "proteins/Q8VG.json",
@@ -3264,11 +3560,11 @@
   },
   "Q8VH": {
    "file": "proteins/Q8VH.json",
-   "n": 60
+   "n": 61
   },
   "Q8VI": {
    "file": "proteins/Q8VI.json",
-   "n": 44
+   "n": 45
   },
   "Q8WT": {
    "file": "proteins/Q8WT.json",
@@ -3308,27 +3604,27 @@
   },
   "Q91V": {
    "file": "proteins/Q91V.json",
-   "n": 83
+   "n": 84
   },
   "Q91W": {
    "file": "proteins/Q91W.json",
-   "n": 95
+   "n": 98
   },
   "Q91X": {
    "file": "proteins/Q91X.json",
-   "n": 62
+   "n": 63
   },
   "Q91Y": {
    "file": "proteins/Q91Y.json",
-   "n": 65
+   "n": 68
   },
   "Q91Z": {
    "file": "proteins/Q91Z.json",
-   "n": 67
+   "n": 70
   },
   "Q920": {
    "file": "proteins/Q920.json",
-   "n": 41
+   "n": 42
   },
   "Q921": {
    "file": "proteins/Q921.json",
@@ -3344,7 +3640,7 @@
   },
   "Q924": {
    "file": "proteins/Q924.json",
-   "n": 40
+   "n": 41
   },
   "Q925": {
    "file": "proteins/Q925.json",
@@ -3496,11 +3792,11 @@
   },
   "Q99J": {
    "file": "proteins/Q99J.json",
-   "n": 78
+   "n": 80
   },
   "Q99K": {
    "file": "proteins/Q99K.json",
-   "n": 57
+   "n": 58
   },
   "Q99L": {
    "file": "proteins/Q99L.json",
@@ -3508,7 +3804,7 @@
   },
   "Q99M": {
    "file": "proteins/Q99M.json",
-   "n": 76
+   "n": 79
   },
   "Q99N": {
    "file": "proteins/Q99N.json",
@@ -3588,7 +3884,7 @@
   },
   "Q9CQ2": {
    "file": "proteins/Q9CQ2.json",
-   "n": 5
+   "n": 6
   },
   "Q9CQ3": {
    "file": "proteins/Q9CQ3.json",
@@ -3612,7 +3908,7 @@
   },
   "Q9CQ8": {
    "file": "proteins/Q9CQ8.json",
-   "n": 6
+   "n": 7
   },
   "Q9CQ9": {
    "file": "proteins/Q9CQ9.json",
@@ -3668,7 +3964,7 @@
   },
   "Q9CQM": {
    "file": "proteins/Q9CQM.json",
-   "n": 3
+   "n": 4
   },
   "Q9CQN": {
    "file": "proteins/Q9CQN.json",
@@ -3676,7 +3972,7 @@
   },
   "Q9CQP": {
    "file": "proteins/Q9CQP.json",
-   "n": 3
+   "n": 4
   },
   "Q9CQQ": {
    "file": "proteins/Q9CQQ.json",
@@ -3720,7 +4016,7 @@
   },
   "Q9CR": {
    "file": "proteins/Q9CR.json",
-   "n": 77
+   "n": 79
   },
   "Q9CS": {
    "file": "proteins/Q9CS.json",
@@ -3740,11 +4036,11 @@
   },
   "Q9CW": {
    "file": "proteins/Q9CW.json",
-   "n": 60
+   "n": 62
   },
   "Q9CX": {
    "file": "proteins/Q9CX.json",
-   "n": 62
+   "n": 63
   },
   "Q9CY": {
    "file": "proteins/Q9CY.json",
@@ -3752,15 +4048,15 @@
   },
   "Q9CZ": {
    "file": "proteins/Q9CZ.json",
-   "n": 72
+   "n": 75
   },
   "Q9D0": {
    "file": "proteins/Q9D0.json",
-   "n": 67
+   "n": 71
   },
   "Q9D1": {
    "file": "proteins/Q9D1.json",
-   "n": 71
+   "n": 72
   },
   "Q9D2": {
    "file": "proteins/Q9D2.json",
@@ -3776,19 +4072,19 @@
   },
   "Q9D5": {
    "file": "proteins/Q9D5.json",
-   "n": 24
+   "n": 26
   },
   "Q9D6": {
    "file": "proteins/Q9D6.json",
-   "n": 46
+   "n": 47
   },
   "Q9D7": {
    "file": "proteins/Q9D7.json",
-   "n": 57
+   "n": 59
   },
   "Q9D8": {
    "file": "proteins/Q9D8.json",
-   "n": 74
+   "n": 75
   },
   "Q9D9": {
    "file": "proteins/Q9D9.json",
@@ -3796,15 +4092,15 @@
   },
   "Q9DA": {
    "file": "proteins/Q9DA.json",
-   "n": 46
+   "n": 49
   },
   "Q9DB": {
    "file": "proteins/Q9DB.json",
-   "n": 110
+   "n": 114
   },
   "Q9DC": {
    "file": "proteins/Q9DC.json",
-   "n": 91
+   "n": 92
   },
   "Q9DD": {
    "file": "proteins/Q9DD.json",
@@ -3820,11 +4116,11 @@
   },
   "Q9ER": {
    "file": "proteins/Q9ER.json",
-   "n": 76
+   "n": 78
   },
   "Q9ES": {
    "file": "proteins/Q9ES.json",
-   "n": 83
+   "n": 85
   },
   "Q9ET": {
    "file": "proteins/Q9ET.json",
@@ -3896,15 +4192,15 @@
   },
   "Q9JI": {
    "file": "proteins/Q9JI.json",
-   "n": 85
+   "n": 89
   },
   "Q9JJ": {
    "file": "proteins/Q9JJ.json",
-   "n": 86
+   "n": 87
   },
   "Q9JK": {
    "file": "proteins/Q9JK.json",
-   "n": 75
+   "n": 76
   },
   "Q9JL": {
    "file": "proteins/Q9JL.json",
@@ -3980,7 +4276,7 @@
   },
   "Q9QU": {
    "file": "proteins/Q9QU.json",
-   "n": 29
+   "n": 31
   },
   "Q9QV": {
    "file": "proteins/Q9QV.json",
@@ -3996,15 +4292,15 @@
   },
   "Q9QY": {
    "file": "proteins/Q9QY.json",
-   "n": 91
+   "n": 93
   },
   "Q9QZ": {
    "file": "proteins/Q9QZ.json",
-   "n": 80
+   "n": 84
   },
   "Q9R0": {
    "file": "proteins/Q9R0.json",
-   "n": 94
+   "n": 96
   },
   "Q9R1": {
    "file": "proteins/Q9R1.json",
@@ -4084,15 +4380,15 @@
   },
   "Q9WT": {
    "file": "proteins/Q9WT.json",
-   "n": 65
+   "n": 66
   },
   "Q9WU": {
    "file": "proteins/Q9WU.json",
-   "n": 82
+   "n": 84
   },
   "Q9WV": {
    "file": "proteins/Q9WV.json",
-   "n": 107
+   "n": 108
   },
   "Q9Y21": {
    "file": "proteins/Q9Y21.json",
@@ -4484,7 +4780,7 @@
   },
   "Q9Z0": {
    "file": "proteins/Q9Z0.json",
-   "n": 78
+   "n": 81
   },
   "Q9Z1": {
    "file": "proteins/Q9Z1.json",
@@ -4492,7 +4788,7 @@
   },
   "Q9Z2": {
    "file": "proteins/Q9Z2.json",
-   "n": 130
+   "n": 132
   },
   "Q9Z3": {
    "file": "proteins/Q9Z3.json",
@@ -4513,31 +4809,31 @@
  },
  "gene_shards": {
   "1": 1,
-  "A": 1270,
-  "B": 319,
-  "C": 1858,
-  "D": 619,
-  "E": 514,
-  "F": 607,
-  "G": 709,
-  "H": 532,
-  "I": 581,
+  "A": 1279,
+  "B": 322,
+  "C": 1870,
+  "D": 621,
+  "E": 516,
+  "F": 610,
+  "G": 711,
+  "H": 534,
+  "I": 584,
   "J": 42,
-  "K": 481,
-  "L": 491,
-  "M": 1045,
-  "N": 708,
-  "O": 190,
-  "P": 1515,
+  "K": 484,
+  "L": 493,
+  "M": 1046,
+  "N": 709,
+  "O": 193,
+  "P": 1521,
   "Q": 16,
-  "R": 872,
-  "S": 1761,
-  "T": 1262,
-  "U": 310,
-  "V": 132,
+  "R": 878,
+  "S": 1769,
+  "T": 1267,
+  "U": 311,
+  "V": 133,
   "W": 142,
   "X": 41,
   "Y": 44,
-  "Z": 648
+  "Z": 653
  }
 }

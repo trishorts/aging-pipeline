@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "f904e31c3e305577",
+  "catalog_id": "0a97df7856bb8e4e",
   "catalog_version": "8",
   "schema_version": "0.0.13",
   "builder_version": "0.32.0",
-  "built_utc": "2026-10-05T07:00:53+00:00",
+  "built_utc": "2026-10-05T09:21:05+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -842,6 +842,51 @@
    "json": "datasets/PXD015079.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD015079.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD015079.json"
+  },
+  {
+   "dataset_id": "PXD015729",
+   "title": "Murine hippocampus after radiation LC-MSMS",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 16,
+   "n_samples": 16,
+   "n_psms_1pct": 318990,
+   "n_peptidoforms_1pct": 26795,
+   "n_protein_groups_1pct": 3025,
+   "n_ptm_sites": 12316,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 3
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "no_design_file",
+    "no_output_sdrf",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD015729 is a DDA label-free dataset (Mus musculus) with 16 runs, 16 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 318,990 PSMs, 26,795 peptidoforms and 3,025 protein groups, and the repository holds 12,316 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD015729.html",
+   "json": "datasets/PXD015729.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD015729.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD015729.json"
   },
   {
    "dataset_id": "PXD017058",

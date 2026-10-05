@@ -1,5 +1,5 @@
 {
- "catalog_id": "f904e31c3e305577",
+ "catalog_id": "0a97df7856bb8e4e",
  "generator": "datarepo 0.32.0",
  "files": [
   "datasets.json",
@@ -41,6 +41,8 @@
   "datasets/PXD014097.json",
   "datasets/PXD015079.html",
   "datasets/PXD015079.json",
+  "datasets/PXD015729.html",
+  "datasets/PXD015729.json",
   "datasets/PXD017058.html",
   "datasets/PXD017058.json",
   "datasets/PXD017475.html",
@@ -322,7 +324,8 @@
   "proteins/O437.json",
   "proteins/O438.json",
   "proteins/O439.json",
-  "proteins/O5.json",
+  "proteins/O54.json",
+  "proteins/O55.json",
   "proteins/O602.json",
   "proteins/O603.json",
   "proteins/O604.json",

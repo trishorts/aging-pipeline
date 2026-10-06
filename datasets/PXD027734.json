@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "aee1fd942e2cf474",
-  "catalog_version": "8",
-  "schema_version": "0.0.13",
-  "builder_version": "0.32.0",
-  "built_utc": "2026-10-06T06:26:20+00:00",
+  "catalog_id": "fedb05c27090147e",
+  "catalog_version": "10",
+  "schema_version": "0.0.15",
+  "builder_version": "1.3.0",
+  "built_utc": "2026-10-06T21:19:54+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD027734",
-  "bundle_id": "af3d1838e90f2622",
+  "bundle_id": "c18fbac85b755a8f",
   "title": "Proximity-biotinylation (BioID) to dissect cytoplasmic p53 signaling networks under nutrient stress",
   "organisms": [
    "NCBITaxon:9606"
@@ -50,7 +50,7 @@
    {
     "code": "count_mismatch",
     "severity": "warning",
-    "message": "The bundle holds 487714 where the producer reported 487751 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    "message": "The bundle holds 487714 where the producer reported 487751 (results.txt: All target PSMs with q-value <= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
    },
    {
     "code": "high_contamination",
@@ -637,9 +637,9 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "af3d1838e90f2622",
-   "written_utc": "2026-09-28T22:15:54+00:00",
-   "ingester_version": "0.28.1",
+   "bundle_id": "c18fbac85b755a8f",
+   "written_utc": "2026-10-06T17:16:39+00:00",
+   "ingester_version": "1.3.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"

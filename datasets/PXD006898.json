@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "aee1fd942e2cf474",
-  "catalog_version": "8",
-  "schema_version": "0.0.13",
-  "builder_version": "0.32.0",
-  "built_utc": "2026-10-06T06:26:20+00:00",
+  "catalog_id": "fedb05c27090147e",
+  "catalog_version": "10",
+  "schema_version": "0.0.15",
+  "builder_version": "1.3.0",
+  "built_utc": "2026-10-06T21:19:54+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD006898",
-  "bundle_id": "b775c34dda7e0dd4",
+  "bundle_id": "e57b248d37c18d84",
   "title": "Quantitative proteomics of a human fetal ovary development timecourse",
   "organisms": [
    "NCBITaxon:9606"
@@ -50,7 +50,7 @@
    {
     "code": "count_mismatch",
     "severity": "warning",
-    "message": "The bundle holds 619345 where the producer reported 619369 (results.txt: All target PSMs with q-value <= 0.01 (aging DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    "message": "The bundle holds 619345 where the producer reported 619369 (results.txt: All target PSMs with q-value <= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
    },
    {
     "code": "no_design_file",
@@ -641,9 +641,9 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "b775c34dda7e0dd4",
-   "written_utc": "2026-09-28T23:10:00+00:00",
-   "ingester_version": "0.28.1",
+   "bundle_id": "e57b248d37c18d84",
+   "written_utc": "2026-10-06T17:41:02+00:00",
+   "ingester_version": "1.3.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"

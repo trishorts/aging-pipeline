@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "aee1fd942e2cf474",
-  "catalog_version": "8",
-  "schema_version": "0.0.13",
-  "builder_version": "0.32.0",
-  "built_utc": "2026-10-06T06:26:20+00:00",
+  "catalog_id": "fedb05c27090147e",
+  "catalog_version": "10",
+  "schema_version": "0.0.15",
+  "builder_version": "1.3.0",
+  "built_utc": "2026-10-06T21:19:54+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD019849",
-  "bundle_id": "bb52e016718734a6",
+  "bundle_id": "82ff2304571b372b",
   "title": "Nerv. System Specific Yme1l KO (NYKO) Mice Retina Samples (30-31wks old)",
   "organisms": [
    "NCBITaxon:10090"
@@ -50,7 +50,7 @@
    {
     "code": "count_mismatch",
     "severity": "warning",
-    "message": "The bundle holds 660498 where the producer reported 660591 (results.txt: All target PSMs with q-value <= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    "message": "The bundle holds 660498 where the producer reported 660591 (results.txt: All target PSMs with q-value <= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
    },
    {
     "code": "no_design_file",
@@ -718,11 +718,11 @@
   "metrics": {
    "id_rate": {
     "value": 0.7126,
-    "definition_id": "aging:DEF-ID-RATE"
+    "definition_id": "pxreprise:DEF-ID-RATE"
    },
    "contamination_psm_share": {
     "value": 0.0019,
-    "definition_id": "aging:DEF-CONTAM-PSM"
+    "definition_id": "pxreprise:DEF-CONTAM-PSM"
    }
   },
   "findings_by_severity": {
@@ -740,9 +740,9 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "bb52e016718734a6",
-   "written_utc": "2026-10-05T13:20:31+00:00",
-   "ingester_version": "0.32.0",
+   "bundle_id": "82ff2304571b372b",
+   "written_utc": "2026-10-06T18:56:18+00:00",
+   "ingester_version": "1.3.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"

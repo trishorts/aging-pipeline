@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "aee1fd942e2cf474",
-  "catalog_version": "8",
-  "schema_version": "0.0.13",
-  "builder_version": "0.32.0",
-  "built_utc": "2026-10-06T06:26:20+00:00",
+  "catalog_id": "fedb05c27090147e",
+  "catalog_version": "10",
+  "schema_version": "0.0.15",
+  "builder_version": "1.3.0",
+  "built_utc": "2026-10-06T21:19:54+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD035107",
-  "bundle_id": "8d3e89df26f138e5",
+  "bundle_id": "4ea35d9002c0115d",
   "title": "Global phosphoproteomic profiling of skeletal muscle in ovarian-hormone deficient mice",
   "organisms": [
    "NCBITaxon:10090"
@@ -485,9 +485,9 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "8d3e89df26f138e5",
-   "written_utc": "2026-10-03T18:27:29+00:00",
-   "ingester_version": "0.32.0",
+   "bundle_id": "4ea35d9002c0115d",
+   "written_utc": "2026-10-06T18:40:03+00:00",
+   "ingester_version": "1.3.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"

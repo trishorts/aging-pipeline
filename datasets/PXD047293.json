@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "aee1fd942e2cf474",
-  "catalog_version": "8",
-  "schema_version": "0.0.13",
-  "builder_version": "0.32.0",
-  "built_utc": "2026-10-06T06:26:20+00:00",
+  "catalog_id": "fedb05c27090147e",
+  "catalog_version": "10",
+  "schema_version": "0.0.15",
+  "builder_version": "1.3.0",
+  "built_utc": "2026-10-06T21:19:54+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD047293",
-  "bundle_id": "527404e9a924b4e1",
+  "bundle_id": "7a420eada48e9974",
   "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
   "organisms": [
    "NCBITaxon:10116"
@@ -367,9 +367,9 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "527404e9a924b4e1",
-   "written_utc": "2026-09-28T22:09:45+00:00",
-   "ingester_version": "0.28.1",
+   "bundle_id": "7a420eada48e9974",
+   "written_utc": "2026-10-06T17:13:27+00:00",
+   "ingester_version": "1.3.0",
    "reconciliation_ok": true,
    "reconciliation_failed": []
   },

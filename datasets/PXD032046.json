@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "aee1fd942e2cf474",
-  "catalog_version": "8",
-  "schema_version": "0.0.13",
-  "builder_version": "0.32.0",
-  "built_utc": "2026-10-06T06:26:20+00:00",
+  "catalog_id": "fedb05c27090147e",
+  "catalog_version": "10",
+  "schema_version": "0.0.15",
+  "builder_version": "1.3.0",
+  "built_utc": "2026-10-06T21:19:54+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD032046",
-  "bundle_id": "f32a0747267f0258",
+  "bundle_id": "6628b7e381eed223",
   "title": "Translational specialization in pluripotency by RBPMS poises future lineage-decisions",
   "organisms": [
    "NCBITaxon:9606"
@@ -354,9 +354,9 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "f32a0747267f0258",
-   "written_utc": "2026-09-28T21:56:33+00:00",
-   "ingester_version": "0.28.1",
+   "bundle_id": "6628b7e381eed223",
+   "written_utc": "2026-10-06T17:07:42+00:00",
+   "ingester_version": "1.3.0",
    "reconciliation_ok": true,
    "reconciliation_failed": []
   },

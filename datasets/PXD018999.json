@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "aee1fd942e2cf474",
-  "catalog_version": "8",
-  "schema_version": "0.0.13",
-  "builder_version": "0.32.0",
-  "built_utc": "2026-10-06T06:26:20+00:00",
+  "catalog_id": "fedb05c27090147e",
+  "catalog_version": "10",
+  "schema_version": "0.0.15",
+  "builder_version": "1.3.0",
+  "built_utc": "2026-10-06T21:19:54+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD018999",
-  "bundle_id": "f6ad575c60f6fab0",
+  "bundle_id": "f8a395fb70017710",
   "title": "A dichotomous response to chronic fetal hypoxia preprograms aging already during kidney development",
   "organisms": [
    "NCBITaxon:10090"
@@ -702,9 +702,9 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "f6ad575c60f6fab0",
-   "written_utc": "2026-10-04T09:08:31+00:00",
-   "ingester_version": "0.32.0",
+   "bundle_id": "f8a395fb70017710",
+   "written_utc": "2026-10-06T18:46:25+00:00",
+   "ingester_version": "1.3.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"

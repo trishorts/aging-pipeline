@@ -19,11 +19,11 @@
  "name": "PXD058082 reanalysis: Major toxin composition of particulate matter from a coal-fired power plant and its proteomics-associated toxicological ",
  "identifier": [
   "PXD058082",
-  "datarepo:bundle:fb8c9db15dfd0a06"
+  "datarepo:bundle:3b292839ac60c3d2"
  ],
- "description": "PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 40,780 PSMs, 4,568 peptidoforms and 1,184 protein groups, and the repository holds 1,717 PTM sites for it. 5 open warnings about it are recorded.",
- "version": "fb8c9db15dfd0a06",
- "dateModified": "2026-10-06T16:53:07+00:00",
+ "description": "PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 42,223 PSMs, 5,087 peptidoforms and 1,203 protein groups, and the repository holds 1,820 PTM sites for it. 5 open warnings about it are recorded.",
+ "version": "3b292839ac60c3d2",
+ "dateModified": "2026-10-09T07:54:43+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 999e89e3ea978a06",
+  "name": "datarepo catalog 8f14db8e52957cba",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,29 +61,28 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 40,780 PSMs, 4,568 peptidoforms and 1,184 protein groups, and the repository holds 1,717 PTM sites for it. 5 open warnings about it are recorded.
+PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 42,223 PSMs, 5,087 peptidoforms and 1,203 protein groups, and the repository holds 1,820 PTM sites for it. 5 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 5 warnings and 2 for information</strong></p>
-<div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 40780/329646 = 12.37% of MS2 identified (S3)</div>
-<div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
+<p><strong>Recorded against this dataset: 0 errors, 5 warnings and 1 for information</strong></p>
+<div class="finding warning"><span class="code">low_core_use</span> <span class="note">warning</span><br>14.85 avg cores of 32 allowed (S5)</div>
+<div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 42223/329646 = 12.81% of MS2 identified (S3)</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
-<div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 74 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
-<div class="finding warning"><span class="code">upstream_provenance_changed</span> <span class="note">warning</span><br>The search recorded its upstream &#x27;db_prepare&#x27; provenance (db/provenance.json) with sha256 61a5ddc7c43d6e64686241464086050a1bb5544878659194515f908d4d6cb2e2, and the file there now has 812ce696ba3f0ee2a1f79241b5e16e9267d6199f7598af77391178b825658963: it was overwritten after the search. It is left out of this bundle rather than read as this search&#x27;s record. The search&#x27;s own record of the db_prepare stage is gone unless the producer archived it.</div>
-<div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD058082:Q2M3X8;Q501J7 written 2 times; quant_values: 15 identifier(s), 15 row(s) dropped, e.g. PXD058082:Lung_PM25_MM_High_D10X_N1:label_free:protein_group:PXD058082:Q2M3X8;Q501J7:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates.</div>
-<div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
+<div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 3012 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 138 site not in ptm_sites. &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
+<div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 98 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
+<div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 2 identifier(s), 7 row(s) dropped, e.g. PXD058082:A0A1W2P6Q8;A0A1W2P7H4;A0A1W2P7S8;A0A1W2P7Z8;A0A1W2P855;Q6A068 written 6 times; quant_values: 38 identifier(s), 145 row(s) dropped, e.g. PXD058082:Lung_PM25_MM_High_D10X_N1:label_free:protein_group:PXD058082:A0A1W2P6Q8;A0A1W2P7H4;A0A1W2P7S8;A0A1W2P7Z8;A0A1W2P855;Q6A068:QuantProject:DEF-PROT-INT written 6 times. The full list is in bundle.json under collapsed_duplicates.</div>
 
 <h2>What was found</h2>
 <div class="scroll"><table><tbody>
-<tr><td>PSMs at 1% FDR</td><td class="num">40,780</td></tr>
-<tr><td>Peptidoforms at 1% FDR</td><td class="num">4,568</td></tr>
-<tr><td>Protein groups at 1% FDR</td><td class="num">1,184</td></tr>
-<tr><td>PTM sites</td><td class="num">1,717</td></tr>
-<tr><td>Quantitative values</td><td class="num">94,045</td></tr>
-<tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">55,543</td></tr>
-<tr><td>MS2 identification rate <span class="note">(aging:DEF-ID-RATE)</span></td><td class="num">12.4%</td></tr>
-<tr><td>Contaminant share of PSMs <span class="note">(aging:DEF-CONTAM-PSM)</span></td><td class="num">1.2%</td></tr>
+<tr><td>PSMs at 1% FDR</td><td class="num">42,223</td></tr>
+<tr><td>Peptidoforms at 1% FDR</td><td class="num">5,087</td></tr>
+<tr><td>Protein groups at 1% FDR</td><td class="num">1,203</td></tr>
+<tr><td>PTM sites</td><td class="num">1,820</td></tr>
+<tr><td>Quantitative values</td><td class="num">107,982</td></tr>
+<tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">57,058</td></tr>
+<tr><td>MS2 identification rate <span class="note">(pxreprise:DEF-ID-RATE)</span></td><td class="num">12.8%</td></tr>
+<tr><td>Contaminant share of PSMs <span class="note">(pxreprise:DEF-CONTAM-PSM)</span></td><td class="num">0.8%</td></tr>
 </tbody></table></div>
 
 <h2>How it was measured</h2>
@@ -96,47 +95,56 @@ PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples an
 <dt>Instrument vendor</dt><dd>not recorded</dd>
 <dt>Runs / samples</dt><dd>15 / 15</dd>
 <dt>Sample metadata</dt><dd>absent</dd>
-<dt>Search engine</dt><dd>MetaMorpheus 1.1.11</dd>
-<dt>Protein database</dt><dd>uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml</dd>
-<dt>Pipeline commit</dt><dd><a href="https://github.com/trishorts/aging/tree/d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad">d9a53813dfbd</a></dd>
+<dt>Search engine</dt><dd>MetaMorpheus 1.1.12</dd>
+<dt>Protein database</dt><dd>UP000000589_all_genecentric_2026_03_agingPTM-v3.xml</dd>
+<dt>Pipeline commit</dt><dd><a href="https://github.com/smith-chem-wisc/PXReprise/tree/0ba5e4c3fd3306ef4d2964951c868ac74732331b">0ba5e4c3fd33</a></dd>
 </dl>
 
 <h2>Modifications</h2>
 <div class="scroll"><table>
 <thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
 <tbody>
-<tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">1,011</td></tr>
-<tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">308</td></tr>
-<tr><td>Calcium on D</td><td>UNIMOD:951</td><td class="num">84</td></tr>
-<tr><td>Calcium on E</td><td>UNIMOD:951</td><td class="num">75</td></tr>
-<tr><td>Deamidation on N</td><td>UNIMOD:7</td><td class="num">56</td></tr>
-<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">26</td></tr>
-<tr><td>Water Loss on E</td><td>UNIMOD:27</td><td class="num">18</td></tr>
-<tr><td>N6-acetyllysine on K</td><td>UNIMOD:1</td><td class="num">16</td></tr>
-<tr><td>Magnesium on D</td><td>UNIMOD:956</td><td class="num">13</td></tr>
+<tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">1,049</td></tr>
+<tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">325</td></tr>
+<tr><td>Calcium on D</td><td>UNIMOD:951</td><td class="num">106</td></tr>
+<tr><td>Calcium on E</td><td>UNIMOD:951</td><td class="num">82</td></tr>
+<tr><td>Deamidation on N</td><td>UNIMOD:7</td><td class="num">61</td></tr>
+<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">24</td></tr>
+<tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">24</td></tr>
+<tr><td>Water Loss on E</td><td>UNIMOD:27</td><td class="num">19</td></tr>
+<tr><td>N6-acetyllysine on K</td><td>UNIMOD:1</td><td class="num">15</td></tr>
+<tr><td>Magnesium on D</td><td>UNIMOD:956</td><td class="num">14</td></tr>
 <tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">9</td></tr>
-<tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">5</td></tr>
-<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">5</td></tr>
-<tr><td>Citrullination on R</td><td>UNIMOD:7</td><td class="num">4</td></tr>
-<tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">4</td></tr>
+<tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">8</td></tr>
+<tr><td>Tele-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">5</td></tr>
+<tr><td>Deamidated asparagine on N</td><td>UNIMOD:7</td><td class="num">4</td></tr>
 <tr><td>N-acetylalanine on A</td><td>UNIMOD:1</td><td class="num">4</td></tr>
 <tr><td>N-acetylmethionine on M</td><td>UNIMOD:1</td><td class="num">4</td></tr>
 <tr><td>N6,N6,N6-trimethyllysine on K</td><td>UNIMOD:37</td><td class="num">4</td></tr>
-<tr><td>Tele-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">4</td></tr>
-<tr><td>Deamidated asparagine on N</td><td>UNIMOD:7</td><td class="num">3</td></tr>
-<tr><td>Formylation on K</td><td>UNIMOD:122</td><td class="num">3</td></tr>
+<tr><td>Citrullination on R</td><td>UNIMOD:7</td><td class="num">3</td></tr>
+<tr><td>HexNAc on T</td><td>UNIMOD:43</td><td class="num">3</td></tr>
 <tr><td>Magnesium on E</td><td>UNIMOD:956</td><td class="num">3</td></tr>
 <tr><td>N-acetylserine on S</td><td>UNIMOD:1</td><td class="num">3</td></tr>
 <tr><td>N6-methyllysine on K</td><td>UNIMOD:34</td><td class="num">3</td></tr>
+<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">3</td></tr>
 <tr><td>5-glutamyl glycerylphosphorylethanolamine on E</td><td>UNIMOD:396</td><td class="num">2</td></tr>
+<tr><td>Acetylation on K</td><td>UNIMOD:1</td><td class="num">2</td></tr>
+<tr><td>Carbamyl on X</td><td>UNIMOD:5</td><td class="num">2</td></tr>
+<tr><td>Formylation on K</td><td>UNIMOD:122</td><td class="num">2</td></tr>
+<tr><td>HexNAc on S</td><td>UNIMOD:43</td><td class="num">2</td></tr>
+<tr><td>Methylation on K</td><td>UNIMOD:34</td><td class="num">2</td></tr>
 <tr><td>N-acetylglycine on G</td><td>UNIMOD:1</td><td class="num">2</td></tr>
 <tr><td>N6,N6-dimethyllysine on K</td><td>UNIMOD:36</td><td class="num">2</td></tr>
-<tr><td>Acetylation on K</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>Phosphorylation on T</td><td>UNIMOD:21</td><td class="num">2</td></tr>
 <tr><td>Acetylation on X</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>Carbamyl on M</td><td>UNIMOD:5</td><td class="num">1</td></tr>
+<tr><td>Dimethylation on K</td><td>UNIMOD:36</td><td class="num">1</td></tr>
+<tr><td>Methylation on R</td><td>UNIMOD:34</td><td class="num">1</td></tr>
 <tr><td>N-acetylvaline on V</td><td>UNIMOD:1</td><td class="num">1</td></tr>
 <tr><td>N-myristoyl glycine on G</td><td>UNIMOD:45</td><td class="num">1</td></tr>
 <tr><td>N6-crotonyllysine on K</td><td>—</td><td class="num">1</td></tr>
-<tr><td>Phosphothreonine on T</td><td>UNIMOD:21</td><td class="num">1</td></tr>
+<tr><td>Phosphorylation on Y</td><td>UNIMOD:21</td><td class="num">1</td></tr>
+<tr><td>Succinylation on K</td><td>UNIMOD:64</td><td class="num">1</td></tr>
 <tr><td>Symmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">1</td></tr>
 <tr><td>Trimethylation on K</td><td>UNIMOD:37</td><td class="num">1</td></tr>
 </tbody></table></div>
@@ -148,7 +156,7 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>fb8c9db15dfd0a06</code>, written 2026-10-06T16:53:07+00:00 by ingester 1.3.0</dd>
+<dt>Bundle</dt><dd><code>3b292839ac60c3d2</code>, written 2026-10-09T07:54:43+00:00 by ingester 1.3.1</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts</dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
@@ -156,7 +164,7 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 </main>
 <footer>
 Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.0 from catalog
-<code>999e89e3ea978a06</code>, built 2026-10-09T07:53:04+00:00 by datarepo
+<code>8f14db8e52957cba</code>, built 2026-10-09T08:25:19+00:00 by datarepo
 1.3.0 (schema 0.0.15).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>

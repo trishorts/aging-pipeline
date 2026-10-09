@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "999e89e3ea978a06",
+  "catalog_id": "8f14db8e52957cba",
   "catalog_version": "10",
   "schema_version": "0.0.15",
   "builder_version": "1.3.0",
-  "built_utc": "2026-10-09T07:53:04+00:00",
+  "built_utc": "2026-10-09T08:25:19+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD058082",
-  "bundle_id": "fb8c9db15dfd0a06",
+  "bundle_id": "3b292839ac60c3d2",
   "title": "Major toxin composition of particulate matter from a coal-fired power plant and its proteomics-associated toxicological ",
   "organisms": [
    "NCBITaxon:10090"
@@ -24,21 +24,21 @@
   "enrichment_mixed": false,
   "instrument_vendor": null,
   "search_engine": "MetaMorpheus",
-  "search_engine_version": "1.1.11",
+  "search_engine_version": "1.1.12",
   "n_runs": 15,
   "n_samples": 15,
-  "n_psms_1pct": 40780,
-  "n_peptidoforms_1pct": 4568,
-  "n_protein_groups_1pct": 1184,
-  "n_psms_all": 55543,
-  "n_ptm_sites": 1717,
-  "n_quant_values": 94045,
+  "n_psms_1pct": 42223,
+  "n_peptidoforms_1pct": 5087,
+  "n_protein_groups_1pct": 1203,
+  "n_psms_all": 57058,
+  "n_ptm_sites": 1820,
+  "n_quant_values": 107982,
   "n_open_findings": 5,
   "instruments": null,
-  "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22.xml",
+  "search_database": "UP000000589_all_genecentric_2026_03_agingPTM-v3.xml",
   "sdrf_status": "absent",
-  "pipeline_repo": "https://github.com/trishorts/aging.git",
-  "pipeline_commit": "d9a53813dfbd11c6a34cc985de18bb41c9e5a5ad",
+  "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
+  "pipeline_commit": "0ba5e4c3fd3306ef4d2964951c868ac74732331b",
   "organism_names": [
    "Mus musculus"
   ],
@@ -48,14 +48,14 @@
   "pipeline_public_commit": null,
   "findings": [
    {
-    "code": "low_id_rate",
+    "code": "low_core_use",
     "severity": "warning",
-    "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 40780/329646 = 12.37% of MS2 identified (S3)"
+    "message": "14.85 avg cores of 32 allowed (S5)"
    },
    {
-    "code": "no_design_file",
+    "code": "low_id_rate",
     "severity": "warning",
-    "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 42223/329646 = 12.81% of MS2 identified (S3)"
    },
    {
     "code": "no_sdrf",
@@ -63,71 +63,71 @@
     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
    },
    {
-    "code": "unplaced_ptm_sites",
+    "code": "occupancy_not_stored",
     "severity": "warning",
-    "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 74 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    "message": "Of 3012 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 138 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
    },
    {
-    "code": "upstream_provenance_changed",
+    "code": "unplaced_ptm_sites",
     "severity": "warning",
-    "message": "The search recorded its upstream 'db_prepare' provenance (db/provenance.json) with sha256 61a5ddc7c43d6e64686241464086050a1bb5544878659194515f908d4d6cb2e2, and the file there now has 812ce696ba3f0ee2a1f79241b5e16e9267d6199f7598af77391178b825658963: it was overwritten after the search. It is left out of this bundle rather than read as this search's record. The search's own record of the db_prepare stage is gone unless the producer archived it."
+    "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 98 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
    },
    {
     "code": "collapsed_duplicate_rows",
     "severity": "info",
-    "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD058082:Q2M3X8;Q501J7 written 2 times; quant_values: 15 identifier(s), 15 row(s) dropped, e.g. PXD058082:Lung_PM25_MM_High_D10X_N1:label_free:protein_group:PXD058082:Q2M3X8;Q501J7:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates."
-   },
-   {
-    "code": "no_output_sdrf",
-    "severity": "info",
-    "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 2 identifier(s), 7 row(s) dropped, e.g. PXD058082:A0A1W2P6Q8;A0A1W2P7H4;A0A1W2P7S8;A0A1W2P7Z8;A0A1W2P855;Q6A068 written 6 times; quant_values: 38 identifier(s), 145 row(s) dropped, e.g. PXD058082:Lung_PM25_MM_High_D10X_N1:label_free:protein_group:PXD058082:A0A1W2P6Q8;A0A1W2P7H4;A0A1W2P7S8;A0A1W2P7Z8;A0A1W2P855;Q6A068:QuantProject:DEF-PROT-INT written 6 times. The full list is in bundle.json under collapsed_duplicates."
    }
   ],
   "modifications": [
    {
     "modification_name": "Carbamidomethyl on C",
     "modification": "UNIMOD:4",
-    "n_sites": 1011
+    "n_sites": 1049
    },
    {
     "modification_name": "Oxidation on M",
     "modification": "UNIMOD:35",
-    "n_sites": 308
+    "n_sites": 325
    },
    {
     "modification_name": "Calcium on D",
     "modification": "UNIMOD:951",
-    "n_sites": 84
+    "n_sites": 106
    },
    {
     "modification_name": "Calcium on E",
     "modification": "UNIMOD:951",
-    "n_sites": 75
+    "n_sites": 82
    },
    {
     "modification_name": "Deamidation on N",
     "modification": "UNIMOD:7",
-    "n_sites": 56
+    "n_sites": 61
    },
    {
     "modification_name": "Deamidation on Q",
     "modification": "UNIMOD:7",
-    "n_sites": 26
+    "n_sites": 24
+   },
+   {
+    "modification_name": "Hydroxylation on P",
+    "modification": "UNIMOD:35",
+    "n_sites": 24
    },
    {
     "modification_name": "Water Loss on E",
     "modification": "UNIMOD:27",
-    "n_sites": 18
+    "n_sites": 19
    },
    {
     "modification_name": "N6-acetyllysine on K",
     "modification": "UNIMOD:1",
-    "n_sites": 16
+    "n_sites": 15
    },
    {
     "modification_name": "Magnesium on D",
     "modification": "UNIMOD:956",
-    "n_sites": 13
+    "n_sites": 14
    },
    {
     "modification_name": "Hydroxylation on N",
@@ -135,23 +135,18 @@
     "n_sites": 9
    },
    {
-    "modification_name": "Hydroxylation on P",
-    "modification": "UNIMOD:35",
-    "n_sites": 5
-   },
-   {
-    "modification_name": "Phosphoserine on S",
-    "modification": "UNIMOD:21",
-    "n_sites": 5
-   },
-   {
-    "modification_name": "Citrullination on R",
-    "modification": "UNIMOD:7",
-    "n_sites": 4
-   },
-   {
     "modification_name": "Hydroxylation on K",
     "modification": "UNIMOD:35",
+    "n_sites": 8
+   },
+   {
+    "modification_name": "Tele-methylhistidine on H",
+    "modification": "UNIMOD:34",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "Deamidated asparagine on N",
+    "modification": "UNIMOD:7",
     "n_sites": 4
    },
    {
@@ -170,18 +165,13 @@
     "n_sites": 4
    },
    {
-    "modification_name": "Tele-methylhistidine on H",
-    "modification": "UNIMOD:34",
-    "n_sites": 4
-   },
-   {
-    "modification_name": "Deamidated asparagine on N",
+    "modification_name": "Citrullination on R",
     "modification": "UNIMOD:7",
     "n_sites": 3
    },
    {
-    "modification_name": "Formylation on K",
-    "modification": "UNIMOD:122",
+    "modification_name": "HexNAc on T",
+    "modification": "UNIMOD:43",
     "n_sites": 3
    },
    {
@@ -200,8 +190,38 @@
     "n_sites": 3
    },
    {
+    "modification_name": "Phosphoserine on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 3
+   },
+   {
     "modification_name": "5-glutamyl glycerylphosphorylethanolamine on E",
     "modification": "UNIMOD:396",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Acetylation on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Carbamyl on X",
+    "modification": "UNIMOD:5",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Formylation on K",
+    "modification": "UNIMOD:122",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "HexNAc on S",
+    "modification": "UNIMOD:43",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Methylation on K",
+    "modification": "UNIMOD:34",
     "n_sites": 2
    },
    {
@@ -215,13 +235,28 @@
     "n_sites": 2
    },
    {
-    "modification_name": "Acetylation on K",
-    "modification": "UNIMOD:1",
-    "n_sites": 1
+    "modification_name": "Phosphorylation on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 2
    },
    {
     "modification_name": "Acetylation on X",
     "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Carbamyl on M",
+    "modification": "UNIMOD:5",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Dimethylation on K",
+    "modification": "UNIMOD:36",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Methylation on R",
+    "modification": "UNIMOD:34",
     "n_sites": 1
    },
    {
@@ -240,8 +275,13 @@
     "n_sites": 1
    },
    {
-    "modification_name": "Phosphothreonine on T",
+    "modification_name": "Phosphorylation on Y",
     "modification": "UNIMOD:21",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Succinylation on K",
+    "modification": "UNIMOD:64",
     "n_sites": 1
    },
    {
@@ -257,36 +297,35 @@
   ],
   "metrics": {
    "id_rate": {
-    "value": 0.1237,
-    "definition_id": "aging:DEF-ID-RATE"
+    "value": 0.1281,
+    "definition_id": "pxreprise:DEF-ID-RATE"
    },
    "contamination_psm_share": {
-    "value": 0.0123,
-    "definition_id": "aging:DEF-CONTAM-PSM"
+    "value": 0.0084,
+    "definition_id": "pxreprise:DEF-CONTAM-PSM"
    }
   },
   "findings_by_severity": {
    "error": 0,
    "warning": 5,
-   "info": 2
+   "info": 1
   },
   "finding_codes": [
    "collapsed_duplicate_rows",
+   "low_core_use",
    "low_id_rate",
-   "no_design_file",
-   "no_output_sdrf",
    "no_sdrf",
-   "unplaced_ptm_sites",
-   "upstream_provenance_changed"
+   "occupancy_not_stored",
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "fb8c9db15dfd0a06",
-   "written_utc": "2026-10-06T16:53:07+00:00",
-   "ingester_version": "1.3.0",
+   "bundle_id": "3b292839ac60c3d2",
+   "written_utc": "2026-10-09T07:54:43+00:00",
+   "ingester_version": "1.3.1",
    "reconciliation_ok": true,
    "reconciliation_failed": []
   },
-  "summary": "PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 40,780 PSMs, 4,568 peptidoforms and 1,184 protein groups, and the repository holds 1,717 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD058082 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 42,223 PSMs, 5,087 peptidoforms and 1,203 protein groups, and the repository holds 1,820 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD058082.html",
   "json": "datasets/PXD058082.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD058082.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "609b6716e2ccf51b",
+  "catalog_id": "55b0d46674379332",
   "catalog_version": "10",
   "schema_version": "0.0.15",
   "builder_version": "1.3.0",
-  "built_utc": "2026-10-09T16:41:06+00:00",
+  "built_utc": "2026-10-09T18:17:53+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -1988,6 +1988,50 @@
    "json": "datasets/PXD027734.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027734.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027734.json"
+  },
+  {
+   "dataset_id": "PXD027971",
+   "title": "Simple, single-shot phosphoproteomic analysis of heat-stable tau",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "phospho"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 15,
+   "n_samples": 15,
+   "n_psms_1pct": 247005,
+   "n_peptidoforms_1pct": 16569,
+   "n_protein_groups_1pct": 1184,
+   "n_ptm_sites": 16641,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 2
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "cysteine_poor",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD027971 is a DDA label-free dataset (Rattus norvegicus) with 15 runs, 15 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 247,005 PSMs, 16,569 peptidoforms and 1,184 protein groups, and the repository holds 16,641 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD027971.html",
+   "json": "datasets/PXD027971.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027971.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027971.json"
   },
   {
    "dataset_id": "PXD028852",

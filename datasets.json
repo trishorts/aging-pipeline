@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "fc7bf2e97dd39380",
+  "catalog_id": "df3e9c5334d8986a",
   "catalog_version": "10",
   "schema_version": "0.0.15",
   "builder_version": "1.3.0",
-  "built_utc": "2026-10-10T02:54:21+00:00",
+  "built_utc": "2026-10-10T05:01:38+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -1959,27 +1959,26 @@
    "enrichment_mixed": false,
    "n_runs": 12,
    "n_samples": 12,
-   "n_psms_1pct": 166654,
-   "n_peptidoforms_1pct": 7986,
-   "n_protein_groups_1pct": 1293,
-   "n_ptm_sites": 9214,
+   "n_psms_1pct": 266155,
+   "n_peptidoforms_1pct": 11560,
+   "n_protein_groups_1pct": 2467,
+   "n_ptm_sites": 14322,
    "sdrf_status": "trusted",
    "findings_by_severity": {
     "error": 0,
-    "warning": 6,
+    "warning": 5,
     "info": 2
    },
    "finding_codes": [
+    "collapsed_duplicate_rows",
     "count_mismatch",
-    "no_design_file",
-    "no_output_sdrf",
     "occupancy_decoy_groups",
+    "occupancy_not_stored",
     "sdrf_uncoded",
     "unplaced_ptm_sites",
-    "unresolved_modifications",
-    "upstream_provenance_changed"
+    "unresolved_modifications"
    ],
-   "summary": "PXD026608 is a DDA label-free dataset (Rattus norvegicus) with 12 runs, 12 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 166,654 PSMs, 7,986 peptidoforms and 1,293 protein groups, and the repository holds 9,214 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD026608 is a DDA label-free dataset (Rattus norvegicus) with 12 runs, 12 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 266,155 PSMs, 11,560 peptidoforms and 2,467 protein groups, and the repository holds 14,322 PTM sites for it. 5 open warnings about it are recorded.",
    "page": "datasets/PXD026608.html",
    "json": "datasets/PXD026608.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD026608.html",
@@ -2957,6 +2956,49 @@
    "json": "datasets/PXD042301.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD042301.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD042301.json"
+  },
+  {
+   "dataset_id": "PXD043001",
+   "title": "Proteomic characterizationof the circle of Willis during aging",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 40,
+   "n_samples": 40,
+   "n_psms_1pct": 2821853,
+   "n_peptidoforms_1pct": 75455,
+   "n_protein_groups_1pct": 8548,
+   "n_ptm_sites": 60348,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD043001 is a DDA label-free dataset (Mus musculus) with 40 runs, 40 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 2,821,853 PSMs, 75,455 peptidoforms and 8,548 protein groups, and the repository holds 60,348 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD043001.html",
+   "json": "datasets/PXD043001.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD043001.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD043001.json"
   },
   {
    "dataset_id": "PXD043779",

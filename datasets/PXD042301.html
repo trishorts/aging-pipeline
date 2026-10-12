@@ -19,11 +19,11 @@
  "name": "PXD042301 reanalysis: Mapping of the podocin proximity-dependent proteome reveals novel components of the kidney podocyte foot process.",
  "identifier": [
   "PXD042301",
-  "datarepo:bundle:357334f02e6accbc"
+  "datarepo:bundle:1e45b54acc25d183"
  ],
- "description": "PXD042301 is a DDA label-free dataset (Mus musculus) with 31 runs, 1 sample and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 363,181 PSMs, 31,017 peptidoforms and 3,712 protein groups, and the repository holds 12,533 PTM sites for it. 6 open warnings about it are recorded.",
- "version": "357334f02e6accbc",
- "dateModified": "2026-10-06T18:50:28+00:00",
+ "description": "PXD042301 is a DDA label-free dataset (Mus musculus) with 31 runs, 19 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 363,181 PSMs, 31,017 peptidoforms and 3,712 protein groups, and the repository holds 12,533 PTM sites for it. 4 open warnings about it are recorded.",
+ "version": "1e45b54acc25d183",
+ "dateModified": "2026-10-12T04:27:06+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 6d42d8b1c19e3791",
+  "name": "datarepo catalog 73f5c7a2a3459493",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,15 +61,13 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD042301 is a DDA label-free dataset (Mus musculus) with 31 runs, 1 sample and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 363,181 PSMs, 31,017 peptidoforms and 3,712 protein groups, and the repository holds 12,533 PTM sites for it. 6 open warnings about it are recorded.
+PXD042301 is a DDA label-free dataset (Mus musculus) with 31 runs, 19 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 363,181 PSMs, 31,017 peptidoforms and 3,712 protein groups, and the repository holds 12,533 PTM sites for it. 4 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 3 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 4 warnings and 3 for information</strong></p>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>41.99% of protein intensity in the worst file, 15.61% median across 31 files (DEF-QC-9 v3.5)</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
-<div class="finding warning"><span class="code">sdrf_partial</span> <span class="note">warning</span><br>The SDRF was used only for the runs it names that were searched: it names 4 file(s) the search did not use, whose rows were not used: PC793_MQresults, PC825-MQresults, PC839-MQresults, checksum. sdrf_status is `partial`.</div>
-<div class="finding warning"><span class="code">sdrf_skeleton</span> <span class="note">warning</span><br>The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 186 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
 <div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
 <div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD042301:P70459;Q8R4Z4 written 2 times; quant_values: 31 identifier(s), 31 row(s) dropped, e.g. PXD042301:20210106_PHCOQEHF_PC793-OBrien_1_R1:label_free:protein_group:PXD042301:P70459;Q8R4Z4:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates.</div>
@@ -95,9 +93,9 @@ PXD042301 is a DDA label-free dataset (Mus musculus) with 31 runs, 1 sample and 
 <dt>Quantification</dt><dd>label_free</dd>
 <dt>Labelling</dt><dd>none</dd>
 <dt>Enrichment</dt><dd>proximity_labelling</dd>
-<dt>Instrument vendor</dt><dd>Thermo</dd>
-<dt>Runs / samples</dt><dd>31 / 1</dd>
-<dt>Sample metadata</dt><dd>partial</dd>
+<dt>Instrument vendor</dt><dd>not recorded</dd>
+<dt>Runs / samples</dt><dd>31 / 19</dd>
+<dt>Sample metadata</dt><dd>trusted</dd>
 <dt>Search engine</dt><dd>MetaMorpheus 1.1.11</dd>
 <dt>Protein database</dt><dd>uniprotkb_proteome_UP000000589_AND_revi_2026-09-22_agingPTM-v1.xml</dd>
 <dt>Pipeline commit</dt><dd><a href="https://github.com/smith-chem-wisc/PXReprise/tree/8789248ff39a65e744f5d6cd4761855d2607fe48">8789248ff39a</a></dd>
@@ -210,7 +208,7 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>357334f02e6accbc</code>, written 2026-10-06T18:50:28+00:00 by ingester 1.3.0</dd>
+<dt>Bundle</dt><dd><code>1e45b54acc25d183</code>, written 2026-10-12T04:27:06+00:00 by ingester 1.3.2</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts</dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
@@ -218,7 +216,7 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 </main>
 <footer>
 Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.2 from catalog
-<code>6d42d8b1c19e3791</code>, built 2026-10-12T04:18:36+00:00 by datarepo
+<code>73f5c7a2a3459493</code>, built 2026-10-12T10:22:52+00:00 by datarepo
 1.3.2 (schema 0.0.15).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>

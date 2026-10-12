@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "73f5c7a2a3459493",
+  "catalog_id": "1fc4ae083ef2f999",
   "catalog_version": "10",
   "schema_version": "0.0.15",
   "builder_version": "1.3.2",
-  "built_utc": "2026-10-12T10:22:52+00:00",
+  "built_utc": "2026-10-12T16:27:07+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -973,6 +973,53 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD014097.json"
   },
   {
+   "dataset_id": "PXD014274",
+   "title": "Proteomic and unbiased post-translational modification profiling of amyloid plaques and surrounding tissue in a transgenic mouse model of Alzheimer’s disease",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 38,
+   "n_samples": 38,
+   "n_psms_1pct": 116639,
+   "n_peptidoforms_1pct": 6415,
+   "n_protein_groups_1pct": 1318,
+   "n_ptm_sites": 7280,
+   "sdrf_status": "partial",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 9,
+    "info": 5
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "excluded_from_search",
+    "high_contamination",
+    "low_core_use",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "sdrf_partial",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD014274 is a DDA label-free dataset (Mus musculus) with 38 runs, 38 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 116,639 PSMs, 6,415 peptidoforms and 1,318 protein groups, and the repository holds 7,280 PTM sites for it. 9 open warnings about it are recorded.",
+   "page": "datasets/PXD014274.html",
+   "json": "datasets/PXD014274.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD014274.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD014274.json"
+  },
+  {
    "dataset_id": "PXD015079",
    "title": "Epigenetic inactivation of the autophagy-lysosomal system in the Parkinson’s disease appendix",
    "organisms": [
@@ -1894,6 +1941,49 @@
    "json": "datasets/PXD024478.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024478.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024478.json"
+  },
+  {
+   "dataset_id": "PXD024685",
+   "title": "Proteomic analyses of non-preconditioned murine kidneys pre- and post-IRI in comparison to kidneys after preconditioning by hypoxia or caloric restriction",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 30,
+   "n_samples": 30,
+   "n_psms_1pct": 835173,
+   "n_peptidoforms_1pct": 44479,
+   "n_protein_groups_1pct": 4821,
+   "n_ptm_sites": 21618,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD024685 is a DDA label-free dataset (Mus musculus) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 835,173 PSMs, 44,479 peptidoforms and 4,821 protein groups, and the repository holds 21,618 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD024685.html",
+   "json": "datasets/PXD024685.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024685.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024685.json"
   },
   {
    "dataset_id": "PXD024803",
@@ -4629,6 +4719,50 @@
    "json": "datasets/PXD058775.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD058775.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD058775.json"
+  },
+  {
+   "dataset_id": "PXD058855",
+   "title": "KAT5-mediated acetylation of PC4 facilitates DNA repair by promoting chromatin reorganization",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "affinity_purification"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 25,
+   "n_samples": 25,
+   "n_psms_1pct": 78573,
+   "n_peptidoforms_1pct": 5632,
+   "n_protein_groups_1pct": 1083,
+   "n_ptm_sites": 4140,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "high_contamination",
+    "low_id_rate",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD058855 is a DDA label-free dataset (Homo sapiens) with 25 runs, 25 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 78,573 PSMs, 5,632 peptidoforms and 1,083 protein groups, and the repository holds 4,140 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD058855.html",
+   "json": "datasets/PXD058855.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD058855.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD058855.json"
   },
   {
    "dataset_id": "PXD059520",

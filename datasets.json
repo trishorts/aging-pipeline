@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "31530685963171fc",
+  "catalog_id": "6d42d8b1c19e3791",
   "catalog_version": "10",
   "schema_version": "0.0.15",
-  "builder_version": "1.3.1",
-  "built_utc": "2026-10-11T15:31:12+00:00",
+  "builder_version": "1.3.2",
+  "built_utc": "2026-10-12T04:18:36+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -1123,28 +1123,27 @@
    "enrichment_mixed": false,
    "n_runs": 19,
    "n_samples": 19,
-   "n_psms_1pct": 186439,
-   "n_peptidoforms_1pct": 26634,
-   "n_protein_groups_1pct": 2264,
-   "n_ptm_sites": 16549,
+   "n_psms_1pct": 187253,
+   "n_peptidoforms_1pct": 26410,
+   "n_protein_groups_1pct": 2277,
+   "n_ptm_sites": 17751,
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
     "warning": 6,
-    "info": 3
+    "info": 2
    },
    "finding_codes": [
     "collapsed_duplicate_rows",
     "count_mismatch",
     "high_contamination",
-    "no_design_file",
-    "no_output_sdrf",
     "no_sdrf",
     "occupancy_decoy_groups",
+    "occupancy_not_stored",
     "unplaced_ptm_sites",
     "unresolved_modifications"
    ],
-   "summary": "PXD017475 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 186,439 PSMs, 26,634 peptidoforms and 2,264 protein groups, and the repository holds 16,549 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD017475 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 187,253 PSMs, 26,410 peptidoforms and 2,277 protein groups, and the repository holds 17,751 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD017475.html",
    "json": "datasets/PXD017475.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017475.html",
@@ -1250,32 +1249,31 @@
    "quant_method": "label_free",
    "labelling": "none",
    "enrichment": [
-    "other"
+    "affinity_purification"
    ],
    "enrichment_mixed": false,
    "n_runs": 40,
    "n_samples": 40,
-   "n_psms_1pct": 78341,
-   "n_peptidoforms_1pct": 8002,
-   "n_protein_groups_1pct": 1443,
-   "n_ptm_sites": 5090,
+   "n_psms_1pct": 79679,
+   "n_peptidoforms_1pct": 7674,
+   "n_protein_groups_1pct": 1442,
+   "n_ptm_sites": 5147,
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
-    "warning": 6,
+    "warning": 5,
     "info": 2
    },
    "finding_codes": [
+    "collapsed_duplicate_rows",
     "high_contamination",
-    "no_design_file",
-    "no_output_sdrf",
     "no_sdrf",
     "occupancy_decoy_groups",
+    "occupancy_not_stored",
     "unplaced_ptm_sites",
-    "unresolved_modifications",
-    "upstream_provenance_changed"
+    "unresolved_modifications"
    ],
-   "summary": "PXD018315 is a DDA label-free dataset (Mus musculus) with 40 runs, 40 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 78,341 PSMs, 8,002 peptidoforms and 1,443 protein groups, and the repository holds 5,090 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD018315 is a DDA label-free dataset (Mus musculus) with 40 runs, 40 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 79,679 PSMs, 7,674 peptidoforms and 1,442 protein groups, and the repository holds 5,147 PTM sites for it. 5 open warnings about it are recorded.",
    "page": "datasets/PXD018315.html",
    "json": "datasets/PXD018315.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD018315.html",
@@ -1501,6 +1499,52 @@
    "json": "datasets/PXD019849.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019849.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019849.json"
+  },
+  {
+   "dataset_id": "PXD021069",
+   "title": "Matrix reverses immortalization-mediated stem cell fate determination",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 14,
+   "n_samples": 14,
+   "n_psms_1pct": 23908,
+   "n_peptidoforms_1pct": 3047,
+   "n_protein_groups_1pct": 910,
+   "n_ptm_sites": 1469,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 8,
+    "info": 2
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "high_contamination",
+    "low_core_use",
+    "low_id_rate",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD021069 is a DDA label-free dataset (Homo sapiens) with 14 runs, 14 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 23,908 PSMs, 3,047 peptidoforms and 910 protein groups, and the repository holds 1,469 PTM sites for it. 8 open warnings about it are recorded.",
+   "page": "datasets/PXD021069.html",
+   "json": "datasets/PXD021069.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD021069.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD021069.json"
   },
   {
    "dataset_id": "PXD021762",
@@ -1764,6 +1808,49 @@
    "json": "datasets/PXD023381.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD023381.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD023381.json"
+  },
+  {
+   "dataset_id": "PXD024216",
+   "title": "Shotgun-based Proteomics of Extracellular Vesicles in Alzheimer’s Disease Reveals Biomarkers Involved in Immunological and Coagulation Pathways",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 57,
+   "n_samples": 57,
+   "n_psms_1pct": 180979,
+   "n_peptidoforms_1pct": 5767,
+   "n_protein_groups_1pct": 1259,
+   "n_ptm_sites": 4435,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD024216 is a DDA label-free dataset (Homo sapiens) with 57 runs, 57 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 180,979 PSMs, 5,767 peptidoforms and 1,259 protein groups, and the repository holds 4,435 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD024216.html",
+   "json": "datasets/PXD024216.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024216.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024216.json"
   },
   {
    "dataset_id": "PXD024478",
@@ -2161,6 +2248,49 @@
    "json": "datasets/PXD027734.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027734.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027734.json"
+  },
+  {
+   "dataset_id": "PXD027754",
+   "title": "Metabolic reprogramming during hyperammonemia targets mitochondrial function and post-mitotic senescence",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 38,
+   "n_samples": 38,
+   "n_psms_1pct": 340609,
+   "n_peptidoforms_1pct": 17536,
+   "n_protein_groups_1pct": 2585,
+   "n_ptm_sites": 10351,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD027754 is a DDA label-free dataset (Rattus norvegicus) with 38 runs, 38 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 340,609 PSMs, 17,536 peptidoforms and 2,585 protein groups, and the repository holds 10,351 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD027754.html",
+   "json": "datasets/PXD027754.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027754.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027754.json"
   },
   {
    "dataset_id": "PXD027971",
@@ -2954,6 +3084,49 @@
    "json": "datasets/PXD036557.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD036557.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD036557.json"
+  },
+  {
+   "dataset_id": "PXD038328",
+   "title": "Organ protection by caloric restriction depends on activation of the de novo NAD+ synthesis pathway",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 40,
+   "n_samples": 40,
+   "n_psms_1pct": 1397244,
+   "n_peptidoforms_1pct": 67381,
+   "n_protein_groups_1pct": 4719,
+   "n_ptm_sites": 48143,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD038328 is a DDA label-free dataset (Mus musculus) with 40 runs, 40 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 1,397,244 PSMs, 67,381 peptidoforms and 4,719 protein groups, and the repository holds 48,143 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD038328.html",
+   "json": "datasets/PXD038328.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD038328.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD038328.json"
   },
   {
    "dataset_id": "PXD041139",
@@ -4020,6 +4193,49 @@
    "json": "datasets/PXD057490.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057490.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057490.json"
+  },
+  {
+   "dataset_id": "PXD057499",
+   "title": "Synaptic phosphoproteome modifications and cortical circuit dysfunction are linked to the early-stage progression of alpha-synuclein pathology",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 8,
+   "n_samples": 8,
+   "n_psms_1pct": 249655,
+   "n_peptidoforms_1pct": 19847,
+   "n_protein_groups_1pct": 2865,
+   "n_ptm_sites": 6985,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "cysteine_poor",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD057499 is a DDA label-free dataset (Rattus norvegicus) with 8 runs, 8 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 249,655 PSMs, 19,847 peptidoforms and 2,865 protein groups, and the repository holds 6,985 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD057499.html",
+   "json": "datasets/PXD057499.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057499.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057499.json"
   },
   {
    "dataset_id": "PXD057545",

@@ -19,11 +19,11 @@
  "name": "PXD018097 reanalysis: YME1L1 KnockOut MEF Cells Whole Proteomics",
  "identifier": [
   "PXD018097",
-  "datarepo:bundle:6211d7aaa0a77c46"
+  "datarepo:bundle:015e54d73eea5010"
  ],
- "description": "PXD018097 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 744,125 PSMs, 99,333 peptidoforms and 7,845 protein groups, and the repository holds 50,160 PTM sites for it. 5 open warnings about it are recorded.",
- "version": "6211d7aaa0a77c46",
- "dateModified": "2026-10-06T18:53:28+00:00",
+ "description": "PXD018097 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and runs that differ in enrichment (phospho on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 744,125 PSMs, 99,333 peptidoforms and 7,845 protein groups, and the repository holds 50,160 PTM sites for it. 6 open warnings about it are recorded.",
+ "version": "015e54d73eea5010",
+ "dateModified": "2026-10-13T08:22:03+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 404524c84917b696",
+  "name": "datarepo catalog db999747f58b15d8",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,12 +61,13 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD018097 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 744,125 PSMs, 99,333 peptidoforms and 7,845 protein groups, and the repository holds 50,160 PTM sites for it. 5 open warnings about it are recorded.
+PXD018097 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and runs that differ in enrichment (phospho on some runs; see each run&#x27;s own). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 744,125 PSMs, 99,333 peptidoforms and 7,845 protein groups, and the repository holds 50,160 PTM sites for it. 6 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 5 warnings and 3 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 3 for information</strong></p>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 744125 where the producer reported 744107 (results.txt: All target PSMs with q-value &lt;= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
+<div class="finding warning"><span class="code">mixed_enrichment</span> <span class="note">warning</span><br>The runs of this dataset differ in enrichment: 6 run(s) [none]; 6 run(s) [phospho]. The dataset&#x27;s own `enrichment` is the producer&#x27;s declaration and is true of only some runs, so answer any enrichment-dependent question per run from `runs.enrichment`, and never pool its runs as one kind.</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 610 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
@@ -93,7 +94,7 @@ PXD018097 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples an
 <dt>Acquisition</dt><dd>DDA</dd>
 <dt>Quantification</dt><dd>label_free</dd>
 <dt>Labelling</dt><dd>none</dd>
-<dt>Enrichment</dt><dd>phospho</dd>
+<dt>Enrichment</dt><dd>phospho (on some runs only; runs differ)</dd>
 <dt>Instrument vendor</dt><dd>not recorded</dd>
 <dt>Runs / samples</dt><dd>12 / 12</dd>
 <dt>Sample metadata</dt><dd>absent</dd>
@@ -226,7 +227,7 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>6211d7aaa0a77c46</code>, written 2026-10-06T18:53:28+00:00 by ingester 1.3.0</dd>
+<dt>Bundle</dt><dd><code>015e54d73eea5010</code>, written 2026-10-13T08:22:03+00:00 by ingester 1.3.2</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
@@ -234,7 +235,7 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 </main>
 <footer>
 Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.2 from catalog
-<code>404524c84917b696</code>, built 2026-10-13T04:47:39+00:00 by datarepo
+<code>db999747f58b15d8</code>, built 2026-10-13T11:19:20+00:00 by datarepo
 1.3.2 (schema 0.0.15).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>

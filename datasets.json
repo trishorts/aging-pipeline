@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "42a1ebd4eaea2aa5",
+  "catalog_id": "cfe4112b71bb51a3",
   "catalog_version": "10",
   "schema_version": "0.0.15",
   "builder_version": "1.3.2",
-  "built_utc": "2026-10-16T07:27:46+00:00",
+  "built_utc": "2026-10-16T13:16:58+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2515,6 +2515,49 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024478.json"
   },
   {
+   "dataset_id": "PXD024633",
+   "title": "Mitochondrial mistranslation modulated by metabolic stress causes cardiovascular disease and reduced life-span",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 10,
+   "n_samples": 10,
+   "n_psms_1pct": 676589,
+   "n_peptidoforms_1pct": 40514,
+   "n_protein_groups_1pct": 2845,
+   "n_ptm_sites": 19566,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD024633 is a DDA label-free dataset (Mus musculus) with 10 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 676,589 PSMs, 40,514 peptidoforms and 2,845 protein groups, and the repository holds 19,566 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD024633.html",
+   "json": "datasets/PXD024633.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024633.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024633.json"
+  },
+  {
    "dataset_id": "PXD024685",
    "title": "Proteomic analyses of non-preconditioned murine kidneys pre- and post-IRI in comparison to kidneys after preconditioning by hypoxia or caloric restriction",
    "organisms": [
@@ -4894,6 +4937,50 @@
    "json": "datasets/PXD049018.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD049018.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD049018.json"
+  },
+  {
+   "dataset_id": "PXD049957",
+   "title": "Phosphoproteomics of consecuively active AKT in liver and Insulin stimulated primary Hepatocytes",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "phospho"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 34,
+   "n_samples": 34,
+   "n_psms_1pct": 1864731,
+   "n_peptidoforms_1pct": 82701,
+   "n_protein_groups_1pct": 7308,
+   "n_ptm_sites": 55541,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "low_core_use",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD049957 is a DDA label-free dataset (Mus musculus) with 34 runs, 34 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 1,864,731 PSMs, 82,701 peptidoforms and 7,308 protein groups, and the repository holds 55,541 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD049957.html",
+   "json": "datasets/PXD049957.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD049957.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD049957.json"
   },
   {
    "dataset_id": "PXD050351",

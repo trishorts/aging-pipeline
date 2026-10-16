@@ -1,0 +1,254 @@
+{
+ "catalog": {
+  "catalog_id": "42a1ebd4eaea2aa5",
+  "catalog_version": "10",
+  "schema_version": "0.0.15",
+  "builder_version": "1.3.2",
+  "built_utc": "2026-10-16T07:27:46+00:00",
+  "instance": "aging",
+  "base_url": "https://trishorts.github.io/aging-pipeline/"
+ },
+ "dataset": {
+  "dataset_id": "PXD055228",
+  "bundle_id": "a3f75c164539059e",
+  "title": "GPC3-mediated metabolic rewiring of diabetic mesenchymal stromal cells enhances their cardioprotective functions via pyr",
+  "organisms": [
+   "NCBITaxon:10090"
+  ],
+  "acquisition": "DDA",
+  "quant_method": "label_free",
+  "labelling": "none",
+  "enrichment": [
+   "immunoprecipitation"
+  ],
+  "enrichment_mixed": false,
+  "instrument_vendor": "Thermo",
+  "search_engine": "MetaMorpheus",
+  "search_engine_version": "1.1.12",
+  "n_runs": 15,
+  "n_samples": 15,
+  "n_psms_1pct": 2687,
+  "n_peptidoforms_1pct": 331,
+  "n_protein_groups_1pct": 130,
+  "n_psms_all": 12543,
+  "n_ptm_sites": 267,
+  "n_quant_values": 13821,
+  "n_open_findings": 7,
+  "instruments": [
+   "Q Exactive HF"
+  ],
+  "search_database": "UP000000589_all_genecentric_2026_03_agingPTM-v3.xml",
+  "sdrf_status": "partial",
+  "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
+  "pipeline_commit": "0095bcefc3f51f8f1352b2a45845a160b78302f5",
+  "organism_names": [
+   "Mus musculus"
+  ],
+  "licence": "CC-BY-4.0",
+  "credit": "NCEMS Aging Proteome Working Group",
+  "pipeline_public_repo": null,
+  "pipeline_public_commit": null,
+  "findings": [
+   {
+    "code": "high_contamination",
+    "severity": "warning",
+    "message": "61.90% of protein intensity in the worst file, 33.87% median across 15 files (DEF-QC-9 v3.5)"
+   },
+   {
+    "code": "low_core_use",
+    "severity": "warning",
+    "message": "11.62 avg cores of 32 allowed (S5)"
+   },
+   {
+    "code": "low_id_rate",
+    "severity": "warning",
+    "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 2687/144760 = 1.86% of MS2 identified (S3)"
+   },
+   {
+    "code": "mbr_kept_exceeds_msms",
+    "severity": "warning",
+    "message": "kept MBR 4689 > MSMS 4176 (DEF-MBR-KEPT v1)"
+   },
+   {
+    "code": "occupancy_not_stored",
+    "severity": "warning",
+    "message": "Of 980 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 142 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
+   },
+   {
+    "code": "sdrf_partial",
+    "severity": "warning",
+    "message": "The SDRF was used only for the runs it names that were searched: it names 5 file(s) the search did not use, whose rows were not used: Sample2a_02, Sample4a_01, Sample4a_02, Sample5a_01, Sample5b_01. sdrf_status is `partial`."
+   },
+   {
+    "code": "sdrf_uncoded",
+    "severity": "warning",
+    "message": "The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: cell type: mesenchymal cell. Match on it as text; it has not been mapped to a term."
+   },
+   {
+    "code": "occupancy_decoy_groups",
+    "severity": "info",
+    "message": "6 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+   }
+  ],
+  "modifications": [
+   {
+    "modification_name": "Oxidation on M",
+    "modification": "UNIMOD:35",
+    "n_sites": 50
+   },
+   {
+    "modification_name": "Carbamidomethyl on C",
+    "modification": "UNIMOD:4",
+    "n_sites": 28
+   },
+   {
+    "modification_name": "Deamidation on N",
+    "modification": "UNIMOD:7",
+    "n_sites": 8
+   },
+   {
+    "modification_name": "Hydroxylation on P",
+    "modification": "UNIMOD:35",
+    "n_sites": 7
+   },
+   {
+    "modification_name": "N-acetylalanine on A",
+    "modification": "UNIMOD:1",
+    "n_sites": 7
+   },
+   {
+    "modification_name": "Hydroxylation on N",
+    "modification": "UNIMOD:35",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "N6,N6,N6-trimethyllysine on K",
+    "modification": "UNIMOD:37",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Deamidation on Q",
+    "modification": "UNIMOD:7",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "Acetylation on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Ammonia loss on N",
+    "modification": "UNIMOD:385",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Citrullination on R",
+    "modification": "UNIMOD:7",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Glu to PyroGlu on Q",
+    "modification": "UNIMOD:28",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Tele-methylhistidine on H",
+    "modification": "UNIMOD:34",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Acetylation on X",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Hydroxylation on K",
+    "modification": "UNIMOD:35",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Methylation on R",
+    "modification": "UNIMOD:34",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylaspartate on D",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylcysteine on C",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylglutamate on E",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylmethionine on M",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylserine on S",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylvaline on V",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N6,N6-dimethyllysine on K",
+    "modification": "UNIMOD:36",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Phosphorylation on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 1
+   }
+  ],
+  "metrics": {
+   "id_rate": {
+    "value": 0.0186,
+    "definition_id": "pxreprise:DEF-ID-RATE"
+   },
+   "contamination_psm_share": {
+    "value": 0.5481,
+    "definition_id": "pxreprise:DEF-CONTAM-PSM"
+   }
+  },
+  "findings_by_severity": {
+   "error": 0,
+   "warning": 7,
+   "info": 1
+  },
+  "finding_codes": [
+   "high_contamination",
+   "low_core_use",
+   "low_id_rate",
+   "mbr_kept_exceeds_msms",
+   "occupancy_decoy_groups",
+   "occupancy_not_stored",
+   "sdrf_partial",
+   "sdrf_uncoded"
+  ],
+  "bundle": {
+   "bundle_id": "a3f75c164539059e",
+   "written_utc": "2026-10-16T03:24:24+00:00",
+   "ingester_version": "1.3.2",
+   "reconciliation_ok": true,
+   "reconciliation_failed": []
+  },
+  "summary": "PXD055228 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 2,687 PSMs, 331 peptidoforms and 130 protein groups, and the repository holds 267 PTM sites for it. 7 open warnings about it are recorded.",
+  "page": "datasets/PXD055228.html",
+  "json": "datasets/PXD055228.json",
+  "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD055228.html",
+  "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD055228.json"
+ },
+ "organisms_are": "`organisms` is the organism of the protein DATABASE the search used, not a statement about the samples. Sample annotation, where any exists, is in the catalog's `samples` and `sample_characteristics` tables."
+}

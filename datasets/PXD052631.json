@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "79aac21299a76e74",
+  "catalog_id": "e842dbf3de30d308",
   "catalog_version": "10",
   "schema_version": "0.0.15",
   "builder_version": "1.3.2",
-  "built_utc": "2026-10-18T06:37:35+00:00",
+  "built_utc": "2026-10-18T12:02:04+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD052631",
-  "bundle_id": "47fb3524fbad2488",
+  "bundle_id": "244bfd5057c0a913",
   "title": "G-CSF/NAMPT signaling drives neutrophil dysfunction and enhances bacterial infection susceptibility in cancer patients",
   "organisms": [
    "NCBITaxon:10090"
@@ -27,18 +27,18 @@
   "search_engine_version": "1.1.12",
   "n_runs": 22,
   "n_samples": 22,
-  "n_psms_1pct": 41603,
-  "n_peptidoforms_1pct": 3811,
-  "n_protein_groups_1pct": 1002,
+  "n_psms_1pct": 41561,
+  "n_peptidoforms_1pct": 3855,
+  "n_protein_groups_1pct": 1003,
   "n_psms_all": 508198,
-  "n_ptm_sites": 3304,
-  "n_quant_values": 88908,
+  "n_ptm_sites": 3303,
+  "n_quant_values": 89300,
   "n_open_findings": 8,
   "instruments": null,
   "search_database": "UP000000589_all_genecentric_2026_03_agingPTM-v3.xml",
   "sdrf_status": "absent",
   "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
-  "pipeline_commit": "b8b36ebf6016aa278e51745c2754fb63f4c201fa",
+  "pipeline_commit": "9df4ce025f23c5cbb39ce6cec5766e6c97922f5f",
   "organism_names": [
    "Mus musculus"
   ],
@@ -50,22 +50,22 @@
    {
     "code": "count_mismatch",
     "severity": "warning",
-    "message": "The bundle holds 41603 where the producer reported 41604 (results.txt: All target PSMs with q-value <= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+    "message": "The bundle holds 41561 where the producer reported 41562 (results.txt: All target PSMs with q-value <= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
    },
    {
     "code": "high_contamination",
     "severity": "warning",
-    "message": "57.89% of protein intensity in the worst file, 38.80% median across 22 files (DEF-QC-9 v3.5)"
+    "message": "57.82% of protein intensity in the worst file, 40.72% median across 22 files (DEF-QC-9 v3.5)"
    },
    {
     "code": "low_core_use",
     "severity": "warning",
-    "message": "6.58 avg cores of 32 allowed (S5)"
+    "message": "9.54 avg cores of 32 allowed (S5)"
    },
    {
     "code": "low_id_rate",
     "severity": "warning",
-    "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 41604/361002 = 11.52% of MS2 identified (S3)"
+    "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 41562/361002 = 11.51% of MS2 identified (S3)"
    },
    {
     "code": "no_sdrf",
@@ -75,7 +75,7 @@
    {
     "code": "occupancy_not_stored",
     "severity": "warning",
-    "message": "Of 5824 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 2830 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
+    "message": "Of 5824 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 2828 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
    },
    {
     "code": "unplaced_ptm_sites",
@@ -90,19 +90,19 @@
    {
     "code": "occupancy_decoy_groups",
     "severity": "info",
-    "message": "62 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+    "message": "61 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
    }
   ],
   "modifications": [
    {
     "modification_name": "Carbamidomethyl on C",
     "modification": "UNIMOD:4",
-    "n_sites": 1179
+    "n_sites": 1178
    },
    {
     "modification_name": "Oxidation on M",
     "modification": "UNIMOD:35",
-    "n_sites": 968
+    "n_sites": 964
    },
    {
     "modification_name": "N-acetylalanine on A",
@@ -115,14 +115,14 @@
     "n_sites": 72
    },
    {
+    "modification_name": "Hydroxylation on P",
+    "modification": "UNIMOD:35",
+    "n_sites": 58
+   },
+   {
     "modification_name": "N-acetylserine on S",
     "modification": "UNIMOD:1",
     "n_sites": 57
-   },
-   {
-    "modification_name": "Hydroxylation on P",
-    "modification": "UNIMOD:35",
-    "n_sites": 55
    },
    {
     "modification_name": "N-acetylmethionine on M",
@@ -147,7 +147,7 @@
    {
     "modification_name": "Phosphorylation on T",
     "modification": "UNIMOD:21",
-    "n_sites": 27
+    "n_sites": 28
    },
    {
     "modification_name": "N6-methyllysine on K",
@@ -327,11 +327,11 @@
   ],
   "metrics": {
    "id_rate": {
-    "value": 0.1152,
+    "value": 0.1151,
     "definition_id": "pxreprise:DEF-ID-RATE"
    },
    "contamination_psm_share": {
-    "value": 0.3243,
+    "value": 0.3244,
     "definition_id": "pxreprise:DEF-CONTAM-PSM"
    }
   },
@@ -352,15 +352,15 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "47fb3524fbad2488",
-   "written_utc": "2026-10-13T08:37:55+00:00",
+   "bundle_id": "244bfd5057c0a913",
+   "written_utc": "2026-10-18T07:13:41+00:00",
    "ingester_version": "1.3.2",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD052631 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 41,603 PSMs, 3,811 peptidoforms and 1,002 protein groups, and the repository holds 3,304 PTM sites for it. 8 open warnings about it are recorded.",
+  "summary": "PXD052631 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 41,561 PSMs, 3,855 peptidoforms and 1,003 protein groups, and the repository holds 3,303 PTM sites for it. 8 open warnings about it are recorded.",
   "page": "datasets/PXD052631.html",
   "json": "datasets/PXD052631.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD052631.html",

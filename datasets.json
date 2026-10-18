@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "67ee438207be6f5f",
+  "catalog_id": "79aac21299a76e74",
   "catalog_version": "10",
   "schema_version": "0.0.15",
   "builder_version": "1.3.2",
-  "built_utc": "2026-10-18T00:04:13+00:00",
+  "built_utc": "2026-10-18T06:37:35+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -314,6 +314,51 @@
    "json": "datasets/PXD007035.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD007035.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD007035.json"
+  },
+  {
+   "dataset_id": "PXD007049",
+   "title": "Loss-of-function of ubiquitin ligase adaptor LZTR1 triggers human disease by dysregulating RAS ubiquitination",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "affinity_purification"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 12,
+   "n_samples": 12,
+   "n_psms_1pct": 22417,
+   "n_peptidoforms_1pct": 3745,
+   "n_protein_groups_1pct": 781,
+   "n_ptm_sites": 1830,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 8,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "cysteine_poor",
+    "high_contamination",
+    "low_core_use",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD007049 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 22,417 PSMs, 3,745 peptidoforms and 781 protein groups, and the repository holds 1,830 PTM sites for it. 8 open warnings about it are recorded.",
+   "page": "datasets/PXD007049.html",
+   "json": "datasets/PXD007049.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD007049.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD007049.json"
   },
   {
    "dataset_id": "PXD007188",
@@ -3351,6 +3396,50 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD029116.json"
   },
   {
+   "dataset_id": "PXD030773",
+   "title": "The proto-oncogene TCL1A deregulates mitotic checkpoint transition and genomic stability in CLL",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 30,
+   "n_samples": 30,
+   "n_psms_1pct": 847058,
+   "n_peptidoforms_1pct": 72404,
+   "n_protein_groups_1pct": 5942,
+   "n_ptm_sites": 35385,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "high_contamination",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD030773 is a DDA label-free dataset (Homo sapiens) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 847,058 PSMs, 72,404 peptidoforms and 5,942 protein groups, and the repository holds 35,385 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD030773.html",
+   "json": "datasets/PXD030773.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD030773.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD030773.json"
+  },
+  {
    "dataset_id": "PXD030776",
    "title": "The proto-oncogene TCL1A deregulates mitotic checkpoint transition and genomic stability in CLL",
    "organisms": [
@@ -5445,28 +5534,30 @@
    "enrichment_mixed": false,
    "n_runs": 23,
    "n_samples": 23,
-   "n_psms_1pct": 24449,
-   "n_peptidoforms_1pct": 2293,
-   "n_protein_groups_1pct": 497,
-   "n_ptm_sites": 1696,
+   "n_psms_1pct": 23705,
+   "n_peptidoforms_1pct": 1913,
+   "n_protein_groups_1pct": 537,
+   "n_ptm_sites": 1678,
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
-    "warning": 6,
-    "info": 3
+    "warning": 9,
+    "info": 2
    },
    "finding_codes": [
+    "cysteine_poor",
     "excluded_from_search",
     "high_contamination",
+    "low_core_use",
     "low_id_rate",
-    "no_design_file",
-    "no_output_sdrf",
     "no_sdrf",
     "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "sample_quant_not_stored",
     "unplaced_ptm_sites",
     "unresolved_modifications"
    ],
-   "summary": "PXD051644 is a DDA label-free dataset (Rattus norvegicus) with 23 runs, 23 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 24,449 PSMs, 2,293 peptidoforms and 497 protein groups, and the repository holds 1,696 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD051644 is a DDA label-free dataset (Rattus norvegicus) with 23 runs, 23 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 23,705 PSMs, 1,913 peptidoforms and 537 protein groups, and the repository holds 1,678 PTM sites for it. 9 open warnings about it are recorded.",
    "page": "datasets/PXD051644.html",
    "json": "datasets/PXD051644.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD051644.html",
@@ -6105,27 +6196,27 @@
    "enrichment_mixed": false,
    "n_runs": 24,
    "n_samples": 24,
-   "n_psms_1pct": 619156,
-   "n_peptidoforms_1pct": 31412,
-   "n_protein_groups_1pct": 3558,
-   "n_ptm_sites": 12356,
+   "n_psms_1pct": 625331,
+   "n_peptidoforms_1pct": 28590,
+   "n_protein_groups_1pct": 3627,
+   "n_ptm_sites": 13507,
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
-    "warning": 5,
-    "info": 3
+    "warning": 6,
+    "info": 2
    },
    "finding_codes": [
     "collapsed_duplicate_rows",
     "count_mismatch",
-    "no_design_file",
-    "no_output_sdrf",
+    "low_core_use",
     "no_sdrf",
     "occupancy_decoy_groups",
+    "occupancy_not_stored",
     "unplaced_ptm_sites",
     "unresolved_modifications"
    ],
-   "summary": "PXD057545 is a DDA label-free dataset (Mus musculus) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 619,156 PSMs, 31,412 peptidoforms and 3,558 protein groups, and the repository holds 12,356 PTM sites for it. 5 open warnings about it are recorded.",
+   "summary": "PXD057545 is a DDA label-free dataset (Mus musculus) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 625,331 PSMs, 28,590 peptidoforms and 3,627 protein groups, and the repository holds 13,507 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD057545.html",
    "json": "datasets/PXD057545.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057545.html",

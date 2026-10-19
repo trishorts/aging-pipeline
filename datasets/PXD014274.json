@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "b197f3c7bfecdcaf",
-  "catalog_version": "10",
+  "catalog_id": "32c632fd8bc361d4",
+  "catalog_version": "12",
   "schema_version": "0.0.15",
-  "builder_version": "1.3.2",
-  "built_utc": "2026-10-19T19:03:02+00:00",
+  "builder_version": "1.3.5",
+  "built_utc": "2026-10-19T19:32:50+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -34,6 +34,7 @@
   "n_ptm_sites": 7280,
   "n_quant_values": 261672,
   "n_open_findings": 9,
+  "restrictions": [],
   "instruments": [
    "Q Exactive"
   ],
@@ -102,17 +103,17 @@
    {
     "code": "excluded_from_search",
     "severity": "info",
+    "message": "The deposited file Tg1_L_Ctr.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: 9aee7c1c25203eea5183b484ac6a34ed598d4c17297061e547bdc6f5c8baeaeb."
+   },
+   {
+    "code": "excluded_from_search",
+    "severity": "info",
     "message": "The deposited file Tg1_R_Ctr.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: 799b6a4a8c8a51996b20a4818a3d255751ab52843b75a9122462390cd99ab0db."
    },
    {
     "code": "excluded_from_search",
     "severity": "info",
     "message": "The deposited file Tg2_L.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: 6fae6fb43a7a8b199abdabb24fb944077fb5d893b05d5b15b3381f808020b2eb."
-   },
-   {
-    "code": "excluded_from_search",
-    "severity": "info",
-    "message": "The deposited file Tg1_L_Ctr.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer's reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: 9aee7c1c25203eea5183b484ac6a34ed598d4c17297061e547bdc6f5c8baeaeb."
    },
    {
     "code": "occupancy_decoy_groups",

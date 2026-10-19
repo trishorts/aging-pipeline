@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "b197f3c7bfecdcaf",
-  "catalog_version": "10",
+  "catalog_id": "32c632fd8bc361d4",
+  "catalog_version": "12",
   "schema_version": "0.0.15",
-  "builder_version": "1.3.2",
-  "built_utc": "2026-10-19T19:03:02+00:00",
+  "builder_version": "1.3.5",
+  "built_utc": "2026-10-19T19:32:50+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -34,6 +34,7 @@
   "n_ptm_sites": 21824,
   "n_quant_values": 424744,
   "n_open_findings": 6,
+  "restrictions": [],
   "instruments": [
    "Q Exactive Plus"
   ],

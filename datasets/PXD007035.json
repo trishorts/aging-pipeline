@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "296829073a04b833",
+  "catalog_id": "b197f3c7bfecdcaf",
   "catalog_version": "10",
   "schema_version": "0.0.15",
   "builder_version": "1.3.2",
-  "built_utc": "2026-10-19T13:20:02+00:00",
+  "built_utc": "2026-10-19T19:03:02+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD007035",
-  "bundle_id": "2c8015cc0367f410",
+  "bundle_id": "106c4d867fed5cbd",
   "title": "Loss-of-function of ubiquitin ligase adaptor LZTR1 triggers human disease by dysregulating RAS ubiquitination",
   "organisms": [
    "NCBITaxon:10090"
@@ -28,17 +28,17 @@
   "n_runs": 12,
   "n_samples": 12,
   "n_psms_1pct": 126015,
-  "n_peptidoforms_1pct": 23853,
+  "n_peptidoforms_1pct": 23955,
   "n_protein_groups_1pct": 3836,
-  "n_psms_all": 1116982,
+  "n_psms_all": 1116988,
   "n_ptm_sites": 9575,
-  "n_quant_values": 204046,
+  "n_quant_values": 203670,
   "n_open_findings": 6,
   "instruments": null,
   "search_database": "UP000000589_all_genecentric_2026_03_agingPTM-v3.xml",
   "sdrf_status": "absent",
   "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
-  "pipeline_commit": "0095bcefc3f51f8f1352b2a45845a160b78302f5",
+  "pipeline_commit": "852cea5e1cd72bb5f451775aa1d267df3570602c",
   "organism_names": [
    "Mus musculus"
   ],
@@ -50,12 +50,12 @@
    {
     "code": "high_contamination",
     "severity": "warning",
-    "message": "5.50% of protein intensity in the worst file, 3.29% median across 12 files (DEF-QC-9 v3.5)"
+    "message": "5.46% of protein intensity in the worst file, 3.23% median across 12 files (DEF-QC-9 v3.5)"
    },
    {
     "code": "low_core_use",
     "severity": "warning",
-    "message": "10.23 avg cores of 32 allowed (S5)"
+    "message": "7.23 avg cores of 32 allowed (S5)"
    },
    {
     "code": "no_sdrf",
@@ -385,13 +385,13 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "2c8015cc0367f410",
-   "written_utc": "2026-10-16T04:41:43+00:00",
+   "bundle_id": "106c4d867fed5cbd",
+   "written_utc": "2026-10-19T13:42:13+00:00",
    "ingester_version": "1.3.2",
    "reconciliation_ok": true,
    "reconciliation_failed": []
   },
-  "summary": "PXD007035 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: ubiquitin_GG. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 126,015 PSMs, 23,853 peptidoforms and 3,836 protein groups, and the repository holds 9,575 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD007035 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: ubiquitin_GG. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 126,015 PSMs, 23,955 peptidoforms and 3,836 protein groups, and the repository holds 9,575 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD007035.html",
   "json": "datasets/PXD007035.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD007035.html",

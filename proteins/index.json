@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "83c9789fc83c4ef6",
+  "catalog_id": "6a9adf5ae28cc363",
   "catalog_version": "13",
   "schema_version": "0.0.15",
   "builder_version": "1.3.6",
-  "built_utc": "2026-10-21T06:26:10+00:00",
+  "built_utc": "2026-10-20T23:43:15+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -1952,7 +1952,7 @@
   },
   "P043": {
    "file": "proteins/P043.json",
-   "n": 6
+   "n": 5
   },
   "P044": {
    "file": "proteins/P044.json",
@@ -6240,7 +6240,7 @@
   },
   "Q6PC": {
    "file": "proteins/Q6PC.json",
-   "n": 24
+   "n": 25
   },
   "Q6PD": {
    "file": "proteins/Q6PD.json",

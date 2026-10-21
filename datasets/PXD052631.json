@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "6a9adf5ae28cc363",
+  "catalog_id": "3ef42c11e09e8fe4",
   "catalog_version": "13",
   "schema_version": "0.0.15",
   "builder_version": "1.3.6",
-  "built_utc": "2026-10-20T23:43:15+00:00",
+  "built_utc": "2026-10-21T18:26:12+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -354,8 +354,8 @@
   ],
   "bundle": {
    "bundle_id": "244bfd5057c0a913",
-   "written_utc": "2026-10-18T07:13:41+00:00",
-   "ingester_version": "1.3.2",
+   "written_utc": "2026-10-21T08:21:04+00:00",
+   "ingester_version": "1.3.6",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"

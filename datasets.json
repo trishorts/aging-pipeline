@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "3ef42c11e09e8fe4",
+  "catalog_id": "b50adab27e0fef9d",
   "catalog_version": "13",
   "schema_version": "0.0.15",
   "builder_version": "1.3.6",
-  "built_utc": "2026-10-21T18:26:12+00:00",
+  "built_utc": "2026-10-22T00:27:32+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2465,6 +2465,52 @@
    "json": "datasets/PXD022363.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022363.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022363.json"
+  },
+  {
+   "dataset_id": "PXD022393",
+   "title": "Circadian Regulation of Protein Cargo in Exosomes",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 54,
+   "n_samples": 54,
+   "n_psms_1pct": 127036,
+   "n_peptidoforms_1pct": 7456,
+   "n_protein_groups_1pct": 1823,
+   "n_ptm_sites": 7264,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 8,
+    "info": 2
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "high_contamination",
+    "low_core_use",
+    "low_id_rate",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD022393 is a DDA label-free dataset (Mus musculus) with 54 runs, 54 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 127,036 PSMs, 7,456 peptidoforms and 1,823 protein groups, and the repository holds 7,264 PTM sites for it. 8 open warnings about it are recorded.",
+   "page": "datasets/PXD022393.html",
+   "json": "datasets/PXD022393.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022393.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022393.json"
   },
   {
    "dataset_id": "PXD022678",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "e293ae7c28884cc7",
+  "catalog_id": "7d173dde9d0228e9",
   "catalog_version": "13",
   "schema_version": "0.0.15",
   "builder_version": "1.3.6",
-  "built_utc": "2026-10-22T04:43:57+00:00",
+  "built_utc": "2026-10-22T22:43:57+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -28,7 +28,7 @@
   },
   "A0A0A": {
    "file": "proteins/A0A0A.json",
-   "n": 61
+   "n": 62
   },
   "A0A0B": {
    "file": "proteins/A0A0B.json",
@@ -88,7 +88,7 @@
   },
   "A0A3": {
    "file": "proteins/A0A3.json",
-   "n": 29
+   "n": 30
   },
   "A0A4": {
    "file": "proteins/A0A4.json",
@@ -572,7 +572,7 @@
   },
   "A2A5": {
    "file": "proteins/A2A5.json",
-   "n": 12
+   "n": 13
   },
   "A2A6": {
    "file": "proteins/A2A6.json",
@@ -1152,7 +1152,7 @@
   },
   "E9PV": {
    "file": "proteins/E9PV.json",
-   "n": 27
+   "n": 28
   },
   "E9PW": {
    "file": "proteins/E9PW.json",
@@ -1188,7 +1188,7 @@
   },
   "E9Q4": {
    "file": "proteins/E9Q4.json",
-   "n": 18
+   "n": 19
   },
   "E9Q5": {
    "file": "proteins/E9Q5.json",
@@ -1284,7 +1284,7 @@
   },
   "F6Y": {
    "file": "proteins/F6Y.json",
-   "n": 43
+   "n": 44
   },
   "F6Z": {
    "file": "proteins/F6Z.json",
@@ -1336,7 +1336,7 @@
   },
   "G3X": {
    "file": "proteins/G3X.json",
-   "n": 48
+   "n": 49
   },
   "G5": {
    "file": "proteins/G5.json",
@@ -1376,7 +1376,7 @@
   },
   "J3": {
    "file": "proteins/J3.json",
-   "n": 65
+   "n": 66
   },
   "J7": {
    "file": "proteins/J7.json",
@@ -1388,7 +1388,7 @@
   },
   "K7": {
    "file": "proteins/K7.json",
-   "n": 47
+   "n": 48
   },
   "K9": {
    "file": "proteins/K9.json",
@@ -5472,7 +5472,7 @@
   },
   "Q4V": {
    "file": "proteins/Q4V.json",
-   "n": 99
+   "n": 98
   },
   "Q4W": {
    "file": "proteins/Q4W.json",
@@ -7724,7 +7724,7 @@
   },
   "Q8CD": {
    "file": "proteins/Q8CD.json",
-   "n": 46
+   "n": 45
   },
   "Q8CE": {
    "file": "proteins/Q8CE.json",
@@ -9620,11 +9620,11 @@
   },
   "Q8VF": {
    "file": "proteins/Q8VF.json",
-   "n": 17
+   "n": 18
   },
   "Q8VG": {
    "file": "proteins/Q8VG.json",
-   "n": 29
+   "n": 31
   },
   "Q8VH": {
    "file": "proteins/Q8VH.json",
@@ -15752,7 +15752,7 @@
   },
   "Q9WVE": {
    "file": "proteins/Q9WVE.json",
-   "n": 3
+   "n": 2
   },
   "Q9WVF": {
    "file": "proteins/Q9WVF.json",
@@ -16712,35 +16712,36 @@
   }
  },
  "gene_shards": {
-  "1": 16,
+  "1": 17,
   "2": 14,
   "3": 1,
   "4": 20,
   "5": 4,
   "6": 1,
+  "8": 1,
   "9": 5,
-  "A": 1499,
-  "B": 379,
+  "A": 1500,
+  "B": 380,
   "C": 2227,
   "D": 719,
   "E": 638,
   "F": 706,
-  "G": 1034,
+  "G": 1036,
   "H": 637,
-  "I": 842,
+  "I": 843,
   "J": 45,
   "K": 569,
   "L": 683,
   "M": 1153,
   "N": 800,
-  "O": 390,
-  "P": 1708,
+  "O": 393,
+  "P": 1709,
   "Q": 20,
-  "R": 1067,
+  "R": 1066,
   "S": 2085,
   "T": 1497,
   "U": 349,
-  "V": 252,
+  "V": 253,
   "W": 157,
   "X": 52,
   "Y": 48,

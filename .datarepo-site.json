@@ -1,5 +1,5 @@
 {
- "catalog_id": "affeae5510e50270",
+ "catalog_id": "3a590479f2b8020d",
  "generator": "datarepo 1.3.6",
  "files": [
   "datasets.json",
@@ -958,7 +958,6 @@
   "proteins/P0CD.json",
   "proteins/P0CF.json",
   "proteins/P0CG.json",
-  "proteins/P0CH.json",
   "proteins/P0CI.json",
   "proteins/P0CJ.json",
   "proteins/P0CK.json",

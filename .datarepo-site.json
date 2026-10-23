@@ -1,5 +1,5 @@
 {
- "catalog_id": "7d173dde9d0228e9",
+ "catalog_id": "affeae5510e50270",
  "generator": "datarepo 1.3.6",
  "files": [
   "datasets.json",
@@ -412,7 +412,14 @@
   "proteins/A0A0N.json",
   "proteins/A0A0R.json",
   "proteins/A0A0U.json",
-  "proteins/A0A1.json",
+  "proteins/A0A14.json",
+  "proteins/A0A1B.json",
+  "proteins/A0A1C.json",
+  "proteins/A0A1D.json",
+  "proteins/A0A1L.json",
+  "proteins/A0A1W.json",
+  "proteins/A0A1Y.json",
+  "proteins/A0A1Z.json",
   "proteins/A0A2.json",
   "proteins/A0A3.json",
   "proteins/A0A4.json",

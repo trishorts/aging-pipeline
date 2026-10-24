@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "4d7865e23bbc0d5a",
+  "catalog_id": "fa23443adefa5c03",
   "catalog_version": "13",
   "schema_version": "0.0.15",
   "builder_version": "1.3.6",
-  "built_utc": "2026-10-23T22:16:48+00:00",
+  "built_utc": "2026-10-24T04:18:21+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD064236",
-  "bundle_id": "51f532bc6d539d10",
+  "bundle_id": "1ecf5cc65e38a3ff",
   "title": "DLX2-FLAG IP-MS in embryonic bodies (EBs): Protein complexes identification",
   "organisms": [
    "NCBITaxon:10090"
@@ -28,11 +28,11 @@
   "n_runs": 16,
   "n_samples": 16,
   "n_psms_1pct": 25389,
-  "n_peptidoforms_1pct": 1851,
+  "n_peptidoforms_1pct": 1752,
   "n_protein_groups_1pct": 509,
   "n_psms_all": 176958,
   "n_ptm_sites": 2336,
-  "n_quant_values": 35382,
+  "n_quant_values": 35397,
   "n_open_findings": 8,
   "restrictions": [],
   "instruments": null,
@@ -56,12 +56,12 @@
    {
     "code": "cysteine_poor",
     "severity": "warning",
-    "message": "2.36% of 1% target peptides contain C (whole proteomes: 12-26%); check the alkylant (aging PXR-A37)"
+    "message": "2.43% of 1% target peptides contain C (whole proteomes: 12-26%); check the alkylant (aging PXR-A37)"
    },
    {
     "code": "high_contamination",
     "severity": "warning",
-    "message": "75.01% of protein intensity in the worst file, 59.33% median across 16 files (DEF-QC-9 v3.5)"
+    "message": "76.43% of protein intensity in the worst file, 58.08% median across 16 files (DEF-QC-9 v3.5)"
    },
    {
     "code": "low_id_rate",
@@ -76,7 +76,7 @@
    {
     "code": "occupancy_not_stored",
     "severity": "warning",
-    "message": "Of 9866 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 173 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
+    "message": "Of 9857 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 173 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
    },
    {
     "code": "unplaced_ptm_sites",
@@ -488,15 +488,15 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "51f532bc6d539d10",
-   "written_utc": "2026-10-23T07:49:03+00:00",
+   "bundle_id": "1ecf5cc65e38a3ff",
+   "written_utc": "2026-10-24T02:21:34+00:00",
    "ingester_version": "1.3.6",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD064236 is a DDA label-free dataset (Mus musculus) with 16 runs, 16 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 25,389 PSMs, 1,851 peptidoforms and 509 protein groups, and the repository holds 2,336 PTM sites for it. 8 open warnings about it are recorded.",
+  "summary": "PXD064236 is a DDA label-free dataset (Mus musculus) with 16 runs, 16 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 25,389 PSMs, 1,752 peptidoforms and 509 protein groups, and the repository holds 2,336 PTM sites for it. 8 open warnings about it are recorded.",
   "page": "datasets/PXD064236.html",
   "json": "datasets/PXD064236.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD064236.html",

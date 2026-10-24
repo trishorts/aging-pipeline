@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "9d644e4e4ff719e1",
+  "catalog_id": "d7ab949f1960aa94",
   "catalog_version": "13",
   "schema_version": "0.0.15",
   "builder_version": "1.3.6",
-  "built_utc": "2026-10-24T10:22:47+00:00",
+  "built_utc": "2026-10-24T16:22:25+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD028852",
-  "bundle_id": "c0d76807d54f4654",
+  "bundle_id": "d03a9894063aaa52",
   "title": "Proteins enriched on damaged lysosomes in 293T",
   "organisms": [
    "NCBITaxon:9606"
@@ -24,22 +24,22 @@
   "enrichment_mixed": false,
   "instrument_vendor": null,
   "search_engine": "MetaMorpheus",
-  "search_engine_version": "1.1.11",
+  "search_engine_version": "1.1.12",
   "n_runs": 20,
   "n_samples": 20,
-  "n_psms_1pct": 88981,
-  "n_peptidoforms_1pct": 27972,
-  "n_protein_groups_1pct": 2801,
-  "n_psms_all": 185134,
-  "n_ptm_sites": 8142,
-  "n_quant_values": 180144,
-  "n_open_findings": 7,
+  "n_psms_1pct": 88611,
+  "n_peptidoforms_1pct": 27920,
+  "n_protein_groups_1pct": 2823,
+  "n_psms_all": 185248,
+  "n_ptm_sites": 8248,
+  "n_quant_values": 185101,
+  "n_open_findings": 6,
   "restrictions": [],
   "instruments": null,
-  "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
+  "search_database": "UP000005640_all_genecentric_2026_03_agingPTM-v4.xml",
   "sdrf_status": "absent",
-  "pipeline_repo": "https://github.com/trishorts/aging.git",
-  "pipeline_commit": "11cd40eafbd19a417cbec739b6963fb715807c82",
+  "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
+  "pipeline_commit": "5aec9eb024d88f125c889a4b480a583345373023",
   "organism_names": [
    "Homo sapiens"
   ],
@@ -49,19 +49,14 @@
   "pipeline_public_commit": null,
   "findings": [
    {
-    "code": "count_mismatch",
-    "severity": "warning",
-    "message": "The bundle holds 27972 where the producer reported 27971 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
-   },
-   {
     "code": "high_contamination",
     "severity": "warning",
-    "message": "65.83% of protein intensity in the worst file, 8.14% median across 20 files (DEF-QC-9 v2)"
+    "message": "67.70% of protein intensity in the worst file, 9.32% median across 20 files (DEF-QC-9 v3.5)"
    },
    {
-    "code": "no_design_file",
+    "code": "low_core_use",
     "severity": "warning",
-    "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
+    "message": "14.63 avg cores of 32 allowed (S5)"
    },
    {
     "code": "no_sdrf",
@@ -69,66 +64,61 @@
     "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
    },
    {
+    "code": "occupancy_not_stored",
+    "severity": "warning",
+    "message": "Of 5664 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 1240 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
+   },
+   {
     "code": "unplaced_ptm_sites",
     "severity": "warning",
-    "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 61 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 63 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
    },
    {
     "code": "unresolved_modifications",
     "severity": "warning",
-    "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
-   },
-   {
-    "code": "upstream_provenance_changed",
-    "severity": "warning",
-    "message": "The search recorded its upstream 'db_prepare' provenance (db/provenance.json) with sha256 61a5ddc7c43d6e64686241464086050a1bb5544878659194515f908d4d6cb2e2, and the file there now has 812ce696ba3f0ee2a1f79241b5e16e9267d6199f7598af77391178b825658963: it was overwritten after the search. It is left out of this bundle rather than read as this search's record. The search's own record of the db_prepare stage is gone unless the producer archived it."
-   },
-   {
-    "code": "no_output_sdrf",
-    "severity": "info",
-    "message": "The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer's note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)"
+    "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "occupancy_decoy_groups",
     "severity": "info",
-    "message": "4 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+    "message": "6 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
    }
   ],
   "modifications": [
    {
     "modification_name": "Carbamidomethyl on C",
     "modification": "UNIMOD:4",
-    "n_sites": 3649
+    "n_sites": 3713
    },
    {
     "modification_name": "Oxidation on M",
     "modification": "UNIMOD:35",
-    "n_sites": 2858
+    "n_sites": 2854
    },
    {
     "modification_name": "Phosphoserine on S",
     "modification": "UNIMOD:21",
-    "n_sites": 162
+    "n_sites": 139
+   },
+   {
+    "modification_name": "Deamidation on Q",
+    "modification": "UNIMOD:7",
+    "n_sites": 131
    },
    {
     "modification_name": "N-acetylalanine on A",
     "modification": "UNIMOD:1",
-    "n_sites": 130
+    "n_sites": 131
    },
    {
     "modification_name": "Deamidation on N",
-    "modification": "UNIMOD:7",
-    "n_sites": 127
-   },
-   {
-    "modification_name": "Deamidation on Q",
     "modification": "UNIMOD:7",
     "n_sites": 126
    },
    {
     "modification_name": "Ammonia loss on N",
     "modification": "UNIMOD:385",
-    "n_sites": 80
+    "n_sites": 78
    },
    {
     "modification_name": "N-acetylmethionine on M",
@@ -136,29 +126,24 @@
     "n_sites": 68
    },
    {
-    "modification_name": "Fe[III] on D",
-    "modification": "UNIMOD:1870",
-    "n_sites": 61
-   },
-   {
-    "modification_name": "Fe[III] on E",
-    "modification": "UNIMOD:1870",
-    "n_sites": 57
+    "modification_name": "Hydroxylation on P",
+    "modification": "UNIMOD:35",
+    "n_sites": 62
    },
    {
     "modification_name": "Acetylation on X",
     "modification": "UNIMOD:1",
-    "n_sites": 55
+    "n_sites": 58
    },
    {
-    "modification_name": "Fe[II] on E",
-    "modification": "UNIMOD:952",
-    "n_sites": 54
+    "modification_name": "Fe[III] on D",
+    "modification": "UNIMOD:1870",
+    "n_sites": 58
    },
    {
     "modification_name": "Fe[II] on D",
     "modification": "UNIMOD:952",
-    "n_sites": 52
+    "n_sites": 51
    },
    {
     "modification_name": "N-acetylserine on S",
@@ -166,23 +151,28 @@
     "n_sites": 50
    },
    {
+    "modification_name": "Fe[III] on E",
+    "modification": "UNIMOD:1870",
+    "n_sites": 49
+   },
+   {
+    "modification_name": "Fe[II] on E",
+    "modification": "UNIMOD:952",
+    "n_sites": 49
+   },
+   {
+    "modification_name": "Ammonia loss on C",
+    "modification": "UNIMOD:385",
+    "n_sites": 40
+   },
+   {
     "modification_name": "Hydroxylation on N",
     "modification": "UNIMOD:35",
     "n_sites": 40
    },
    {
-    "modification_name": "Hydroxylation on P",
+    "modification_name": "Hydroxylation on K",
     "modification": "UNIMOD:35",
-    "n_sites": 38
-   },
-   {
-    "modification_name": "Ammonia loss on C",
-    "modification": "UNIMOD:385",
-    "n_sites": 36
-   },
-   {
-    "modification_name": "Phosphothreonine on T",
-    "modification": "UNIMOD:21",
     "n_sites": 22
    },
    {
@@ -191,13 +181,28 @@
     "n_sites": 20
    },
    {
-    "modification_name": "Hydroxylation on K",
-    "modification": "UNIMOD:35",
-    "n_sites": 20
-   },
-   {
     "modification_name": "Methylation on K",
     "modification": "UNIMOD:34",
+    "n_sites": 18
+   },
+   {
+    "modification_name": "Phosphothreonine on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 18
+   },
+   {
+    "modification_name": "Phosphorylation on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 17
+   },
+   {
+    "modification_name": "Methylation on R",
+    "modification": "UNIMOD:34",
+    "n_sites": 16
+   },
+   {
+    "modification_name": "Acetylation on K",
+    "modification": "UNIMOD:1",
     "n_sites": 12
    },
    {
@@ -211,24 +216,14 @@
     "n_sites": 9
    },
    {
-    "modification_name": "Acetylation on K",
-    "modification": "UNIMOD:1",
-    "n_sites": 9
-   },
-   {
-    "modification_name": "Methylation on R",
-    "modification": "UNIMOD:34",
+    "modification_name": "Calcium on E",
+    "modification": "UNIMOD:951",
     "n_sites": 9
    },
    {
     "modification_name": "N-acetylthreonine on T",
     "modification": "UNIMOD:1",
     "n_sites": 9
-   },
-   {
-    "modification_name": "Calcium on E",
-    "modification": "UNIMOD:951",
-    "n_sites": 8
    },
    {
     "modification_name": "N6,N6,N6-trimethyllysine on K",
@@ -241,13 +236,13 @@
     "n_sites": 8
    },
    {
-    "modification_name": "Asymmetric dimethylarginine on R",
-    "modification": "UNIMOD:36",
-    "n_sites": 6
+    "modification_name": "GG (Ubiquitination Site) on K",
+    "modification": "UNIMOD:121",
+    "n_sites": 7
    },
    {
-    "modification_name": "GG (Ubiquitination Site) on K",
-    "modification": null,
+    "modification_name": "Phosphorylation on T",
+    "modification": "UNIMOD:21",
     "n_sites": 6
    },
    {
@@ -256,8 +251,18 @@
     "n_sites": 6
    },
    {
-    "modification_name": "N6-acetyllysine on K",
-    "modification": "UNIMOD:1",
+    "modification_name": "Asymmetric dimethylarginine on R",
+    "modification": "UNIMOD:36",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "Carboxylation on E",
+    "modification": "UNIMOD:299",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "Dimethylation on R",
+    "modification": "UNIMOD:36",
     "n_sites": 5
    },
    {
@@ -269,11 +274,6 @@
     "modification_name": "Sodium on D",
     "modification": "UNIMOD:30",
     "n_sites": 5
-   },
-   {
-    "modification_name": "Carboxylation on E",
-    "modification": "UNIMOD:299",
-    "n_sites": 4
    },
    {
     "modification_name": "Dimethylation on K",
@@ -291,6 +291,16 @@
     "n_sites": 4
    },
    {
+    "modification_name": "N6-acetyllysine on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Sodium on E",
+    "modification": "UNIMOD:30",
+    "n_sites": 4
+   },
+   {
     "modification_name": "Deamidated asparagine on N",
     "modification": "UNIMOD:7",
     "n_sites": 3
@@ -301,13 +311,23 @@
     "n_sites": 3
    },
    {
-    "modification_name": "Sodium on E",
-    "modification": "UNIMOD:30",
+    "modification_name": "Phosphorylation on Y",
+    "modification": "UNIMOD:21",
     "n_sites": 3
+   },
+   {
+    "modification_name": "Crotonylation on K",
+    "modification": "UNIMOD:1363",
+    "n_sites": 2
    },
    {
     "modification_name": "Formylation on K",
     "modification": "UNIMOD:122",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Malonylation on K",
+    "modification": "UNIMOD:747",
     "n_sites": 2
    },
    {
@@ -341,7 +361,7 @@
     "n_sites": 1
    },
    {
-    "modification_name": "Carbamyl on R",
+    "modification_name": "Carbamyl on K",
     "modification": "UNIMOD:5",
     "n_sites": 1
    },
@@ -351,13 +371,18 @@
     "n_sites": 1
    },
    {
-    "modification_name": "Dimethylation on R",
-    "modification": "UNIMOD:36",
+    "modification_name": "Diphthamide on H",
+    "modification": "UNIMOD:375",
     "n_sites": 1
    },
    {
-    "modification_name": "Diphthamide on H",
-    "modification": "UNIMOD:375",
+    "modification_name": "Glutarylation on K",
+    "modification": "UNIMOD:1848",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "HexNAc on S",
+    "modification": "UNIMOD:43",
     "n_sites": 1
    },
    {
@@ -398,40 +423,36 @@
   ],
   "metrics": {
    "id_rate": {
-    "value": 0.6224,
-    "definition_id": "aging:DEF-ID-RATE"
+    "value": 0.6198,
+    "definition_id": "pxreprise:DEF-ID-RATE"
    },
    "contamination_psm_share": {
-    "value": 0.0402,
-    "definition_id": "aging:DEF-CONTAM-PSM"
+    "value": 0.0403,
+    "definition_id": "pxreprise:DEF-CONTAM-PSM"
    }
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 7,
-   "info": 2
+   "warning": 6,
+   "info": 1
   },
   "finding_codes": [
-   "count_mismatch",
    "high_contamination",
-   "no_design_file",
-   "no_output_sdrf",
+   "low_core_use",
    "no_sdrf",
    "occupancy_decoy_groups",
+   "occupancy_not_stored",
    "unplaced_ptm_sites",
-   "unresolved_modifications",
-   "upstream_provenance_changed"
+   "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "c0d76807d54f4654",
-   "written_utc": "2026-10-06T16:43:44+00:00",
-   "ingester_version": "1.3.0",
-   "reconciliation_ok": false,
-   "reconciliation_failed": [
-    "peptidoforms_target_1pct"
-   ]
+   "bundle_id": "d03a9894063aaa52",
+   "written_utc": "2026-10-24T12:35:46+00:00",
+   "ingester_version": "1.3.6",
+   "reconciliation_ok": true,
+   "reconciliation_failed": []
   },
-  "summary": "PXD028852 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 88,981 PSMs, 27,972 peptidoforms and 2,801 protein groups, and the repository holds 8,142 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD028852 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 88,611 PSMs, 27,920 peptidoforms and 2,823 protein groups, and the repository holds 8,248 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD028852.html",
   "json": "datasets/PXD028852.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD028852.html",

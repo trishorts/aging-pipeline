@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "225763578e69b8c6",
+  "catalog_id": "86acd547c38ead7e",
   "catalog_version": "13",
   "schema_version": "0.0.15",
   "builder_version": "1.3.6",
-  "built_utc": "2026-10-25T04:21:39+00:00",
+  "built_utc": "2026-10-25T10:19:41+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD007188",
-  "bundle_id": "c8277895dbc8f9b0",
+  "bundle_id": "57a831d2a552a399",
   "title": "Mevalonate pathway activity is a key determinant of radiation sensitivity in head and neck cancer",
   "organisms": [
    "NCBITaxon:9606"
@@ -28,12 +28,12 @@
   "n_runs": 18,
   "n_samples": 18,
   "n_psms_1pct": 329746,
-  "n_peptidoforms_1pct": 53513,
+  "n_peptidoforms_1pct": 53692,
   "n_protein_groups_1pct": 5704,
   "n_psms_all": 1134237,
   "n_ptm_sites": 27638,
-  "n_quant_values": 382801,
-  "n_open_findings": 8,
+  "n_quant_values": 384552,
+  "n_open_findings": 6,
   "restrictions": [],
   "instruments": null,
   "search_database": "UP000005640_all_genecentric_2026_03_agingPTM-v4.xml",
@@ -51,17 +51,12 @@
    {
     "code": "count_mismatch",
     "severity": "warning",
-    "message": "The bundle holds 53514 where the producer reported 53513 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
-   },
-   {
-    "code": "count_mismatch",
-    "severity": "warning",
     "message": "The bundle holds 329746 where the producer reported 329768 (results.txt: All target PSMs with q-value <= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
    },
    {
     "code": "high_contamination",
     "severity": "warning",
-    "message": "20.55% of protein intensity in the worst file, 6.69% median across 18 files (DEF-QC-9 v3.5)"
+    "message": "20.29% of protein intensity in the worst file, 7.04% median across 18 files (DEF-QC-9 v3.5)"
    },
    {
     "code": "no_sdrf",
@@ -71,12 +66,7 @@
    {
     "code": "occupancy_not_stored",
     "severity": "warning",
-    "message": "Of 57756 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 5729 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
-   },
-   {
-    "code": "spectral_library",
-    "severity": "warning",
-    "message": "human's current library moved from version 68 to 69 while this search was running. This run's library is at F:\\aging_data\\run_2026-09-21\\PXD007188\\04_search\\mm\\Task3SearchTask\\updateSpectralLibrary_2026-10-23-07-12-58.msp and has NOT been registered, so nothing was lost; merge it deliberately."
+    "message": "Of 57768 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 5728 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
    },
    {
     "code": "unplaced_ptm_sites",
@@ -653,7 +643,7 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 8,
+   "warning": 6,
    "info": 1
   },
   "finding_codes": [
@@ -662,21 +652,19 @@
    "no_sdrf",
    "occupancy_decoy_groups",
    "occupancy_not_stored",
-   "spectral_library",
    "unplaced_ptm_sites",
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "c8277895dbc8f9b0",
-   "written_utc": "2026-10-23T12:17:34+00:00",
+   "bundle_id": "57a831d2a552a399",
+   "written_utc": "2026-10-25T10:13:59+00:00",
    "ingester_version": "1.3.6",
    "reconciliation_ok": false,
    "reconciliation_failed": [
-    "psms_target_1pct",
-    "peptidoforms_target_1pct"
+    "psms_target_1pct"
    ]
   },
-  "summary": "PXD007188 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 329,746 PSMs, 53,513 peptidoforms and 5,704 protein groups, and the repository holds 27,638 PTM sites for it. 8 open warnings about it are recorded.",
+  "summary": "PXD007188 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 329,746 PSMs, 53,692 peptidoforms and 5,704 protein groups, and the repository holds 27,638 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD007188.html",
   "json": "datasets/PXD007188.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD007188.html",

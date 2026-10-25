@@ -19,11 +19,11 @@
  "name": "PXD024478 reanalysis: RNA polymerase I transcription disturbances lead to instable ribosomes in Cockayne syndrome",
  "identifier": [
   "PXD024478",
-  "datarepo:bundle:0cf378e05c1e34a0"
+  "datarepo:bundle:ff7da172eb104ca7"
  ],
- "description": "PXD024478 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 469,804 PSMs, 73,911 peptidoforms and 7,014 protein groups, and the repository holds 31,381 PTM sites for it. 5 open warnings about it are recorded.",
- "version": "0cf378e05c1e34a0",
- "dateModified": "2026-10-06T17:37:07+00:00",
+ "description": "PXD024478 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 469,358 PSMs, 73,419 peptidoforms and 7,044 protein groups, and the repository holds 32,062 PTM sites for it. 6 open warnings about it are recorded.",
+ "version": "ff7da172eb104ca7",
+ "dateModified": "2026-10-25T03:10:54+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog c63625bad79ca6ec",
+  "name": "datarepo catalog 225763578e69b8c6",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,29 +61,30 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD024478 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 469,804 PSMs, 73,911 peptidoforms and 7,014 protein groups, and the repository holds 31,381 PTM sites for it. 5 open warnings about it are recorded.
+PXD024478 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 469,358 PSMs, 73,419 peptidoforms and 7,044 protein groups, and the repository holds 32,062 PTM sites for it. 6 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 5 warnings and 2 for information</strong></p>
-<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 469804 where the producer reported 469849 (results.txt: All target PSMs with q-value &lt;= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
-<div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
+<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 2 for information</strong></p>
+<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 469358 where the producer reported 469375 (results.txt: All target PSMs with q-value &lt;= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
-<div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 990 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
-<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
-<div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
-<div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>23 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
+<div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 39452 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 3920 site not in ptm_sites. &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
+<div class="finding warning"><span class="code">spectral_library</span> <span class="note">warning</span><br>human&#x27;s current library moved from version 83 to 84 while this search was running. This run&#x27;s library is at F:\aging_data\run_2026-09-21\PXD024478\04_search\mm\Task3SearchTask\updateSpectralLibrary_2026-10-24-22-05-06.msp and has NOT been registered, so nothing was lost; merge it deliberately.</div>
+<div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 942 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
+<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
+<div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD024478:M0QZD8;Q6ZTK2 written 2 times; quant_values: 20 identifier(s), 20 row(s) dropped, e.g. PXD024478:BBM_321_P153_02_FRH_001:label_free:protein_group:PXD024478:M0QZD8;Q6ZTK2:QuantProject:DEF-PROT-SPC written 2 times. The full list is in bundle.json under collapsed_duplicates.</div>
+<div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>27 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
 
 <h2>What was found</h2>
 <div class="scroll"><table><tbody>
-<tr><td>PSMs at 1% FDR</td><td class="num">469,804</td></tr>
-<tr><td>Peptidoforms at 1% FDR</td><td class="num">73,911</td></tr>
-<tr><td>Protein groups at 1% FDR</td><td class="num">7,014</td></tr>
-<tr><td>PTM sites</td><td class="num">31,381</td></tr>
-<tr><td>Quantitative values</td><td class="num">495,547</td></tr>
-<tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">1,376,721</td></tr>
-<tr><td>MS2 identification rate <span class="note">(aging:DEF-ID-RATE)</span></td><td class="num">41.6%</td></tr>
-<tr><td>Contaminant share of PSMs <span class="note">(aging:DEF-CONTAM-PSM)</span></td><td class="num">0.5%</td></tr>
+<tr><td>PSMs at 1% FDR</td><td class="num">469,358</td></tr>
+<tr><td>Peptidoforms at 1% FDR</td><td class="num">73,419</td></tr>
+<tr><td>Protein groups at 1% FDR</td><td class="num">7,044</td></tr>
+<tr><td>PTM sites</td><td class="num">32,062</td></tr>
+<tr><td>Quantitative values</td><td class="num">498,411</td></tr>
+<tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">1,379,624</td></tr>
+<tr><td>MS2 identification rate <span class="note">(pxreprise:DEF-ID-RATE)</span></td><td class="num">41.6%</td></tr>
+<tr><td>Contaminant share of PSMs <span class="note">(pxreprise:DEF-CONTAM-PSM)</span></td><td class="num">0.5%</td></tr>
 </tbody></table></div>
 
 <h2>How it was measured</h2>
@@ -96,92 +97,95 @@ PXD024478 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples an
 <dt>Instrument vendor</dt><dd>not recorded</dd>
 <dt>Runs / samples</dt><dd>20 / 20</dd>
 <dt>Sample metadata</dt><dd>absent</dd>
-<dt>Search engine</dt><dd>MetaMorpheus 1.1.11</dd>
-<dt>Protein database</dt><dd>uniprotkb_proteome_UP000005640_AND_revi_2026_09_18_agingPTM-v1.xml</dd>
-<dt>Pipeline commit</dt><dd><a href="https://github.com/trishorts/aging/tree/b1e214017270cd9fd0fc6071e5be1db77182ecb7">b1e214017270</a></dd>
+<dt>Search engine</dt><dd>MetaMorpheus 1.1.12</dd>
+<dt>Protein database</dt><dd>UP000005640_all_genecentric_2026_03_agingPTM-v4.xml</dd>
+<dt>Pipeline commit</dt><dd><a href="https://github.com/smith-chem-wisc/PXReprise/tree/5aec9eb024d88f125c889a4b480a583345373023">5aec9eb024d8</a></dd>
 </dl>
 
 <h2>Modifications</h2>
 <div class="scroll"><table>
 <thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
 <tbody>
-<tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">16,076</td></tr>
-<tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">4,267</td></tr>
-<tr><td>Deamidation on N</td><td>UNIMOD:7</td><td class="num">3,029</td></tr>
-<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">2,721</td></tr>
-<tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">493</td></tr>
-<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">462</td></tr>
-<tr><td>Ammonia loss on N</td><td>UNIMOD:385</td><td class="num">343</td></tr>
-<tr><td>Citrullination on R</td><td>UNIMOD:7</td><td class="num">309</td></tr>
-<tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">284</td></tr>
-<tr><td>Fe[III] on E</td><td>UNIMOD:1870</td><td class="num">243</td></tr>
+<tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">16,167</td></tr>
+<tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">4,271</td></tr>
+<tr><td>Deamidation on N</td><td>UNIMOD:7</td><td class="num">3,074</td></tr>
+<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">2,753</td></tr>
+<tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">615</td></tr>
+<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">437</td></tr>
+<tr><td>Ammonia loss on N</td><td>UNIMOD:385</td><td class="num">364</td></tr>
+<tr><td>Citrullination on R</td><td>UNIMOD:7</td><td class="num">315</td></tr>
+<tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">291</td></tr>
+<tr><td>Fe[III] on E</td><td>UNIMOD:1870</td><td class="num">247</td></tr>
 <tr><td>N-acetylalanine on A</td><td>UNIMOD:1</td><td class="num">225</td></tr>
-<tr><td>Fe[III] on D</td><td>UNIMOD:1870</td><td class="num">200</td></tr>
-<tr><td>Water Loss on E</td><td>UNIMOD:27</td><td class="num">176</td></tr>
-<tr><td>Fe[II] on E</td><td>UNIMOD:952</td><td class="num">146</td></tr>
-<tr><td>Carbamyl on X</td><td>UNIMOD:5</td><td class="num">131</td></tr>
-<tr><td>N-acetylmethionine on M</td><td>UNIMOD:1</td><td class="num">124</td></tr>
-<tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">113</td></tr>
+<tr><td>Fe[III] on D</td><td>UNIMOD:1870</td><td class="num">204</td></tr>
+<tr><td>Water Loss on E</td><td>UNIMOD:27</td><td class="num">181</td></tr>
+<tr><td>Methylation on K</td><td>UNIMOD:34</td><td class="num">151</td></tr>
+<tr><td>Carbamyl on X</td><td>UNIMOD:5</td><td class="num">144</td></tr>
+<tr><td>Fe[II] on E</td><td>UNIMOD:952</td><td class="num">144</td></tr>
+<tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">129</td></tr>
+<tr><td>N-acetylmethionine on M</td><td>UNIMOD:1</td><td class="num">125</td></tr>
+<tr><td>Phosphorylation on S</td><td>UNIMOD:21</td><td class="num">111</td></tr>
+<tr><td>Acetylation on X</td><td>UNIMOD:1</td><td class="num">105</td></tr>
 <tr><td>Fe[II] on D</td><td>UNIMOD:952</td><td class="num">100</td></tr>
-<tr><td>Methylation on K</td><td>UNIMOD:34</td><td class="num">90</td></tr>
 <tr><td>N-acetylserine on S</td><td>UNIMOD:1</td><td class="num">89</td></tr>
+<tr><td>Phosphorylation on T</td><td>UNIMOD:21</td><td class="num">86</td></tr>
+<tr><td>Calcium on E</td><td>UNIMOD:951</td><td class="num">82</td></tr>
 <tr><td>Ammonia loss on C</td><td>UNIMOD:385</td><td class="num">81</td></tr>
-<tr><td>Calcium on E</td><td>UNIMOD:951</td><td class="num">81</td></tr>
-<tr><td>Phosphorylation on S</td><td>UNIMOD:21</td><td class="num">80</td></tr>
-<tr><td>Acetylation on X</td><td>UNIMOD:1</td><td class="num">77</td></tr>
-<tr><td>Magnesium on D</td><td>UNIMOD:956</td><td class="num">63</td></tr>
-<tr><td>Phosphorylation on T</td><td>UNIMOD:21</td><td class="num">60</td></tr>
-<tr><td>Phosphothreonine on T</td><td>UNIMOD:21</td><td class="num">53</td></tr>
+<tr><td>Magnesium on D</td><td>UNIMOD:956</td><td class="num">72</td></tr>
+<tr><td>Acetylation on K</td><td>UNIMOD:1</td><td class="num">66</td></tr>
+<tr><td>Methylation on R</td><td>UNIMOD:34</td><td class="num">66</td></tr>
+<tr><td>Magnesium on E</td><td>UNIMOD:956</td><td class="num">63</td></tr>
+<tr><td>Trimethylation on K</td><td>UNIMOD:37</td><td class="num">55</td></tr>
+<tr><td>Dimethylation on R</td><td>UNIMOD:36</td><td class="num">53</td></tr>
 <tr><td>N6-acetyllysine on K</td><td>UNIMOD:1</td><td class="num">52</td></tr>
-<tr><td>Magnesium on E</td><td>UNIMOD:956</td><td class="num">51</td></tr>
-<tr><td>Acetylation on K</td><td>UNIMOD:1</td><td class="num">47</td></tr>
-<tr><td>Calcium on D</td><td>UNIMOD:951</td><td class="num">45</td></tr>
-<tr><td>Sodium on D</td><td>UNIMOD:30</td><td class="num">45</td></tr>
-<tr><td>Trimethylation on K</td><td>UNIMOD:37</td><td class="num">43</td></tr>
-<tr><td>Formylation on K</td><td>UNIMOD:122</td><td class="num">42</td></tr>
-<tr><td>Omega-N-methylarginine on R</td><td>UNIMOD:34</td><td class="num">41</td></tr>
-<tr><td>Sodium on E</td><td>UNIMOD:30</td><td class="num">41</td></tr>
+<tr><td>Phosphothreonine on T</td><td>UNIMOD:21</td><td class="num">49</td></tr>
+<tr><td>Sodium on D</td><td>UNIMOD:30</td><td class="num">49</td></tr>
+<tr><td>Calcium on D</td><td>UNIMOD:951</td><td class="num">46</td></tr>
+<tr><td>Sodium on E</td><td>UNIMOD:30</td><td class="num">43</td></tr>
+<tr><td>Omega-N-methylarginine on R</td><td>UNIMOD:34</td><td class="num">42</td></tr>
 <tr><td>Asymmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">40</td></tr>
-<tr><td>Methylation on R</td><td>UNIMOD:34</td><td class="num">39</td></tr>
-<tr><td>Dimethylation on R</td><td>UNIMOD:36</td><td class="num">32</td></tr>
-<tr><td>HexNAc on T</td><td>UNIMOD:43</td><td class="num">32</td></tr>
-<tr><td>Dimethylation on K</td><td>UNIMOD:36</td><td class="num">28</td></tr>
-<tr><td>HexNAc on S</td><td>UNIMOD:43</td><td class="num">26</td></tr>
-<tr><td>Carbamyl on M</td><td>UNIMOD:5</td><td class="num">24</td></tr>
+<tr><td>Formylation on K</td><td>UNIMOD:122</td><td class="num">38</td></tr>
+<tr><td>HexNAc on S</td><td>UNIMOD:43</td><td class="num">37</td></tr>
+<tr><td>Dimethylation on K</td><td>UNIMOD:36</td><td class="num">35</td></tr>
+<tr><td>HexNAc on T</td><td>UNIMOD:43</td><td class="num">34</td></tr>
+<tr><td>Carbamyl on M</td><td>UNIMOD:5</td><td class="num">28</td></tr>
 <tr><td>Potassium on E</td><td>UNIMOD:530</td><td class="num">24</td></tr>
+<tr><td>Carboxylation on E</td><td>UNIMOD:299</td><td class="num">22</td></tr>
 <tr><td>N-acetylthreonine on T</td><td>UNIMOD:1</td><td class="num">21</td></tr>
-<tr><td>Carboxylation on E</td><td>UNIMOD:299</td><td class="num">19</td></tr>
+<tr><td>Potassium on D</td><td>UNIMOD:530</td><td class="num">20</td></tr>
+<tr><td>Carbamyl on C</td><td>UNIMOD:5</td><td class="num">19</td></tr>
 <tr><td>4-hydroxyproline on P</td><td>UNIMOD:35</td><td class="num">18</td></tr>
 <tr><td>N6-methyllysine on K</td><td>UNIMOD:34</td><td class="num">18</td></tr>
-<tr><td>Carbamyl on C</td><td>UNIMOD:5</td><td class="num">17</td></tr>
+<tr><td>Phosphorylation on Y</td><td>UNIMOD:21</td><td class="num">18</td></tr>
 <tr><td>N6,N6,N6-trimethyllysine on K</td><td>UNIMOD:37</td><td class="num">17</td></tr>
-<tr><td>Potassium on D</td><td>UNIMOD:530</td><td class="num">17</td></tr>
-<tr><td>Phosphorylation on Y</td><td>UNIMOD:21</td><td class="num">16</td></tr>
-<tr><td>Sulfonation on Y</td><td>UNIMOD:40</td><td class="num">14</td></tr>
-<tr><td>Cu[I] on E</td><td>UNIMOD:531</td><td class="num">13</td></tr>
-<tr><td>Cu[I] on D</td><td>UNIMOD:531</td><td class="num">12</td></tr>
-<tr><td>Pyridoxal phosphate on K</td><td>UNIMOD:46</td><td class="num">12</td></tr>
-<tr><td>Succinylation on K</td><td>UNIMOD:64</td><td class="num">12</td></tr>
+<tr><td>Crotonylation on K</td><td>UNIMOD:1363</td><td class="num">16</td></tr>
+<tr><td>Succinylation on K</td><td>UNIMOD:64</td><td class="num">16</td></tr>
+<tr><td>Cu[I] on E</td><td>UNIMOD:531</td><td class="num">15</td></tr>
+<tr><td>Sulfonation on Y</td><td>UNIMOD:40</td><td class="num">15</td></tr>
+<tr><td>Malonylation on K</td><td>UNIMOD:747</td><td class="num">14</td></tr>
+<tr><td>Nitrosylation on Y</td><td>UNIMOD:354</td><td class="num">14</td></tr>
+<tr><td>Cu[I] on D</td><td>UNIMOD:531</td><td class="num">13</td></tr>
+<tr><td>Pyridoxal phosphate on K</td><td>UNIMOD:46</td><td class="num">13</td></tr>
+<tr><td>Carbamyl on K</td><td>UNIMOD:5</td><td class="num">12</td></tr>
+<tr><td>Carboxylation on D</td><td>UNIMOD:299</td><td class="num">12</td></tr>
 <tr><td>N6,N6-dimethyllysine on K</td><td>UNIMOD:36</td><td class="num">11</td></tr>
-<tr><td>Nitrosylation on Y</td><td>UNIMOD:354</td><td class="num">10</td></tr>
-<tr><td>Carbamyl on K</td><td>UNIMOD:5</td><td class="num">9</td></tr>
-<tr><td>Carboxylation on K</td><td>UNIMOD:299</td><td class="num">9</td></tr>
-<tr><td>Nitrosylation on C</td><td>UNIMOD:275</td><td class="num">9</td></tr>
+<tr><td>Nitrosylation on C</td><td>UNIMOD:275</td><td class="num">11</td></tr>
+<tr><td>Butyrylation on K</td><td>UNIMOD:1289</td><td class="num">10</td></tr>
+<tr><td>Carboxylation on K</td><td>UNIMOD:299</td><td class="num">10</td></tr>
+<tr><td>Carbamyl on R</td><td>UNIMOD:5</td><td class="num">8</td></tr>
 <tr><td>N-acetylglycine on G</td><td>UNIMOD:1</td><td class="num">8</td></tr>
 <tr><td>N5-methylglutamine on Q</td><td>UNIMOD:34</td><td class="num">8</td></tr>
-<tr><td>Carboxylation on D</td><td>UNIMOD:299</td><td class="num">7</td></tr>
-<tr><td>Crotonylation on K</td><td>UNIMOD:1363</td><td class="num">7</td></tr>
 <tr><td>Dimethylated arginine on R</td><td>UNIMOD:36</td><td class="num">7</td></tr>
-<tr><td>Phosphotyrosine on Y</td><td>UNIMOD:21</td><td class="num">7</td></tr>
-<tr><td>Carbamyl on R</td><td>UNIMOD:5</td><td class="num">6</td></tr>
+<tr><td>Glutarylation on K</td><td>UNIMOD:1848</td><td class="num">7</td></tr>
+<tr><td>Hydroxybutyrylation on K</td><td>—</td><td class="num">7</td></tr>
+<tr><td>GG (Ubiquitination Site) on K</td><td>UNIMOD:121</td><td class="num">6</td></tr>
+<tr><td>Phosphotyrosine on Y</td><td>UNIMOD:21</td><td class="num">6</td></tr>
 <tr><td>N-acetylvaline on V</td><td>UNIMOD:1</td><td class="num">5</td></tr>
 <tr><td>N6-isonicotinyllysine on K</td><td>UNIMOD:697</td><td class="num">5</td></tr>
 <tr><td>Deamidated asparagine on N</td><td>UNIMOD:7</td><td class="num">4</td></tr>
-<tr><td>HexNAc on Nxs</td><td>UNIMOD:43</td><td class="num">4</td></tr>
 <tr><td>HexNAc on Nxt</td><td>UNIMOD:43</td><td class="num">4</td></tr>
 <tr><td>N-myristoyl glycine on G</td><td>UNIMOD:45</td><td class="num">4</td></tr>
 <tr><td>Tele-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">4</td></tr>
-<tr><td>Malonylation on K</td><td>UNIMOD:747</td><td class="num">3</td></tr>
 <tr><td>N-acetylcysteine on C</td><td>UNIMOD:1</td><td class="num">3</td></tr>
 <tr><td>N6-succinyllysine on K</td><td>—</td><td class="num">3</td></tr>
 <tr><td>Pros-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">3</td></tr>
@@ -189,10 +193,7 @@ PXD024478 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples an
 <tr><td>Zinc on D</td><td>UNIMOD:954</td><td class="num">3</td></tr>
 <tr><td>3&#x27;-nitrotyrosine on Y</td><td>—</td><td class="num">2</td></tr>
 <tr><td>5-glutamyl glycerylphosphorylethanolamine on E</td><td>UNIMOD:396</td><td class="num">2</td></tr>
-<tr><td>Butyrylation on K</td><td>UNIMOD:1289</td><td class="num">2</td></tr>
-<tr><td>Carbamidomethyl on U</td><td>UNIMOD:4</td><td class="num">2</td></tr>
 <tr><td>Cysteine sulfinic acid (-SO2H) on C</td><td>UNIMOD:425</td><td class="num">2</td></tr>
-<tr><td>Hydroxybutyrylation on K</td><td>—</td><td class="num">2</td></tr>
 <tr><td>Hydroxyproline on P</td><td>UNIMOD:35</td><td class="num">2</td></tr>
 <tr><td>N,N,N-trimethylglycine on G</td><td>—</td><td class="num">2</td></tr>
 <tr><td>Zinc on E</td><td>UNIMOD:954</td><td class="num">2</td></tr>
@@ -203,9 +204,7 @@ PXD024478 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples an
 <tr><td>5-hydroxylysine on K</td><td>UNIMOD:35</td><td class="num">1</td></tr>
 <tr><td>Citrulline on R</td><td>UNIMOD:7</td><td class="num">1</td></tr>
 <tr><td>Diphthamide on H</td><td>UNIMOD:375</td><td class="num">1</td></tr>
-<tr><td>GG (Ubiquitination Site) on K</td><td>—</td><td class="num">1</td></tr>
-<tr><td>Glutarylation on K</td><td>UNIMOD:1848</td><td class="num">1</td></tr>
-<tr><td>Methionine sulfoxide on M</td><td>UNIMOD:35</td><td class="num">1</td></tr>
+<tr><td>HexNAc on Nxs</td><td>UNIMOD:43</td><td class="num">1</td></tr>
 <tr><td>N-acetylaspartate on D</td><td>UNIMOD:1</td><td class="num">1</td></tr>
 <tr><td>N-acetylglutamate on E</td><td>UNIMOD:1</td><td class="num">1</td></tr>
 <tr><td>N6-1-carboxyethyl lysine on K</td><td>UNIMOD:378</td><td class="num">1</td></tr>
@@ -222,7 +221,7 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>0cf378e05c1e34a0</code>, written 2026-10-06T17:37:07+00:00 by ingester 1.3.0</dd>
+<dt>Bundle</dt><dd><code>ff7da172eb104ca7</code>, written 2026-10-25T03:10:54+00:00 by ingester 1.3.6</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
@@ -230,7 +229,7 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 </main>
 <footer>
 Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.6 from catalog
-<code>c63625bad79ca6ec</code>, built 2026-10-24T22:19:56+00:00 by datarepo
+<code>225763578e69b8c6</code>, built 2026-10-25T04:21:39+00:00 by datarepo
 1.3.6 (schema 0.0.15).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>

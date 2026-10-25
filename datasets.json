@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "86acd547c38ead7e",
+  "catalog_id": "5c0c60396486635d",
   "catalog_version": "13",
   "schema_version": "0.0.15",
   "builder_version": "1.3.6",
-  "built_utc": "2026-10-25T10:19:41+00:00",
+  "built_utc": "2026-10-25T16:20:45+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -330,7 +330,7 @@
    "enrichment": [
     "ubiquitin_GG"
    ],
-   "enrichment_mixed": false,
+   "enrichment_mixed": true,
    "n_runs": 12,
    "n_samples": 12,
    "n_psms_1pct": 126015,
@@ -340,19 +340,20 @@
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
-    "warning": 6,
+    "warning": 7,
     "info": 1
    },
    "finding_codes": [
     "high_contamination",
     "low_core_use",
+    "mixed_enrichment",
     "no_sdrf",
     "occupancy_decoy_groups",
     "occupancy_not_stored",
     "unplaced_ptm_sites",
     "unresolved_modifications"
    ],
-   "summary": "PXD007035 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: ubiquitin_GG. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 126,015 PSMs, 23,955 peptidoforms and 3,836 protein groups, and the repository holds 9,575 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD007035 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and runs that differ in enrichment (ubiquitin_GG on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 126,015 PSMs, 23,955 peptidoforms and 3,836 protein groups, and the repository holds 9,575 PTM sites for it. 7 open warnings about it are recorded.",
    "page": "datasets/PXD007035.html",
    "json": "datasets/PXD007035.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD007035.html",
@@ -1292,26 +1293,27 @@
    "enrichment_mixed": false,
    "n_runs": 12,
    "n_samples": 12,
-   "n_psms_1pct": 145364,
-   "n_peptidoforms_1pct": 21050,
-   "n_protein_groups_1pct": 3935,
-   "n_ptm_sites": 18749,
+   "n_psms_1pct": 150342,
+   "n_peptidoforms_1pct": 20939,
+   "n_protein_groups_1pct": 4072,
+   "n_ptm_sites": 19650,
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
-    "warning": 5,
-    "info": 2
+    "warning": 7,
+    "info": 1
    },
    "finding_codes": [
     "count_mismatch",
-    "no_design_file",
-    "no_output_sdrf",
+    "cysteine_poor",
+    "low_core_use",
     "no_sdrf",
     "occupancy_decoy_groups",
+    "occupancy_not_stored",
     "unplaced_ptm_sites",
     "unresolved_modifications"
    ],
-   "summary": "PXD014097 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 145,364 PSMs, 21,050 peptidoforms and 3,935 protein groups, and the repository holds 18,749 PTM sites for it. 5 open warnings about it are recorded.",
+   "summary": "PXD014097 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 150,342 PSMs, 20,939 peptidoforms and 4,072 protein groups, and the repository holds 19,650 PTM sites for it. 7 open warnings about it are recorded.",
    "page": "datasets/PXD014097.html",
    "json": "datasets/PXD014097.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD014097.html",
@@ -4319,26 +4321,27 @@
    "enrichment_mixed": false,
    "n_runs": 8,
    "n_samples": 8,
-   "n_psms_1pct": 62392,
-   "n_peptidoforms_1pct": 11314,
-   "n_protein_groups_1pct": 1385,
-   "n_ptm_sites": 10267,
+   "n_psms_1pct": 69974,
+   "n_peptidoforms_1pct": 12490,
+   "n_protein_groups_1pct": 1442,
+   "n_ptm_sites": 11612,
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
-    "warning": 5,
-    "info": 2
+    "warning": 7,
+    "info": 1
    },
    "finding_codes": [
     "count_mismatch",
-    "no_design_file",
-    "no_output_sdrf",
+    "cysteine_poor",
+    "low_core_use",
     "no_sdrf",
     "occupancy_decoy_groups",
+    "occupancy_not_stored",
     "unplaced_ptm_sites",
     "unresolved_modifications"
    ],
-   "summary": "PXD035107 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 62,392 PSMs, 11,314 peptidoforms and 1,385 protein groups, and the repository holds 10,267 PTM sites for it. 5 open warnings about it are recorded.",
+   "summary": "PXD035107 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 69,974 PSMs, 12,490 peptidoforms and 1,442 protein groups, and the repository holds 11,612 PTM sites for it. 7 open warnings about it are recorded.",
    "page": "datasets/PXD035107.html",
    "json": "datasets/PXD035107.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035107.html",
@@ -6731,7 +6734,7 @@
    "quant_method": "label_free",
    "labelling": "none",
    "enrichment": [
-    "acetyl"
+    "none"
    ],
    "enrichment_mixed": false,
    "n_runs": 8,
@@ -6757,7 +6760,7 @@
     "unplaced_ptm_sites",
     "unresolved_modifications"
    ],
-   "summary": "PXD057554 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and enrichment: acetyl. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 69,522 PSMs, 5,699 peptidoforms and 720 protein groups, and the repository holds 2,646 PTM sites for it. 8 open warnings about it are recorded.",
+   "summary": "PXD057554 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 69,522 PSMs, 5,699 peptidoforms and 720 protein groups, and the repository holds 2,646 PTM sites for it. 8 open warnings about it are recorded.",
    "page": "datasets/PXD057554.html",
    "json": "datasets/PXD057554.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057554.html",

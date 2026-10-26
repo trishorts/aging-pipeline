@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "81d069e4221a9d0a",
+  "catalog_id": "611f6882dd3bad27",
   "catalog_version": "13",
   "schema_version": "0.0.15",
   "builder_version": "1.3.6",
-  "built_utc": "2026-10-26T11:47:36+00:00",
+  "built_utc": "2026-10-26T18:55:50+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -36,7 +36,7 @@
   },
   "A0A0A": {
    "file": "proteins/A0A0A.json",
-   "n": 66
+   "n": 67
   },
   "A0A0B": {
    "file": "proteins/A0A0B.json",
@@ -112,7 +112,7 @@
   },
   "A0A0J": {
    "file": "proteins/A0A0J.json",
-   "n": 26
+   "n": 27
   },
   "A0A0M": {
    "file": "proteins/A0A0M.json",
@@ -144,7 +144,7 @@
   },
   "A0A1D": {
    "file": "proteins/A0A1D.json",
-   "n": 13
+   "n": 14
   },
   "A0A1L": {
    "file": "proteins/A0A1L.json",
@@ -152,7 +152,7 @@
   },
   "A0A1W": {
    "file": "proteins/A0A1W.json",
-   "n": 45
+   "n": 46
   },
   "A0A1Y": {
    "file": "proteins/A0A1Y.json",
@@ -432,7 +432,7 @@
   },
   "A0AA": {
    "file": "proteins/A0AA.json",
-   "n": 57
+   "n": 59
   },
   "A0AB5": {
    "file": "proteins/A0AB5.json",
@@ -636,7 +636,7 @@
   },
   "A1": {
    "file": "proteins/A1.json",
-   "n": 56
+   "n": 55
   },
   "A2A2": {
    "file": "proteins/A2A2.json",
@@ -692,7 +692,7 @@
   },
   "A2AF": {
    "file": "proteins/A2AF.json",
-   "n": 11
+   "n": 12
   },
   "A2AG": {
    "file": "proteins/A2AG.json",
@@ -1352,7 +1352,7 @@
   },
   "F6R": {
    "file": "proteins/F6R.json",
-   "n": 36
+   "n": 38
   },
   "F6S": {
    "file": "proteins/F6S.json",
@@ -1388,7 +1388,7 @@
   },
   "F7A": {
    "file": "proteins/F7A.json",
-   "n": 45
+   "n": 46
   },
   "F7B": {
    "file": "proteins/F7B.json",
@@ -1396,7 +1396,7 @@
   },
   "F7C": {
    "file": "proteins/F7C.json",
-   "n": 59
+   "n": 60
   },
   "F7D": {
    "file": "proteins/F7D.json",
@@ -1488,7 +1488,7 @@
   },
   "K9": {
    "file": "proteins/K9.json",
-   "n": 18
+   "n": 19
   },
   "L0": {
    "file": "proteins/L0.json",
@@ -1756,7 +1756,7 @@
   },
   "O703": {
    "file": "proteins/O703.json",
-   "n": 31
+   "n": 30
   },
   "O704": {
    "file": "proteins/O704.json",
@@ -1984,7 +1984,7 @@
   },
   "P018": {
    "file": "proteins/P018.json",
-   "n": 60
+   "n": 58
   },
   "P019": {
    "file": "proteins/P019.json",
@@ -2584,7 +2584,7 @@
   },
   "P144": {
    "file": "proteins/P144.json",
-   "n": 17
+   "n": 15
   },
   "P145": {
    "file": "proteins/P145.json",
@@ -5884,7 +5884,7 @@
   },
   "Q608": {
    "file": "proteins/Q608.json",
-   "n": 38
+   "n": 37
   },
   "Q609": {
    "file": "proteins/Q609.json",
@@ -8816,7 +8816,7 @@
   },
   "Q8R19": {
    "file": "proteins/Q8R19.json",
-   "n": 2
+   "n": 1
   },
   "Q8R1A": {
    "file": "proteins/Q8R1A.json",
@@ -9450,6 +9450,10 @@
    "file": "proteins/Q8VES.json",
    "n": 1
   },
+  "Q8VET": {
+   "file": "proteins/Q8VET.json",
+   "n": 1
+  },
   "Q8VEU": {
    "file": "proteins/Q8VEU.json",
    "n": 2
@@ -9472,11 +9476,11 @@
   },
   "Q8VF": {
    "file": "proteins/Q8VF.json",
-   "n": 21
+   "n": 22
   },
   "Q8VG": {
    "file": "proteins/Q8VG.json",
-   "n": 34
+   "n": 35
   },
   "Q8VH": {
    "file": "proteins/Q8VH.json",
@@ -11240,7 +11244,7 @@
   },
   "Q9CQA": {
    "file": "proteins/Q9CQA.json",
-   "n": 6
+   "n": 7
   },
   "Q9CQB": {
    "file": "proteins/Q9CQB.json",
@@ -12688,7 +12692,7 @@
   },
   "Q9DA": {
    "file": "proteins/Q9DA.json",
-   "n": 71
+   "n": 70
   },
   "Q9DB0": {
    "file": "proteins/Q9DB0.json",
@@ -13072,7 +13076,7 @@
   },
   "Q9EPZ": {
    "file": "proteins/Q9EPZ.json",
-   "n": 1
+   "n": 2
   },
   "Q9EQ0": {
    "file": "proteins/Q9EQ0.json",
@@ -13840,7 +13844,7 @@
   },
   "Q9JJL": {
    "file": "proteins/Q9JJL.json",
-   "n": 4
+   "n": 5
   },
   "Q9JJM": {
    "file": "proteins/Q9JJM.json",
@@ -16216,7 +16220,7 @@
   },
   "Q9Z0L": {
    "file": "proteins/Q9Z0L.json",
-   "n": 6
+   "n": 5
   },
   "Q9Z0M": {
    "file": "proteins/Q9Z0M.json",
@@ -16568,35 +16572,35 @@
   }
  },
  "gene_shards": {
-  "1": 20,
+  "1": 21,
   "2": 16,
   "3": 3,
-  "4": 25,
+  "4": 26,
   "5": 4,
   "6": 1,
   "8": 1,
   "9": 6,
   "A": 1510,
   "B": 402,
-  "C": 2240,
+  "C": 2242,
   "D": 718,
   "E": 675,
-  "F": 709,
+  "F": 710,
   "G": 1069,
   "H": 639,
-  "I": 866,
+  "I": 867,
   "J": 45,
   "K": 578,
-  "L": 704,
+  "L": 706,
   "M": 1156,
   "N": 802,
-  "O": 422,
-  "P": 1722,
+  "O": 425,
+  "P": 1723,
   "Q": 20,
   "R": 1079,
   "S": 2106,
-  "T": 1514,
-  "U": 349,
+  "T": 1515,
+  "U": 350,
   "V": 269,
   "W": 159,
   "X": 53,

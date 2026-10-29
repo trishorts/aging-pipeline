@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "d1cfad344706ec7d",
+  "catalog_id": "d6a40f203c73306d",
   "catalog_version": "14",
   "schema_version": "0.0.16",
   "builder_version": "1.4.0",
-  "built_utc": "2026-10-29T15:32:04+00:00",
+  "built_utc": "2026-10-29T18:26:59+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -5294,6 +5294,52 @@
    "json": "datasets/PXD045821.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD045821.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD045821.json"
+  },
+  {
+   "dataset_id": "PXD045861",
+   "title": "Myelin-axon interface disruption uncovered by subcellular proteomics and imaging of Alzheimer’s human brain",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "proximity_labelling"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 20,
+   "n_samples": 1,
+   "n_psms_1pct": 312904,
+   "n_peptidoforms_1pct": 10572,
+   "n_protein_groups_1pct": 2682,
+   "n_ptm_sites": 10588,
+   "sdrf_status": "partial",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 9,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "high_contamination",
+    "low_core_use",
+    "low_id_rate",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
+    "sdrf_partial",
+    "sdrf_skeleton",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD045861 is a DDA label-free dataset (Homo sapiens) with 20 runs, 1 sample and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 312,904 PSMs, 10,572 peptidoforms and 2,682 protein groups, and the repository holds 10,588 PTM sites for it. 9 open warnings about it are recorded.",
+   "page": "datasets/PXD045861.html",
+   "json": "datasets/PXD045861.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD045861.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD045861.json"
   },
   {
    "dataset_id": "PXD045887",

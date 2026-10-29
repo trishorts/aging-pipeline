@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "b978714d36f3878a",
+  "catalog_id": "0f3e89532d0b7e2b",
   "catalog_version": "13",
   "schema_version": "0.0.15",
   "builder_version": "1.3.6",
-  "built_utc": "2026-10-27T21:23:00+00:00",
+  "built_utc": "2026-10-29T01:02:39+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -4306,6 +4306,51 @@
    "json": "datasets/PXD034465.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034465.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034465.json"
+  },
+  {
+   "dataset_id": "PXD034590",
+   "title": "Profiling of purified autophagic vesicle content and degradome in the maturing and aging brain",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "affinity_purification"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 81,
+   "n_samples": 81,
+   "n_psms_1pct": 2574920,
+   "n_peptidoforms_1pct": 90744,
+   "n_protein_groups_1pct": 6467,
+   "n_ptm_sites": 43185,
+   "sdrf_status": "partial",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 2
+   },
+   "finding_codes": [
+    "collapsed_duplicate_rows",
+    "count_mismatch",
+    "high_contamination",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "sdrf_partial",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD034590 is a DDA label-free dataset (Mus musculus) with 81 runs, 81 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 2,574,920 PSMs, 90,744 peptidoforms and 6,467 protein groups, and the repository holds 43,185 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD034590.html",
+   "json": "datasets/PXD034590.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034590.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034590.json"
   },
   {
    "dataset_id": "PXD035107",

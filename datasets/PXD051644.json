@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD051644",
-  "bundle_id": "a6df9d90b78f3cf7",
+  "bundle_id": "9efdf90d01505e5f",
   "title": "Protein degradation targets in hippocampus of the aged brain following context exposure",
   "organisms": [
    "NCBITaxon:10116"
@@ -26,18 +26,18 @@
   "search_engine": "MetaMorpheus",
   "search_engine_version": "1.1.12",
   "n_runs": 23,
-  "n_samples": 23,
+  "n_samples": 12,
   "n_psms_1pct": 23705,
   "n_peptidoforms_1pct": 1913,
   "n_protein_groups_1pct": 537,
   "n_psms_all": 146202,
   "n_ptm_sites": 1678,
-  "n_quant_values": 25878,
-  "n_open_findings": 9,
+  "n_quant_values": 39965,
+  "n_open_findings": 7,
   "restrictions": [],
   "instruments": null,
   "search_database": "UP000002494_all_genecentric_2026_03_agingPTM-v4.xml",
-  "sdrf_status": "absent",
+  "sdrf_status": "trusted",
   "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
   "pipeline_commit": "9df4ce025f23c5cbb39ce6cec5766e6c97922f5f",
   "organism_names": [
@@ -69,29 +69,19 @@
     "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 23705/381822 = 6.21% of MS2 identified (S3)"
    },
    {
-    "code": "no_sdrf",
-    "severity": "warning",
-    "message": "No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated."
-   },
-   {
     "code": "occupancy_not_stored",
     "severity": "warning",
-    "message": "Of 7592 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 7267 sample has no single run (several files, or a file that is not a run); 17 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
+    "message": "Of 7592 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 343 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
    },
    {
-    "code": "sample_quant_not_stored",
+    "code": "sdrf_skeleton",
     "severity": "warning",
-    "message": "The protein-group table is labelled by sample through the search's ExperimentalDesign.tsv, and 11 sample(s) have no single run: aged_10 (2 files (fractions or technical replicates), summed into one value); aged_11 (2 files (fractions or technical replicates), summed into one value); aged_12 (2 files (fractions or technical replicates), summed into one value); aged_2 (2 files (fractions or technical replicates), summed into one value); aged_3 (2 files (fractions or technical replicates), summed into one value); aged_4 (2 files (fractions or technical replicates), summed into one value); aged_5 (2 files (fractions or technical replicates), summed into one value); aged_6 (2 files (fractions or technical replicates), summed into one value); aged_7 (2 files (fractions or technical replicates), summed into one value); aged_8 (2 files (fractions or technical replicates), summed into one value); and 1 more. A stored quantity belongs to one assay (one run), and a sample's value belongs to none, so it is never split onto runs: 14087 protein-group value(s) (intensity and spectral count) of these samples are not stored, nor is their PTM site occupancy. Peptide quantities are per file and are stored. A missing protein-group quantity for these samples therefore means 'not stored', not 'not measured'. The design is in this bundle's sources."
+    "message": "The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated."
    },
    {
     "code": "unplaced_ptm_sites",
     "severity": "warning",
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 110 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
-   },
-   {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Unimod:Nethylmaleimide on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "excluded_from_search",
@@ -112,7 +102,7 @@
    },
    {
     "modification_name": "Nethylmaleimide on C",
-    "modification": null,
+    "modification": "UNIMOD:108",
     "n_sites": 81
    },
    {
@@ -368,7 +358,7 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 9,
+   "warning": 7,
    "info": 2
   },
   "finding_codes": [
@@ -377,21 +367,19 @@
    "high_contamination",
    "low_core_use",
    "low_id_rate",
-   "no_sdrf",
    "occupancy_decoy_groups",
    "occupancy_not_stored",
-   "sample_quant_not_stored",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "sdrf_skeleton",
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "a6df9d90b78f3cf7",
-   "written_utc": "2026-10-18T01:15:15+00:00",
-   "ingester_version": "1.3.2",
+   "bundle_id": "9efdf90d01505e5f",
+   "written_utc": "2026-10-29T09:44:57+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": true,
    "reconciliation_failed": []
   },
-  "summary": "PXD051644 is a DDA label-free dataset (Rattus norvegicus) with 23 runs, 23 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 23,705 PSMs, 1,913 peptidoforms and 537 protein groups, and the repository holds 1,678 PTM sites for it. 9 open warnings about it are recorded.",
+  "summary": "PXD051644 is a DDA label-free dataset (Rattus norvegicus) with 23 runs, 12 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 23,705 PSMs, 1,913 peptidoforms and 537 protein groups, and the repository holds 1,678 PTM sites for it. 7 open warnings about it are recorded.",
   "page": "datasets/PXD051644.html",
   "json": "datasets/PXD051644.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD051644.html",

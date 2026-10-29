@@ -19,11 +19,11 @@
  "name": "PXD011740 reanalysis: Translational regulation contributes to the secretory response of chondrocytic cells following exposure to Interleukin-1B",
  "identifier": [
   "PXD011740",
-  "datarepo:bundle:fc49ca1c4a3f078c"
+  "datarepo:bundle:b7dbca088aa5c165"
  ],
  "description": "PXD011740 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 89,011 PSMs, 16,644 peptidoforms and 2,112 protein groups, and the repository holds 6,207 PTM sites for it. 6 open warnings about it are recorded.",
- "version": "fc49ca1c4a3f078c",
- "dateModified": "2026-10-19T23:06:41+00:00",
+ "version": "b7dbca088aa5c165",
+ "dateModified": "2026-10-29T09:41:48+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 0f3e89532d0b7e2b",
+  "name": "datarepo catalog 6069a2d5872ff49f",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -68,10 +68,10 @@ PXD011740 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples an
 <p><strong>Recorded against this dataset: 0 errors, 6 warnings and 2 for information</strong></p>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 89011 where the producer reported 89023 (results.txt: All target PSMs with q-value &lt;= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>67.60% of protein intensity in the worst file, 3.01% median across 12 files (DEF-QC-9 v3.5)</div>
-<div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
 <div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 24671 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 2195 site not in ptm_sites. &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
+<div class="finding warning"><span class="code">sdrf_skeleton</span> <span class="note">warning</span><br>The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 149 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
-<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>4 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Unimod:NEM:2H(5) on C, Unimod:Nethylmaleimide on C, Unimod:Nethylmaleimide+water on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
+<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Unimod:Nethylmaleimide+water on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
 <div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 2 identifier(s), 3 row(s) dropped, e.g. PXD011740:A6NGU5;P19440;P36268 written 3 times; quant_values: 29 identifier(s), 41 row(s) dropped, e.g. PXD011740:sample1:label_free:protein_group:PXD011740:A6NGU5;P19440;P36268:QuantProject:DEF-PROT-SPC written 3 times. The full list is in bundle.json under collapsed_duplicates.</div>
 <div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>81 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
 
@@ -96,7 +96,7 @@ PXD011740 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples an
 <dt>Enrichment</dt><dd>none</dd>
 <dt>Instrument vendor</dt><dd>not recorded</dd>
 <dt>Runs / samples</dt><dd>12 / 12</dd>
-<dt>Sample metadata</dt><dd>absent</dd>
+<dt>Sample metadata</dt><dd>trusted</dd>
 <dt>Search engine</dt><dd>MetaMorpheus 1.1.12</dd>
 <dt>Protein database</dt><dd>UP000005640_all_genecentric_2026_03_agingPTM-v3.xml</dd>
 <dt>Pipeline commit</dt><dd><a href="https://github.com/smith-chem-wisc/PXReprise/tree/766ecc4f6ae7a8d38a1b911496a8e6cb0c8fe232">766ecc4f6ae7</a></dd>
@@ -107,8 +107,8 @@ PXD011740 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples an
 <thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
 <tbody>
 <tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">1,406</td></tr>
-<tr><td>Nethylmaleimide on C</td><td>—</td><td class="num">970</td></tr>
-<tr><td>NEM:2H(5) on C</td><td>—</td><td class="num">646</td></tr>
+<tr><td>Nethylmaleimide on C</td><td>UNIMOD:108</td><td class="num">970</td></tr>
+<tr><td>NEM:2H(5) on C</td><td>UNIMOD:776</td><td class="num">646</td></tr>
 <tr><td>Deamidation on N</td><td>UNIMOD:7</td><td class="num">320</td></tr>
 <tr><td>Sodium on E</td><td>UNIMOD:30</td><td class="num">256</td></tr>
 <tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">233</td></tr>
@@ -192,16 +192,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>fc49ca1c4a3f078c</code>, written 2026-10-19T23:06:41+00:00 by ingester 1.3.5</dd>
+<dt>Bundle</dt><dd><code>b7dbca088aa5c165</code>, written 2026-10-29T09:41:48+00:00 by ingester 1.4.0</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.6 from catalog
-<code>0f3e89532d0b7e2b</code>, built 2026-10-29T01:02:39+00:00 by datarepo
-1.3.6 (schema 0.0.15).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.0 from catalog
+<code>6069a2d5872ff49f</code>, built 2026-10-29T15:18:44+00:00 by datarepo
+1.4.0 (schema 0.0.16).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

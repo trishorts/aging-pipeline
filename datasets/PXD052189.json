@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD052189",
-  "bundle_id": "209251bf4b2ad89e",
+  "bundle_id": "8cbfda6f36c333d3",
   "title": "Microglial-derived C1q integrates into neuronal ribonucleoprotein complexes and impacts protein homeostasis in the aging",
   "organisms": [
    "NCBITaxon:10090"
@@ -33,7 +33,7 @@
   "n_psms_all": 464166,
   "n_ptm_sites": 1456,
   "n_quant_values": 42297,
-  "n_open_findings": 7,
+  "n_open_findings": 8,
   "restrictions": [],
   "instruments": null,
   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22_agingPTM-v1.xml",
@@ -52,6 +52,11 @@
     "code": "calibration_failed",
     "severity": "warning",
     "message": "GPTMD/search ran on uncalibrated spectra (S7)"
+   },
+   {
+    "code": "contaminant_label_unresolved",
+    "severity": "warning",
+    "message": "10 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row's label, contaminant over target, so `is_contaminant` may over-state for them: Q3TTY5, Q497I4, Q61765, Q61897, Q6IFX2."
    },
    {
     "code": "high_contamination",
@@ -79,9 +84,9 @@
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 17 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
    },
    {
-    "code": "unresolved_modifications",
+    "code": "upstream_provenance_changed",
     "severity": "warning",
-    "message": "3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    "message": "The search recorded its upstream 'fetch' provenance (run_2026-09-21/PXD052189/02_fetch/provenance.json) with sha256 e47d88ea667b7e35f0ad6693c5e9670b9cbd4aac138cf76846d428758014ff9f, and the file there now has 7a504890aebc9ef50cb377233a7abbbe0809128cd05417e4c242f8fb9eae5a0c: it was overwritten after the search. It is left out of this bundle rather than read as this search's record. The search's own record of the fetch stage is gone unless the producer archived it."
    },
    {
     "code": "no_output_sdrf",
@@ -448,11 +453,12 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 7,
+   "warning": 8,
    "info": 2
   },
   "finding_codes": [
    "calibration_failed",
+   "contaminant_label_unresolved",
    "high_contamination",
    "low_id_rate",
    "no_design_file",
@@ -460,16 +466,16 @@
    "no_sdrf",
    "occupancy_decoy_groups",
    "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "upstream_provenance_changed"
   ],
   "bundle": {
-   "bundle_id": "209251bf4b2ad89e",
-   "written_utc": "2026-10-06T17:27:40+00:00",
-   "ingester_version": "1.3.0",
+   "bundle_id": "8cbfda6f36c333d3",
+   "written_utc": "2026-10-29T09:16:18+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": true,
    "reconciliation_failed": []
   },
-  "summary": "PXD052189 is a DDA label-free dataset (Mus musculus) with 32 runs, 32 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 15,718 PSMs, 1,752 peptidoforms and 577 protein groups, and the repository holds 1,456 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD052189 is a DDA label-free dataset (Mus musculus) with 32 runs, 32 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 15,718 PSMs, 1,752 peptidoforms and 577 protein groups, and the repository holds 1,456 PTM sites for it. 8 open warnings about it are recorded.",
   "page": "datasets/PXD052189.html",
   "json": "datasets/PXD052189.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD052189.html",

@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD061654",
-  "bundle_id": "4d12fc4f4b803609",
+  "bundle_id": "2aa105cc2e194c8e",
   "title": "The mammalian longevity associated acetylome",
   "organisms": [
    "NCBITaxon:10090"
@@ -49,6 +49,11 @@
   "pipeline_public_commit": null,
   "findings": [
    {
+    "code": "contaminant_label_unresolved",
+    "severity": "warning",
+    "message": "12 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row's label, contaminant over target, so `is_contaminant` may over-state for them: P50446, Q3TTY5, Q61765, Q6IFX2, Q6IME9."
+   },
+   {
     "code": "count_mismatch",
     "severity": "warning",
     "message": "The bundle holds 2.70083e+06 where the producer reported 2.70153e+06 (results.txt: All target PSMs with q-value <= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
@@ -72,11 +77,6 @@
     "code": "unplaced_ptm_sites",
     "severity": "warning",
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 14767 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
-   },
-   {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "collapsed_duplicate_rows",
@@ -723,18 +723,18 @@
   },
   "finding_codes": [
    "collapsed_duplicate_rows",
+   "contaminant_label_unresolved",
    "count_mismatch",
    "mixed_enrichment",
    "no_sdrf",
    "occupancy_decoy_groups",
    "occupancy_not_stored",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "4d12fc4f4b803609",
-   "written_utc": "2026-10-20T14:15:58+00:00",
-   "ingester_version": "1.3.6",
+   "bundle_id": "2aa105cc2e194c8e",
+   "written_utc": "2026-10-29T10:33:10+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"

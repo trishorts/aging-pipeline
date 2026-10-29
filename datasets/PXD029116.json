@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD029116",
-  "bundle_id": "33586f785f3338ed",
+  "bundle_id": "84728de07f4ad4e4",
   "title": "Articular cartilage proteome differentiates by zones during osteoarthritis",
   "organisms": [
    "NCBITaxon:9606"
@@ -33,7 +33,7 @@
   "n_psms_all": 119388,
   "n_ptm_sites": 3896,
   "n_quant_values": 82441,
-  "n_open_findings": 5,
+  "n_open_findings": 4,
   "restrictions": [],
   "instruments": null,
   "search_database": "UP000005640_all_genecentric_2026_03_agingPTM-v4.xml",
@@ -67,11 +67,6 @@
     "code": "unplaced_ptm_sites",
     "severity": "warning",
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 9 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
-   },
-   {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "occupancy_decoy_groups",
@@ -438,7 +433,7 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 5,
+   "warning": 4,
    "info": 1
   },
   "finding_codes": [
@@ -446,17 +441,16 @@
    "no_sdrf",
    "occupancy_decoy_groups",
    "occupancy_not_stored",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "33586f785f3338ed",
-   "written_utc": "2026-10-24T16:32:50+00:00",
-   "ingester_version": "1.3.6",
+   "bundle_id": "84728de07f4ad4e4",
+   "written_utc": "2026-10-29T09:46:02+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": true,
    "reconciliation_failed": []
   },
-  "summary": "PXD029116 is a DDA label-free dataset (Homo sapiens) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 66,215 PSMs, 4,135 peptidoforms and 402 protein groups, and the repository holds 3,896 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD029116 is a DDA label-free dataset (Homo sapiens) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 66,215 PSMs, 4,135 peptidoforms and 402 protein groups, and the repository holds 3,896 PTM sites for it. 4 open warnings about it are recorded.",
   "page": "datasets/PXD029116.html",
   "json": "datasets/PXD029116.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD029116.html",

@@ -19,11 +19,11 @@
  "name": "PXD073846 reanalysis: mtDNA alterations determine myoblast differentiation and disrupt skeletal muscle architecture",
  "identifier": [
   "PXD073846",
-  "datarepo:bundle:44d5c0f04916f7fc"
+  "datarepo:bundle:cb91c24a2aafdca8"
  ],
- "description": "PXD073846 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 171,140 PSMs, 23,990 peptidoforms and 2,307 protein groups, and the repository holds 9,019 PTM sites for it. 7 open warnings about it are recorded.",
- "version": "44d5c0f04916f7fc",
- "dateModified": "2026-10-23T05:48:34+00:00",
+ "description": "PXD073846 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 171,140 PSMs, 23,990 peptidoforms and 2,307 protein groups, and the repository holds 9,019 PTM sites for it. 6 open warnings about it are recorded.",
+ "version": "cb91c24a2aafdca8",
+ "dateModified": "2026-10-29T09:25:57+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 0f3e89532d0b7e2b",
+  "name": "datarepo catalog 6069a2d5872ff49f",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,18 +61,17 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD073846 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 171,140 PSMs, 23,990 peptidoforms and 2,307 protein groups, and the repository holds 9,019 PTM sites for it. 7 open warnings about it are recorded.
+PXD073846 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 171,140 PSMs, 23,990 peptidoforms and 2,307 protein groups, and the repository holds 9,019 PTM sites for it. 6 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 7 warnings and 2 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 2 for information</strong></p>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 171140 where the producer reported 171145 (results.txt: All target PSMs with q-value &lt;= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>10.31% of protein intensity in the worst file, 4.72% median across 12 files (DEF-QC-9 v3.5)</div>
 <div class="finding warning"><span class="code">low_core_use</span> <span class="note">warning</span><br>13.03 avg cores of 32 allowed (S5)</div>
 <div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 16691 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 926 site not in ptm_sites. &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
 <div class="finding warning"><span class="code">sdrf_uncoded</span> <span class="note">warning</span><br>The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: organism part: Cell culture. Match on it as text; it has not been mapped to a term.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 383 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
-<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
 <div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 5 row(s) dropped, e.g. PXD073846:A0A3B2WBC8;E9Q0K5;G3UZC7;K7N712;L7N269;L7N2B8 written 6 times; quant_values: 16 identifier(s), 80 row(s) dropped, e.g. PXD073846:20191223_Q2_UC_ColID_952_ProjID_1982_Wiesner_Sample_13:label_free:protein_group:PXD073846:A0A3B2WBC8;E9Q0K5;G3UZC7;K7N712;L7N269;L7N2B8:QuantProject:DEF-PROT-INT written 6 times. The full list is in bundle.json under collapsed_duplicates.</div>
 <div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>15 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
 
@@ -194,16 +193,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>44d5c0f04916f7fc</code>, written 2026-10-23T05:48:34+00:00 by ingester 1.3.6</dd>
+<dt>Bundle</dt><dd><code>cb91c24a2aafdca8</code>, written 2026-10-29T09:25:57+00:00 by ingester 1.4.0</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.6 from catalog
-<code>0f3e89532d0b7e2b</code>, built 2026-10-29T01:02:39+00:00 by datarepo
-1.3.6 (schema 0.0.15).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.0 from catalog
+<code>6069a2d5872ff49f</code>, built 2026-10-29T15:18:44+00:00 by datarepo
+1.4.0 (schema 0.0.16).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

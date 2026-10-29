@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD042301",
-  "bundle_id": "1e45b54acc25d183",
+  "bundle_id": "55abb8c222f7d4b9",
   "title": "Mapping of the podocin proximity-dependent proteome reveals novel components of the kidney podocyte foot process.",
   "organisms": [
    "NCBITaxon:10090"
@@ -49,6 +49,11 @@
   "pipeline_public_commit": null,
   "findings": [
    {
+    "code": "contaminant_label_unresolved",
+    "severity": "warning",
+    "message": "15 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row's label, contaminant over target, so `is_contaminant` may over-state for them: P02535, P07744, P08730, P19001, Q3TTY5."
+   },
+   {
     "code": "high_contamination",
     "severity": "warning",
     "message": "41.99% of protein intensity in the worst file, 15.61% median across 31 files (DEF-QC-9 v3.5)"
@@ -62,11 +67,6 @@
     "code": "unplaced_ptm_sites",
     "severity": "warning",
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 186 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
-   },
-   {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Trypsin Digested:GG (Ubiquitination Site) on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "collapsed_duplicate_rows",
@@ -573,17 +573,17 @@
   },
   "finding_codes": [
    "collapsed_duplicate_rows",
+   "contaminant_label_unresolved",
    "high_contamination",
    "no_design_file",
    "no_output_sdrf",
    "occupancy_decoy_groups",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "1e45b54acc25d183",
-   "written_utc": "2026-10-12T04:27:06+00:00",
-   "ingester_version": "1.3.2",
+   "bundle_id": "55abb8c222f7d4b9",
+   "written_utc": "2026-10-29T10:57:00+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": true,
    "reconciliation_failed": []
   },

@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD012307",
-  "bundle_id": "f602ae2e38c90064",
+  "bundle_id": "63a2859fd47fa0e9",
   "title": "An atlas of the aging lung mapped by single cell transcriptomics and deep tissue proteomics",
   "organisms": [
    "NCBITaxon:10090"
@@ -61,6 +61,11 @@
     "message": "Of 393128 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 42 duplicate entry for one site and run (identical values; same protein group); 16410 site not in ptm_sites. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
    },
    {
+    "code": "sdrf_conflicting_rows",
+    "severity": "warning",
+    "message": "The SDRF's rows for one source name disagree on 1 sample-level cell(s), in 1 sample(s), so those samples have no value there: no sample_characteristics row, and a samples column read from the cell is NULL (organism falls back to the manifest's). No row's value was taken over another's. Disagreeing rows usually mean the SDRF gave several samples one source name, so sample-level questions on these columns cannot be answered until it is curated. characteristics[age] of `Sample 1` is `24M` (16 row(s): 20131023_EXQ8_HeSc_SA_ECM_old_14_1, 20131023_EXQ8_HeSc_SA_ECM_old_14_2, 20131023_EXQ8_HeSc_SA_ECM_old_14_3, 20131023_EXQ8_HeSc_SA_ECM_old_14_4, 20131023_EXQ8_HeSc_SA_FR1_old_14_1, 20131023_EXQ8_HeSc_SA_FR1_old_14_2, 20131023_EXQ8_HeSc_SA_FR1_old_14_3, 20131023_EXQ8_HeSc_SA_FR1_old_14_4, 20131023_EXQ8_HeSc_SA_FR2_old_14_1, 20131023_EXQ8_HeSc_SA_FR2_old_14_2 and 6 more) or `3M` (16 row(s): 20131023_EXQ8_HeSc_SA_ECM_young_11_1, 20131023_EXQ8_HeSc_SA_ECM_young_11_2, 20131023_EXQ8_HeSc_SA_ECM_young_11_3, 20131023_EXQ8_HeSc_SA_ECM_young_11_4, 20131023_EXQ8_HeSc_SA_FR1_young_11_1, 20131023_EXQ8_HeSc_SA_FR1_young_11_2, 20131023_EXQ8_HeSc_SA_FR1_young_11_3, 20131023_EXQ8_HeSc_SA_FR1_young_11_4, 20131023_EXQ8_HeSc_SA_FR2_young_11_1, 20131023_EXQ8_HeSc_SA_FR2_young_11_2 and 6 more)."
+   },
+   {
     "code": "sdrf_uncoded",
     "severity": "warning",
     "message": "The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: organism part: Lungs. Match on it as text; it has not been mapped to a term."
@@ -69,11 +74,6 @@
     "code": "unplaced_ptm_sites",
     "severity": "warning",
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 13510 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
-   },
-   {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "collapsed_duplicate_rows",
@@ -738,14 +738,14 @@
    "count_mismatch",
    "occupancy_decoy_groups",
    "occupancy_not_stored",
+   "sdrf_conflicting_rows",
    "sdrf_uncoded",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "f602ae2e38c90064",
-   "written_utc": "2026-10-09T06:12:56+00:00",
-   "ingester_version": "1.3.1",
+   "bundle_id": "63a2859fd47fa0e9",
+   "written_utc": "2026-10-29T10:59:31+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"

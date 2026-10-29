@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD058082",
-  "bundle_id": "3b292839ac60c3d2",
+  "bundle_id": "7bae2533b1705414",
   "title": "Major toxin composition of particulate matter from a coal-fired power plant and its proteomics-associated toxicological ",
   "organisms": [
    "NCBITaxon:10090"
@@ -320,9 +320,9 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "3b292839ac60c3d2",
-   "written_utc": "2026-10-09T07:54:43+00:00",
-   "ingester_version": "1.3.1",
+   "bundle_id": "7bae2533b1705414",
+   "written_utc": "2026-10-29T09:51:51+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": true,
    "reconciliation_failed": []
   },

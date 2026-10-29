@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -1554,13 +1554,9 @@
    "file": "proteins/O089.json",
    "n": 26
   },
-  "O090": {
-   "file": "proteins/O090.json",
-   "n": 21
-  },
-  "O091": {
-   "file": "proteins/O091.json",
-   "n": 30
+  "O09": {
+   "file": "proteins/O09.json",
+   "n": 51
   },
   "O144": {
    "file": "proteins/O144.json",
@@ -1638,45 +1634,9 @@
    "file": "proteins/O355.json",
    "n": 17
   },
-  "O3560": {
-   "file": "proteins/O3560.json",
-   "n": 7
-  },
-  "O3561": {
-   "file": "proteins/O3561.json",
-   "n": 3
-  },
-  "O3562": {
-   "file": "proteins/O3562.json",
-   "n": 3
-  },
-  "O3563": {
-   "file": "proteins/O3563.json",
-   "n": 4
-  },
-  "O3564": {
-   "file": "proteins/O3564.json",
-   "n": 4
-  },
-  "O3565": {
-   "file": "proteins/O3565.json",
-   "n": 4
-  },
-  "O3566": {
-   "file": "proteins/O3566.json",
-   "n": 3
-  },
-  "O3567": {
-   "file": "proteins/O3567.json",
-   "n": 4
-  },
-  "O3568": {
-   "file": "proteins/O3568.json",
-   "n": 6
-  },
-  "O3569": {
-   "file": "proteins/O3569.json",
-   "n": 4
+  "O356": {
+   "file": "proteins/O356.json",
+   "n": 42
   },
   "O357": {
    "file": "proteins/O357.json",
@@ -2160,7 +2120,7 @@
   },
   "P063": {
    "file": "proteins/P063.json",
-   "n": 25
+   "n": 24
   },
   "P064": {
    "file": "proteins/P064.json",
@@ -2872,7 +2832,7 @@
   },
   "P207": {
    "file": "proteins/P207.json",
-   "n": 20
+   "n": 19
   },
   "P208": {
    "file": "proteins/P208.json",
@@ -3334,41 +3294,9 @@
    "file": "proteins/P351.json",
    "n": 6
   },
-  "P3521": {
-   "file": "proteins/P3521.json",
-   "n": 3
-  },
-  "P3522": {
-   "file": "proteins/P3522.json",
-   "n": 4
-  },
-  "P3523": {
-   "file": "proteins/P3523.json",
-   "n": 7
-  },
-  "P3524": {
-   "file": "proteins/P3524.json",
-   "n": 6
-  },
-  "P3525": {
-   "file": "proteins/P3525.json",
-   "n": 2
-  },
-  "P3526": {
-   "file": "proteins/P3526.json",
-   "n": 2
-  },
-  "P3527": {
-   "file": "proteins/P3527.json",
-   "n": 4
-  },
-  "P3528": {
-   "file": "proteins/P3528.json",
-   "n": 9
-  },
-  "P3529": {
-   "file": "proteins/P3529.json",
-   "n": 5
+  "P352": {
+   "file": "proteins/P352.json",
+   "n": 42
   },
   "P353": {
    "file": "proteins/P353.json",
@@ -4662,45 +4590,9 @@
    "file": "proteins/Q029.json",
    "n": 10
   },
-  "Q030": {
-   "file": "proteins/Q030.json",
-   "n": 7
-  },
-  "Q031": {
-   "file": "proteins/Q031.json",
-   "n": 22
-  },
-  "Q032": {
-   "file": "proteins/Q032.json",
-   "n": 6
-  },
-  "Q033": {
-   "file": "proteins/Q033.json",
-   "n": 14
-  },
-  "Q034": {
-   "file": "proteins/Q034.json",
-   "n": 6
-  },
-  "Q035": {
-   "file": "proteins/Q035.json",
-   "n": 6
-  },
-  "Q036": {
-   "file": "proteins/Q036.json",
-   "n": 2
-  },
-  "Q037": {
-   "file": "proteins/Q037.json",
-   "n": 4
-  },
-  "Q038": {
-   "file": "proteins/Q038.json",
-   "n": 1
-  },
-  "Q039": {
-   "file": "proteins/Q039.json",
-   "n": 8
+  "Q03": {
+   "file": "proteins/Q03.json",
+   "n": 76
   },
   "Q041": {
    "file": "proteins/Q041.json",
@@ -5988,7 +5880,7 @@
   },
   "Q608": {
    "file": "proteins/Q608.json",
-   "n": 38
+   "n": 37
   },
   "Q609": {
    "file": "proteins/Q609.json",
@@ -7604,7 +7496,7 @@
   },
   "Q8BU": {
    "file": "proteins/Q8BU.json",
-   "n": 49
+   "n": 48
   },
   "Q8BV": {
    "file": "proteins/Q8BV.json",
@@ -7892,7 +7784,7 @@
   },
   "Q8C9": {
    "file": "proteins/Q8C9.json",
-   "n": 16
+   "n": 15
   },
   "Q8CA": {
    "file": "proteins/Q8CA.json",
@@ -10380,7 +10272,7 @@
   },
   "Q91ZC": {
    "file": "proteins/Q91ZC.json",
-   "n": 3
+   "n": 2
   },
   "Q91ZD": {
    "file": "proteins/Q91ZD.json",
@@ -16918,13 +16810,13 @@
   "D": 718,
   "E": 677,
   "F": 709,
-  "G": 1072,
+  "G": 1071,
   "H": 640,
   "I": 867,
   "J": 45,
   "K": 579,
   "L": 709,
-  "M": 1156,
+  "M": 1155,
   "N": 805,
   "O": 433,
   "P": 1727,

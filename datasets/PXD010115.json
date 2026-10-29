@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD010115",
-  "bundle_id": "1d7b0bbabef2403a",
+  "bundle_id": "d6d3770b0aa808c2",
   "title": "Quantification of the Soluble Receptor of Advanced Glycation End-Products (sRAGE) by LC-MS Without the Use of Affinity Enrichment",
   "organisms": [
    "NCBITaxon:9606"
@@ -31,9 +31,9 @@
   "n_peptidoforms_1pct": 10258,
   "n_protein_groups_1pct": 445,
   "n_psms_all": 192315,
-  "n_ptm_sites": 7960,
+  "n_ptm_sites": 7952,
   "n_quant_values": 72116,
-  "n_open_findings": 8,
+  "n_open_findings": 7,
   "restrictions": [],
   "instruments": [
    "Q Exactive"
@@ -86,11 +86,6 @@
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 651 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
    },
    {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
-   },
-   {
     "code": "occupancy_decoy_groups",
     "severity": "info",
     "message": "68 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
@@ -100,7 +95,7 @@
    {
     "modification_name": "Carbamidomethyl on C",
     "modification": "UNIMOD:4",
-    "n_sites": 2613
+    "n_sites": 2607
    },
    {
     "modification_name": "Deamidation on N",
@@ -115,7 +110,7 @@
    {
     "modification_name": "Deamidation on Q",
     "modification": "UNIMOD:7",
-    "n_sites": 820
+    "n_sites": 819
    },
    {
     "modification_name": "Hydroxylation on P",
@@ -378,11 +373,6 @@
     "n_sites": 3
    },
    {
-    "modification_name": "Acetylation on X",
-    "modification": "UNIMOD:1",
-    "n_sites": 3
-   },
-   {
     "modification_name": "N-acetylalanine on A",
     "modification": "UNIMOD:1",
     "n_sites": 3
@@ -401,6 +391,11 @@
     "modification_name": "Omega-N-methylarginine on R",
     "modification": "UNIMOD:34",
     "n_sites": 3
+   },
+   {
+    "modification_name": "Acetylation on X",
+    "modification": "UNIMOD:1",
+    "n_sites": 2
    },
    {
     "modification_name": "Asymmetric dimethylarginine on R",
@@ -485,7 +480,7 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 8,
+   "warning": 7,
    "info": 1
   },
   "finding_codes": [
@@ -495,20 +490,19 @@
    "occupancy_decoy_groups",
    "occupancy_not_stored",
    "sdrf_uncoded",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "1d7b0bbabef2403a",
-   "written_utc": "2026-10-23T11:57:06+00:00",
-   "ingester_version": "1.3.6",
+   "bundle_id": "d6d3770b0aa808c2",
+   "written_utc": "2026-10-29T09:36:42+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct",
     "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD010115 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 119,030 PSMs, 10,258 peptidoforms and 445 protein groups, and the repository holds 7,960 PTM sites for it. 8 open warnings about it are recorded.",
+  "summary": "PXD010115 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 119,030 PSMs, 10,258 peptidoforms and 445 protein groups, and the repository holds 7,952 PTM sites for it. 7 open warnings about it are recorded.",
   "page": "datasets/PXD010115.html",
   "json": "datasets/PXD010115.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD010115.html",

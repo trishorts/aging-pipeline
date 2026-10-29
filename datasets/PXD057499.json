@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD057499",
-  "bundle_id": "2ed4f4859ee465af",
+  "bundle_id": "39886c12675d36ea",
   "title": "Synaptic phosphoproteome modifications and cortical circuit dysfunction are linked to the early-stage progression of alpha-synuclein pathology",
   "organisms": [
    "NCBITaxon:10116"
@@ -33,7 +33,7 @@
   "n_psms_all": 375011,
   "n_ptm_sites": 6985,
   "n_quant_values": 224979,
-  "n_open_findings": 6,
+  "n_open_findings": 5,
   "restrictions": [],
   "instruments": null,
   "search_database": "UP000002494_all_genecentric_2026_03_agingPTM-v3.xml",
@@ -72,11 +72,6 @@
     "code": "unplaced_ptm_sites",
     "severity": "warning",
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 530 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
-   },
-   {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "occupancy_decoy_groups",
@@ -448,7 +443,7 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 6,
+   "warning": 5,
    "info": 1
   },
   "finding_codes": [
@@ -457,19 +452,18 @@
    "no_sdrf",
    "occupancy_decoy_groups",
    "occupancy_not_stored",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "2ed4f4859ee465af",
-   "written_utc": "2026-10-11T17:55:46+00:00",
-   "ingester_version": "1.3.1",
+   "bundle_id": "39886c12675d36ea",
+   "written_utc": "2026-10-29T09:22:10+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD057499 is a DDA label-free dataset (Rattus norvegicus) with 8 runs, 8 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 249,655 PSMs, 19,847 peptidoforms and 2,865 protein groups, and the repository holds 6,985 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD057499 is a DDA label-free dataset (Rattus norvegicus) with 8 runs, 8 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 249,655 PSMs, 19,847 peptidoforms and 2,865 protein groups, and the repository holds 6,985 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD057499.html",
   "json": "datasets/PXD057499.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057499.html",

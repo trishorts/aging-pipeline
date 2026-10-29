@@ -19,11 +19,11 @@
  "name": "PXD043644 reanalysis: Liver-derived plasminogen mediates muscle stem cell expansion during caloric restriction through the plasminogen recepto",
  "identifier": [
   "PXD043644",
-  "datarepo:bundle:7f19d57dc0b42b3e"
+  "datarepo:bundle:74efd58d3f1d36aa"
  ],
- "description": "PXD043644 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 88,987 PSMs, 1,558 peptidoforms and 399 protein groups, and the repository holds 2,268 PTM sites for it. 6 open warnings about it are recorded.",
- "version": "7f19d57dc0b42b3e",
- "dateModified": "2026-10-16T02:49:48+00:00",
+ "description": "PXD043644 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 88,987 PSMs, 1,558 peptidoforms and 399 protein groups, and the repository holds 2,268 PTM sites for it. 5 open warnings about it are recorded.",
+ "version": "74efd58d3f1d36aa",
+ "dateModified": "2026-10-29T11:59:49+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 0f3e89532d0b7e2b",
+  "name": "datarepo catalog 6069a2d5872ff49f",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,17 +61,16 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD043644 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 88,987 PSMs, 1,558 peptidoforms and 399 protein groups, and the repository holds 2,268 PTM sites for it. 6 open warnings about it are recorded.
+PXD043644 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 88,987 PSMs, 1,558 peptidoforms and 399 protein groups, and the repository holds 2,268 PTM sites for it. 5 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 1 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 5 warnings and 1 for information</strong></p>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>63.58% of protein intensity in the worst file, 33.01% median across 12 files (DEF-QC-9 v3.5)</div>
 <div class="finding warning"><span class="code">low_core_use</span> <span class="note">warning</span><br>10.9 avg cores of 32 allowed (S5)</div>
 <div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 88987/1487500 = 5.98% of MS2 identified (S3)</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
 <div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 1501 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 31 site not in ptm_sites. &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
-<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
 <div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>173 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
 
 <h2>What was found</h2>
@@ -166,16 +165,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>7f19d57dc0b42b3e</code>, written 2026-10-16T02:49:48+00:00 by ingester 1.3.2</dd>
+<dt>Bundle</dt><dd><code>74efd58d3f1d36aa</code>, written 2026-10-29T11:59:49+00:00 by ingester 1.4.0</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts</dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.6 from catalog
-<code>0f3e89532d0b7e2b</code>, built 2026-10-29T01:02:39+00:00 by datarepo
-1.3.6 (schema 0.0.15).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.0 from catalog
+<code>6069a2d5872ff49f</code>, built 2026-10-29T15:18:44+00:00 by datarepo
+1.4.0 (schema 0.0.16).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

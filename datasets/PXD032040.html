@@ -19,11 +19,11 @@
  "name": "PXD032040 reanalysis: Translational specialization in pluripotency by RBPMS poises future lineage-decisions",
  "identifier": [
   "PXD032040",
-  "datarepo:bundle:e9864df4991e091f"
+  "datarepo:bundle:9fc77a7432a39d91"
  ],
- "description": "PXD032040 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 118,909 PSMs, 21,185 peptidoforms and 2,538 protein groups, and the repository holds 9,610 PTM sites for it. 6 open warnings about it are recorded.",
- "version": "e9864df4991e091f",
- "dateModified": "2026-10-06T16:39:22+00:00",
+ "description": "PXD032040 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 118,909 PSMs, 21,185 peptidoforms and 2,538 protein groups, and the repository holds 9,604 PTM sites for it. 7 open warnings about it are recorded.",
+ "version": "9fc77a7432a39d91",
+ "dateModified": "2026-10-29T09:33:14+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 0f3e89532d0b7e2b",
+  "name": "datarepo catalog 6069a2d5872ff49f",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,16 +61,17 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD032040 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 118,909 PSMs, 21,185 peptidoforms and 2,538 protein groups, and the repository holds 9,610 PTM sites for it. 6 open warnings about it are recorded.
+PXD032040 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 118,909 PSMs, 21,185 peptidoforms and 2,538 protein groups, and the repository holds 9,604 PTM sites for it. 7 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 3 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 7 warnings and 3 for information</strong></p>
+<div class="finding warning"><span class="code">contaminant_label_unresolved</span> <span class="note">warning</span><br>16 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row&#x27;s label, contaminant over target, so `is_contaminant` may over-state for them: P01008, P02533, P08729, P12035, P19013.</div>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>31.48% of protein intensity in the worst file, 5.38% median across 15 files (DEF-QC-9 v2)</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
-<div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 747 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
-<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
+<div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 30098 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 40 segment&#x27;s accession not determinable from the sequences. &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
+<div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 747 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored; 31 named a protein the searched databases carry with different sequences, where the search&#x27;s TCAmbiguity does not say which one it searched (O76011, P19013). Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
 <div class="finding warning"><span class="code">upstream_provenance_changed</span> <span class="note">warning</span><br>The search recorded its upstream &#x27;db_prepare&#x27; provenance (db/provenance.json) with sha256 6c40902506a8bd4a99fe884bae6d95be46f8a1647d50570879ddcd3b3a79de59, and the file there now has 812ce696ba3f0ee2a1f79241b5e16e9267d6199f7598af77391178b825658963: it was overwritten after the search. It is left out of this bundle rather than read as this search&#x27;s record. The search&#x27;s own record of the db_prepare stage is gone unless the producer archived it.</div>
 <div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD032040:A8MPP1;Q92771;Q96FC9 written 2 times; quant_values: 17 identifier(s), 17 row(s) dropped, e.g. PXD032040:20161028_AWH_ColID_236_ProjectID_240_Deniz_Kurian_IgG1:label_free:protein_group:PXD032040:A8MPP1;Q92771;Q96FC9:QuantProject:DEF-PROT-INT written 2 times. The full list is in bundle.json under collapsed_duplicates.</div>
 <div class="finding info"><span class="code">no_output_sdrf</span> <span class="note">info</span><br>The search did not write an SDRF back out, so sample metadata comes from the deposited SDRF only. Producer&#x27;s note: no reanalysis SDRF written (WriteSdrf is MetaMorpheus #2816, unreleased)</div>
@@ -81,7 +82,7 @@ PXD032040 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples an
 <tr><td>PSMs at 1% FDR</td><td class="num">118,909</td></tr>
 <tr><td>Peptidoforms at 1% FDR</td><td class="num">21,185</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">2,538</td></tr>
-<tr><td>PTM sites</td><td class="num">9,610</td></tr>
+<tr><td>PTM sites</td><td class="num">9,604</td></tr>
 <tr><td>Quantitative values</td><td class="num">218,505</td></tr>
 <tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">234,986</td></tr>
 <tr><td>MS2 identification rate <span class="note">(aging:DEF-ID-RATE)</span></td><td class="num">44.4%</td></tr>
@@ -108,7 +109,7 @@ PXD032040 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples an
 <thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
 <tbody>
 <tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">2,811</td></tr>
-<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">1,753</td></tr>
+<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">1,747</td></tr>
 <tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">1,477</td></tr>
 <tr><td>Deamidation on N</td><td>UNIMOD:7</td><td class="num">992</td></tr>
 <tr><td>Citrullination on R</td><td>UNIMOD:7</td><td class="num">283</td></tr>
@@ -200,16 +201,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>e9864df4991e091f</code>, written 2026-10-06T16:39:22+00:00 by ingester 1.3.0</dd>
+<dt>Bundle</dt><dd><code>9fc77a7432a39d91</code>, written 2026-10-29T09:33:14+00:00 by ingester 1.4.0</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts</dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.6 from catalog
-<code>0f3e89532d0b7e2b</code>, built 2026-10-29T01:02:39+00:00 by datarepo
-1.3.6 (schema 0.0.15).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.0 from catalog
+<code>6069a2d5872ff49f</code>, built 2026-10-29T15:18:44+00:00 by datarepo
+1.4.0 (schema 0.0.16).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

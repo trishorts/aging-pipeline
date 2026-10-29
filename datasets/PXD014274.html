@@ -19,11 +19,11 @@
  "name": "PXD014274 reanalysis: Proteomic and unbiased post-translational modification profiling of amyloid plaques and surrounding tissue in a transgenic mouse model of Alzheimer’s disease",
  "identifier": [
   "PXD014274",
-  "datarepo:bundle:ddeab371b369bbdb"
+  "datarepo:bundle:554d3bb13e935f75"
  ],
- "description": "PXD014274 is a DDA label-free dataset (Mus musculus) with 38 runs, 38 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 116,639 PSMs, 6,415 peptidoforms and 1,318 protein groups, and the repository holds 7,280 PTM sites for it. 9 open warnings about it are recorded.",
- "version": "ddeab371b369bbdb",
- "dateModified": "2026-10-12T12:40:11+00:00",
+ "description": "PXD014274 is a DDA label-free dataset (Mus musculus) with 38 runs, 38 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 116,639 PSMs, 6,415 peptidoforms and 1,318 protein groups, and the repository holds 7,280 PTM sites for it. 8 open warnings about it are recorded.",
+ "version": "554d3bb13e935f75",
+ "dateModified": "2026-10-29T09:24:00+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 0f3e89532d0b7e2b",
+  "name": "datarepo catalog 6069a2d5872ff49f",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,11 +61,11 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD014274 is a DDA label-free dataset (Mus musculus) with 38 runs, 38 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 116,639 PSMs, 6,415 peptidoforms and 1,318 protein groups, and the repository holds 7,280 PTM sites for it. 9 open warnings about it are recorded.
+PXD014274 is a DDA label-free dataset (Mus musculus) with 38 runs, 38 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 116,639 PSMs, 6,415 peptidoforms and 1,318 protein groups, and the repository holds 7,280 PTM sites for it. 8 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 9 warnings and 5 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 8 warnings and 5 for information</strong></p>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 6416 where the producer reported 6415 (results.txt: All target peptides with q-value &lt;= 0.01). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 116639 where the producer reported 116638 (results.txt: All target PSMs with q-value &lt;= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>61.81% of protein intensity in the worst file, 22.57% median across 38 files (DEF-QC-9 v3.5)</div>
@@ -74,7 +74,6 @@ PXD014274 is a DDA label-free dataset (Mus musculus) with 38 runs, 38 samples an
 <div class="finding warning"><span class="code">sdrf_partial</span> <span class="note">warning</span><br>The SDRF was used only for the runs it names that were searched: it names no row for 6 searched run(s), each given a synthetic sample with no annotation: Lib1, Lib1_2, Lib2, Lib2_2, Lib3, Lib3_2. sdrf_status is `partial`.</div>
 <div class="finding warning"><span class="code">sdrf_uncoded</span> <span class="note">warning</span><br>The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: disease: Alzheimer disease, normal; organism part: hippocampal formation. Match on it as text; it has not been mapped to a term.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 1069 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
-<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
 <div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 3 row(s) dropped, e.g. PXD014274:D3Z748;F6WRP6;K9J7B2;P70691;Q62452;Q63886;Q64435;Q6ZQM8 written 4 times; quant_values: 38 identifier(s), 114 row(s) dropped, e.g. PXD014274:Lib1:label_free:protein_group:PXD014274:D3Z748;F6WRP6;K9J7B2;P70691;Q62452;Q63886;Q64435;Q6ZQM8:QuantProject:DEF-PROT-SPC written 4 times. The full list is in bundle.json under collapsed_duplicates.</div>
 <div class="finding info"><span class="code">excluded_from_search</span> <span class="note">info</span><br>The deposited file Tg1_L_Ctr.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer&#x27;s reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: 9aee7c1c25203eea5183b484ac6a34ed598d4c17297061e547bdc6f5c8baeaeb.</div>
 <div class="finding info"><span class="code">excluded_from_search</span> <span class="note">info</span><br>The deposited file Tg1_R_Ctr.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer&#x27;s reason: D52: failed qc_spectra on too_few_ms2 (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: 799b6a4a8c8a51996b20a4818a3d255751ab52843b75a9122462390cd99ab0db.</div>
@@ -202,16 +201,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>ddeab371b369bbdb</code>, written 2026-10-12T12:40:11+00:00 by ingester 1.3.2</dd>
+<dt>Bundle</dt><dd><code>554d3bb13e935f75</code>, written 2026-10-29T09:24:00+00:00 by ingester 1.4.0</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct, peptidoforms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.6 from catalog
-<code>0f3e89532d0b7e2b</code>, built 2026-10-29T01:02:39+00:00 by datarepo
-1.3.6 (schema 0.0.15).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.0 from catalog
+<code>6069a2d5872ff49f</code>, built 2026-10-29T15:18:44+00:00 by datarepo
+1.4.0 (schema 0.0.16).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

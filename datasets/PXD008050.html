@@ -19,11 +19,11 @@
  "name": "PXD008050 reanalysis: UVA and to UV-oxidized lipids proteomic regulation of the human keratinocytes",
  "identifier": [
   "PXD008050",
-  "datarepo:bundle:2e25ee47c3fad43c"
+  "datarepo:bundle:92b316ca74569432"
  ],
- "description": "PXD008050 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 937,570 PSMs, 63,990 peptidoforms and 5,614 protein groups, and the repository holds 40,978 PTM sites for it. 5 open warnings about it are recorded.",
- "version": "2e25ee47c3fad43c",
- "dateModified": "2026-10-18T12:09:21+00:00",
+ "description": "PXD008050 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 937,570 PSMs, 63,990 peptidoforms and 5,614 protein groups, and the repository holds 40,949 PTM sites for it. 4 open warnings about it are recorded.",
+ "version": "92b316ca74569432",
+ "dateModified": "2026-10-29T12:36:01+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 0f3e89532d0b7e2b",
+  "name": "datarepo catalog 6069a2d5872ff49f",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,16 +61,15 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD008050 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 937,570 PSMs, 63,990 peptidoforms and 5,614 protein groups, and the repository holds 40,978 PTM sites for it. 5 open warnings about it are recorded.
+PXD008050 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 937,570 PSMs, 63,990 peptidoforms and 5,614 protein groups, and the repository holds 40,949 PTM sites for it. 4 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 5 warnings and 2 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 4 warnings and 2 for information</strong></p>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 937570 where the producer reported 937636 (results.txt: All target PSMs with q-value &lt;= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each run was given a synthetic sample of its own. There is no sample metadata: treat every sample as unannotated.</div>
 <div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 172076 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 144 duplicate entry for one site and run (identical values; same protein group); 10386 site not in ptm_sites. &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 4374 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
-<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
 <div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 2 identifier(s), 2 row(s) dropped, e.g. PXD008050:P01241;P01242;P0DML2;P0DML3 written 2 times; quant_values: 54 identifier(s), 54 row(s) dropped, e.g. PXD008050:EC06-HTkCtrl-BA1-P1144-1:label_free:protein_group:PXD008050:P01241;P01242;P0DML2;P0DML3:QuantProject:DEF-PROT-INT written 2 times. The full list is in bundle.json under collapsed_duplicates.</div>
 <div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>86 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
 
@@ -79,7 +78,7 @@ PXD008050 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples an
 <tr><td>PSMs at 1% FDR</td><td class="num">937,570</td></tr>
 <tr><td>Peptidoforms at 1% FDR</td><td class="num">63,990</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">5,614</td></tr>
-<tr><td>PTM sites</td><td class="num">40,978</td></tr>
+<tr><td>PTM sites</td><td class="num">40,949</td></tr>
 <tr><td>Quantitative values</td><td class="num">966,530</td></tr>
 <tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">1,526,262</td></tr>
 <tr><td>MS2 identification rate <span class="note">(pxreprise:DEF-ID-RATE)</span></td><td class="num">60.7%</td></tr>
@@ -105,13 +104,13 @@ PXD008050 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples an
 <div class="scroll"><table>
 <thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
 <tbody>
-<tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">14,558</td></tr>
+<tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">14,550</td></tr>
 <tr><td>Deamidation on N</td><td>UNIMOD:7</td><td class="num">5,318</td></tr>
-<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">5,067</td></tr>
+<tr><td>Deamidation on Q</td><td>UNIMOD:7</td><td class="num">5,060</td></tr>
 <tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">2,679</td></tr>
 <tr><td>Citrullination on R</td><td>UNIMOD:7</td><td class="num">1,081</td></tr>
-<tr><td>Carbamyl on X</td><td>UNIMOD:5</td><td class="num">1,033</td></tr>
-<tr><td>Ammonia loss on N</td><td>UNIMOD:385</td><td class="num">801</td></tr>
+<tr><td>Carbamyl on X</td><td>UNIMOD:5</td><td class="num">1,031</td></tr>
+<tr><td>Ammonia loss on N</td><td>UNIMOD:385</td><td class="num">800</td></tr>
 <tr><td>Carbamyl on K</td><td>UNIMOD:5</td><td class="num">688</td></tr>
 <tr><td>Ammonia loss on C</td><td>UNIMOD:385</td><td class="num">675</td></tr>
 <tr><td>Hydroxylation on P</td><td>UNIMOD:35</td><td class="num">463</td></tr>
@@ -119,17 +118,17 @@ PXD008050 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples an
 <tr><td>N-acetylalanine on A</td><td>UNIMOD:1</td><td class="num">325</td></tr>
 <tr><td>Fe[III] on E</td><td>UNIMOD:1870</td><td class="num">320</td></tr>
 <tr><td>Fe[III] on D</td><td>UNIMOD:1870</td><td class="num">265</td></tr>
-<tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">253</td></tr>
+<tr><td>Hydroxylation on N</td><td>UNIMOD:35</td><td class="num">252</td></tr>
 <tr><td>N-acetylmethionine on M</td><td>UNIMOD:1</td><td class="num">185</td></tr>
 <tr><td>Fe[II] on E</td><td>UNIMOD:952</td><td class="num">181</td></tr>
 <tr><td>Phosphorylation on S</td><td>UNIMOD:21</td><td class="num">175</td></tr>
 <tr><td>Fe[II] on D</td><td>UNIMOD:952</td><td class="num">168</td></tr>
 <tr><td>Methylation on K</td><td>UNIMOD:34</td><td class="num">166</td></tr>
 <tr><td>Sodium on E</td><td>UNIMOD:30</td><td class="num">166</td></tr>
-<tr><td>Sodium on D</td><td>UNIMOD:30</td><td class="num">163</td></tr>
-<tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">157</td></tr>
+<tr><td>Sodium on D</td><td>UNIMOD:30</td><td class="num">162</td></tr>
+<tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">156</td></tr>
 <tr><td>Magnesium on E</td><td>UNIMOD:956</td><td class="num">153</td></tr>
-<tr><td>Acetylation on X</td><td>UNIMOD:1</td><td class="num">145</td></tr>
+<tr><td>Acetylation on X</td><td>UNIMOD:1</td><td class="num">144</td></tr>
 <tr><td>Acetylation on K</td><td>UNIMOD:1</td><td class="num">138</td></tr>
 <tr><td>N6-acetyllysine on K</td><td>UNIMOD:1</td><td class="num">137</td></tr>
 <tr><td>Carbamyl on M</td><td>UNIMOD:5</td><td class="num">130</td></tr>
@@ -144,7 +143,7 @@ PXD008050 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples an
 <tr><td>Carboxylation on K</td><td>UNIMOD:299</td><td class="num">55</td></tr>
 <tr><td>HexNAc on S</td><td>UNIMOD:43</td><td class="num">54</td></tr>
 <tr><td>Omega-N-methylarginine on R</td><td>UNIMOD:34</td><td class="num">52</td></tr>
-<tr><td>Dimethylation on R</td><td>UNIMOD:36</td><td class="num">51</td></tr>
+<tr><td>Dimethylation on R</td><td>UNIMOD:36</td><td class="num">50</td></tr>
 <tr><td>Phosphothreonine on T</td><td>UNIMOD:21</td><td class="num">49</td></tr>
 <tr><td>Carboxylation on D</td><td>UNIMOD:299</td><td class="num">47</td></tr>
 <tr><td>Carboxylation on E</td><td>UNIMOD:299</td><td class="num">46</td></tr>
@@ -153,7 +152,7 @@ PXD008050 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples an
 <tr><td>Calcium on E</td><td>UNIMOD:951</td><td class="num">42</td></tr>
 <tr><td>Trimethylation on K</td><td>UNIMOD:37</td><td class="num">42</td></tr>
 <tr><td>Asymmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">41</td></tr>
-<tr><td>Potassium on E</td><td>UNIMOD:530</td><td class="num">40</td></tr>
+<tr><td>Potassium on E</td><td>UNIMOD:530</td><td class="num">39</td></tr>
 <tr><td>HexNAc on T</td><td>UNIMOD:43</td><td class="num">37</td></tr>
 <tr><td>Nitrosylation on Y</td><td>UNIMOD:354</td><td class="num">34</td></tr>
 <tr><td>Carbamyl on C</td><td>UNIMOD:5</td><td class="num">28</td></tr>
@@ -223,16 +222,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>2e25ee47c3fad43c</code>, written 2026-10-18T12:09:21+00:00 by ingester 1.3.2</dd>
+<dt>Bundle</dt><dd><code>92b316ca74569432</code>, written 2026-10-29T12:36:01+00:00 by ingester 1.4.0</dd>
 <dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.6 from catalog
-<code>0f3e89532d0b7e2b</code>, built 2026-10-29T01:02:39+00:00 by datarepo
-1.3.6 (schema 0.0.15).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.0 from catalog
+<code>6069a2d5872ff49f</code>, built 2026-10-29T15:18:44+00:00 by datarepo
+1.4.0 (schema 0.0.16).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

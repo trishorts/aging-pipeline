@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD047288",
-  "bundle_id": "caf9942482f4c51f",
+  "bundle_id": "3fb04088ea35c6e5",
   "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
   "organisms": [
    "NCBITaxon:10116"
@@ -33,7 +33,7 @@
   "n_psms_all": 372505,
   "n_ptm_sites": 1602,
   "n_quant_values": 51704,
-  "n_open_findings": 7,
+  "n_open_findings": 6,
   "restrictions": [],
   "instruments": null,
   "search_database": "UP000002494_all_genecentric_2026_03_agingPTM-v4.xml",
@@ -79,11 +79,6 @@
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 115 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
    },
    {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, Unimod:Nethylmaleimide on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
-   },
-   {
     "code": "occupancy_decoy_groups",
     "severity": "info",
     "message": "81 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
@@ -107,7 +102,7 @@
    },
    {
     "modification_name": "Nethylmaleimide on C",
-    "modification": null,
+    "modification": "UNIMOD:108",
     "n_sites": 38
    },
    {
@@ -398,7 +393,7 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 7,
+   "warning": 6,
    "info": 1
   },
   "finding_codes": [
@@ -408,17 +403,16 @@
    "no_sdrf",
    "occupancy_decoy_groups",
    "occupancy_not_stored",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "caf9942482f4c51f",
-   "written_utc": "2026-10-23T09:54:47+00:00",
-   "ingester_version": "1.3.6",
+   "bundle_id": "3fb04088ea35c6e5",
+   "written_utc": "2026-10-29T09:26:50+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": true,
    "reconciliation_failed": []
   },
-  "summary": "PXD047288 is a DDA label-free dataset (Rattus norvegicus) with 36 runs, 36 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 8,398 PSMs, 884 peptidoforms and 367 protein groups, and the repository holds 1,602 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD047288 is a DDA label-free dataset (Rattus norvegicus) with 36 runs, 36 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 8,398 PSMs, 884 peptidoforms and 367 protein groups, and the repository holds 1,602 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD047288.html",
   "json": "datasets/PXD047288.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD047288.html",

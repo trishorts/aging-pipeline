@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "0f3e89532d0b7e2b",
-  "catalog_version": "13",
-  "schema_version": "0.0.15",
-  "builder_version": "1.3.6",
-  "built_utc": "2026-10-29T01:02:39+00:00",
+  "catalog_id": "6069a2d5872ff49f",
+  "catalog_version": "14",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.0",
+  "built_utc": "2026-10-29T15:18:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD009430",
-  "bundle_id": "710b1cf52871cf0d",
+  "bundle_id": "8b3c8ba5668854e9",
   "title": "Modulation of the ATM / autophagy pathway tips the balance between senescence and apoptosis in response to a quadruplex ligand",
   "organisms": [
    "NCBITaxon:9606"
@@ -31,9 +31,9 @@
   "n_peptidoforms_1pct": 20480,
   "n_protein_groups_1pct": 2782,
   "n_psms_all": 686587,
-  "n_ptm_sites": 16182,
+  "n_ptm_sites": 16167,
   "n_quant_values": 255719,
-  "n_open_findings": 6,
+  "n_open_findings": 5,
   "restrictions": [],
   "instruments": null,
   "search_database": "UP000005640_all_genecentric_2026_03_agingPTM-v4.xml",
@@ -74,11 +74,6 @@
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 944 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
    },
    {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
-   },
-   {
     "code": "collapsed_duplicate_rows",
     "severity": "info",
     "message": "The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 4 identifier(s), 15 row(s) dropped, e.g. PXD009430:A0A087WUL8;A0AAG2SUX2;A0AAG2UXD8;A0AAG2UXK7;A0AAG2UXS2;P0DPF3;Q3BBV0;Q3BBV2;Q5TAG4;Q5TI25;Q6P3W6;Q86T75;Q8N660 written 7 times; quant_values: 48 identifier(s), 180 row(s) dropped, e.g. PXD009430:mm131128_01:label_free:protein_group:PXD009430:A0A087WUL8;A0AAG2SUX2;A0AAG2UXD8;A0AAG2UXK7;A0AAG2UXS2;P0DPF3;Q3BBV0;Q3BBV2;Q5TAG4;Q5TI25;Q6P3W6;Q86T75;Q8N660:QuantProject:DEF-PROT-SPC written 7 times. The full list is in bundle.json under collapsed_duplicates."
@@ -98,17 +93,17 @@
    {
     "modification_name": "Carbamidomethyl on C",
     "modification": "UNIMOD:4",
-    "n_sites": 3946
+    "n_sites": 3940
    },
    {
     "modification_name": "Deamidation on N",
     "modification": "UNIMOD:7",
-    "n_sites": 2460
+    "n_sites": 2458
    },
    {
     "modification_name": "Deamidation on Q",
     "modification": "UNIMOD:7",
-    "n_sites": 1725
+    "n_sites": 1724
    },
    {
     "modification_name": "Hydroxylation on P",
@@ -233,7 +228,7 @@
    {
     "modification_name": "Acetylation on X",
     "modification": "UNIMOD:1",
-    "n_sites": 27
+    "n_sites": 26
    },
    {
     "modification_name": "Phosphorylation on T",
@@ -543,7 +538,7 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 6,
+   "warning": 5,
    "info": 2
   },
   "finding_codes": [
@@ -553,19 +548,18 @@
    "occupancy_decoy_groups",
    "occupancy_not_stored",
    "spectral_library",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "710b1cf52871cf0d",
-   "written_utc": "2026-10-24T06:44:06+00:00",
-   "ingester_version": "1.3.6",
+   "bundle_id": "8b3c8ba5668854e9",
+   "written_utc": "2026-10-29T11:02:40+00:00",
+   "ingester_version": "1.4.0",
    "reconciliation_ok": false,
    "reconciliation_failed": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD009430 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 301,057 PSMs, 20,480 peptidoforms and 2,782 protein groups, and the repository holds 16,182 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD009430 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 301,057 PSMs, 20,480 peptidoforms and 2,782 protein groups, and the repository holds 16,167 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD009430.html",
   "json": "datasets/PXD009430.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD009430.html",

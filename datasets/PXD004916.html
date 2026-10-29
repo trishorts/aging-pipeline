@@ -19,11 +19,11 @@
  "name": "PXD004916 reanalysis: Spermidine treated mouse Heart LC-MS/MS",
  "identifier": [
   "PXD004916",
-  "datarepo:bundle:ad4780f86eccd4b6"
+  "datarepo:bundle:d02c7622570083f3"
  ],
- "description": "PXD004916 is a DDA label-free dataset (Mus musculus) with 54 runs, 54 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 227,597 PSMs, 16,301 peptidoforms and 2,001 protein groups, and the repository holds 5,536 PTM sites for it. 7 open warnings about it are recorded.",
- "version": "ad4780f86eccd4b6",
- "dateModified": "2026-10-11T14:39:25+00:00",
+ "description": "PXD004916 is a DDA label-free dataset (Mus musculus) with 54 runs, 54 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 227,597 PSMs, 16,301 peptidoforms and 2,001 protein groups, and the repository holds 5,536 PTM sites for it. 8 open warnings about it are recorded.",
+ "version": "d02c7622570083f3",
+ "dateModified": "2026-10-29T11:35:48+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 0f3e89532d0b7e2b",
+  "name": "datarepo catalog 6069a2d5872ff49f",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,18 +61,19 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD004916 is a DDA label-free dataset (Mus musculus) with 54 runs, 54 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 227,597 PSMs, 16,301 peptidoforms and 2,001 protein groups, and the repository holds 5,536 PTM sites for it. 7 open warnings about it are recorded.
+PXD004916 is a DDA label-free dataset (Mus musculus) with 54 runs, 54 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 227,597 PSMs, 16,301 peptidoforms and 2,001 protein groups, and the repository holds 5,536 PTM sites for it. 8 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 7 warnings and 1 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 8 warnings and 1 for information</strong></p>
+<div class="finding warning"><span class="code">contaminant_label_unresolved</span> <span class="note">warning</span><br>9 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row&#x27;s label, contaminant over target, so `is_contaminant` may over-state for them: P08730, P19001, Q6IFZ6, Q6IME9, Q6NXH9.</div>
 <div class="finding warning"><span class="code">cysteine_poor</span> <span class="note">warning</span><br>1.23% of 1% target peptides contain C (whole proteomes: 12-26%); check the alkylant (aging PXR-A37)</div>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>13.41% of protein intensity in the worst file, 0.34% median across 54 files (DEF-QC-9 v3.5)</div>
 <div class="finding warning"><span class="code">low_core_use</span> <span class="note">warning</span><br>9.63 avg cores of 32 allowed (S5)</div>
 <div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 5727 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 1806 site not in ptm_sites. &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
 <div class="finding warning"><span class="code">sdrf_uncoded</span> <span class="note">warning</span><br>The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: organism part: heart. Match on it as text; it has not been mapped to a term.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 74 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
-<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: Common Biological:Hydroxybutyrylation on K, UniProt:S-(2,3-dicarboxypropyl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
+<div class="finding warning"><span class="code">upstream_provenance_changed</span> <span class="note">warning</span><br>The search recorded its upstream &#x27;fetch&#x27; provenance (run_2026-09-21/PXD004916/02_fetch/provenance.json) with sha256 eb19d153e76e324836ca6229b545560d903b8089c739a7f740588ae4bc51e135, and the file there now has a36406de2c81fe2283ea02dc5f823ebe72566f84fbbf2608a622a983b07ee88b: it was overwritten after the search. It is left out of this bundle rather than read as this search&#x27;s record. The search&#x27;s own record of the fetch stage is gone unless the producer archived it.</div>
 <div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>107 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
 
 <h2>What was found</h2>
@@ -168,16 +169,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>ad4780f86eccd4b6</code>, written 2026-10-11T14:39:25+00:00 by ingester 1.3.1</dd>
+<dt>Bundle</dt><dd><code>d02c7622570083f3</code>, written 2026-10-29T11:35:48+00:00 by ingester 1.4.0</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts</dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.3.6 from catalog
-<code>0f3e89532d0b7e2b</code>, built 2026-10-29T01:02:39+00:00 by datarepo
-1.3.6 (schema 0.0.15).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.0 from catalog
+<code>6069a2d5872ff49f</code>, built 2026-10-29T15:18:44+00:00 by datarepo
+1.4.0 (schema 0.0.16).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

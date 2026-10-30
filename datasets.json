@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "d6a40f203c73306d",
+  "catalog_id": "9bd5364674800a90",
   "catalog_version": "14",
   "schema_version": "0.0.16",
   "builder_version": "1.4.0",
-  "built_utc": "2026-10-29T18:26:59+00:00",
+  "built_utc": "2026-10-30T05:51:48+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -7205,27 +7205,26 @@
    "enrichment_mixed": true,
    "n_runs": 30,
    "n_samples": 30,
-   "n_psms_1pct": 2700831,
-   "n_peptidoforms_1pct": 59603,
-   "n_protein_groups_1pct": 3953,
-   "n_ptm_sites": 49918,
+   "n_psms_1pct": 2789721,
+   "n_peptidoforms_1pct": 55792,
+   "n_protein_groups_1pct": 3866,
+   "n_ptm_sites": 36045,
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
     "warning": 6,
-    "info": 2
+    "info": 1
    },
    "finding_codes": [
-    "collapsed_duplicate_rows",
-    "contaminant_label_unresolved",
     "count_mismatch",
     "mixed_enrichment",
     "no_sdrf",
     "occupancy_decoy_groups",
     "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
     "unplaced_ptm_sites"
    ],
-   "summary": "PXD061654 is a DDA label-free dataset (Mus musculus) with 30 runs, 30 samples and runs that differ in enrichment (acetyl on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 2,700,831 PSMs, 59,603 peptidoforms and 3,953 protein groups, and the repository holds 49,918 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD061654 is a DDA label-free dataset (Mus musculus) with 30 runs, 30 samples and runs that differ in enrichment (acetyl on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 2,789,721 PSMs, 55,792 peptidoforms and 3,866 protein groups, and the repository holds 36,045 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD061654.html",
    "json": "datasets/PXD061654.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD061654.html",

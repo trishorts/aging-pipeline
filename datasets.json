@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "9bd5364674800a90",
+  "catalog_id": "206e85db884c4909",
   "catalog_version": "14",
   "schema_version": "0.0.16",
   "builder_version": "1.4.0",
-  "built_utc": "2026-10-30T05:51:48+00:00",
+  "built_utc": "2026-10-30T12:42:38+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -7549,26 +7549,26 @@
    "enrichment_mixed": false,
    "n_runs": 12,
    "n_samples": 12,
-   "n_psms_1pct": 530165,
-   "n_peptidoforms_1pct": 29396,
-   "n_protein_groups_1pct": 3332,
-   "n_ptm_sites": 22809,
+   "n_psms_1pct": 514178,
+   "n_peptidoforms_1pct": 26734,
+   "n_protein_groups_1pct": 3232,
+   "n_ptm_sites": 15329,
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
-    "warning": 5,
-    "info": 2
+    "warning": 6,
+    "info": 1
    },
    "finding_codes": [
-    "collapsed_duplicate_rows",
-    "contaminant_label_unresolved",
     "count_mismatch",
+    "low_core_use",
     "no_sdrf",
     "occupancy_decoy_groups",
     "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
     "unplaced_ptm_sites"
    ],
-   "summary": "PXD073999 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 530,165 PSMs, 29,396 peptidoforms and 3,332 protein groups, and the repository holds 22,809 PTM sites for it. 5 open warnings about it are recorded.",
+   "summary": "PXD073999 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 514,178 PSMs, 26,734 peptidoforms and 3,232 protein groups, and the repository holds 15,329 PTM sites for it. 6 open warnings about it are recorded.",
    "page": "datasets/PXD073999.html",
    "json": "datasets/PXD073999.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD073999.html",

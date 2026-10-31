@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "6e93948dd85e86ba",
+  "catalog_id": "ddc9dd50d2bacc5f",
   "catalog_version": "14",
   "schema_version": "0.0.16",
   "builder_version": "1.4.0",
-  "built_utc": "2026-10-31T12:09:47+00:00",
+  "built_utc": "2026-10-31T18:10:11+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -7315,6 +7315,51 @@
    "json": "datasets/PXD060982.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD060982.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD060982.json"
+  },
+  {
+   "dataset_id": "PXD061069",
+   "title": "The SET1/COMPASS subunit RBBP5 orchestrates epigenetic control of global proteostasis and the 12h oscillator to safeguar",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "proximity_labelling"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 120,
+   "n_samples": 120,
+   "n_psms_1pct": 586221,
+   "n_peptidoforms_1pct": 35874,
+   "n_protein_groups_1pct": 3220,
+   "n_ptm_sites": 15631,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 8,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "high_contamination",
+    "low_core_use",
+    "low_id_rate",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD061069 is a DDA label-free dataset (Mus musculus) with 120 runs, 120 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 586,221 PSMs, 35,874 peptidoforms and 3,220 protein groups, and the repository holds 15,631 PTM sites for it. 8 open warnings about it are recorded.",
+   "page": "datasets/PXD061069.html",
+   "json": "datasets/PXD061069.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD061069.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD061069.json"
   },
   {
    "dataset_id": "PXD061654",

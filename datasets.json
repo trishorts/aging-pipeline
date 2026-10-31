@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "9f962f0df86e5cb9",
+  "catalog_id": "6e93948dd85e86ba",
   "catalog_version": "14",
   "schema_version": "0.0.16",
   "builder_version": "1.4.0",
-  "built_utc": "2026-10-31T06:08:08+00:00",
+  "built_utc": "2026-10-31T12:09:47+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -179,6 +179,49 @@
    "json": "datasets/PXD005014.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD005014.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD005014.json"
+  },
+  {
+   "dataset_id": "PXD005123",
+   "title": "Somatic increase of CCT8 mimics proteostasis of human pluripotent stem cells and extends C. elegans lifespan",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 20,
+   "n_samples": 20,
+   "n_psms_1pct": 1101243,
+   "n_peptidoforms_1pct": 86630,
+   "n_protein_groups_1pct": 7889,
+   "n_ptm_sites": 25195,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD005123 is a DDA label-free dataset (Homo sapiens) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 1,101,243 PSMs, 86,630 peptidoforms and 7,889 protein groups, and the repository holds 25,195 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD005123.html",
+   "json": "datasets/PXD005123.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD005123.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD005123.json"
   },
   {
    "dataset_id": "PXD006216",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "ddc9dd50d2bacc5f",
+  "catalog_id": "1ac6299b6ba06d41",
   "catalog_version": "14",
   "schema_version": "0.0.16",
   "builder_version": "1.4.0",
-  "built_utc": "2026-10-31T18:10:11+00:00",
+  "built_utc": "2026-11-01T00:09:48+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -1682,6 +1682,49 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD016430.json"
   },
   {
+   "dataset_id": "PXD016793",
+   "title": "Proteomics analysis of rat liver after disulfiram treatment",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 24,
+   "n_samples": 24,
+   "n_psms_1pct": 2314854,
+   "n_peptidoforms_1pct": 68434,
+   "n_protein_groups_1pct": 5609,
+   "n_ptm_sites": 42538,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD016793 is a DDA label-free dataset (Rattus norvegicus) with 24 runs, 24 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 2,314,854 PSMs, 68,434 peptidoforms and 5,609 protein groups, and the repository holds 42,538 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD016793.html",
+   "json": "datasets/PXD016793.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD016793.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD016793.json"
+  },
+  {
    "dataset_id": "PXD017058",
    "title": "Astrocyte Support for Oligodendrocyte Differentiation can be Conveyed via Extracellular Vesicles but Diminishes with Age",
    "organisms": [
@@ -2241,6 +2284,50 @@
    "json": "datasets/PXD019849.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019849.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019849.json"
+  },
+  {
+   "dataset_id": "PXD020462",
+   "title": "Oxidative damage signatures in human bone collagen from Pompeii and Herculaneum.",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 15,
+   "n_samples": 15,
+   "n_psms_1pct": 4035,
+   "n_peptidoforms_1pct": 457,
+   "n_protein_groups_1pct": 46,
+   "n_ptm_sites": 448,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 1
+   },
+   "finding_codes": [
+    "calibration_failed",
+    "cysteine_poor",
+    "high_contamination",
+    "low_core_use",
+    "low_id_rate",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "peptide_rows_localization_ambiguous"
+   ],
+   "summary": "PXD020462 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 4,035 PSMs, 457 peptidoforms and 46 protein groups, and the repository holds 448 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD020462.html",
+   "json": "datasets/PXD020462.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD020462.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD020462.json"
   },
   {
    "dataset_id": "PXD021069",

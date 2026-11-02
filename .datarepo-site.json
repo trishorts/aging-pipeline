@@ -1,5 +1,5 @@
 {
- "catalog_id": "2acdd821cb79c4bc",
+ "catalog_id": "5007d9e2ba441c12",
  "generator": "datarepo 1.4.0",
  "files": [
   "datasets.json",
@@ -4163,7 +4163,6 @@
   "proteins/Q9JL5.json",
   "proteins/Q9JL6.json",
   "proteins/Q9JL7.json",
-  "proteins/Q9JL8.json",
   "proteins/Q9JL9.json",
   "proteins/Q9JLA.json",
   "proteins/Q9JLB.json",

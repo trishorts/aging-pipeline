@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "45d8ea073f49571b",
-  "catalog_version": "14",
+  "catalog_id": "8100ef5373106885",
+  "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.0",
-  "built_utc": "2026-11-02T16:22:12+00:00",
+  "builder_version": "1.4.1",
+  "built_utc": "2026-11-02T22:30:18+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD004916",
-  "bundle_id": "d02c7622570083f3",
+  "bundle_id": "098a802d4a9ce90c",
   "title": "Spermidine treated mouse Heart LC-MS/MS",
   "organisms": [
    "NCBITaxon:10090"
@@ -25,6 +25,7 @@
   "instrument_vendor": "Thermo",
   "search_engine": "MetaMorpheus",
   "search_engine_version": "1.1.12",
+  "unique_peptides_scope": "database",
   "n_runs": 54,
   "n_samples": 54,
   "n_psms_1pct": 227597,
@@ -33,7 +34,7 @@
   "n_psms_all": 1658232,
   "n_ptm_sites": 5536,
   "n_quant_values": 364317,
-  "n_open_findings": 8,
+  "n_open_findings": 7,
   "restrictions": [],
   "instruments": [
    "LTQ Orbitrap XL"
@@ -50,11 +51,6 @@
   "pipeline_public_repo": null,
   "pipeline_public_commit": null,
   "findings": [
-   {
-    "code": "contaminant_label_unresolved",
-    "severity": "warning",
-    "message": "9 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row's label, contaminant over target, so `is_contaminant` may over-state for them: P08730, P19001, Q6IFZ6, Q6IME9, Q6NXH9."
-   },
    {
     "code": "cysteine_poor",
     "severity": "warning",
@@ -375,11 +371,10 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 8,
+   "warning": 7,
    "info": 1
   },
   "finding_codes": [
-   "contaminant_label_unresolved",
    "cysteine_poor",
    "high_contamination",
    "low_core_use",
@@ -390,13 +385,14 @@
    "upstream_provenance_changed"
   ],
   "bundle": {
-   "bundle_id": "d02c7622570083f3",
-   "written_utc": "2026-10-29T11:35:48+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "098a802d4a9ce90c",
+   "written_utc": "2026-11-02T22:08:25+00:00",
+   "ingester_version": "1.4.1",
    "reconciliation_ok": true,
-   "reconciliation_failed": []
+   "reconciliation_failed": [],
+   "reconciliation_explained": []
   },
-  "summary": "PXD004916 is a DDA label-free dataset (Mus musculus) with 54 runs, 54 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 227,597 PSMs, 16,301 peptidoforms and 2,001 protein groups, and the repository holds 5,536 PTM sites for it. 8 open warnings about it are recorded.",
+  "summary": "PXD004916 is a DDA label-free dataset (Mus musculus) with 54 runs, 54 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 227,597 PSMs, 16,301 peptidoforms and 2,001 protein groups, and the repository holds 5,536 PTM sites for it. 7 open warnings about it are recorded.",
   "page": "datasets/PXD004916.html",
   "json": "datasets/PXD004916.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD004916.html",

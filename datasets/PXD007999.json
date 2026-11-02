@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "45d8ea073f49571b",
-  "catalog_version": "14",
+  "catalog_id": "8100ef5373106885",
+  "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.0",
-  "built_utc": "2026-11-02T16:22:12+00:00",
+  "builder_version": "1.4.1",
+  "built_utc": "2026-11-02T22:30:18+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD007999",
-  "bundle_id": "42782f13cfd7ac91",
+  "bundle_id": "094005f4ee4da7e0",
   "title": "NRF2-dependent ECM -  Nrf2-Mediated Fibroblast Reprogramming Drives Cellular Senescence by Targeting the Matrisome",
   "organisms": [
    "NCBITaxon:10090"
@@ -25,6 +25,7 @@
   "instrument_vendor": null,
   "search_engine": "MetaMorpheus",
   "search_engine_version": "1.1.11",
+  "unique_peptides_scope": "database",
   "n_runs": 30,
   "n_samples": 30,
   "n_psms_1pct": 404489,
@@ -33,7 +34,7 @@
   "n_psms_all": 1026533,
   "n_ptm_sites": 20858,
   "n_quant_values": 452213,
-  "n_open_findings": 7,
+  "n_open_findings": 6,
   "restrictions": [],
   "instruments": null,
   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22_agingPTM-v1.xml",
@@ -48,11 +49,6 @@
   "pipeline_public_repo": null,
   "pipeline_public_commit": null,
   "findings": [
-   {
-    "code": "contaminant_label_unresolved",
-    "severity": "warning",
-    "message": "18 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row's label, contaminant over target, so `is_contaminant` may over-state for them: P05784, P07744, P19001, P50446, Q3TTY5."
-   },
    {
     "code": "count_mismatch",
     "severity": "warning",
@@ -583,11 +579,10 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 7,
+   "warning": 6,
    "info": 2
   },
   "finding_codes": [
-   "contaminant_label_unresolved",
    "count_mismatch",
    "high_contamination",
    "no_design_file",
@@ -598,15 +593,16 @@
    "upstream_provenance_changed"
   ],
   "bundle": {
-   "bundle_id": "42782f13cfd7ac91",
-   "written_utc": "2026-10-29T10:34:23+00:00",
-   "ingester_version": "1.4.0",
-   "reconciliation_ok": false,
-   "reconciliation_failed": [
+   "bundle_id": "094005f4ee4da7e0",
+   "written_utc": "2026-11-02T22:10:41+00:00",
+   "ingester_version": "1.4.1",
+   "reconciliation_ok": true,
+   "reconciliation_failed": [],
+   "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD007999 is a DDA label-free dataset (Mus musculus) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 404,489 PSMs, 39,499 peptidoforms and 4,031 protein groups, and the repository holds 20,858 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD007999 is a DDA label-free dataset (Mus musculus) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 404,489 PSMs, 39,499 peptidoforms and 4,031 protein groups, and the repository holds 20,858 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD007999.html",
   "json": "datasets/PXD007999.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD007999.html",

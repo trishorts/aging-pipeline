@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "45d8ea073f49571b",
-  "catalog_version": "14",
+  "catalog_id": "8100ef5373106885",
+  "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.0",
-  "built_utc": "2026-11-02T16:22:12+00:00",
+  "builder_version": "1.4.1",
+  "built_utc": "2026-11-02T22:30:18+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -25,6 +25,7 @@
   "instrument_vendor": "Thermo",
   "search_engine": "MetaMorpheus",
   "search_engine_version": "1.1.13",
+  "unique_peptides_scope": "protein_group",
   "n_runs": 10,
   "n_samples": 10,
   "n_psms_1pct": 667123,
@@ -653,10 +654,11 @@
   ],
   "bundle": {
    "bundle_id": "1e9e0279bff99a53",
-   "written_utc": "2026-11-01T20:54:52+00:00",
-   "ingester_version": "1.4.0",
-   "reconciliation_ok": false,
-   "reconciliation_failed": [
+   "written_utc": "2026-11-02T22:16:11+00:00",
+   "ingester_version": "1.4.1",
+   "reconciliation_ok": true,
+   "reconciliation_failed": [],
+   "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },

@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "45d8ea073f49571b",
-  "catalog_version": "14",
+  "catalog_id": "8100ef5373106885",
+  "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.0",
-  "built_utc": "2026-11-02T16:22:12+00:00",
+  "builder_version": "1.4.1",
+  "built_utc": "2026-11-02T22:30:18+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD018969",
-  "bundle_id": "192fd7e3153006bb",
+  "bundle_id": "fed05ac2602e3da1",
   "title": "Keap1 governs ageing-induced protein aggregation in endothelial cells",
   "organisms": [
    "NCBITaxon:9606"
@@ -25,6 +25,7 @@
   "instrument_vendor": null,
   "search_engine": "MetaMorpheus",
   "search_engine_version": "1.1.11",
+  "unique_peptides_scope": "database",
   "n_runs": 19,
   "n_samples": 19,
   "n_psms_1pct": 220119,
@@ -33,7 +34,7 @@
   "n_psms_all": 808940,
   "n_ptm_sites": 4903,
   "n_quant_values": 207369,
-  "n_open_findings": 7,
+  "n_open_findings": 6,
   "restrictions": [],
   "instruments": null,
   "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18_agingPTM-v1.xml",
@@ -48,11 +49,6 @@
   "pipeline_public_repo": null,
   "pipeline_public_commit": null,
   "findings": [
-   {
-    "code": "contaminant_label_unresolved",
-    "severity": "warning",
-    "message": "12 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row's label, contaminant over target, so `is_contaminant` may over-state for them: O76009, O76011, O76013, O76014, O76015."
-   },
    {
     "code": "count_mismatch",
     "severity": "warning",
@@ -518,12 +514,11 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 7,
+   "warning": 6,
    "info": 3
   },
   "finding_codes": [
    "collapsed_duplicate_rows",
-   "contaminant_label_unresolved",
    "count_mismatch",
    "high_contamination",
    "no_design_file",
@@ -534,15 +529,16 @@
    "upstream_provenance_changed"
   ],
   "bundle": {
-   "bundle_id": "192fd7e3153006bb",
-   "written_utc": "2026-10-29T10:59:10+00:00",
-   "ingester_version": "1.4.0",
-   "reconciliation_ok": false,
-   "reconciliation_failed": [
+   "bundle_id": "fed05ac2602e3da1",
+   "written_utc": "2026-11-02T22:12:41+00:00",
+   "ingester_version": "1.4.1",
+   "reconciliation_ok": true,
+   "reconciliation_failed": [],
+   "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD018969 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 220,119 PSMs, 17,592 peptidoforms and 2,966 protein groups, and the repository holds 4,903 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD018969 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 220,119 PSMs, 17,592 peptidoforms and 2,966 protein groups, and the repository holds 4,903 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD018969.html",
   "json": "datasets/PXD018969.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD018969.html",

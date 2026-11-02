@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "45d8ea073f49571b",
-  "catalog_version": "14",
+  "catalog_id": "8100ef5373106885",
+  "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.0",
-  "built_utc": "2026-11-02T16:22:12+00:00",
+  "builder_version": "1.4.1",
+  "built_utc": "2026-11-02T22:30:18+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD058775",
-  "bundle_id": "0e7f1a278d64e536",
+  "bundle_id": "f973337f70227e3d",
   "title": "DNA Damage in Macrophages Drives Immune Autoreactivity via Nuclear Antigen Presentation",
   "organisms": [
    "NCBITaxon:10090"
@@ -25,6 +25,7 @@
   "instrument_vendor": null,
   "search_engine": "MetaMorpheus",
   "search_engine_version": "1.1.11",
+  "unique_peptides_scope": "database",
   "n_runs": 18,
   "n_samples": 18,
   "n_psms_1pct": 1859,
@@ -33,7 +34,7 @@
   "n_psms_all": 18011,
   "n_ptm_sites": 128,
   "n_quant_values": 6229,
-  "n_open_findings": 6,
+  "n_open_findings": 5,
   "restrictions": [],
   "instruments": null,
   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22_agingPTM-v1.xml",
@@ -52,11 +53,6 @@
     "code": "calibration_failed",
     "severity": "warning",
     "message": "GPTMD/search ran on uncalibrated spectra (S7)"
-   },
-   {
-    "code": "contaminant_label_unresolved",
-    "severity": "warning",
-    "message": "3 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row's label, contaminant over target, so `is_contaminant` may over-state for them: P05784, Q99PS0, Q9DCV7."
    },
    {
     "code": "high_contamination",
@@ -163,12 +159,11 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 6,
+   "warning": 5,
    "info": 1
   },
   "finding_codes": [
    "calibration_failed",
-   "contaminant_label_unresolved",
    "high_contamination",
    "low_id_rate",
    "no_design_file",
@@ -176,13 +171,14 @@
    "no_sdrf"
   ],
   "bundle": {
-   "bundle_id": "0e7f1a278d64e536",
-   "written_utc": "2026-10-29T09:53:09+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "f973337f70227e3d",
+   "written_utc": "2026-11-02T22:22:33+00:00",
+   "ingester_version": "1.4.1",
    "reconciliation_ok": true,
-   "reconciliation_failed": []
+   "reconciliation_failed": [],
+   "reconciliation_explained": []
   },
-  "summary": "PXD058775 is a DDA label-free dataset (Mus musculus) with 18 runs, 18 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 1,859 PSMs, 226 peptidoforms and 153 protein groups, and the repository holds 128 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD058775 is a DDA label-free dataset (Mus musculus) with 18 runs, 18 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 1,859 PSMs, 226 peptidoforms and 153 protein groups, and the repository holds 128 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD058775.html",
   "json": "datasets/PXD058775.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD058775.html",

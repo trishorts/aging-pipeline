@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "45d8ea073f49571b",
-  "catalog_version": "14",
+  "catalog_id": "8100ef5373106885",
+  "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.0",
-  "built_utc": "2026-11-02T16:22:12+00:00",
+  "builder_version": "1.4.1",
+  "built_utc": "2026-11-02T22:30:18+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -25,6 +25,7 @@
   "instrument_vendor": null,
   "search_engine": "MetaMorpheus",
   "search_engine_version": "1.1.13",
+  "unique_peptides_scope": "protein_group",
   "n_runs": 14,
   "n_samples": 14,
   "n_psms_1pct": 40740,
@@ -362,7 +363,8 @@
    "written_utc": "2026-11-02T05:07:15+00:00",
    "ingester_version": "1.4.0",
    "reconciliation_ok": true,
-   "reconciliation_failed": []
+   "reconciliation_failed": [],
+   "reconciliation_explained": []
   },
   "summary": "PXD038718 is a DDA label-free dataset (Mus musculus) with 14 runs, 14 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 40,740 PSMs, 8,131 peptidoforms and 1,754 protein groups, and the repository holds 2,248 PTM sites for it. 8 open warnings about it are recorded.",
   "page": "datasets/PXD038718.html",

@@ -19,11 +19,11 @@
  "name": "PXD018969 reanalysis: Keap1 governs ageing-induced protein aggregation in endothelial cells",
  "identifier": [
   "PXD018969",
-  "datarepo:bundle:192fd7e3153006bb"
+  "datarepo:bundle:fed05ac2602e3da1"
  ],
- "description": "PXD018969 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 220,119 PSMs, 17,592 peptidoforms and 2,966 protein groups, and the repository holds 4,903 PTM sites for it. 7 open warnings about it are recorded.",
- "version": "192fd7e3153006bb",
- "dateModified": "2026-10-29T10:59:10+00:00",
+ "description": "PXD018969 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 220,119 PSMs, 17,592 peptidoforms and 2,966 protein groups, and the repository holds 4,903 PTM sites for it. 6 open warnings about it are recorded.",
+ "version": "fed05ac2602e3da1",
+ "dateModified": "2026-11-02T22:12:41+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 45d8ea073f49571b",
+  "name": "datarepo catalog 8100ef5373106885",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,12 +61,11 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD018969 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 220,119 PSMs, 17,592 peptidoforms and 2,966 protein groups, and the repository holds 4,903 PTM sites for it. 7 open warnings about it are recorded.
+PXD018969 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 220,119 PSMs, 17,592 peptidoforms and 2,966 protein groups, and the repository holds 4,903 PTM sites for it. 6 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 7 warnings and 3 for information</strong></p>
-<div class="finding warning"><span class="code">contaminant_label_unresolved</span> <span class="note">warning</span><br>12 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row&#x27;s label, contaminant over target, so `is_contaminant` may over-state for them: O76009, O76011, O76013, O76014, O76015.</div>
+<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 3 for information</strong></p>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 220119 where the producer reported 220121 (results.txt: All target PSMs with q-value &lt;= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>26.15% of protein intensity in the worst file, 5.19% median across 19 files (DEF-QC-9 v3.5)</div>
 <div class="finding warning"><span class="code">no_design_file</span> <span class="note">warning</span><br>No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer&#x27;s note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)</div>
@@ -198,16 +197,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>192fd7e3153006bb</code>, written 2026-10-29T10:59:10+00:00 by ingester 1.4.0</dd>
-<dt>Reconciliation</dt><dd>failed: psms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
+<dt>Bundle</dt><dd><code>fed05ac2602e3da1</code>, written 2026-11-02T22:12:41+00:00 by ingester 1.4.1</dd>
+<dt>Reconciliation</dt><dd>every check agreed with the producer's own counts or differs within the known file-side limit: psms_target_1pct <span class="note">(see <code>catalog_reconciliation</code> for the bound)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.0 from catalog
-<code>45d8ea073f49571b</code>, built 2026-11-02T16:22:12+00:00 by datarepo
-1.4.0 (schema 0.0.16).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.1 from catalog
+<code>8100ef5373106885</code>, built 2026-11-02T22:30:18+00:00 by datarepo
+1.4.1 (schema 0.0.16).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

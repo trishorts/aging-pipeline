@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "45d8ea073f49571b",
-  "catalog_version": "14",
+  "catalog_id": "8100ef5373106885",
+  "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.0",
-  "built_utc": "2026-11-02T16:22:12+00:00",
+  "builder_version": "1.4.1",
+  "built_utc": "2026-11-02T22:30:18+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -25,6 +25,7 @@
   "instrument_vendor": null,
   "search_engine": "MetaMorpheus",
   "search_engine_version": "1.1.12",
+  "unique_peptides_scope": "database",
   "n_runs": 18,
   "n_samples": 18,
   "n_psms_1pct": 38855,
@@ -314,7 +315,8 @@
    "written_utc": "2026-10-29T09:49:37+00:00",
    "ingester_version": "1.4.0",
    "reconciliation_ok": true,
-   "reconciliation_failed": []
+   "reconciliation_failed": [],
+   "reconciliation_explained": []
   },
   "summary": "PXD022128 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and enrichment: proximity_labelling. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 38,855 PSMs, 3,389 peptidoforms and 1,280 protein groups, and the repository holds 1,412 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD022128.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "45d8ea073f49571b",
-  "catalog_version": "14",
+  "catalog_id": "8100ef5373106885",
+  "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.0",
-  "built_utc": "2026-11-02T16:22:12+00:00",
+  "builder_version": "1.4.1",
+  "built_utc": "2026-11-02T22:30:18+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -232,7 +232,7 @@
   },
   "A0A4": {
    "file": "proteins/A0A4.json",
-   "n": 21
+   "n": 20
   },
   "A0A5": {
    "file": "proteins/A0A5.json",
@@ -1432,7 +1432,7 @@
   },
   "F6W": {
    "file": "proteins/F6W.json",
-   "n": 42
+   "n": 43
   },
   "F6X": {
    "file": "proteins/F6X.json",
@@ -3488,7 +3488,7 @@
   },
   "P368": {
    "file": "proteins/P368.json",
-   "n": 10
+   "n": 11
   },
   "P369": {
    "file": "proteins/P369.json",
@@ -4844,7 +4844,7 @@
   },
   "Q028": {
    "file": "proteins/Q028.json",
-   "n": 12
+   "n": 13
   },
   "Q029": {
    "file": "proteins/Q029.json",
@@ -7328,7 +7328,7 @@
   },
   "Q80W": {
    "file": "proteins/Q80W.json",
-   "n": 70
+   "n": 69
   },
   "Q80X0": {
    "file": "proteins/Q80X0.json",
@@ -8432,7 +8432,7 @@
   },
   "Q8CD": {
    "file": "proteins/Q8CD.json",
-   "n": 45
+   "n": 44
   },
   "Q8CE": {
    "file": "proteins/Q8CE.json",
@@ -10336,7 +10336,7 @@
   },
   "Q8VG": {
    "file": "proteins/Q8VG.json",
-   "n": 40
+   "n": 39
   },
   "Q8VH": {
    "file": "proteins/Q8VH.json",
@@ -14052,7 +14052,7 @@
   },
   "Q9EQ4": {
    "file": "proteins/Q9EQ4.json",
-   "n": 2
+   "n": 1
   },
   "Q9EQ6": {
    "file": "proteins/Q9EQ6.json",
@@ -18150,14 +18150,14 @@
   "L": 722,
   "M": 1158,
   "N": 811,
-  "O": 463,
+  "O": 462,
   "P": 1741,
   "Q": 20,
-  "R": 1089,
+  "R": 1090,
   "S": 2116,
   "T": 1533,
   "U": 355,
-  "V": 281,
+  "V": 279,
   "W": 160,
   "X": 55,
   "Y": 49,

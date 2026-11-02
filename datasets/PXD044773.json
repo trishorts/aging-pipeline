@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "45d8ea073f49571b",
-  "catalog_version": "14",
+  "catalog_id": "8100ef5373106885",
+  "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.0",
-  "built_utc": "2026-11-02T16:22:12+00:00",
+  "builder_version": "1.4.1",
+  "built_utc": "2026-11-02T22:30:18+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD044773",
-  "bundle_id": "47b17f3926ffe277",
+  "bundle_id": "8fe12f4432968b70",
   "title": "Cell-specific crosstalk proteomics reveals cathepsin B signaling as a driver of glioblastoma malignancy near the subventricular zone",
   "organisms": [
    "NCBITaxon:9606"
@@ -25,15 +25,16 @@
   "instrument_vendor": "Thermo",
   "search_engine": "MetaMorpheus",
   "search_engine_version": "1.1.11",
+  "unique_peptides_scope": "database",
   "n_runs": 21,
   "n_samples": 21,
   "n_psms_1pct": 423041,
   "n_peptidoforms_1pct": 33732,
   "n_protein_groups_1pct": 3645,
   "n_psms_all": 1100856,
-  "n_ptm_sites": 21783,
+  "n_ptm_sites": 21802,
   "n_quant_values": 424744,
-  "n_open_findings": 8,
+  "n_open_findings": 6,
   "restrictions": [],
   "instruments": [
    "Q Exactive Plus"
@@ -51,11 +52,6 @@
   "pipeline_public_commit": null,
   "findings": [
    {
-    "code": "contaminant_label_unresolved",
-    "severity": "warning",
-    "message": "21 protein(s) share a PSM row with proteins of another kind, and the searched databases could not say which they are (not on disk, or in both a target and the contaminant database under TCAmbiguity unknown). Each was given its row's label, contaminant over target, so `is_contaminant` may over-state for them: O76009, O76011, O95678, P02768, P08729."
-   },
-   {
     "code": "count_mismatch",
     "severity": "warning",
     "message": "The bundle holds 423041 where the producer reported 423050 (results.txt: All target PSMs with q-value <= 0.01 (aging:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
@@ -71,11 +67,6 @@
     "message": "No experimental design file, so quantification treated every raw file as its own condition. Between-group comparisons are not available for this dataset. Producer's note: FlashLFQ treated each file as its own biorep under one blank condition; no normalization; not usable for condition comparisons (owner: QuantProject projection)"
    },
    {
-    "code": "occupancy_not_stored",
-    "severity": "warning",
-    "message": "Of 71487 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 29 segment's accession not determinable from the sequences. 'site not in ptm_sites' means the entry's site has no ptm_sites row to key on; 'not determinable' means a cell's segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A 'duplicate' is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject's to define)."
-   },
-   {
     "code": "sdrf_uncoded",
     "severity": "warning",
     "message": "The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: disease: glioblastoma; organism part: Subventricular zone. Match on it as text; it has not been mapped to a term."
@@ -83,7 +74,7 @@
    {
     "code": "unplaced_ptm_sites",
     "severity": "warning",
-    "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 4524 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored; 67 named a protein the searched databases carry with different sequences, where the search's TCAmbiguity does not say which one it searched (O76011, P19013). Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+    "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 4524 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
    },
    {
     "code": "upstream_provenance_changed",
@@ -105,7 +96,7 @@
    {
     "modification_name": "Carbamidomethyl on C",
     "modification": "UNIMOD:4",
-    "n_sites": 6255
+    "n_sites": 6256
    },
    {
     "modification_name": "Oxidation on M",
@@ -120,7 +111,7 @@
    {
     "modification_name": "Deamidation on Q",
     "modification": "UNIMOD:7",
-    "n_sites": 969
+    "n_sites": 971
    },
    {
     "modification_name": "Hydroxylation on P",
@@ -130,7 +121,7 @@
    {
     "modification_name": "Carbamyl on X",
     "modification": "UNIMOD:5",
-    "n_sites": 552
+    "n_sites": 553
    },
    {
     "modification_name": "Hydroxylation on N",
@@ -140,7 +131,7 @@
    {
     "modification_name": "Fe[II] on E",
     "modification": "UNIMOD:952",
-    "n_sites": 500
+    "n_sites": 501
    },
    {
     "modification_name": "Fe[II] on D",
@@ -570,31 +561,30 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 8,
+   "warning": 6,
    "info": 2
   },
   "finding_codes": [
-   "contaminant_label_unresolved",
    "count_mismatch",
    "high_contamination",
    "no_design_file",
    "no_output_sdrf",
    "occupancy_decoy_groups",
-   "occupancy_not_stored",
    "sdrf_uncoded",
    "unplaced_ptm_sites",
    "upstream_provenance_changed"
   ],
   "bundle": {
-   "bundle_id": "47b17f3926ffe277",
-   "written_utc": "2026-10-29T10:29:28+00:00",
-   "ingester_version": "1.4.0",
-   "reconciliation_ok": false,
-   "reconciliation_failed": [
+   "bundle_id": "8fe12f4432968b70",
+   "written_utc": "2026-11-02T22:21:10+00:00",
+   "ingester_version": "1.4.1",
+   "reconciliation_ok": true,
+   "reconciliation_failed": [],
+   "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD044773 is a DDA label-free dataset (Homo sapiens) with 21 runs, 21 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 423,041 PSMs, 33,732 peptidoforms and 3,645 protein groups, and the repository holds 21,783 PTM sites for it. 8 open warnings about it are recorded.",
+  "summary": "PXD044773 is a DDA label-free dataset (Homo sapiens) with 21 runs, 21 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 423,041 PSMs, 33,732 peptidoforms and 3,645 protein groups, and the repository holds 21,802 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD044773.html",
   "json": "datasets/PXD044773.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD044773.html",

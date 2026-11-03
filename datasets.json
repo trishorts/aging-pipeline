@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "8cbb37c5076fe3eb",
+  "catalog_id": "abfeaa1bf5c73d4d",
   "catalog_version": "15",
   "schema_version": "0.0.16",
   "builder_version": "1.4.1",
-  "built_utc": "2026-11-03T13:20:23+00:00",
+  "built_utc": "2026-11-03T19:20:48+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -5393,28 +5393,27 @@
    ],
    "enrichment_mixed": false,
    "n_runs": 12,
-   "n_samples": 132,
-   "n_psms_1pct": 154,
-   "n_peptidoforms_1pct": 114,
-   "n_protein_groups_1pct": 109,
-   "n_ptm_sites": 229,
+   "n_samples": 216,
+   "n_psms_1pct": 106566,
+   "n_peptidoforms_1pct": 60606,
+   "n_protein_groups_1pct": 6379,
+   "n_ptm_sites": 108720,
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
-    "warning": 6,
-    "info": 2
+    "warning": 7,
+    "info": 1
    },
    "finding_codes": [
-    "calibration_failed",
-    "isobaric_files_uncalibrated",
+    "count_mismatch",
     "isobaric_unlabelled_peptides",
     "low_core_use",
-    "low_id_rate",
     "no_channel_design",
     "no_sdrf",
-    "occupancy_not_ingested"
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites"
    ],
-   "summary": "PXD043296 is a DDA isobaric dataset (Homo sapiens) with 12 runs, 132 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 154 PSMs, 114 peptidoforms and 109 protein groups, and the repository holds 229 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD043296 is a DDA isobaric dataset (Homo sapiens) with 12 runs, 216 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 106,566 PSMs, 60,606 peptidoforms and 6,379 protein groups, and the repository holds 108,720 PTM sites for it. 7 open warnings about it are recorded.",
    "page": "datasets/PXD043296.html",
    "json": "datasets/PXD043296.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD043296.html",
@@ -6284,6 +6283,51 @@
    "json": "datasets/PXD050351.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD050351.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD050351.json"
+  },
+  {
+   "dataset_id": "PXD051031",
+   "title": "Plasma and kidney proteome profiling combined with laser capture microdissection reveal large increases in immunoglobuli",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 24,
+   "n_samples": 264,
+   "n_psms_1pct": 29808,
+   "n_peptidoforms_1pct": 5812,
+   "n_protein_groups_1pct": 860,
+   "n_ptm_sites": 13535,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 2
+   },
+   "finding_codes": [
+    "calibration_failed",
+    "count_mismatch",
+    "isobaric_files_uncalibrated",
+    "isobaric_unlabelled_peptides",
+    "low_id_rate",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD051031 is a DDA isobaric dataset (Mus musculus) with 24 runs, 264 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 29,808 PSMs, 5,812 peptidoforms and 860 protein groups, and the repository holds 13,535 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD051031.html",
+   "json": "datasets/PXD051031.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD051031.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD051031.json"
   },
   {
    "dataset_id": "PXD051203",

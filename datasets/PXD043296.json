@@ -1,0 +1,260 @@
+{
+ "catalog": {
+  "catalog_id": "8cbb37c5076fe3eb",
+  "catalog_version": "15",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.1",
+  "built_utc": "2026-11-03T13:20:23+00:00",
+  "instance": "aging",
+  "base_url": "https://trishorts.github.io/aging-pipeline/"
+ },
+ "dataset": {
+  "dataset_id": "PXD043296",
+  "bundle_id": "e062ce914c6f82ad",
+  "title": "Inflammatory microenvironment in immunometabolic-compromised treated HIV infection steered synaptic dysregulation",
+  "organisms": [
+   "NCBITaxon:9606"
+  ],
+  "acquisition": "DDA",
+  "quant_method": "isobaric",
+  "labelling": "TMT",
+  "enrichment": [
+   "none"
+  ],
+  "enrichment_mixed": false,
+  "instrument_vendor": null,
+  "search_engine": "MetaMorpheus",
+  "search_engine_version": "1.1.13",
+  "unique_peptides_scope": "protein_group",
+  "n_runs": 12,
+  "n_samples": 132,
+  "n_psms_1pct": 154,
+  "n_peptidoforms_1pct": 114,
+  "n_protein_groups_1pct": 109,
+  "n_psms_all": 281204,
+  "n_ptm_sites": 229,
+  "n_quant_values": 2872,
+  "n_open_findings": 6,
+  "restrictions": [],
+  "instruments": null,
+  "search_database": "UP000005640_all_genecentric_2026_03_agingPTM-v6.xml",
+  "sdrf_status": "absent",
+  "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
+  "pipeline_commit": "4c3fe4ad5e4b9a083b02c26b7822ff35d3ef4f52",
+  "organism_names": [
+   "Homo sapiens"
+  ],
+  "licence": "CC-BY-4.0",
+  "credit": "NCEMS Aging Proteome Working Group",
+  "pipeline_public_repo": null,
+  "pipeline_public_commit": null,
+  "findings": [
+   {
+    "code": "calibration_failed",
+    "severity": "warning",
+    "message": "GPTMD/search ran on uncalibrated spectra (S7)"
+   },
+   {
+    "code": "isobaric_unlabelled_peptides",
+    "severity": "warning",
+    "message": "109 row(s) of PeptideQuantification.tsv carry no multiplex label, with 1392 value(s), stored as written. A peptide with no label gives no reporter ions of its own, so these values are co-isolated interference (QuantProject 066, rule 4); a protein group's value can include them. Leave them out of peptide-level statistics. MetaMorpheus is to stop quantifying them (QuantProject 068, ruling 1). E.g. `[Common Biological:Acetylation on X]AAAAASGAGGAAGAGTGGAGPAGR`, `[Common Biological:Acetylation on X]AAAAVGAGHGAGGPGAASSSGGAR`, `[Common Biological:Acetylation on X]AENTEGDLNSNLLHAPYHTGDPQLDTAIGQWLR` and 106 more."
+   },
+   {
+    "code": "low_core_use",
+    "severity": "warning",
+    "message": "15.17 avg cores of 32 allowed (S5)"
+   },
+   {
+    "code": "low_id_rate",
+    "severity": "warning",
+    "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 154/179780 = 0.09% of MS2 identified (S3)"
+   },
+   {
+    "code": "no_channel_design",
+    "severity": "warning",
+    "message": "no SDRF says which sample is in which channel (no curated design and no deposited SDRF); PXReprise's default design makes each file its own plex and each channel its own sample; the reporter values compare nothing until a design is curated (QuantProject 079)"
+   },
+   {
+    "code": "no_sdrf",
+    "severity": "warning",
+    "message": "No SDRF was found for this dataset, so each channel's sample is the sample its search's TmtDesign.txt names (its `Sample Name`), with nothing else known about it. There is no sample metadata: treat every sample as unannotated."
+   },
+   {
+    "code": "isobaric_files_uncalibrated",
+    "severity": "info",
+    "message": "12 of the 12 files were searched as acquired, not calibrated (their names in the search carry no `-calib`): `20230525_HF2_01_BrainOrganoids_TMT_Frac1`, `20230525_HF2_01_BrainOrganoids_TMT_Frac10`, `20230525_HF2_01_BrainOrganoids_TMT_Frac11`, `20230525_HF2_01_BrainOrganoids_TMT_Frac12`, `20230525_HF2_01_BrainOrganoids_TMT_Frac2`, `20230525_HF2_01_BrainOrganoids_TMT_Frac3`, `20230525_HF2_01_BrainOrganoids_TMT_Frac4`, `20230525_HF2_01_BrainOrganoids_TMT_Frac5`, `20230525_HF2_01_BrainOrganoids_TMT_Frac6`, `20230525_HF2_01_BrainOrganoids_TMT_Frac7` and 2 more. Their reporter values are the same kind of number; their identifications rest on uncalibrated precursor masses (QuantProject 066, rule 3)."
+   },
+   {
+    "code": "occupancy_not_ingested",
+    "severity": "info",
+    "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   }
+  ],
+  "modifications": [
+   {
+    "modification_name": "N-acetylalanine on A",
+    "modification": "UNIMOD:1",
+    "n_sites": 53
+   },
+   {
+    "modification_name": "TMT11 on X",
+    "modification": "UNIMOD:737",
+    "n_sites": 38
+   },
+   {
+    "modification_name": "Carbamidomethyl on C",
+    "modification": "UNIMOD:4",
+    "n_sites": 32
+   },
+   {
+    "modification_name": "Oxidation on M",
+    "modification": "UNIMOD:35",
+    "n_sites": 22
+   },
+   {
+    "modification_name": "N-acetylmethionine on M",
+    "modification": "UNIMOD:1",
+    "n_sites": 18
+   },
+   {
+    "modification_name": "N-acetylserine on S",
+    "modification": "UNIMOD:1",
+    "n_sites": 17
+   },
+   {
+    "modification_name": "Acetylation on X",
+    "modification": "UNIMOD:1",
+    "n_sites": 14
+   },
+   {
+    "modification_name": "TMT11 on K",
+    "modification": "UNIMOD:737",
+    "n_sites": 9
+   },
+   {
+    "modification_name": "Succinylation on K",
+    "modification": "UNIMOD:64",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "N-acetylthreonine on T",
+    "modification": "UNIMOD:1",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "Acetylation on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "N-acetylvaline on V",
+    "modification": "UNIMOD:1",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Phosphorylation on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Phosphoserine on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Butyrylation on K",
+    "modification": "UNIMOD:1289",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Crotonylation on K",
+    "modification": "UNIMOD:1363",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Dimethylation on K",
+    "modification": "UNIMOD:36",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Dimethylation on R",
+    "modification": "UNIMOD:36",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "GG (Ubiquitination Site) on K",
+    "modification": "UNIMOD:121",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Glutarylation on K",
+    "modification": "UNIMOD:1848",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "HexNAc on S",
+    "modification": "UNIMOD:43",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylglycine on G",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N6-acetyllysine on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Omega-N-methylarginine on R",
+    "modification": "UNIMOD:34",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "S-nitrosocysteine on C",
+    "modification": "UNIMOD:275",
+    "n_sites": 1
+   }
+  ],
+  "metrics": {
+   "id_rate": {
+    "value": 0.0009,
+    "definition_id": "pxreprise:DEF-ID-RATE"
+   },
+   "contamination_psm_share": {
+    "value": 0.0,
+    "definition_id": "pxreprise:DEF-CONTAM-PSM"
+   }
+  },
+  "findings_by_severity": {
+   "error": 0,
+   "warning": 6,
+   "info": 2
+  },
+  "finding_codes": [
+   "calibration_failed",
+   "isobaric_files_uncalibrated",
+   "isobaric_unlabelled_peptides",
+   "low_core_use",
+   "low_id_rate",
+   "no_channel_design",
+   "no_sdrf",
+   "occupancy_not_ingested"
+  ],
+  "bundle": {
+   "bundle_id": "e062ce914c6f82ad",
+   "written_utc": "2026-11-03T13:18:14+00:00",
+   "ingester_version": "1.4.1",
+   "reconciliation_ok": true,
+   "reconciliation_failed": [],
+   "reconciliation_explained": []
+  },
+  "summary": "PXD043296 is a DDA isobaric dataset (Homo sapiens) with 12 runs, 132 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 154 PSMs, 114 peptidoforms and 109 protein groups, and the repository holds 229 PTM sites for it. 6 open warnings about it are recorded.",
+  "page": "datasets/PXD043296.html",
+  "json": "datasets/PXD043296.json",
+  "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD043296.html",
+  "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD043296.json"
+ },
+ "organisms_are": "`organisms` is the organism of the protein DATABASE the search used, not a statement about the samples. Sample annotation, where any exists, is in the catalog's `samples` and `sample_characteristics` tables."
+}

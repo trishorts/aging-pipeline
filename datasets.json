@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "b304607aaa111fd0",
+  "catalog_id": "8cbb37c5076fe3eb",
   "catalog_version": "15",
   "schema_version": "0.0.16",
   "builder_version": "1.4.1",
-  "built_utc": "2026-11-03T04:26:58+00:00",
+  "built_utc": "2026-11-03T13:20:23+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -4557,6 +4557,52 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034465.json"
   },
   {
+   "dataset_id": "PXD034564",
+   "title": "Reduced polymerase pausing compensates for increased chromatin accessibility in the aging liver",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 32,
+   "n_samples": 320,
+   "n_psms_1pct": 59035,
+   "n_peptidoforms_1pct": 44059,
+   "n_protein_groups_1pct": 6470,
+   "n_ptm_sites": 78418,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 8,
+    "info": 2
+   },
+   "finding_codes": [
+    "calibration_failed",
+    "count_mismatch",
+    "isobaric_files_uncalibrated",
+    "isobaric_unlabelled_peptides",
+    "low_core_use",
+    "low_id_rate",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD034564 is a DDA isobaric dataset (Mus musculus) with 32 runs, 320 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 59,035 PSMs, 44,059 peptidoforms and 6,470 protein groups, and the repository holds 78,418 PTM sites for it. 8 open warnings about it are recorded.",
+   "page": "datasets/PXD034564.html",
+   "json": "datasets/PXD034564.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034564.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034564.json"
+  },
+  {
    "dataset_id": "PXD034590",
    "title": "Profiling of purified autophagic vesicle content and degradome in the maturing and aging brain",
    "organisms": [
@@ -5329,6 +5375,50 @@
    "json": "datasets/PXD043001.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD043001.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD043001.json"
+  },
+  {
+   "dataset_id": "PXD043296",
+   "title": "Inflammatory microenvironment in immunometabolic-compromised treated HIV infection steered synaptic dysregulation",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 12,
+   "n_samples": 132,
+   "n_psms_1pct": 154,
+   "n_peptidoforms_1pct": 114,
+   "n_protein_groups_1pct": 109,
+   "n_ptm_sites": 229,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "calibration_failed",
+    "isobaric_files_uncalibrated",
+    "isobaric_unlabelled_peptides",
+    "low_core_use",
+    "low_id_rate",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested"
+   ],
+   "summary": "PXD043296 is a DDA isobaric dataset (Homo sapiens) with 12 runs, 132 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 154 PSMs, 114 peptidoforms and 109 protein groups, and the repository holds 229 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD043296.html",
+   "json": "datasets/PXD043296.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD043296.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD043296.json"
   },
   {
    "dataset_id": "PXD043644",

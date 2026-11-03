@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "8100ef5373106885",
+  "catalog_id": "b304607aaa111fd0",
   "catalog_version": "15",
   "schema_version": "0.0.16",
   "builder_version": "1.4.1",
-  "built_utc": "2026-11-02T22:30:18+00:00",
+  "built_utc": "2026-11-03T04:26:58+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -56,7 +56,7 @@
   },
   "A0A0G2JE": {
    "file": "proteins/A0A0G2JE.json",
-   "n": 12
+   "n": 11
   },
   "A0A0G2JF": {
    "file": "proteins/A0A0G2JF.json",
@@ -18155,7 +18155,7 @@
   "Q": 20,
   "R": 1090,
   "S": 2116,
-  "T": 1533,
+  "T": 1532,
   "U": 355,
   "V": 279,
   "W": 160,

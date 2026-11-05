@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "abfeaa1bf5c73d4d",
+  "catalog_id": "d621ea41cd649681",
   "catalog_version": "15",
   "schema_version": "0.0.16",
   "builder_version": "1.4.1",
-  "built_utc": "2026-11-03T19:20:48+00:00",
+  "built_utc": "2026-11-05T04:45:44+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -3568,6 +3568,51 @@
    "json": "datasets/PXD027526.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027526.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027526.json"
+  },
+  {
+   "dataset_id": "PXD027548",
+   "title": "Global quantitative phosphoproteomic analysis and Mass spectrometry analysis of GCA effects on BMSCs.",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 36,
+   "n_samples": 360,
+   "n_psms_1pct": 122189,
+   "n_peptidoforms_1pct": 45376,
+   "n_protein_groups_1pct": 5550,
+   "n_ptm_sites": 90447,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 8,
+    "info": 2
+   },
+   "finding_codes": [
+    "calibration_failed",
+    "count_mismatch",
+    "isobaric_files_uncalibrated",
+    "isobaric_unlabelled_peptides",
+    "low_core_use",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD027548 is a DDA isobaric dataset (Rattus norvegicus) with 36 runs, 360 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 122,189 PSMs, 45,376 peptidoforms and 5,550 protein groups, and the repository holds 90,447 PTM sites for it. 8 open warnings about it are recorded.",
+   "page": "datasets/PXD027548.html",
+   "json": "datasets/PXD027548.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027548.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027548.json"
   },
   {
    "dataset_id": "PXD027734",

@@ -19,11 +19,11 @@
  "name": "PXD043296 reanalysis: Inflammatory microenvironment in immunometabolic-compromised treated HIV infection steered synaptic dysregulation",
  "identifier": [
   "PXD043296",
-  "datarepo:bundle:85d48996d238fe25"
+  "datarepo:bundle:eb5e98c7e6ccd75c"
  ],
- "description": "PXD043296 is a DDA isobaric dataset (Homo sapiens) with 12 runs, 216 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 106,566 PSMs, 60,606 peptidoforms and 6,379 protein groups, and the repository holds 108,720 PTM sites for it. 7 open warnings about it are recorded.",
- "version": "85d48996d238fe25",
- "dateModified": "2026-11-03T14:11:10+00:00",
+ "description": "PXD043296 is a DDA isobaric dataset (Homo sapiens) with 12 runs, 216 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 106,566 PSMs, 60,606 peptidoforms and 6,379 protein groups, and the repository holds 108,720 PTM sites for it. 8 open warnings about it are recorded.",
+ "version": "eb5e98c7e6ccd75c",
+ "dateModified": "2026-11-05T14:41:53+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog d621ea41cd649681",
+  "name": "datarepo catalog 160c29da239b20fa",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,13 +61,14 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD043296 is a DDA isobaric dataset (Homo sapiens) with 12 runs, 216 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 106,566 PSMs, 60,606 peptidoforms and 6,379 protein groups, and the repository holds 108,720 PTM sites for it. 7 open warnings about it are recorded.
+PXD043296 is a DDA isobaric dataset (Homo sapiens) with 12 runs, 216 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 106,566 PSMs, 60,606 peptidoforms and 6,379 protein groups, and the repository holds 108,720 PTM sites for it. 8 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 7 warnings and 1 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 8 warnings and 1 for information</strong></p>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 60606 where the producer reported 59884 (results.txt: All target peptides with q-value &lt;= 0.01). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 106566 where the producer reported 106570 (results.txt: All target PSMs with q-value &lt;= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
+<div class="finding warning"><span class="code">isobaric_peptide_q_psm_level</span> <span class="note">warning</span><br>This multiplex search (MetaMorpheus 1.1.13) wrote its combined AllPeptides.psmtsv with each peptide&#x27;s best PSM&#x27;s PSM-level q-values, not peptide-level ones (MetaMorpheus #2941; QuantProject 071, corrected by v3.22). So `peptidoforms.best_q_value` and `best_q_value_notch` are PSM-level here, stored as written, and `peptidoforms_1pct` is a PSM-level filter: it passes more peptidoforms than results.txt&#x27;s peptide-level count. The search&#x27;s per-file _Peptides.psmtsv tables carry each file&#x27;s own peptide-level q-values, which this bundle does not read; no file of this search gives a search-wide peptide-level q-value per peptide. `PeptideQuantification.tsv`&#x27;s values (DEF-TMT-PEP) are unaffected.</div>
 <div class="finding warning"><span class="code">isobaric_unlabelled_peptides</span> <span class="note">warning</span><br>212 row(s) of PeptideQuantification.tsv carry no multiplex label, with 3126 value(s), stored as written. A peptide with no label gives no reporter ions of its own, so these values are co-isolated interference (QuantProject 066, rule 4); a protein group&#x27;s value can include them. Leave them out of peptide-level statistics. MetaMorpheus is to stop quantifying them (QuantProject 068, ruling 1). E.g. `[Common Biological:Acetylation on X]AAAAASGAGGAAGAGTGGAGPAGR`, `[Common Biological:Acetylation on X]AAAAVGAGHGAGGPGAASSSGGAR`, `[Common Biological:Acetylation on X]ADPWQEC[Common Fixed:Carbamidomethyl on C]MDYAVTLAR` and 209 more.</div>
 <div class="finding warning"><span class="code">low_core_use</span> <span class="note">warning</span><br>10.37 avg cores of 32 allowed (S5)</div>
 <div class="finding warning"><span class="code">no_channel_design</span> <span class="note">warning</span><br>no SDRF says which sample is in which channel (no curated design and no deposited SDRF); PXReprise&#x27;s default design makes each file its own plex and each channel its own sample; the reporter values compare nothing until a design is curated (QuantProject 079)</div>
@@ -176,16 +177,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>85d48996d238fe25</code>, written 2026-11-03T14:11:10+00:00 by ingester 1.4.1</dd>
-<dt>Reconciliation</dt><dd>failed: peptidoforms_target_1pct <span class="note">(the bundle disagrees with the producer's own count here)</span></dd>
+<dt>Bundle</dt><dd><code>eb5e98c7e6ccd75c</code>, written 2026-11-05T14:41:53+00:00 by ingester 1.4.2</dd>
+<dt>Reconciliation</dt><dd>every check agreed with the producer's own counts or differs within the known file-side limit: psms_target_1pct, peptidoforms_target_1pct <span class="note">(see <code>catalog_reconciliation</code> for the bound)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.1 from catalog
-<code>d621ea41cd649681</code>, built 2026-11-05T04:45:44+00:00 by datarepo
-1.4.1 (schema 0.0.16).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.3 from catalog
+<code>160c29da239b20fa</code>, built 2026-11-06T08:11:13+00:00 by datarepo
+1.4.3 (schema 0.0.16).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

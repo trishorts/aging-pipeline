@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "d621ea41cd649681",
+  "catalog_id": "160c29da239b20fa",
   "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.1",
-  "built_utc": "2026-11-05T04:45:44+00:00",
+  "builder_version": "1.4.3",
+  "built_utc": "2026-11-06T08:11:13+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD051031",
-  "bundle_id": "8804bb3780600f01",
+  "bundle_id": "fccf50e5513f38f7",
   "title": "Plasma and kidney proteome profiling combined with laser capture microdissection reveal large increases in immunoglobuli",
   "organisms": [
    "NCBITaxon:10090"
@@ -34,7 +34,7 @@
   "n_psms_all": 802101,
   "n_ptm_sites": 13535,
   "n_quant_values": 238146,
-  "n_open_findings": 7,
+  "n_open_findings": 8,
   "restrictions": [],
   "instruments": null,
   "search_database": "UP000000589_all_genecentric_2026_03_agingPTM-v6.xml",
@@ -58,6 +58,11 @@
     "code": "count_mismatch",
     "severity": "warning",
     "message": "The bundle holds 5812 where the producer reported 4900 (results.txt: All target peptides with q-value <= 0.01). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+   },
+   {
+    "code": "isobaric_peptide_q_psm_level",
+    "severity": "warning",
+    "message": "This multiplex search (MetaMorpheus 1.1.13) wrote its combined AllPeptides.psmtsv with each peptide's best PSM's PSM-level q-values, not peptide-level ones (MetaMorpheus #2941; QuantProject 071, corrected by v3.22). So `peptidoforms.best_q_value` and `best_q_value_notch` are PSM-level here, stored as written, and `peptidoforms_1pct` is a PSM-level filter: it passes more peptidoforms than results.txt's peptide-level count. The search's per-file _Peptides.psmtsv tables carry each file's own peptide-level q-values, which this bundle does not read; no file of this search gives a search-wide peptide-level q-value per peptide. `PeptideQuantification.tsv`'s values (DEF-TMT-PEP) are unaffected."
    },
    {
     "code": "isobaric_unlabelled_peptides",
@@ -304,13 +309,14 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 7,
+   "warning": 8,
    "info": 2
   },
   "finding_codes": [
    "calibration_failed",
    "count_mismatch",
    "isobaric_files_uncalibrated",
+   "isobaric_peptide_q_psm_level",
    "isobaric_unlabelled_peptides",
    "low_id_rate",
    "no_channel_design",
@@ -319,16 +325,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "8804bb3780600f01",
-   "written_utc": "2026-11-03T13:47:20+00:00",
-   "ingester_version": "1.4.1",
-   "reconciliation_ok": false,
-   "reconciliation_failed": [
+   "bundle_id": "fccf50e5513f38f7",
+   "written_utc": "2026-11-05T14:46:49+00:00",
+   "ingester_version": "1.4.2",
+   "reconciliation_ok": true,
+   "reconciliation_failed": [],
+   "reconciliation_explained": [
     "peptidoforms_target_1pct"
-   ],
-   "reconciliation_explained": []
+   ]
   },
-  "summary": "PXD051031 is a DDA isobaric dataset (Mus musculus) with 24 runs, 264 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 29,808 PSMs, 5,812 peptidoforms and 860 protein groups, and the repository holds 13,535 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD051031 is a DDA isobaric dataset (Mus musculus) with 24 runs, 264 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 29,808 PSMs, 5,812 peptidoforms and 860 protein groups, and the repository holds 13,535 PTM sites for it. 8 open warnings about it are recorded.",
   "page": "datasets/PXD051031.html",
   "json": "datasets/PXD051031.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD051031.html",

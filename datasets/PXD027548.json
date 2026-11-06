@@ -1,16 +1,16 @@
 {
  "catalog": {
-  "catalog_id": "d621ea41cd649681",
+  "catalog_id": "160c29da239b20fa",
   "catalog_version": "15",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.1",
-  "built_utc": "2026-11-05T04:45:44+00:00",
+  "builder_version": "1.4.3",
+  "built_utc": "2026-11-06T08:11:13+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD027548",
-  "bundle_id": "6a0984050add4261",
+  "bundle_id": "a0f8c8a9c9c2deef",
   "title": "Global quantitative phosphoproteomic analysis and Mass spectrometry analysis of GCA effects on BMSCs.",
   "organisms": [
    "NCBITaxon:10116"
@@ -34,7 +34,7 @@
   "n_psms_all": 976514,
   "n_ptm_sites": 90447,
   "n_quant_values": 1348459,
-  "n_open_findings": 8,
+  "n_open_findings": 9,
   "restrictions": [],
   "instruments": null,
   "search_database": "UP000002494_all_genecentric_2026_03_agingPTM-v6.xml",
@@ -63,6 +63,11 @@
     "code": "count_mismatch",
     "severity": "warning",
     "message": "The bundle holds 122189 where the producer reported 122195 (results.txt: All target PSMs with q-value <= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+   },
+   {
+    "code": "isobaric_peptide_q_psm_level",
+    "severity": "warning",
+    "message": "This multiplex search (MetaMorpheus 1.1.13) wrote its combined AllPeptides.psmtsv with each peptide's best PSM's PSM-level q-values, not peptide-level ones (MetaMorpheus #2941; QuantProject 071, corrected by v3.22). So `peptidoforms.best_q_value` and `best_q_value_notch` are PSM-level here, stored as written, and `peptidoforms_1pct` is a PSM-level filter: it passes more peptidoforms than results.txt's peptide-level count. The search's per-file _Peptides.psmtsv tables carry each file's own peptide-level q-values, which this bundle does not read; no file of this search gives a search-wide peptide-level q-value per peptide. `PeptideQuantification.tsv`'s values (DEF-TMT-PEP) are unaffected."
    },
    {
     "code": "isobaric_unlabelled_peptides",
@@ -339,13 +344,14 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 8,
+   "warning": 9,
    "info": 2
   },
   "finding_codes": [
    "calibration_failed",
    "count_mismatch",
    "isobaric_files_uncalibrated",
+   "isobaric_peptide_q_psm_level",
    "isobaric_unlabelled_peptides",
    "low_core_use",
    "no_channel_design",
@@ -354,18 +360,17 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "6a0984050add4261",
-   "written_utc": "2026-11-05T04:41:20+00:00",
-   "ingester_version": "1.4.1",
-   "reconciliation_ok": false,
-   "reconciliation_failed": [
-    "peptidoforms_target_1pct"
-   ],
+   "bundle_id": "a0f8c8a9c9c2deef",
+   "written_utc": "2026-11-05T14:53:54+00:00",
+   "ingester_version": "1.4.2",
+   "reconciliation_ok": true,
+   "reconciliation_failed": [],
    "reconciliation_explained": [
-    "psms_target_1pct"
+    "psms_target_1pct",
+    "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD027548 is a DDA isobaric dataset (Rattus norvegicus) with 36 runs, 360 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 122,189 PSMs, 45,376 peptidoforms and 5,550 protein groups, and the repository holds 90,447 PTM sites for it. 8 open warnings about it are recorded.",
+  "summary": "PXD027548 is a DDA isobaric dataset (Rattus norvegicus) with 36 runs, 360 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 122,189 PSMs, 45,376 peptidoforms and 5,550 protein groups, and the repository holds 90,447 PTM sites for it. 9 open warnings about it are recorded.",
   "page": "datasets/PXD027548.html",
   "json": "datasets/PXD027548.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027548.html",

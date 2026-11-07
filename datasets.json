@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "53f5ff162ba37e84",
+  "catalog_id": "e56b5ac87dcf5187",
   "catalog_version": "15",
   "schema_version": "0.0.16",
   "builder_version": "1.4.3",
-  "built_utc": "2026-11-06T18:38:19+00:00",
+  "built_utc": "2026-11-07T09:22:17+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -7325,6 +7325,49 @@
    "json": "datasets/PXD057554.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057554.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057554.json"
+  },
+  {
+   "dataset_id": "PXD057677",
+   "title": "Label free -DDA nano-LC/MS/MS analysis of aggregates and total hippocampal proteome in an early AD mouse model following",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 32,
+   "n_samples": 32,
+   "n_psms_1pct": 1956453,
+   "n_peptidoforms_1pct": 31827,
+   "n_protein_groups_1pct": 4621,
+   "n_ptm_sites": 24442,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD057677 is a DDA label-free dataset (Mus musculus) with 32 runs, 32 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 1,956,453 PSMs, 31,827 peptidoforms and 4,621 protein groups, and the repository holds 24,442 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD057677.html",
+   "json": "datasets/PXD057677.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057677.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057677.json"
   },
   {
    "dataset_id": "PXD058082",

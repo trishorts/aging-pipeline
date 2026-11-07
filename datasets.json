@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "448b94edb1164a63",
+  "catalog_id": "33f1658fe410a47d",
   "catalog_version": "15",
   "schema_version": "0.0.16",
   "builder_version": "1.4.3",
-  "built_utc": "2026-11-07T15:22:29+00:00",
+  "built_utc": "2026-11-07T19:20:50+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -2453,50 +2453,6 @@
    "json": "datasets/PXD019849.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019849.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019849.json"
-  },
-  {
-   "dataset_id": "PXD020462",
-   "title": "Oxidative damage signatures in human bone collagen from Pompeii and Herculaneum.",
-   "organisms": [
-    "NCBITaxon:9606"
-   ],
-   "organism_names": [
-    "Homo sapiens"
-   ],
-   "acquisition": "DDA",
-   "quant_method": "label_free",
-   "labelling": "none",
-   "enrichment": [
-    "none"
-   ],
-   "enrichment_mixed": false,
-   "n_runs": 15,
-   "n_samples": 15,
-   "n_psms_1pct": 4035,
-   "n_peptidoforms_1pct": 457,
-   "n_protein_groups_1pct": 46,
-   "n_ptm_sites": 448,
-   "sdrf_status": "absent",
-   "findings_by_severity": {
-    "error": 0,
-    "warning": 7,
-    "info": 1
-   },
-   "finding_codes": [
-    "calibration_failed",
-    "cysteine_poor",
-    "high_contamination",
-    "low_core_use",
-    "low_id_rate",
-    "no_sdrf",
-    "occupancy_decoy_groups",
-    "peptide_rows_localization_ambiguous"
-   ],
-   "summary": "PXD020462 is a DDA label-free dataset (Homo sapiens) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 4,035 PSMs, 457 peptidoforms and 46 protein groups, and the repository holds 448 PTM sites for it. 7 open warnings about it are recorded.",
-   "page": "datasets/PXD020462.html",
-   "json": "datasets/PXD020462.json",
-   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD020462.html",
-   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD020462.json"
   },
   {
    "dataset_id": "PXD021069",
@@ -5035,6 +4991,51 @@
    "json": "datasets/PXD035446.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035446.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035446.json"
+  },
+  {
+   "dataset_id": "PXD035577",
+   "title": "Age-related decline in the resistance of mice to bacterial infection and in LPS/TLR4 pathway-dependent neutrophil respon",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 103,
+   "n_samples": 1030,
+   "n_psms_1pct": 252709,
+   "n_peptidoforms_1pct": 83366,
+   "n_protein_groups_1pct": 7382,
+   "n_ptm_sites": 174421,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "low_id_rate",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD035577 is a DDA isobaric dataset (Mus musculus) with 103 runs, 1,030 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 252,709 PSMs, 83,366 peptidoforms and 7,382 protein groups, and the repository holds 174,421 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD035577.html",
+   "json": "datasets/PXD035577.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035577.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035577.json"
   },
   {
    "dataset_id": "PXD036557",

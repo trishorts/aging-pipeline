@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "b69f3fabccca8ce5",
+  "catalog_id": "14fc7e90dca850f1",
   "catalog_version": "15",
   "schema_version": "0.0.16",
   "builder_version": "1.4.3",
-  "built_utc": "2026-11-08T20:19:34+00:00",
+  "built_utc": "2026-11-09T02:19:13+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -93,6 +93,50 @@
    "json": "datasets/PXD002467.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD002467.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD002467.json"
+  },
+  {
+   "dataset_id": "PXD003111",
+   "title": "Silencing of eIF5B Changes Proteostasis by Providing Negative Feedback on MAPK Signaling",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 15,
+   "n_samples": 150,
+   "n_psms_1pct": 295608,
+   "n_peptidoforms_1pct": 105441,
+   "n_protein_groups_1pct": 7905,
+   "n_ptm_sites": 208129,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD003111 is a DDA isobaric dataset (Homo sapiens) with 15 runs, 150 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 295,608 PSMs, 105,441 peptidoforms and 7,905 protein groups, and the repository holds 208,129 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD003111.html",
+   "json": "datasets/PXD003111.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD003111.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD003111.json"
   },
   {
    "dataset_id": "PXD004916",
@@ -6292,6 +6336,50 @@
    "json": "datasets/PXD047293.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD047293.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD047293.json"
+  },
+  {
+   "dataset_id": "PXD048079",
+   "title": "Neurobehavioral dysfunction in a mouse model of Down syndrome: upregulation of cystathionine β-synthase, H2S overproduct",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "chemical_probe"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 26,
+   "n_samples": 26,
+   "n_psms_1pct": 905459,
+   "n_peptidoforms_1pct": 23419,
+   "n_protein_groups_1pct": 3993,
+   "n_ptm_sites": 9475,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "cysteine_poor",
+    "low_core_use",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD048079 is a DDA label-free dataset (Mus musculus) with 26 runs, 26 samples and enrichment: chemical_probe. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 905,459 PSMs, 23,419 peptidoforms and 3,993 protein groups, and the repository holds 9,475 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD048079.html",
+   "json": "datasets/PXD048079.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD048079.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD048079.json"
   },
   {
    "dataset_id": "PXD048393",

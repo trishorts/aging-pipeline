@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "bd0cc5ef03ab5111",
+  "catalog_id": "3ab0a6770154cf5a",
   "catalog_version": "15",
   "schema_version": "0.0.16",
   "builder_version": "1.4.3",
-  "built_utc": "2026-11-09T08:19:17+00:00",
+  "built_utc": "2026-11-09T14:24:38+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -615,6 +615,50 @@
    "json": "datasets/PXD006589.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006589.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006589.json"
+  },
+  {
+   "dataset_id": "PXD006743",
+   "title": "Proteome-wide changes in primary skin keratinocytes exposed to diesel particulate extract – a role for antioxidants in skin health",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 37,
+   "n_samples": 370,
+   "n_psms_1pct": 201836,
+   "n_peptidoforms_1pct": 50900,
+   "n_protein_groups_1pct": 6079,
+   "n_ptm_sites": 100979,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD006743 is a DDA isobaric dataset (Homo sapiens) with 37 runs, 370 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 201,836 PSMs, 50,900 peptidoforms and 6,079 protein groups, and the repository holds 100,979 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD006743.html",
+   "json": "datasets/PXD006743.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006743.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006743.json"
   },
   {
    "dataset_id": "PXD006815",
@@ -1644,6 +1688,49 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD012754.json"
   },
   {
+   "dataset_id": "PXD013172",
+   "title": "Differential proteomics of the synaptosomal fraction from rat dentate gyrus identified the changes associated with aging-dependent cognitive decline",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 48,
+   "n_samples": 480,
+   "n_psms_1pct": 1623181,
+   "n_peptidoforms_1pct": 129421,
+   "n_protein_groups_1pct": 8408,
+   "n_ptm_sites": 265452,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD013172 is a DDA isobaric dataset (Rattus norvegicus) with 48 runs, 480 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 1,623,181 PSMs, 129,421 peptidoforms and 8,408 protein groups, and the repository holds 265,452 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD013172.html",
+   "json": "datasets/PXD013172.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD013172.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD013172.json"
+  },
+  {
    "dataset_id": "PXD013240",
    "title": "Intracellular proteome (SDS/Na-DoC) extract from EP/LP MSCs grown on soft/stiff hydrogels for 4 days",
    "organisms": [
@@ -2199,6 +2286,49 @@
    "json": "datasets/PXD017058.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017058.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017058.json"
+  },
+  {
+   "dataset_id": "PXD017385",
+   "title": "Sample multiplexing for targeted pathway proteomics:  application to aging mice",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 108,
+   "n_samples": 1080,
+   "n_psms_1pct": 477828,
+   "n_peptidoforms_1pct": 88990,
+   "n_protein_groups_1pct": 9898,
+   "n_ptm_sites": 209066,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD017385 is a DDA isobaric dataset (Mus musculus) with 108 runs, 1,080 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 477,828 PSMs, 88,990 peptidoforms and 9,898 protein groups, and the repository holds 209,066 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD017385.html",
+   "json": "datasets/PXD017385.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017385.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017385.json"
   },
   {
    "dataset_id": "PXD017475",

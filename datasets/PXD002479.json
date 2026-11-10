@@ -1,0 +1,181 @@
+{
+ "catalog": {
+  "catalog_id": "80de50a333a2d75a",
+  "catalog_version": "16",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.5",
+  "built_utc": "2026-11-10T08:27:04+00:00",
+  "instance": "aging",
+  "base_url": "https://trishorts.github.io/aging-pipeline/"
+ },
+ "dataset": {
+  "dataset_id": "PXD002479",
+  "accession": "PXD002479",
+  "split_group": null,
+  "bundle_id": "8fcd0aed59088ef9",
+  "title": "Overexpression of catalase delays age-related cardiac disease by preventing oxidative cysteine modifications",
+  "organisms": [
+   "NCBITaxon:10090"
+  ],
+  "acquisition": "DDA",
+  "quant_method": "isobaric",
+  "labelling": "TMT",
+  "enrichment": [
+   "none"
+  ],
+  "enrichment_mixed": false,
+  "instrument_vendor": "Thermo",
+  "search_engine": "MetaMorpheus",
+  "search_engine_version": "1.1.14",
+  "unique_peptides_scope": "protein_group",
+  "n_runs": 10,
+  "n_samples": 60,
+  "n_psms_1pct": 110,
+  "n_peptidoforms_1pct": 0,
+  "n_protein_groups_1pct": 2,
+  "n_psms_all": 43033,
+  "n_ptm_sites": 12,
+  "n_quant_values": 132,
+  "n_open_findings": 7,
+  "restrictions": [],
+  "split_reason": null,
+  "instruments": [
+   "Q Exactive"
+  ],
+  "search_database": "UP000000589_all_genecentric_2026_03_agingPTM-v8.xml",
+  "sdrf_status": "trusted",
+  "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
+  "pipeline_commit": "d230a91b4c0e804faff5a13e3711166c49008c8c",
+  "organism_names": [
+   "Mus musculus"
+  ],
+  "licence": "CC-BY-4.0",
+  "credit": "NCEMS Aging Proteome Working Group",
+  "pipeline_public_repo": null,
+  "pipeline_public_commit": null,
+  "findings": [
+   {
+    "code": "calibration_failed",
+    "severity": "warning",
+    "message": "GPTMD/search ran on uncalibrated spectra (S7)"
+   },
+   {
+    "code": "isobaric_channels_not_in_sdrf",
+    "severity": "warning",
+    "message": "60 of the 60 channels of the search's TmtDesign.txt have no row of the SDRF naming their file and label, so their assays sit on the design's own sample (its `Sample Name`), with nothing known about it. E.g. `PXD002479:2013_08_06-LCMS-Yao-TMT-CatMouse-0001_130808000523:TMT126`, `PXD002479:2013_08_06-LCMS-Yao-TMT-CatMouse-0001_130808000523:TMT127`, `PXD002479:2013_08_06-LCMS-Yao-TMT-CatMouse-0001_130808000523:TMT128` and 57 more."
+   },
+   {
+    "code": "low_core_use",
+    "severity": "warning",
+    "message": "14.25 avg cores of 32 allowed (S5)"
+   },
+   {
+    "code": "low_id_rate",
+    "severity": "warning",
+    "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 110/163293 = 0.07% of MS2 identified (S3)"
+   },
+   {
+    "code": "no_channel_design",
+    "severity": "warning",
+    "message": "no SDRF says which sample is in which channel (every SDRF was refused); PXReprise's default design makes each file its own plex and each channel that shows a sample its own sample; the reporter values compare nothing until a design is curated (QuantProject 079)"
+   },
+   {
+    "code": "sdrf_skeleton",
+    "severity": "warning",
+    "message": "The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated."
+   },
+   {
+    "code": "unresolved_modifications",
+    "severity": "warning",
+    "message": "3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:3'-nitrotyrosine on Y, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+   },
+   {
+    "code": "isobaric_files_uncalibrated",
+    "severity": "info",
+    "message": "10 of the 10 files were searched as acquired, not calibrated (their names in the search carry no `-calib`): `2013_08_06-LCMS-Yao-TMT-CatMouse-0001_130808000523`, `2013_08_06-LCMS-Yao-TMT-CatMouse-0002_130808015549`, `2013_08_06-LCMS-Yao-TMT-CatMouse-0003_130808040039`, `2013_08_06-LCMS-Yao-TMT-CatMouse-0004`, `2013_08_06-LCMS-Yao-TMT-CatMouse-0005_130808081020`, `2013_08_06-LCMS-Yao-TMT-CatMouse-0006_130808101508`, `2013_08_06-LCMS-Yao-TMT-CatMouse-0007_130808121958`, `2013_08_06-LCMS-Yao-TMT-CatMouse-0008_130808142451`, `2013_08_06-LCMS-Yao-TMT-CatMouse-0009_130808162939`, `2013_08_06-LCMS-Yao-TMT-CatMouse-0010_130808183429`. Their reporter values are the same kind of number; their identifications rest on uncalibrated precursor masses (QuantProject 066, rule 3)."
+   },
+   {
+    "code": "occupancy_not_ingested",
+    "severity": "info",
+    "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   }
+  ],
+  "modifications": [
+   {
+    "modification_name": "TMT6-plex on X",
+    "modification": "UNIMOD:737",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Acetylation on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Carbamidomethyl on C",
+    "modification": "UNIMOD:4",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Glutarylation on K",
+    "modification": "UNIMOD:1848",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylalanine on A",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Phosphorylation on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Trimethylation on K",
+    "modification": "UNIMOD:37",
+    "n_sites": 1
+   }
+  ],
+  "metrics": {
+   "id_rate": {
+    "value": 0.0007,
+    "definition_id": "pxreprise:DEF-ID-RATE"
+   },
+   "contamination_psm_share": {
+    "value": 0.0,
+    "definition_id": "pxreprise:DEF-CONTAM-PSM"
+   }
+  },
+  "findings_by_severity": {
+   "error": 0,
+   "warning": 7,
+   "info": 2
+  },
+  "finding_codes": [
+   "calibration_failed",
+   "isobaric_channels_not_in_sdrf",
+   "isobaric_files_uncalibrated",
+   "low_core_use",
+   "low_id_rate",
+   "no_channel_design",
+   "occupancy_not_ingested",
+   "sdrf_skeleton",
+   "unresolved_modifications"
+  ],
+  "bundle": {
+   "bundle_id": "8fcd0aed59088ef9",
+   "written_utc": "2026-11-10T03:07:10+00:00",
+   "ingester_version": "1.4.5",
+   "reconciliation_ok": true,
+   "reconciliation_failed": [],
+   "reconciliation_explained": []
+  },
+  "summary": "PXD002479 is a DDA isobaric dataset (Mus musculus) with 10 runs, 60 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 110 PSMs, 0 peptidoforms and 2 protein groups, and the repository holds 12 PTM sites for it. 7 open warnings about it are recorded.",
+  "page": "datasets/PXD002479.html",
+  "json": "datasets/PXD002479.json",
+  "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD002479.html",
+  "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD002479.json"
+ },
+ "organisms_are": "`organisms` is the organism of the protein DATABASE the search used, not a statement about the samples. Sample annotation, where any exists, is in the catalog's `samples` and `sample_characteristics` tables."
+}

@@ -1,0 +1,474 @@
+{
+ "catalog": {
+  "catalog_id": "9a50569b6727821a",
+  "catalog_version": "16",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.5",
+  "built_utc": "2026-11-10T20:28:29+00:00",
+  "instance": "aging",
+  "base_url": "https://trishorts.github.io/aging-pipeline/"
+ },
+ "dataset": {
+  "dataset_id": "PXD059562",
+  "accession": "PXD059562",
+  "split_group": null,
+  "bundle_id": "7f8be3696a578989",
+  "title": "Proteomes of Aging and Omega-3 Supplementation in Rat Soleus Skeletal Muscle",
+  "organisms": [
+   "NCBITaxon:10116"
+  ],
+  "acquisition": "DDA",
+  "quant_method": "isobaric",
+  "labelling": "TMT",
+  "enrichment": [
+   "none"
+  ],
+  "enrichment_mixed": false,
+  "instrument_vendor": null,
+  "search_engine": "MetaMorpheus",
+  "search_engine_version": "1.1.14",
+  "unique_peptides_scope": "protein_group",
+  "n_runs": 74,
+  "n_samples": 740,
+  "n_psms_1pct": 1003506,
+  "n_peptidoforms_1pct": 57677,
+  "n_protein_groups_1pct": 5121,
+  "n_psms_all": 2381275,
+  "n_ptm_sites": 118302,
+  "n_quant_values": 5317334,
+  "n_open_findings": 6,
+  "restrictions": [],
+  "split_reason": null,
+  "instruments": null,
+  "search_database": "UP000002494_all_genecentric_2026_03_agingPTM-v8.xml",
+  "sdrf_status": "absent",
+  "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
+  "pipeline_commit": "06b4d89e37f77824d58178b85eff3c9bc22d48d5",
+  "organism_names": [
+   "Rattus norvegicus"
+  ],
+  "licence": "CC-BY-4.0",
+  "credit": "NCEMS Aging Proteome Working Group",
+  "pipeline_public_repo": null,
+  "pipeline_public_commit": null,
+  "findings": [
+   {
+    "code": "count_mismatch",
+    "severity": "warning",
+    "message": "The bundle holds 1.00351e+06 where the producer reported 1.00358e+06 (results.txt: All target PSMs with q-value <= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+   },
+   {
+    "code": "low_core_use",
+    "severity": "warning",
+    "message": "7.08 avg cores of 32 allowed (S5)"
+   },
+   {
+    "code": "no_channel_design",
+    "severity": "warning",
+    "message": "no SDRF says which sample is in which channel (no curated design and no deposited SDRF); PXReprise's default design makes each file its own plex and each channel that shows a sample its own sample; the reporter values compare nothing until a design is curated (QuantProject 079)"
+   },
+   {
+    "code": "no_sdrf",
+    "severity": "warning",
+    "message": "No SDRF was found for this dataset, so each channel's sample is the sample its search's TmtDesign.txt names (its `Sample Name`), with nothing else known about it. There is no sample metadata: treat every sample as unannotated."
+   },
+   {
+    "code": "unplaced_ptm_sites",
+    "severity": "warning",
+    "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 14220 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+   },
+   {
+    "code": "unresolved_modifications",
+    "severity": "warning",
+    "message": "7 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:(3S)-3-hydroxyasparagine on N, UniProt:(3S)-3-hydroxyhistidine on H, UniProt:3'-nitrotyrosine on Y, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K, UniProt:S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+   },
+   {
+    "code": "occupancy_not_ingested",
+    "severity": "info",
+    "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   }
+  ],
+  "modifications": [
+   {
+    "modification_name": "TMT10 on X",
+    "modification": "UNIMOD:737",
+    "n_sites": 60205
+   },
+   {
+    "modification_name": "TMT10 on K",
+    "modification": "UNIMOD:737",
+    "n_sites": 41915
+   },
+   {
+    "modification_name": "Oxidation on M",
+    "modification": "UNIMOD:35",
+    "n_sites": 8185
+   },
+   {
+    "modification_name": "Carbamidomethyl on C",
+    "modification": "UNIMOD:4",
+    "n_sites": 4774
+   },
+   {
+    "modification_name": "N-acetylalanine on A",
+    "modification": "UNIMOD:1",
+    "n_sites": 161
+   },
+   {
+    "modification_name": "Acetylation on X",
+    "modification": "UNIMOD:1",
+    "n_sites": 158
+   },
+   {
+    "modification_name": "Phosphoserine on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 149
+   },
+   {
+    "modification_name": "N6-acetyllysine on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 78
+   },
+   {
+    "modification_name": "N-acetylmethionine on M",
+    "modification": "UNIMOD:1",
+    "n_sites": 77
+   },
+   {
+    "modification_name": "4-hydroxyproline on P",
+    "modification": "UNIMOD:35",
+    "n_sites": 66
+   },
+   {
+    "modification_name": "N-acetylserine on S",
+    "modification": "UNIMOD:1",
+    "n_sites": 64
+   },
+   {
+    "modification_name": "Phosphorylation on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 59
+   },
+   {
+    "modification_name": "Phosphothreonine on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 42
+   },
+   {
+    "modification_name": "Methylation on R",
+    "modification": "UNIMOD:34",
+    "n_sites": 39
+   },
+   {
+    "modification_name": "Deamidated asparagine on N",
+    "modification": "UNIMOD:7",
+    "n_sites": 38
+   },
+   {
+    "modification_name": "Methylation on K",
+    "modification": "UNIMOD:34",
+    "n_sites": 35
+   },
+   {
+    "modification_name": "Acetylation on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 32
+   },
+   {
+    "modification_name": "N6,N6,N6-trimethyllysine on K",
+    "modification": "UNIMOD:37",
+    "n_sites": 24
+   },
+   {
+    "modification_name": "Phosphorylation on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 19
+   },
+   {
+    "modification_name": "N6-succinyllysine on K",
+    "modification": null,
+    "n_sites": 18
+   },
+   {
+    "modification_name": "N-acetylthreonine on T",
+    "modification": "UNIMOD:1",
+    "n_sites": 16
+   },
+   {
+    "modification_name": "N6,N6-dimethyllysine on K",
+    "modification": "UNIMOD:36",
+    "n_sites": 13
+   },
+   {
+    "modification_name": "N6-methyllysine on K",
+    "modification": "UNIMOD:34",
+    "n_sites": 13
+   },
+   {
+    "modification_name": "Succinylation on K",
+    "modification": "UNIMOD:64",
+    "n_sites": 12
+   },
+   {
+    "modification_name": "Dimethylation on K",
+    "modification": "UNIMOD:36",
+    "n_sites": 11
+   },
+   {
+    "modification_name": "Dimethylation on R",
+    "modification": "UNIMOD:36",
+    "n_sites": 11
+   },
+   {
+    "modification_name": "N-myristoyl glycine on G",
+    "modification": "UNIMOD:45",
+    "n_sites": 11
+   },
+   {
+    "modification_name": "Butyrylation on K",
+    "modification": "UNIMOD:1289",
+    "n_sites": 9
+   },
+   {
+    "modification_name": "N6-glutaryllysine on K",
+    "modification": null,
+    "n_sites": 9
+   },
+   {
+    "modification_name": "Phosphotyrosine on Y",
+    "modification": "UNIMOD:21",
+    "n_sites": 9
+   },
+   {
+    "modification_name": "S-nitrosocysteine on C",
+    "modification": "UNIMOD:275",
+    "n_sites": 9
+   },
+   {
+    "modification_name": "Glutarylation on K",
+    "modification": "UNIMOD:1848",
+    "n_sites": 8
+   },
+   {
+    "modification_name": "N-acetylglycine on G",
+    "modification": "UNIMOD:1",
+    "n_sites": 8
+   },
+   {
+    "modification_name": "N-acetylvaline on V",
+    "modification": "UNIMOD:1",
+    "n_sites": 8
+   },
+   {
+    "modification_name": "Omega-N-methylarginine on R",
+    "modification": "UNIMOD:34",
+    "n_sites": 8
+   },
+   {
+    "modification_name": "Asymmetric dimethylarginine on R",
+    "modification": "UNIMOD:36",
+    "n_sites": 6
+   },
+   {
+    "modification_name": "Phosphorylation on Y",
+    "modification": "UNIMOD:21",
+    "n_sites": 6
+   },
+   {
+    "modification_name": "HexNAc on S",
+    "modification": "UNIMOD:43",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "Trimethylation on K",
+    "modification": "UNIMOD:37",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "Cysteine persulfide on C",
+    "modification": "UNIMOD:421",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "N-acetylcysteine on C",
+    "modification": "UNIMOD:1",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "S-(2-succinyl)cysteine on C",
+    "modification": "UNIMOD:957",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Tele-methylhistidine on H",
+    "modification": "UNIMOD:34",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Crotonylation on K",
+    "modification": "UNIMOD:1363",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "Hydroxybutyrylation on K",
+    "modification": null,
+    "n_sites": 3
+   },
+   {
+    "modification_name": "Pros-methylhistidine on H",
+    "modification": "UNIMOD:34",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "Symmetric dimethylarginine on R",
+    "modification": "UNIMOD:36",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "(3S)-3-hydroxyhistidine on H",
+    "modification": null,
+    "n_sites": 2
+   },
+   {
+    "modification_name": "5-glutamyl glycerylphosphorylethanolamine on E",
+    "modification": "UNIMOD:396",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "HexNAc on T",
+    "modification": "UNIMOD:43",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "N6-lipoyllysine on K",
+    "modification": "UNIMOD:42",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "N6-malonyllysine on K",
+    "modification": null,
+    "n_sites": 2
+   },
+   {
+    "modification_name": "4-carboxyglutamate on E",
+    "modification": "UNIMOD:299",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "5-hydroxylysine on K",
+    "modification": "UNIMOD:35",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Cysteine sulfinic acid (-SO2H) on C",
+    "modification": "UNIMOD:425",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Dimethylated arginine on R",
+    "modification": "UNIMOD:36",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Diphthamide on H",
+    "modification": "UNIMOD:375",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "GG (Ubiquitination Site) on K",
+    "modification": "UNIMOD:121",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Hypusine on K",
+    "modification": "UNIMOD:379",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylaspartate on D",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylglutamate on E",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylproline on P",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N6-(2-hydroxyisobutyryl)lysine on K",
+    "modification": "UNIMOD:1849",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N6-1-carboxyethyl lysine on K",
+    "modification": "UNIMOD:378",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N6-biotinyllysine on K",
+    "modification": "UNIMOD:3",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N6-butyryllysine on K",
+    "modification": "UNIMOD:1289",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "O-AMP-threonine on T",
+    "modification": "UNIMOD:405",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "Tele-8alpha-FAD histidine on H",
+    "modification": "UNIMOD:50",
+    "n_sites": 1
+   }
+  ],
+  "metrics": {
+   "id_rate": {
+    "value": 0.2778,
+    "definition_id": "pxreprise:DEF-ID-RATE"
+   },
+   "contamination_psm_share": {
+    "value": 0.0138,
+    "definition_id": "pxreprise:DEF-CONTAM-PSM"
+   }
+  },
+  "findings_by_severity": {
+   "error": 0,
+   "warning": 6,
+   "info": 1
+  },
+  "finding_codes": [
+   "count_mismatch",
+   "low_core_use",
+   "no_channel_design",
+   "no_sdrf",
+   "occupancy_not_ingested",
+   "unplaced_ptm_sites",
+   "unresolved_modifications"
+  ],
+  "bundle": {
+   "bundle_id": "7f8be3696a578989",
+   "written_utc": "2026-11-10T18:33:37+00:00",
+   "ingester_version": "1.4.5",
+   "reconciliation_ok": true,
+   "reconciliation_failed": [],
+   "reconciliation_explained": [
+    "psms_target_1pct"
+   ]
+  },
+  "summary": "PXD059562 is a DDA isobaric dataset (Rattus norvegicus) with 74 runs, 740 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 1,003,506 PSMs, 57,677 peptidoforms and 5,121 protein groups, and the repository holds 118,302 PTM sites for it. 6 open warnings about it are recorded.",
+  "page": "datasets/PXD059562.html",
+  "json": "datasets/PXD059562.json",
+  "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059562.html",
+  "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059562.json"
+ },
+ "organisms_are": "`organisms` is the organism of the protein DATABASE the search used, not a statement about the samples. Sample annotation, where any exists, is in the catalog's `samples` and `sample_characteristics` tables."
+}

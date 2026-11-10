@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "d28672f2f74c076b",
+  "catalog_id": "9a50569b6727821a",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-10T14:35:23+00:00",
+  "built_utc": "2026-11-10T20:28:29+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -7485,6 +7485,52 @@
    "json": "datasets/PXD059520.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059520.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059520.json"
+  },
+  {
+   "dataset_id": "PXD059562",
+   "accession": "PXD059562",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Proteomes of Aging and Omega-3 Supplementation in Rat Soleus Skeletal Muscle",
+   "organisms": [
+    "NCBITaxon:10116"
+   ],
+   "organism_names": [
+    "Rattus norvegicus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 74,
+   "n_samples": 740,
+   "n_psms_1pct": 1003506,
+   "n_peptidoforms_1pct": 57677,
+   "n_protein_groups_1pct": 5121,
+   "n_ptm_sites": 118302,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD059562 is a DDA isobaric dataset (Rattus norvegicus) with 74 runs, 740 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 1,003,506 PSMs, 57,677 peptidoforms and 5,121 protein groups, and the repository holds 118,302 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD059562.html",
+   "json": "datasets/PXD059562.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059562.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059562.json"
   },
   {
    "dataset_id": "PXD059591",

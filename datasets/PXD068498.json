@@ -1,15 +1,17 @@
 {
  "catalog": {
-  "catalog_id": "3ab0a6770154cf5a",
-  "catalog_version": "15",
+  "catalog_id": "4cb3e8348a9e7452",
+  "catalog_version": "16",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.3",
-  "built_utc": "2026-11-09T14:24:38+00:00",
+  "builder_version": "1.4.5",
+  "built_utc": "2026-11-10T02:28:36+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD068498",
+  "accession": "PXD068498",
+  "split_group": null,
   "bundle_id": "d3ce4e0d4a6f0d5a",
   "title": "Reduced IGF-1 signaling fails to limit Alzheimer’s disease progression in a novel rat model of IGF-1R haploinsufficiency",
   "organisms": [
@@ -36,6 +38,7 @@
   "n_quant_values": 1274904,
   "n_open_findings": 6,
   "restrictions": [],
+  "split_reason": null,
   "instruments": null,
   "search_database": "UP000002494_all_genecentric_2026_03_agingPTM-v3.xml",
   "sdrf_status": "absent",

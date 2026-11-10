@@ -1,15 +1,17 @@
 {
  "catalog": {
-  "catalog_id": "3ab0a6770154cf5a",
-  "catalog_version": "15",
+  "catalog_id": "4cb3e8348a9e7452",
+  "catalog_version": "16",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.3",
-  "built_utc": "2026-11-09T14:24:38+00:00",
+  "builder_version": "1.4.5",
+  "built_utc": "2026-11-10T02:28:36+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD032202",
+  "accession": "PXD032202",
+  "split_group": null,
   "bundle_id": "2c73cb35813984d0",
   "title": "Global and comparative proteome signatures in the lens capsule, trabecular meshwork, and iris of patients with pseudoexfoliation glaucoma",
   "organisms": [
@@ -36,6 +38,7 @@
   "n_quant_values": 182742,
   "n_open_findings": 5,
   "restrictions": [],
+  "split_reason": null,
   "instruments": null,
   "search_database": "uniprotkb_proteome_UP000005640_AND_revi_2026_09_18.xml",
   "sdrf_status": "absent",

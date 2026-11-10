@@ -1,15 +1,17 @@
 {
  "catalog": {
-  "catalog_id": "3ab0a6770154cf5a",
-  "catalog_version": "15",
+  "catalog_id": "4cb3e8348a9e7452",
+  "catalog_version": "16",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.3",
-  "built_utc": "2026-11-09T14:24:38+00:00",
+  "builder_version": "1.4.5",
+  "built_utc": "2026-11-10T02:28:36+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD042301",
+  "accession": "PXD042301",
+  "split_group": null,
   "bundle_id": "f5c6cb1d792766da",
   "title": "Mapping of the podocin proximity-dependent proteome reveals novel components of the kidney podocyte foot process.",
   "organisms": [
@@ -36,6 +38,7 @@
   "n_quant_values": 408611,
   "n_open_findings": 3,
   "restrictions": [],
+  "split_reason": null,
   "instruments": null,
   "search_database": "uniprotkb_proteome_UP000000589_AND_revi_2026-09-22_agingPTM-v1.xml",
   "sdrf_status": "trusted",

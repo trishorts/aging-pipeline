@@ -1,15 +1,17 @@
 {
  "catalog": {
-  "catalog_id": "3ab0a6770154cf5a",
-  "catalog_version": "15",
+  "catalog_id": "4cb3e8348a9e7452",
+  "catalog_version": "16",
   "schema_version": "0.0.16",
-  "builder_version": "1.4.3",
-  "built_utc": "2026-11-09T14:24:38+00:00",
+  "builder_version": "1.4.5",
+  "built_utc": "2026-11-10T02:28:36+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
  "dataset": {
   "dataset_id": "PXD056458",
+  "accession": "PXD056458",
+  "split_group": null,
   "bundle_id": "671c8bddecceb3fc",
   "title": "M1 polyubiquitin targets in the hippocampus across the lifespan",
   "organisms": [
@@ -36,6 +38,7 @@
   "n_quant_values": 56963,
   "n_open_findings": 4,
   "restrictions": [],
+  "split_reason": null,
   "instruments": null,
   "search_database": "UP000002494_all_genecentric_2026_03_agingPTM-v4.xml",
   "sdrf_status": "trusted",

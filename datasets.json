@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "16db98c54a9310dc",
+  "catalog_id": "cfab8ab81b2673f1",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-11T08:29:45+00:00",
+  "built_utc": "2026-11-11T14:32:39+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -4674,6 +4674,54 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD032757.json"
   },
   {
+   "dataset_id": "PXD032900-tmt",
+   "accession": "PXD032900",
+   "split_group": "tmt",
+   "split_reason": "label",
+   "siblings": [],
+   "title": "Impaired iron recycling from erythrocytes is an early hallmark of aging",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 3,
+   "n_samples": 54,
+   "n_psms_1pct": 8083,
+   "n_peptidoforms_1pct": 4188,
+   "n_protein_groups_1pct": 1354,
+   "n_ptm_sites": 9057,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "isobaric_reference_channels",
+    "low_core_use",
+    "low_id_rate",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD032900-tmt is a DDA isobaric dataset (Mus musculus) with 3 runs, 54 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 8,083 PSMs, 4,188 peptidoforms and 1,354 protein groups, and the repository holds 9,057 PTM sites for it. 6 open warnings about it are recorded. It is one part of deposit PXD032900, which was searched in parts (split by label). No other part of it is in this repository.",
+   "page": "datasets/PXD032900-tmt.html",
+   "json": "datasets/PXD032900-tmt.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD032900-tmt.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD032900-tmt.json"
+  },
+  {
    "dataset_id": "PXD033430",
    "accession": "PXD033430",
    "split_group": null,
@@ -8324,6 +8372,20 @@
    "json": "datasets/PXD077298.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD077298.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD077298.json"
+  }
+ ],
+ "deposits_are": "Deposits searched in parts (a split, e.g. one search per species), each part a dataset above keyed `<accession>-<group>`. A public dataset is a DEPOSIT: count deposits by `accession`, not entries of `datasets`, and never sum a protein's or peptide's counts over parts, since one can be found in more than one.",
+ "split_deposits": [
+  {
+   "accession": "PXD032900",
+   "dataset_ids": [
+    "PXD032900-tmt"
+   ],
+   "split_reasons": [
+    "label"
+   ],
+   "page": "datasets/PXD032900.html",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD032900.html"
   }
  ]
 }

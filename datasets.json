@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "9a50569b6727821a",
+  "catalog_id": "abcd078b3149634c",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-10T20:28:29+00:00",
+  "built_utc": "2026-11-11T02:28:42+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -3472,6 +3472,52 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD025321.json"
   },
   {
+   "dataset_id": "PXD025618",
+   "accession": "PXD025618",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Disruption of nucleocytoplasmic trafficking as a cellular senescence driver",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 48,
+   "n_samples": 528,
+   "n_psms_1pct": 111089,
+   "n_peptidoforms_1pct": 35664,
+   "n_protein_groups_1pct": 5506,
+   "n_ptm_sites": 72551,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "isobaric_reference_channels",
+    "low_core_use",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD025618 is a DDA isobaric dataset (Homo sapiens) with 48 runs, 528 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 111,089 PSMs, 35,664 peptidoforms and 5,506 protein groups, and the repository holds 72,551 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD025618.html",
+   "json": "datasets/PXD025618.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD025618.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD025618.json"
+  },
+  {
    "dataset_id": "PXD026219",
    "accession": "PXD026219",
    "split_group": null,
@@ -3652,6 +3698,53 @@
    "json": "datasets/PXD026773.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD026773.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD026773.json"
+  },
+  {
+   "dataset_id": "PXD027232",
+   "accession": "PXD027232",
+   "split_group": null,
+   "split_reason": null,
+   "title": "SIRT7-induced PHF5A de-crotonylation regulates ageing progress through alternative splicing-mediated downregulation of CDK2",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "phospho"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 1,
+   "n_samples": 6,
+   "n_psms_1pct": 772,
+   "n_peptidoforms_1pct": 580,
+   "n_protein_groups_1pct": 371,
+   "n_ptm_sites": 1425,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 1
+   },
+   "finding_codes": [
+    "isobaric_channels_not_in_sdrf",
+    "low_core_use",
+    "low_id_rate",
+    "no_channel_design",
+    "occupancy_not_ingested",
+    "sdrf_skeleton",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD027232 is a DDA isobaric dataset (Homo sapiens) with 1 run, 6 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 772 PSMs, 580 peptidoforms and 371 protein groups, and the repository holds 1,425 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD027232.html",
+   "json": "datasets/PXD027232.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027232.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027232.json"
   },
   {
    "dataset_id": "PXD027318",

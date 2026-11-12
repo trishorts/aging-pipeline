@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "fe6a49db1fd6fddc",
+  "catalog_id": "26566d0ef0405144",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-11T20:31:06+00:00",
+  "built_utc": "2026-11-12T02:29:46+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -7188,6 +7188,54 @@
    "json": "datasets/PXD053288.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD053288.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD053288.json"
+  },
+  {
+   "dataset_id": "PXD053611",
+   "accession": "PXD053611",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Targeting Senescent Stem-Like Subpopulations in Philadelphia Chromosome-Like Acute Lymphoblastic Leukemia",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "phospho"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 26,
+   "n_samples": 468,
+   "n_psms_1pct": 119179,
+   "n_peptidoforms_1pct": 18751,
+   "n_protein_groups_1pct": 3737,
+   "n_ptm_sites": 40937,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 3
+   },
+   "finding_codes": [
+    "calibration_failed",
+    "isobaric_files_uncalibrated",
+    "isobaric_reference_channels",
+    "low_id_rate",
+    "no_channel_design",
+    "no_sdrf",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD053611 is a DDA isobaric dataset (Mus musculus) with 26 runs, 468 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 119,179 PSMs, 18,751 peptidoforms and 3,737 protein groups, and the repository holds 40,937 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD053611.html",
+   "json": "datasets/PXD053611.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD053611.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD053611.json"
   },
   {
    "dataset_id": "PXD054290",

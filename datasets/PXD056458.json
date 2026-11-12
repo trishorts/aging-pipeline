@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "fe6a49db1fd6fddc",
+  "catalog_id": "26566d0ef0405144",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-11T20:31:06+00:00",
+  "built_utc": "2026-11-12T02:29:46+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -37,7 +37,9 @@
   "n_ptm_sites": 1962,
   "n_quant_values": 56963,
   "n_open_findings": 4,
-  "restrictions": [],
+  "restrictions": [
+   "occupancy"
+  ],
   "split_reason": null,
   "instruments": null,
   "search_database": "UP000002494_all_genecentric_2026_03_agingPTM-v4.xml",

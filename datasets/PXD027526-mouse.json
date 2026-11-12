@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "d21920c9eb2a2ab6",
+  "catalog_id": "3bde62130d08a4c4",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-12T14:32:12+00:00",
+  "built_utc": "2026-11-12T20:31:32+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -489,7 +489,9 @@
    "peptide_rows_localization_ambiguous",
    "unplaced_ptm_sites"
   ],
-  "siblings": [],
+  "siblings": [
+   "PXD027526-human"
+  ],
   "bundle": {
    "bundle_id": "6db477fa9fd2b917",
    "written_utc": "2026-11-12T14:13:24+00:00",
@@ -500,7 +502,7 @@
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD027526-mouse is a DDA label-free dataset (Mus musculus) with 135 runs, 135 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 540,026 PSMs, 45,339 peptidoforms and 6,707 protein groups, and the repository holds 23,342 PTM sites for it. 6 open warnings about it are recorded. It is one part of deposit PXD027526, which was searched in parts (split by species). No other part of it is in this repository.",
+  "summary": "PXD027526-mouse is a DDA label-free dataset (Mus musculus) with 135 runs, 135 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 540,026 PSMs, 45,339 peptidoforms and 6,707 protein groups, and the repository holds 23,342 PTM sites for it. 6 open warnings about it are recorded. It is one part of deposit PXD027526, which was searched in parts (split by species). The deposit's other part is PXD027526-human.",
   "page": "datasets/PXD027526-mouse.html",
   "json": "datasets/PXD027526-mouse.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027526-mouse.html",

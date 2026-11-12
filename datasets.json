@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "1e8c7c9d1821d38e",
+  "catalog_id": "d21920c9eb2a2ab6",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-12T08:30:58+00:00",
+  "built_utc": "2026-11-12T14:32:12+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -613,6 +613,99 @@
    "json": "datasets/PXD006571.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006571.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006571.json"
+  },
+  {
+   "dataset_id": "PXD006572",
+   "accession": "PXD006572",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Aging-related proteome alterations in B cells may predispose for chronic lymphocytic leukemia - cytoplasmic proteins of young B cells",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 6,
+   "n_samples": 6,
+   "n_psms_1pct": 157248,
+   "n_peptidoforms_1pct": 27424,
+   "n_protein_groups_1pct": 5061,
+   "n_ptm_sites": 10726,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "high_contamination",
+    "low_core_use",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 157,248 PSMs, 27,424 peptidoforms and 5,061 protein groups, and the repository holds 10,726 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD006572.html",
+   "json": "datasets/PXD006572.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006572.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006572.json"
+  },
+  {
+   "dataset_id": "PXD006576",
+   "accession": "PXD006576",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Aging-related proteome alterations in B cells may predispose for chronic lymphocytic leukemia - nuclear proteins of young B cells",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 6,
+   "n_samples": 6,
+   "n_psms_1pct": 148781,
+   "n_peptidoforms_1pct": 26735,
+   "n_protein_groups_1pct": 4090,
+   "n_ptm_sites": 10735,
+   "sdrf_status": "absent",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "no_sdrf",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD006576 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 148,781 PSMs, 26,735 peptidoforms and 4,090 protein groups, and the repository holds 10,735 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD006576.html",
+   "json": "datasets/PXD006576.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006576.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006576.json"
   },
   {
    "dataset_id": "PXD006578",
@@ -4078,10 +4171,11 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027490.json"
   },
   {
-   "dataset_id": "PXD027526",
+   "dataset_id": "PXD027526-mouse",
    "accession": "PXD027526",
-   "split_group": null,
-   "split_reason": null,
+   "split_group": "mouse",
+   "split_reason": "species",
+   "siblings": [],
    "title": "Mapping sites of carboxymethyllysine modification on proteins reveals consequences for proteostasis and cell proliferati",
    "organisms": [
     "NCBITaxon:10090"
@@ -4096,16 +4190,16 @@
     "none"
    ],
    "enrichment_mixed": false,
-   "n_runs": 153,
-   "n_samples": 153,
-   "n_psms_1pct": 643119,
-   "n_peptidoforms_1pct": 47450,
-   "n_protein_groups_1pct": 6953,
-   "n_ptm_sites": 23757,
+   "n_runs": 135,
+   "n_samples": 135,
+   "n_psms_1pct": 540026,
+   "n_peptidoforms_1pct": 45339,
+   "n_protein_groups_1pct": 6707,
+   "n_ptm_sites": 23342,
    "sdrf_status": "absent",
    "findings_by_severity": {
     "error": 0,
-    "warning": 7,
+    "warning": 6,
     "info": 1
    },
    "finding_codes": [
@@ -4117,11 +4211,11 @@
     "peptide_rows_localization_ambiguous",
     "unplaced_ptm_sites"
    ],
-   "summary": "PXD027526 is a DDA label-free dataset (Mus musculus) with 153 runs, 153 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 643,119 PSMs, 47,450 peptidoforms and 6,953 protein groups, and the repository holds 23,757 PTM sites for it. 7 open warnings about it are recorded.",
-   "page": "datasets/PXD027526.html",
-   "json": "datasets/PXD027526.json",
-   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027526.html",
-   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027526.json"
+   "summary": "PXD027526-mouse is a DDA label-free dataset (Mus musculus) with 135 runs, 135 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 540,026 PSMs, 45,339 peptidoforms and 6,707 protein groups, and the repository holds 23,342 PTM sites for it. 6 open warnings about it are recorded. It is one part of deposit PXD027526, which was searched in parts (split by species). No other part of it is in this repository.",
+   "page": "datasets/PXD027526-mouse.html",
+   "json": "datasets/PXD027526-mouse.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027526-mouse.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027526-mouse.json"
   },
   {
    "dataset_id": "PXD027548",
@@ -8847,6 +8941,17 @@
  ],
  "deposits_are": "Deposits searched in parts (a split, e.g. one search per species), each part a dataset above keyed `<accession>-<group>`. A public dataset is a DEPOSIT: count deposits by `accession`, not entries of `datasets`, and never sum a protein's or peptide's counts over parts, since one can be found in more than one.",
  "split_deposits": [
+  {
+   "accession": "PXD027526",
+   "dataset_ids": [
+    "PXD027526-mouse"
+   ],
+   "split_reasons": [
+    "species"
+   ],
+   "page": "datasets/PXD027526.html",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027526.html"
+  },
   {
    "accession": "PXD032900",
    "dataset_ids": [

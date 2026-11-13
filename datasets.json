@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "5b5cb9a135ce2c7b",
+  "catalog_id": "bd1b683bc8e84e3c",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-13T20:57:31+00:00",
+  "built_utc": "2026-11-13T21:36:48+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -9404,6 +9404,53 @@
    "json": "datasets/PXD075372.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD075372.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD075372.json"
+  },
+  {
+   "dataset_id": "PXD077152",
+   "accession": "PXD077152",
+   "split_group": null,
+   "split_reason": null,
+   "title": "A microprotein encoded by FERMT3 modulates endothelial cell protein catabolism and induces cell cycle arrest and senescence",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 24,
+   "n_samples": 248,
+   "n_psms_1pct": 179976,
+   "n_peptidoforms_1pct": 93749,
+   "n_protein_groups_1pct": 8645,
+   "n_ptm_sites": 190635,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD077152 is a DDA isobaric dataset (Homo sapiens) with 24 runs, 248 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 179,976 PSMs, 93,749 peptidoforms and 8,645 protein groups, and the repository holds 190,635 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD077152.html",
+   "json": "datasets/PXD077152.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD077152.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD077152.json"
   },
   {
    "dataset_id": "PXD077298",

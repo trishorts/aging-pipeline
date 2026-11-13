@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PXD077152: A microprotein encoded by FERMT3 modulates endothelial cell protein catabolism and induces cell cycle arrest and senescence</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" type="text/plain" href="../llms.txt" title="llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org/",
+ "@type": "Dataset",
+ "dct:conformsTo": {
+  "@id": "https://bioschemas.org/profiles/Dataset/1.0-RELEASE",
+  "@type": "CreativeWork"
+ },
+ "@id": "https://trishorts.github.io/aging-pipeline/datasets/PXD077152.html",
+ "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD077152.html",
+ "name": "PXD077152 reanalysis: A microprotein encoded by FERMT3 modulates endothelial cell protein catabolism and induces cell cycle arrest and senescence",
+ "identifier": [
+  "PXD077152",
+  "datarepo:bundle:37de60e0399968ea"
+ ],
+ "description": "PXD077152 is a DDA isobaric dataset (Homo sapiens) with 24 runs, 248 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 179,976 PSMs, 93,749 peptidoforms and 8,645 protein groups, and the repository holds 190,635 PTM sites for it. 6 open warnings about it are recorded.",
+ "version": "37de60e0399968ea",
+ "dateModified": "2026-11-13T21:35:08+00:00",
+ "keywords": [
+  "proteomics",
+  "mass spectrometry",
+  "reanalysis",
+  "aging",
+  "Homo sapiens"
+ ],
+ "measurementTechnique": "mass spectrometry",
+ "variableMeasured": [
+  "peptide-spectrum match",
+  "peptidoform",
+  "protein group",
+  "PTM site",
+  "protein abundance"
+ ],
+ "isBasedOn": "https://www.ebi.ac.uk/pride/archive/projects/PXD077152",
+ "license": "https://creativecommons.org/licenses/by/4.0/",
+ "creator": {
+  "@type": "Organization",
+  "name": "NCEMS Aging Proteome Working Group"
+ },
+ "includedInDataCatalog": {
+  "@type": "DataCatalog",
+  "name": "datarepo catalog bd1b683bc8e84e3c",
+  "url": "https://trishorts.github.io/aging-pipeline/index.html"
+ }
+}
+</script>
+</head>
+<body>
+<header>
+<p class="crumb"><a href="../index.html">Aging proteomics repository</a> / PXD077152</p>
+<h1>A microprotein encoded by FERMT3 modulates endothelial cell protein catabolism and induces cell cycle arrest and senescence</h1>
+<p>PXD077152 · <a href="https://www.ebi.ac.uk/pride/archive/projects/PXD077152">PRIDE record</a></p>
+</header>
+<main>
+<div class="generated"><span class="label">Generated summary</span>
+PXD077152 is a DDA isobaric dataset (Homo sapiens) with 24 runs, 248 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 179,976 PSMs, 93,749 peptidoforms and 8,645 protein groups, and the repository holds 190,635 PTM sites for it. 6 open warnings about it are recorded.
+<br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
+
+<h2>Open findings</h2>
+<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 2 for information</strong></p>
+<div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 179976 where the producer reported 179977 (results.txt: All target PSMs with q-value &lt;= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
+<div class="finding warning"><span class="code">isobaric_channels_not_in_sdrf</span> <span class="note">warning</span><br>240 of the 432 channels of the search&#x27;s TmtDesign.txt have no row of the SDRF naming their file and label, so their assays sit on the design&#x27;s own sample (its `Sample Name`), with nothing known about it. E.g. `PXD077152:20231115_AS_LC4_GT_BG_miP100_WCP_400ng_F01:TMT126`, `PXD077152:20231115_AS_LC4_GT_BG_miP100_WCP_400ng_F01:TMT127C`, `PXD077152:20231115_AS_LC4_GT_BG_miP100_WCP_400ng_F01:TMT127N` and 429 more.</div>
+<div class="finding warning"><span class="code">low_core_use</span> <span class="note">warning</span><br>10.66 avg cores of 32 allowed (S5)</div>
+<div class="finding warning"><span class="code">sdrf_uncoded</span> <span class="note">warning</span><br>The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: cell type: endothelial cell. Match on it as text; it has not been mapped to a term.</div>
+<div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 895 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
+<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>10 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:(3S)-3-hydroxyasparagine on N, UniProt:(3S)-3-hydroxyaspartate on D, UniProt:(3S)-3-hydroxyhistidine on H, UniProt:3&#x27;-nitrotyrosine on Y, UniProt:5-glutamyl serotonin on Q, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K, UniProt:O-palmitoleoyl serine on S, UniProt:S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
+<div class="finding info"><span class="code">isobaric_reference_channels</span> <span class="note">info</span><br>240 channel(s) of the search&#x27;s TmtDesign.txt are not study samples: `Sample Type` empty: `PXD077152:20231115_AS_LC4_GT_BG_miP100_WCP_400ng_F01:TMT127N`, `PXD077152:20231115_AS_LC4_GT_BG_miP100_WCP_400ng_F01:TMT128N`, `PXD077152:20231115_AS_LC4_GT_BG_miP100_WCP_400ng_F01:TMT129N`, `PXD077152:20231115_AS_LC4_GT_BG_miP100_WCP_400ng_F01:TMT130C`, `PXD077152:20231115_AS_LC4_GT_BG_miP100_WCP_400ng_F01:TMT130N` and 235 more. Their values measure that reference, not a sample of the question. The design is copied in `sources/`.</div>
+<div class="finding info"><span class="code">occupancy_not_ingested</span> <span class="note">info</span><br>PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified.</div>
+
+<h2>What was found</h2>
+<div class="scroll"><table><tbody>
+<tr><td>PSMs at 1% FDR</td><td class="num">179,976</td></tr>
+<tr><td>Peptidoforms at 1% FDR</td><td class="num">93,749</td></tr>
+<tr><td>Protein groups at 1% FDR</td><td class="num">8,645</td></tr>
+<tr><td>PTM sites</td><td class="num">190,635</td></tr>
+<tr><td>Quantitative values</td><td class="num">3,344,658</td></tr>
+<tr><td>PSMs, all (including decoys and sub-threshold)</td><td class="num">1,367,754</td></tr>
+<tr><td>MS2 identification rate <span class="note">(pxreprise:DEF-ID-RATE)</span></td><td class="num">15.1%</td></tr>
+<tr><td>Contaminant share of PSMs <span class="note">(pxreprise:DEF-CONTAM-PSM)</span></td><td class="num">0.7%</td></tr>
+</tbody></table></div>
+
+<h2>How it was measured</h2>
+<dl>
+<dt>Organism searched</dt><dd>Homo sapiens <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
+<dt>Acquisition</dt><dd>DDA</dd>
+<dt>Quantification</dt><dd>isobaric</dd>
+<dt>Labelling</dt><dd>TMT</dd>
+<dt>Enrichment</dt><dd>none</dd>
+<dt>Instrument vendor</dt><dd>not recorded</dd>
+<dt>Runs / samples</dt><dd>24 / 248</dd>
+<dt>Sample metadata</dt><dd>trusted</dd>
+<dt>Search engine</dt><dd>MetaMorpheus 1.1.14</dd>
+<dt>Protein database</dt><dd>UP000005640_all_genecentric_2026_03_agingPTM-v8.xml</dd>
+<dt>Pipeline commit</dt><dd><a href="https://github.com/smith-chem-wisc/PXReprise/tree/9da0bce72c712d5d859540f1d97c78b600971dff">9da0bce72c71</a></dd>
+</dl>
+
+<h2>Modifications</h2>
+<div class="scroll"><table>
+<thead><tr><th>Search engine's name</th><th>UNIMOD</th><th class="num">Sites</th></tr></thead>
+<tbody>
+<tr><td>TMT18 on X</td><td>UNIMOD:2016</td><td class="num">95,569</td></tr>
+<tr><td>TMT18 on K</td><td>UNIMOD:2016</td><td class="num">59,082</td></tr>
+<tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">23,126</td></tr>
+<tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">10,425</td></tr>
+<tr><td>Phosphoserine on S</td><td>UNIMOD:21</td><td class="num">169</td></tr>
+<tr><td>N-acetylalanine on A</td><td>UNIMOD:1</td><td class="num">157</td></tr>
+<tr><td>N-acetylmethionine on M</td><td>UNIMOD:1</td><td class="num">89</td></tr>
+<tr><td>Acetylation on X</td><td>UNIMOD:1</td><td class="num">82</td></tr>
+<tr><td>N6-acetyllysine on K</td><td>UNIMOD:1</td><td class="num">50</td></tr>
+<tr><td>N-acetylserine on S</td><td>UNIMOD:1</td><td class="num">45</td></tr>
+<tr><td>Omega-N-methylarginine on R</td><td>UNIMOD:34</td><td class="num">31</td></tr>
+<tr><td>4-hydroxyproline on P</td><td>UNIMOD:35</td><td class="num">29</td></tr>
+<tr><td>Phosphothreonine on T</td><td>UNIMOD:21</td><td class="num">28</td></tr>
+<tr><td>Acetylation on K</td><td>UNIMOD:1</td><td class="num">21</td></tr>
+<tr><td>GG (Ubiquitination Site) on K</td><td>UNIMOD:121</td><td class="num">19</td></tr>
+<tr><td>Methylation on R</td><td>UNIMOD:34</td><td class="num">16</td></tr>
+<tr><td>HexNAc on S</td><td>UNIMOD:43</td><td class="num">15</td></tr>
+<tr><td>HexNAc on T</td><td>UNIMOD:43</td><td class="num">15</td></tr>
+<tr><td>N6,N6-dimethyllysine on K</td><td>UNIMOD:36</td><td class="num">15</td></tr>
+<tr><td>Methylation on K</td><td>UNIMOD:34</td><td class="num">13</td></tr>
+<tr><td>Deamidated asparagine on N</td><td>UNIMOD:7</td><td class="num">10</td></tr>
+<tr><td>N-acetylthreonine on T</td><td>UNIMOD:1</td><td class="num">9</td></tr>
+<tr><td>N-myristoyl glycine on G</td><td>UNIMOD:45</td><td class="num">9</td></tr>
+<tr><td>Dimethylation on R</td><td>UNIMOD:36</td><td class="num">8</td></tr>
+<tr><td>N-acetylglycine on G</td><td>UNIMOD:1</td><td class="num">8</td></tr>
+<tr><td>Dimethylation on K</td><td>UNIMOD:36</td><td class="num">7</td></tr>
+<tr><td>Phosphorylation on S</td><td>UNIMOD:21</td><td class="num">7</td></tr>
+<tr><td>3&#x27;-nitrotyrosine on Y</td><td>—</td><td class="num">5</td></tr>
+<tr><td>Succinylation on K</td><td>UNIMOD:64</td><td class="num">5</td></tr>
+<tr><td>N6,N6,N6-trimethyllysine on K</td><td>UNIMOD:37</td><td class="num">4</td></tr>
+<tr><td>N6-methyllysine on K</td><td>UNIMOD:34</td><td class="num">4</td></tr>
+<tr><td>Phosphorylation on T</td><td>UNIMOD:21</td><td class="num">4</td></tr>
+<tr><td>Phosphotyrosine on Y</td><td>UNIMOD:21</td><td class="num">4</td></tr>
+<tr><td>Tele-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">4</td></tr>
+<tr><td>(3S)-3-hydroxyasparagine on N</td><td>—</td><td class="num">3</td></tr>
+<tr><td>N-acetylcysteine on C</td><td>UNIMOD:1</td><td class="num">3</td></tr>
+<tr><td>N-acetylvaline on V</td><td>UNIMOD:1</td><td class="num">3</td></tr>
+<tr><td>N6-isonicotinyllysine on K</td><td>UNIMOD:697</td><td class="num">3</td></tr>
+<tr><td>N6-methacryllysine on K</td><td>—</td><td class="num">3</td></tr>
+<tr><td>S-nitrosocysteine on C</td><td>UNIMOD:275</td><td class="num">3</td></tr>
+<tr><td>5-glutamyl glycerylphosphorylethanolamine on E</td><td>UNIMOD:396</td><td class="num">2</td></tr>
+<tr><td>Asymmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">2</td></tr>
+<tr><td>Citrulline on R</td><td>UNIMOD:7</td><td class="num">2</td></tr>
+<tr><td>N6-benzoyllysine on K</td><td>UNIMOD:136</td><td class="num">2</td></tr>
+<tr><td>N6-glutaryllysine on K</td><td>—</td><td class="num">2</td></tr>
+<tr><td>N6-succinyllysine on K</td><td>—</td><td class="num">2</td></tr>
+<tr><td>Trimethylation on K</td><td>UNIMOD:37</td><td class="num">2</td></tr>
+<tr><td>(3S)-3-hydroxyhistidine on H</td><td>—</td><td class="num">1</td></tr>
+<tr><td>4-carboxyglutamate on E</td><td>UNIMOD:299</td><td class="num">1</td></tr>
+<tr><td>Butyrylation on K</td><td>UNIMOD:1289</td><td class="num">1</td></tr>
+<tr><td>Crotonylation on K</td><td>UNIMOD:1363</td><td class="num">1</td></tr>
+<tr><td>Dimethylated arginine on R</td><td>UNIMOD:36</td><td class="num">1</td></tr>
+<tr><td>Glutarylation on K</td><td>UNIMOD:1848</td><td class="num">1</td></tr>
+<tr><td>Hydroxybutyrylation on K</td><td>—</td><td class="num">1</td></tr>
+<tr><td>Hydroxyproline on P</td><td>UNIMOD:35</td><td class="num">1</td></tr>
+<tr><td>N-acetylaspartate on D</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N-acetylglutamate on E</td><td>UNIMOD:1</td><td class="num">1</td></tr>
+<tr><td>N6-1-carboxyethyl lysine on K</td><td>UNIMOD:378</td><td class="num">1</td></tr>
+<tr><td>N6-biotinyllysine on K</td><td>UNIMOD:3</td><td class="num">1</td></tr>
+<tr><td>N6-malonyllysine on K</td><td>—</td><td class="num">1</td></tr>
+<tr><td>S-farnesyl cysteine on C</td><td>UNIMOD:44</td><td class="num">1</td></tr>
+<tr><td>Symmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">1</td></tr>
+</tbody></table></div>
+<p class="note">Every modification with a site on a target protein, most frequent first. A dash in the UNIMOD
+column means the modification has no UNIMOD term in the registry that searched it, not that it is
+unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's); the catalog's
+<code>ptm_sites_by_chemistry</code> view merges them.</p>
+
+<h2>Data</h2>
+<p>The Parquet files for this dataset are not published yet.</p>
+<dl>
+<dt>Bundle</dt><dd><code>37de60e0399968ea</code>, written 2026-11-13T21:35:08+00:00 by ingester 1.4.5</dd>
+<dt>Reconciliation</dt><dd>every check agreed with the producer's own counts or differs within the known file-side limit: psms_target_1pct <span class="note">(see <code>catalog_reconciliation</code> for the bound)</span></dd>
+<dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
+<dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
+</dl>
+</main>
+<footer>
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.5 from catalog
+<code>bd1b683bc8e84e3c</code>, built 2026-11-13T21:36:48+00:00 by datarepo
+1.4.5 (schema 0.0.16).
+Every number on this site is read from that catalog; cite its id with any number you reuse.
+</footer>
+</body>
+</html>

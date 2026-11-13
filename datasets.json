@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "0acbf96faa6d5485",
+  "catalog_id": "3a4ed8465914a5ef",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-13T14:49:31+00:00",
+  "built_utc": "2026-11-13T14:56:41+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -8894,6 +8894,51 @@
    "json": "datasets/PXD067622.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067622.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067622.json"
+  },
+  {
+   "dataset_id": "PXD067624",
+   "accession": "PXD067624",
+   "split_group": null,
+   "split_reason": null,
+   "title": "DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging and Embryonic Lethality",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 24,
+   "n_samples": 6,
+   "n_psms_1pct": 136347,
+   "n_peptidoforms_1pct": 77359,
+   "n_protein_groups_1pct": 7840,
+   "n_ptm_sites": 152916,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "sdrf_skeleton",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD067624 is a DDA isobaric dataset (Mus musculus) with 24 runs, 6 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 136,347 PSMs, 77,359 peptidoforms and 7,840 protein groups, and the repository holds 152,916 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD067624.html",
+   "json": "datasets/PXD067624.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067624.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067624.json"
   },
   {
    "dataset_id": "PXD068498",

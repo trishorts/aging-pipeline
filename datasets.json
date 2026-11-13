@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "75e1c0c82f8dc965",
+  "catalog_id": "0acbf96faa6d5485",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-12T22:28:48+00:00",
+  "built_utc": "2026-11-13T14:49:31+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -7661,6 +7661,50 @@
    "json": "datasets/PXD054290.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD054290.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD054290.json"
+  },
+  {
+   "dataset_id": "PXD054648",
+   "accession": "PXD054648",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Impairment of lipid homeostasis causes lysosomal accumulation of endogenous protein aggregates through ESCRT disruption",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "affinity_purification"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 2,
+   "n_samples": 18,
+   "n_psms_1pct": 29396,
+   "n_peptidoforms_1pct": 16464,
+   "n_protein_groups_1pct": 4009,
+   "n_ptm_sites": 34527,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 4,
+    "info": 1
+   },
+   "finding_codes": [
+    "low_core_use",
+    "occupancy_not_ingested",
+    "sdrf_skeleton",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD054648 is a DDA isobaric dataset (Homo sapiens) with 2 runs, 18 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 29,396 PSMs, 16,464 peptidoforms and 4,009 protein groups, and the repository holds 34,527 PTM sites for it. 4 open warnings about it are recorded.",
+   "page": "datasets/PXD054648.html",
+   "json": "datasets/PXD054648.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD054648.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD054648.json"
   },
   {
    "dataset_id": "PXD056276",

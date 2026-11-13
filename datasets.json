@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "3a4ed8465914a5ef",
+  "catalog_id": "5b5cb9a135ce2c7b",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-13T14:56:41+00:00",
+  "built_utc": "2026-11-13T20:57:31+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -5848,6 +5848,54 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035577.json"
   },
   {
+   "dataset_id": "PXD035689",
+   "accession": "PXD035689",
+   "split_group": null,
+   "split_reason": null,
+   "title": "A rare human centenarian variant of SIRT6 enhances genome stability and interaction with Lamin A",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "other"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 2,
+   "n_samples": 20,
+   "n_psms_1pct": 9458,
+   "n_peptidoforms_1pct": 4865,
+   "n_protein_groups_1pct": 996,
+   "n_ptm_sites": 11636,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "low_id_rate",
+    "occupancy_not_ingested",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD035689 is a DDA isobaric dataset (Homo sapiens) with 2 runs, 20 samples and an enrichment step outside the controlled list (recorded as `other`). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 9,458 PSMs, 4,865 peptidoforms and 996 protein groups, and the repository holds 11,636 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD035689.html",
+   "json": "datasets/PXD035689.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035689.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035689.json"
+  },
+  {
    "dataset_id": "PXD036557",
    "accession": "PXD036557",
    "split_group": null,
@@ -6169,6 +6217,53 @@
    "json": "datasets/PXD041376.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD041376.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD041376.json"
+  },
+  {
+   "dataset_id": "PXD041462",
+   "accession": "PXD041462",
+   "split_group": null,
+   "split_reason": null,
+   "title": "MultiomicsTracks96: A high throughput PIXUL-Matrix-based toolbox to profile frozen and FFPE tissues multiomes",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 8,
+   "n_samples": 32,
+   "n_psms_1pct": 209109,
+   "n_peptidoforms_1pct": 47863,
+   "n_protein_groups_1pct": 5550,
+   "n_ptm_sites": 103928,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD041462 is a DDA isobaric dataset (Mus musculus) with 8 runs, 32 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 209,109 PSMs, 47,863 peptidoforms and 5,550 protein groups, and the repository holds 103,928 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD041462.html",
+   "json": "datasets/PXD041462.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD041462.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD041462.json"
   },
   {
    "dataset_id": "PXD041660",
@@ -8254,6 +8349,52 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057677.json"
   },
   {
+   "dataset_id": "PXD057861",
+   "accession": "PXD057861",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Genetic context modulates aging and degeneration in the murine retina",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 42,
+   "n_samples": 311,
+   "n_psms_1pct": 667172,
+   "n_peptidoforms_1pct": 22361,
+   "n_protein_groups_1pct": 4145,
+   "n_ptm_sites": 63000,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD057861 is a DDA isobaric dataset (Mus musculus) with 42 runs, 311 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 667,172 PSMs, 22,361 peptidoforms and 4,145 protein groups, and the repository holds 63,000 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD057861.html",
+   "json": "datasets/PXD057861.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057861.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057861.json"
+  },
+  {
    "dataset_id": "PXD058248",
    "accession": "PXD058248",
    "split_group": null,
@@ -8665,6 +8806,52 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059591.json"
   },
   {
+   "dataset_id": "PXD060120",
+   "accession": "PXD060120",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Graded levels of p53 activation modulate endothelial cell fate and specification during angiogenesis",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 1,
+   "n_samples": 18,
+   "n_psms_1pct": 20976,
+   "n_peptidoforms_1pct": 15486,
+   "n_protein_groups_1pct": 2642,
+   "n_ptm_sites": 29990,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD060120 is a DDA isobaric dataset (Homo sapiens) with 1 run, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 20,976 PSMs, 15,486 peptidoforms and 2,642 protein groups, and the repository holds 29,990 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD060120.html",
+   "json": "datasets/PXD060120.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD060120.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD060120.json"
+  },
+  {
    "dataset_id": "PXD060832",
    "accession": "PXD060832",
    "split_group": null,
@@ -8805,6 +8992,53 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD061654.json"
   },
   {
+   "dataset_id": "PXD064681",
+   "accession": "PXD064681",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Global Matrisome changes in the obese lung are linked to fibroblastic stroma and premature aging",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 6,
+   "n_samples": 48,
+   "n_psms_1pct": 28773,
+   "n_peptidoforms_1pct": 14042,
+   "n_protein_groups_1pct": 2666,
+   "n_ptm_sites": 31332,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "cysteine_poor",
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "low_id_rate",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD064681 is a DDA isobaric dataset (Mus musculus) with 6 runs, 48 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 28,773 PSMs, 14,042 peptidoforms and 2,666 protein groups, and the repository holds 31,332 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD064681.html",
+   "json": "datasets/PXD064681.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD064681.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD064681.json"
+  },
+  {
    "dataset_id": "PXD067102",
    "accession": "PXD067102",
    "split_group": null,
@@ -8849,6 +9083,53 @@
    "json": "datasets/PXD067102.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067102.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067102.json"
+  },
+  {
+   "dataset_id": "PXD067620",
+   "accession": "PXD067620",
+   "split_group": null,
+   "split_reason": null,
+   "title": "DNA-Protein Crosslinks Promote cGAS-STING-driven Premature Aging and Embryonic Lethality",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 24,
+   "n_samples": 41,
+   "n_psms_1pct": 102431,
+   "n_peptidoforms_1pct": 62606,
+   "n_protein_groups_1pct": 6889,
+   "n_ptm_sites": 119219,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "sdrf_skeleton",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD067620 is a DDA isobaric dataset (Mus musculus) with 24 runs, 41 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 102,431 PSMs, 62,606 peptidoforms and 6,889 protein groups, and the repository holds 119,219 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD067620.html",
+   "json": "datasets/PXD067620.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067620.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067620.json"
   },
   {
    "dataset_id": "PXD067622",

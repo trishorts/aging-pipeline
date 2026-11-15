@@ -1,0 +1,265 @@
+{
+ "catalog": {
+  "catalog_id": "174e495f7ecdedba",
+  "catalog_version": "16",
+  "schema_version": "0.0.16",
+  "builder_version": "1.4.5",
+  "built_utc": "2026-11-15T22:15:49+00:00",
+  "instance": "aging",
+  "base_url": "https://trishorts.github.io/aging-pipeline/"
+ },
+ "dataset": {
+  "dataset_id": "PXD075949",
+  "accession": "PXD075949",
+  "split_group": null,
+  "bundle_id": "461cf82f63404da4",
+  "title": "Acetyl-CoA availability regulates neuronal metabolism, growth, and synaptic activity",
+  "organisms": [
+   "NCBITaxon:10090"
+  ],
+  "acquisition": "DDA",
+  "quant_method": "isobaric",
+  "labelling": "TMT",
+  "enrichment": [
+   "none"
+  ],
+  "enrichment_mixed": false,
+  "instrument_vendor": null,
+  "search_engine": "MetaMorpheus",
+  "search_engine_version": "1.1.14",
+  "unique_peptides_scope": "protein_group",
+  "n_runs": 1,
+  "n_samples": 18,
+  "n_psms_1pct": 14535,
+  "n_peptidoforms_1pct": 7682,
+  "n_protein_groups_1pct": 2026,
+  "n_psms_all": 17881,
+  "n_ptm_sites": 19254,
+  "n_quant_values": 106910,
+  "n_open_findings": 6,
+  "restrictions": [],
+  "split_reason": null,
+  "instruments": null,
+  "search_database": "UP000000589_all_genecentric_2026_03_agingPTM-v8.xml",
+  "sdrf_status": "trusted",
+  "pipeline_repo": "https://github.com/smith-chem-wisc/PXReprise",
+  "pipeline_commit": "d5c655996332fb189f5b8caee026132cfcf44690",
+  "organism_names": [
+   "Mus musculus"
+  ],
+  "licence": "CC-BY-4.0",
+  "credit": "NCEMS Aging Proteome Working Group",
+  "pipeline_public_repo": null,
+  "pipeline_public_commit": null,
+  "findings": [
+   {
+    "code": "count_mismatch",
+    "severity": "warning",
+    "message": "The bundle holds 14535 where the producer reported 14536 (results.txt: All target PSMs with q-value <= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer's as canonical until the difference is explained."
+   },
+   {
+    "code": "isobaric_channels_not_in_sdrf",
+    "severity": "warning",
+    "message": "12 of the 18 channels of the search's TmtDesign.txt have no row of the SDRF naming their file and label, so their assays sit on the design's own sample (its `Sample Name`), with nothing known about it. E.g. `PXD075949:250527_Neurons_TMT_master_AndersonRoz:TMT126`, `PXD075949:250527_Neurons_TMT_master_AndersonRoz:TMT127C`, `PXD075949:250527_Neurons_TMT_master_AndersonRoz:TMT127N` and 15 more."
+   },
+   {
+    "code": "low_core_use",
+    "severity": "warning",
+    "message": "8.96 avg cores of 32 allowed (S5)"
+   },
+   {
+    "code": "low_id_rate",
+    "severity": "warning",
+    "message": "The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer's note: 14536/120934 = 12.02% of MS2 identified (S3)"
+   },
+   {
+    "code": "sdrf_uncoded",
+    "severity": "warning",
+    "message": "The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: cell type: neuron; organism part: brain. Match on it as text; it has not been mapped to a term."
+   },
+   {
+    "code": "unplaced_ptm_sites",
+    "severity": "warning",
+    "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 233 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+   },
+   {
+    "code": "isobaric_reference_channels",
+    "severity": "info",
+    "message": "12 channel(s) of the search's TmtDesign.txt are not study samples: `Sample Type` empty: `PXD075949:250527_Neurons_TMT_master_AndersonRoz:TMT128C`, `PXD075949:250527_Neurons_TMT_master_AndersonRoz:TMT129N`, `PXD075949:250527_Neurons_TMT_master_AndersonRoz:TMT130C`, `PXD075949:250527_Neurons_TMT_master_AndersonRoz:TMT131C`, `PXD075949:250527_Neurons_TMT_master_AndersonRoz:TMT131N` and 7 more. Their values measure that reference, not a sample of the question. The design is copied in `sources/`."
+   },
+   {
+    "code": "occupancy_not_ingested",
+    "severity": "info",
+    "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   }
+  ],
+  "modifications": [
+   {
+    "modification_name": "TMT18 on X",
+    "modification": "UNIMOD:2016",
+    "n_sites": 8655
+   },
+   {
+    "modification_name": "TMT18 on K",
+    "modification": "UNIMOD:2016",
+    "n_sites": 8079
+   },
+   {
+    "modification_name": "Oxidation on M",
+    "modification": "UNIMOD:35",
+    "n_sites": 1074
+   },
+   {
+    "modification_name": "Carbamidomethyl on C",
+    "modification": "UNIMOD:4",
+    "n_sites": 906
+   },
+   {
+    "modification_name": "N-acetylalanine on A",
+    "modification": "UNIMOD:1",
+    "n_sites": 70
+   },
+   {
+    "modification_name": "Acetylation on X",
+    "modification": "UNIMOD:1",
+    "n_sites": 30
+   },
+   {
+    "modification_name": "N-acetylmethionine on M",
+    "modification": "UNIMOD:1",
+    "n_sites": 22
+   },
+   {
+    "modification_name": "N-acetylserine on S",
+    "modification": "UNIMOD:1",
+    "n_sites": 18
+   },
+   {
+    "modification_name": "Deamidated asparagine on N",
+    "modification": "UNIMOD:7",
+    "n_sites": 8
+   },
+   {
+    "modification_name": "N-acetylthreonine on T",
+    "modification": "UNIMOD:1",
+    "n_sites": 7
+   },
+   {
+    "modification_name": "Tele-methylhistidine on H",
+    "modification": "UNIMOD:34",
+    "n_sites": 5
+   },
+   {
+    "modification_name": "N-acetylglycine on G",
+    "modification": "UNIMOD:1",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "N6,N6-dimethyllysine on K",
+    "modification": "UNIMOD:36",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Phosphoserine on S",
+    "modification": "UNIMOD:21",
+    "n_sites": 4
+   },
+   {
+    "modification_name": "Acetylation on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "Methylation on R",
+    "modification": "UNIMOD:34",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "Phosphorylation on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 3
+   },
+   {
+    "modification_name": "N-acetylcysteine on C",
+    "modification": "UNIMOD:1",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "N-acetylvaline on V",
+    "modification": "UNIMOD:1",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "N6,N6,N6-trimethyllysine on K",
+    "modification": "UNIMOD:37",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Phosphothreonine on T",
+    "modification": "UNIMOD:21",
+    "n_sites": 2
+   },
+   {
+    "modification_name": "Dimethylation on R",
+    "modification": "UNIMOD:36",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylaspartate on D",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N-acetylglutamate on E",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   },
+   {
+    "modification_name": "N6-acetyllysine on K",
+    "modification": "UNIMOD:1",
+    "n_sites": 1
+   }
+  ],
+  "metrics": {
+   "id_rate": {
+    "value": 0.1202,
+    "definition_id": "pxreprise:DEF-ID-RATE"
+   },
+   "contamination_psm_share": {
+    "value": 0.0292,
+    "definition_id": "pxreprise:DEF-CONTAM-PSM"
+   }
+  },
+  "findings_by_severity": {
+   "error": 0,
+   "warning": 6,
+   "info": 2
+  },
+  "finding_codes": [
+   "count_mismatch",
+   "isobaric_channels_not_in_sdrf",
+   "isobaric_reference_channels",
+   "low_core_use",
+   "low_id_rate",
+   "occupancy_not_ingested",
+   "sdrf_uncoded",
+   "unplaced_ptm_sites"
+  ],
+  "bundle": {
+   "bundle_id": "461cf82f63404da4",
+   "written_utc": "2026-11-15T21:51:00+00:00",
+   "ingester_version": "1.4.5",
+   "reconciliation_ok": true,
+   "reconciliation_failed": [],
+   "reconciliation_explained": [
+    "psms_target_1pct"
+   ]
+  },
+  "summary": "PXD075949 is a DDA isobaric dataset (Mus musculus) with 1 run, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 14,535 PSMs, 7,682 peptidoforms and 2,026 protein groups, and the repository holds 19,254 PTM sites for it. 6 open warnings about it are recorded.",
+  "page": "datasets/PXD075949.html",
+  "json": "datasets/PXD075949.json",
+  "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD075949.html",
+  "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD075949.json"
+ },
+ "organisms_are": "`organisms` is the organism of the protein DATABASE the search used, not a statement about the samples. Sample annotation, where any exists, is in the catalog's `samples` and `sample_characteristics` tables."
+}

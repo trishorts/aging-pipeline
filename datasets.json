@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "72fba6c82a0f7799",
+  "catalog_id": "6af6de04accb3342",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-15T14:23:51+00:00",
+  "built_utc": "2026-11-15T16:18:12+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -7193,6 +7193,52 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD048393.json"
   },
   {
+   "dataset_id": "PXD048609",
+   "accession": "PXD048609",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Large Aging Neutrophil-Derived Vesicles (LAND-Vs) Perpetuate Host Anti-Inflammatory Response to Facilitate Inflammation Resolution",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 21,
+   "n_samples": 138,
+   "n_psms_1pct": 53892,
+   "n_peptidoforms_1pct": 12483,
+   "n_protein_groups_1pct": 2516,
+   "n_ptm_sites": 24153,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "low_id_rate",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD048609 is a DDA isobaric dataset (Homo sapiens) with 21 runs, 138 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 53,892 PSMs, 12,483 peptidoforms and 2,516 protein groups, and the repository holds 24,153 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD048609.html",
+   "json": "datasets/PXD048609.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD048609.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD048609.json"
+  },
+  {
    "dataset_id": "PXD048720",
    "accession": "PXD048720",
    "split_group": null,
@@ -7754,6 +7800,53 @@
    "json": "datasets/PXD053611.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD053611.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD053611.json"
+  },
+  {
+   "dataset_id": "PXD054016",
+   "accession": "PXD054016",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Genesis and regulation of C-terminal cyclic imides from protein damage",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 20,
+   "n_samples": 56,
+   "n_psms_1pct": 365170,
+   "n_peptidoforms_1pct": 161346,
+   "n_protein_groups_1pct": 9428,
+   "n_ptm_sites": 291896,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "sdrf_skeleton",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD054016 is a DDA isobaric dataset (Homo sapiens) with 20 runs, 56 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 365,170 PSMs, 161,346 peptidoforms and 9,428 protein groups, and the repository holds 291,896 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD054016.html",
+   "json": "datasets/PXD054016.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD054016.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD054016.json"
   },
   {
    "dataset_id": "PXD054290",

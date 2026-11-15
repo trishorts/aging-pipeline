@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "bd1b683bc8e84e3c",
+  "catalog_id": "72fba6c82a0f7799",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-13T21:36:48+00:00",
+  "built_utc": "2026-11-15T14:23:51+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -96,7 +96,7 @@
   },
   "A0A0B": {
    "file": "proteins/A0A0B.json",
-   "n": 52
+   "n": 53
   },
   "A0A0C": {
    "file": "proteins/A0A0C.json",
@@ -1612,6 +1612,10 @@
   },
   "E9PA": {
    "file": "proteins/E9PA.json",
+   "n": 1
+  },
+  "E9PB": {
+   "file": "proteins/E9PB.json",
    "n": 1
   },
   "E9PI": {
@@ -7016,7 +7020,7 @@
   },
   "Q3Z": {
    "file": "proteins/Q3Z.json",
-   "n": 25
+   "n": 26
   },
   "Q40": {
    "file": "proteins/Q40.json",
@@ -7032,7 +7036,7 @@
   },
   "Q49": {
    "file": "proteins/Q49.json",
-   "n": 98
+   "n": 100
   },
   "Q4A": {
    "file": "proteins/Q4A.json",
@@ -7044,7 +7048,7 @@
   },
   "Q4G": {
    "file": "proteins/Q4G.json",
-   "n": 40
+   "n": 41
   },
   "Q4J": {
    "file": "proteins/Q4J.json",
@@ -8258,6 +8262,10 @@
    "file": "proteins/Q68H.json",
    "n": 1
   },
+  "Q68J": {
+   "file": "proteins/Q68J.json",
+   "n": 1
+  },
   "Q68L": {
    "file": "proteins/Q68L.json",
    "n": 1
@@ -8564,7 +8572,7 @@
   },
   "Q6B": {
    "file": "proteins/Q6B.json",
-   "n": 13
+   "n": 14
   },
   "Q6D": {
    "file": "proteins/Q6D.json",
@@ -8940,11 +8948,11 @@
   },
   "Q6U": {
    "file": "proteins/Q6U.json",
-   "n": 118
+   "n": 119
   },
   "Q6V": {
    "file": "proteins/Q6V.json",
-   "n": 36
+   "n": 37
   },
   "Q6W": {
    "file": "proteins/Q6W.json",
@@ -9784,7 +9792,7 @@
   },
   "Q86W": {
    "file": "proteins/Q86W.json",
-   "n": 47
+   "n": 48
   },
   "Q86X": {
    "file": "proteins/Q86X.json",
@@ -14124,7 +14132,7 @@
   },
   "Q8WW": {
    "file": "proteins/Q8WW.json",
-   "n": 49
+   "n": 50
   },
   "Q8WX": {
    "file": "proteins/Q8WX.json",
@@ -18472,7 +18480,7 @@
   },
   "Q9HC": {
    "file": "proteins/Q9HC.json",
-   "n": 82
+   "n": 83
   },
   "Q9HD": {
    "file": "proteins/Q9HD.json",
@@ -21020,7 +21028,7 @@
   },
   "Q9UN": {
    "file": "proteins/Q9UN.json",
-   "n": 52
+   "n": 53
   },
   "Q9UP": {
    "file": "proteins/Q9UP.json",
@@ -22367,8 +22375,8 @@
   "E": 724,
   "F": 729,
   "G": 1129,
-  "H": 655,
-  "I": 894,
+  "H": 657,
+  "I": 895,
   "J": 46,
   "K": 596,
   "L": 757,

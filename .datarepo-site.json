@@ -1,5 +1,5 @@
 {
- "catalog_id": "bd1b683bc8e84e3c",
+ "catalog_id": "72fba6c82a0f7799",
  "generator": "datarepo 1.4.5",
  "files": [
   "datasets.json",
@@ -309,6 +309,8 @@
   "datasets/PXD047292.json",
   "datasets/PXD047293.html",
   "datasets/PXD047293.json",
+  "datasets/PXD047838.html",
+  "datasets/PXD047838.json",
   "datasets/PXD048079.html",
   "datasets/PXD048079.json",
   "datasets/PXD048393.html",
@@ -852,6 +854,7 @@
   "proteins/E5.json",
   "proteins/E7.json",
   "proteins/E9PA.json",
+  "proteins/E9PB.json",
   "proteins/E9PI.json",
   "proteins/E9PQ.json",
   "proteins/E9PR.json",
@@ -2513,6 +2516,7 @@
   "proteins/Q68FY.json",
   "proteins/Q68G.json",
   "proteins/Q68H.json",
+  "proteins/Q68J.json",
   "proteins/Q68L.json",
   "proteins/Q68S.json",
   "proteins/Q68V.json",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "174e495f7ecdedba",
+  "catalog_id": "28c6db950f9223a8",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-15T22:15:49+00:00",
+  "built_utc": "2026-11-16T14:30:16+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -7329,6 +7329,52 @@
    "json": "datasets/PXD048895.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD048895.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD048895.json"
+  },
+  {
+   "dataset_id": "PXD049967",
+   "accession": "PXD049967",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Aging-related Alterations in mTOR Signaling Promote Platelet Hyperreactivity and Thrombosis",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "phospho"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 17,
+   "n_samples": 10,
+   "n_psms_1pct": 21123,
+   "n_peptidoforms_1pct": 5230,
+   "n_protein_groups_1pct": 1751,
+   "n_ptm_sites": 15590,
+   "sdrf_status": "partial",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "calibration_failed",
+    "isobaric_files_uncalibrated",
+    "low_id_rate",
+    "occupancy_not_ingested",
+    "sdrf_partial",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD049967 is a DDA isobaric dataset (Homo sapiens) with 17 runs, 10 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 21,123 PSMs, 5,230 peptidoforms and 1,751 protein groups, and the repository holds 15,590 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD049967.html",
+   "json": "datasets/PXD049967.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD049967.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD049967.json"
   },
   {
    "dataset_id": "PXD050687",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "e2f773164a115406",
+  "catalog_id": "9076de3f33a5abb0",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-19T04:52:31+00:00",
+  "built_utc": "2026-11-19T06:48:01+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -8847,6 +8847,53 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD060120.json"
   },
   {
+   "dataset_id": "PXD060735",
+   "accession": "PXD060735",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Chronic sleep curtailment expediates brain aging by activating the complement and coagulation cascades in mice",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 20,
+   "n_samples": 56,
+   "n_psms_1pct": 77237,
+   "n_peptidoforms_1pct": 45909,
+   "n_protein_groups_1pct": 6180,
+   "n_ptm_sites": 94503,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "low_id_rate",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD060735 is a DDA isobaric dataset (Mus musculus) with 20 runs, 56 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 77,237 PSMs, 45,909 peptidoforms and 6,180 protein groups, and the repository holds 94,503 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD060735.html",
+   "json": "datasets/PXD060735.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD060735.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD060735.json"
+  },
+  {
    "dataset_id": "PXD060832",
    "accession": "PXD060832",
    "split_group": null,
@@ -9078,6 +9125,53 @@
    "json": "datasets/PXD067102.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067102.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067102.json"
+  },
+  {
+   "dataset_id": "PXD067595",
+   "accession": "PXD067595",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Alterations in proteome and proteostasis networks during replicative senescence",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 24,
+   "n_samples": 96,
+   "n_psms_1pct": 980754,
+   "n_peptidoforms_1pct": 135872,
+   "n_protein_groups_1pct": 8633,
+   "n_ptm_sites": 253276,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 6,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD067595 is a DDA isobaric dataset (Homo sapiens) with 24 runs, 96 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 980,754 PSMs, 135,872 peptidoforms and 8,633 protein groups, and the repository holds 253,276 PTM sites for it. 6 open warnings about it are recorded.",
+   "page": "datasets/PXD067595.html",
+   "json": "datasets/PXD067595.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067595.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067595.json"
   },
   {
    "dataset_id": "PXD067620",

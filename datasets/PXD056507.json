@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "ca911ddb4f3b5cb6",
+  "catalog_id": "4e486c3dcf0aa01c",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-19T15:25:51+00:00",
+  "built_utc": "2026-11-19T15:39:33+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,7 +12,7 @@
   "dataset_id": "PXD056507",
   "accession": "PXD056507",
   "split_group": null,
-  "bundle_id": "5d96bef7517ffa7a",
+  "bundle_id": "f2a0871ed66839f0",
   "title": "Shatavari Supplementation During Eight Weeks of Resistance Training Increases Training Load, Enhances Skeletal Muscle Contractility and Alters the Skeletal Muscle Proteome in Older Women.",
   "organisms": [
    "NCBITaxon:9606"
@@ -21,7 +21,7 @@
   "quant_method": "isobaric",
   "labelling": "TMT",
   "enrichment": [
-   "immunoprecipitation"
+   "none"
   ],
   "enrichment_mixed": false,
   "instrument_vendor": null,
@@ -37,9 +37,7 @@
   "n_ptm_sites": 81544,
   "n_quant_values": 3254984,
   "n_open_findings": 7,
-  "restrictions": [
-   "occupancy"
-  ],
+  "restrictions": [],
   "split_reason": null,
   "instruments": null,
   "search_database": "UP000005640_all_genecentric_2026_03_agingPTM-v8.xml",
@@ -459,8 +457,8 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "5d96bef7517ffa7a",
-   "written_utc": "2026-11-19T15:24:10+00:00",
+   "bundle_id": "f2a0871ed66839f0",
+   "written_utc": "2026-11-19T15:37:55+00:00",
    "ingester_version": "1.4.5",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
@@ -468,7 +466,7 @@
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD056507 is a DDA isobaric dataset (Homo sapiens) with 78 runs, 294 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 204,959 PSMs, 32,040 peptidoforms and 3,958 protein groups, and the repository holds 81,544 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD056507 is a DDA isobaric dataset (Homo sapiens) with 78 runs, 294 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 204,959 PSMs, 32,040 peptidoforms and 3,958 protein groups, and the repository holds 81,544 PTM sites for it. 7 open warnings about it are recorded.",
   "page": "datasets/PXD056507.html",
   "json": "datasets/PXD056507.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD056507.html",

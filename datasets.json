@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "e8605507a57e58ef",
+  "catalog_id": "e2f773164a115406",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-18T22:55:18+00:00",
+  "built_utc": "2026-11-19T04:52:31+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -6916,6 +6916,49 @@
    "json": "datasets/PXD047293.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD047293.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD047293.json"
+  },
+  {
+   "dataset_id": "PXD047574",
+   "accession": "PXD047574",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Mouse HiRIEF LCMS Proteomics of liver tissue - WT VS PolgA KO mutant",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 72,
+   "n_samples": 10,
+   "n_psms_1pct": 309325,
+   "n_peptidoforms_1pct": 100145,
+   "n_protein_groups_1pct": 8566,
+   "n_ptm_sites": 195854,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 3,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "occupancy_not_ingested",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD047574 is a DDA isobaric dataset (Mus musculus) with 72 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 309,325 PSMs, 100,145 peptidoforms and 8,566 protein groups, and the repository holds 195,854 PTM sites for it. 3 open warnings about it are recorded.",
+   "page": "datasets/PXD047574.html",
+   "json": "datasets/PXD047574.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD047574.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD047574.json"
   },
   {
    "dataset_id": "PXD048079",

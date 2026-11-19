@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "4d65aa0b04fbef24",
+  "catalog_id": "ca911ddb4f3b5cb6",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-19T14:01:31+00:00",
+  "built_utc": "2026-11-19T15:25:51+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -7977,6 +7977,54 @@
    "json": "datasets/PXD056458.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD056458.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD056458.json"
+  },
+  {
+   "dataset_id": "PXD056507",
+   "accession": "PXD056507",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Shatavari Supplementation During Eight Weeks of Resistance Training Increases Training Load, Enhances Skeletal Muscle Contractility and Alters the Skeletal Muscle Proteome in Older Women.",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "immunoprecipitation"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 78,
+   "n_samples": 294,
+   "n_psms_1pct": 204959,
+   "n_peptidoforms_1pct": 32040,
+   "n_protein_groups_1pct": 3958,
+   "n_ptm_sites": 81544,
+   "sdrf_status": "partial",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 7,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "isobaric_channels_not_in_sdrf",
+    "isobaric_reference_channels",
+    "low_core_use",
+    "low_id_rate",
+    "occupancy_not_ingested",
+    "sdrf_partial",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD056507 is a DDA isobaric dataset (Homo sapiens) with 78 runs, 294 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 204,959 PSMs, 32,040 peptidoforms and 3,958 protein groups, and the repository holds 81,544 PTM sites for it. 7 open warnings about it are recorded.",
+   "page": "datasets/PXD056507.html",
+   "json": "datasets/PXD056507.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD056507.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD056507.json"
   },
   {
    "dataset_id": "PXD057407",

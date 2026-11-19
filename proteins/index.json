@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "9076de3f33a5abb0",
+  "catalog_id": "4d65aa0b04fbef24",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-19T06:48:01+00:00",
+  "built_utc": "2026-11-19T14:01:31+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -15130,9 +15130,81 @@
    "file": "proteins/Q91ZZ.json",
    "n": 2
   },
-  "Q920": {
-   "file": "proteins/Q920.json",
-   "n": 58
+  "Q920A": {
+   "file": "proteins/Q920A.json",
+   "n": 5
+  },
+  "Q920B": {
+   "file": "proteins/Q920B.json",
+   "n": 3
+  },
+  "Q920C": {
+   "file": "proteins/Q920C.json",
+   "n": 2
+  },
+  "Q920D": {
+   "file": "proteins/Q920D.json",
+   "n": 3
+  },
+  "Q920E": {
+   "file": "proteins/Q920E.json",
+   "n": 2
+  },
+  "Q920F": {
+   "file": "proteins/Q920F.json",
+   "n": 3
+  },
+  "Q920G": {
+   "file": "proteins/Q920G.json",
+   "n": 5
+  },
+  "Q920H": {
+   "file": "proteins/Q920H.json",
+   "n": 3
+  },
+  "Q920I": {
+   "file": "proteins/Q920I.json",
+   "n": 2
+  },
+  "Q920J": {
+   "file": "proteins/Q920J.json",
+   "n": 2
+  },
+  "Q920K": {
+   "file": "proteins/Q920K.json",
+   "n": 1
+  },
+  "Q920L": {
+   "file": "proteins/Q920L.json",
+   "n": 5
+  },
+  "Q920M": {
+   "file": "proteins/Q920M.json",
+   "n": 4
+  },
+  "Q920N": {
+   "file": "proteins/Q920N.json",
+   "n": 2
+  },
+  "Q920P": {
+   "file": "proteins/Q920P.json",
+   "n": 4
+  },
+  "Q920Q": {
+   "file": "proteins/Q920Q.json",
+   "n": 5
+  },
+  "Q920R": {
+   "file": "proteins/Q920R.json",
+   "n": 4
+  },
+  "Q920S": {
+   "file": "proteins/Q920S.json",
+   "n": 2
+  },
+  "Q920V": {
+   "file": "proteins/Q920V.json",
+   "n": 1
   },
   "Q9218": {
    "file": "proteins/Q9218.json",

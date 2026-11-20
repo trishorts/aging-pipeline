@@ -1,5 +1,5 @@
 {
- "catalog_id": "cbe5f4372afe2127",
+ "catalog_id": "ff1353f73a04640b",
  "generator": "datarepo 1.4.5",
  "files": [
   "datasets.json",
@@ -3262,6 +3262,7 @@
   "proteins/Q8BU5.json",
   "proteins/Q8BU8.json",
   "proteins/Q8BUB.json",
+  "proteins/Q8BUD.json",
   "proteins/Q8BUE.json",
   "proteins/Q8BUG.json",
   "proteins/Q8BUH.json",

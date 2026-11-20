@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "cbe5f4372afe2127",
+  "catalog_id": "ff1353f73a04640b",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-19T23:47:44+00:00",
+  "built_utc": "2026-11-20T05:47:46+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -4934,26 +4934,27 @@
    "enrichment_mixed": false,
    "n_runs": 12,
    "n_samples": 12,
-   "n_psms_1pct": 54539,
-   "n_peptidoforms_1pct": 9578,
-   "n_protein_groups_1pct": 1706,
-   "n_ptm_sites": 5461,
+   "n_psms_1pct": 64069,
+   "n_peptidoforms_1pct": 11630,
+   "n_protein_groups_1pct": 1861,
+   "n_ptm_sites": 6306,
    "sdrf_status": "trusted",
    "findings_by_severity": {
     "error": 0,
-    "warning": 6,
+    "warning": 7,
     "info": 1
    },
    "finding_codes": [
+    "count_mismatch",
     "high_contamination",
-    "low_id_rate",
+    "low_core_use",
     "occupancy_decoy_groups",
     "occupancy_not_stored",
     "peptide_rows_localization_ambiguous",
     "sdrf_skeleton",
     "unplaced_ptm_sites"
    ],
-   "summary": "PXD031782 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 54,539 PSMs, 9,578 peptidoforms and 1,706 protein groups, and the repository holds 5,461 PTM sites for it. 6 open warnings about it are recorded.",
+   "summary": "PXD031782 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 64,069 PSMs, 11,630 peptidoforms and 1,861 protein groups, and the repository holds 6,306 PTM sites for it. 7 open warnings about it are recorded.",
    "page": "datasets/PXD031782.html",
    "json": "datasets/PXD031782.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD031782.html",

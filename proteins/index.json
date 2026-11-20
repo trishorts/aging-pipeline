@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "cbe5f4372afe2127",
+  "catalog_id": "ff1353f73a04640b",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-19T23:47:44+00:00",
+  "built_utc": "2026-11-20T05:47:46+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -1880,7 +1880,7 @@
   },
   "F7C": {
    "file": "proteins/F7C.json",
-   "n": 64
+   "n": 65
   },
   "F7D": {
    "file": "proteins/F7D.json",
@@ -3820,7 +3820,7 @@
   },
   "P207": {
    "file": "proteins/P207.json",
-   "n": 22
+   "n": 23
   },
   "P208": {
    "file": "proteins/P208.json",
@@ -8024,7 +8024,7 @@
   },
   "Q618": {
    "file": "proteins/Q618.json",
-   "n": 27
+   "n": 28
   },
   "Q619": {
    "file": "proteins/Q619.json",
@@ -11213,6 +11213,10 @@
   "Q8BUB": {
    "file": "proteins/Q8BUB.json",
    "n": 2
+  },
+  "Q8BUD": {
+   "file": "proteins/Q8BUD.json",
+   "n": 1
   },
   "Q8BUE": {
    "file": "proteins/Q8BUE.json",
@@ -23044,7 +23048,7 @@
   "J": 46,
   "K": 598,
   "L": 762,
-  "M": 1177,
+  "M": 1178,
   "N": 832,
   "O": 575,
   "P": 1767,
@@ -23055,7 +23059,7 @@
   "U": 352,
   "V": 309,
   "W": 163,
-  "X": 54,
+  "X": 55,
   "Y": 52,
   "Z": 1022
  }

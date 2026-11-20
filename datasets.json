@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "125a183a5406d06e",
+  "catalog_id": "f49e4bf5d39dee33",
   "catalog_version": "16",
   "schema_version": "0.0.16",
   "builder_version": "1.4.5",
-  "built_utc": "2026-11-20T06:58:23+00:00",
+  "built_utc": "2026-11-20T23:03:38+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -3057,6 +3057,51 @@
    "json": "datasets/PXD021757.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD021757.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD021757.json"
+  },
+  {
+   "dataset_id": "PXD021883",
+   "accession": "PXD021883",
+   "split_group": null,
+   "split_reason": null,
+   "title": "Mapping sites of carboxymethyllysine modification on proteins reveals consequences for proteostasis and cell proliferation",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 56,
+   "n_samples": 30,
+   "n_psms_1pct": 311050,
+   "n_peptidoforms_1pct": 54983,
+   "n_protein_groups_1pct": 7117,
+   "n_ptm_sites": 117761,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 1
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "sdrf_uncoded",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD021883 is a DDA isobaric dataset (Mus musculus) with 56 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 311,050 PSMs, 54,983 peptidoforms and 7,117 protein groups, and the repository holds 117,761 PTM sites for it. 5 open warnings about it are recorded.",
+   "page": "datasets/PXD021883.html",
+   "json": "datasets/PXD021883.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD021883.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD021883.json"
   },
   {
    "dataset_id": "PXD022196",

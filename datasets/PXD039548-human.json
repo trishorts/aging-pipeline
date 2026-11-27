@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "efa97f89b2b98f34",
+  "catalog_id": "dd97ffbb1ff78b8d",
   "catalog_version": "17",
   "schema_version": "0.0.17",
   "builder_version": "1.0.0",
-  "built_utc": "2026-11-27T02:22:20+00:00",
+  "built_utc": "2026-11-27T03:27:54+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -401,7 +401,9 @@
    "unplaced_ptm_sites",
    "unresolved_modifications"
   ],
-  "siblings": [],
+  "siblings": [
+   "PXD039548-mouse"
+  ],
   "bundle": {
    "bundle_id": "11e588d5c097d81a",
    "written_utc": "2026-11-26T23:16:27+00:00",
@@ -412,7 +414,7 @@
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD039548-human is a DDA isobaric dataset (Homo sapiens) with 24 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 91,993 PSMs and 4,447 protein groups; 28,043 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 56,838 PTM sites for it. 5 open warnings about it are recorded. It is one part of deposit PXD039548, which was searched in parts (split by species). No other part of it is in this repository.",
+  "summary": "PXD039548-human is a DDA isobaric dataset (Homo sapiens) with 24 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 91,993 PSMs and 4,447 protein groups; 28,043 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 56,838 PTM sites for it. 5 open warnings about it are recorded. It is one part of deposit PXD039548, which was searched in parts (split by species). The deposit's other part is PXD039548-mouse.",
   "page": "datasets/PXD039548-human.html",
   "json": "datasets/PXD039548-human.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD039548-human.html",

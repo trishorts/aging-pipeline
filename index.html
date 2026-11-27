@@ -12,8 +12,8 @@
  "@type": "DataCatalog",
  "name": "Aging proteomics repository",
  "url": "https://trishorts.github.io/aging-pipeline/index.html",
- "identifier": "datarepo:catalog:efa97f89b2b98f34",
- "description": "Search and quantification results for 210 public proteomics datasets reanalysed with one pipeline, for questions about how organelle proteomes change with age.",
+ "identifier": "datarepo:catalog:dd97ffbb1ff78b8d",
+ "description": "Search and quantification results for 212 public proteomics datasets reanalysed with one pipeline, for questions about how organelle proteomes change with age.",
  "dataset": [
   {
    "@type": "Dataset",
@@ -215,6 +215,24 @@
   },
   {
    "@type": "Dataset",
+   "name": "PXD011741-cortex",
+   "identifier": "PXD011741-cortex",
+   "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011741-cortex.html"
+  },
+  {
+   "@type": "Dataset",
+   "name": "PXD011741-muscle",
+   "identifier": "PXD011741-muscle",
+   "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011741-muscle.html"
+  },
+  {
+   "@type": "Dataset",
+   "name": "PXD011741-striatum",
+   "identifier": "PXD011741-striatum",
+   "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011741-striatum.html"
+  },
+  {
+   "@type": "Dataset",
    "name": "PXD012213",
    "identifier": "PXD012213",
    "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD012213.html"
@@ -386,6 +404,12 @@
    "name": "PXD019533",
    "identifier": "PXD019533",
    "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019533.html"
+  },
+  {
+   "@type": "Dataset",
+   "name": "PXD019690-astro",
+   "identifier": "PXD019690-astro",
+   "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019690-astro.html"
   },
   {
    "@type": "Dataset",
@@ -812,6 +836,12 @@
    "name": "PXD039548-human",
    "identifier": "PXD039548-human",
    "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD039548-human.html"
+  },
+  {
+   "@type": "Dataset",
+   "name": "PXD039548-mouse",
+   "identifier": "PXD039548-mouse",
+   "url": "https://trishorts.github.io/aging-pipeline/datasets/PXD039548-mouse.html"
   },
   {
    "@type": "Dataset",
@@ -1298,7 +1328,7 @@
 <h2>How it works</h2>
 <ul><li><a href="https://github.com/trishorts/aging-pipeline"><strong>aging-pipeline</strong></a> finds aging datasets in PRIDE, downloads and quality-checks the raw spectra, and searches and quantifies them with <a href="https://github.com/smith-chem-wisc/MetaMorpheus">MetaMorpheus</a>, including GPTMD to discover post-translational modifications, and FlashLFQ.</li><li><a href="https://github.com/trishorts/dataRepo"><strong>dataRepo</strong></a> stores the results in one schema and serves them to people and to AI agents. This site is generated from its catalog.</li></ul>
 <h2>Where it stands</h2>
-<ul><li><strong>211 datasets, 161 of them whole proteomes</strong> (no enrichment step): mouse 114 (92 whole); human 64 (50 whole); rat 33 (19 whole).</li><li><strong>Enrichments:</strong> affinity_purification 16; phospho 10; proximity_labelling 5; mixed runs 5; immunoprecipitation 4; other 4; chemical_probe 4; acetyl 2.</li><li><strong>Beyond identifications and quantities:</strong> per-run PTM site occupancy (10,619,375 rows, 151 datasets) and protein-to-gene mappings (3,645,247 rows). These, and every individual protein, are in the catalog and reachable through the MCP server, not on these pages. The catalog file itself is not published yet.</li><li><strong>Sample ages:</strong> 204 runs in PXD031782, PXD047288, PXD047289, PXD047292, PXD047293, PXD051203, PXD051644, PXD056433, PXD056458, PXD058248, PXD058253, curated from the depositors&#x27; own records and paper.</li><li><strong>Organelle assignments:</strong> GO cellular-component terms for the proteins of 151 datasets (16,930,189 rows), grouped into 12 organelle categories (aging-organelle-map v1, GO releases/2026-07-26). Each row keeps its own GO evidence code.</li><li><strong>Not held yet:</strong> age effects, and an experimental design for any dataset. Every dataset was quantified with each raw file as its own condition.</li><li>These counts are from catalog <code>efa97f89b2b98f34</code>.</li></ul>
+<ul><li><strong>216 datasets, 166 of them whole proteomes</strong> (no enrichment step): mouse 119 (97 whole); human 64 (50 whole); rat 33 (19 whole).</li><li><strong>Enrichments:</strong> affinity_purification 16; phospho 10; proximity_labelling 5; mixed runs 5; immunoprecipitation 4; other 4; chemical_probe 4; acetyl 2.</li><li><strong>Beyond identifications and quantities:</strong> per-run PTM site occupancy (10,619,375 rows, 151 datasets) and protein-to-gene mappings (3,746,842 rows). These, and every individual protein, are in the catalog and reachable through the MCP server, not on these pages. The catalog file itself is not published yet.</li><li><strong>Sample ages:</strong> 204 runs in PXD031782, PXD047288, PXD047289, PXD047292, PXD047293, PXD051203, PXD051644, PXD056433, PXD056458, PXD058248, PXD058253, curated from the depositors&#x27; own records and paper.</li><li><strong>Organelle assignments:</strong> GO cellular-component terms for the proteins of 151 datasets (16,930,189 rows), grouped into 12 organelle categories (aging-organelle-map v1, GO releases/2026-07-26). Each row keeps its own GO evidence code.</li><li><strong>Not held yet:</strong> age effects, and an experimental design for any dataset. Every dataset was quantified with each raw file as its own condition.</li><li>These counts are from catalog <code>dd97ffbb1ff78b8d</code>.</li></ul>
 <p>So the repository cannot answer the group&#x27;s question on its own yet: ages, designs and organelle assignments are the next stages of the pipeline. Each dataset page lists the known problems with that dataset. Please read them before using its numbers.</p>
 <h2>Use it with your own AI agent</h2>
 <p>Any assistant that can read a web page (Claude, ChatGPT, Gemini, or your own agent with a fetch tool) can work from this site. There is nothing to install.</p>
@@ -1318,19 +1348,19 @@
 <p>Built at the Smith lab, University of Wisconsin–Madison. Questions and problems: please open an issue on <a href="https://github.com/trishorts/aging-pipeline/issues">aging-pipeline</a>.</p>
 </section>
 <div class="tiles">
-<div class="tile"><div class="tile-label">Datasets</div><div class="tile-value" title="210">210</div><div class="tile-note">public PRIDE datasets, each reanalysed from its raw files</div></div>
-<div class="tile"><div class="tile-label">Raw files searched</div><div class="tile-value" title="6,349">6,349</div><div class="tile-note">LC-MS/MS runs</div></div>
-<div class="tile"><div class="tile-label">Spectra searched</div><div class="tile-value" title="276,059,424">276M</div><div class="tile-note">MS2 scans in the raw files, summed (aging:DEF-MS2)</div></div>
-<div class="tile"><div class="tile-label">PSMs at 1% FDR</div><div class="tile-value" title="104,576,680">105M</div><div class="tile-note">target peptide-spectrum matches, as the search engine counts them</div></div>
-<div class="tile"><div class="tile-label">Unique peptides at 1% FDR</div><div class="tile-value" title="771,344">771K</div><div class="tile-note">peptide sequences found in a single gene&#x27;s proteins in the searched databases, in every dataset that found them, decoys and contaminants excluded; out of 807,998 sequences in all</div></div>
-<div class="tile"><div class="tile-label">Proteins identified</div><div class="tile-value" title="49,905">49.9K</div><div class="tile-note">accessions with 1%-FDR evidence, decoys and contaminants excluded; 9,840 of them in 30 or more datasets</div></div>
-<div class="tile"><div class="tile-label">Proteins, whole-proteome datasets</div><div class="tile-value" title="49,066">49.1K</div><div class="tile-note">the same count over the 160 datasets with no enrichment step; an enriched dataset (pull-down, probe, IP) says nothing about the proteome</div></div>
-<div class="tile"><div class="tile-label">PTM sites</div><div class="tile-value" title="9,164,261">9.16M</div><div class="tile-note">modified residues on proteins, 189 kinds of modification; on target proteins, 157,990 phosphorylation (UNIMOD:21) and 141,351 acetylation (UNIMOD:1) sites</div></div>
+<div class="tile"><div class="tile-label">Datasets</div><div class="tile-value" title="212">212</div><div class="tile-note">public PRIDE datasets, each reanalysed from its raw files</div></div>
+<div class="tile"><div class="tile-label">Raw files searched</div><div class="tile-value" title="6,901">6,901</div><div class="tile-note">LC-MS/MS runs</div></div>
+<div class="tile"><div class="tile-label">Spectra searched</div><div class="tile-value" title="288,242,142">288M</div><div class="tile-note">MS2 scans in the raw files, summed (aging:DEF-MS2)</div></div>
+<div class="tile"><div class="tile-label">PSMs at 1% FDR</div><div class="tile-value" title="107,163,227">107M</div><div class="tile-note">target peptide-spectrum matches, as the search engine counts them</div></div>
+<div class="tile"><div class="tile-label">Unique peptides at 1% FDR</div><div class="tile-value" title="784,709">785K</div><div class="tile-note">peptide sequences found in a single gene&#x27;s proteins in the searched databases, in every dataset that found them, decoys and contaminants excluded; out of 821,757 sequences in all</div></div>
+<div class="tile"><div class="tile-label">Proteins identified</div><div class="tile-value" title="50,074">50.1K</div><div class="tile-note">accessions with 1%-FDR evidence, decoys and contaminants excluded; 10,126 of them in 30 or more datasets</div></div>
+<div class="tile"><div class="tile-label">Proteins, whole-proteome datasets</div><div class="tile-value" title="49,258">49.3K</div><div class="tile-note">the same count over the 162 datasets with no enrichment step; an enriched dataset (pull-down, probe, IP) says nothing about the proteome</div></div>
+<div class="tile"><div class="tile-label">PTM sites</div><div class="tile-value" title="10,032,281">10M</div><div class="tile-note">modified residues on proteins, 189 kinds of modification; on target proteins, 162,581 phosphorylation (UNIMOD:21) and 145,429 acetylation (UNIMOD:1) sites</div></div>
 </div>
-<p class="note">Figures of merit from catalog <code>efa97f89b2b98f34</code>. Hover a number for its exact value.</p>
+<p class="note">Figures of merit from catalog <code>dd97ffbb1ff78b8d</code>. Hover a number for its exact value.</p>
 <h2>This repository</h2>
-<p class="lede">Search and quantification results for 210 public proteomics datasets,
-reanalysed with one pipeline and stored with the same schema, so they can be compared. The question they serve is how organelle proteomes change with age. 3 of them were searched in parts (split, e.g. one search per species), so the table below has 211 rows, one per search; each split deposit has a page of its own linking its parts.</p>
+<p class="lede">Search and quantification results for 212 public proteomics datasets,
+reanalysed with one pipeline and stored with the same schema, so they can be compared. The question they serve is how organelle proteomes change with age. 5 of them were searched in parts (split, e.g. one search per species), so the table below has 216 rows, one per search; each split deposit has a page of its own linking its parts.</p>
 <p><strong>For AI agents:</strong> start at <a href="llms.txt"><code>llms.txt</code></a>. The same facts
 as this page are in <a href="datasets.json"><code>datasets.json</code></a>.</p>
 <h2>The corpus at a glance</h2>
@@ -1338,7 +1368,7 @@ as this page are in <a href="datasets.json"><code>datasets.json</code></a>.</p>
 <thead><tr><th>Organism searched</th><th class="num">none</th><th class="num">acetyl</th><th class="num">acetyl (on some runs only; runs differ)</th><th class="num">affinity_purification</th><th class="num">chemical_probe</th><th class="num">immunoprecipitation</th><th class="num">immunoprecipitation, other (on some runs only; runs differ)</th><th class="num">other</th><th class="num">other (on some runs only; runs differ)</th><th class="num">phospho</th><th class="num">proximity_labelling</th><th class="num">ubiquitin_GG (on some runs only; runs differ)</th><th class="num">All</th></tr></thead>
 <tbody>
 <tr><td>Homo sapiens</td><td class="num">50</td><td class="num"></td><td class="num"></td><td class="num">5</td><td class="num">2</td><td class="num">1</td><td class="num"></td><td class="num">2</td><td class="num"></td><td class="num">2</td><td class="num">2</td><td class="num"></td><td class="num">64</td></tr>
-<tr><td>Mus musculus</td><td class="num">92</td><td class="num">2</td><td class="num">2</td><td class="num">2</td><td class="num">2</td><td class="num">3</td><td class="num">1</td><td class="num"></td><td class="num">1</td><td class="num">5</td><td class="num">3</td><td class="num">1</td><td class="num">114</td></tr>
+<tr><td>Mus musculus</td><td class="num">97</td><td class="num">2</td><td class="num">2</td><td class="num">2</td><td class="num">2</td><td class="num">3</td><td class="num">1</td><td class="num"></td><td class="num">1</td><td class="num">5</td><td class="num">3</td><td class="num">1</td><td class="num">119</td></tr>
 <tr><td>Rattus norvegicus</td><td class="num">19</td><td class="num"></td><td class="num"></td><td class="num">9</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">2</td><td class="num"></td><td class="num">3</td><td class="num"></td><td class="num"></td><td class="num">33</td></tr>
 </tbody></table></div>
 <p class="note">Datasets by the organism of the searched database and the declared enrichment. "none" is a whole-proteome dataset; any other value is a capture, and a protein's absence from one says nothing about the proteome.</p>
@@ -1384,6 +1414,9 @@ Read them before using it. Organism is that of the protein database searched.</p
 <tr><td><a href="datasets/PXD010383.html">PXD010383</a></td><td>Changes in the oligodendrocyte cell progenitor cell proteome with ageing</td><td>Rattus norvegicus</td><td>none</td><td class="num">72</td><td class="num">411,470</td><td class="num">8,823</td><td class="num">208,366</td><td>0 E / 4 W / 2 I<br><span class="note">count_mismatch, no_channel_design, no_sdrf, occupancy_not_ingested, run_counts_missing, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD011314.html">PXD011314</a></td><td>Profiling of Methylglyoxal Blood Metabolism and Advanced Glycation End-Product Proteome using a Chemical Probe</td><td>Homo sapiens</td><td>chemical_probe</td><td class="num">17</td><td class="num">4,868</td><td class="num">57</td><td class="num">580</td><td>0 E / 7 W / 1 I<br><span class="note">calibration_failed, high_contamination, low_core_use, low_id_rate, occupancy_decoy_groups, occupancy_not_stored, sdrf_uncoded, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD011740.html">PXD011740</a></td><td>Translational regulation contributes to the secretory response of chondrocytic cells following exposure to Interleukin-1B</td><td>Homo sapiens</td><td>none</td><td class="num">12</td><td class="num">89,011</td><td class="num">2,112</td><td class="num">6,207</td><td>0 E / 6 W / 2 I<br><span class="note">collapsed_duplicate_rows, count_mismatch, high_contamination, occupancy_decoy_groups, occupancy_not_stored, sdrf_skeleton, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
+<tr><td><a href="datasets/PXD011741-cortex.html">PXD011741-cortex</a><br><span class="note">part of <a href="datasets/PXD011741.html">PXD011741</a></span></td><td>Mouse HiRIEF LCMS Proteomics  - Sedentary VS Exercise, WT VS PolgA mutant</td><td>Mus musculus</td><td>none</td><td class="num">144</td><td class="num">851,589</td><td class="num">10,231</td><td class="num">270,253</td><td>0 E / 4 W / 2 I<br><span class="note">count_mismatch, low_core_use, occupancy_not_ingested, run_counts_missing, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
+<tr><td><a href="datasets/PXD011741-muscle.html">PXD011741-muscle</a><br><span class="note">part of <a href="datasets/PXD011741.html">PXD011741</a></span></td><td>Mouse HiRIEF LCMS Proteomics  - Sedentary VS Exercise, WT VS PolgA mutant</td><td>Mus musculus</td><td>none</td><td class="num">144</td><td class="num">331,768</td><td class="num">6,694</td><td class="num">136,047</td><td>0 E / 4 W / 2 I<br><span class="note">count_mismatch, low_id_rate, occupancy_not_ingested, run_counts_missing, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
+<tr><td><a href="datasets/PXD011741-striatum.html">PXD011741-striatum</a><br><span class="note">part of <a href="datasets/PXD011741.html">PXD011741</a></span></td><td>Mouse HiRIEF LCMS Proteomics  - Sedentary VS Exercise, WT VS PolgA mutant</td><td>Mus musculus</td><td>none</td><td class="num">160</td><td class="num">1,031,121</td><td class="num">10,712</td><td class="num">287,638</td><td>0 E / 4 W / 2 I<br><span class="note">count_mismatch, low_core_use, occupancy_not_ingested, run_counts_missing, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
 <tr><td><a href="datasets/PXD012213.html">PXD012213</a></td><td>Effects of Caloric Restriction with Protein Supplementation on Plasma Protein Profiles in Middle-Aged Women with Metabolic Syndrome – A Preliminary Open Study</td><td>Homo sapiens</td><td>none</td><td class="num">26</td><td class="num">193,217</td><td class="num">320</td><td class="num">4,786</td><td>0 E / 4 W / 1 I<br><span class="note">count_mismatch, no_sdrf, occupancy_decoy_groups, occupancy_not_stored, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD012307.html">PXD012307</a></td><td>An atlas of the aging lung mapped by single cell transcriptomics and deep tissue proteomics</td><td>Mus musculus</td><td>none</td><td class="num">32</td><td class="num">2,067,679</td><td class="num">7,801</td><td class="num">95,871</td><td>0 E / 5 W / 2 I<br><span class="note">collapsed_duplicate_rows, count_mismatch, occupancy_decoy_groups, occupancy_not_stored, sdrf_conflicting_rows, sdrf_uncoded, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD012753.html">PXD012753</a></td><td>Young, old, OVX mouse Skin LC-MSMS, 3M Urea extraction</td><td>Mus musculus</td><td>none</td><td class="num">15</td><td class="num">43,949</td><td class="num">1,032</td><td class="num">2,912</td><td>0 E / 7 W / 1 I<br><span class="note">high_contamination, low_core_use, low_id_rate, mbr_kept_exceeds_msms, no_sdrf, occupancy_decoy_groups, occupancy_not_stored, unplaced_ptm_sites</span></td></tr>
@@ -1413,6 +1446,7 @@ Read them before using it. Organism is that of the protein database searched.</p
 <tr><td><a href="datasets/PXD018999.html">PXD018999</a></td><td>A dichotomous response to chronic fetal hypoxia preprograms aging already during kidney development</td><td>Mus musculus</td><td>none</td><td class="num">48</td><td class="num">974,746</td><td class="num">8,239</td><td class="num">46,440</td><td>0 E / 8 W / 2 I<br><span class="note">collapsed_duplicate_rows, count_mismatch, high_contamination, low_core_use, no_sdrf, occupancy_decoy_groups, occupancy_not_stored, spectral_library, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD019279.html">PXD019279</a></td><td>Proteomic Profiling of the Substantia Nigra to Identify Determinants of Lewy Body Pathology and Dopaminergic Neuronal Loss</td><td>Homo sapiens</td><td>none</td><td class="num">51</td><td class="num">1,665,837</td><td class="num">5,256</td><td class="num">46,224</td><td>0 E / 5 W / 2 I<br><span class="note">collapsed_duplicate_rows, count_mismatch, no_sdrf, occupancy_decoy_groups, occupancy_not_stored, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD019533.html">PXD019533</a></td><td>Multiplexed quantitative proteomics in mouse model of aging</td><td>Mus musculus</td><td>none</td><td class="num">9</td><td class="num">221,448</td><td class="num">5,506</td><td class="num">84,616</td><td>0 E / 6 W / 2 I<br><span class="note">count_mismatch, low_core_use, no_channel_design, no_sdrf, occupancy_not_ingested, run_counts_missing, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
+<tr><td><a href="datasets/PXD019690-astro.html">PXD019690-astro</a><br><span class="note">part of <a href="datasets/PXD019690.html">PXD019690</a></span></td><td>Neuronal metabolic rewiring promotesresilience to neurodegeneration caused by mitochondrial dysfunction</td><td>Mus musculus</td><td>none</td><td class="num">32</td><td class="num">32,897</td><td class="num">4,601</td><td class="num">49,814</td><td>0 E / 5 W / 2 I<br><span class="note">count_mismatch, low_core_use, low_id_rate, occupancy_not_ingested, run_counts_missing, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
 <tr><td><a href="datasets/PXD020051.html">PXD020051</a></td><td>ERR agonism reverses mitochondrial dysfunction and inflammation in the aging kidney</td><td>Mus musculus</td><td>none</td><td class="num">24</td><td class="num">134,427</td><td class="num">4,526</td><td class="num">95,540</td><td>0 E / 6 W / 2 I<br><span class="note">count_mismatch, low_core_use, no_channel_design, no_sdrf, occupancy_not_ingested, run_counts_missing, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
 <tr><td><a href="datasets/PXD021069.html">PXD021069</a></td><td>Matrix reverses immortalization-mediated stem cell fate determination</td><td>Homo sapiens</td><td>none</td><td class="num">14</td><td class="num">186,914</td><td class="num">1,349</td><td class="num">3,052</td><td>0 E / 6 W / 1 I<br><span class="note">count_mismatch, high_contamination, low_core_use, no_sdrf, occupancy_decoy_groups, occupancy_not_stored, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD021194.html">PXD021194</a></td><td>Novel skin photoageing biomarkers of epidermis and dermis revealed by traditional relative quantification in combination with a novel peptide locational fingerprinting MPLF.</td><td>Homo sapiens</td><td>none</td><td class="num">28</td><td class="num">384,344</td><td class="num">2,357</td><td class="num">14,245</td><td>0 E / 6 W / 2 I<br><span class="note">count_mismatch, high_contamination, no_sdrf, occupancy_decoy_groups, occupancy_not_stored, peptide_rows_localization_ambiguous, run_counts_missing, unplaced_ptm_sites</span></td></tr>
@@ -1485,6 +1519,7 @@ in skeletal muscle of female mice</td><td>Mus musculus</td><td>phospho</td><td c
 <tr><td><a href="datasets/PXD038718.html">PXD038718</a></td><td>An NPAS4:NuA4 complex couples synaptic activity to DNA repair</td><td>Mus musculus</td><td>immunoprecipitation</td><td class="num">14</td><td class="num">40,740</td><td class="num">1,754</td><td class="num">2,248</td><td>0 E / 8 W / 1 I<br><span class="note">cysteine_poor, high_contamination, low_core_use, low_id_rate, no_sdrf, occupancy_decoy_groups, occupancy_not_stored, peptide_rows_localization_ambiguous, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD039172.html">PXD039172</a></td><td>Proteome of the cortex of old Pink1-SNCA A53T double mutant Parkinson mice</td><td>Mus musculus</td><td>none</td><td class="num">98</td><td class="num">1,033,275</td><td class="num">6,671</td><td class="num">41,458</td><td>0 E / 6 W / 2 I<br><span class="note">calibration_failed, collapsed_duplicate_rows, count_mismatch, low_core_use, no_sdrf, occupancy_decoy_groups, occupancy_not_stored, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD039548-human.html">PXD039548-human</a><br><span class="note">part of <a href="datasets/PXD039548.html">PXD039548</a></span></td><td>Remodeling of the cardiac extracellular matrix proteome during chronological and pathological aging</td><td>Homo sapiens</td><td>none</td><td class="num">24</td><td class="num">91,993</td><td class="num">4,447</td><td class="num">56,838</td><td>0 E / 5 W / 2 I<br><span class="note">count_mismatch, low_core_use, low_id_rate, occupancy_not_ingested, run_counts_missing, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
+<tr><td><a href="datasets/PXD039548-mouse.html">PXD039548-mouse</a><br><span class="note">part of <a href="datasets/PXD039548.html">PXD039548</a></span></td><td>Remodeling of the cardiac extracellular matrix proteome during chronological and pathological aging</td><td>Mus musculus</td><td>none</td><td class="num">72</td><td class="num">339,172</td><td class="num">6,832</td><td class="num">124,268</td><td>0 E / 5 W / 2 I<br><span class="note">count_mismatch, low_core_use, low_id_rate, occupancy_not_ingested, run_counts_missing, unplaced_ptm_sites, unresolved_modifications</span></td></tr>
 <tr><td><a href="datasets/PXD041139.html">PXD041139</a></td><td>Proteomic analysis reveals insufficient folliculogenesis in Aging Female associates with infertility</td><td>Homo sapiens</td><td>none</td><td class="num">14</td><td class="num">432,972</td><td class="num">492</td><td class="num">10,811</td><td>0 E / 4 W / 2 I<br><span class="note">collapsed_duplicate_rows, count_mismatch, no_sdrf, occupancy_decoy_groups, occupancy_not_stored, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD041376.html">PXD041376</a></td><td>Profiling of purified autophagic vesicle content and degradome in the maturing and aging brain - Part II</td><td>Mus musculus</td><td>none</td><td class="num">20</td><td class="num">1,665,643</td><td class="num">6,181</td><td class="num">25,872</td><td>0 E / 5 W / 2 I<br><span class="note">collapsed_duplicate_rows, count_mismatch, no_sdrf, occupancy_decoy_groups, occupancy_not_stored, unplaced_ptm_sites</span></td></tr>
 <tr><td><a href="datasets/PXD041462.html">PXD041462</a></td><td>MultiomicsTracks96: A high throughput PIXUL-Matrix-based toolbox to profile frozen and FFPE tissues multiomes</td><td>Mus musculus</td><td>none</td><td class="num">8</td><td class="num">209,109</td><td class="num">5,550</td><td class="num">103,928</td><td>0 E / 5 W / 3 I<br><span class="note">count_mismatch, isobaric_channels_not_in_sdrf, isobaric_reference_channels, low_core_use, occupancy_not_ingested, run_counts_missing, sdrf_uncoded, unplaced_ptm_sites</span></td></tr>
@@ -1567,8 +1602,8 @@ in skeletal muscle of female mice</td><td>Mus musculus</td><td>phospho</td><td c
 </table></div>
 <h2>This catalog</h2>
 <dl>
-<dt>Catalog id</dt><dd><code>efa97f89b2b98f34</code></dd>
-<dt>Built</dt><dd>2026-11-27T02:22:20+00:00</dd>
+<dt>Catalog id</dt><dd><code>dd97ffbb1ff78b8d</code></dd>
+<dt>Built</dt><dd>2026-11-27T03:27:54+00:00</dd>
 <dt>Built by</dt><dd>datarepo 1.0.0, catalog format 17</dd>
 <dt>Schema</dt><dd>0.0.17</dd>
 <dt>Instance</dt><dd>aging</dd>
@@ -1576,7 +1611,7 @@ in skeletal muscle of female mice</td><td>Mus musculus</td><td>phospho</td><td c
 </main>
 <footer>
 Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.0.0 from catalog
-<code>efa97f89b2b98f34</code>, built 2026-11-27T02:22:20+00:00 by datarepo
+<code>dd97ffbb1ff78b8d</code>, built 2026-11-27T03:27:54+00:00 by datarepo
 1.0.0 (schema 0.0.17).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>

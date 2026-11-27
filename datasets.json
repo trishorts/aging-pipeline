@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "efa97f89b2b98f34",
+  "catalog_id": "dd97ffbb1ff78b8d",
   "catalog_version": "17",
   "schema_version": "0.0.17",
   "builder_version": "1.0.0",
-  "built_utc": "2026-11-27T02:22:20+00:00",
+  "built_utc": "2026-11-27T03:27:54+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -1578,6 +1578,156 @@
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011740.json"
   },
   {
+   "dataset_id": "PXD011741-cortex",
+   "accession": "PXD011741",
+   "split_group": "cortex",
+   "split_reason": "tissue",
+   "siblings": [
+    "PXD011741-muscle",
+    "PXD011741-striatum"
+   ],
+   "title": "Mouse HiRIEF LCMS Proteomics  - Sedentary VS Exercise, WT VS PolgA mutant",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 144,
+   "n_samples": 20,
+   "n_psms_1pct": 851589,
+   "n_peptidoforms_1pct": 148470,
+   "confidence_rule": "q_value_and_notch",
+   "n_protein_groups_1pct": 10231,
+   "n_ptm_sites": 270253,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 4,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "run_counts_missing",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD011741-cortex is a DDA isobaric dataset (Mus musculus) with 144 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 851,589 PSMs and 10,231 protein groups; 148,470 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 270,253 PTM sites for it. 4 open warnings about it are recorded. It is one part of deposit PXD011741, which was searched in parts (split by tissue). The deposit's other parts are PXD011741-muscle and PXD011741-striatum.",
+   "page": "datasets/PXD011741-cortex.html",
+   "json": "datasets/PXD011741-cortex.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011741-cortex.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011741-cortex.json"
+  },
+  {
+   "dataset_id": "PXD011741-muscle",
+   "accession": "PXD011741",
+   "split_group": "muscle",
+   "split_reason": "tissue",
+   "siblings": [
+    "PXD011741-cortex",
+    "PXD011741-striatum"
+   ],
+   "title": "Mouse HiRIEF LCMS Proteomics  - Sedentary VS Exercise, WT VS PolgA mutant",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 144,
+   "n_samples": 20,
+   "n_psms_1pct": 331768,
+   "n_peptidoforms_1pct": 62878,
+   "confidence_rule": "q_value_and_notch",
+   "n_protein_groups_1pct": 6694,
+   "n_ptm_sites": 136047,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 4,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_id_rate",
+    "occupancy_not_ingested",
+    "run_counts_missing",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD011741-muscle is a DDA isobaric dataset (Mus musculus) with 144 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 331,768 PSMs and 6,694 protein groups; 62,878 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 136,047 PTM sites for it. 4 open warnings about it are recorded. It is one part of deposit PXD011741, which was searched in parts (split by tissue). The deposit's other parts are PXD011741-cortex and PXD011741-striatum.",
+   "page": "datasets/PXD011741-muscle.html",
+   "json": "datasets/PXD011741-muscle.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011741-muscle.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011741-muscle.json"
+  },
+  {
+   "dataset_id": "PXD011741-striatum",
+   "accession": "PXD011741",
+   "split_group": "striatum",
+   "split_reason": "tissue",
+   "siblings": [
+    "PXD011741-cortex",
+    "PXD011741-muscle"
+   ],
+   "title": "Mouse HiRIEF LCMS Proteomics  - Sedentary VS Exercise, WT VS PolgA mutant",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 160,
+   "n_samples": 20,
+   "n_psms_1pct": 1031121,
+   "n_peptidoforms_1pct": 152885,
+   "confidence_rule": "q_value_and_notch",
+   "n_protein_groups_1pct": 10712,
+   "n_ptm_sites": 287638,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 4,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "occupancy_not_ingested",
+    "run_counts_missing",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD011741-striatum is a DDA isobaric dataset (Mus musculus) with 160 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 1,031,121 PSMs and 10,712 protein groups; 152,885 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 287,638 PTM sites for it. 4 open warnings about it are recorded. It is one part of deposit PXD011741, which was searched in parts (split by tissue). The deposit's other parts are PXD011741-cortex and PXD011741-muscle.",
+   "page": "datasets/PXD011741-striatum.html",
+   "json": "datasets/PXD011741-striatum.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011741-striatum.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011741-striatum.json"
+  },
+  {
    "dataset_id": "PXD012213",
    "accession": "PXD012213",
    "split_group": null,
@@ -2950,6 +3100,54 @@
    "json": "datasets/PXD019533.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019533.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019533.json"
+  },
+  {
+   "dataset_id": "PXD019690-astro",
+   "accession": "PXD019690",
+   "split_group": "astro",
+   "split_reason": "label",
+   "siblings": [],
+   "title": "Neuronal metabolic rewiring promotesresilience to neurodegeneration caused by mitochondrial dysfunction",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 32,
+   "n_samples": 10,
+   "n_psms_1pct": 32897,
+   "n_peptidoforms_1pct": 24322,
+   "confidence_rule": "q_value_and_notch",
+   "n_protein_groups_1pct": 4601,
+   "n_ptm_sites": 49814,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "low_id_rate",
+    "occupancy_not_ingested",
+    "run_counts_missing",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD019690-astro is a DDA isobaric dataset (Mus musculus) with 32 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 32,897 PSMs and 4,601 protein groups; 24,322 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 49,814 PTM sites for it. 5 open warnings about it are recorded. It is one part of deposit PXD019690, which was searched in parts (split by label). No other part of it is in this repository.",
+   "page": "datasets/PXD019690-astro.html",
+   "json": "datasets/PXD019690-astro.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019690-astro.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019690-astro.json"
   },
   {
    "dataset_id": "PXD020051",
@@ -6288,7 +6486,9 @@
    "accession": "PXD039548",
    "split_group": "human",
    "split_reason": "species",
-   "siblings": [],
+   "siblings": [
+    "PXD039548-mouse"
+   ],
    "title": "Remodeling of the cardiac extracellular matrix proteome during chronological and pathological aging",
    "organisms": [
     "NCBITaxon:9606"
@@ -6325,11 +6525,61 @@
     "unplaced_ptm_sites",
     "unresolved_modifications"
    ],
-   "summary": "PXD039548-human is a DDA isobaric dataset (Homo sapiens) with 24 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 91,993 PSMs and 4,447 protein groups; 28,043 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 56,838 PTM sites for it. 5 open warnings about it are recorded. It is one part of deposit PXD039548, which was searched in parts (split by species). No other part of it is in this repository.",
+   "summary": "PXD039548-human is a DDA isobaric dataset (Homo sapiens) with 24 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 91,993 PSMs and 4,447 protein groups; 28,043 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 56,838 PTM sites for it. 5 open warnings about it are recorded. It is one part of deposit PXD039548, which was searched in parts (split by species). The deposit's other part is PXD039548-mouse.",
    "page": "datasets/PXD039548-human.html",
    "json": "datasets/PXD039548-human.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD039548-human.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD039548-human.json"
+  },
+  {
+   "dataset_id": "PXD039548-mouse",
+   "accession": "PXD039548",
+   "split_group": "mouse",
+   "split_reason": "species",
+   "siblings": [
+    "PXD039548-human"
+   ],
+   "title": "Remodeling of the cardiac extracellular matrix proteome during chronological and pathological aging",
+   "organisms": [
+    "NCBITaxon:10090"
+   ],
+   "organism_names": [
+    "Mus musculus"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "isobaric",
+   "labelling": "TMT",
+   "enrichment": [
+    "none"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 72,
+   "n_samples": 30,
+   "n_psms_1pct": 339172,
+   "n_peptidoforms_1pct": 56780,
+   "confidence_rule": "q_value_and_notch",
+   "n_protein_groups_1pct": 6832,
+   "n_ptm_sites": 124268,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 5,
+    "info": 2
+   },
+   "finding_codes": [
+    "count_mismatch",
+    "low_core_use",
+    "low_id_rate",
+    "occupancy_not_ingested",
+    "run_counts_missing",
+    "unplaced_ptm_sites",
+    "unresolved_modifications"
+   ],
+   "summary": "PXD039548-mouse is a DDA isobaric dataset (Mus musculus) with 72 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 339,172 PSMs and 6,832 protein groups; 56,780 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 124,268 PTM sites for it. 5 open warnings about it are recorded. It is one part of deposit PXD039548, which was searched in parts (split by species). The deposit's other part is PXD039548-human.",
+   "page": "datasets/PXD039548-mouse.html",
+   "json": "datasets/PXD039548-mouse.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD039548-mouse.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD039548-mouse.json"
   },
   {
    "dataset_id": "PXD041139",
@@ -10032,6 +10282,30 @@
  "deposits_are": "Deposits searched in parts (a split, e.g. one search per species), each part a dataset above keyed `<accession>-<group>`. A public dataset is a DEPOSIT: count deposits by `accession`, not entries of `datasets`, and never sum a protein's or peptide's counts over parts, since one can be found in more than one.",
  "split_deposits": [
   {
+   "accession": "PXD011741",
+   "dataset_ids": [
+    "PXD011741-cortex",
+    "PXD011741-muscle",
+    "PXD011741-striatum"
+   ],
+   "split_reasons": [
+    "tissue"
+   ],
+   "page": "datasets/PXD011741.html",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011741.html"
+  },
+  {
+   "accession": "PXD019690",
+   "dataset_ids": [
+    "PXD019690-astro"
+   ],
+   "split_reasons": [
+    "label"
+   ],
+   "page": "datasets/PXD019690.html",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019690.html"
+  },
+  {
    "accession": "PXD027526",
    "dataset_ids": [
     "PXD027526-human",
@@ -10057,7 +10331,8 @@
   {
    "accession": "PXD039548",
    "dataset_ids": [
-    "PXD039548-human"
+    "PXD039548-human",
+    "PXD039548-mouse"
    ],
    "split_reasons": [
     "species"

@@ -35,6 +35,9 @@
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD010383.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD011314.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD011740.html</loc></url>
+<url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD011741-cortex.html</loc></url>
+<url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD011741-muscle.html</loc></url>
+<url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD011741-striatum.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD012213.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD012307.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD012753.html</loc></url>
@@ -64,6 +67,7 @@
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD018999.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD019279.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD019533.html</loc></url>
+<url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD019690-astro.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD020051.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD021069.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD021194.html</loc></url>
@@ -135,6 +139,7 @@
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD038718.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD039172.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD039548-human.html</loc></url>
+<url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD039548-mouse.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD041139.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD041376.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD041462.html</loc></url>
@@ -213,6 +218,8 @@
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD075949.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD077152.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD077298.html</loc></url>
+<url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD011741.html</loc></url>
+<url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD019690.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD027526.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD032900.html</loc></url>
 <url><loc>https://trishorts.github.io/aging-pipeline/datasets/PXD039548.html</loc></url>

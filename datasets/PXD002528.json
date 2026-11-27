@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD002528",
   "accession": "PXD002528",
   "split_group": null,
-  "bundle_id": "5ca828db8870d011",
+  "bundle_id": "84f99406622338ac",
   "title": "Inferior Temporal Gyrus in Human Ageing: a Quantitative Protein Profiling Work based on Chinese Human Brain Bank",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "isobaric",
+  "quant_scale": "reporter_ms2",
   "labelling": "TMT",
   "enrichment": [
    "none"
@@ -29,9 +30,10 @@
   "search_engine_version": "1.1.14",
   "unique_peptides_scope": "protein_group",
   "n_runs": 20,
-  "n_samples": 200,
+  "n_samples": 84,
   "n_psms_1pct": 176334,
   "n_peptidoforms_1pct": 57050,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 6317,
   "n_psms_all": 560438,
   "n_ptm_sites": 105374,
@@ -82,17 +84,22 @@
    {
     "code": "unresolved_modifications",
     "severity": "warning",
-    "message": "8 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:(3S)-3-hydroxyasparagine on N, UniProt:(3S)-3-hydroxyhistidine on H, UniProt:3'-nitrotyrosine on Y, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K, UniProt:O-palmitoleoyl serine on S, UniProt:S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "isobaric_reference_channels",
     "severity": "info",
-    "message": "116 channel(s) of the search's TmtDesign.txt are not study samples: `Sample Type` empty: `PXD002528:MS140697-T10:TMT127C`, `PXD002528:MS140697-T10:TMT127N`, `PXD002528:MS140697-T10:TMT128C`, `PXD002528:MS140697-T10:TMT128N`, `PXD002528:MS140697-T10:TMT129C` and 111 more. Their values measure that reference, not a sample of the question. The design is copied in `sources/`."
+    "message": "116 channel(s) of the search's TmtDesign.txt are not study samples: `Sample Type` empty: `PXD002528:MS140697-T10:TMT127C`, `PXD002528:MS140697-T10:TMT127N`, `PXD002528:MS140697-T10:TMT128C`, `PXD002528:MS140697-T10:TMT128N`, `PXD002528:MS140697-T10:TMT129C` and 111 more. Their values measure that reference, not a sample of the question. The design is copied in `sources/`, and each assay keeps its `Sample Type` (`assays.design_sample_type`). A channel marked `empty` had no sample put in it: unless the SDRF names one for it, its assay has no `sample_id`, and its values are kept as measured (isotope spill-over from a neighbouring channel, PXReprise 098), so a count of samples never counts it and a median across a run's channels must leave it out."
    },
    {
     "code": "occupancy_not_ingested",
     "severity": "info",
     "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (20 of 20 runs), `peptides` (20 of 20 runs), `protein_groups` (20 of 20 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 20 of the 20 runs, `peptides_1pct_whole_search` for 20 of the 20 runs, `protein_groups_1pct_whole_search` for none of them."
    }
   ],
   "modifications": [
@@ -173,7 +180,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 54
    },
    {
@@ -313,7 +320,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 4
    },
    {
@@ -328,7 +335,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 3
    },
    {
@@ -358,7 +365,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -393,7 +400,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 1
    },
    {
@@ -435,7 +442,7 @@
   "findings_by_severity": {
    "error": 0,
    "warning": 6,
-   "info": 2
+   "info": 3
   },
   "finding_codes": [
    "count_mismatch",
@@ -444,20 +451,21 @@
    "no_channel_design",
    "no_sdrf",
    "occupancy_not_ingested",
+   "run_counts_missing",
    "unplaced_ptm_sites",
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "5ca828db8870d011",
-   "written_utc": "2026-11-10T03:13:42+00:00",
-   "ingester_version": "1.4.5",
+   "bundle_id": "84f99406622338ac",
+   "written_utc": "2026-11-27T01:08:58+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD002528 is a DDA isobaric dataset (Homo sapiens) with 20 runs, 200 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 176,334 PSMs, 57,050 peptidoforms and 6,317 protein groups, and the repository holds 105,374 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD002528 is a DDA isobaric dataset (Homo sapiens) with 20 runs, 84 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 176,334 PSMs and 6,317 protein groups; 57,050 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 105,374 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD002528.html",
   "json": "datasets/PXD002528.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD002528.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD057407",
   "accession": "PXD057407",
   "split_group": null,
-  "bundle_id": "920efa52d6850a0e",
+  "bundle_id": "5249ab61df29e62b",
   "title": "Proteomic and Phosphoproteomic Signatures of Aging Mouse Liver",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 10,
   "n_psms_1pct": 921483,
   "n_peptidoforms_1pct": 29445,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 4258,
   "n_psms_all": 4001628,
   "n_ptm_sites": 16734,
@@ -176,7 +178,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 24
    },
    {
@@ -326,12 +328,12 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 3
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 3
    },
    {
@@ -376,7 +378,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 2
    },
    {
@@ -396,17 +398,17 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -525,16 +527,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "920efa52d6850a0e",
-   "written_utc": "2026-10-29T11:20:02+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "5249ab61df29e62b",
+   "written_utc": "2026-11-26T23:03:52+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD057407 is a DDA label-free dataset (Mus musculus) with 10 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 921,483 PSMs, 29,445 peptidoforms and 4,258 protein groups, and the repository holds 16,734 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD057407 is a DDA label-free dataset (Mus musculus) with 10 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 921,483 PSMs and 4,258 protein groups; 29,445 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 16,734 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD057407.html",
   "json": "datasets/PXD057407.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057407.html",

@@ -19,11 +19,11 @@
  "name": "PXD008990 reanalysis: Glycomic and Proteomic changes in aging brain nigrostriatal pathway",
  "identifier": [
   "PXD008990",
-  "datarepo:bundle:058f4416abe7b18b"
+  "datarepo:bundle:a3c802047f587f87"
  ],
- "description": "PXD008990 is a DDA label-free dataset (Rattus norvegicus) with 70 runs, 70 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 534,367 PSMs, 11,095 peptidoforms and 2,195 protein groups, and the repository holds 3,558 PTM sites for it. 6 open warnings about it are recorded.",
- "version": "058f4416abe7b18b",
- "dateModified": "2026-10-29T10:37:18+00:00",
+ "description": "PXD008990 is a DDA label-free dataset (Rattus norvegicus) with 70 runs, 70 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 534,367 PSMs and 2,195 protein groups; 11,095 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 3,558 PTM sites for it. 6 open warnings about it are recorded.",
+ "version": "a3c802047f587f87",
+ "dateModified": "2026-11-27T01:28:01+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 7ecfc9763064b181",
+  "name": "datarepo catalog efa97f89b2b98f34",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,7 +61,7 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD008990 is a DDA label-free dataset (Rattus norvegicus) with 70 runs, 70 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 534,367 PSMs, 11,095 peptidoforms and 2,195 protein groups, and the repository holds 3,558 PTM sites for it. 6 open warnings about it are recorded.
+PXD008990 is a DDA label-free dataset (Rattus norvegicus) with 70 runs, 70 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 534,367 PSMs and 2,195 protein groups; 11,095 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 3,558 PTM sites for it. 6 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
@@ -77,7 +77,7 @@ PXD008990 is a DDA label-free dataset (Rattus norvegicus) with 70 runs, 70 sampl
 <h2>What was found</h2>
 <div class="scroll"><table><tbody>
 <tr><td>PSMs at 1% FDR</td><td class="num">534,367</td></tr>
-<tr><td>Peptidoforms at 1% FDR</td><td class="num">11,095</td></tr>
+<tr><td>Peptidoforms at 1% (q-value and notch q-value)</td><td class="num">11,095</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">2,195</td></tr>
 <tr><td>PTM sites</td><td class="num">3,558</td></tr>
 <tr><td>Quantitative values</td><td class="num">1,225,696</td></tr>
@@ -90,7 +90,7 @@ PXD008990 is a DDA label-free dataset (Rattus norvegicus) with 70 runs, 70 sampl
 <dl>
 <dt>Organism searched</dt><dd>Rattus norvegicus <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
 <dt>Acquisition</dt><dd>DDA</dd>
-<dt>Quantification</dt><dd>label_free</dd>
+<dt>Quantification</dt><dd>label_free <span class="note">(value scale label_free_apex: never pool values across scales)</span></dd>
 <dt>Labelling</dt><dd>none</dd>
 <dt>Enrichment</dt><dd>none</dd>
 <dt>Instrument vendor</dt><dd>not recorded</dd>
@@ -154,7 +154,7 @@ PXD008990 is a DDA label-free dataset (Rattus norvegicus) with 70 runs, 70 sampl
 <tr><td>Fe[III] on D</td><td>UNIMOD:1870</td><td class="num">6</td></tr>
 <tr><td>N-acetylglycine on G</td><td>UNIMOD:1</td><td class="num">6</td></tr>
 <tr><td>N6,N6-dimethyllysine on K</td><td>UNIMOD:36</td><td class="num">5</td></tr>
-<tr><td>N6-succinyllysine on K</td><td>—</td><td class="num">5</td></tr>
+<tr><td>N6-succinyllysine on K</td><td>UNIMOD:64</td><td class="num">5</td></tr>
 <tr><td>Citrulline on R</td><td>UNIMOD:7</td><td class="num">4</td></tr>
 <tr><td>N-acetylvaline on V</td><td>UNIMOD:1</td><td class="num">4</td></tr>
 <tr><td>Asymmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">3</td></tr>
@@ -186,16 +186,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>058f4416abe7b18b</code>, written 2026-10-29T10:37:18+00:00 by ingester 1.4.0</dd>
+<dt>Bundle</dt><dd><code>a3c802047f587f87</code>, written 2026-11-27T01:28:01+00:00 by ingester 1.0.0</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts or differs within the known file-side limit: psms_target_1pct <span class="note">(see <code>catalog_reconciliation</code> for the bound)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.5 from catalog
-<code>7ecfc9763064b181</code>, built 2026-11-21T05:02:17+00:00 by datarepo
-1.4.5 (schema 0.0.16).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.0.0 from catalog
+<code>efa97f89b2b98f34</code>, built 2026-11-27T02:22:20+00:00 by datarepo
+1.0.0 (schema 0.0.17).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

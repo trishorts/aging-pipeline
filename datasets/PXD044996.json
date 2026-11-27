@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD044996",
   "accession": "PXD044996",
   "split_group": null,
-  "bundle_id": "438d6b12218fecb1",
+  "bundle_id": "bef9c63508b8796b",
   "title": "LC-MS/MS analysis of isolated murine brain endothelial cells (BECs) from 3-, 6-, 12-, and 18-months-old mice and Apoe-KO",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 25,
   "n_psms_1pct": 285043,
   "n_peptidoforms_1pct": 37623,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 4166,
   "n_psms_all": 426678,
   "n_ptm_sites": 17804,
@@ -421,7 +423,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 4
    },
    {
@@ -486,12 +488,12 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -546,7 +548,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 1
    },
    {
@@ -584,16 +586,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "438d6b12218fecb1",
-   "written_utc": "2026-10-29T09:17:40+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "bef9c63508b8796b",
+   "written_utc": "2026-11-27T01:36:58+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD044996 is a DDA label-free dataset (Mus musculus) with 25 runs, 25 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 285,043 PSMs, 37,623 peptidoforms and 4,166 protein groups, and the repository holds 17,804 PTM sites for it. 9 open warnings about it are recorded.",
+  "summary": "PXD044996 is a DDA label-free dataset (Mus musculus) with 25 runs, 25 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 285,043 PSMs and 4,166 protein groups; 37,623 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 17,804 PTM sites for it. 9 open warnings about it are recorded.",
   "page": "datasets/PXD044996.html",
   "json": "datasets/PXD044996.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD044996.html",

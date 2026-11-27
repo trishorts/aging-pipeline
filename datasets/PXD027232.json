@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD027232",
   "accession": "PXD027232",
   "split_group": null,
-  "bundle_id": "7b4d666260695258",
+  "bundle_id": "2d060c09aa9cf7c6",
   "title": "SIRT7-induced PHF5A de-crotonylation regulates ageing progress through alternative splicing-mediated downregulation of CDK2",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "isobaric",
+  "quant_scale": "reporter_ms2",
   "labelling": "TMT",
   "enrichment": [
    "phospho"
@@ -32,11 +33,12 @@
   "n_samples": 6,
   "n_psms_1pct": 772,
   "n_peptidoforms_1pct": 580,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 371,
   "n_psms_all": 20726,
   "n_ptm_sites": 1425,
   "n_quant_values": 5904,
-  "n_open_findings": 7,
+  "n_open_findings": 6,
   "restrictions": [
    "occupancy",
    "quantitation"
@@ -88,14 +90,14 @@
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 5 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
    },
    {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "5 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:3'-nitrotyrosine on Y, UniProt:5-glutamyl serotonin on Q, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
-   },
-   {
     "code": "occupancy_not_ingested",
     "severity": "info",
     "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (1 of 1 runs), `peptides` (1 of 1 runs), `protein_groups` (1 of 1 runs), `precursors` (1 of 1 runs), `ms2_scans` (1 of 1 runs). These counts were not written, which is not a count of zero. MetaMorpheus writes results.txt's per-file lines only for a search of two or more files, and this deposit has one run, so its deposit-wide rows (`scope = 'dataset'`) count that run. Each run's MS2 spectra are also counted by the QC report, in `runs.ms2_spectra` and `metrics` (`name = 'ms2'`, `source = 'qc_report.json'`), for 1 of the 1 runs. PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 1 of the 1 runs, `peptides_1pct_whole_search` for 1 of the 1 runs, `protein_groups_1pct_whole_search` for none of them."
    }
   ],
   "modifications": [
@@ -121,7 +123,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 15
    },
    {
@@ -211,7 +213,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 1
    },
    {
@@ -242,8 +244,8 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 7,
-   "info": 1
+   "warning": 6,
+   "info": 2
   },
   "finding_codes": [
    "isobaric_channels_not_in_sdrf",
@@ -251,19 +253,19 @@
    "low_id_rate",
    "no_channel_design",
    "occupancy_not_ingested",
+   "run_counts_missing",
    "sdrf_skeleton",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "7b4d666260695258",
-   "written_utc": "2026-11-11T01:06:17+00:00",
-   "ingester_version": "1.4.5",
+   "bundle_id": "2d060c09aa9cf7c6",
+   "written_utc": "2026-11-27T01:42:40+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": []
   },
-  "summary": "PXD027232 is a DDA isobaric dataset (Homo sapiens) with 1 run, 6 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 772 PSMs, 580 peptidoforms and 371 protein groups, and the repository holds 1,425 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD027232 is a DDA isobaric dataset (Homo sapiens) with 1 run, 6 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 772 PSMs and 371 protein groups; 580 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 1,425 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD027232.html",
   "json": "datasets/PXD027232.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027232.html",

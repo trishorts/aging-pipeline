@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD041660",
   "accession": "PXD041660",
   "split_group": null,
-  "bundle_id": "d4c54e0b813669ef",
+  "bundle_id": "0d3464039096247d",
   "title": "A Defective Extracellular Matrix/Kindlin-2/Actin/ERK Mechanosensing Pathway Affects Fibroblast-To-Myofibroblast Transiti",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 8,
   "n_psms_1pct": 122316,
   "n_peptidoforms_1pct": 6419,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 1224,
   "n_psms_all": 1093910,
   "n_ptm_sites": 2428,
@@ -248,7 +250,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 4
    },
    {
@@ -357,16 +359,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "d4c54e0b813669ef",
-   "written_utc": "2026-10-29T10:15:57+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "0d3464039096247d",
+   "written_utc": "2026-11-27T01:16:34+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD041660 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 122,316 PSMs, 6,419 peptidoforms and 1,224 protein groups, and the repository holds 2,428 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD041660 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 122,316 PSMs and 1,224 protein groups; 6,419 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 2,428 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD041660.html",
   "json": "datasets/PXD041660.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD041660.html",

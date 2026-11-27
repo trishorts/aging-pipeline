@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD011740",
   "accession": "PXD011740",
   "split_group": null,
-  "bundle_id": "b7dbca088aa5c165",
+  "bundle_id": "6bc7b01b44e8b564",
   "title": "Translational regulation contributes to the secretory response of chondrocytic cells following exposure to Interleukin-1B",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 12,
   "n_psms_1pct": 89011,
   "n_peptidoforms_1pct": 16644,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 2112,
   "n_psms_all": 176667,
   "n_ptm_sites": 6207,
@@ -431,12 +433,12 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 2
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 2
    },
    {
@@ -506,16 +508,16 @@
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "b7dbca088aa5c165",
-   "written_utc": "2026-10-29T09:41:48+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "6bc7b01b44e8b564",
+   "written_utc": "2026-11-27T01:37:47+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD011740 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 89,011 PSMs, 16,644 peptidoforms and 2,112 protein groups, and the repository holds 6,207 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD011740 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 89,011 PSMs and 2,112 protein groups; 16,644 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 6,207 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD011740.html",
   "json": "datasets/PXD011740.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD011740.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD012307",
   "accession": "PXD012307",
   "split_group": null,
-  "bundle_id": "63a2859fd47fa0e9",
+  "bundle_id": "656ccc302324e15e",
   "title": "An atlas of the aging lung mapped by single cell transcriptomics and deep tissue proteomics",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 1,
   "n_psms_1pct": 2067679,
   "n_peptidoforms_1pct": 136878,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 7801,
   "n_psms_all": 5335478,
   "n_ptm_sites": 95871,
@@ -403,7 +405,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 92
    },
    {
@@ -433,7 +435,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 48
    },
    {
@@ -473,7 +475,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 27
    },
    {
@@ -568,12 +570,12 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 7
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 6
    },
    {
@@ -583,7 +585,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 5
    },
    {
@@ -623,7 +625,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxylysine on K",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 2
    },
    {
@@ -673,7 +675,7 @@
    },
    {
     "modification_name": "5-glutamyl serotonin on Q",
-    "modification": null,
+    "modification": "UNIMOD:1992",
     "n_sites": 1
    },
    {
@@ -747,16 +749,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "63a2859fd47fa0e9",
-   "written_utc": "2026-10-29T10:59:31+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "656ccc302324e15e",
+   "written_utc": "2026-11-26T22:27:02+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD012307 is a DDA label-free dataset (Mus musculus) with 32 runs, 1 sample and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 2,067,679 PSMs, 136,878 peptidoforms and 7,801 protein groups, and the repository holds 95,871 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD012307 is a DDA label-free dataset (Mus musculus) with 32 runs, 1 sample and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 2,067,679 PSMs and 7,801 protein groups; 136,878 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 95,871 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD012307.html",
   "json": "datasets/PXD012307.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD012307.html",

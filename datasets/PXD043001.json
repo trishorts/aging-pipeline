@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD043001",
   "accession": "PXD043001",
   "split_group": null,
-  "bundle_id": "583f589cee2a0ce8",
+  "bundle_id": "07dc43b4467b0dbf",
   "title": "Proteomic characterizationof the circle of Willis during aging",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 40,
   "n_psms_1pct": 2821853,
   "n_peptidoforms_1pct": 75455,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 8548,
   "n_psms_all": 5843307,
   "n_ptm_sites": 60348,
@@ -346,7 +348,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 39
    },
    {
@@ -451,7 +453,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 14
    },
    {
@@ -536,7 +538,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 4
    },
    {
@@ -551,7 +553,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 3
    },
    {
@@ -586,7 +588,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 2
    },
    {
@@ -596,7 +598,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -719,16 +721,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "583f589cee2a0ce8",
-   "written_utc": "2026-10-29T10:46:26+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "07dc43b4467b0dbf",
+   "written_utc": "2026-11-26T22:42:59+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD043001 is a DDA label-free dataset (Mus musculus) with 40 runs, 40 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 2,821,853 PSMs, 75,455 peptidoforms and 8,548 protein groups, and the repository holds 60,348 PTM sites for it. 4 open warnings about it are recorded.",
+  "summary": "PXD043001 is a DDA label-free dataset (Mus musculus) with 40 runs, 40 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 2,821,853 PSMs and 8,548 protein groups; 75,455 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 60,348 PTM sites for it. 4 open warnings about it are recorded.",
   "page": "datasets/PXD043001.html",
   "json": "datasets/PXD043001.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD043001.html",

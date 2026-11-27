@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD035107",
   "accession": "PXD035107",
   "split_group": null,
-  "bundle_id": "c882c9b253d4b1bb",
+  "bundle_id": "c61288566fa73216",
   "title": "Global phosphoproteomic profiling of skeletal muscle in ovarian-hormone deficient mice",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "phospho"
@@ -32,6 +33,7 @@
   "n_samples": 8,
   "n_psms_1pct": 69974,
   "n_peptidoforms_1pct": 12490,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 1442,
   "n_psms_all": 85157,
   "n_ptm_sites": 11612,
@@ -458,12 +460,12 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -503,7 +505,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 1
    },
    {
@@ -542,16 +544,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "c882c9b253d4b1bb",
-   "written_utc": "2026-10-29T09:47:55+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "c61288566fa73216",
+   "written_utc": "2026-11-27T01:46:07+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD035107 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 69,974 PSMs, 12,490 peptidoforms and 1,442 protein groups, and the repository holds 11,612 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD035107 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 69,974 PSMs and 1,442 protein groups; 12,490 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 11,612 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD035107.html",
   "json": "datasets/PXD035107.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035107.html",

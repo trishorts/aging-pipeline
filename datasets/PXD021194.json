@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD021194",
   "accession": "PXD021194",
   "split_group": null,
-  "bundle_id": "0bd8a92c4818c69b",
+  "bundle_id": "bc32661819adf0a9",
   "title": "Novel skin photoageing biomarkers of epidermis and dermis revealed by traditional relative quantification in combination with a novel peptide locational fingerprinting MPLF.",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 28,
   "n_psms_1pct": 384344,
   "n_peptidoforms_1pct": 23535,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 2357,
   "n_psms_all": 813632,
   "n_ptm_sites": 14245,
@@ -86,6 +88,11 @@
     "code": "occupancy_decoy_groups",
     "severity": "info",
     "message": "34 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (28 of 28 runs), `peptides` (28 of 28 runs), `protein_groups` (28 of 28 runs), `precursors` (28 of 28 runs), `ms2_scans` (28 of 28 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). Each run's MS2 spectra are also counted by the QC report, in `runs.ms2_spectra` and `metrics` (`name = 'ms2'`, `source = 'qc_report.json'`), for 28 of the 28 runs. PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 28 of the 28 runs, `peptides_1pct_whole_search` for 28 of the 28 runs, `protein_groups_1pct_whole_search` for 28 of the 28 runs."
    }
   ],
   "modifications": [
@@ -466,7 +473,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 3
    },
    {
@@ -516,12 +523,12 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -583,7 +590,7 @@
   "findings_by_severity": {
    "error": 0,
    "warning": 6,
-   "info": 1
+   "info": 2
   },
   "finding_codes": [
    "count_mismatch",
@@ -592,19 +599,20 @@
    "occupancy_decoy_groups",
    "occupancy_not_stored",
    "peptide_rows_localization_ambiguous",
+   "run_counts_missing",
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "0bd8a92c4818c69b",
-   "written_utc": "2026-11-12T15:43:10+00:00",
-   "ingester_version": "1.4.5",
+   "bundle_id": "bc32661819adf0a9",
+   "written_utc": "2026-11-27T01:13:35+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD021194 is a DDA label-free dataset (Homo sapiens) with 28 runs, 28 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 384,344 PSMs, 23,535 peptidoforms and 2,357 protein groups, and the repository holds 14,245 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD021194 is a DDA label-free dataset (Homo sapiens) with 28 runs, 28 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 384,344 PSMs and 2,357 protein groups; 23,535 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 14,245 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD021194.html",
   "json": "datasets/PXD021194.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD021194.html",

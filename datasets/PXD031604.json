@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD031604",
   "accession": "PXD031604",
   "split_group": null,
-  "bundle_id": "7953d0d268b6080e",
+  "bundle_id": "7c6ea7fc233d863f",
   "title": "Analysis of 20-HETE supplementation in calorically restricted C57Bl6 mice",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 15,
   "n_psms_1pct": 1406442,
   "n_peptidoforms_1pct": 104634,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 6865,
   "n_psms_all": 2445896,
   "n_ptm_sites": 55041,
@@ -306,7 +308,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 78
    },
    {
@@ -456,7 +458,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 11
    },
    {
@@ -491,7 +493,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 6
    },
    {
@@ -531,7 +533,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 3
    },
    {
@@ -626,17 +628,17 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "(3S)-3-hydroxylysine on K",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -651,7 +653,7 @@
    },
    {
     "modification_name": "5-glutamyl serotonin on Q",
-    "modification": null,
+    "modification": "UNIMOD:1992",
     "n_sites": 1
    },
    {
@@ -730,16 +732,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "7953d0d268b6080e",
-   "written_utc": "2026-10-30T13:28:00+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "7c6ea7fc233d863f",
+   "written_utc": "2026-11-27T00:00:33+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD031604 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 1,406,442 PSMs, 104,634 peptidoforms and 6,865 protein groups, and the repository holds 55,041 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD031604 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 1,406,442 PSMs and 6,865 protein groups; 104,634 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 55,041 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD031604.html",
   "json": "datasets/PXD031604.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD031604.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD017475",
   "accession": "PXD017475",
   "split_group": null,
-  "bundle_id": "65cf99f613971fa0",
+  "bundle_id": "869d03a277242a93",
   "title": "The lncRNA MIR31HG regulates the senescence associated secretory phenotype",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "affinity_purification"
@@ -32,6 +33,7 @@
   "n_samples": 19,
   "n_psms_1pct": 187253,
   "n_peptidoforms_1pct": 26410,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 2277,
   "n_psms_all": 373453,
   "n_ptm_sites": 17751,
@@ -443,12 +445,12 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 6
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 6
    },
    {
@@ -558,7 +560,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 1
    }
   ],
@@ -587,16 +589,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "65cf99f613971fa0",
-   "written_utc": "2026-10-29T09:15:00+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "869d03a277242a93",
+   "written_utc": "2026-11-27T01:31:21+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD017475 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 187,253 PSMs, 26,410 peptidoforms and 2,277 protein groups, and the repository holds 17,751 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD017475 is a DDA label-free dataset (Homo sapiens) with 19 runs, 19 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 187,253 PSMs and 2,277 protein groups; 26,410 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 17,751 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD017475.html",
   "json": "datasets/PXD017475.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017475.html",

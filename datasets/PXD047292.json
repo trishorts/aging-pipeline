@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD047292",
   "accession": "PXD047292",
   "split_group": null,
-  "bundle_id": "233f8e542c1ba555",
+  "bundle_id": "12ecf0422a4a991b",
   "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
   "organisms": [
    "NCBITaxon:10116"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "affinity_purification"
@@ -32,6 +33,7 @@
   "n_samples": 18,
   "n_psms_1pct": 10059,
   "n_peptidoforms_1pct": 698,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 240,
   "n_psms_all": 188526,
   "n_ptm_sites": 1568,
@@ -313,7 +315,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 1
    },
    {
@@ -356,14 +358,14 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "233f8e542c1ba555",
-   "written_utc": "2026-10-29T09:42:22+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "12ecf0422a4a991b",
+   "written_utc": "2026-11-27T01:47:18+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": []
   },
-  "summary": "PXD047292 is a DDA label-free dataset (Rattus norvegicus) with 36 runs, 18 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 10,059 PSMs, 698 peptidoforms and 240 protein groups, and the repository holds 1,568 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD047292 is a DDA label-free dataset (Rattus norvegicus) with 36 runs, 18 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 10,059 PSMs and 240 protein groups; 698 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 1,568 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD047292.html",
   "json": "datasets/PXD047292.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD047292.html",

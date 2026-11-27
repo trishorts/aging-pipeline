@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD044453",
   "accession": "PXD044453",
   "split_group": null,
-  "bundle_id": "afd56c163a4092b0",
+  "bundle_id": "9fdc848dd5531322",
   "title": "Age-Dependent Effects of Voluntary Exercise on Urinary Voiding Function and Frailty-Related Metrics in Mice",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 40,
   "n_psms_1pct": 164088,
   "n_peptidoforms_1pct": 2156,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 350,
   "n_psms_all": 576116,
   "n_ptm_sites": 4896,
@@ -351,7 +353,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 4
    },
    {
@@ -444,9 +446,9 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "afd56c163a4092b0",
-   "written_utc": "2026-10-29T11:18:05+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "9fdc848dd5531322",
+   "written_utc": "2026-11-27T01:35:46+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
@@ -454,7 +456,7 @@
     "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD044453 is a DDA label-free dataset (Mus musculus) with 40 runs, 40 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 164,088 PSMs, 2,156 peptidoforms and 350 protein groups, and the repository holds 4,896 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD044453 is a DDA label-free dataset (Mus musculus) with 40 runs, 40 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 164,088 PSMs and 350 protein groups; 2,156 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 4,896 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD044453.html",
   "json": "datasets/PXD044453.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD044453.html",

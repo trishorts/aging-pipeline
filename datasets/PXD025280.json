@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD025280",
   "accession": "PXD025280",
   "split_group": null,
-  "bundle_id": "d35be1b4df2cf457",
+  "bundle_id": "0fbb7ed906e7195e",
   "title": "Early- and late-passage primary human mesemchymal stem cells subjected to 2 hour heat shock",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 16,
   "n_psms_1pct": 214292,
   "n_peptidoforms_1pct": 19885,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 3273,
   "n_psms_all": 428203,
   "n_ptm_sites": 8453,
@@ -501,7 +503,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 1
    }
   ],
@@ -530,16 +532,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "d35be1b4df2cf457",
-   "written_utc": "2026-10-29T09:11:37+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "0fbb7ed906e7195e",
+   "written_utc": "2026-11-27T01:30:07+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD025280 is a DDA label-free dataset (Homo sapiens) with 16 runs, 16 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 214,292 PSMs, 19,885 peptidoforms and 3,273 protein groups, and the repository holds 8,453 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD025280 is a DDA label-free dataset (Homo sapiens) with 16 runs, 16 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 214,292 PSMs and 3,273 protein groups; 19,885 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 8,453 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD025280.html",
   "json": "datasets/PXD025280.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD025280.html",

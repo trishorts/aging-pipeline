@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD027318",
   "accession": "PXD027318",
   "split_group": null,
-  "bundle_id": "4b75374ba407531d",
+  "bundle_id": "b123f53761f62098",
   "title": "Identification of a Proteomic Signature of Senescence in Primary Human Mammary Epithelial Cells",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 18,
   "n_psms_1pct": 378168,
   "n_peptidoforms_1pct": 49399,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 4478,
   "n_psms_all": 575812,
   "n_ptm_sites": 21704,
@@ -411,7 +413,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 6
    },
    {
@@ -446,7 +448,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 4
    },
    {
@@ -501,7 +503,7 @@
    },
    {
     "modification_name": "O-palmitoleoyl serine on S",
-    "modification": null,
+    "modification": "UNIMOD:431",
     "n_sites": 2
    },
    {
@@ -516,12 +518,12 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -566,12 +568,12 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 1
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 1
    },
    {
@@ -626,9 +628,9 @@
    "upstream_provenance_changed"
   ],
   "bundle": {
-   "bundle_id": "4b75374ba407531d",
-   "written_utc": "2026-10-29T11:15:09+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "b123f53761f62098",
+   "written_utc": "2026-11-27T01:23:11+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
@@ -636,7 +638,7 @@
     "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD027318 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 378,168 PSMs, 49,399 peptidoforms and 4,478 protein groups, and the repository holds 21,704 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD027318 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 378,168 PSMs and 4,478 protein groups; 49,399 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 21,704 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD027318.html",
   "json": "datasets/PXD027318.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027318.html",

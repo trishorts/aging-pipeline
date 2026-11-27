@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD031223",
   "accession": "PXD031223",
   "split_group": null,
-  "bundle_id": "7fdb5b195d2a76e9",
+  "bundle_id": "e58ec6a10740ad0b",
   "title": "Chronic Aicar Treatment Identifies Sex-specific Phenotypes in the Aging Mouse Heart",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 8,
   "n_psms_1pct": 125017,
   "n_peptidoforms_1pct": 6168,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 1336,
   "n_psms_all": 1101074,
   "n_ptm_sites": 2205,
@@ -193,7 +195,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 8
    },
    {
@@ -368,16 +370,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "7fdb5b195d2a76e9",
-   "written_utc": "2026-11-02T23:43:50+00:00",
-   "ingester_version": "1.4.1",
+   "bundle_id": "e58ec6a10740ad0b",
+   "written_utc": "2026-11-27T01:16:39+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD031223 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 125,017 PSMs, 6,168 peptidoforms and 1,336 protein groups, and the repository holds 2,205 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD031223 is a DDA label-free dataset (Mus musculus) with 8 runs, 8 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 125,017 PSMs and 1,336 protein groups; 6,168 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 2,205 PTM sites for it. 7 open warnings about it are recorded.",
   "page": "datasets/PXD031223.html",
   "json": "datasets/PXD031223.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD031223.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD058775",
   "accession": "PXD058775",
   "split_group": null,
-  "bundle_id": "f973337f70227e3d",
+  "bundle_id": "9a7ef63166bfbefa",
   "title": "DNA Damage in Macrophages Drives Immune Autoreactivity via Nuclear Antigen Presentation",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "immunoprecipitation"
@@ -32,6 +33,7 @@
   "n_samples": 18,
   "n_psms_1pct": 1859,
   "n_peptidoforms_1pct": 226,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 153,
   "n_psms_all": 18011,
   "n_ptm_sites": 128,
@@ -177,14 +179,14 @@
    "no_sdrf"
   ],
   "bundle": {
-   "bundle_id": "f973337f70227e3d",
-   "written_utc": "2026-11-02T22:22:33+00:00",
-   "ingester_version": "1.4.1",
+   "bundle_id": "9a7ef63166bfbefa",
+   "written_utc": "2026-11-27T01:47:49+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": []
   },
-  "summary": "PXD058775 is a DDA label-free dataset (Mus musculus) with 18 runs, 18 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 1,859 PSMs, 226 peptidoforms and 153 protein groups, and the repository holds 128 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD058775 is a DDA label-free dataset (Mus musculus) with 18 runs, 18 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.11. At 1% FDR the search reports 1,859 PSMs and 153 protein groups; 226 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 128 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD058775.html",
   "json": "datasets/PXD058775.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD058775.html",

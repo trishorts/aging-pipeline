@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD008990",
   "accession": "PXD008990",
   "split_group": null,
-  "bundle_id": "058f4416abe7b18b",
+  "bundle_id": "a3c802047f587f87",
   "title": "Glycomic and Proteomic changes in aging brain nigrostriatal pathway",
   "organisms": [
    "NCBITaxon:10116"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 70,
   "n_psms_1pct": 534367,
   "n_peptidoforms_1pct": 11095,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 2195,
   "n_psms_all": 1182768,
   "n_ptm_sites": 3558,
@@ -336,7 +338,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 5
    },
    {
@@ -475,16 +477,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "058f4416abe7b18b",
-   "written_utc": "2026-10-29T10:37:18+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "a3c802047f587f87",
+   "written_utc": "2026-11-27T01:28:01+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD008990 is a DDA label-free dataset (Rattus norvegicus) with 70 runs, 70 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 534,367 PSMs, 11,095 peptidoforms and 2,195 protein groups, and the repository holds 3,558 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD008990 is a DDA label-free dataset (Rattus norvegicus) with 70 runs, 70 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 534,367 PSMs and 2,195 protein groups; 11,095 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 3,558 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD008990.html",
   "json": "datasets/PXD008990.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD008990.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD052189",
   "accession": "PXD052189",
   "split_group": null,
-  "bundle_id": "970afe5b64bb6b25",
+  "bundle_id": "6de3619fde3c49e2",
   "title": "Microglial-derived C1q integrates into neuronal ribonucleoprotein complexes and impacts protein homeostasis in the aging",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "immunoprecipitation"
@@ -32,6 +33,7 @@
   "n_samples": 12,
   "n_psms_1pct": 14452,
   "n_peptidoforms_1pct": 1332,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 312,
   "n_psms_all": 222336,
   "n_ptm_sites": 679,
@@ -103,6 +105,11 @@
     "code": "unplaced_ptm_sites",
     "severity": "warning",
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 124 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (12 of 12 runs), `peptides` (12 of 12 runs), `protein_groups` (12 of 12 runs), `precursors` (12 of 12 runs), `ms2_scans` (12 of 12 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). Each run's MS2 spectra are also counted by the QC report, in `runs.ms2_spectra` and `metrics` (`name = 'ms2'`, `source = 'qc_report.json'`), for 12 of the 12 runs. PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 12 of the 12 runs, `peptides_1pct_whole_search` for 12 of the 12 runs, `protein_groups_1pct_whole_search` for 12 of the 12 runs."
    }
   ],
   "modifications": [
@@ -390,7 +397,7 @@
   "findings_by_severity": {
    "error": 0,
    "warning": 10,
-   "info": 0
+   "info": 1
   },
   "finding_codes": [
    "calibration_failed",
@@ -402,19 +409,20 @@
    "no_sdrf",
    "occupancy_not_stored",
    "peptide_rows_localization_ambiguous",
+   "run_counts_missing",
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "970afe5b64bb6b25",
-   "written_utc": "2026-11-19T17:08:20+00:00",
-   "ingester_version": "1.4.5",
+   "bundle_id": "6de3619fde3c49e2",
+   "written_utc": "2026-11-27T01:44:24+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD052189 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 14,452 PSMs, 1,332 peptidoforms and 312 protein groups, and the repository holds 679 PTM sites for it. 10 open warnings about it are recorded.",
+  "summary": "PXD052189 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 14,452 PSMs and 312 protein groups; 1,332 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 679 PTM sites for it. 10 open warnings about it are recorded.",
   "page": "datasets/PXD052189.html",
   "json": "datasets/PXD052189.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD052189.html",

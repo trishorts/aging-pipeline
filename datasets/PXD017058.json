@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD017058",
   "accession": "PXD017058",
   "split_group": null,
-  "bundle_id": "cf165a78fa2d35d2",
+  "bundle_id": "17230979b18b6c67",
   "title": "Astrocyte Support for Oligodendrocyte Differentiation can be Conveyed via Extracellular Vesicles but Diminishes with Age",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 9,
   "n_psms_1pct": 182903,
   "n_peptidoforms_1pct": 28688,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 2419,
   "n_psms_all": 289896,
   "n_ptm_sites": 19068,
@@ -406,7 +408,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 4
    },
    {
@@ -511,7 +513,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -570,16 +572,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "cf165a78fa2d35d2",
-   "written_utc": "2026-10-29T09:25:01+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "17230979b18b6c67",
+   "written_utc": "2026-11-27T01:42:09+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD017058 is a DDA label-free dataset (Mus musculus) with 9 runs, 9 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 182,903 PSMs, 28,688 peptidoforms and 2,419 protein groups, and the repository holds 19,068 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD017058 is a DDA label-free dataset (Mus musculus) with 9 runs, 9 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 182,903 PSMs and 2,419 protein groups; 28,688 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 19,068 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD017058.html",
   "json": "datasets/PXD017058.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017058.html",

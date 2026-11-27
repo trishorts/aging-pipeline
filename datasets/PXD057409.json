@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD057409",
   "accession": "PXD057409",
   "split_group": null,
-  "bundle_id": "ede774f706324229",
+  "bundle_id": "6712a5514a69ffec",
   "title": "Integrated multiomics analyses of the molecular landscape of sarcopenia in alcohol related liver disease_C2C12 myotube p",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 9,
   "n_psms_1pct": 484238,
   "n_peptidoforms_1pct": 44770,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 4053,
   "n_psms_all": 695051,
   "n_ptm_sites": 18842,
@@ -356,7 +358,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 12
    },
    {
@@ -401,7 +403,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 8
    },
    {
@@ -486,7 +488,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 3
    },
    {
@@ -541,12 +543,12 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "(3S)-3-hydroxylysine on K",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -561,7 +563,7 @@
    },
    {
     "modification_name": "5-glutamyl serotonin on Q",
-    "modification": null,
+    "modification": "UNIMOD:1992",
     "n_sites": 1
    },
    {
@@ -648,16 +650,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "ede774f706324229",
-   "written_utc": "2026-10-29T10:53:22+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "6712a5514a69ffec",
+   "written_utc": "2026-11-27T01:29:55+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD057409 is a DDA label-free dataset (Mus musculus) with 9 runs, 9 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 484,238 PSMs, 44,770 peptidoforms and 4,053 protein groups, and the repository holds 18,842 PTM sites for it. 4 open warnings about it are recorded.",
+  "summary": "PXD057409 is a DDA label-free dataset (Mus musculus) with 9 runs, 9 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 484,238 PSMs and 4,053 protein groups; 44,770 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 18,842 PTM sites for it. 4 open warnings about it are recorded.",
   "page": "datasets/PXD057409.html",
   "json": "datasets/PXD057409.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057409.html",

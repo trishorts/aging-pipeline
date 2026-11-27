@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD032044",
   "accession": "PXD032044",
   "split_group": null,
-  "bundle_id": "db49fdc46ebec6b7",
+  "bundle_id": "0f739ba94fc461d0",
   "title": "Characterization of the skeletal muscle proteome in under-nourished old rats",
   "organisms": [
    "NCBITaxon:10116"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 44,
   "n_psms_1pct": 871294,
   "n_peptidoforms_1pct": 38822,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 3003,
   "n_psms_all": 2140456,
   "n_ptm_sites": 31761,
@@ -421,7 +423,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 16
    },
    {
@@ -471,7 +473,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 6
    },
    {
@@ -516,7 +518,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 2
    },
    {
@@ -541,7 +543,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 2
    },
    {
@@ -645,16 +647,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "db49fdc46ebec6b7",
-   "written_utc": "2026-10-29T12:33:48+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "0f739ba94fc461d0",
+   "written_utc": "2026-11-27T00:38:23+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD032044 is a DDA label-free dataset (Rattus norvegicus) with 44 runs, 44 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 871,294 PSMs, 38,822 peptidoforms and 3,003 protein groups, and the repository holds 31,761 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD032044 is a DDA label-free dataset (Rattus norvegicus) with 44 runs, 44 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 871,294 PSMs and 3,003 protein groups; 38,822 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 31,761 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD032044.html",
   "json": "datasets/PXD032044.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD032044.html",

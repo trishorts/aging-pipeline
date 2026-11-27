@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD077298",
   "accession": "PXD077298",
   "split_group": null,
-  "bundle_id": "9e53e14e120e8541",
+  "bundle_id": "ab703448f168f705",
   "title": "Sinapic acid promotes disaggregation and extracellular secretion of polyglutamine repeats containing aggregates and resc",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "immunoprecipitation",
@@ -33,6 +34,7 @@
   "n_samples": 22,
   "n_psms_1pct": 239229,
   "n_peptidoforms_1pct": 37276,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 4716,
   "n_psms_all": 417446,
   "n_ptm_sites": 17144,
@@ -434,7 +436,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 5
    },
    {
@@ -454,7 +456,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 5
    },
    {
@@ -474,7 +476,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 4
    },
    {
@@ -509,7 +511,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 2
    },
    {
@@ -604,9 +606,9 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "9e53e14e120e8541",
-   "written_utc": "2026-10-29T11:27:26+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "ab703448f168f705",
+   "written_utc": "2026-11-27T01:35:37+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
@@ -614,7 +616,7 @@
     "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and runs that differ in enrichment (immunoprecipitation and other on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 239,229 PSMs, 37,276 peptidoforms and 4,716 protein groups, and the repository holds 17,144 PTM sites for it. 8 open warnings about it are recorded.",
+  "summary": "PXD077298 is a DDA label-free dataset (Mus musculus) with 22 runs, 22 samples and runs that differ in enrichment (immunoprecipitation and other on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 239,229 PSMs and 4,716 protein groups; 37,276 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 17,144 PTM sites for it. 8 open warnings about it are recorded.",
   "page": "datasets/PXD077298.html",
   "json": "datasets/PXD077298.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD077298.html",

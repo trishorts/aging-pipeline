@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD039548-human",
   "accession": "PXD039548",
   "split_group": "human",
-  "bundle_id": "b4713ad3ec2151e3",
+  "bundle_id": "11e588d5c097d81a",
   "title": "Remodeling of the cardiac extracellular matrix proteome during chronological and pathological aging",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "isobaric",
+  "quant_scale": "reporter_ms3",
   "labelling": "TMT",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 10,
   "n_psms_1pct": 91993,
   "n_peptidoforms_1pct": 28043,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 4447,
   "n_psms_all": 1034794,
   "n_ptm_sites": 56838,
@@ -75,12 +77,17 @@
    {
     "code": "unresolved_modifications",
     "severity": "warning",
-    "message": "11 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:(3S)-3-hydroxyasparagine on N, UniProt:(3S)-3-hydroxyaspartate on D, UniProt:(3S)-3-hydroxyhistidine on H, UniProt:3'-nitrotyrosine on Y, UniProt:5-glutamyl serotonin on Q, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K, UniProt:O-palmitoleoyl serine on S, UniProt:Omega-hydroxyceramide glutamate ester on Q, UniProt:S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    "message": "2 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:Omega-hydroxyceramide glutamate ester on Q, UniProt:S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "occupancy_not_ingested",
     "severity": "info",
     "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (24 of 24 runs), `peptides` (24 of 24 runs), `protein_groups` (24 of 24 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 24 of the 24 runs, `peptides_1pct_whole_search` for 24 of the 24 runs, `protein_groups_1pct_whole_search` for 24 of the 24 runs."
    }
   ],
   "modifications": [
@@ -146,7 +153,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 33
    },
    {
@@ -276,7 +283,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 3
    },
    {
@@ -296,7 +303,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -383,28 +390,29 @@
   "findings_by_severity": {
    "error": 0,
    "warning": 5,
-   "info": 1
+   "info": 2
   },
   "finding_codes": [
    "count_mismatch",
    "low_core_use",
    "low_id_rate",
    "occupancy_not_ingested",
+   "run_counts_missing",
    "unplaced_ptm_sites",
    "unresolved_modifications"
   ],
   "siblings": [],
   "bundle": {
-   "bundle_id": "b4713ad3ec2151e3",
-   "written_utc": "2026-11-21T00:03:36+00:00",
-   "ingester_version": "1.4.5",
+   "bundle_id": "11e588d5c097d81a",
+   "written_utc": "2026-11-26T23:16:27+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD039548-human is a DDA isobaric dataset (Homo sapiens) with 24 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 91,993 PSMs, 28,043 peptidoforms and 4,447 protein groups, and the repository holds 56,838 PTM sites for it. 5 open warnings about it are recorded. It is one part of deposit PXD039548, which was searched in parts (split by species). No other part of it is in this repository.",
+  "summary": "PXD039548-human is a DDA isobaric dataset (Homo sapiens) with 24 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 91,993 PSMs and 4,447 protein groups; 28,043 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 56,838 PTM sites for it. 5 open warnings about it are recorded. It is one part of deposit PXD039548, which was searched in parts (split by species). No other part of it is in this repository.",
   "page": "datasets/PXD039548-human.html",
   "json": "datasets/PXD039548-human.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD039548-human.html",

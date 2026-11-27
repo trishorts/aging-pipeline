@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD017385",
   "accession": "PXD017385",
   "split_group": null,
-  "bundle_id": "429b2cabe337bea6",
+  "bundle_id": "c25052964f6fa439",
   "title": "Sample multiplexing for targeted pathway proteomics:  application to aging mice",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "isobaric",
+  "quant_scale": "reporter_ms3",
   "labelling": "TMT",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 1080,
   "n_psms_1pct": 477828,
   "n_peptidoforms_1pct": 88990,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 9898,
   "n_psms_all": 2795999,
   "n_ptm_sites": 209066,
@@ -82,12 +84,17 @@
    {
     "code": "unresolved_modifications",
     "severity": "warning",
-    "message": "12 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:(3S)-3-hydroxyasparagine on N, UniProt:(3S)-3-hydroxyhistidine on H, UniProt:3'-nitrotyrosine on Y, UniProt:5-glutamyl histamine on Q, UniProt:5-glutamyl serotonin on Q, UniProt:Lysino-D-alanine (Lys) on K, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K, UniProt:O-palmitoleoyl serine on S, UniProt:Omega-hydroxyceramide glutamate ester on Q, UniProt:S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    "message": "4 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:5-glutamyl histamine on Q, UniProt:Lysino-D-alanine (Lys) on K, UniProt:Omega-hydroxyceramide glutamate ester on Q, UniProt:S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "occupancy_not_ingested",
     "severity": "info",
     "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (108 of 108 runs), `peptides` (108 of 108 runs), `protein_groups` (108 of 108 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 108 of the 108 runs, `peptides_1pct_whole_search` for 108 of the 108 runs, `protein_groups_1pct_whole_search` for none of them."
    }
   ],
   "modifications": [
@@ -173,7 +180,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 77
    },
    {
@@ -293,7 +300,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 10
    },
    {
@@ -308,7 +315,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 6
    },
    {
@@ -328,7 +335,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 5
    },
    {
@@ -378,7 +385,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 3
    },
    {
@@ -388,7 +395,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 2
    },
    {
@@ -470,7 +477,7 @@
   "findings_by_severity": {
    "error": 0,
    "warning": 6,
-   "info": 1
+   "info": 2
   },
   "finding_codes": [
    "count_mismatch",
@@ -478,20 +485,21 @@
    "no_channel_design",
    "no_sdrf",
    "occupancy_not_ingested",
+   "run_counts_missing",
    "unplaced_ptm_sites",
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "429b2cabe337bea6",
-   "written_utc": "2026-11-09T12:06:25+00:00",
-   "ingester_version": "1.4.4",
+   "bundle_id": "c25052964f6fa439",
+   "written_utc": "2026-11-26T21:30:02+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD017385 is a DDA isobaric dataset (Mus musculus) with 108 runs, 1,080 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 477,828 PSMs, 88,990 peptidoforms and 9,898 protein groups, and the repository holds 209,066 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD017385 is a DDA isobaric dataset (Mus musculus) with 108 runs, 1,080 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 477,828 PSMs and 9,898 protein groups; 88,990 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 209,066 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD017385.html",
   "json": "datasets/PXD017385.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017385.html",

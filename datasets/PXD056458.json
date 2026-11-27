@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD056458",
   "accession": "PXD056458",
   "split_group": null,
-  "bundle_id": "671c8bddecceb3fc",
+  "bundle_id": "9085dba23d10de36",
   "title": "M1 polyubiquitin targets in the hippocampus across the lifespan",
   "organisms": [
    "NCBITaxon:10116"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "affinity_purification"
@@ -32,6 +33,7 @@
   "n_samples": 19,
   "n_psms_1pct": 118038,
   "n_peptidoforms_1pct": 978,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 357,
   "n_psms_all": 377717,
   "n_ptm_sites": 1962,
@@ -283,7 +285,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 2
    },
    {
@@ -303,7 +305,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -395,14 +397,14 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "671c8bddecceb3fc",
-   "written_utc": "2026-10-29T09:21:08+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "9085dba23d10de36",
+   "written_utc": "2026-11-27T01:45:38+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": []
   },
-  "summary": "PXD056458 is a DDA label-free dataset (Rattus norvegicus) with 38 runs, 19 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 118,038 PSMs, 978 peptidoforms and 357 protein groups, and the repository holds 1,962 PTM sites for it. 4 open warnings about it are recorded.",
+  "summary": "PXD056458 is a DDA label-free dataset (Rattus norvegicus) with 38 runs, 19 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 118,038 PSMs and 357 protein groups; 978 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 1,962 PTM sites for it. 4 open warnings about it are recorded.",
   "page": "datasets/PXD056458.html",
   "json": "datasets/PXD056458.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD056458.html",

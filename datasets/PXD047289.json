@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD047289",
   "accession": "PXD047289",
   "split_group": null,
-  "bundle_id": "ee6cfbd52cb09a8d",
+  "bundle_id": "63421005ad84346e",
   "title": "Protein degradation targets in hippocampus and retrosplenial cortex of the aged brain",
   "organisms": [
    "NCBITaxon:10116"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "affinity_purification"
@@ -32,6 +33,7 @@
   "n_samples": 11,
   "n_psms_1pct": 37693,
   "n_peptidoforms_1pct": 3402,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 1035,
   "n_psms_all": 161185,
   "n_ptm_sites": 2493,
@@ -387,16 +389,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "ee6cfbd52cb09a8d",
-   "written_utc": "2026-10-29T09:43:48+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "63421005ad84346e",
+   "written_utc": "2026-11-27T01:47:30+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD047289 is a DDA label-free dataset (Rattus norvegicus) with 22 runs, 11 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 37,693 PSMs, 3,402 peptidoforms and 1,035 protein groups, and the repository holds 2,493 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD047289 is a DDA label-free dataset (Rattus norvegicus) with 22 runs, 11 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 37,693 PSMs and 1,035 protein groups; 3,402 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 2,493 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD047289.html",
   "json": "datasets/PXD047289.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD047289.html",

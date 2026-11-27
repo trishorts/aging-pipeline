@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD025315",
   "accession": "PXD025315",
   "split_group": null,
-  "bundle_id": "3d76e6ec83ecc5a1",
+  "bundle_id": "3b5fdcc96fb13d33",
   "title": "N471D WASH complex subunit strumpellin knock-in mice display BPTF and KLHL11 dysregulation in brain tissue",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 126,
   "n_psms_1pct": 2297656,
   "n_peptidoforms_1pct": 127676,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 9160,
   "n_psms_all": 3700529,
   "n_ptm_sites": 72681,
@@ -326,7 +328,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 67
    },
    {
@@ -436,7 +438,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 16
    },
    {
@@ -451,7 +453,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 13
    },
    {
@@ -486,7 +488,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 8
    },
    {
@@ -571,7 +573,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 3
    },
    {
@@ -626,7 +628,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 2
    },
    {
@@ -656,7 +658,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxylysine on K",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -745,16 +747,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "3d76e6ec83ecc5a1",
-   "written_utc": "2026-11-06T18:33:23+00:00",
-   "ingester_version": "1.4.3",
+   "bundle_id": "3b5fdcc96fb13d33",
+   "written_utc": "2026-11-26T23:02:02+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD025315 is a DDA label-free dataset (Mus musculus) with 126 runs, 126 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 2,297,656 PSMs, 127,676 peptidoforms and 9,160 protein groups, and the repository holds 72,681 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD025315 is a DDA label-free dataset (Mus musculus) with 126 runs, 126 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 2,297,656 PSMs and 9,160 protein groups; 127,676 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 72,681 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD025315.html",
   "json": "datasets/PXD025315.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD025315.html",

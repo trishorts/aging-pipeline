@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD068498",
   "accession": "PXD068498",
   "split_group": null,
-  "bundle_id": "d3ce4e0d4a6f0d5a",
+  "bundle_id": "febd94e57f4310b9",
   "title": "Reduced IGF-1 signaling fails to limit Alzheimer’s disease progression in a novel rat model of IGF-1R haploinsufficiency",
   "organisms": [
    "NCBITaxon:10116"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 47,
   "n_psms_1pct": 1143559,
   "n_peptidoforms_1pct": 24024,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 3969,
   "n_psms_all": 2682224,
   "n_ptm_sites": 25440,
@@ -261,7 +263,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 28
    },
    {
@@ -406,7 +408,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 4
    },
    {
@@ -476,7 +478,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 2
    },
    {
@@ -556,12 +558,12 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 1
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 1
    },
    {
@@ -610,9 +612,9 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "d3ce4e0d4a6f0d5a",
-   "written_utc": "2026-10-29T11:53:12+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "febd94e57f4310b9",
+   "written_utc": "2026-11-27T00:06:44+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
@@ -620,7 +622,7 @@
     "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD068498 is a DDA label-free dataset (Rattus norvegicus) with 47 runs, 47 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 1,143,559 PSMs, 24,024 peptidoforms and 3,969 protein groups, and the repository holds 25,440 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD068498 is a DDA label-free dataset (Rattus norvegicus) with 47 runs, 47 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 1,143,559 PSMs and 3,969 protein groups; 24,024 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 25,440 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD068498.html",
   "json": "datasets/PXD068498.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD068498.html",

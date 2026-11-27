@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD027754",
   "accession": "PXD027754",
   "split_group": null,
-  "bundle_id": "2799534125b81db3",
+  "bundle_id": "afa703f2b55ded8a",
   "title": "Metabolic reprogramming during hyperammonemia targets mitochondrial function and post-mitotic senescence",
   "organisms": [
    "NCBITaxon:10116"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 20,
   "n_psms_1pct": 116756,
   "n_peptidoforms_1pct": 4281,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 487,
   "n_psms_all": 1498854,
   "n_ptm_sites": 2532,
@@ -211,7 +213,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 4
    },
    {
@@ -345,16 +347,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "2799534125b81db3",
-   "written_utc": "2026-10-29T11:49:51+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "afa703f2b55ded8a",
+   "written_utc": "2026-11-26T23:07:49+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD027754 is a DDA label-free dataset (Rattus norvegicus) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 116,756 PSMs, 4,281 peptidoforms and 487 protein groups, and the repository holds 2,532 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD027754 is a DDA label-free dataset (Rattus norvegicus) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 116,756 PSMs and 487 protein groups; 4,281 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 2,532 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD027754.html",
   "json": "datasets/PXD027754.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD027754.html",

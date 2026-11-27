@@ -19,11 +19,11 @@
  "name": "PXD052189 reanalysis: Microglial-derived C1q integrates into neuronal ribonucleoprotein complexes and impacts protein homeostasis in the aging",
  "identifier": [
   "PXD052189",
-  "datarepo:bundle:970afe5b64bb6b25"
+  "datarepo:bundle:6de3619fde3c49e2"
  ],
- "description": "PXD052189 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 14,452 PSMs, 1,332 peptidoforms and 312 protein groups, and the repository holds 679 PTM sites for it. 10 open warnings about it are recorded.",
- "version": "970afe5b64bb6b25",
- "dateModified": "2026-11-19T17:08:20+00:00",
+ "description": "PXD052189 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 14,452 PSMs and 312 protein groups; 1,332 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 679 PTM sites for it. 10 open warnings about it are recorded.",
+ "version": "6de3619fde3c49e2",
+ "dateModified": "2026-11-27T01:44:24+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 7ecfc9763064b181",
+  "name": "datarepo catalog efa97f89b2b98f34",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,11 +61,11 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD052189 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 14,452 PSMs, 1,332 peptidoforms and 312 protein groups, and the repository holds 679 PTM sites for it. 10 open warnings about it are recorded.
+PXD052189 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 14,452 PSMs and 312 protein groups; 1,332 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 679 PTM sites for it. 10 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 10 warnings and 0 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 10 warnings and 1 for information</strong></p>
 <div class="finding warning"><span class="code">calibration_failed</span> <span class="note">warning</span><br>GPTMD/search ran on uncalibrated spectra (S7)</div>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 14452 where the producer reported 14453 (results.txt: All target PSMs with q-value &lt;= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">cysteine_poor</span> <span class="note">warning</span><br>1.91% of 1% target peptides contain C (whole proteomes: 12-26%); check the alkylant (aging PXR-A37)</div>
@@ -76,11 +76,12 @@ PXD052189 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples an
 <div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 4846 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 89 site not in ptm_sites. &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
 <div class="finding warning"><span class="code">peptide_rows_localization_ambiguous</span> <span class="note">warning</span><br>120 row(s) of AllQuantifiedPeptides.tsv name several full sequences, joined by `|`: a peptide whose modification site the search did not settle (MetaMorpheus #2917). Their 358 value(s) are not stored, since storing them under one of the sequences would place them on a site the search never decided. The PSMs behind them are in `psms`. E.g. `ADAAPTVSIFPPSSEQLTSGGAS[Less Common:Formylation on S]VVCFLNNFYPK|ADAAPTVSIFPPSSEQLTS[Less Common:Formylation on S]GGASVVCFLNNFYPK|ADAAPTVSIFPPSSEQLT[Less Common:Formylation on T]SGGASVVCFLNNFYPK|ADAAPTVSIFPPSS[Less Common:Formylation on S]EQLTSGGASVVCFLNNFYPK|ADAAPTVSIFPPS[Less Common:Formylation on S]SEQLTSGGASVVCFLNNFYPK|ADAAPTVS[Less Common:Formylation on S]IFPPSSEQLTSGGASVVCFLNNFYPK|ADAAPT[Less Common:Formylation on T]VSIFPPSSEQLTSGGASVVCFLNNFYPK`, `ADAAPTVSIFPPSSEQLTS[Common Biological:Phosphorylation on S]GGASVVCFLNNFYPK|ADAAPTVSIFPPSSEQLT[Common Biological:Phosphorylation on T]SGGASVVCFLNNFYPK`, `ADAAPTVSIFPPSSEQLTS[Common Biological:Phosphorylation on S]GGASVVCFLNN[Common Artifact:Deamidation on N]FYPK|ADAAPTVSIFPPSSEQLT[Common Biological:Phosphorylation on T]SGGASVVCFLNN[Common Artifact:Deamidation on N]FYPK`.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 124 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
+<div class="finding info"><span class="code">run_counts_missing</span> <span class="note">info</span><br>No per-run `metrics` row from results.txt for `psms_1pct` (12 of 12 runs), `peptides` (12 of 12 runs), `protein_groups` (12 of 12 runs), `precursors` (12 of 12 runs), `ms2_scans` (12 of 12 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt&#x27;s per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). Each run&#x27;s MS2 spectra are also counted by the QC report, in `runs.ms2_spectra` and `metrics` (`name = &#x27;ms2&#x27;`, `source = &#x27;qc_report.json&#x27;`), for 12 of the 12 runs. PXReprise&#x27;s QC payload counts each run&#x27;s share of the whole search&#x27;s 1% set instead, a different number (the FDR is the whole search&#x27;s, not recomputed on each file), under names of its own (`source = &#x27;qc_payload.json&#x27;`): `psms_1pct_whole_search` for 12 of the 12 runs, `peptides_1pct_whole_search` for 12 of the 12 runs, `protein_groups_1pct_whole_search` for 12 of the 12 runs.</div>
 
 <h2>What was found</h2>
 <div class="scroll"><table><tbody>
 <tr><td>PSMs at 1% FDR</td><td class="num">14,452</td></tr>
-<tr><td>Peptidoforms at 1% FDR</td><td class="num">1,332</td></tr>
+<tr><td>Peptidoforms at 1% (q-value and notch q-value)</td><td class="num">1,332</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">312</td></tr>
 <tr><td>PTM sites</td><td class="num">679</td></tr>
 <tr><td>Quantitative values</td><td class="num">20,789</td></tr>
@@ -93,7 +94,7 @@ PXD052189 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples an
 <dl>
 <dt>Organism searched</dt><dd>Mus musculus <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
 <dt>Acquisition</dt><dd>DDA</dd>
-<dt>Quantification</dt><dd>label_free</dd>
+<dt>Quantification</dt><dd>label_free <span class="note">(value scale label_free_apex: never pool values across scales)</span></dd>
 <dt>Labelling</dt><dd>none</dd>
 <dt>Enrichment</dt><dd>immunoprecipitation</dd>
 <dt>Instrument vendor</dt><dd>not recorded</dd>
@@ -171,16 +172,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>970afe5b64bb6b25</code>, written 2026-11-19T17:08:20+00:00 by ingester 1.4.5</dd>
+<dt>Bundle</dt><dd><code>6de3619fde3c49e2</code>, written 2026-11-27T01:44:24+00:00 by ingester 1.0.0</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts or differs within the known file-side limit: psms_target_1pct <span class="note">(see <code>catalog_reconciliation</code> for the bound)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.5 from catalog
-<code>7ecfc9763064b181</code>, built 2026-11-21T05:02:17+00:00 by datarepo
-1.4.5 (schema 0.0.16).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.0.0 from catalog
+<code>efa97f89b2b98f34</code>, built 2026-11-27T02:22:20+00:00 by datarepo
+1.0.0 (schema 0.0.17).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

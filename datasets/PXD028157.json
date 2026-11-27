@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD028157",
   "accession": "PXD028157",
   "split_group": null,
-  "bundle_id": "76713d68856fcd47",
+  "bundle_id": "36da2e7b506d2f3c",
   "title": "Proteomics quantification of striatal fraction from DAT-KO and WT rats",
   "organisms": [
    "NCBITaxon:10116"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 20,
   "n_psms_1pct": 1351827,
   "n_peptidoforms_1pct": 56370,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 5126,
   "n_psms_all": 2155388,
   "n_ptm_sites": 43069,
@@ -331,7 +333,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 32
    },
    {
@@ -466,7 +468,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 5
    },
    {
@@ -476,7 +478,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 4
    },
    {
@@ -561,7 +563,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -601,12 +603,12 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 1
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 1
    },
    {
@@ -639,16 +641,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "76713d68856fcd47",
-   "written_utc": "2026-10-29T12:25:56+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "36da2e7b506d2f3c",
+   "written_utc": "2026-11-27T00:40:21+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD028157 is a DDA label-free dataset (Rattus norvegicus) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 1,351,827 PSMs, 56,370 peptidoforms and 5,126 protein groups, and the repository holds 43,069 PTM sites for it. 4 open warnings about it are recorded.",
+  "summary": "PXD028157 is a DDA label-free dataset (Rattus norvegicus) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 1,351,827 PSMs and 5,126 protein groups; 56,370 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 43,069 PTM sites for it. 4 open warnings about it are recorded.",
   "page": "datasets/PXD028157.html",
   "json": "datasets/PXD028157.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD028157.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD015079",
   "accession": "PXD015079",
   "split_group": null,
-  "bundle_id": "e1c15be2f29acb64",
+  "bundle_id": "b908529c3922e8cc",
   "title": "Epigenetic inactivation of the autophagy-lysosomal system in the Parkinson’s disease appendix",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 12,
   "n_psms_1pct": 261188,
   "n_peptidoforms_1pct": 31951,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 2689,
   "n_psms_all": 626680,
   "n_ptm_sites": 11932,
@@ -441,7 +443,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 11
    },
    {
@@ -516,7 +518,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 2
    },
    {
@@ -650,16 +652,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "e1c15be2f29acb64",
-   "written_utc": "2026-10-29T11:11:23+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "b908529c3922e8cc",
+   "written_utc": "2026-11-27T01:23:14+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD015079 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 261,188 PSMs, 31,951 peptidoforms and 2,689 protein groups, and the repository holds 11,932 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD015079 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 261,188 PSMs and 2,689 protein groups; 31,951 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 11,932 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD015079.html",
   "json": "datasets/PXD015079.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD015079.html",

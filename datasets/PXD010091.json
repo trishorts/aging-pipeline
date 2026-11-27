@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD010091",
   "accession": "PXD010091",
   "split_group": null,
-  "bundle_id": "416b68e7c2f68c93",
+  "bundle_id": "de2b34cabfbb1aa6",
   "title": "miR-181a Restores Mitochondrial Dynamics in Skeletal Muscle Ageing",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 20,
   "n_psms_1pct": 217078,
   "n_peptidoforms_1pct": 12200,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 1402,
   "n_psms_all": 410443,
   "n_ptm_sites": 6526,
@@ -306,7 +308,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 13
    },
    {
@@ -471,7 +473,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -506,7 +508,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 1
    },
    {
@@ -558,9 +560,9 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "416b68e7c2f68c93",
-   "written_utc": "2026-10-29T09:12:47+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "de2b34cabfbb1aa6",
+   "written_utc": "2026-11-27T01:40:48+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
@@ -568,7 +570,7 @@
     "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD010091 is a DDA label-free dataset (Mus musculus) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 217,078 PSMs, 12,200 peptidoforms and 1,402 protein groups, and the repository holds 6,526 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD010091 is a DDA label-free dataset (Mus musculus) with 20 runs, 20 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 217,078 PSMs and 1,402 protein groups; 12,200 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 6,526 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD010091.html",
   "json": "datasets/PXD010091.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD010091.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD005184",
   "accession": "PXD005184",
   "split_group": null,
-  "bundle_id": "fc7a259348b0f27a",
+  "bundle_id": "21b3f02e04a05d9b",
   "title": "Discovery of Age-Related Protein Folding Stability Differences in the Mouse Brain Proteome",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "isobaric",
+  "quant_scale": "reporter_ms2",
   "labelling": "iTRAQ",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 384,
   "n_psms_1pct": 419004,
   "n_peptidoforms_1pct": 24045,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 2969,
   "n_psms_all": 1658276,
   "n_ptm_sites": 54598,
@@ -82,12 +84,17 @@
    {
     "code": "unresolved_modifications",
     "severity": "warning",
-    "message": "12 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:(3S)-3-hydroxyasparagine on N, UniProt:(3S)-3-hydroxyhistidine on H, UniProt:3'-nitrotyrosine on Y, UniProt:5-glutamyl histamine on Q, UniProt:5-glutamyl serotonin on Q, UniProt:Lysino-D-alanine (Lys) on K, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K, UniProt:O-palmitoleoyl serine on S, UniProt:Omega-hydroxyceramide glutamate ester on Q, UniProt:S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    "message": "4 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:5-glutamyl histamine on Q, UniProt:Lysino-D-alanine (Lys) on K, UniProt:Omega-hydroxyceramide glutamate ester on Q, UniProt:S-(15-deoxy-Delta12,14-prostaglandin J2-9-yl)cysteine on C. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "occupancy_not_ingested",
     "severity": "info",
     "message": "PTM site occupancy was not stored: this is a iTRAQ dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (48 of 48 runs), `peptides` (48 of 48 runs), `protein_groups` (48 of 48 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 48 of the 48 runs, `peptides_1pct_whole_search` for 48 of the 48 runs, `protein_groups_1pct_whole_search` for none of them."
    }
   ],
   "modifications": [
@@ -218,7 +225,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 11
    },
    {
@@ -258,7 +265,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 5
    },
    {
@@ -348,7 +355,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -373,7 +380,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 1
    },
    {
@@ -400,7 +407,7 @@
   "findings_by_severity": {
    "error": 0,
    "warning": 6,
-   "info": 1
+   "info": 2
   },
   "finding_codes": [
    "count_mismatch",
@@ -408,20 +415,21 @@
    "no_channel_design",
    "no_sdrf",
    "occupancy_not_ingested",
+   "run_counts_missing",
    "unplaced_ptm_sites",
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "fc7a259348b0f27a",
-   "written_utc": "2026-11-09T03:58:26+00:00",
-   "ingester_version": "1.4.4",
+   "bundle_id": "21b3f02e04a05d9b",
+   "written_utc": "2026-11-27T00:10:02+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD005184 is a DDA isobaric dataset (Mus musculus) with 48 runs, 384 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 419,004 PSMs, 24,045 peptidoforms and 2,969 protein groups, and the repository holds 54,598 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD005184 is a DDA isobaric dataset (Mus musculus) with 48 runs, 384 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 419,004 PSMs and 2,969 protein groups; 24,045 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 54,598 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD005184.html",
   "json": "datasets/PXD005184.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD005184.html",

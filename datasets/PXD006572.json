@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD006572",
   "accession": "PXD006572",
   "split_group": null,
-  "bundle_id": "f96ec10f4f6c3b6d",
+  "bundle_id": "57ce1588298e73f1",
   "title": "Aging-related proteome alterations in B cells may predispose for chronic lymphocytic leukemia - cytoplasmic proteins of young B cells",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 6,
   "n_psms_1pct": 157248,
   "n_peptidoforms_1pct": 27424,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 5061,
   "n_psms_all": 252974,
   "n_ptm_sites": 10726,
@@ -91,6 +93,11 @@
     "code": "occupancy_decoy_groups",
     "severity": "info",
     "message": "11 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (6 of 6 runs), `peptides` (6 of 6 runs), `protein_groups` (6 of 6 runs), `precursors` (6 of 6 runs), `ms2_scans` (6 of 6 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). Each run's MS2 spectra are also counted by the QC report, in `runs.ms2_spectra` and `metrics` (`name = 'ms2'`, `source = 'qc_report.json'`), for 6 of the 6 runs. PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 6 of the 6 runs, `peptides_1pct_whole_search` for 6 of the 6 runs, `protein_groups_1pct_whole_search` for 6 of the 6 runs."
    }
   ],
   "modifications": [
@@ -316,7 +323,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 5
    },
    {
@@ -421,7 +428,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -488,7 +495,7 @@
   "findings_by_severity": {
    "error": 0,
    "warning": 7,
-   "info": 1
+   "info": 2
   },
   "finding_codes": [
    "count_mismatch",
@@ -498,19 +505,20 @@
    "occupancy_decoy_groups",
    "occupancy_not_stored",
    "peptide_rows_localization_ambiguous",
+   "run_counts_missing",
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "f96ec10f4f6c3b6d",
-   "written_utc": "2026-11-12T09:19:54+00:00",
-   "ingester_version": "1.4.5",
+   "bundle_id": "57ce1588298e73f1",
+   "written_utc": "2026-11-27T01:34:07+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 157,248 PSMs, 27,424 peptidoforms and 5,061 protein groups, and the repository holds 10,726 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 157,248 PSMs and 5,061 protein groups; 27,424 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 10,726 PTM sites for it. 7 open warnings about it are recorded.",
   "page": "datasets/PXD006572.html",
   "json": "datasets/PXD006572.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006572.html",

@@ -19,11 +19,11 @@
  "name": "PXD006572 reanalysis: Aging-related proteome alterations in B cells may predispose for chronic lymphocytic leukemia - cytoplasmic proteins of young B cells",
  "identifier": [
   "PXD006572",
-  "datarepo:bundle:f96ec10f4f6c3b6d"
+  "datarepo:bundle:57ce1588298e73f1"
  ],
- "description": "PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 157,248 PSMs, 27,424 peptidoforms and 5,061 protein groups, and the repository holds 10,726 PTM sites for it. 7 open warnings about it are recorded.",
- "version": "f96ec10f4f6c3b6d",
- "dateModified": "2026-11-12T09:19:54+00:00",
+ "description": "PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 157,248 PSMs and 5,061 protein groups; 27,424 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 10,726 PTM sites for it. 7 open warnings about it are recorded.",
+ "version": "57ce1588298e73f1",
+ "dateModified": "2026-11-27T01:34:07+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 7ecfc9763064b181",
+  "name": "datarepo catalog efa97f89b2b98f34",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,11 +61,11 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 157,248 PSMs, 27,424 peptidoforms and 5,061 protein groups, and the repository holds 10,726 PTM sites for it. 7 open warnings about it are recorded.
+PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 157,248 PSMs and 5,061 protein groups; 27,424 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 10,726 PTM sites for it. 7 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 7 warnings and 1 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 7 warnings and 2 for information</strong></p>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 27424 where the producer reported 27423 (results.txt: All target peptides with q-value &lt;= 0.01). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">high_contamination</span> <span class="note">warning</span><br>10.10% of protein intensity in the worst file, 3.36% median across 6 files (DEF-QC-9 v3.5)</div>
 <div class="finding warning"><span class="code">low_core_use</span> <span class="note">warning</span><br>10.54 avg cores of 32 allowed (S5)</div>
@@ -74,11 +74,12 @@ PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and 
 <div class="finding warning"><span class="code">peptide_rows_localization_ambiguous</span> <span class="note">warning</span><br>114 row(s) of AllQuantifiedPeptides.tsv name several full sequences, joined by `|`: a peptide whose modification site the search did not settle (MetaMorpheus #2917). Their 416 value(s) are not stored, since storing them under one of the sequences would place them on a site the search never decided. The PSMs behind them are in `psms`. E.g. `AANN[Common Artifact:Deamidation on N]GALPPDLSYIVR|AAN[Common Artifact:Deamidation on N]NGALPPDLSYIVR`, `AEDGSVID[Metal:Fe[III] on D]YELIDQDAR|AED[Metal:Fe[III] on D]GSVIDYELIDQDAR`, `AGEVINQPMMM[Common Variable:Oxidation on M]AAR|AGEVINQPMM[Common Variable:Oxidation on M]MAAR|AGEVINQPM[Common Variable:Oxidation on M]MMAAR`.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 352 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
 <div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>11 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
+<div class="finding info"><span class="code">run_counts_missing</span> <span class="note">info</span><br>No per-run `metrics` row from results.txt for `psms_1pct` (6 of 6 runs), `peptides` (6 of 6 runs), `protein_groups` (6 of 6 runs), `precursors` (6 of 6 runs), `ms2_scans` (6 of 6 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt&#x27;s per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). Each run&#x27;s MS2 spectra are also counted by the QC report, in `runs.ms2_spectra` and `metrics` (`name = &#x27;ms2&#x27;`, `source = &#x27;qc_report.json&#x27;`), for 6 of the 6 runs. PXReprise&#x27;s QC payload counts each run&#x27;s share of the whole search&#x27;s 1% set instead, a different number (the FDR is the whole search&#x27;s, not recomputed on each file), under names of its own (`source = &#x27;qc_payload.json&#x27;`): `psms_1pct_whole_search` for 6 of the 6 runs, `peptides_1pct_whole_search` for 6 of the 6 runs, `protein_groups_1pct_whole_search` for 6 of the 6 runs.</div>
 
 <h2>What was found</h2>
 <div class="scroll"><table><tbody>
 <tr><td>PSMs at 1% FDR</td><td class="num">157,248</td></tr>
-<tr><td>Peptidoforms at 1% FDR</td><td class="num">27,424</td></tr>
+<tr><td>Peptidoforms at 1% (q-value and notch q-value)</td><td class="num">27,424</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">5,061</td></tr>
 <tr><td>PTM sites</td><td class="num">10,726</td></tr>
 <tr><td>Quantitative values</td><td class="num">206,723</td></tr>
@@ -91,7 +92,7 @@ PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and 
 <dl>
 <dt>Organism searched</dt><dd>Homo sapiens <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
 <dt>Acquisition</dt><dd>DDA</dd>
-<dt>Quantification</dt><dd>label_free</dd>
+<dt>Quantification</dt><dd>label_free <span class="note">(value scale label_free_apex: never pool values across scales)</span></dd>
 <dt>Labelling</dt><dd>none</dd>
 <dt>Enrichment</dt><dd>none</dd>
 <dt>Instrument vendor</dt><dd>not recorded</dd>
@@ -150,7 +151,7 @@ PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and 
 <tr><td>Citrulline on R</td><td>UNIMOD:7</td><td class="num">6</td></tr>
 <tr><td>Dimethylation on K</td><td>UNIMOD:36</td><td class="num">6</td></tr>
 <tr><td>N6,N6-dimethyllysine on K</td><td>UNIMOD:36</td><td class="num">6</td></tr>
-<tr><td>N6-succinyllysine on K</td><td>—</td><td class="num">5</td></tr>
+<tr><td>N6-succinyllysine on K</td><td>UNIMOD:64</td><td class="num">5</td></tr>
 <tr><td>Omega-N-methylarginine on R</td><td>UNIMOD:34</td><td class="num">5</td></tr>
 <tr><td>Tele-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">5</td></tr>
 <tr><td>Hydroxylation on K</td><td>UNIMOD:35</td><td class="num">4</td></tr>
@@ -171,7 +172,7 @@ PXD006572 is a DDA label-free dataset (Homo sapiens) with 6 runs, 6 samples and 
 <tr><td>S-nitrosocysteine on C</td><td>UNIMOD:275</td><td class="num">2</td></tr>
 <tr><td>Succinylation on K</td><td>UNIMOD:64</td><td class="num">2</td></tr>
 <tr><td>(3R)-3-hydroxyasparagine on N</td><td>UNIMOD:35</td><td class="num">1</td></tr>
-<tr><td>(3S)-3-hydroxyasparagine on N</td><td>—</td><td class="num">1</td></tr>
+<tr><td>(3S)-3-hydroxyasparagine on N</td><td>UNIMOD:35</td><td class="num">1</td></tr>
 <tr><td>4-hydroxylysine on K</td><td>UNIMOD:35</td><td class="num">1</td></tr>
 <tr><td>Butyrylation on K</td><td>UNIMOD:1289</td><td class="num">1</td></tr>
 <tr><td>Crotonylation on K</td><td>UNIMOD:1363</td><td class="num">1</td></tr>
@@ -191,16 +192,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>f96ec10f4f6c3b6d</code>, written 2026-11-12T09:19:54+00:00 by ingester 1.4.5</dd>
+<dt>Bundle</dt><dd><code>57ce1588298e73f1</code>, written 2026-11-27T01:34:07+00:00 by ingester 1.0.0</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts or differs within the known file-side limit: peptidoforms_target_1pct <span class="note">(see <code>catalog_reconciliation</code> for the bound)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.5 from catalog
-<code>7ecfc9763064b181</code>, built 2026-11-21T05:02:17+00:00 by datarepo
-1.4.5 (schema 0.0.16).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.0.0 from catalog
+<code>efa97f89b2b98f34</code>, built 2026-11-27T02:22:20+00:00 by datarepo
+1.0.0 (schema 0.0.17).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

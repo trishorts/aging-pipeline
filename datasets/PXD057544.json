@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD057544",
   "accession": "PXD057544",
   "split_group": null,
-  "bundle_id": "00b7d9c490b115d5",
+  "bundle_id": "f64a61f98608c028",
   "title": "Integrated multiomics analyses of the molecular landscape of sarcopenia in alcohol related liver disease- C2C12 myotube ",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "acetyl"
@@ -32,6 +33,7 @@
   "n_samples": 9,
   "n_psms_1pct": 26740,
   "n_peptidoforms_1pct": 2794,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 1223,
   "n_psms_all": 474854,
   "n_ptm_sites": 2489,
@@ -233,7 +235,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 1
    },
    {
@@ -291,14 +293,14 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "00b7d9c490b115d5",
-   "written_utc": "2026-10-29T10:07:50+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "f64a61f98608c028",
+   "written_utc": "2026-11-27T01:06:36+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": []
   },
-  "summary": "PXD057544 is a DDA label-free dataset (Mus musculus) with 9 runs, 9 samples and enrichment: acetyl. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 26,740 PSMs, 2,794 peptidoforms and 1,223 protein groups, and the repository holds 2,489 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD057544 is a DDA label-free dataset (Mus musculus) with 9 runs, 9 samples and enrichment: acetyl. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 26,740 PSMs and 1,223 protein groups; 2,794 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 2,489 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD057544.html",
   "json": "datasets/PXD057544.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD057544.html",

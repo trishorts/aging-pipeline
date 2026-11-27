@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD048079",
   "accession": "PXD048079",
   "split_group": null,
-  "bundle_id": "a8cef09bb6014186",
+  "bundle_id": "a449dd599c4a64ee",
   "title": "Neurobehavioral dysfunction in a mouse model of Down syndrome: upregulation of cystathionine β-synthase, H2S overproduct",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "chemical_probe"
@@ -32,6 +33,7 @@
   "n_samples": 26,
   "n_psms_1pct": 905459,
   "n_peptidoforms_1pct": 23419,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 3993,
   "n_psms_all": 7257670,
   "n_ptm_sites": 9475,
@@ -95,6 +97,11 @@
     "code": "occupancy_decoy_groups",
     "severity": "info",
     "message": "446 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (26 of 26 runs), `peptides` (26 of 26 runs), `protein_groups` (26 of 26 runs), `precursors` (26 of 26 runs), `ms2_scans` (26 of 26 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). Each run's MS2 spectra are also counted by the QC report, in `runs.ms2_spectra` and `metrics` (`name = 'ms2'`, `source = 'qc_report.json'`), for 26 of the 26 runs. PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 26 of the 26 runs, `peptides_1pct_whole_search` for 26 of the 26 runs, `protein_groups_1pct_whole_search` for 26 of the 26 runs."
    }
   ],
   "modifications": [
@@ -235,7 +242,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 13
    },
    {
@@ -370,22 +377,22 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 2
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -452,7 +459,7 @@
   "findings_by_severity": {
    "error": 0,
    "warning": 7,
-   "info": 1
+   "info": 2
   },
   "finding_codes": [
    "count_mismatch",
@@ -461,20 +468,21 @@
    "occupancy_decoy_groups",
    "occupancy_not_stored",
    "peptide_rows_localization_ambiguous",
+   "run_counts_missing",
    "sdrf_uncoded",
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "a8cef09bb6014186",
-   "written_utc": "2026-11-09T02:09:11+00:00",
-   "ingester_version": "1.4.4",
+   "bundle_id": "a449dd599c4a64ee",
+   "written_utc": "2026-11-26T21:55:11+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD048079 is a DDA label-free dataset (Mus musculus) with 26 runs, 26 samples and enrichment: chemical_probe. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 905,459 PSMs, 23,419 peptidoforms and 3,993 protein groups, and the repository holds 9,475 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD048079 is a DDA label-free dataset (Mus musculus) with 26 runs, 26 samples and enrichment: chemical_probe. It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 905,459 PSMs and 3,993 protein groups; 23,419 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 9,475 PTM sites for it. 7 open warnings about it are recorded.",
   "page": "datasets/PXD048079.html",
   "json": "datasets/PXD048079.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD048079.html",

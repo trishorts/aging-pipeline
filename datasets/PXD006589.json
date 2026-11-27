@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD006589",
   "accession": "PXD006589",
   "split_group": null,
-  "bundle_id": "89ff40bd1316f31d",
+  "bundle_id": "b18d32b64e5092bd",
   "title": "Aging-related proteome alterations in B cells may predispose for chronic lymphocytic leukemia - nuclear proteins of CLL cells",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 18,
   "n_psms_1pct": 546673,
   "n_peptidoforms_1pct": 54505,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 5244,
   "n_psms_all": 860662,
   "n_ptm_sites": 27252,
@@ -271,7 +273,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 33
    },
    {
@@ -391,7 +393,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 10
    },
    {
@@ -411,7 +413,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 9
    },
    {
@@ -551,12 +553,12 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -630,16 +632,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "89ff40bd1316f31d",
-   "written_utc": "2026-11-01T18:44:56+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "b18d32b64e5092bd",
+   "written_utc": "2026-11-27T01:09:46+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD006589 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 546,673 PSMs, 54,505 peptidoforms and 5,244 protein groups, and the repository holds 27,252 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD006589 is a DDA label-free dataset (Homo sapiens) with 18 runs, 18 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 546,673 PSMs and 5,244 protein groups; 54,505 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 27,252 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD006589.html",
   "json": "datasets/PXD006589.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006589.html",

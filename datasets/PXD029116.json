@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD029116",
   "accession": "PXD029116",
   "split_group": null,
-  "bundle_id": "84728de07f4ad4e4",
+  "bundle_id": "6028df5c3d633d3e",
   "title": "Articular cartilage proteome differentiates by zones during osteoarthritis",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 30,
   "n_psms_1pct": 66215,
   "n_peptidoforms_1pct": 4135,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 402,
   "n_psms_all": 119388,
   "n_ptm_sites": 3896,
@@ -411,7 +413,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 1
    },
    {
@@ -448,14 +450,14 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "84728de07f4ad4e4",
-   "written_utc": "2026-10-29T09:46:02+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "6028df5c3d633d3e",
+   "written_utc": "2026-11-27T01:39:38+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": []
   },
-  "summary": "PXD029116 is a DDA label-free dataset (Homo sapiens) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 66,215 PSMs, 4,135 peptidoforms and 402 protein groups, and the repository holds 3,896 PTM sites for it. 4 open warnings about it are recorded.",
+  "summary": "PXD029116 is a DDA label-free dataset (Homo sapiens) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 66,215 PSMs and 402 protein groups; 4,135 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 3,896 PTM sites for it. 4 open warnings about it are recorded.",
   "page": "datasets/PXD029116.html",
   "json": "datasets/PXD029116.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD029116.html",

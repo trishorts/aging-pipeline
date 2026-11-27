@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD018999",
   "accession": "PXD018999",
   "split_group": null,
-  "bundle_id": "151af8dac684a432",
+  "bundle_id": "33a7cc9ef37de602",
   "title": "A dichotomous response to chronic fetal hypoxia preprograms aging already during kidney development",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 48,
   "n_psms_1pct": 974746,
   "n_peptidoforms_1pct": 78290,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 8239,
   "n_psms_all": 1895057,
   "n_ptm_sites": 46440,
@@ -386,7 +388,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 36
    },
    {
@@ -401,7 +403,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 31
    },
    {
@@ -411,7 +413,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 28
    },
    {
@@ -586,7 +588,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 2
    },
    {
@@ -606,17 +608,17 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "(3S)-3-hydroxylysine on K",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -717,9 +719,9 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "151af8dac684a432",
-   "written_utc": "2026-10-29T11:59:50+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "33a7cc9ef37de602",
+   "written_utc": "2026-11-27T00:17:53+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
@@ -727,7 +729,7 @@
     "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD018999 is a DDA label-free dataset (Mus musculus) with 48 runs, 48 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 974,746 PSMs, 78,290 peptidoforms and 8,239 protein groups, and the repository holds 46,440 PTM sites for it. 8 open warnings about it are recorded.",
+  "summary": "PXD018999 is a DDA label-free dataset (Mus musculus) with 48 runs, 48 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 974,746 PSMs and 8,239 protein groups; 78,290 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 46,440 PTM sites for it. 8 open warnings about it are recorded.",
   "page": "datasets/PXD018999.html",
   "json": "datasets/PXD018999.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD018999.html",

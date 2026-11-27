@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD060832",
   "accession": "PXD060832",
   "split_group": null,
-  "bundle_id": "6cdb400fda01dc1c",
+  "bundle_id": "701d83892c50413d",
   "title": "Mitochondrial regulator PGC-1a in neuronal metabolism and brain aging",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 15,
   "n_psms_1pct": 151455,
   "n_peptidoforms_1pct": 6753,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 1746,
   "n_psms_all": 1308750,
   "n_ptm_sites": 5137,
@@ -221,7 +223,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 6
    },
    {
@@ -266,7 +268,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 2
    },
    {
@@ -395,16 +397,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "6cdb400fda01dc1c",
-   "written_utc": "2026-10-29T10:56:05+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "701d83892c50413d",
+   "written_utc": "2026-11-26T23:20:41+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD060832 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 151,455 PSMs, 6,753 peptidoforms and 1,746 protein groups, and the repository holds 5,137 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD060832 is a DDA label-free dataset (Mus musculus) with 15 runs, 15 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 151,455 PSMs and 1,746 protein groups; 6,753 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 5,137 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD060832.html",
   "json": "datasets/PXD060832.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD060832.html",

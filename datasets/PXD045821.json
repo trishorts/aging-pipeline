@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD045821",
   "accession": "PXD045821",
   "split_group": null,
-  "bundle_id": "43cc92093e51092c",
+  "bundle_id": "3186502870a10692",
   "title": "Intracellular Iron Accumulation Facilitates Mycobacterial Infection in Old Mouse Macrophages",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 12,
   "n_psms_1pct": 230387,
   "n_peptidoforms_1pct": 15385,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 3089,
   "n_psms_all": 1069661,
   "n_ptm_sites": 8220,
@@ -246,7 +248,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 5
    },
    {
@@ -301,7 +303,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -366,7 +368,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 1
    },
    {
@@ -410,16 +412,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "43cc92093e51092c",
-   "written_utc": "2026-10-29T09:44:52+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "3186502870a10692",
+   "written_utc": "2026-11-27T01:04:08+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD045821 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 230,387 PSMs, 15,385 peptidoforms and 3,089 protein groups, and the repository holds 8,220 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD045821 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 230,387 PSMs and 3,089 protein groups; 15,385 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 8,220 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD045821.html",
   "json": "datasets/PXD045821.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD045821.html",

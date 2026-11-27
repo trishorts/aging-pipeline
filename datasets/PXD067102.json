@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD067102",
   "accession": "PXD067102",
   "split_group": null,
-  "bundle_id": "557d43f225491daa",
+  "bundle_id": "fe397198f1d8635d",
   "title": "Young and aged T cells LC-MS/MS",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 12,
   "n_psms_1pct": 1510240,
   "n_peptidoforms_1pct": 48026,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 5016,
   "n_psms_all": 4362862,
   "n_ptm_sites": 45258,
@@ -393,12 +395,12 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 39
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 36
    },
    {
@@ -488,7 +490,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 12
    },
    {
@@ -573,7 +575,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 3
    },
    {
@@ -588,12 +590,12 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 2
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 2
    },
    {
@@ -697,9 +699,9 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "557d43f225491daa",
-   "written_utc": "2026-10-29T12:07:06+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "fe397198f1d8635d",
+   "written_utc": "2026-11-26T23:29:28+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
@@ -707,7 +709,7 @@
     "peptidoforms_target_1pct"
    ]
   },
-  "summary": "PXD067102 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 1,510,240 PSMs, 48,026 peptidoforms and 5,016 protein groups, and the repository holds 45,258 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD067102 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 1,510,240 PSMs and 5,016 protein groups; 48,026 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 45,258 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD067102.html",
   "json": "datasets/PXD067102.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD067102.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD007035",
   "accession": "PXD007035",
   "split_group": null,
-  "bundle_id": "1db7bc04e237098d",
+  "bundle_id": "38a21a9ba0a496a0",
   "title": "Loss-of-function of ubiquitin ligase adaptor LZTR1 triggers human disease by dysregulating RAS ubiquitination",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "ubiquitin_GG"
@@ -32,6 +33,7 @@
   "n_samples": 12,
   "n_psms_1pct": 126015,
   "n_peptidoforms_1pct": 23955,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 3836,
   "n_psms_all": 1116988,
   "n_ptm_sites": 9575,
@@ -228,7 +230,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 5
    },
    {
@@ -303,7 +305,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxylysine on K",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -392,14 +394,14 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "1db7bc04e237098d",
-   "written_utc": "2026-10-29T11:45:51+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "38a21a9ba0a496a0",
+   "written_utc": "2026-11-26T23:50:59+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": []
   },
-  "summary": "PXD007035 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and runs that differ in enrichment (ubiquitin_GG on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 126,015 PSMs, 23,955 peptidoforms and 3,836 protein groups, and the repository holds 9,575 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD007035 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and runs that differ in enrichment (ubiquitin_GG on some runs; see each run's own). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 126,015 PSMs and 3,836 protein groups; 23,955 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 9,575 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD007035.html",
   "json": "datasets/PXD007035.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD007035.html",

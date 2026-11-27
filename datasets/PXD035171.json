@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD035171",
   "accession": "PXD035171",
   "split_group": null,
-  "bundle_id": "bad44eb5f7e360eb",
+  "bundle_id": "d8a8b2f3dea9185c",
   "title": "Natural aging and ovariectomy induces parallel phosphoproteomic alterations \nin skeletal muscle of female mice",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "phospho"
@@ -32,6 +33,7 @@
   "n_samples": 14,
   "n_psms_1pct": 223143,
   "n_peptidoforms_1pct": 23287,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 1887,
   "n_psms_all": 277364,
   "n_ptm_sites": 16884,
@@ -493,12 +495,12 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 2
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 2
    },
    {
@@ -558,16 +560,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "bad44eb5f7e360eb",
-   "written_utc": "2026-10-29T09:23:09+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "d8a8b2f3dea9185c",
+   "written_utc": "2026-11-27T01:42:28+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD035171 is a DDA label-free dataset (Mus musculus) with 14 runs, 14 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 223,143 PSMs, 23,287 peptidoforms and 1,887 protein groups, and the repository holds 16,884 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD035171 is a DDA label-free dataset (Mus musculus) with 14 runs, 14 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 223,143 PSMs and 1,887 protein groups; 23,287 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 16,884 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD035171.html",
   "json": "datasets/PXD035171.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD035171.html",

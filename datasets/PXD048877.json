@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD048877",
   "accession": "PXD048877",
   "split_group": null,
-  "bundle_id": "68765efe61f0e920",
+  "bundle_id": "00d5847a8ad1da28",
   "title": "Egr1 is a master regulator of regenerative senescence and cardiac repair",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 30,
   "n_psms_1pct": 1803758,
   "n_peptidoforms_1pct": 47977,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 4840,
   "n_psms_all": 3667500,
   "n_ptm_sites": 25912,
@@ -273,7 +275,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 79
    },
    {
@@ -378,7 +380,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 21
    },
    {
@@ -418,7 +420,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 12
    },
    {
@@ -573,7 +575,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 2
    },
    {
@@ -583,12 +585,12 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 1
    },
    {
@@ -692,16 +694,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "68765efe61f0e920",
-   "written_utc": "2026-11-02T20:33:09+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "00d5847a8ad1da28",
+   "written_utc": "2026-11-26T23:42:49+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD048877 is a DDA label-free dataset (Mus musculus) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 1,803,758 PSMs, 47,977 peptidoforms and 4,840 protein groups, and the repository holds 25,912 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD048877 is a DDA label-free dataset (Mus musculus) with 30 runs, 30 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 1,803,758 PSMs and 4,840 protein groups; 47,977 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 25,912 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD048877.html",
   "json": "datasets/PXD048877.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD048877.html",

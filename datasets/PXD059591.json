@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD059591",
   "accession": "PXD059591",
   "split_group": null,
-  "bundle_id": "93146b263e4d7e7f",
+  "bundle_id": "0a6e5cd9a7d0769b",
   "title": "OMIC analyses identified senescence activation in osteogenesis imperfecta osteoblasts that is rescued by 4-PBA treatment",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 72,
   "n_psms_1pct": 1170375,
   "n_peptidoforms_1pct": 30144,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 3777,
   "n_psms_all": 3846818,
   "n_ptm_sites": 21290,
@@ -336,7 +338,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 26
    },
    {
@@ -416,7 +418,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 13
    },
    {
@@ -486,7 +488,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 4
    },
    {
@@ -506,7 +508,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 4
    },
    {
@@ -652,16 +654,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "93146b263e4d7e7f",
-   "written_utc": "2026-11-02T15:23:26+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "0a6e5cd9a7d0769b",
+   "written_utc": "2026-11-26T23:38:33+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD059591 is a DDA label-free dataset (Mus musculus) with 72 runs, 72 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 1,170,375 PSMs, 30,144 peptidoforms and 3,777 protein groups, and the repository holds 21,290 PTM sites for it. 8 open warnings about it are recorded.",
+  "summary": "PXD059591 is a DDA label-free dataset (Mus musculus) with 72 runs, 72 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.13. At 1% FDR the search reports 1,170,375 PSMs and 3,777 protein groups; 30,144 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 21,290 PTM sites for it. 8 open warnings about it are recorded.",
   "page": "datasets/PXD059591.html",
   "json": "datasets/PXD059591.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD059591.html",

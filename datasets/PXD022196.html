@@ -19,11 +19,11 @@
  "name": "PXD022196 reanalysis: Chaperone-mediated autophagy sustains hematopoietic stem cell function",
  "identifier": [
   "PXD022196",
-  "datarepo:bundle:487e71045925c9d9"
+  "datarepo:bundle:ed3fb36f0db34745"
  ],
- "description": "PXD022196 is a DDA label-free dataset (Mus musculus) with 32 runs, 4 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 250,902 PSMs, 26,178 peptidoforms and 3,800 protein groups, and the repository holds 13,517 PTM sites for it. 6 open warnings about it are recorded.",
- "version": "487e71045925c9d9",
- "dateModified": "2026-10-29T09:08:50+00:00",
+ "description": "PXD022196 is a DDA label-free dataset (Mus musculus) with 32 runs, 4 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 250,902 PSMs and 3,800 protein groups; 26,178 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 13,517 PTM sites for it. 6 open warnings about it are recorded.",
+ "version": "ed3fb36f0db34745",
+ "dateModified": "2026-11-27T01:39:02+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 7ecfc9763064b181",
+  "name": "datarepo catalog efa97f89b2b98f34",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,7 +61,7 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD022196 is a DDA label-free dataset (Mus musculus) with 32 runs, 4 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 250,902 PSMs, 26,178 peptidoforms and 3,800 protein groups, and the repository holds 13,517 PTM sites for it. 6 open warnings about it are recorded.
+PXD022196 is a DDA label-free dataset (Mus musculus) with 32 runs, 4 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 250,902 PSMs and 3,800 protein groups; 26,178 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 13,517 PTM sites for it. 6 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
@@ -70,7 +70,7 @@ PXD022196 is a DDA label-free dataset (Mus musculus) with 32 runs, 4 samples and
 <div class="finding warning"><span class="code">low_core_use</span> <span class="note">warning</span><br>15.78 avg cores of 32 allowed (S5)</div>
 <div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 250985/1715551 = 14.63% of MS2 identified (S3)</div>
 <div class="finding warning"><span class="code">occupancy_not_stored</span> <span class="note">warning</span><br>Of 18043 occupancy entries MetaMorpheus wrote, some are not in ptm_stoichiometry: 1792 site not in ptm_sites. &#x27;site not in ptm_sites&#x27; means the entry&#x27;s site has no ptm_sites row to key on; &#x27;not determinable&#x27; means a cell&#x27;s segments could not be assigned to its accessions from the sequences (QuantProject DEF-OCC-ACCESSION), which is never guessed. Absence of a row for these sites is therefore not NA. A &#x27;duplicate&#x27; is a second entry for a (site, run) that already has a row: one with identical values loses nothing; one with DIFFERENT values means MetaMorpheus wrote two answers and the first in file order was stored (examples in bundle.json occupancy.differing_duplicates; which one should be stored is QuantProject&#x27;s to define).</div>
-<div class="finding warning"><span class="code">sdrf_skeleton</span> <span class="note">warning</span><br>The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated.</div>
+<div class="finding warning"><span class="code">sdrf_uncoded</span> <span class="note">warning</span><br>The deposited SDRF describes its samples only as text with no ontology term, so the curated organism part, cell type, disease and individual columns are empty. The text is in sample_characteristics: cell type: LSK cell (Lin- Sca-1+ c-Kit+); organism part: bone marrow. Match on it as text; it has not been mapped to a term.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 1330 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
 <div class="finding info"><span class="code">collapsed_duplicate_rows</span> <span class="note">info</span><br>The producer wrote some rows more than once, identical in every column, and the copies were dropped so each identifier appears once. Nothing was lost: the kept row is byte-for-byte what the duplicates said. Rows that share an identifier and disagree anywhere are still refused rather than collapsed. protein_groups: 1 identifier(s), 1 row(s) dropped, e.g. PXD022196:A0A087WR13;A0A571BD48 written 2 times; quant_values: 7 identifier(s), 7 row(s) dropped, e.g. PXD022196:design:5-K0_1:protein_group:PXD022196:A0A087WR13;A0A571BD48:QuantProject:DEF-PROT-INT written 2 times. The full list is in bundle.json under collapsed_duplicates.</div>
 <div class="finding info"><span class="code">occupancy_decoy_groups</span> <span class="note">info</span><br>35 occupancy entries on decoy protein groups were not stored: MetaMorpheus computes them, and they are FDR machinery, not biology.</div>
@@ -78,7 +78,7 @@ PXD022196 is a DDA label-free dataset (Mus musculus) with 32 runs, 4 samples and
 <h2>What was found</h2>
 <div class="scroll"><table><tbody>
 <tr><td>PSMs at 1% FDR</td><td class="num">250,902</td></tr>
-<tr><td>Peptidoforms at 1% FDR</td><td class="num">26,178</td></tr>
+<tr><td>Peptidoforms at 1% (q-value and notch q-value)</td><td class="num">26,178</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">3,800</td></tr>
 <tr><td>PTM sites</td><td class="num">13,517</td></tr>
 <tr><td>Quantitative values</td><td class="num">164,892</td></tr>
@@ -91,7 +91,7 @@ PXD022196 is a DDA label-free dataset (Mus musculus) with 32 runs, 4 samples and
 <dl>
 <dt>Organism searched</dt><dd>Mus musculus <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
 <dt>Acquisition</dt><dd>DDA</dd>
-<dt>Quantification</dt><dd>label_free</dd>
+<dt>Quantification</dt><dd>label_free <span class="note">(value scale label_free_apex: never pool values across scales)</span></dd>
 <dt>Labelling</dt><dd>none</dd>
 <dt>Enrichment</dt><dd>none</dd>
 <dt>Instrument vendor</dt><dd>not recorded</dd>
@@ -150,7 +150,7 @@ PXD022196 is a DDA label-free dataset (Mus musculus) with 32 runs, 4 samples and
 <tr><td>N-acetylthreonine on T</td><td>UNIMOD:1</td><td class="num">16</td></tr>
 <tr><td>Phosphothreonine on T</td><td>UNIMOD:21</td><td class="num">16</td></tr>
 <tr><td>Deamidated asparagine on N</td><td>UNIMOD:7</td><td class="num">15</td></tr>
-<tr><td>N6-glutaryllysine on K</td><td>—</td><td class="num">15</td></tr>
+<tr><td>N6-glutaryllysine on K</td><td>UNIMOD:1848</td><td class="num">15</td></tr>
 <tr><td>HexNAc on T</td><td>UNIMOD:43</td><td class="num">14</td></tr>
 <tr><td>N5-methylglutamine on Q</td><td>UNIMOD:34</td><td class="num">14</td></tr>
 <tr><td>N6,N6-dimethyllysine on K</td><td>UNIMOD:36</td><td class="num">14</td></tr>
@@ -178,9 +178,9 @@ PXD022196 is a DDA label-free dataset (Mus musculus) with 32 runs, 4 samples and
 <tr><td>HexNAc on S</td><td>UNIMOD:43</td><td class="num">3</td></tr>
 <tr><td>N-acetylcysteine on C</td><td>UNIMOD:1</td><td class="num">3</td></tr>
 <tr><td>N-acetylvaline on V</td><td>UNIMOD:1</td><td class="num">3</td></tr>
-<tr><td>N6-crotonyllysine on K</td><td>—</td><td class="num">3</td></tr>
+<tr><td>N6-crotonyllysine on K</td><td>UNIMOD:1363</td><td class="num">3</td></tr>
 <tr><td>N6-propionyllysine on K</td><td>UNIMOD:58</td><td class="num">3</td></tr>
-<tr><td>N6-succinyllysine on K</td><td>—</td><td class="num">3</td></tr>
+<tr><td>N6-succinyllysine on K</td><td>UNIMOD:64</td><td class="num">3</td></tr>
 <tr><td>Sulfonation on Y</td><td>UNIMOD:40</td><td class="num">3</td></tr>
 <tr><td>Symmetric dimethylarginine on R</td><td>UNIMOD:36</td><td class="num">3</td></tr>
 <tr><td>3-hydroxyproline on P</td><td>UNIMOD:35</td><td class="num">2</td></tr>
@@ -191,7 +191,7 @@ PXD022196 is a DDA label-free dataset (Mus musculus) with 32 runs, 4 samples and
 <tr><td>Dimethylated arginine on R</td><td>UNIMOD:36</td><td class="num">2</td></tr>
 <tr><td>Hydroxybutyrylation on K</td><td>—</td><td class="num">2</td></tr>
 <tr><td>Nitrosylation on C</td><td>UNIMOD:275</td><td class="num">2</td></tr>
-<tr><td>(3S)-3-hydroxyhistidine on H</td><td>—</td><td class="num">1</td></tr>
+<tr><td>(3S)-3-hydroxyhistidine on H</td><td>UNIMOD:35</td><td class="num">1</td></tr>
 <tr><td>4-hydroxylysine on K</td><td>UNIMOD:35</td><td class="num">1</td></tr>
 <tr><td>Citrulline on R</td><td>UNIMOD:7</td><td class="num">1</td></tr>
 <tr><td>Crotonylation on K</td><td>UNIMOD:1363</td><td class="num">1</td></tr>
@@ -212,16 +212,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>487e71045925c9d9</code>, written 2026-10-29T09:08:50+00:00 by ingester 1.4.0</dd>
+<dt>Bundle</dt><dd><code>ed3fb36f0db34745</code>, written 2026-11-27T01:39:02+00:00 by ingester 1.0.0</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts or differs within the known file-side limit: psms_target_1pct <span class="note">(see <code>catalog_reconciliation</code> for the bound)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.5 from catalog
-<code>7ecfc9763064b181</code>, built 2026-11-21T05:02:17+00:00 by datarepo
-1.4.5 (schema 0.0.16).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.0.0 from catalog
+<code>efa97f89b2b98f34</code>, built 2026-11-27T02:22:20+00:00 by datarepo
+1.0.0 (schema 0.0.17).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

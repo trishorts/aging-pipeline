@@ -19,11 +19,11 @@
  "name": "PXD027232 reanalysis: SIRT7-induced PHF5A de-crotonylation regulates ageing progress through alternative splicing-mediated downregulation of CDK2",
  "identifier": [
   "PXD027232",
-  "datarepo:bundle:7b4d666260695258"
+  "datarepo:bundle:2d060c09aa9cf7c6"
  ],
- "description": "PXD027232 is a DDA isobaric dataset (Homo sapiens) with 1 run, 6 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 772 PSMs, 580 peptidoforms and 371 protein groups, and the repository holds 1,425 PTM sites for it. 7 open warnings about it are recorded.",
- "version": "7b4d666260695258",
- "dateModified": "2026-11-11T01:06:17+00:00",
+ "description": "PXD027232 is a DDA isobaric dataset (Homo sapiens) with 1 run, 6 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 772 PSMs and 371 protein groups; 580 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 1,425 PTM sites for it. 6 open warnings about it are recorded.",
+ "version": "2d060c09aa9cf7c6",
+ "dateModified": "2026-11-27T01:42:40+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 7ecfc9763064b181",
+  "name": "datarepo catalog efa97f89b2b98f34",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,24 +61,24 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD027232 is a DDA isobaric dataset (Homo sapiens) with 1 run, 6 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 772 PSMs, 580 peptidoforms and 371 protein groups, and the repository holds 1,425 PTM sites for it. 7 open warnings about it are recorded.
+PXD027232 is a DDA isobaric dataset (Homo sapiens) with 1 run, 6 samples and enrichment: phospho. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 772 PSMs and 371 protein groups; 580 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 1,425 PTM sites for it. 6 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 7 warnings and 1 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 2 for information</strong></p>
 <div class="finding warning"><span class="code">isobaric_channels_not_in_sdrf</span> <span class="note">warning</span><br>6 of the 6 channels of the search&#x27;s TmtDesign.txt have no row of the SDRF naming their file and label, so their assays sit on the design&#x27;s own sample (its `Sample Name`), with nothing known about it. E.g. `PXD027232:all_LC-MS:TMT126`, `PXD027232:all_LC-MS:TMT127`, `PXD027232:all_LC-MS:TMT128` and 3 more.</div>
 <div class="finding warning"><span class="code">low_core_use</span> <span class="note">warning</span><br>13.83 avg cores of 32 allowed (S5)</div>
 <div class="finding warning"><span class="code">low_id_rate</span> <span class="note">warning</span><br>The search identified an unusually small fraction of the MS2 spectra. Treat absence of a protein in this dataset as weak evidence. Producer&#x27;s note: 772/25730 = 3.00% of MS2 identified (S3)</div>
 <div class="finding warning"><span class="code">no_channel_design</span> <span class="note">warning</span><br>no SDRF says which sample is in which channel (every SDRF was refused); PXReprise&#x27;s default design makes each file its own plex and each channel that shows a sample its own sample; the reporter values compare nothing until a design is curated (QuantProject 079)</div>
 <div class="finding warning"><span class="code">sdrf_skeleton</span> <span class="note">warning</span><br>The deposited SDRF carries no biological annotation: organism part, cell type, disease and individual are all absent. Sample-level questions cannot be answered for this dataset until it is curated.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 5 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
-<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>5 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:3&#x27;-nitrotyrosine on Y, UniProt:5-glutamyl serotonin on Q, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
 <div class="finding info"><span class="code">occupancy_not_ingested</span> <span class="note">info</span><br>PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified.</div>
+<div class="finding info"><span class="code">run_counts_missing</span> <span class="note">info</span><br>No per-run `metrics` row from results.txt for `psms_1pct` (1 of 1 runs), `peptides` (1 of 1 runs), `protein_groups` (1 of 1 runs), `precursors` (1 of 1 runs), `ms2_scans` (1 of 1 runs). These counts were not written, which is not a count of zero. MetaMorpheus writes results.txt&#x27;s per-file lines only for a search of two or more files, and this deposit has one run, so its deposit-wide rows (`scope = &#x27;dataset&#x27;`) count that run. Each run&#x27;s MS2 spectra are also counted by the QC report, in `runs.ms2_spectra` and `metrics` (`name = &#x27;ms2&#x27;`, `source = &#x27;qc_report.json&#x27;`), for 1 of the 1 runs. PXReprise&#x27;s QC payload counts each run&#x27;s share of the whole search&#x27;s 1% set instead, a different number (the FDR is the whole search&#x27;s, not recomputed on each file), under names of its own (`source = &#x27;qc_payload.json&#x27;`): `psms_1pct_whole_search` for 1 of the 1 runs, `peptides_1pct_whole_search` for 1 of the 1 runs, `protein_groups_1pct_whole_search` for none of them.</div>
 
 <h2>What was found</h2>
 <div class="scroll"><table><tbody>
 <tr><td>PSMs at 1% FDR</td><td class="num">772</td></tr>
-<tr><td>Peptidoforms at 1% FDR</td><td class="num">580</td></tr>
+<tr><td>Peptidoforms at 1% (q-value and notch q-value)</td><td class="num">580</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">371</td></tr>
 <tr><td>PTM sites</td><td class="num">1,425</td></tr>
 <tr><td>Quantitative values</td><td class="num">5,904</td></tr>
@@ -91,7 +91,7 @@ PXD027232 is a DDA isobaric dataset (Homo sapiens) with 1 run, 6 samples and enr
 <dl>
 <dt>Organism searched</dt><dd>Homo sapiens <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
 <dt>Acquisition</dt><dd>DDA</dd>
-<dt>Quantification</dt><dd>isobaric</dd>
+<dt>Quantification</dt><dd>isobaric <span class="note">(value scale reporter_ms2: never pool values across scales)</span></dd>
 <dt>Labelling</dt><dd>TMT</dd>
 <dt>Enrichment</dt><dd>phospho</dd>
 <dt>Instrument vendor</dt><dd>Thermo</dd>
@@ -110,7 +110,7 @@ PXD027232 is a DDA isobaric dataset (Homo sapiens) with 1 run, 6 samples and enr
 <tr><td>TMT6-plex on K</td><td>UNIMOD:737</td><td class="num">473</td></tr>
 <tr><td>Carbamidomethyl on C</td><td>UNIMOD:4</td><td class="num">74</td></tr>
 <tr><td>N6-acetyllysine on K</td><td>UNIMOD:1</td><td class="num">39</td></tr>
-<tr><td>N6-crotonyllysine on K</td><td>—</td><td class="num">15</td></tr>
+<tr><td>N6-crotonyllysine on K</td><td>UNIMOD:1363</td><td class="num">15</td></tr>
 <tr><td>N6-methacryllysine on K</td><td>—</td><td class="num">15</td></tr>
 <tr><td>Oxidation on M</td><td>UNIMOD:35</td><td class="num">14</td></tr>
 <tr><td>N6-butyryllysine on K</td><td>UNIMOD:1289</td><td class="num">11</td></tr>
@@ -128,7 +128,7 @@ PXD027232 is a DDA isobaric dataset (Homo sapiens) with 1 run, 6 samples and enr
 <tr><td>Methylation on R</td><td>UNIMOD:34</td><td class="num">1</td></tr>
 <tr><td>N-acetylserine on S</td><td>UNIMOD:1</td><td class="num">1</td></tr>
 <tr><td>N6-propionyllysine on K</td><td>UNIMOD:58</td><td class="num">1</td></tr>
-<tr><td>N6-succinyllysine on K</td><td>—</td><td class="num">1</td></tr>
+<tr><td>N6-succinyllysine on K</td><td>UNIMOD:64</td><td class="num">1</td></tr>
 <tr><td>Phosphorylation on S</td><td>UNIMOD:21</td><td class="num">1</td></tr>
 <tr><td>Pros-methylhistidine on H</td><td>UNIMOD:34</td><td class="num">1</td></tr>
 <tr><td>Succinylation on K</td><td>UNIMOD:64</td><td class="num">1</td></tr>
@@ -141,16 +141,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>7b4d666260695258</code>, written 2026-11-11T01:06:17+00:00 by ingester 1.4.5</dd>
+<dt>Bundle</dt><dd><code>2d060c09aa9cf7c6</code>, written 2026-11-27T01:42:40+00:00 by ingester 1.0.0</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts</dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.5 from catalog
-<code>7ecfc9763064b181</code>, built 2026-11-21T05:02:17+00:00 by datarepo
-1.4.5 (schema 0.0.16).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.0.0 from catalog
+<code>efa97f89b2b98f34</code>, built 2026-11-27T02:22:20+00:00 by datarepo
+1.0.0 (schema 0.0.17).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

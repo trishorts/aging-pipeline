@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD034432",
   "accession": "PXD034432",
   "split_group": null,
-  "bundle_id": "24368f638148b497",
+  "bundle_id": "e7f8252dec1dc486",
   "title": "Tracking prostate carcinogenesis over time through urine proteome profiling in an animal model: an exploratory approach",
   "organisms": [
    "NCBITaxon:10116"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 10,
   "n_psms_1pct": 38154,
   "n_peptidoforms_1pct": 2836,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 608,
   "n_psms_all": 82340,
   "n_ptm_sites": 3363,
@@ -453,16 +455,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "24368f638148b497",
-   "written_utc": "2026-10-29T09:50:00+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "e7f8252dec1dc486",
+   "written_utc": "2026-11-27T01:48:04+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD034432 is a DDA label-free dataset (Rattus norvegicus) with 10 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 38,154 PSMs, 2,836 peptidoforms and 608 protein groups, and the repository holds 3,363 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD034432 is a DDA label-free dataset (Rattus norvegicus) with 10 runs, 10 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 38,154 PSMs and 608 protein groups; 2,836 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 3,363 PTM sites for it. 7 open warnings about it are recorded.",
   "page": "datasets/PXD034432.html",
   "json": "datasets/PXD034432.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD034432.html",

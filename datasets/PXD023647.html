@@ -19,11 +19,11 @@
  "name": "PXD023647 reanalysis: Protein disulfide isomerase ERp57 protects early muscle denervation in experimental ALS",
  "identifier": [
   "PXD023647",
-  "datarepo:bundle:94cfcbbc557b89b5"
+  "datarepo:bundle:edf381deecc0321f"
  ],
- "description": "PXD023647 is a DDA isobaric dataset (Mus musculus) with 11 runs, 198 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 135,647 PSMs, 14,483 peptidoforms and 3,540 protein groups, and the repository holds 28,863 PTM sites for it. 6 open warnings about it are recorded.",
- "version": "94cfcbbc557b89b5",
- "dateModified": "2026-11-11T16:37:15+00:00",
+ "description": "PXD023647 is a DDA isobaric dataset (Mus musculus) with 11 runs, 176 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 135,647 PSMs and 3,540 protein groups; 14,483 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 28,863 PTM sites for it. 5 open warnings about it are recorded.",
+ "version": "edf381deecc0321f",
+ "dateModified": "2026-11-27T01:40:01+00:00",
  "keywords": [
   "proteomics",
   "mass spectrometry",
@@ -47,7 +47,7 @@
  },
  "includedInDataCatalog": {
   "@type": "DataCatalog",
-  "name": "datarepo catalog 7ecfc9763064b181",
+  "name": "datarepo catalog efa97f89b2b98f34",
   "url": "https://trishorts.github.io/aging-pipeline/index.html"
  }
 }
@@ -61,25 +61,25 @@
 </header>
 <main>
 <div class="generated"><span class="label">Generated summary</span>
-PXD023647 is a DDA isobaric dataset (Mus musculus) with 11 runs, 198 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 135,647 PSMs, 14,483 peptidoforms and 3,540 protein groups, and the repository holds 28,863 PTM sites for it. 6 open warnings about it are recorded.
+PXD023647 is a DDA isobaric dataset (Mus musculus) with 11 runs, 176 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 135,647 PSMs and 3,540 protein groups; 14,483 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 28,863 PTM sites for it. 5 open warnings about it are recorded.
 <br><span class="note">Written from catalog fields only (D17), with no model involved. It says nothing the tables below do not.</span></div>
 
 <h2>Open findings</h2>
-<p><strong>Recorded against this dataset: 0 errors, 6 warnings and 3 for information</strong></p>
+<p><strong>Recorded against this dataset: 0 errors, 5 warnings and 4 for information</strong></p>
 <div class="finding warning"><span class="code">count_mismatch</span> <span class="note">warning</span><br>The bundle holds 135647 where the producer reported 135648 (results.txt: All target PSMs with q-value &lt;= 0.01 (pxreprise:DEF-PSM-1PCT v1)). Both numbers are kept; treat the producer&#x27;s as canonical until the difference is explained.</div>
 <div class="finding warning"><span class="code">low_core_use</span> <span class="note">warning</span><br>13.24 avg cores of 32 allowed (S5)</div>
 <div class="finding warning"><span class="code">no_channel_design</span> <span class="note">warning</span><br>no SDRF says which sample is in which channel (no curated design and no deposited SDRF); PXReprise&#x27;s default design makes each file its own plex and each channel that shows a sample its own sample (marked empty, holding none: 134C in 11 file(s), 135N in 11 file(s)); the reporter values compare nothing until a design is curated (QuantProject 079)</div>
 <div class="finding warning"><span class="code">no_sdrf</span> <span class="note">warning</span><br>No SDRF was found for this dataset, so each channel&#x27;s sample is the sample its search&#x27;s TmtDesign.txt names (its `Sample Name`), with nothing else known about it. There is no sample metadata: treat every sample as unannotated.</div>
 <div class="finding warning"><span class="code">unplaced_ptm_sites</span> <span class="note">warning</span><br>Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein&#x27;s sequence and the producer&#x27;s residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 1172 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases.</div>
-<div class="finding warning"><span class="code">unresolved_modifications</span> <span class="note">warning</span><br>3 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not.</div>
 <div class="finding info"><span class="code">excluded_from_search</span> <span class="note">info</span><br>The deposited file 20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_90C_10B_12.raw was left out of the search, so it has no run row, no PSMs and no quantities here. Producer&#x27;s reason: D52: failed qc_spectra on low_res_ms2, too_few_ms2, no_isobaric_reporters, unsupported_fragmentation (a blank or failed injection); excluded with a record instead of dropping the deposit. Deposited sha256: e4f14487f5ad1ea3a6293ee781e2602d863a8dea3f14914e85885e1e650dab63.</div>
-<div class="finding info"><span class="code">isobaric_reference_channels</span> <span class="note">info</span><br>22 channel(s) of the search&#x27;s TmtDesign.txt are not study samples: `Sample Type` empty: `PXD023647:20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_0C_1:TMT134C`, `PXD023647:20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_0C_1:TMT135N`, `PXD023647:20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_100C_11:TMT134C`, `PXD023647:20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_100C_11:TMT135N`, `PXD023647:20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_10C_2:TMT134C` and 17 more. Their values measure that reference, not a sample of the question. The design is copied in `sources/`.</div>
+<div class="finding info"><span class="code">isobaric_reference_channels</span> <span class="note">info</span><br>22 channel(s) of the search&#x27;s TmtDesign.txt are not study samples: `Sample Type` empty: `PXD023647:20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_0C_1:TMT134C`, `PXD023647:20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_0C_1:TMT135N`, `PXD023647:20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_100C_11:TMT134C`, `PXD023647:20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_100C_11:TMT135N`, `PXD023647:20200118_LP-1-009_Medina_SOD-PDIA3_TMTpro_10C_2:TMT134C` and 17 more. Their values measure that reference, not a sample of the question. The design is copied in `sources/`, and each assay keeps its `Sample Type` (`assays.design_sample_type`). A channel marked `empty` had no sample put in it: unless the SDRF names one for it, its assay has no `sample_id`, and its values are kept as measured (isotope spill-over from a neighbouring channel, PXReprise 098), so a count of samples never counts it and a median across a run&#x27;s channels must leave it out.</div>
 <div class="finding info"><span class="code">occupancy_not_ingested</span> <span class="note">info</span><br>PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified.</div>
+<div class="finding info"><span class="code">run_counts_missing</span> <span class="note">info</span><br>No per-run `metrics` row from results.txt for `psms_1pct` (11 of 11 runs), `peptides` (11 of 11 runs), `protein_groups` (11 of 11 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt&#x27;s per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). PXReprise&#x27;s QC payload counts each run&#x27;s share of the whole search&#x27;s 1% set instead, a different number (the FDR is the whole search&#x27;s, not recomputed on each file), under names of its own (`source = &#x27;qc_payload.json&#x27;`): `psms_1pct_whole_search` for 11 of the 11 runs, `peptides_1pct_whole_search` for 11 of the 11 runs, `protein_groups_1pct_whole_search` for none of them.</div>
 
 <h2>What was found</h2>
 <div class="scroll"><table><tbody>
 <tr><td>PSMs at 1% FDR</td><td class="num">135,647</td></tr>
-<tr><td>Peptidoforms at 1% FDR</td><td class="num">14,483</td></tr>
+<tr><td>Peptidoforms at 1% (q-value and notch q-value)</td><td class="num">14,483</td></tr>
 <tr><td>Protein groups at 1% FDR</td><td class="num">3,540</td></tr>
 <tr><td>PTM sites</td><td class="num">28,863</td></tr>
 <tr><td>Quantitative values</td><td class="num">633,152</td></tr>
@@ -92,11 +92,11 @@ PXD023647 is a DDA isobaric dataset (Mus musculus) with 11 runs, 198 samples and
 <dl>
 <dt>Organism searched</dt><dd>Mus musculus <span class="note">(the protein database's organism, not a statement about the samples)</span></dd>
 <dt>Acquisition</dt><dd>DDA</dd>
-<dt>Quantification</dt><dd>isobaric</dd>
+<dt>Quantification</dt><dd>isobaric <span class="note">(value scale reporter_ms2: never pool values across scales)</span></dd>
 <dt>Labelling</dt><dd>TMT</dd>
 <dt>Enrichment</dt><dd>none</dd>
 <dt>Instrument vendor</dt><dd>not recorded</dd>
-<dt>Runs / samples</dt><dd>11 / 198</dd>
+<dt>Runs / samples</dt><dd>11 / 176</dd>
 <dt>Sample metadata</dt><dd>absent</dd>
 <dt>Search engine</dt><dd>MetaMorpheus 1.1.14</dd>
 <dt>Protein database</dt><dd>UP000000589_all_genecentric_2026_03_agingPTM-v8.xml</dd>
@@ -132,7 +132,7 @@ PXD023647 is a DDA isobaric dataset (Mus musculus) with 11 runs, 198 samples and
 <tr><td>Dimethylation on R</td><td>UNIMOD:36</td><td class="num">4</td></tr>
 <tr><td>HexNAc on S</td><td>UNIMOD:43</td><td class="num">4</td></tr>
 <tr><td>HexNAc on T</td><td>UNIMOD:43</td><td class="num">4</td></tr>
-<tr><td>N6-succinyllysine on K</td><td>—</td><td class="num">4</td></tr>
+<tr><td>N6-succinyllysine on K</td><td>UNIMOD:64</td><td class="num">4</td></tr>
 <tr><td>GG (Ubiquitination Site) on K</td><td>UNIMOD:121</td><td class="num">3</td></tr>
 <tr><td>Glutarylation on K</td><td>UNIMOD:1848</td><td class="num">3</td></tr>
 <tr><td>Methylation on R</td><td>UNIMOD:34</td><td class="num">3</td></tr>
@@ -148,7 +148,7 @@ PXD023647 is a DDA isobaric dataset (Mus musculus) with 11 runs, 198 samples and
 <tr><td>N-acetylaspartate on D</td><td>UNIMOD:1</td><td class="num">1</td></tr>
 <tr><td>N-acetylglutamate on E</td><td>UNIMOD:1</td><td class="num">1</td></tr>
 <tr><td>N6-lipoyllysine on K</td><td>UNIMOD:42</td><td class="num">1</td></tr>
-<tr><td>N6-malonyllysine on K</td><td>—</td><td class="num">1</td></tr>
+<tr><td>N6-malonyllysine on K</td><td>UNIMOD:747</td><td class="num">1</td></tr>
 <tr><td>N6-propionyllysine on K</td><td>UNIMOD:58</td><td class="num">1</td></tr>
 <tr><td>Phosphorylation on Y</td><td>UNIMOD:21</td><td class="num">1</td></tr>
 <tr><td>Trimethylation on K</td><td>UNIMOD:37</td><td class="num">1</td></tr>
@@ -161,16 +161,16 @@ unknown. One chemistry can appear under two names (UniProt's and MetaMorpheus's)
 <h2>Data</h2>
 <p>The Parquet files for this dataset are not published yet.</p>
 <dl>
-<dt>Bundle</dt><dd><code>94cfcbbc557b89b5</code>, written 2026-11-11T16:37:15+00:00 by ingester 1.4.5</dd>
+<dt>Bundle</dt><dd><code>edf381deecc0321f</code>, written 2026-11-27T01:40:01+00:00 by ingester 1.0.0</dd>
 <dt>Reconciliation</dt><dd>every check agreed with the producer's own counts or differs within the known file-side limit: psms_target_1pct <span class="note">(see <code>catalog_reconciliation</code> for the bound)</span></dd>
 <dt>Licence</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></dd>
 <dt>Credit</dt><dd>NCEMS Aging Proteome Working Group</dd>
 </dl>
 </main>
 <footer>
-Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.4.5 from catalog
-<code>7ecfc9763064b181</code>, built 2026-11-21T05:02:17+00:00 by datarepo
-1.4.5 (schema 0.0.16).
+Generated by <a href="https://github.com/smith-chem-wisc/dataRepo">datarepo</a> 1.0.0 from catalog
+<code>efa97f89b2b98f34</code>, built 2026-11-27T02:22:20+00:00 by datarepo
+1.0.0 (schema 0.0.17).
 Every number on this site is read from that catalog; cite its id with any number you reuse.
 </footer>
 </body>

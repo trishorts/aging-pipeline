@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD048609",
   "accession": "PXD048609",
   "split_group": null,
-  "bundle_id": "d7935b8fdc23998b",
+  "bundle_id": "1cb1bcc3a8aa8a2d",
   "title": "Large Aging Neutrophil-Derived Vesicles (LAND-Vs) Perpetuate Host Anti-Inflammatory Response to Facilitate Inflammation Resolution",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "isobaric",
+  "quant_scale": "reporter_ms2",
   "labelling": "TMT",
   "enrichment": [
    "none"
@@ -29,14 +30,15 @@
   "search_engine_version": "1.1.14",
   "unique_peptides_scope": "protein_group",
   "n_runs": 21,
-  "n_samples": 138,
+  "n_samples": 12,
   "n_psms_1pct": 53892,
   "n_peptidoforms_1pct": 12483,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 2516,
   "n_psms_all": 131748,
   "n_ptm_sites": 24153,
   "n_quant_values": 589007,
-  "n_open_findings": 5,
+  "n_open_findings": 4,
   "restrictions": [],
   "split_reason": null,
   "instruments": null,
@@ -73,19 +75,19 @@
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 274 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
    },
    {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "6 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:(3S)-3-hydroxyhistidine on H, UniProt:3'-nitrotyrosine on Y, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K, UniProt:O-palmitoleoyl serine on S. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
-   },
-   {
     "code": "isobaric_reference_channels",
     "severity": "info",
-    "message": "126 channel(s) of the search's TmtDesign.txt are not study samples: `Sample Type` empty: `PXD048609:10:TMT130C`, `PXD048609:10:TMT131C`, `PXD048609:10:TMT132C`, `PXD048609:10:TMT133C`, `PXD048609:10:TMT134C` and 121 more. Their values measure that reference, not a sample of the question. The design is copied in `sources/`."
+    "message": "126 channel(s) of the search's TmtDesign.txt are not study samples: `Sample Type` empty: `PXD048609:10:TMT130C`, `PXD048609:10:TMT131C`, `PXD048609:10:TMT132C`, `PXD048609:10:TMT133C`, `PXD048609:10:TMT134C` and 121 more. Their values measure that reference, not a sample of the question. The design is copied in `sources/`, and each assay keeps its `Sample Type` (`assays.design_sample_type`). A channel marked `empty` had no sample put in it: unless the SDRF names one for it, its assay has no `sample_id`, and its values are kept as measured (isotope spill-over from a neighbouring channel, PXReprise 098), so a count of samples never counts it and a median across a run's channels must leave it out."
    },
    {
     "code": "occupancy_not_ingested",
     "severity": "info",
     "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (21 of 21 runs), `peptides` (21 of 21 runs), `protein_groups` (21 of 21 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 21 of the 21 runs, `peptides_1pct_whole_search` for 21 of the 21 runs, `protein_groups_1pct_whole_search` for 21 of the 21 runs."
    }
   ],
   "modifications": [
@@ -211,7 +213,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 3
    },
    {
@@ -241,7 +243,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -292,8 +294,8 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 5,
-   "info": 2
+   "warning": 4,
+   "info": 3
   },
   "finding_codes": [
    "isobaric_channels_not_in_sdrf",
@@ -301,18 +303,18 @@
    "low_core_use",
    "low_id_rate",
    "occupancy_not_ingested",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "run_counts_missing",
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "d7935b8fdc23998b",
-   "written_utc": "2026-11-15T15:00:11+00:00",
-   "ingester_version": "1.4.5",
+   "bundle_id": "1cb1bcc3a8aa8a2d",
+   "written_utc": "2026-11-27T01:33:11+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": []
   },
-  "summary": "PXD048609 is a DDA isobaric dataset (Homo sapiens) with 21 runs, 138 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 53,892 PSMs, 12,483 peptidoforms and 2,516 protein groups, and the repository holds 24,153 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD048609 is a DDA isobaric dataset (Homo sapiens) with 21 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 53,892 PSMs and 2,516 protein groups; 12,483 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 24,153 PTM sites for it. 4 open warnings about it are recorded.",
   "page": "datasets/PXD048609.html",
   "json": "datasets/PXD048609.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD048609.html",

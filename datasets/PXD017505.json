@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD017505",
   "accession": "PXD017505",
   "split_group": null,
-  "bundle_id": "beec269b016c36a9",
+  "bundle_id": "9d9c99b6063f6273",
   "title": "Autofluorescence positive and negative microglia constitute novel subsets found in healthy brain.",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 17,
   "n_psms_1pct": 522900,
   "n_peptidoforms_1pct": 21512,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 4078,
   "n_psms_all": 5343220,
   "n_ptm_sites": 17913,
@@ -208,7 +210,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 20
    },
    {
@@ -318,7 +320,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 5
    },
    {
@@ -373,7 +375,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -398,7 +400,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 1
    },
    {
@@ -473,16 +475,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "beec269b016c36a9",
-   "written_utc": "2026-10-29T10:10:45+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "9d9c99b6063f6273",
+   "written_utc": "2026-11-26T20:59:09+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD017505 is a DDA label-free dataset (Mus musculus) with 17 runs, 17 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 522,900 PSMs, 21,512 peptidoforms and 4,078 protein groups, and the repository holds 17,913 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD017505 is a DDA label-free dataset (Mus musculus) with 17 runs, 17 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 522,900 PSMs and 4,078 protein groups; 21,512 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 17,913 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD017505.html",
   "json": "datasets/PXD017505.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD017505.html",

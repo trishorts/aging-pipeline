@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD006815",
   "accession": "PXD006815",
   "split_group": null,
-  "bundle_id": "712d0d04e45dc132",
+  "bundle_id": "65eef22f0d50c8ad",
   "title": "Changes in glycogen metabolism machinery are associated with brain aging. Proteomic and immunofluorescent evidence for a",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 12,
   "n_psms_1pct": 1142250,
   "n_peptidoforms_1pct": 101104,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 7685,
   "n_psms_all": 2749944,
   "n_ptm_sites": 40002,
@@ -346,7 +348,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 37
    },
    {
@@ -466,7 +468,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 7
    },
    {
@@ -476,7 +478,7 @@
    },
    {
     "modification_name": "N6-malonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:747",
     "n_sites": 6
    },
    {
@@ -501,7 +503,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 5
    },
    {
@@ -536,12 +538,12 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 2
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 2
    },
    {
@@ -581,7 +583,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -675,16 +677,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "712d0d04e45dc132",
-   "written_utc": "2026-10-29T11:35:26+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "65eef22f0d50c8ad",
+   "written_utc": "2026-11-26T23:54:37+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD006815 is a DDA label-free dataset (Mus musculus) with 36 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 1,142,250 PSMs, 101,104 peptidoforms and 7,685 protein groups, and the repository holds 40,002 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD006815 is a DDA label-free dataset (Mus musculus) with 36 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 1,142,250 PSMs and 7,685 protein groups; 101,104 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 40,002 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD006815.html",
   "json": "datasets/PXD006815.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD006815.html",

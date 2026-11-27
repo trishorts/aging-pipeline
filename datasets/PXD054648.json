@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD054648",
   "accession": "PXD054648",
   "split_group": null,
-  "bundle_id": "ad2414ae4a091a70",
+  "bundle_id": "b5334c0fe71846cb",
   "title": "Impairment of lipid homeostasis causes lysosomal accumulation of endogenous protein aggregates through ESCRT disruption",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "isobaric",
+  "quant_scale": "reporter_ms3",
   "labelling": "TMT",
   "enrichment": [
    "affinity_purification"
@@ -32,6 +33,7 @@
   "n_samples": 18,
   "n_psms_1pct": 29396,
   "n_peptidoforms_1pct": 16464,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 4009,
   "n_psms_all": 240256,
   "n_ptm_sites": 34527,
@@ -72,12 +74,17 @@
    {
     "code": "unresolved_modifications",
     "severity": "warning",
-    "message": "8 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:(3S)-3-hydroxyasparagine on N, UniProt:(3S)-3-hydroxyaspartate on D, UniProt:3'-nitrotyrosine on Y, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K, UniProt:O-palmitoleoyl serine on S, UniProt:Omega-hydroxyceramide glutamate ester on Q. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
+    "message": "1 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:Omega-hydroxyceramide glutamate ester on Q. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
    },
    {
     "code": "occupancy_not_ingested",
     "severity": "info",
     "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (2 of 2 runs), `peptides` (2 of 2 runs), `protein_groups` (2 of 2 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 2 of the 2 runs, `peptides_1pct_whole_search` for 2 of the 2 runs, `protein_groups_1pct_whole_search` for none of them."
    }
   ],
   "modifications": [
@@ -223,7 +230,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -285,24 +292,25 @@
   "findings_by_severity": {
    "error": 0,
    "warning": 4,
-   "info": 1
+   "info": 2
   },
   "finding_codes": [
    "low_core_use",
    "occupancy_not_ingested",
+   "run_counts_missing",
    "sdrf_skeleton",
    "unplaced_ptm_sites",
    "unresolved_modifications"
   ],
   "bundle": {
-   "bundle_id": "ad2414ae4a091a70",
-   "written_utc": "2026-11-13T14:45:27+00:00",
-   "ingester_version": "1.4.5",
+   "bundle_id": "b5334c0fe71846cb",
+   "written_utc": "2026-11-26T21:05:00+00:00",
+   "ingester_version": "1.0.1",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": []
   },
-  "summary": "PXD054648 is a DDA isobaric dataset (Homo sapiens) with 2 runs, 18 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 29,396 PSMs, 16,464 peptidoforms and 4,009 protein groups, and the repository holds 34,527 PTM sites for it. 4 open warnings about it are recorded.",
+  "summary": "PXD054648 is a DDA isobaric dataset (Homo sapiens) with 2 runs, 18 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 29,396 PSMs and 4,009 protein groups; 16,464 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 34,527 PTM sites for it. 4 open warnings about it are recorded.",
   "page": "datasets/PXD054648.html",
   "json": "datasets/PXD054648.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD054648.html",

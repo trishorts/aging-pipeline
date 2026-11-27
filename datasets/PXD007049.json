@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD007049",
   "accession": "PXD007049",
   "split_group": null,
-  "bundle_id": "cfe59305da5a5ecd",
+  "bundle_id": "6d890c1b90edd01d",
   "title": "Loss-of-function of ubiquitin ligase adaptor LZTR1 triggers human disease by dysregulating RAS ubiquitination",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "affinity_purification"
@@ -32,6 +33,7 @@
   "n_samples": 12,
   "n_psms_1pct": 22417,
   "n_peptidoforms_1pct": 3745,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 781,
   "n_psms_all": 77079,
   "n_ptm_sites": 1827,
@@ -358,7 +360,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 1
    },
    {
@@ -403,16 +405,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "cfe59305da5a5ecd",
-   "written_utc": "2026-10-29T09:50:33+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "6d890c1b90edd01d",
+   "written_utc": "2026-11-27T01:40:45+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD007049 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 22,417 PSMs, 3,745 peptidoforms and 781 protein groups, and the repository holds 1,827 PTM sites for it. 7 open warnings about it are recorded.",
+  "summary": "PXD007049 is a DDA label-free dataset (Homo sapiens) with 12 runs, 12 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 22,417 PSMs and 781 protein groups; 3,745 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 1,827 PTM sites for it. 7 open warnings about it are recorded.",
   "page": "datasets/PXD007049.html",
   "json": "datasets/PXD007049.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD007049.html",

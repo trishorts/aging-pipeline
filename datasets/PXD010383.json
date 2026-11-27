@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD010383",
   "accession": "PXD010383",
   "split_group": null,
-  "bundle_id": "38e190c40d856ce8",
+  "bundle_id": "45d4102f6d6bef8a",
   "title": "Changes in the oligodendrocyte cell progenitor cell proteome with ageing",
   "organisms": [
    "NCBITaxon:10116"
   ],
   "acquisition": "DDA",
   "quant_method": "isobaric",
+  "quant_scale": "reporter_ms2",
   "labelling": "TMT",
   "enrichment": [
    "none"
@@ -32,11 +33,12 @@
   "n_samples": 720,
   "n_psms_1pct": 411470,
   "n_peptidoforms_1pct": 112734,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 8823,
   "n_psms_all": 643397,
   "n_ptm_sites": 208366,
   "n_quant_values": 4838718,
-  "n_open_findings": 5,
+  "n_open_findings": 4,
   "restrictions": [
    "quantitation"
   ],
@@ -75,14 +77,14 @@
     "message": "Some modifications on peptides shared between proteins were not written to ptm_sites for one or more of those proteins, because the peptide could not be located in that protein's sequence and the producer's residue spans cannot be paired with its accessions. Of the (PSM, protein) pairs affected: 2556 named a protein that does not contain the stored peptide -- typically a PSM ambiguous between peptide sequences (level 4 or 5), where this protein carries a different candidate than the first, which is the one stored. Sites on the other proteins of the same PSMs are written. Counts are in bundle.json under protein_databases."
    },
    {
-    "code": "unresolved_modifications",
-    "severity": "warning",
-    "message": "5 modification(s) could not be mapped to a UNIMOD accession or a mass, and are carried in ProForma as [Info:...] tags: UniProt:(3S)-3-hydroxyasparagine on N, UniProt:3'-nitrotyrosine on Y, UniProt:N6-crotonyllysine on K, UniProt:N6-malonyllysine on K, UniProt:N6-succinyllysine on K. Their ptm_sites rows exist and carry modification_name, with modification null, so a query by name finds them and a query by UNIMOD accession will not."
-   },
-   {
     "code": "occupancy_not_ingested",
     "severity": "info",
     "message": "PTM site occupancy was not stored: this is a TMT dataset, and MetaMorpheus computes intensity occupancy for label-free searches only; its count occupancy is per file, repeated on every channel (QuantProject DEF-OCC-INT). `ptm_stoichiometry` has no rows here because of that, not because no site was modified."
+   },
+   {
+    "code": "run_counts_missing",
+    "severity": "info",
+    "message": "No per-run `metrics` row from results.txt for `psms_1pct` (72 of 72 runs), `peptides` (72 of 72 runs), `protein_groups` (72 of 72 runs). These counts were not written, which is not a count of zero. The search task sets `WriteIndividualFiles = false`, and MetaMorpheus writes results.txt's per-file PSM, peptide and protein-group lines only when it is true (before 1.1.14, MetaMorpheus #2955, its per-file precursor and MS2 lines too). PXReprise's QC payload counts each run's share of the whole search's 1% set instead, a different number (the FDR is the whole search's, not recomputed on each file), under names of its own (`source = 'qc_payload.json'`): `psms_1pct_whole_search` for 72 of the 72 runs, `peptides_1pct_whole_search` for 72 of the 72 runs, `protein_groups_1pct_whole_search` for none of them."
    }
   ],
   "modifications": [
@@ -168,7 +170,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 27
    },
    {
@@ -243,7 +245,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 6
    },
    {
@@ -303,7 +305,7 @@
    },
    {
     "modification_name": "3'-nitrotyrosine on Y",
-    "modification": null,
+    "modification": "UNIMOD:354",
     "n_sites": 2
    },
    {
@@ -348,7 +350,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyasparagine on N",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 1
    },
    {
@@ -424,28 +426,28 @@
   },
   "findings_by_severity": {
    "error": 0,
-   "warning": 5,
-   "info": 1
+   "warning": 4,
+   "info": 2
   },
   "finding_codes": [
    "count_mismatch",
    "no_channel_design",
    "no_sdrf",
    "occupancy_not_ingested",
-   "unplaced_ptm_sites",
-   "unresolved_modifications"
+   "run_counts_missing",
+   "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "38e190c40d856ce8",
-   "written_utc": "2026-11-09T05:41:40+00:00",
-   "ingester_version": "1.4.4",
+   "bundle_id": "45d4102f6d6bef8a",
+   "written_utc": "2026-11-27T00:58:20+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD010383 is a DDA isobaric dataset (Rattus norvegicus) with 72 runs, 720 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 411,470 PSMs, 112,734 peptidoforms and 8,823 protein groups, and the repository holds 208,366 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD010383 is a DDA isobaric dataset (Rattus norvegicus) with 72 runs, 720 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.14. At 1% FDR the search reports 411,470 PSMs and 8,823 protein groups; 112,734 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 208,366 PTM sites for it. 4 open warnings about it are recorded.",
   "page": "datasets/PXD010383.html",
   "json": "datasets/PXD010383.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD010383.html",

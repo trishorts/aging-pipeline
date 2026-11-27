@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD013640",
   "accession": "PXD013640",
   "split_group": null,
-  "bundle_id": "558be41f3850e1f7",
+  "bundle_id": "91aef466942d7e1f",
   "title": "Keap-1-mediated S-nitrosylation of NOX4 hampers oxidative damage in endothelium",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "chemical_probe"
@@ -32,6 +33,7 @@
   "n_samples": 16,
   "n_psms_1pct": 56309,
   "n_peptidoforms_1pct": 4232,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 793,
   "n_psms_all": 116121,
   "n_ptm_sites": 2856,
@@ -393,7 +395,7 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 1
    },
    {
@@ -437,16 +439,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "558be41f3850e1f7",
-   "written_utc": "2026-10-29T09:44:24+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "91aef466942d7e1f",
+   "written_utc": "2026-11-27T01:39:44+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD013640 is a DDA label-free dataset (Homo sapiens) with 16 runs, 16 samples and enrichment: chemical_probe. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 56,309 PSMs, 4,232 peptidoforms and 793 protein groups, and the repository holds 2,856 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD013640 is a DDA label-free dataset (Homo sapiens) with 16 runs, 16 samples and enrichment: chemical_probe. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 56,309 PSMs and 793 protein groups; 4,232 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 2,856 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD013640.html",
   "json": "datasets/PXD013640.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD013640.html",

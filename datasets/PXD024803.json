@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD024803",
   "accession": "PXD024803",
   "split_group": null,
-  "bundle_id": "1cb852b8e2dcb56c",
+  "bundle_id": "87ad37f678d9b687",
   "title": "CHD6 IP from human induced pluripotent stem cells LC-MS-MS",
   "organisms": [
    "NCBITaxon:9606"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "immunoprecipitation"
@@ -32,6 +33,7 @@
   "n_samples": 28,
   "n_psms_1pct": 381202,
   "n_peptidoforms_1pct": 37771,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 2202,
   "n_psms_all": 594866,
   "n_ptm_sites": 19715,
@@ -443,7 +445,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 4
    },
    {
@@ -473,7 +475,7 @@
    },
    {
     "modification_name": "(3S)-3-hydroxyhistidine on H",
-    "modification": null,
+    "modification": "UNIMOD:35",
     "n_sites": 2
    },
    {
@@ -493,12 +495,12 @@
    },
    {
     "modification_name": "N6-crotonyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1363",
     "n_sites": 2
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 2
    },
    {
@@ -603,16 +605,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "1cb852b8e2dcb56c",
-   "written_utc": "2026-10-29T11:06:23+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "87ad37f678d9b687",
+   "written_utc": "2026-11-27T01:21:13+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD024803 is a DDA label-free dataset (Homo sapiens) with 28 runs, 28 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 381,202 PSMs, 37,771 peptidoforms and 2,202 protein groups, and the repository holds 19,715 PTM sites for it. 6 open warnings about it are recorded.",
+  "summary": "PXD024803 is a DDA label-free dataset (Homo sapiens) with 28 runs, 28 samples and enrichment: immunoprecipitation. It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 381,202 PSMs and 2,202 protein groups; 37,771 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 19,715 PTM sites for it. 6 open warnings about it are recorded.",
   "page": "datasets/PXD024803.html",
   "json": "datasets/PXD024803.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD024803.html",

@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "7ecfc9763064b181",
-  "catalog_version": "16",
-  "schema_version": "0.0.16",
-  "builder_version": "1.4.5",
-  "built_utc": "2026-11-21T05:02:17+00:00",
+  "catalog_id": "efa97f89b2b98f34",
+  "catalog_version": "17",
+  "schema_version": "0.0.17",
+  "builder_version": "1.0.0",
+  "built_utc": "2026-11-27T02:22:20+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -12,13 +12,14 @@
   "dataset_id": "PXD037230",
   "accession": "PXD037230",
   "split_group": null,
-  "bundle_id": "e0f58944531b149f",
+  "bundle_id": "3b5a944b1e52b083",
   "title": "Scleraxis-lineage cells are required for tendon homeostasis and their depletion induces an accelerated extracellular mat",
   "organisms": [
    "NCBITaxon:10090"
   ],
   "acquisition": "DDA",
   "quant_method": "label_free",
+  "quant_scale": "label_free_apex",
   "labelling": "none",
   "enrichment": [
    "none"
@@ -32,6 +33,7 @@
   "n_samples": 12,
   "n_psms_1pct": 303336,
   "n_peptidoforms_1pct": 15627,
+  "confidence_rule": "q_value_and_notch",
   "n_protein_groups_1pct": 2283,
   "n_psms_all": 2276413,
   "n_ptm_sites": 9419,
@@ -171,7 +173,7 @@
    },
    {
     "modification_name": "N6-glutaryllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:1848",
     "n_sites": 15
    },
    {
@@ -206,7 +208,7 @@
    },
    {
     "modification_name": "N6-succinyllysine on K",
-    "modification": null,
+    "modification": "UNIMOD:64",
     "n_sites": 11
    },
    {
@@ -414,16 +416,16 @@
    "unplaced_ptm_sites"
   ],
   "bundle": {
-   "bundle_id": "e0f58944531b149f",
-   "written_utc": "2026-10-29T10:18:08+00:00",
-   "ingester_version": "1.4.0",
+   "bundle_id": "3b5a944b1e52b083",
+   "written_utc": "2026-11-26T21:48:45+00:00",
+   "ingester_version": "1.0.0",
    "reconciliation_ok": true,
    "reconciliation_failed": [],
    "reconciliation_explained": [
     "psms_target_1pct"
    ]
   },
-  "summary": "PXD037230 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 303,336 PSMs, 15,627 peptidoforms and 2,283 protein groups, and the repository holds 9,419 PTM sites for it. 5 open warnings about it are recorded.",
+  "summary": "PXD037230 is a DDA label-free dataset (Mus musculus) with 12 runs, 12 samples and no enrichment step (whole proteome). It was reanalysed with MetaMorpheus 1.1.12. At 1% FDR the search reports 303,336 PSMs and 2,283 protein groups; 15,627 peptidoforms pass 1% on its q-value and notch q-value, and the repository holds 9,419 PTM sites for it. 5 open warnings about it are recorded.",
   "page": "datasets/PXD037230.html",
   "json": "datasets/PXD037230.json",
   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD037230.html",

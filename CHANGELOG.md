@@ -6,6 +6,14 @@ formats. The provenance schema carries its own version (`aging-provenance/N`).
 
 ## [Unreleased]
 
+### Added
+- **v2 of `aging:DEF-PSM-1PCT`, `DEF-PEPTIDE-1PCT` and `DEF-PROTEINGROUP-1PCT`** (`docs/provenance.md`, the definition
+  register). From MetaMorpheus 1.1.15, `results.txt` names the search's identification filter in each 1% line
+  (`with pep q-value <= 0.01`, `with q-value notch <= 0.01`), and v1's text describes none of them. v2 keeps the ids
+  and counts under the search's own filter, with the filter as part of the number. Each predicate is reproduced
+  from PXD031782's 1.1.16 tables under both filters: exact for peptides and protein groups and for PEP PSMs, and
+  within 8 of 64,463 for notch PSMs. Counts filed under v1 keep v1.
+
 ### Changed
 - **The contaminant panel is searched without its human spike-in standard** (`database.contaminant_exclude`, default
   `data/contaminant_panel_exclude_v1.tsv`, 41 entries). MetaMorpheus's shipped panel carries a UPS1/UPS2-like

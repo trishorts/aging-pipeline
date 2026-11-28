@@ -1,10 +1,10 @@
 {
  "catalog": {
-  "catalog_id": "36f11e8378fc5c51",
+  "catalog_id": "a623c157a68a2725",
   "catalog_version": "17",
   "schema_version": "0.0.17",
   "builder_version": "1.0.0",
-  "built_utc": "2026-11-27T21:53:35+00:00",
+  "built_utc": "2026-11-28T11:53:34+00:00",
   "instance": "aging",
   "base_url": "https://trishorts.github.io/aging-pipeline/"
  },
@@ -3479,6 +3479,53 @@
    "json": "datasets/PXD022196.json",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022196.html",
    "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022196.json"
+  },
+  {
+   "dataset_id": "PXD022694-human",
+   "accession": "PXD022694",
+   "split_group": "human",
+   "split_reason": "species",
+   "siblings": [],
+   "title": "A genetic platform to delineate tissue-specific in vivo secretion",
+   "organisms": [
+    "NCBITaxon:9606"
+   ],
+   "organism_names": [
+    "Homo sapiens"
+   ],
+   "acquisition": "DDA",
+   "quant_method": "label_free",
+   "labelling": "none",
+   "enrichment": [
+    "affinity_purification"
+   ],
+   "enrichment_mixed": false,
+   "n_runs": 20,
+   "n_samples": 2,
+   "n_psms_1pct": 86099,
+   "n_peptidoforms_1pct": 23962,
+   "confidence_rule": "pep_q_value",
+   "n_protein_groups_1pct": 3439,
+   "n_ptm_sites": 7006,
+   "sdrf_status": "trusted",
+   "findings_by_severity": {
+    "error": 0,
+    "warning": 4,
+    "info": 2
+   },
+   "finding_codes": [
+    "low_core_use",
+    "occupancy_decoy_groups",
+    "occupancy_not_stored",
+    "peptide_rows_localization_ambiguous",
+    "run_counts_missing",
+    "unplaced_ptm_sites"
+   ],
+   "summary": "PXD022694-human is a DDA label-free dataset (Homo sapiens) with 20 runs, 2 samples and enrichment: affinity_purification. It was reanalysed with MetaMorpheus 1.1.16. At 1% FDR the search reports 86,099 PSMs and 3,439 protein groups; 23,962 peptidoforms pass 1% on its PEP q-value, and the repository holds 7,006 PTM sites for it. 4 open warnings about it are recorded. It is one part of deposit PXD022694, which was searched in parts (split by species). No other part of it is in this repository.",
+   "page": "datasets/PXD022694-human.html",
+   "json": "datasets/PXD022694-human.json",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022694-human.html",
+   "json_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022694-human.json"
   },
   {
    "dataset_id": "PXD022737",
@@ -10308,6 +10355,17 @@
    ],
    "page": "datasets/PXD019690.html",
    "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD019690.html"
+  },
+  {
+   "accession": "PXD022694",
+   "dataset_ids": [
+    "PXD022694-human"
+   ],
+   "split_reasons": [
+    "species"
+   ],
+   "page": "datasets/PXD022694.html",
+   "page_url": "https://trishorts.github.io/aging-pipeline/datasets/PXD022694.html"
   },
   {
    "accession": "PXD027526",
